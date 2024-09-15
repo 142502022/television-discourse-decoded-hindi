@@ -77,6 +77,8 @@ television-discourse-decoded> python -m src.perspective_related.run_pipeline_per
 
 ```
 
+The data used in this work can be found [in this zip file](https://drive.google.com/file/d/1rrhVjf7xi8BgmMhX_TBu2Wq2LX4cLT9X/view?usp=sharing). Please feel free to contact us if you have trouble accessing it.
+
 ## Citation
 Please consider citing the following paper when using our code and dataset.
 
