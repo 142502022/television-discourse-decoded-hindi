@@ -41,6 +41,7 @@ This dataset `data/video_details.json` contains metadata and labels for YouTube 
     * **`./transcription_data`**: Provides detailed information about each utterance, including the content of the speech, timestamps of the utterance, and the speaker ID associated with it.
     * **`./perspective_data`**: Contains information on any foul language or offensive content found in the transcript, with details linked to specific utterances.
 
+The data used in this work can be found [in this zip file](https://drive.google.com/file/d/1rrhVjf7xi8BgmMhX_TBu2Wq2LX4cLT9X/view?usp=sharing). Please feel free to contact us if you have trouble accessing it.
 
 ## Getting Started
 
@@ -76,8 +77,6 @@ television-discourse-decoded> python -m src.transcription_related.run_pipeline_t
 television-discourse-decoded> python -m src.perspective_related.run_pipeline_perspective
 
 ```
-
-The data used in this work can be found [in this zip file](https://drive.google.com/file/d/1rrhVjf7xi8BgmMhX_TBu2Wq2LX4cLT9X/view?usp=sharing). Please feel free to contact us if you have trouble accessing it.
 
 ## Citation
 Please consider citing the following paper when using our code and dataset.
