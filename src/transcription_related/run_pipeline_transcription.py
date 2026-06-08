@@ -103,7 +103,7 @@ def process_video(curr_yt_id, curr_vid_idx):
     trans_data = []
     logger.debug(f"Using whisper, now starting to transcribe {curr_yt_id}")
     for i, wav_name in enumerate(wav_names):
-        result = whisper_model.transcribe(os.path.join(ConfigConstants.UTTERANCES_FILE_DIR_TMP, f"{wav_name}.wav"), language="en")
+        result = whisper_model.transcribe(os.path.join(ConfigConstants.UTTERANCES_FILE_DIR_TMP, f"{wav_name}.wav"), language="hi")
         useful_data = {
             'text': result['text'],
             'language': result['language'],
