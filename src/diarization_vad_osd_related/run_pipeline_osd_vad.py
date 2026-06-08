@@ -50,7 +50,7 @@ def load_models():
     """
     # Load speaker diarization pipeline model
     pipeline = Pipeline.from_pretrained(
-        "pyannote/speaker-diarization-3.1", use_auth_token=ConfigConstants.HUGGINGFACE_TOKEN)
+        "pyannote/speaker-diarization-3.1", use_auth_token=os.environ.get("HUGGINGFACE_TOKEN"))
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     pipeline.to(device)
     speaker_diarization_model = pipeline
@@ -58,7 +58,7 @@ def load_models():
 
     # Load segmentation model for VAD and OSD
     segmentation_model = Model.from_pretrained(
-        "pyannote/segmentation", use_auth_token=ConfigConstants.HUGGINGFACE_TOKEN).to(device)
+        "pyannote/segmentation", use_auth_token=os.environ.get("HUGGINGFACE_TOKEN")).to(device)
     logger.info("Segmentation model loaded.")
 
     # Load Voice Activity Detection (VAD) model

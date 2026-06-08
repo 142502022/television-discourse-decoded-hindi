@@ -8,7 +8,7 @@ from ..config_constants import ConfigConstants
 from ..tv_debs_utils import debate_utils
 
 # Set environment variable for Hugging Face model cache
-# os.environ['HF_HOME'] = 'mounted_dump/hf_model_cache'
+os.environ['HF_HOME'] = 'television-discourse-decoded/data/results'
 
 # Get a logger to use
 logger = debate_utils.get_logger()
