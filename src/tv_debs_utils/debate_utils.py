@@ -50,6 +50,76 @@ def force_cudnn_initialization():
     dev = torch.device('cuda')
     torch.nn.functional.conv2d(torch.zeros(
         s, s, s, s, device=dev), torch.zeros(s, s, s, s, device=dev))
+    
+def download_ytvid_as_mp4(video_id: str) -> str | None:
+    """
+    Download a YouTube video as an MP4 file.
+
+    Args:
+        video_id (str): YouTube video ID.
+
+    Returns:
+        str | None:
+            Path to downloaded MP4 file if successful.
+            None if download fails.
+    """
+
+    logger.info(f"Video with id: {video_id} download started.")
+
+    expected_download_path = os.path.join(
+        ConfigConstants.MP4_FILE_DIR,
+        f"{video_id}.mp4"
+    )
+
+    # File already exists
+    if os.path.exists(expected_download_path):
+        logger.debug(
+            f"MP4 file for video with id={video_id} already exists."
+        )
+        return expected_download_path
+
+    video_url = f"https://www.youtube.com/watch?v={video_id}"
+
+    try:
+        yt = YouTube(video_url)
+
+        # Select 360p MP4 stream
+        stream = (
+            yt.streams
+            .filter(
+                progressive=True,
+                file_extension="mp4",
+                res="360p"
+            )
+            .first()
+        )
+
+        if stream is None:
+            raise ValueError(
+                f"No 360p MP4 stream available for video {video_id}"
+            )
+
+        out_mp4 = stream.download(
+            output_path=ConfigConstants.MP4_FILE_DIR,
+            filename=f"{video_id}.mp4"
+        )
+
+        if not os.path.exists(out_mp4):
+            raise FileNotFoundError(
+                f"Downloaded file not found: {out_mp4}"
+            )
+
+        logger.info(
+            f"Video with id: {video_id} download completed."
+        )
+
+        return out_mp4
+
+    except Exception as e:
+        logger.exception(
+            f"Error occurred while downloading video {video_id}: {e}"
+        )
+        return None
 
 def download_ytvid_as_wav(video_id: str) -> bool:
     """
@@ -65,7 +135,7 @@ def download_ytvid_as_wav(video_id: str) -> bool:
     expected_download_path = os.path.join(
         ConfigConstants.PART_0_PATH, f"{video_id}.wav")
     mp3_path = os.path.join(ConfigConstants.MP3_FILE_DIR, f"{video_id}.mp3")
-    mp4_path = os.path.join(ConfigConstants.MP3_FILE_DIR, f"{video_id}.mp3")
+    mp4_path = os.path.join(ConfigConstants.MP4_FILE_DIR, f"{video_id}.mp4")
 
     # Check if the file already exists
     if os.path.exists(expected_download_path):

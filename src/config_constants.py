@@ -20,6 +20,8 @@ class ConfigConstants:
         SAVE_RESULTS_BASE_DIR, "transcription_data")
     PERSPECTIVE_FILE_DIR = os.path.join(
         SAVE_RESULTS_BASE_DIR, "perspective_data")
+    GENDER_FILE_DIR = os.path.join(
+        SAVE_RESULTS_BASE_DIR, "gender_data")
 
     PART_0_PATH = os.path.join(SCRATCH_FOLDER_DIR, "part_0")
     PART_1_PATH = os.path.join(SCRATCH_FOLDER_DIR, "part_1")
