@@ -1,6 +1,6 @@
 import json
-input_file = "data/results/transcription_data/xJCWF0z6C7k.json"
-output_file = "data/results/transcription_data/xJCWF0z6C7k_hindi.json"
+input_file = "data/results/perspective_data/xJCWF0z6C7k.json"
+output_file = "data/results/perspective_data/xJCWF0z6C7k_hindi.json"
 
 with open(input_file,"r",encoding="utf-8") as f:
     data = json.load(f)
