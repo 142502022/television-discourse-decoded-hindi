@@ -1,5 +1,6 @@
 import os
 from datetime import date, datetime
+from typing import Optional
 
 from dotenv import load_dotenv
 from sqlalchemy import (
@@ -27,8 +28,8 @@ class Episode(Base):
 
     episode_id: Mapped[str] = mapped_column(String(128), primary_key=True)
     source: Mapped[str] = mapped_column(String(255), nullable=False)
-    air_date: Mapped[date | None] = mapped_column(Date, nullable=True)
-    duration: Mapped[float | None] = mapped_column(Float, nullable=True)
+    air_date: Mapped[Optional[date]] = mapped_column(Date, nullable=True)
+    duration: Mapped[Optional[float]] = mapped_column(Float, nullable=True)
     processed_at: Mapped[datetime] = mapped_column(
         DateTime, default=datetime.utcnow, nullable=False
     )
@@ -69,7 +70,7 @@ class Transcript(Base):
     )
     transcript_text: Mapped[str] = mapped_column(Text, nullable=False)
     language: Mapped[str] = mapped_column(String(16), nullable=False)
-    whisper_confidence: Mapped[float | None] = mapped_column(Float, nullable=True)
+    whisper_confidence: Mapped[Optional[float]] = mapped_column(Float, nullable=True)
 
     segment: Mapped[Segment] = relationship(back_populates="transcript")
 
@@ -93,8 +94,8 @@ class GenderAgeLabel(Base):
         String(128), ForeignKey("segments.segment_id"), primary_key=True
     )
     speaker_gender: Mapped[str] = mapped_column(String(32), nullable=False)
-    age_estimate: Mapped[int | None] = mapped_column(Integer, nullable=True)
-    confidence: Mapped[float | None] = mapped_column(Float, nullable=True)
+    age_estimate: Mapped[Optional[int]] = mapped_column(Integer, nullable=True)
+    confidence: Mapped[Optional[float]] = mapped_column(Float, nullable=True)
 
     segment: Mapped[Segment] = relationship(back_populates="gender_age_label")
 
@@ -106,16 +107,15 @@ def get_database_url() -> str:
     return database_url
 
 
-def get_engine(database_url: str | None = None):
+def get_engine(database_url: Optional[str] = None):
     return create_engine(database_url or get_database_url(), future=True)
 
 
-def create_tables(database_url: str | None = None) -> None:
+def create_tables(database_url: Optional[str] = None) -> None:
     engine = get_engine(database_url)
     Base.metadata.create_all(engine)
 
 
-def get_session_factory(database_url: str | None = None):
+def get_session_factory(database_url: Optional[str] = None):
     engine = get_engine(database_url)
     return sessionmaker(bind=engine, autoflush=False, expire_on_commit=False, future=True)
-

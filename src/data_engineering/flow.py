@@ -4,7 +4,7 @@ import os
 import subprocess
 import sys
 from pathlib import Path
-from typing import Any
+from typing import Any, Optional
 
 from prefect import flow, task
 
@@ -62,7 +62,7 @@ def validate_outputs(
     diarization_path: str,
     transcript_path: str,
     toxicity_path: str,
-    gender_age_path: str | None = None,
+    gender_age_path: Optional[str] = None,
 ):
     episode = build_episode_record(episode_details)
     segments = build_segment_records(episode.episode_id, _load_json(diarization_path))
@@ -79,7 +79,7 @@ def validate_outputs(
 
 
 @task
-def store_to_postgres(validated_bundle, database_url: str | None = None) -> None:
+def store_to_postgres(validated_bundle, database_url: Optional[str] = None) -> None:
     session_factory = get_session_factory(database_url)
     with session_factory() as session:
         store_episode_bundle(session, *validated_bundle)
@@ -90,7 +90,7 @@ def mtp_data_engineering_flow(
     episode_id: str,
     video_details_path: str = "data/video_details.json",
     results_dir: str = "data/results",
-    database_url: str | None = None,
+    database_url: Optional[str] = None,
     run_gender_stage: bool = False,
 ) -> None:
     episode_details = ingest_episode(video_details_path, episode_id)
@@ -112,7 +112,7 @@ def mtp_data_engineering_flow(
     store_to_postgres(validated_bundle, database_url)
 
 
-def _run_pipeline_module(module_name: str, episode_id: str | None = None) -> str:
+def _run_pipeline_module(module_name: str, episode_id: Optional[str] = None) -> str:
     command = [sys.executable, "-m", module_name]
     if episode_id:
         command.append(episode_id)

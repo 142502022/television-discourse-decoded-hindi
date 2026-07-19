@@ -1,5 +1,5 @@
 from datetime import date, datetime
-from typing import Any, Literal
+from typing import Any, Literal, Optional
 
 from pydantic import BaseModel, Field, field_validator, model_validator
 
@@ -9,8 +9,8 @@ GenderLabel = Literal["male", "female", "unknown", "other"]
 class EpisodeRecord(BaseModel):
     episode_id: str = Field(min_length=1)
     source: str = Field(min_length=1)
-    air_date: date | None = None
-    duration: float | None = Field(default=None, ge=0)
+    air_date: Optional[date] = None
+    duration: Optional[float] = Field(default=None, ge=0)
     processed_at: datetime = Field(default_factory=datetime.utcnow)
 
 
@@ -32,7 +32,7 @@ class TranscriptRecord(BaseModel):
     segment_id: str = Field(min_length=1)
     transcript_text: str = Field(min_length=1)
     language: str = Field(min_length=1)
-    whisper_confidence: float | None = Field(default=None, ge=0, le=1)
+    whisper_confidence: Optional[float] = Field(default=None, ge=0, le=1)
 
     @field_validator("transcript_text")
     @classmethod
@@ -51,8 +51,8 @@ class ToxicityScoreRecord(BaseModel):
 class GenderAgeLabelRecord(BaseModel):
     segment_id: str = Field(min_length=1)
     speaker_gender: GenderLabel
-    age_estimate: int | None = Field(default=None, ge=0, le=120)
-    confidence: float | None = Field(default=None, ge=0, le=1)
+    age_estimate: Optional[int] = Field(default=None, ge=0, le=120)
+    confidence: Optional[float] = Field(default=None, ge=0, le=1)
 
 
 def validate_no_orphaned_segments(
@@ -66,4 +66,3 @@ def validate_no_orphaned_segments(
     ]
     if orphaned:
         raise ValueError(f"Orphaned segments found: {orphaned}")
-
