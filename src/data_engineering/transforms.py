@@ -42,12 +42,16 @@ def build_transcript_records(
 ) -> list[TranscriptRecord]:
     records = []
     for index, utterance in enumerate(transcript_data):
+        text = utterance.get("text", "").strip()
+        if not text:
+            continue
+
         no_speech_prob = utterance.get("no_speech_prob")
         confidence = None if no_speech_prob is None else 1 - float(no_speech_prob)
         records.append(
             TranscriptRecord(
                 segment_id=f"{episode_id}:{index}",
-                transcript_text=utterance["text"],
+                transcript_text=text,
                 language=utterance.get("language", "hi"),
                 whisper_confidence=confidence,
             )
@@ -94,4 +98,3 @@ def _extract_detoxify_labels(perspective_response: dict[str, Any]) -> dict[str, 
         summary = score_data.get("summaryScore", {})
         labels[label] = float(summary.get("value", 0.0))
     return labels
-
