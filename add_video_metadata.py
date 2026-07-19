@@ -16,7 +16,7 @@ from typing import Any, Dict, Iterable, List, Set
 from yt_dlp import YoutubeDL
 
 BASE_DIR = Path(__file__).resolve().parent
-IDS_PATH = BASE_DIR / "data" / "ids.json"
+IDS_PATH = BASE_DIR / "ids.json"
 VIDEO_DETAILS_PATH = BASE_DIR / "data" / "video_details.json"
 
 LOGGER = logging.getLogger(__name__)
