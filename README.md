@@ -78,6 +78,44 @@ television-discourse-decoded> python -m src.perspective_related.run_pipeline_per
 
 ```
 
+### MTP Data Engineering Layer
+
+This fork adds a lightweight data engineering layer around the existing ML pipeline without changing the VAD, diarization, transcription, toxicity, or gender/age model logic.
+
+The layer lives in `src/data_engineering/` and provides:
+
+* **PostgreSQL schema** via SQLAlchemy ORM:
+  * `episodes`
+  * `segments`
+  * `transcripts`
+  * `toxicity_scores`
+  * `gender_age_labels`
+* **Prefect orchestration** in `src/data_engineering/flow.py`:
+  ingest episode -> VAD/diarization -> transcription -> toxicity scoring -> optional gender/age detection -> validate outputs -> store to Postgres
+* **Validation contracts** in `src/data_engineering/validation.py` using Pydantic:
+  non-empty transcripts, toxicity scores in `[0, 1]`, expected gender labels, plausible age estimates, and a no-orphaned-segments sanity check.
+* **Unit tests** in `tests/test_data_engineering.py` for transform and validation behavior.
+
+Set Postgres credentials with `DATABASE_URL`, for example:
+
+```bash
+export DATABASE_URL="postgresql+psycopg2://user:password@localhost:5432/mtp"
+```
+
+To create the database tables:
+
+```bash
+python -c "from src.data_engineering.database import create_tables; create_tables()"
+```
+
+To run the orchestration flow:
+
+```bash
+python -c "from src.data_engineering.flow import mtp_data_engineering_flow; mtp_data_engineering_flow('<Youtube ID of video to process>')"
+```
+
+The gender/age stage is optional in the flow because ad interference is currently a known blocker for full end-to-end runs.
+
 ## Citation
 Please consider citing the following paper when using our code and dataset.
 
