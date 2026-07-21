@@ -58,6 +58,7 @@ def fetch_metadata(video_id: str) -> Dict[str, Any]:
         "no_warnings": True,
         "skip_download": True,
         "extract_flat": False,
+        "cookiesfrombrowser": ("chrome",),
     }
 
     with YoutubeDL(ydl_opts) as ydl:
