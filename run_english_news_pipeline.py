@@ -25,62 +25,17 @@ def main() -> None:
 
     video_ids = resolve_video_ids(args)
     all_chunk_json_paths = []
+    failed_video_ids = []
 
     for video_id in video_ids:
-        LOGGER.info("Processing episode %s", video_id)
-        paths = prepare_media(video_id)
-
-        episode_dir = Path(args.output_dir) / video_id
-        whisperx_path = episode_dir / "whisperx.json"
-        osd_path = episode_dir / "pyannote_osd.json"
-        overlaps_path = episode_dir / "overlap_candidates.json"
-        final_json_path = episode_dir / "episode.json"
-
-        whisperx_result = run_whisperx(
-            Path(paths["audio"]),
-            whisperx_path,
-            device=args.device,
-            compute_type=args.compute_type,
-            batch_size=args.batch_size,
-            language="en",
-        )
-        if args.skip_osd:
-            LOGGER.warning("Skipping Pyannote OSD; using diarization overlaps only.")
-            osd_intervals = []
-            save_json(osd_intervals, osd_path)
-        else:
-            osd_intervals = run_pyannote_osd(Path(paths["audio"]), osd_path)
-        diarization_overlaps = diarization_intersections(
-            whisperx_result.get("diarization", [])
-        )
-        overlap_candidates = merge_overlap_candidates(
-            osd_intervals,
-            diarization_overlaps,
-        )
-        save_json(overlap_candidates, overlaps_path)
-
-        build_episode_json(
-            episode_id=video_id,
-            metadata_path=Path(paths["metadata"]),
-            whisperx_path=whisperx_path,
-            osd_path=osd_path,
-            overlap_candidates=overlap_candidates,
-            proxy_path=Path(paths["proxy"]),
-            audio_path=Path(paths["audio"]),
-            output_path=final_json_path,
-        )
-
-        chunk_paths = chunk_proxy_video(
-            Path(paths["proxy"]),
-            episode_dir / "chunks" / "videos",
-            chunk_seconds=args.chunk_seconds,
-        )
-        chunk_json_paths = slice_episode_json_for_chunks(
-            final_json_path,
-            chunk_paths,
-            episode_dir / "chunks" / "json",
-            chunk_seconds=args.chunk_seconds,
-        )
+        try:
+            chunk_json_paths = process_episode(video_id, args)
+        except Exception as exc:
+            LOGGER.exception("Failed episode %s: %s", video_id, exc)
+            failed_video_ids.append(video_id)
+            if args.stop_on_error:
+                raise
+            continue
         all_chunk_json_paths.extend(chunk_json_paths)
 
     build_label_studio_tasks(
@@ -89,6 +44,69 @@ def main() -> None:
         video_url_prefix=args.video_url_prefix,
     )
     LOGGER.info("Done. Label Studio tasks written to %s", args.output_dir)
+    LOGGER.info("Episodes requested: %s", len(video_ids))
+    LOGGER.info("Episodes succeeded: %s", len(video_ids) - len(failed_video_ids))
+    LOGGER.info("Episodes failed: %s", len(failed_video_ids))
+    if failed_video_ids:
+        LOGGER.info("Failed IDs: %s", ", ".join(failed_video_ids))
+
+
+def process_episode(video_id: str, args: argparse.Namespace) -> List[Path]:
+    """Process one episode and return its chunk JSON paths."""
+    LOGGER.info("Processing episode %s", video_id)
+    paths = prepare_media(video_id)
+
+    episode_dir = Path(args.output_dir) / video_id
+    whisperx_path = episode_dir / "whisperx.json"
+    osd_path = episode_dir / "pyannote_osd.json"
+    overlaps_path = episode_dir / "overlap_candidates.json"
+    final_json_path = episode_dir / "episode.json"
+
+    whisperx_result = run_whisperx(
+        Path(paths["audio"]),
+        whisperx_path,
+        device=args.device,
+        compute_type=args.compute_type,
+        batch_size=args.batch_size,
+        language="en",
+    )
+    if args.skip_osd:
+        LOGGER.warning("Skipping Pyannote OSD; using diarization overlaps only.")
+        osd_intervals = []
+        save_json(osd_intervals, osd_path)
+    else:
+        osd_intervals = run_pyannote_osd(Path(paths["audio"]), osd_path)
+    diarization_overlaps = diarization_intersections(
+        whisperx_result.get("diarization", [])
+    )
+    overlap_candidates = merge_overlap_candidates(
+        osd_intervals,
+        diarization_overlaps,
+    )
+    save_json(overlap_candidates, overlaps_path)
+
+    build_episode_json(
+        episode_id=video_id,
+        metadata_path=Path(paths["metadata"]),
+        whisperx_path=whisperx_path,
+        osd_path=osd_path,
+        overlap_candidates=overlap_candidates,
+        proxy_path=Path(paths["proxy"]),
+        audio_path=Path(paths["audio"]),
+        output_path=final_json_path,
+    )
+
+    chunk_paths = chunk_proxy_video(
+        Path(paths["proxy"]),
+        episode_dir / "chunks" / "videos",
+        chunk_seconds=args.chunk_seconds,
+    )
+    return slice_episode_json_for_chunks(
+        final_json_path,
+        chunk_paths,
+        episode_dir / "chunks" / "json",
+        chunk_seconds=args.chunk_seconds,
+    )
 
 
 def parse_args() -> argparse.Namespace:
@@ -109,6 +127,11 @@ def parse_args() -> argparse.Namespace:
         "--skip-osd",
         action="store_true",
         help="Debug option: skip Pyannote OSD and use diarization overlaps only.",
+    )
+    parser.add_argument(
+        "--stop-on-error",
+        action="store_true",
+        help="Stop the batch when one episode fails.",
     )
     return parser.parse_args()
 

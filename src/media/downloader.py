@@ -42,14 +42,17 @@ def download_video(
 
     ydl_opts = {
         "format": (
-            "bestvideo[ext=mp4]+bestaudio[ext=m4a]/"
-            "best[ext=mp4]/best"
+            "bestvideo[ext=mp4][protocol^=http]+bestaudio[ext=m4a][protocol^=http]/"
+            "best[ext=mp4][protocol^=http]/best[protocol^=http]/"
+            "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best"
         ),
+        "format_sort": ["proto:https", "res:720", "ext:mp4:m4a"],
         "merge_output_format": "mp4",
-        "outtmpl": str(output_path.with_suffix("")),
+        "outtmpl": str(output_dir / f"{video_id}.%(ext)s"),
         "quiet": False,
         "noplaylist": True,
         "retries": 5,
+        "fragment_retries": 5,
     }
 
     if use_browser_cookies:
@@ -66,11 +69,26 @@ def download_video(
             f"Failed to download {video_id}"
         ) from exc
 
-    if not output_path.exists():
+    output_path = _find_downloaded_video(video_id, output_dir)
+    if output_path is None:
         raise VideoDownloadError(
-            f"Download finished but {output_path.name} was not created."
+            f"Download finished but {video_id}.mp4 was not created."
         )
 
     LOGGER.info("Download complete.")
 
     return output_path
+
+
+def _find_downloaded_video(video_id: str, output_dir: Path) -> Path:
+    """Find the downloaded video file produced by yt-dlp."""
+    preferred_path = output_dir / f"{video_id}.mp4"
+    if preferred_path.exists() and preferred_path.stat().st_size > 0:
+        return preferred_path
+
+    matches = sorted(output_dir.glob(f"{video_id}.*"))
+    for match in matches:
+        if match.suffix.lower() in {".mp4", ".mkv", ".webm"} and match.stat().st_size > 0:
+            return match
+
+    return None
