@@ -3,10 +3,6 @@ import os
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-import torch
-from pyannote.audio import Model
-from pyannote.audio.pipelines import OverlappedSpeechDetection
-
 from .io import save_json
 
 LOGGER = logging.getLogger(__name__)
@@ -25,6 +21,17 @@ def run_pyannote_osd(
     hf_token = hf_token or os.environ.get("HUGGINGFACE_TOKEN")
     if not hf_token:
         raise RuntimeError("HUGGINGFACE_TOKEN is required for Pyannote OSD.")
+
+    try:
+        import torch
+        from pyannote.audio import Model
+        from pyannote.audio.pipelines import OverlappedSpeechDetection
+    except RuntimeError as exc:
+        raise RuntimeError(
+            "Pyannote OSD could not start because the local PyTorch/"
+            "torchvision installation is incompatible. Reinstall matching "
+            "torch, torchaudio, and torchvision builds for your CUDA version."
+        ) from exc
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     segmentation_model = Model.from_pretrained(

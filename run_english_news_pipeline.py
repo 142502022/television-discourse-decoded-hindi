@@ -44,7 +44,12 @@ def main() -> None:
             batch_size=args.batch_size,
             language="en",
         )
-        osd_intervals = run_pyannote_osd(Path(paths["audio"]), osd_path)
+        if args.skip_osd:
+            LOGGER.warning("Skipping Pyannote OSD; using diarization overlaps only.")
+            osd_intervals = []
+            save_json(osd_intervals, osd_path)
+        else:
+            osd_intervals = run_pyannote_osd(Path(paths["audio"]), osd_path)
         diarization_overlaps = diarization_intersections(
             whisperx_result.get("diarization", [])
         )
@@ -100,6 +105,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--batch-size", type=int, default=16)
     parser.add_argument("--chunk-seconds", type=int, default=900)
     parser.add_argument("--video-url-prefix", default="")
+    parser.add_argument(
+        "--skip-osd",
+        action="store_true",
+        help="Debug option: skip Pyannote OSD and use diarization overlaps only.",
+    )
     return parser.parse_args()
 
 
