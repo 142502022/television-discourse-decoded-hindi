@@ -116,6 +116,42 @@ python -c "from src.data_engineering.flow import mtp_data_engineering_flow; mtp_
 
 The gender/age stage is optional in the flow because ad interference is currently a known blocker for full end-to-end runs.
 
+### English News Overlap Annotation Pipeline
+
+This branch also includes a separate English-news preparation pipeline for overlap annotation. It can:
+
+* discover up to 5 channel videos in a date range,
+* download videos,
+* extract 16 kHz mono WAV audio,
+* create 480p H.264 proxy videos,
+* run WhisperX transcription/alignment/diarization,
+* run Pyannote overlapped speech detection,
+* merge OSD and diarization-intersection overlap candidates,
+* build per-episode JSON,
+* chunk proxy videos into 15-minute files,
+* export one Label Studio task per chunk.
+
+Example:
+
+```bash
+export HUGGINGFACE_TOKEN="your_huggingface_token"
+python run_english_news_pipeline.py \
+  --channel-url "https://www.youtube.com/@CHANNEL/videos" \
+  --limit 5 \
+  --start-date 2026-06-01 \
+  --end-date 2026-06-30
+```
+
+For explicit videos:
+
+```bash
+python run_english_news_pipeline.py \
+  --video-id VIDEO_ID_1 \
+  --video-id VIDEO_ID_2
+```
+
+The roster extraction and speaker-name linking fields are intentionally left empty until LLM extraction and manual evidence checks are performed.
+
 ## Citation
 Please consider citing the following paper when using our code and dataset.
 

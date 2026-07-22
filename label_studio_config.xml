@@ -1,0 +1,19 @@
+<View>
+  <Video name="video" value="$video"/>
+  <Header value="Overlap candidates"/>
+  <Text name="episode_id" value="$episode_id"/>
+  <Text name="chunk_index" value="$chunk_index"/>
+  <Choices name="overlap_quality" toName="video" choice="single-radio">
+    <Choice value="Confirmed overlap"/>
+    <Choice value="Single speaker"/>
+    <Choice value="Unclear"/>
+    <Choice value="Bad candidate"/>
+  </Choices>
+  <TextArea
+    name="notes"
+    toName="video"
+    editable="true"
+    perRegion="false"
+    placeholder="Add notes about overlap, speaker identity, or evidence."
+  />
+</View>
