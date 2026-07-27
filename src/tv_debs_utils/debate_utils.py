@@ -1,7 +1,7 @@
 import time
 import os
 import librosa
-from pytubefix import YouTube
+import subprocess
 import torch
 import soundfile as sf
 from pydub import AudioSegment
@@ -24,8 +24,11 @@ def get_logger():
         logging.Logger: Configured logger object.
     """
     timestamp_epoch = int(time.time())
-    logger = logging.getLogger(__name__+str(timestamp_epoch))
+    logger = logging.getLogger(__name__ + str(timestamp_epoch))
     logger.setLevel(logging.DEBUG)
+    logger.propagate = False
+    if logger.handlers:
+        return logger
 
     ch = logging.StreamHandler()
     ch.setLevel(logging.DEBUG)
@@ -47,83 +50,16 @@ def force_cudnn_initialization():
     """
     logger.debug("Force Cuda initialization")
     s = 32
+    if not torch.cuda.is_available():
+        logger.debug("CUDA is not available; skipping cuDNN initialization.")
+        return
     dev = torch.device('cuda')
     torch.nn.functional.conv2d(torch.zeros(
         s, s, s, s, device=dev), torch.zeros(s, s, s, s, device=dev))
-    
-# def download_ytvid_as_mp4(video_id: str) -> str | None:
-#     """
-#     Download a YouTube video as an MP4 file.
-
-#     Args:
-#         video_id (str): YouTube video ID.
-
-#     Returns:
-#         str | None:
-#             Path to downloaded MP4 file if successful.
-#             None if download fails.
-#     """
-
-#     logger.info(f"Video with id: {video_id} download started.")
-
-#     expected_download_path = os.path.join(
-#         ConfigConstants.MP4_FILE_DIR,
-#         f"{video_id}.mp4"
-#     )
-
-#     # File already exists
-#     if os.path.exists(expected_download_path):
-#         logger.debug(
-#             f"MP4 file for video with id={video_id} already exists."
-#         )
-#         return expected_download_path
-
-#     video_url = f"https://www.youtube.com/watch?v={video_id}"
-
-#     try:
-#         yt = YouTube(video_url)
-
-#         # Select 360p MP4 stream
-#         stream = (
-#             yt.streams
-#             .filter(
-#                 progressive=True,
-#                 file_extension="mp4",
-#                 res="360p"
-#             )
-#             .first()
-#         )
-
-#         if stream is None:
-#             raise ValueError(
-#                 f"No 360p MP4 stream available for video {video_id}"
-#             )
-
-#         out_mp4 = stream.download(
-#             output_path=ConfigConstants.MP4_FILE_DIR,
-#             filename=f"{video_id}.mp4"
-#         )
-
-#         if not os.path.exists(out_mp4):
-#             raise FileNotFoundError(
-#                 f"Downloaded file not found: {out_mp4}"
-#             )
-
-#         logger.info(
-#             f"Video with id: {video_id} download completed."
-#         )
-
-#         return out_mp4
-
-#     except Exception as e:
-#         logger.exception(
-#             f"Error occurred while downloading video {video_id}: {e}"
-#         )
-#         return None
 
 def download_ytvid_as_wav(video_id: str) -> bool:
     """
-    Download a YouTube video as a WAV file.
+    Download a YouTube video as a WAV file using yt-dlp.
 
     Args:
         video_id (str): YouTube video ID.
@@ -134,8 +70,6 @@ def download_ytvid_as_wav(video_id: str) -> bool:
     logger.info(f"video with id: {video_id} download started.")
     expected_download_path = os.path.join(
         ConfigConstants.PART_0_PATH, f"{video_id}.wav")
-    mp3_path = os.path.join(ConfigConstants.MP3_FILE_DIR, f"{video_id}.mp3")
-    mp4_path = os.path.join(ConfigConstants.MP4_FILE_DIR, f"{video_id}.mp4")
 
     # Check if the file already exists
     if os.path.exists(expected_download_path):
@@ -145,33 +79,35 @@ def download_ytvid_as_wav(video_id: str) -> bool:
     # Constructing the YouTube video URL using the provided video ID
     video_url = f"https://www.youtube.com/watch?v={video_id}"
 
+    output_template = os.path.join(ConfigConstants.PART_0_PATH, f"{video_id}.%(ext)s")
+    command = [
+        "yt-dlp",
+        "--no-playlist",
+        "--extract-audio",
+        "--audio-format",
+        "wav",
+        "--output",
+        output_template,
+    ]
+
+    cookies_from_browser = os.environ.get("YTDLP_COOKIES_FROM_BROWSER")
+    if cookies_from_browser:
+        command.extend(["--cookies-from-browser", cookies_from_browser])
+
+    command.append(video_url)
+
     try:
-        # Creating a YouTube object by passing the video URL
-        yt = YouTube(video_url)
-        result = yt.streams.filter(adaptive=True, only_audio=True).first()
-
-        # Checking if the video has all its fragments available
-        if result is None:
-            raise ValueError("All video fragments are not available.")
-
-        # Download and convert the video
-        out_file = result.download(
-            output_path=ConfigConstants.MP3_FILE_DIR, filename=f'{video_id}.mp4')
-        original_extension = out_file.split('.')[-1]
-        mp3_converted_file = AudioSegment.from_file(
-            out_file, original_extension)
-        mp3_converted_file.export(
-            expected_download_path, format='wav', bitrate="192k")
-
-        # Clean up temporary files
-        for file_path in [mp3_path, out_file, mp4_path]:
-            if os.path.exists(file_path):
-                os.remove(file_path)
+        subprocess.run(command, check=True)
+        if not os.path.exists(expected_download_path):
+            raise FileNotFoundError(f"yt-dlp finished but did not create {expected_download_path}")
 
         logger.info(f"Video with id: {video_id} download done.")
         return True
+    except subprocess.CalledProcessError as e:
+        logger.exception(f"yt-dlp failed while downloading {video_id}: {e}")
+        return False
     except Exception as e:
-        logger.exception(f"Error occurred while downloading the video: {e}")
+        logger.exception(f"Error occurred while downloading the video {video_id}: {e}")
         return False
 
 def extract_speech_segments(speech_segments):
