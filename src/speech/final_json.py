@@ -22,6 +22,7 @@ def build_episode_json(
     roster_payload = empty_roster_payload()
 
     episode_json = {
+        "schema_version": "0.1",
         "episode_id": episode_id,
         "source_url": metadata.get("webpage_url"),
         "title": metadata.get("title"),
@@ -36,6 +37,11 @@ def build_episode_json(
         "participants": roster_payload["participants"],
         "speaker_links": speaker_name_links(),
         "evidence_audit": roster_payload["evidence_audit"],
+        "pending_manual_steps": [
+            "roster_extraction",
+            "evidence_verification",
+            "speaker_name_linking",
+        ],
     }
     save_json(episode_json, output_path)
     return episode_json

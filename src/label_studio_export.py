@@ -31,9 +31,12 @@ def build_label_studio_tasks(
                     "chunk_end": chunk["chunk_end"],
                     "overlap_candidates": chunk.get("overlap_candidates", []),
                     "segments": chunk.get("segments", []),
+                    "participants": chunk.get("participants", []),
+                    "speaker_links": chunk.get("speaker_links", []),
                 },
                 "meta": {
                     "chunk_json": str(chunk_json_path),
+                    "review_status": "pending_annotation",
                 },
             }
         )
