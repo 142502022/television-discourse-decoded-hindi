@@ -82,7 +82,9 @@ def download_ytvid_as_wav(video_id: str) -> bool:
     output_template = os.path.join(ConfigConstants.PART_0_PATH, f"{video_id}.%(ext)s")
     command = [
         "yt-dlp",
+        "--cookies-from-browser", "chrome",
         "--no-playlist",
+        "-f","bestaudio",
         "--extract-audio",
         "--audio-format",
         "wav",
