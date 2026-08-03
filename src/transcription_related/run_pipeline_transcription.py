@@ -114,12 +114,19 @@ def process_video(curr_yt_id, curr_vid_idx):
         audio = whisperx.load_audio(wav_path)
 
         result = whisper_model.transcribe(audio,language="en")
+# Debugge line
+        # print(result)
+        # print(result.keys())
+        # exit()
+        text = " ".join(segment["text"].strip()
+            for segment in result["segments"])
+
         useful_data = {
-            'text': result['text'],
-            'language': result['language'],
-            'segment_start': wav_name.split('-')[0],
-            'segment_end': wav_name.split('-')[1],
-            'speaker': wav_name.split('-')[2]
+            "text": text,
+            "language": result["language"],
+            "segment_start": wav_name.split("-")[0],
+            "segment_end": wav_name.split("-")[1],
+            "speaker": wav_name.split("-")[2],
         }
         if 'segments' in result and len(result['segments']) > 0 and 'no_speech_prob' in result['segments'][0]:
             useful_data['no_speech_prob'] = result['segments'][0]['no_speech_prob']
