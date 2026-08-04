@@ -7,6 +7,8 @@ import soundfile as sf
 from pydub import AudioSegment
 import logging
 from ..config_constants import ConfigConstants
+import glob
+import shutil
 
 # Constants for audio processing
 sr = 16000  # sample rate
@@ -84,12 +86,11 @@ def download_ytvid_as_wav(video_id: str) -> bool:
         "yt-dlp",
         "--cookies-from-browser", "chrome",
         "--no-playlist",
-        "-f","bestaudio",
+        "-f", "bestvideo+bestaudio/best",
+        "--keep-video",
         "--extract-audio",
-        "--audio-format",
-        "wav",
-        "--output",
-        output_template,
+        "--audio-format", "wav",
+        "--output", output_template,
     ]
 
     cookies_from_browser = os.environ.get("YTDLP_COOKIES_FROM_BROWSER")
@@ -100,6 +101,28 @@ def download_ytvid_as_wav(video_id: str) -> bool:
 
     try:
         subprocess.run(command, check=True)
+
+        video_files = glob.glob(
+            os.path.join(ConfigConstants.PART_0_PATH, f"{video_id}.*")
+        )
+
+        for file in video_files:
+            ext = os.path.splitext(file)[1].lower()
+
+            # Ignore the extracted wav
+            if ext == ".wav":
+                continue
+
+            shutil.copy2(
+                file,
+                os.path.join(
+                    ConfigConstants.RAW_VIDEO_DIR,
+                    os.path.basename(file)
+                )
+            )
+
+            logger.info(f"Saved video to {ConfigConstants.RAW_VIDEO_DIR}")
+            break
         if not os.path.exists(expected_download_path):
             raise FileNotFoundError(f"yt-dlp finished but did not create {expected_download_path}")
 
