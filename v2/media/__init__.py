@@ -1,0 +1,1 @@
+"""Media acquisition and preprocessing stages."""
