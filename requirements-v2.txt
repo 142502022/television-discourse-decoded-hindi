@@ -1,0 +1,24 @@
+yt-dlp==2026.8.19
+certifi==2026.7.22
+
+# ASR (Milestone 2) -- revealed demo/tested stack, MPS-safe versions.
+# torch is capped at 2.3.x: newer builds drop/changed MPS behavior that
+# whisperx 3.3.1's alignment relies on. transformers 4.40.2 must stay <=4.4x
+# (5.x requires torch>=2.5 and disables PyTorch). numpy stays <2.0 because
+# torch 2.3.1 does not support it at runtime on some ops.
+numpy==1.26.4
+torch==2.3.1
+torchaudio==2.3.1
+transformers==4.40.2
+tokenizers==0.19.1
+whisperx==3.3.1
+faster-whisper==1.1.0
+ctranslate2==4.4.0
+sentencepiece==0.2.2
+
+# Diarization (Milestone 3) -- pyannote 3.3.x, verified on MPS with the
+# torch/transformers pins above. Model weights are gated on Hugging Face and
+# downloaded at runtime with an access token (HF_TOKEN).
+pyannote.audio==3.3.2
+pyannote.core==5.0.0
+pyannote.database==5.1.3
