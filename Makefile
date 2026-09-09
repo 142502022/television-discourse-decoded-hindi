@@ -115,7 +115,10 @@ labelstudio:
 identity:
 	@test -n "$$HF_TOKEN" || { echo "ERROR: set HF_TOKEN"; exit 1; }
 	@test -n "$$GEMINI_API_KEY" || { echo "ERROR: set GEMINI_API_KEY for step 7"; exit 1; }
-	@$(foreach v,$(VIDEOS),$(PY) -m v2.cli.identity --video-id $(v) && $(PY) -m v2.cli.roster --video-id $(v))
+	@for v in $(VIDEOS); do \
+		$(PY) -m v2.cli.identity --video-id "$$v" || exit 1; \
+		$(PY) -m v2.cli.roster --video-id "$$v" || exit 1; \
+	done
 
 ## per-video artifact presence table
 status:
