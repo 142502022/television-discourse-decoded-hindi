@@ -55,6 +55,10 @@ class VideoLayout:
         return self.root / "identity"
 
     @property
+    def roster_dir(self) -> Path:
+        return self.root / "roster"
+
+    @property
     def original_video(self) -> Path:
         return self.source_dir / "original.mp4"
 
@@ -91,12 +95,56 @@ class VideoLayout:
         return self.osd_dir / "analysis.json"
 
     @property
+    def candidates_path(self) -> Path:
+        return self.osd_dir / "candidates.json"
+
+    @property
     def embeddings_path(self) -> Path:
         return self.identity_dir / "embeddings.json"
 
     @property
     def roles_path(self) -> Path:
         return self.identity_dir / "roles.json"
+
+    @property
+    def roster_path(self) -> Path:
+        return self.roster_dir / "roster.json"
+
+    @property
+    def linked_path(self) -> Path:
+        return self.identity_dir / "linked.json"
+
+    @property
+    def validation_path(self) -> Path:
+        return self.root / "validation"
+
+    @property
+    def validation_samples_path(self) -> Path:
+        return self.validation_path / "samples.json"
+
+    @property
+    def validation_marks_path(self) -> Path:
+        return self.validation_path / "marks.json"
+
+    @property
+    def validation_stats_path(self) -> Path:
+        return self.validation_path / "stats.json"
+
+    @property
+    def final_path(self) -> Path:
+        return self.root / "final.json"
+
+    @property
+    def chunks_dir(self) -> Path:
+        return self.root / "chunks"
+
+    @property
+    def labelstudio_dir(self) -> Path:
+        return self.root / "labelstudio"
+
+    @property
+    def labelstudio_tasks_path(self) -> Path:
+        return self.labelstudio_dir / "tasks.jsonl"
 
 
 def build_layout(video_id: str, data_dir: Optional[Path] = None) -> VideoLayout:
@@ -116,6 +164,9 @@ def build_layout(video_id: str, data_dir: Optional[Path] = None) -> VideoLayout:
         layout.asr_dir,
         layout.osd_dir,
         layout.identity_dir,
+        layout.roster_dir,
+        layout.chunks_dir,
+        layout.labelstudio_dir,
     ):
         directory.mkdir(parents=True, exist_ok=True)
     return layout

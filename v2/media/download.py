@@ -18,6 +18,7 @@ _FORMAT = (
 )
 
 _ORIGINAL_GLOB = "original.*"
+_PART_SUFFIXES = (".part", ".ytdl", ".tmp")
 
 
 @dataclass(frozen=True)
@@ -31,8 +32,14 @@ class VideoDownloadError(Exception):
 
 
 def find_original_video(source_dir: Path) -> Optional[Path]:
-    """Return the first non-empty downloaded video file, if one exists."""
+    """Return the first non-empty downloaded video file, if one exists.
+
+    Incomplete yt-dlp fragments (``.part`` / ``.tmp``) are ignored so a
+    previously-interrupted download does not count as a finished video.
+    """
     for match in source_dir.glob(_ORIGINAL_GLOB):
+        if match.suffix in _PART_SUFFIXES:
+            continue
         if match.is_file() and match.stat().st_size > 0:
             LOGGER.info("Found existing download: %s", match)
             return match
