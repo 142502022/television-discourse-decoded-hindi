@@ -1,0 +1,92 @@
+{
+  "detector": {
+    "model": "pyannote/segmentation-3.0",
+    "device": "cpu"
+  },
+  "regions": [
+    {
+      "start": 174.316,
+      "end": 174.805
+    },
+    {
+      "start": 200.54,
+      "end": 200.776
+    }
+  ],
+  "events": [
+    {
+      "start": 174.316,
+      "end": 174.805,
+      "duration": 0.489,
+      "speakers": [
+        "SPEAKER_00",
+        "SPEAKER_01"
+      ],
+      "interrupter": "SPEAKER_01"
+    },
+    {
+      "start": 200.54,
+      "end": 200.776,
+      "duration": 0.236,
+      "speakers": [
+        "SPEAKER_00",
+        "SPEAKER_01"
+      ],
+      "interrupter": "SPEAKER_00"
+    }
+  ],
+  "interruptions": [
+    {
+      "start": 174.316,
+      "end": 174.805,
+      "duration": 0.489,
+      "speakers": [
+        "SPEAKER_00",
+        "SPEAKER_01"
+      ],
+      "interrupter": "SPEAKER_01"
+    },
+    {
+      "start": 200.54,
+      "end": 200.776,
+      "duration": 0.236,
+      "speakers": [
+        "SPEAKER_00",
+        "SPEAKER_01"
+      ],
+      "interrupter": "SPEAKER_00"
+    }
+  ],
+  "stats": {
+    "total_duration_s": 988.45,
+    "overlap_seconds": 0.725,
+    "num_regions": 2,
+    "mean_overlap_s": 0.362,
+    "max_overlap_s": 0.489,
+    "num_interruptions": 2,
+    "by_pair": [
+      {
+        "pair": [
+          "SPEAKER_00",
+          "SPEAKER_01"
+        ],
+        "seconds": 0.725,
+        "count": 2
+      }
+    ],
+    "interruptions_by_pair": [
+      {
+        "interrupter": "SPEAKER_00",
+        "victim": "SPEAKER_01",
+        "seconds": 0.236,
+        "count": 1
+      },
+      {
+        "interrupter": "SPEAKER_01",
+        "victim": "SPEAKER_00",
+        "seconds": 0.489,
+        "count": 1
+      }
+    ]
+  }
+}
