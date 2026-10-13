@@ -1,41 +1,41 @@
 {
   "aggregate": {
     "duration_s": {
-      "mean_per_episode": 3367.9,
-      "median_per_episode": 3072.5,
-      "total": 67358.0
+      "mean_per_episode": 3309.238,
+      "median_per_episode": 3026.0,
+      "total": 69494.0
     },
     "interruption_attempts": {
-      "mean_episode_rate_per_minute": 2.417,
-      "mean_per_episode": 133.45,
-      "pooled_per_minute": 2.377,
-      "total": 2669
+      "mean_episode_rate_per_minute": 2.373,
+      "mean_per_episode": 129.619,
+      "pooled_per_minute": 2.35,
+      "total": 2722
     },
     "metric_availability": {
       "semantic_agreement_disagreement": "unavailable",
       "temporal_metrics": "calculable"
     },
     "overlap_candidates": {
-      "mean_per_episode": 168.3,
-      "pooled_per_minute": 2.998,
-      "total": 3366
+      "mean_per_episode": 163.905,
+      "pooled_per_minute": 2.972,
+      "total": 3442
     },
     "processing": {
       "failed": 0,
-      "skipped": 11,
-      "successfully_analyzed": 20
+      "skipped": 2,
+      "successfully_analyzed": 21
     },
     "quality_warning_counts": {
-      "missing_participants": 20
+      "missing_participants": 21
     },
     "speaker_count": {
-      "mean_per_episode": 18.6,
-      "median_per_episode": 15.0
+      "mean_per_episode": 17.905,
+      "median_per_episode": 14.0
     },
     "transitions": {
-      "mean_per_episode": 329.2,
-      "pooled_per_minute": 5.865,
-      "total": 6584
+      "mean_per_episode": 317.81,
+      "pooled_per_minute": 5.762,
+      "total": 6674
     }
   },
   "episodes": [
@@ -5607,6 +5607,238 @@
           "unavailable_reason": "No semantic agreement annotation/classifier."
         },
         "brief_backchannel": {
+          "count": 0,
+          "denominator_overlap_candidates": 76,
+          "provenance": "rule_based",
+          "rate_per_minute": 0.0
+        },
+        "clean_turn_transfer": {
+          "count": 24,
+          "denominator_transitions": 90,
+          "provenance": "rule_based",
+          "rate_pct_of_transitions": 26.667
+        },
+        "competitive_overlap": {
+          "count": 0,
+          "denominator_overlap_candidates": 76,
+          "provenance": "rule_based",
+          "rate_per_minute": 0.0
+        },
+        "decision_rules": {
+          "brief_backchannel": "Words in a small acknowledgement lexicon within an overlap; short duration alone is insufficient.",
+          "candidate": "Different-speaker chronological transition, validated overlap candidate, or OSD interruption attempt.",
+          "clean_transfer": "Different speakers with a 0..clean_transfer_gap_s non-overlap gap.",
+          "competitive_overlap": "Two involved speakers continue beyond overlap end for floor_hold_s; duration alone is insufficient.",
+          "interruption_outcome": "Exactly one speaker holds floor for floor_hold_s within floor_outcome_window_s; otherwise ambiguous.",
+          "semantic_agreement_disagreement": "Unavailable: candidate.case=AGREE is detector corroboration, not semantic agreement."
+        },
+        "disagreement_overlap": {
+          "count": null,
+          "denominator": null,
+          "provenance": "unknown",
+          "rate_pct": null,
+          "unavailable_reason": "No semantic disagreement annotation/classifier."
+        },
+        "failed_interruption": {
+          "count": 17,
+          "denominator_eligible_attempts": 29,
+          "provenance": "rule_based",
+          "rate_pct": 58.621
+        },
+        "prolonged_overlap": {
+          "count": 16,
+          "denominator_overlap_candidates": 76,
+          "provenance": "rule_based",
+          "rate_per_minute": 0.449
+        },
+        "successful_interruption": {
+          "count": 12,
+          "denominator_eligible_attempts": 29,
+          "provenance": "rule_based"
+        },
+        "thresholds": {
+          "brief_backchannel_s": 1.0,
+          "clean_transfer_gap_s": 0.1,
+          "floor_hold_s": 1.0,
+          "floor_outcome_window_s": 2.0,
+          "merge_gap_s": 1.0,
+          "prolonged_overlap_s": 2.0,
+          "short_turn_s": 1.0
+        },
+        "unclassified_or_ambiguous_interruption_count": 24
+      },
+      "interruptions": {
+        "attempts_per_minute": 1.489,
+        "directional_matrix": {
+          "SPEAKER_00": {
+            "SPEAKER_01": 6,
+            "SPEAKER_02": 2,
+            "SPEAKER_03": 4
+          },
+          "SPEAKER_01": {
+            "SPEAKER_00": 11,
+            "SPEAKER_02": 3,
+            "SPEAKER_03": 9
+          },
+          "SPEAKER_02": {
+            "SPEAKER_01": 3,
+            "SPEAKER_03": 1
+          },
+          "SPEAKER_03": {
+            "SPEAKER_00": 10,
+            "SPEAKER_01": 11,
+            "SPEAKER_02": 2
+          }
+        },
+        "eligible_floor_outcomes": 29,
+        "event_definition": "Valid OSD-derived interruption attempts, not human-validated interruptions.",
+        "failed_rate_pct": 58.621,
+        "floor_outcomes": {
+          "ambiguous": 24,
+          "failed": 17,
+          "successful": 12
+        },
+        "multiple_victim_rule": "An event creates one directional edge for each distinct non-interrupter; attempt total is not multiplied.",
+        "status": "osd_derived_attempts",
+        "success_rate_pct": 41.379,
+        "total_attempts": 53,
+        "unavailable_reason": null
+      },
+      "metadata": {
+        "channel": "India Today",
+        "directory_id": "SK7bkDIA5sY",
+        "duration_s": 2136.0,
+        "duration_source": "episode.duration_s",
+        "participant_count": 0,
+        "title": "India Today Mumbai Conclave 2026: What Does Young India Want From Politics? | Pradeep Bhandari",
+        "video_id": "SK7bkDIA5sY"
+      },
+      "overlap": {
+        "candidate_cases": {
+          "AGREE": 74,
+          "DIARIZATION_ONLY": 2
+        },
+        "candidate_event_count": 76,
+        "candidate_events_per_minute": 2.135,
+        "cumulative_candidate_overlap_s": 111.845,
+        "duplicate_nested_handling": "Source count is preserved; elapsed overlap is the temporal union.",
+        "event_definition": "Detector-reconciliation candidates, not confirmed or manually validated overlap events.",
+        "max_candidate_duration_s": 9.99,
+        "mean_candidate_duration_s": 1.472,
+        "overlap_ratio_pct": 5.236,
+        "status": "candidate_events",
+        "unique_elapsed_overlap_s": 111.845
+      },
+      "participation": {
+        "by_speaker": {
+          "SPEAKER_00": {
+            "mean_merged_turn_s": 22.337,
+            "mean_raw_turn_s": 9.173,
+            "merged_speaking_s": 625.435,
+            "merged_turn_count": 28,
+            "raw_speaking_s": 605.388,
+            "raw_turn_count": 66,
+            "speech_share_pct": 28.023
+          },
+          "SPEAKER_01": {
+            "mean_merged_turn_s": 14.259,
+            "mean_raw_turn_s": 6.571,
+            "merged_speaking_s": 698.693,
+            "merged_turn_count": 49,
+            "raw_speaking_s": 676.858,
+            "raw_turn_count": 103,
+            "speech_share_pct": 31.306
+          },
+          "SPEAKER_02": {
+            "mean_merged_turn_s": 23.359,
+            "mean_raw_turn_s": 6.283,
+            "merged_speaking_s": 327.019,
+            "merged_turn_count": 14,
+            "raw_speaking_s": 307.864,
+            "raw_turn_count": 49,
+            "speech_share_pct": 14.652
+          },
+          "SPEAKER_03": {
+            "mean_merged_turn_s": 18.732,
+            "mean_raw_turn_s": 11.954,
+            "merged_speaking_s": 580.702,
+            "merged_turn_count": 31,
+            "raw_speaking_s": 573.785,
+            "raw_turn_count": 48,
+            "speech_share_pct": 26.019
+          }
+        },
+        "definition": "Summed diarized turn duration; overlapping turns can exceed wall-clock speech time.",
+        "number_of_speakers": 4,
+        "speakers": [
+          "SPEAKER_00",
+          "SPEAKER_01",
+          "SPEAKER_02",
+          "SPEAKER_03"
+        ],
+        "total_merged_turn_s": 2231.849,
+        "total_raw_turn_s": 2163.895
+      },
+      "quality": {
+        "input_counts": {
+          "raw_turn_records": 266,
+          "valid_interruptions": 53,
+          "valid_overlap_candidates": 76,
+          "valid_turns": 266
+        },
+        "warning_count": 1,
+        "warnings": [
+          {
+            "code": "missing_participants",
+            "count": 1,
+            "message": "No participant identity/role records are available"
+          }
+        ]
+      },
+      "switching": {
+        "directional_matrix": {
+          "SPEAKER_00": {
+            "SPEAKER_01": 13,
+            "SPEAKER_02": 2,
+            "SPEAKER_03": 3
+          },
+          "SPEAKER_01": {
+            "SPEAKER_00": 10,
+            "SPEAKER_02": 6,
+            "SPEAKER_03": 21
+          },
+          "SPEAKER_02": {
+            "SPEAKER_00": 3,
+            "SPEAKER_01": 6,
+            "SPEAKER_03": 1
+          },
+          "SPEAKER_03": {
+            "SPEAKER_00": 5,
+            "SPEAKER_01": 18,
+            "SPEAKER_02": 2
+          }
+        },
+        "entropy_definition": "Shannon entropy over directed transition pairs; it measures diversity, not quality/fairness.",
+        "normalized_transition_entropy": 0.866,
+        "short_turn_count": 31,
+        "short_turn_pct": 25.41,
+        "short_turn_threshold_s": 1.0,
+        "short_turns_per_minute": 0.871,
+        "total_speaker_transitions": 90,
+        "transition_entropy_bits": 3.106,
+        "transitions_per_minute": 2.528
+      }
+    },
+    {
+      "event_classification": {
+        "agreement_overlap": {
+          "count": null,
+          "denominator": null,
+          "provenance": "unknown",
+          "rate_pct": null,
+          "unavailable_reason": "No semantic agreement annotation/classifier."
+        },
+        "brief_backchannel": {
           "count": 2,
           "denominator_overlap_candidates": 18,
           "provenance": "rule_based",
@@ -10862,9 +11094,9 @@
     }
   },
   "quality_summary": {
-    "episodes_with_warnings": 20,
+    "episodes_with_warnings": 21,
     "warning_counts": {
-      "missing_participants": 20
+      "missing_participants": 21
     }
   },
   "report_metadata": {
@@ -10883,59 +11115,14 @@
   },
   "skipped": [
     {
-      "path": "data/v2/videos/0qWgAPKKD1U/final.json",
+      "path": "data/v2/videos/EopFyAkqqc/final.json",
       "reason": "missing_final_json",
-      "video_id": "0qWgAPKKD1U"
-    },
-    {
-      "path": "data/v2/videos/FHQNpQBcjlM/final.json",
-      "reason": "missing_final_json",
-      "video_id": "FHQNpQBcjlM"
-    },
-    {
-      "path": "data/v2/videos/K2l0HX29jYs/final.json",
-      "reason": "missing_final_json",
-      "video_id": "K2l0HX29jYs"
-    },
-    {
-      "path": "data/v2/videos/clips/final.json",
-      "reason": "missing_final_json",
-      "video_id": "clips"
+      "video_id": "EopFyAkqqc"
     },
     {
       "path": "data/v2/videos/dbdeZOJRNPA/final.json",
       "reason": "missing_final_json",
       "video_id": "dbdeZOJRNPA"
-    },
-    {
-      "path": "data/v2/videos/default-test/final.json",
-      "reason": "missing_final_json",
-      "video_id": "default-test"
-    },
-    {
-      "path": "data/v2/videos/ids.json/final.json",
-      "reason": "missing_final_json",
-      "video_id": "ids.json"
-    },
-    {
-      "path": "data/v2/videos/oFW8Av_G90g/final.json",
-      "reason": "missing_final_json",
-      "video_id": "oFW8Av_G90g"
-    },
-    {
-      "path": "data/v2/videos/pRP4hmInCig/final.json",
-      "reason": "missing_final_json",
-      "video_id": "pRP4hmInCig"
-    },
-    {
-      "path": "data/v2/videos/r-IPuQJsngQ/final.json",
-      "reason": "missing_final_json",
-      "video_id": "r-IPuQJsngQ"
-    },
-    {
-      "path": "data/v2/videos/ub0SF0dvY6c/final.json",
-      "reason": "missing_final_json",
-      "video_id": "ub0SF0dvY6c"
     }
   ]
 }
