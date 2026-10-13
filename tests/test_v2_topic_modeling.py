@@ -9,6 +9,7 @@ from topic_modeling import (
     contiguous_runs,
     group_broad_topics,
     load_episodes,
+    load_trim_map,
     top_terms,
 )
 
@@ -23,13 +24,14 @@ def test_build_units_merges_segments_into_windows():
         segment(10, 20, "b", "S2"),
         segment(40, 50, "c", "S1"),
     ]
-    windows, warnings = build_units(segments, window_s=15, min_window_s=1, max_chars=1000)
+    windows, warnings, stats = build_units(segments, window_s=15, min_window_s=1, max_chars=1000)
 
     assert len(windows) == 2
     assert windows[0]["start"] == 0 and windows[0]["end"] == 20
     assert windows[0]["speakers"] == ["S1", "S2"]
     assert windows[0]["source_segment_indices"] == [0, 1]
     assert warnings == []
+    assert stats["kept_segments"] == 3 and stats["windows"] == 2
 
 
 def test_build_units_drops_invalid_times_and_reports_missing_text():
@@ -38,12 +40,62 @@ def test_build_units_drops_invalid_times_and_reports_missing_text():
         {"start": 6, "end": 6, "text": "zero", "speaker": "S1"},
         {"start": 7, "end": 9, "text": "   ", "speaker": "S1"},
     ]
-    windows, warnings = build_units(segments, window_s=60, min_window_s=1, max_chars=1000)
+    windows, warnings, stats = build_units(segments, window_s=60, min_window_s=1, max_chars=1000)
 
     assert len(windows) == 1
     codes = {warning["code"] for warning in warnings}
-    assert "invalid_segment_time_excluded" in codes
     assert "missing_transcript_text" in codes
+    assert stats["dropped_bad_time"] == 1 and stats["dropped_missing_text"] == 1
+
+
+def test_build_units_trims_ad_region():
+    segments = [
+        segment(0, 360, "hindi ad part one"),
+        segment(360, 720, "hindi ad part two"),
+        segment(720, 780, "the debate begins"),
+        segment(780, 900, "first question"),
+    ]
+    windows, _, stats = build_units(
+        segments, window_s=1000, min_window_s=1, max_chars=100000, trim_start_s=720.0
+    )
+
+    assert stats["dropped_ad_trim"] == 2
+    assert len(windows) == 1 and windows[0]["start"] == 720
+
+
+def test_build_units_filters_unreliable_segments_but_keeps_missing_signals():
+    segments = [
+        {"start": 0, "end": 10, "text": "good", "speaker": "S1", "avg_logprob": -0.2, "no_speech_prob": 0.1},
+        {"start": 10, "end": 20, "text": "garbled", "speaker": "S1", "avg_logprob": -2.0, "no_speech_prob": 0.1},
+        {"start": 20, "end": 30, "text": "music", "speaker": "S1", "avg_logprob": -0.2, "no_speech_prob": 0.9},
+        {"start": 30, "end": 40, "text": "legacy no signals", "speaker": "S1"},
+    ]
+    windows, _, stats = build_units(
+        segments, window_s=1000, min_window_s=1, max_chars=100000,
+        min_avg_logprob=-1.0, max_no_speech_prob=0.6,
+    )
+
+    assert stats["dropped_low_logprob"] == 1
+    assert stats["dropped_no_speech"] == 1
+    assert stats["kept_segments"] == 2
+    assert len(windows) == 1
+
+
+def test_load_trim_map_accepts_number_and_object_forms(tmp_path):
+    path = tmp_path / "trims.json"
+    path.write_text(json.dumps({
+        "plain": 720,
+        "object": {"trim_start_s": 30, "reason": "intro"},
+        "zero": 0,
+    }), encoding="utf-8")
+
+    mapping = load_trim_map(str(path))
+
+    assert mapping["plain"] == {"trim_start_s": 720.0, "reason": None}
+    assert mapping["object"] == {"trim_start_s": 30.0, "reason": "intro"}
+    assert "zero" not in mapping
+    assert load_trim_map(None) == {}
+    assert load_trim_map(str(tmp_path / "missing.json")) == {}
 
 
 def test_contiguous_runs_merges_adjacent_same_topic():

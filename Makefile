@@ -126,7 +126,7 @@ status:
 
 ## analysis: corpus-wide hierarchical topic/subtopic modeling (English)
 topics:
-	$(PY) topic_modeling.py --output data/v2/topic_analysis/topic_modeling.json
+	$(PY) topic_modeling.py --trim-config data/v2/topic_trims.json --output data/v2/topic_analysis/topic_modeling.json
 
 ## analysis: embedding-based topic boundary segmentation (sample-first)
 topic-analysis:

@@ -43,6 +43,12 @@ def _segment_to_record(segment: Dict[str, Any], aligned: bool) -> Dict[str, Any]
         "end": float(segment["end"]),
         "text": segment["text"].strip(),
     }
+    # Persist Whisper confidence signals when the backend provides them so
+    # downstream stages can flag unreliable windows (ads, music, noise).
+    for key in ("avg_logprob", "no_speech_prob"):
+        value = segment.get(key)
+        if isinstance(value, (int, float)) and not isinstance(value, bool):
+            record[key] = float(value)
     if aligned:
         words = segment.get("words") or []
         record["words"] = [

@@ -37,6 +37,10 @@ class TopicConfig:
     umap_components: int = 5
     reduce_outliers: bool = True
     random_state: int = 42
+    trim_config: Optional[str] = None
+    drop_unreliable: bool = True
+    min_avg_logprob: float = -1.0
+    max_no_speech_prob: float = 0.6
 
 
 def finite(value: Any) -> Optional[float]:
@@ -89,15 +93,56 @@ def load_episodes(root: Path, language: str) -> tuple[list[tuple[str, dict[str, 
     return loaded, skipped, failed
 
 
-def build_units(segments: list[Any], window_s: float, min_window_s: float, max_chars: int) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+def load_trim_map(path: Optional[str]) -> dict[str, dict[str, Any]]:
+    """Read a per-video ad/intro trim map.
+
+    Accepts ``{"id": 720}`` or ``{"id": {"trim_start_s": 720, "reason": "..."}}``.
+    Returns ``{video_id: {"trim_start_s": float, "reason": str|None}}``.
+    """
+    if not path:
+        return {}
+    candidate = Path(path)
+    if not candidate.exists():
+        return {}
+    try:
+        raw = json.loads(candidate.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return {}
+    if not isinstance(raw, dict):
+        return {}
+    result: dict[str, dict[str, Any]] = {}
+    for video_id, value in raw.items():
+        if isinstance(value, dict):
+            seconds = finite(value.get("trim_start_s"))
+            reason = value.get("reason") if isinstance(value.get("reason"), str) else None
+        else:
+            seconds = finite(value)
+            reason = None
+        if seconds is not None and seconds > 0:
+            result[str(video_id)] = {"trim_start_s": seconds, "reason": reason}
+    return result
+
+
+def build_units(
+    segments: list[Any],
+    window_s: float,
+    min_window_s: float,
+    max_chars: int,
+    *,
+    trim_start_s: float = 0.0,
+    min_avg_logprob: Optional[float] = None,
+    max_no_speech_prob: Optional[float] = None,
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]], dict[str, int]]:
     """Merge consecutive timed segments into windows of roughly window_s seconds.
 
     Single debate turns are too short for stable topical signal; windows give the
-    embedding model enough lexical context.
+    embedding model enough lexical context. Segments inside a configured ad/intro
+    region (``trim_start_s``) and low-confidence segments (Whisper logprob /
+    no-speech) are dropped and counted.
     """
     windows: list[dict[str, Any]] = []
     warnings: list[dict[str, Any]] = []
-    bad = 0
+    stats = Counter()
     buffer: list[dict[str, Any]] = []
 
     def flush() -> None:
@@ -115,17 +160,32 @@ def build_units(segments: list[Any], window_s: float, min_window_s: float, max_c
         })
 
     for index, segment in enumerate(segments if isinstance(segments, list) else []):
+        stats["segments_total"] += 1
         if not isinstance(segment, dict):
-            bad += 1
+            stats["dropped_bad_time"] += 1
             continue
         text = segment.get("text")
         start, end = finite(segment.get("start")), finite(segment.get("end"))
         if not isinstance(text, str) or not text.strip():
+            stats["dropped_missing_text"] += 1
             warnings.append(issue("missing_transcript_text", "A segment lacks transcript text"))
             continue
         if start is None or end is None or end <= start:
-            bad += 1
+            stats["dropped_bad_time"] += 1
             continue
+        if trim_start_s and end <= trim_start_s:
+            stats["dropped_ad_trim"] += 1
+            continue
+        if min_avg_logprob is not None:
+            logprob = finite(segment.get("avg_logprob"))
+            if logprob is not None and logprob < min_avg_logprob:
+                stats["dropped_low_logprob"] += 1
+                continue
+        if max_no_speech_prob is not None:
+            no_speech = finite(segment.get("no_speech_prob"))
+            if no_speech is not None and no_speech > max_no_speech_prob:
+                stats["dropped_no_speech"] += 1
+                continue
         speakers = [segment["speaker"]] if isinstance(segment.get("speaker"), str) else []
         buffer.append({"index": index, "start": start, "end": end, "text": text.strip(), "speakers": speakers})
         span = buffer[-1]["end"] - buffer[0]["start"]
@@ -144,9 +204,9 @@ def build_units(segments: list[Any], window_s: float, min_window_s: float, max_c
                 "text": " ".join(item["text"] for item in buffer).strip(),
                 "source_segment_indices": [item["index"] for item in buffer],
             })
-    if bad:
-        warnings.append(issue("invalid_segment_time_excluded", "Segment has invalid timestamp", bad))
-    return windows, warnings
+    stats["kept_segments"] = sum(len(window["source_segment_indices"]) for window in windows)
+    stats["windows"] = len(windows)
+    return windows, warnings, dict(stats)
 
 
 def embed_texts(texts: list[str], model_name: str) -> tuple[Any, dict[str, Any]]:
@@ -301,12 +361,23 @@ def build_report(root: Path, config: TopicConfig, limit: Optional[int] = None) -
         skipped += [{"video_id": video_id, "reason": "not_in_selected_subset"} for video_id, _ in loaded if video_id not in selected_ids]
         loaded = selected
 
+    trim_map = load_trim_map(config.trim_config)
+    min_logprob = config.min_avg_logprob if config.drop_unreliable else None
+    max_no_speech = config.max_no_speech_prob if config.drop_unreliable else None
+
     docs: list[str] = []
     index: list[dict[str, Any]] = []
     warnings: list[dict[str, Any]] = []
+    window_quality: dict[str, dict[str, Any]] = {}
     for video_id, data in loaded:
         episode = data.get("episode") if isinstance(data.get("episode"), dict) else {}
-        units, unit_warnings = build_units(data.get("segments"), config.window_seconds, config.min_window_seconds, config.max_window_chars)
+        trim = trim_map.get(video_id, {})
+        trim_start_s = float(trim.get("trim_start_s", 0.0))
+        units, unit_warnings, unit_stats = build_units(
+            data.get("segments"), config.window_seconds, config.min_window_seconds, config.max_window_chars,
+            trim_start_s=trim_start_s, min_avg_logprob=min_logprob, max_no_speech_prob=max_no_speech,
+        )
+        window_quality[video_id] = {**unit_stats, "trim_start_s": trim_start_s, "trim_reason": trim.get("reason")}
         for warning in unit_warnings:
             warnings.append({**warning, "video_id": video_id})
         for unit in units:
@@ -320,6 +391,8 @@ def build_report(root: Path, config: TopicConfig, limit: Optional[int] = None) -
         "semantic_policy": "All topic labels are candidate vocabulary entries, not observed facts."},
         "episodes": [], "broad_topics": [], "subtopics": [], "hierarchy": [], "topic_vocabulary": {"entries": []},
         "aggregate": {"processing": {"units": 0, "episodes": 0, "analyzed": 0, "skipped": len(skipped), "failed": len(failed)},
+                      "dropped": {"ad_trim": 0, "low_logprob": 0, "no_speech": 0, "bad_time": 0, "missing_text": 0},
+                      "trimmed_videos": [],
                       "broad_total": 0, "subtopic_total": 0, "outlier_units": 0},
         "skipped": skipped, "failed": failed, "warnings": warnings,
         "limitations": ["English model baseline; non-English artifacts are filtered by default.",
@@ -369,6 +442,7 @@ def build_report(root: Path, config: TopicConfig, limit: Optional[int] = None) -
         episodes.append({
             "metadata": {"video_id": video_id, "title": episode.get("title"),
                          "duration_s": finite(episode.get("duration_s")), "window_count": len(assignments)},
+            "window_quality": window_quality.get(video_id, {}),
             "subtopic_distribution": dict(subtopic_counts.most_common()),
             "broad_topic_distribution": dict(broad_counts.most_common()),
             "subtopic_timeline": contiguous_runs(assignments, "subtopic_id"),
@@ -382,6 +456,14 @@ def build_report(root: Path, config: TopicConfig, limit: Optional[int] = None) -
                                  "consolidation_policy": "Labels are candidates; no semantic merge is automatic."},
             "aggregate": {"processing": {"units": len(docs), "episodes": len(episodes), "analyzed": len(episodes),
                                          "skipped": len(skipped), "failed": len(failed)},
+                          "dropped": {
+                              "ad_trim": sum(q.get("dropped_ad_trim", 0) for q in window_quality.values()),
+                              "low_logprob": sum(q.get("dropped_low_logprob", 0) for q in window_quality.values()),
+                              "no_speech": sum(q.get("dropped_no_speech", 0) for q in window_quality.values()),
+                              "bad_time": sum(q.get("dropped_bad_time", 0) for q in window_quality.values()),
+                              "missing_text": sum(q.get("dropped_missing_text", 0) for q in window_quality.values()),
+                          },
+                          "trimmed_videos": sorted(video_id for video_id, q in window_quality.items() if q.get("trim_start_s")),
                           "broad_total": len(broad_topics), "subtopic_total": len(subtopics),
                           "outlier_units": initial_outliers,
                           "outlier_units_after_reduction": sum(1 for topic in topics if topic == -1),
@@ -400,13 +482,23 @@ def main() -> None:
     parser.add_argument("--broad-topics", type=int, default=8)
     parser.add_argument("--hdbscan-selection", choices=["eom", "leaf"], default="leaf",
                         help="HDBSCAN cluster selection; 'leaf' yields finer subtopics.")
+    parser.add_argument("--trim-config", default=None,
+                        help="Per-video ad/intro trim map JSON: {\"id\": seconds} or {\"id\": {\"trim_start_s\": s}}.")
+    parser.add_argument("--min-avg-logprob", type=float, default=-1.0,
+                        help="Drop windows whose Whisper avg_logprob is below this (default: -1.0).")
+    parser.add_argument("--max-no-speech-prob", type=float, default=0.6,
+                        help="Drop windows whose Whisper no_speech_prob exceeds this (default: 0.6).")
+    parser.add_argument("--keep-unreliable", action="store_true",
+                        help="Disable the avg_logprob / no_speech_prob quality filter.")
     parser.add_argument("--limit", type=int, default=None, help="Use only the first N selected episodes (quick runs).")
     args = parser.parse_args()
     if args.window_seconds <= 0 or args.min_topic_size < 2 or args.broad_topics < 1:
         parser.error("window-seconds must be positive, min-topic-size >= 2, broad-topics >= 1.")
     config = TopicConfig(model_name=args.model, language=args.language, window_seconds=args.window_seconds,
                          min_topic_size=args.min_topic_size, n_broad_topics=args.broad_topics,
-                         hdbscan_selection=args.hdbscan_selection)
+                         hdbscan_selection=args.hdbscan_selection, trim_config=args.trim_config,
+                         drop_unreliable=not args.keep_unreliable, min_avg_logprob=args.min_avg_logprob,
+                         max_no_speech_prob=args.max_no_speech_prob)
     report = build_report(args.videos_dir, config, args.limit)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     with args.output.open("w", encoding="utf-8") as handle:
