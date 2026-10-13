@@ -33,7 +33,7 @@ else
 VIDEOS := $(VIDEO)
 endif
 
-.PHONY: all media asr diarize osd verify roster identity status clean py
+.PHONY: all media asr diarize osd verify roster identity status clean py topics topic-analysis
 
 ## full pipeline (steps 1-10) for all videos
 all: media asr diarize osd verify link finalize
@@ -123,6 +123,14 @@ identity:
 ## per-video artifact presence table
 status:
 	@$(PY) -m v2.cli.status
+
+## analysis: corpus-wide hierarchical topic/subtopic modeling (English)
+topics:
+	$(PY) topic_modeling.py --output data/v2/topic_analysis/topic_modeling.json
+
+## analysis: embedding-based topic boundary segmentation (sample-first)
+topic-analysis:
+	$(PY) topic_analysis.py --all --output data/v2/topic_analysis/topic_analysis_sample.json
 
 ## run the unit test suite
 test: py

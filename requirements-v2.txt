@@ -25,3 +25,11 @@ pyannote.database==5.1.3
 
 # Roster extraction (Step 7) -- Gemini for named participant extraction.
 google-genai==2.22.0
+
+# Topic modeling (analysis layer) -- corpus-wide hierarchical topic/subtopic
+# clustering over transcript windows. sentence-transformers 2.7.0 stays within
+# the transformers 4.40.2 / torch 2.3.1 pins above.
+sentence-transformers==2.7.0
+bertopic==0.16.4
+umap-learn==0.5.12
+hdbscan==0.8.44

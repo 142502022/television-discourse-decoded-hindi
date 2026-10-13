@@ -1,0 +1,216 @@
+{
+  "aggregate": {
+    "processing": {
+      "analyzed": 0,
+      "failed": 3,
+      "skipped": 29
+    },
+    "quality_warning_counts": {},
+    "shift_events": {
+      "total": 0,
+      "with_observed_interruption": 0
+    },
+    "topic_segments": {
+      "broad_total": 0,
+      "subtopic_total": 0
+    }
+  },
+  "episodes": [],
+  "failed": [
+    {
+      "detail": "Install sentence-transformers before running topic analysis.",
+      "reason": "analysis_failed",
+      "video_id": "bgbdwPLIfAU"
+    },
+    {
+      "detail": "Install sentence-transformers before running topic analysis.",
+      "reason": "analysis_failed",
+      "video_id": "Ew2zQaVQ8zU"
+    },
+    {
+      "detail": "Install sentence-transformers before running topic analysis.",
+      "reason": "analysis_failed",
+      "video_id": "zoVldnG06BU"
+    }
+  ],
+  "limitations": [
+    "English model baseline; non-English artifacts are filtered by default.",
+    "ASR/diarization errors affect evidence.",
+    "Five-minute windows never force boundaries.",
+    "Interruption links are temporal context, not causal evidence.",
+    "No accuracy claim without human annotations."
+  ],
+  "report_metadata": {
+    "analysis_scope": "initial_representative_sample",
+    "analysis_version": "0.1.0",
+    "config": {
+      "broad_boundary_quantile": 0.05,
+      "checkpoint_seconds": 300.0,
+      "context_radius": 1,
+      "language": "en",
+      "model_name": "sentence-transformers/all-MiniLM-L6-v2",
+      "restoration_lookahead_segments": 2,
+      "subtopic_boundary_quantile": 0.15
+    },
+    "method": "Contextual sentence embeddings with local semantic-similarity valleys.",
+    "semantic_policy": "Labels are candidate vocabulary entries; model outputs are not observed facts."
+  },
+  "review_template": {
+    "boundary_overrides": [
+      {
+        "action": "add_or_remove",
+        "rationale": "",
+        "timestamp_s": null,
+        "video_id": ""
+      }
+    ],
+    "label_overrides": [
+      {
+        "approved_definition": "",
+        "approved_name": "",
+        "reviewer": "",
+        "topic_id": ""
+      }
+    ],
+    "shift_event_overrides": [
+      {
+        "event_id": "",
+        "rationale": "",
+        "relationship_label": "indeterminate",
+        "restoration": null,
+        "reviewer": ""
+      }
+    ]
+  },
+  "skipped": [
+    {
+      "reason": "missing_final_json",
+      "video_id": "0qWgAPKKD1U"
+    },
+    {
+      "language": "hi",
+      "reason": "language_filtered",
+      "video_id": "7dKqZ9ERgiQ"
+    },
+    {
+      "language": "hi",
+      "reason": "language_filtered",
+      "video_id": "DVgnzeV716Q"
+    },
+    {
+      "reason": "missing_final_json",
+      "video_id": "FHQNpQBcjlM"
+    },
+    {
+      "reason": "missing_final_json",
+      "video_id": "K2l0HX29jYs"
+    },
+    {
+      "language": "ur",
+      "reason": "language_filtered",
+      "video_id": "PiFoTJYNhug"
+    },
+    {
+      "language": "sa",
+      "reason": "language_filtered",
+      "video_id": "SK7bkDIA5sY"
+    },
+    {
+      "language": "hi",
+      "reason": "language_filtered",
+      "video_id": "b1Vt6GxyQ-E"
+    },
+    {
+      "reason": "missing_final_json",
+      "video_id": "clips"
+    },
+    {
+      "reason": "missing_final_json",
+      "video_id": "dbdeZOJRNPA"
+    },
+    {
+      "reason": "missing_final_json",
+      "video_id": "default-test"
+    },
+    {
+      "language": "hi",
+      "reason": "language_filtered",
+      "video_id": "gvUvQk8H7Aw"
+    },
+    {
+      "reason": "missing_final_json",
+      "video_id": "ids.json"
+    },
+    {
+      "language": "hi",
+      "reason": "language_filtered",
+      "video_id": "nLH8I5QfqMI"
+    },
+    {
+      "reason": "missing_final_json",
+      "video_id": "oFW8Av_G90g"
+    },
+    {
+      "reason": "missing_final_json",
+      "video_id": "pRP4hmInCig"
+    },
+    {
+      "reason": "missing_final_json",
+      "video_id": "r-IPuQJsngQ"
+    },
+    {
+      "language": "ur",
+      "reason": "language_filtered",
+      "video_id": "rVl0KsgX5rM"
+    },
+    {
+      "language": "hi",
+      "reason": "language_filtered",
+      "video_id": "uYXSGST81ys"
+    },
+    {
+      "reason": "missing_final_json",
+      "video_id": "ub0SF0dvY6c"
+    },
+    {
+      "reason": "not_in_initial_sample",
+      "video_id": "3_JUsmQxdRs"
+    },
+    {
+      "reason": "not_in_initial_sample",
+      "video_id": "DnpmNn9qgVg"
+    },
+    {
+      "reason": "not_in_initial_sample",
+      "video_id": "Ej1xr0F3yJ4"
+    },
+    {
+      "reason": "not_in_initial_sample",
+      "video_id": "QHAc_PzMco0"
+    },
+    {
+      "reason": "not_in_initial_sample",
+      "video_id": "YeuRUi7g4P0"
+    },
+    {
+      "reason": "not_in_initial_sample",
+      "video_id": "frZmWnegwnk"
+    },
+    {
+      "reason": "not_in_initial_sample",
+      "video_id": "hbQ8eN8rfTw"
+    },
+    {
+      "reason": "not_in_initial_sample",
+      "video_id": "s2WWIOGAodc"
+    },
+    {
+      "reason": "not_in_initial_sample",
+      "video_id": "vbXGh9d9XMw"
+    }
+  ],
+  "topic_vocabulary": {
+    "consolidation_policy": "Exact duplicate labels are review suggestions; no semantic merge is automatic.",
+    "entries": []
+  }
+}
