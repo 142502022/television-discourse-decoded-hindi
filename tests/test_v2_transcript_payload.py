@@ -53,3 +53,24 @@ def test_payload_drops_words_when_not_aligned():
 
     assert payload["aligned"] is False
     assert "words" not in payload["segments"][0]
+
+
+def test_payload_persists_whisper_confidence_signals_when_present():
+    raw = {"language": "en", "segments": [{
+        "start": 0.0, "end": 1.0, "text": "Hi",
+        "avg_logprob": -0.42, "no_speech_prob": 0.13,
+    }]}
+
+    payload = build_transcript_payload(raw, model="base", device="cpu", compute_type="int8", aligned=False)
+
+    assert payload["segments"][0]["avg_logprob"] == -0.42
+    assert payload["segments"][0]["no_speech_prob"] == 0.13
+
+
+def test_payload_omits_confidence_signals_when_absent():
+    raw = {"language": "en", "segments": [{"start": 0.0, "end": 1.0, "text": "Hi"}]}
+
+    payload = build_transcript_payload(raw, model="base", device="cpu", compute_type="int8", aligned=False)
+
+    assert "avg_logprob" not in payload["segments"][0]
+    assert "no_speech_prob" not in payload["segments"][0]
