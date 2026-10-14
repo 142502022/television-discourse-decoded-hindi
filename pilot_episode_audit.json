@@ -1,0 +1,264 @@
+{
+  "schema_version": "pilot-audit-1.0",
+  "generated_by": "phase-1 read-only audit",
+  "scope": "Single pilot episode only. No other videos inspected.",
+  "episode": {
+    "video_id": "7dKqZ9ERgiQ",
+    "title": "Debate With Arnab LIVE: Nationalists Unite Against Anarchy, No Free Pass For CJP",
+    "channel": "Republic World",
+    "upload_date": "20261009",
+    "duration_s": 7110,
+    "reference_host_label_supplied": "SPEAKER_24",
+    "reference_note": "Manually supplied by researcher. Used for evaluation only, never as a rule."
+  },
+  "environment": {
+    "repo_branch": "v2-rewrite",
+    "v2_venv_python": "3.11.2",
+    "system_python": "3.13.2 (anaconda)",
+    "pytest_config": "pytest.ini -> tests/test_v2_*.py, pythonpath=.",
+    "key_pins": {
+      "torch": "2.3.1",
+      "transformers": "4.40.2",
+      "whisperx": "3.3.1",
+      "pyannote.audio": "3.3.2",
+      "sentence-transformers": "2.7.0",
+      "bertopic": "0.16.4",
+      "numpy": "1.26.4"
+    },
+    "note": "Heavy ASR/diarization/topic deps live in the v2 venv and are not re-run during this audit."
+  },
+  "artifact_inventory": {
+    "video_dir": "data/v2/videos/7dKqZ9ERgiQ",
+    "final_json": "data/v2/videos/7dKqZ9ERgiQ/final.json",
+    "final_json_bak": "data/v2/videos/7dKqZ9ERgiQ/final.json.bak",
+    "episode_topic_modeling": "data/v2/topic_analysis/topic_modeling.json (episodes[0] is this video; corpus-wide scope)",
+    "episode_topic_sample": "data/v2/topic_analysis/topic_analysis_sample.json",
+    "episode_discourse_summary": "data/v2/analysis/discourse_summary.json (episodes[0] is this video)",
+    "asr": [
+      "data/v2/videos/7dKqZ9ERgiQ/asr/transcription.json",
+      "data/v2/videos/7dKqZ9ERgiQ/asr/diarization.json",
+      "data/v2/videos/7dKqZ9ERgiQ/asr/diarized_transcript.json"
+    ],
+    "osd": [
+      "data/v2/videos/7dKqZ9ERgiQ/osd/overlap.json",
+      "data/v2/videos/7dKqZ9ERgiQ/osd/analysis.json",
+      "data/v2/videos/7dKqZ9ERgiQ/osd/candidates.json"
+    ],
+    "identity": [
+      "data/v2/videos/7dKqZ9ERgiQ/identity/linked.json"
+    ],
+    "media_present": [
+      "data/v2/videos/7dKqZ9ERgiQ/audio/audio.wav",
+      "data/v2/videos/7dKqZ9ERgiQ/proxy/proxy_480p.mp4",
+      "data/v2/videos/7dKqZ9ERgiQ/source/original.mp4"
+    ],
+    "code": [
+      "topic_modeling.py",
+      "discourse_summary.py",
+      "v2/identity/roles.py",
+      "v2/identity/link.py",
+      "v2/roster/extract.py",
+      "v2/cli/finalize.py",
+      "v2/cli/identity.py",
+      "v2/cli/link.py",
+      "v2/cli/roster.py"
+    ]
+  },
+  "schemas": {
+    "final_json": {
+      "top_keys": ["schema_version", "episode", "pipeline", "participants", "speaker_turns", "segments", "overlap_candidates", "interruptions", "osd_stats"],
+      "schema_version": "1.0",
+      "episode_fields": ["video_id", "title", "channel", "channel_id", "upload_date", "duration_s", "url", "thumbnail"],
+      "speaker_turn_fields": ["start", "end", "speaker"],
+      "segment_fields": ["start", "end", "text", "words", "speaker"],
+      "word_fields": ["word", "start", "end", "speaker"],
+      "overlap_candidate_fields": ["case", "start", "end", "duration", "speakers", "source", "confidence"],
+      "interruption_fields": ["start", "end", "duration", "speakers", "interrupter"],
+      "osd_stats_fields": ["total_duration_s", "overlap_seconds", "num_regions", "mean_overlap_s", "max_overlap_s", "num_interruptions", "by_pair", "interruptions_by_pair"],
+      "counts": {
+        "segments": 1605,
+        "words": 16088,
+        "speaker_turns": 1754,
+        "overlap_candidates": 403,
+        "interruptions": 313,
+        "osd_regions": 401
+      }
+    },
+    "topic_modeling_json": {
+      "top_keys": ["aggregate", "broad_topics", "episodes", "failed", "hierarchy", "limitations", "report_metadata", "review_template", "skipped", "subtopics", "topic_vocabulary", "warnings"],
+      "scope": "corpus_wide (1 episode here)",
+      "config": {
+        "model_name": "sentence-transformers/all-MiniLM-L6-v2",
+        "window_seconds": 45.0,
+        "min_window_seconds": 12.0,
+        "max_window_chars": 1500,
+        "min_topic_size": 8,
+        "n_broad_topics": 8,
+        "hdbscan_selection": "leaf",
+        "umap_neighbors": 15,
+        "umap_components": 5,
+        "reduce_outliers": true,
+        "random_state": 42,
+        "drop_unreliable": true,
+        "min_avg_logprob": -1.0,
+        "max_no_speech_prob": 0.6
+      },
+      "episode_fields": ["metadata", "window_quality", "subtopic_distribution", "broad_topic_distribution", "subtopic_timeline", "broad_timeline"],
+      "timeline_run_fields": ["start", "end", "duration_s", "value", "unit_count", "speakers"],
+      "assignment_internal_fields": ["start", "end", "speakers", "base_topic_id", "subtopic_id", "broad_topic_id", "probability"],
+      "counts": {"windows": 138, "broad_topics": 5, "subtopics": 5, "outlier_units": 28, "outlier_units_after_reduction": 0}
+    },
+    "discourse_summary_json": {
+      "top_keys": ["aggregate", "episodes", "failed", "limitations", "metric_definitions", "quality_summary", "report_metadata", "skipped"],
+      "schema_version": "2.0",
+      "thresholds": {
+        "merge_gap_s": 1.0,
+        "short_turn_s": 1.0,
+        "clean_transfer_gap_s": 0.1,
+        "brief_backchannel_s": 1.0,
+        "prolonged_overlap_s": 2.0,
+        "floor_hold_s": 1.0,
+        "floor_outcome_window_s": 2.0
+      },
+      "episode_metric_groups": ["metadata", "participation", "switching", "overlap", "interruptions", "event_classification", "quality"]
+    }
+  },
+  "pipeline_metadata_confirmed": {
+    "asr": {"model": "medium", "language": "en", "device": "cpu", "segments": 1605, "words": 16088},
+    "diarization": {"model": "pyannote/speaker-diarization-3.1", "device": "cpu", "num_speakers": null, "turns": 1754},
+    "osd": {"model": "pyannote/segmentation-3.0", "device": "cpu", "overlap_regions": 401, "overlap_seconds": 755.547, "num_interruptions": 313},
+    "verify": {"method": "three-case-reconciliation", "num_candidates": 403, "agree": 370, "osd_only": 6, "diarization_only": 27},
+    "roster": {"model": "cluster-to-name"}
+  },
+  "confirmed_defects": [
+    {
+      "id": "D1",
+      "title": "final.json participants array is empty",
+      "evidence": "final.json participants == []; identity/linked.json has num_participants 0 and participants []; no roster/roster.json and no identity/roles.json exist for this episode",
+      "root_cause": "v2/identity/link.py only emits participant rows for entries that already exist in the roster input. With an absent roster.json the roster list is empty, so linked.json is empty. v2/cli/finalize.py copies that empty list verbatim. PENDING_TASKS.md confirms roster extraction/linking is unfinished.",
+      "impact": "No identity/role records reach final.json; downstream participation-by-name and host identity impossible from participants.",
+      "status": "confirmed"
+    },
+    {
+      "id": "D2",
+      "title": "Topic window model probabilities are computed then discarded",
+      "evidence": "topic_modeling.py build_report() attaches 'probability' to each internal assignment (line ~431) but contiguous_runs() keeps only start/end/value/unit_count/speakers. The probability never appears in the output JSON.",
+      "impact": "Window-level confidence is unavailable even though calculate_probabilities=True was used.",
+      "status": "confirmed"
+    },
+    {
+      "id": "D3",
+      "title": "No window-level topic assignment output exists",
+      "evidence": "topic_modeling.json episodes[0] stores only subtopic_timeline / broad_timeline runs. The 138 raw windows (timestamps, text, base_topic_id, probability, speaker ids) are not persisted.",
+      "impact": "Cannot validate assignments, reproduce drift analysis, or inspect the 3256-3310 boundary without recomputing.",
+      "status": "confirmed"
+    },
+    {
+      "id": "D4",
+      "title": "Three segments carry a null speaker",
+      "evidence": "count of segments with empty/None speaker == 3 (of 1605)",
+      "impact": "Minor; topic build_units tolerates it (speakers list empty for those), but participation per segment can miss them.",
+      "status": "confirmed"
+    },
+    {
+      "id": "D5",
+      "title": "Speaker set differs between turns and segments",
+      "evidence": "unique speakers in speaker_turns == 61; unique speakers in segments == 56",
+      "impact": "5 diarized speakers never own a timed segment; discourse participation counts (from turns, 61 speakers) and topic window speaker lists (from segments, 56 speakers) are not directly comparable.",
+      "status": "confirmed"
+    }
+  ],
+  "likely_issues_requiring_validation": [
+    {
+      "id": "L1",
+      "title": "Generic stopwords in candidate topic labels",
+      "evidence": "broad_000 label 'political · cjp · know'; subtopic_001 'dont · german · know'; evidence terms include 'know', 'dont', 'just', 'want'.",
+      "note": "TF-IDF/CountVectorizer stop_words='english' is applied in fit_model and top_terms, yet 'know'/'dont' survive. Needs checking whether debate-specific stopwords (discourse fillers) are informative here before removal. Do not assume they are uninformative without reading examples."
+    },
+    {
+      "id": "L2",
+      "title": "Representative examples may be truncated / not representative",
+      "evidence": "subtopic representative_example = members[0][:240]; the first document of a cluster is used, not the most central. Subtopic_001 example is about 'Sandesh Kali / Maoist agenda' while its label is 'dont · german · know'.",
+      "note": "Representative example and label can disagree; needs cluster-central example selection."
+    },
+    {
+      "id": "L3",
+      "title": "Broad topics are 1:1 with subtopics here",
+      "evidence": "5 broad topics, 5 subtopics, each broad_topic lists exactly one subtopic_id; group_broad_topics returns identity when len(base_ids) <= n_broad (5 <= 8).",
+      "note": "The hierarchy is flat for this episode. A hierarchy should not be forced; but the current broad/subtopic split adds no grouping. Report as limitation, not fix blindly."
+    },
+    {
+      "id": "L4",
+      "title": "Ad/intro content is inside the first topic run",
+      "evidence": "segments[0..~80] are advertisements ('Your Shahi Paneer Masala', 'Roonta TMT bar'); first broad_timeline run spans 0.051-618.057s labeled broad_003 'republic · chaat · orn'.",
+      "note": "trim_config is null; no trim applied. Ad content consumes ~37 windows? (11 windows in first run) and pollutes topic labels."
+    },
+    {
+      "id": "L5",
+      "title": "Topic windows and overlap events are on different time bases",
+      "evidence": "windows are 45s-granularity concatenations; overlaps are 1-5s. Around 3256-3310 the window boundary 3302.869/3302.889 coincides with two overlaps 3302.165-3303.869 and 3304.088-3309.134.",
+      "note": "Any interruption->topic-drift association must account for window coarseness; proximity is not causation."
+    },
+    {
+      "id": "L6",
+      "title": "Nested overlap candidates present",
+      "evidence": "6 overlap candidates are strictly nested inside another candidate.",
+      "note": "discourse_summary.union_duration already unions intervals, so unique elapsed overlap is protected; confirm no double counting in any new drift module."
+    },
+    {
+      "id": "L7",
+      "title": "interruptions (313) are a strict OSD subset of overlap_candidates (403)",
+      "evidence": "osd/analysis.json events == interruptions (313); candidates.json candidates == 403 from three-case reconciliation; final.json interruptions take the OSD-only list, not the reconciled list.",
+      "note": "The 90 osd_only/diarization candidates that are not OSD interruptions are never eligible as interruptions. Confirm this is intended; document provenance."
+    },
+    {
+      "id": "L8",
+      "title": "final.json differs from final.json.bak only in speaker_turns granularity",
+      "evidence": "diff shows .bak has extra short turns near ~6940s; current final.json is the larger/newer file (2.88MB vs 368KB).",
+      "note": "The .bak is a stale intermediate; do not treat as ground truth. No deletion planned."
+    }
+  ],
+  "existing_limitations_acknowledged": [
+    "AGREE/OSD_ONLY/DIARIZATION_ONLY describe detector corroboration; they do not describe semantic agreement between speakers.",
+    "Diarization labels (SPEAKER_xx) are not stable identities across episodes and are not mapped to people.",
+    "Interruptions are OSD-derived operational attempts, not human-validated interruptions.",
+    "Topic labels are model candidate vocabulary, not observed facts; hierarchy is unvalidated.",
+    "ASR/diarization errors propagate into topic windows.",
+    "No human semantic agreement/disagreement annotations exist."
+  ],
+  "components_to_leave_unchanged": [
+    "ASR transcription schema and WhisperX word timing",
+    "pyannote diarization output and speaker_turns",
+    "pyannote OSD overlap regions and analysis.json",
+    "three-case-reconciliation in osd/candidates.json and its confidence weights",
+    "final.json top-level schema v1.0 and field names",
+    "discourse_summary.py metric definitions and detector-vs-semantic policy",
+    "existing test suite structure under tests/test_v2_*.py"
+  ],
+  "proposed_change_plan": {
+    "phase_2_host_identification": [
+      "Add a new pure module (e.g. v2/identity/host.py) computing per-speaker linguistic + conversational + temporal features from segments/turns/interruptions, discover greeting/moderator phrases from the actual transcript, and emit an interpretable ranked host-candidate JSON (host_identification.json).",
+      "Separate 'role' from diarization label; never hardcode SPEAKER_24; compare top prediction to the reference only for scoring.",
+      "Do not reuse the coarse roles.py score blindly; expose raw evidence and a confidence band that is explicitly a heuristic, not a calibrated probability."
+    ],
+    "phase_3_topic_review": [
+      "Write topic_modeling_review.json (label quality diagnostics, stopword analysis grounded in real examples, central representative examples) and topic_windows.json (full 138-window table with text, base/sub/broad ids, probability, quality flags, speakers, overlap/interruption intersection flags, dropped reason).",
+      "Keep the existing compact timeline output intact for compatibility."
+    ],
+    "phase_4_discourse_validation": [
+      "Write discourse_summary_review.json re-deriving each requested metric with explicit definition, unit, denominator, provenance, limitation; validate ordering, nesting, zero-duration, duplicates."
+    ],
+    "phase_5_drift": [
+      "Write interruption_topic_drift.json linking events to windows with 45s (and 90s sensitivity) outcome windows, non-interruption comparisons, event-level evidence, and explicit uncertainty."
+    ],
+    "phase_6_integration": [
+      "Add tests under tests/test_v2_*.py, keep schemas versioned, document exact reproduction commands, and produce a pilot markdown report."
+    ]
+  },
+  "open_questions_for_researcher": [
+    "Should the first ~618s advertisement/intro block be trimmed for topic modeling (trim_config), or preserved?",
+    "Should 5 of the 61 diarized speakers that never own a segment be excluded from participation denominators?",
+    "Is the OSD-only interruption list authoritative, or should reconciled candidates define interruptions?",
+    "Which ground-truth host reference label is authoritative if SPEAKER_24 later maps to a named person?"
+  ]
+}

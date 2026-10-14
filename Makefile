@@ -33,7 +33,7 @@ else
 VIDEOS := $(VIDEO)
 endif
 
-.PHONY: all media asr diarize osd verify roster identity status clean py topics topic-analysis
+.PHONY: all media asr diarize osd verify roster identity status clean py topics topic-analysis host
 
 ## full pipeline (steps 1-10) for all videos
 all: media asr diarize osd verify link finalize
@@ -131,6 +131,15 @@ topics:
 ## analysis: embedding-based topic boundary segmentation (sample-first)
 topic-analysis:
 	$(PY) topic_analysis.py --all --output data/v2/topic_analysis/topic_analysis_sample.json
+
+## analysis: interpretable host/moderator identification for one episode
+##   make host VIDEO=7dKqZ9ERgiQ REFERENCE=SPEAKER_24 TRIM=720
+REFERENCE ?= SPEAKER_24
+TRIM ?= 720
+host:
+	@test -n "$(VIDEO)" || { echo "ERROR: set VIDEO=<id>"; exit 1; }
+	$(PY) -m v2.cli.host --video-id "$(VIDEO)" --reference-label "$(REFERENCE)" \
+		--trim-start "$(TRIM)" --output data/v2/analysis/host_identification.json
 
 ## run the unit test suite
 test: py
