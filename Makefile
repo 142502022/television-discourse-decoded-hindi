@@ -125,8 +125,12 @@ status:
 	@$(PY) -m v2.cli.status
 
 ## analysis: corpus-wide hierarchical topic/subtopic modeling (English)
+##   emits topic_modeling.json (compact) + topic_windows.json + topic_modeling_review.json
 topics:
-	$(PY) topic_modeling.py --trim-config data/v2/topic_trims.json --output data/v2/topic_analysis/topic_modeling.json
+	$(PY) topic_modeling.py --trim-config data/v2/topic_trims.json \
+		--output data/v2/topic_analysis/topic_modeling.json \
+		--windows-output data/v2/topic_analysis/topic_windows.json \
+		--review-output data/v2/topic_analysis/topic_modeling_review.json
 
 ## analysis: embedding-based topic boundary segmentation (sample-first)
 topic-analysis:
