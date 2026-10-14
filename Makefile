@@ -33,7 +33,7 @@ else
 VIDEOS := $(VIDEO)
 endif
 
-.PHONY: all media asr diarize osd verify roster identity status clean py topics topic-analysis host
+.PHONY: all media asr diarize osd verify roster identity status clean py topics topic-analysis drift host
 
 ## full pipeline (steps 1-10) for all videos
 all: media asr diarize osd verify link finalize
@@ -135,6 +135,13 @@ topics:
 ## analysis: embedding-based topic boundary segmentation (sample-first)
 topic-analysis:
 	$(PY) topic_analysis.py --all --output data/v2/topic_analysis/topic_analysis_sample.json
+
+## analysis: interruption -> topic-drift association (45s/90s outcome windows)
+##   depends on topic_modeling.json; emits interruption_topic_drift.json
+drift:
+	$(PY) topic_drift.py \
+		--topic-modeling data/v2/topic_analysis/topic_modeling.json \
+		--output data/v2/topic_analysis/interruption_topic_drift.json
 
 ## analysis: interpretable host/moderator identification for one episode
 ##   make host VIDEO=7dKqZ9ERgiQ REFERENCE=SPEAKER_24 TRIM=720

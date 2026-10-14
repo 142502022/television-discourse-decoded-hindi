@@ -89,27 +89,57 @@ def unit_speaker(segment: dict[str, Any]) -> str:
     return labels.most_common(1)[0][0] if labels else "UNKNOWN"
 
 
-def extract_units(data: dict[str, Any]) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
-    raw, units, warnings, bad = data.get("segments"), [], [], 0
+def extract_units(data: dict[str, Any]) -> tuple[list[dict[str, Any]], list[dict[str, Any]], dict[str, Any]]:
+    """Build timed units and report exactly how the input was filtered.
+
+    The diagnostics distinguish "no segments key" from "empty list" from "all
+    records unusable", so an empty analysis can be explained rather than guessed.
+    """
+    raw = data.get("segments")
+    diagnostics: dict[str, Any] = {
+        "segments_present": raw is not None,
+        "segments_is_list": isinstance(raw, list),
+        "raw_segment_count": len(raw) if isinstance(raw, list) else 0,
+        "valid_unit_count": 0,
+        "rejected": {"not_a_dict": 0, "missing_text": 0, "invalid_time": 0},
+    }
+    if raw is None:
+        return [], [issue("no_segments_key", "final.json has no 'segments' key")], diagnostics
     if not isinstance(raw, list):
-        return [], [issue("missing_or_invalid_segments", "segments is not a list")]
+        return [], [issue("invalid_segments_container", "segments is not a list")], diagnostics
+    if not raw:
+        return [], [issue("empty_segments", "segments list is empty")], diagnostics
+
+    units: list[dict[str, Any]] = []
+    warnings: list[dict[str, Any]] = []
     for index, segment in enumerate(raw):
         if not isinstance(segment, dict):
-            bad += 1
+            diagnostics["rejected"]["not_a_dict"] += 1
             continue
         text, start, end = segment.get("text"), finite(segment.get("start")), finite(segment.get("end"))
         if not isinstance(text, str) or not text.strip():
-            warnings.append(issue("missing_transcript_text", "A segment lacks transcript text"))
-        elif start is None or end is None or end <= start:
-            bad += 1
-        else:
-            units.append({"unit_id": f"unit_{index:05d}", "source_segment_index": index,
-                          "start": start, "end": end, "speaker": unit_speaker(segment), "text": text.strip()})
-    if bad:
-        warnings.append(issue("invalid_segment_time_excluded", "Segment has invalid timestamp", bad))
+            diagnostics["rejected"]["missing_text"] += 1
+            continue
+        if start is None or end is None or end <= start:
+            diagnostics["rejected"]["invalid_time"] += 1
+            continue
+        units.append({"unit_id": f"unit_{index:05d}", "source_segment_index": index,
+                      "start": start, "end": end, "speaker": unit_speaker(segment), "text": text.strip()})
+
+    rejected = diagnostics["rejected"]
+    if rejected["not_a_dict"]:
+        warnings.append(issue("invalid_segment_record", "Segment(s) are not objects", rejected["not_a_dict"]))
+    if rejected["missing_text"]:
+        warnings.append(issue("missing_transcript_text", "Segment(s) lack transcript text", rejected["missing_text"]))
+    if rejected["invalid_time"]:
+        warnings.append(issue("invalid_segment_time_excluded", "Segment(s) have an invalid timestamp", rejected["invalid_time"]))
+    if not units:
+        warnings.append(issue("all_segments_invalid", "No segment had both text and a valid time range", len(raw)))
     if any(units[i]["start"] < units[i - 1]["start"] for i in range(1, len(units))):
         warnings.append(issue("segments_out_of_order", "Segments sorted chronologically for analysis"))
-    return sorted(units, key=lambda unit: (unit["start"], unit["end"], unit["unit_id"])), warnings
+    units.sort(key=lambda unit: (unit["start"], unit["end"], unit["unit_id"]))
+    diagnostics["valid_unit_count"] = len(units)
+    return units, warnings, diagnostics
 
 
 def context_texts(units: list[dict[str, Any]], radius: int) -> list[str]:
@@ -276,14 +306,18 @@ def checkpoints(units: list[dict[str, Any]], subs: list[dict[str, Any]], shifts:
 
 
 def analyze_episode(video_id: str, data: dict[str, Any], config: TopicConfig) -> dict[str, Any]:
-    units, warnings = extract_units(data)
+    units, warnings, diagnostics = extract_units(data)
     episode = data.get("episode") if isinstance(data.get("episode"), dict) else {}
     duration = finite(episode.get("duration_s"))
+    input_codes = {"no_segments_key", "invalid_segments_container", "empty_segments", "all_segments_invalid"}
+    status = "analyzed" if len(units) >= 2 else "insufficient_input"
+    if status == "insufficient_input" and not input_codes & {item["code"] for item in warnings}:
+        warnings = warnings + [issue("insufficient_transcript_context", "At least two timed segments are required")]
     empty = {"metadata": {"video_id": video_id, "title": episode.get("title"), "duration_s": duration},
-             "units": units, "broad_topics": [], "subtopics": [], "five_minute_checkpoints": [],
+             "status": status, "units": units, "input_diagnostics": diagnostics,
+             "broad_topics": [], "subtopics": [], "five_minute_checkpoints": [],
              "topic_shift_events": [], "contextual_interruptions": [], "boundary_evidence": [], "warnings": warnings}
-    if len(units) < 2:
-        empty["warnings"].append(issue("insufficient_transcript_context", "At least two timed segments are required"))
+    if status == "insufficient_input":
         return empty
     vectors, model = embed_texts(context_texts(units, config.context_radius), config.model_name)
     broad_points, evidence = boundaries(vectors, config.broad_boundary_quantile)
@@ -333,14 +367,17 @@ def build_report(videos_dir: Path, config: TopicConfig, sample_size: int = 3, al
         except (RuntimeError, TypeError, ValueError) as exc:
             failed.append({"video_id": video_id, "reason": "analysis_failed", "detail": str(exc)})
     warning_counts = Counter(item["code"] for episode in episodes for item in episode["warnings"])
+    analyzed = [episode for episode in episodes if episode.get("status", "analyzed") == "analyzed"]
+    insufficient = [episode for episode in episodes if episode.get("status") == "insufficient_input"]
     return {"report_metadata": {"analysis_version": VERSION, "analysis_scope": "full_dataset" if all_episodes else "initial_representative_sample",
                                 "config": asdict(config), "method": "Contextual sentence embeddings with local semantic-similarity valleys.",
                                 "semantic_policy": "Labels are candidate vocabulary entries; model outputs are not observed facts."},
             "episodes": episodes, "topic_vocabulary": vocabulary(episodes),
-            "aggregate": {"processing": {"analyzed": len(episodes), "skipped": len(skipped), "failed": len(failed)},
-                          "topic_segments": {"broad_total": sum(len(item["broad_topics"]) for item in episodes), "subtopic_total": sum(len(item["subtopics"]) for item in episodes)},
-                          "shift_events": {"total": sum(len(item["topic_shift_events"]) for item in episodes),
-                                           "with_observed_interruption": sum(sum(event["interruption_observed"] for event in item["topic_shift_events"]) for item in episodes)},
+            "aggregate": {"processing": {"analyzed": len(analyzed), "insufficient_input": len(insufficient),
+                                         "skipped": len(skipped), "failed": len(failed)},
+                          "topic_segments": {"broad_total": sum(len(item["broad_topics"]) for item in analyzed), "subtopic_total": sum(len(item["subtopics"]) for item in analyzed)},
+                          "shift_events": {"total": sum(len(item["topic_shift_events"]) for item in analyzed),
+                                           "with_observed_interruption": sum(sum(event["interruption_observed"] for event in item["topic_shift_events"]) for item in analyzed)},
                           "quality_warning_counts": dict(sorted(warning_counts.items()))},
             "skipped": skipped, "failed": failed,
             "review_template": {"boundary_overrides": [{"video_id": "", "timestamp_s": None, "action": "add_or_remove", "rationale": ""}],
@@ -374,7 +411,8 @@ def main() -> None:
         json.dump(report, handle, ensure_ascii=False, indent=2, sort_keys=True, allow_nan=False)
         handle.write("\n")
     status = report["aggregate"]["processing"]
-    print(f"Topic analysis: {status['analyzed']} analyzed, {status['skipped']} skipped, {status['failed']} failed")
+    print(f"Topic analysis: {status['analyzed']} analyzed, {status['insufficient_input']} insufficient input, "
+          f"{status['skipped']} skipped, {status['failed']} failed")
     print(f"Report saved to {args.output}")
 
 
