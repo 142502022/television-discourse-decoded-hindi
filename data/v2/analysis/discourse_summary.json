@@ -22,7 +22,7 @@
     },
     "processing": {
       "failed": 0,
-      "skipped": 0,
+      "skipped": 1,
       "successfully_analyzed": 1
     },
     "quality_warning_counts": {
@@ -49,10 +49,10 @@
           "unavailable_reason": "No semantic agreement annotation/classifier."
         },
         "brief_backchannel": {
-          "count": 0,
+          "count": 5,
           "denominator_overlap_candidates": 403,
           "provenance": "rule_based",
-          "rate_per_minute": 0.0
+          "rate_per_minute": 0.042
         },
         "clean_turn_transfer": {
           "count": 442,
@@ -1612,5 +1612,11 @@
       "short_turn_s": 1.0
     }
   },
-  "skipped": []
+  "skipped": [
+    {
+      "path": "data/v2/videos/default-test/final.json",
+      "reason": "missing_final_json",
+      "video_id": "default-test"
+    }
+  ]
 }

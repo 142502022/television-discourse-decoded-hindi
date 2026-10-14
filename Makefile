@@ -33,7 +33,7 @@ else
 VIDEOS := $(VIDEO)
 endif
 
-.PHONY: all media asr diarize osd verify roster identity status clean py topics topic-analysis drift host
+.PHONY: all media asr diarize osd verify roster identity status clean py topics topic-analysis drift discourse discourse-review report host
 
 ## full pipeline (steps 1-10) for all videos
 all: media asr diarize osd verify link finalize
@@ -142,6 +142,22 @@ drift:
 	$(PY) topic_drift.py \
 		--topic-modeling data/v2/topic_analysis/topic_modeling.json \
 		--output data/v2/topic_analysis/interruption_topic_drift.json
+
+## analysis: discourse metric summary from final.json
+discourse:
+	$(PY) discourse_summary.py --videos-dir data/v2/videos \
+		--output data/v2/analysis/discourse_summary.json
+
+## analysis: independent re-derivation + structural validation of the summary
+##   depends on discourse_summary.json; emits discourse_summary_review.json
+discourse-review:
+	$(PY) discourse_review.py --videos-dir data/v2/videos \
+		--summary data/v2/analysis/discourse_summary.json \
+		--output data/v2/analysis/discourse_summary_review.json
+
+## integration: generate the pilot episode markdown report from all artifacts
+report:
+	$(PY) pilot_report.py --output PILOT_EPISODE_REPORT.md
 
 ## analysis: interpretable host/moderator identification for one episode
 ##   make host VIDEO=7dKqZ9ERgiQ REFERENCE=SPEAKER_24 TRIM=720

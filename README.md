@@ -152,6 +152,42 @@ python run_english_news_pipeline.py \
 
 The roster extraction and speaker-name linking fields are intentionally left empty until LLM extraction and manual evidence checks are performed.
 
+### V2 Pilot Analysis Layer
+
+A separate, artifact-producing analysis layer runs on top of the v2 `final.json`
+files. Each stage is versioned, writes one JSON artifact, and is driven by a
+`make` target. Run everything from the repository root with the Python 3.11
+virtualenv (`.venv`) active; use `make py` once to create it.
+
+```bash
+make py                 # create .venv and install pinned deps (once)
+make topics             # Phase 3: topic_modeling.json + topic_windows.json + topic_modeling_review.json
+make topic-analysis     # embedding-based topic boundary segmentation sample
+make drift              # Phase 5: interruption_topic_drift.json (needs topic_modeling.json)
+make discourse          # Phase 4: discourse_summary.json
+make discourse-review   # Phase 4: discourse_summary_review.json (needs discourse_summary.json)
+make host VIDEO=7dKqZ9ERgiQ REFERENCE=SPEAKER_24 TRIM=720   # Phase 2: host_identification.json
+make report             # Phase 6: regenerate PILOT_EPISODE_REPORT.md from all artifacts
+make test               # full unit-test suite
+```
+
+Artifacts produced (schemas are versioned in each file):
+
+| phase | module | artifact | schema |
+| --- | --- | --- | --- |
+| 1 | `pilot_episode_audit.json` (authored) | `pilot_episode_audit.json` | `pilot-audit-1.0` |
+| 2 | `v2/identity/host.py` + `v2/cli/host.py` | `data/v2/analysis/host_identification.json` | `host-identification-1.0` |
+| 3 | `topic_modeling.py` | `topic_modeling.json`, `topic_windows.json`, `topic_modeling_review.json` | `topic-windows-1.0`, `topic-modeling-review-1.0` |
+| 4 | `discourse_summary.py` + `discourse_review.py` | `discourse_summary.json`, `discourse_summary_review.json` | `2.0`, `discourse-summary-review-1.0` |
+| 5 | `topic_drift.py` | `interruption_topic_drift.json` | `interruption-topic-drift-1.0` |
+| 6 | `pilot_report.py` | `PILOT_EPISODE_REPORT.md` | — |
+
+Order matters: `drift` reads `topic_modeling.json`, and `discourse-review` reads
+`discourse_summary.json`. Topic labels, detected topic changes, and
+interruption-topic associations are candidate outputs, not validated ground
+truth; `discourse_review.py` re-derives the summary metrics independently and
+reports any mismatch.
+
 ## Citation
 Please consider citing the following paper when using our code and dataset.
 
