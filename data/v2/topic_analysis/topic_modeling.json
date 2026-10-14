@@ -1,15 +1,23 @@
 {
   "aggregate": {
     "broad_total": 0,
+    "dropped": {
+      "ad_trim": 0,
+      "bad_time": 0,
+      "low_logprob": 0,
+      "missing_text": 0,
+      "no_speech": 0
+    },
     "outlier_units": 0,
     "processing": {
       "analyzed": 0,
       "episodes": 0,
       "failed": 0,
-      "skipped": 1,
+      "skipped": 0,
       "units": 0
     },
-    "subtopic_total": 0
+    "subtopic_total": 0,
+    "trimmed_videos": []
   },
   "broad_topics": [],
   "episodes": [],
@@ -24,15 +32,19 @@
   "report_metadata": {
     "analysis_version": "0.1.0",
     "config": {
+      "drop_unreliable": true,
       "hdbscan_selection": "leaf",
       "language": "en",
+      "max_no_speech_prob": 0.6,
       "max_window_chars": 1500,
+      "min_avg_logprob": -1.0,
       "min_topic_size": 8,
       "min_window_seconds": 12.0,
       "model_name": "sentence-transformers/all-MiniLM-L6-v2",
       "n_broad_topics": 8,
       "random_state": 42,
       "reduce_outliers": true,
+      "trim_config": null,
       "umap_components": 5,
       "umap_neighbors": 15,
       "window_seconds": 45.0
@@ -59,13 +71,7 @@
       }
     ]
   },
-  "skipped": [
-    {
-      "language": "hi",
-      "reason": "language_filtered",
-      "video_id": "7dKqZ9ERgiQ"
-    }
-  ],
+  "skipped": [],
   "subtopics": [],
   "topic_vocabulary": {
     "entries": []

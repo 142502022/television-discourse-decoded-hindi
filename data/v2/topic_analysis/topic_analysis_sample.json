@@ -1,11 +1,13 @@
 {
   "aggregate": {
     "processing": {
-      "analyzed": 0,
+      "analyzed": 1,
       "failed": 0,
-      "skipped": 1
+      "skipped": 0
     },
-    "quality_warning_counts": {},
+    "quality_warning_counts": {
+      "insufficient_transcript_context": 1
+    },
     "shift_events": {
       "total": 0,
       "with_observed_interruption": 0
@@ -15,7 +17,29 @@
       "subtopic_total": 0
     }
   },
-  "episodes": [],
+  "episodes": [
+    {
+      "boundary_evidence": [],
+      "broad_topics": [],
+      "contextual_interruptions": [],
+      "five_minute_checkpoints": [],
+      "metadata": {
+        "duration_s": 7110.0,
+        "title": "Debate With Arnab LIVE: Nationalists Unite Against Anarchy, No Free Pass For CJP",
+        "video_id": "7dKqZ9ERgiQ"
+      },
+      "subtopics": [],
+      "topic_shift_events": [],
+      "units": [],
+      "warnings": [
+        {
+          "code": "insufficient_transcript_context",
+          "count": 1,
+          "message": "At least two timed segments are required"
+        }
+      ]
+    }
+  ],
   "failed": [],
   "limitations": [
     "English model baseline; non-English artifacts are filtered by default.",
@@ -66,13 +90,7 @@
       }
     ]
   },
-  "skipped": [
-    {
-      "language": "hi",
-      "reason": "language_filtered",
-      "video_id": "7dKqZ9ERgiQ"
-    }
-  ],
+  "skipped": [],
   "topic_vocabulary": {
     "consolidation_policy": "Exact duplicate labels are review suggestions; no semantic merge is automatic.",
     "entries": []
