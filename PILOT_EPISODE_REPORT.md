@@ -59,17 +59,15 @@ Proposed phases: phase_2_host_identification, phase_3_topic_review, phase_4_disc
 - trim config: `data/v2/topic_trims.json`
 - units: 124 | subtopics: 4 | broad: 4
 - dropped: {'ad_trim': 140, 'bad_time': 0, 'low_logprob': 0, 'missing_text': 0, 'no_speech': 0} | trimmed videos: ['7dKqZ9ERgiQ']
-- episode timeline runs: 35
+- episode timeline runs: 43
 - hierarchy: flat=yes (4 broad vs 4 subtopics)
 - review warnings: flat_hierarchy_no_gain, generic_label_terms_present
 
 ## Topic boundary segmentation sample
 
 - analyzed: 1 | insufficient input: 0 | skipped: 0 | failed: 0
-- broad segments: 0 | subtopic segments: 0
-- shift events: 0
-
-> **Stale/empty sample detected:** zero segments were produced. Regenerate with `make topic-analysis` (the artifact predates the `final.json` fix) before using it.
+- broad segments: 78 | subtopic segments: 208
+- shift events: 207
 
 ## Interruption -> topic drift (Phase 5)
 
@@ -77,16 +75,16 @@ Proposed phases: phase_2_host_identification, phase_3_topic_review, phase_4_disc
 
 | window | layer | interruption rate | base rate | lift |
 | --- | --- | --- | --- | --- |
-| 45 s | subtopic | 0.228 | 0.25 | -0.022 |
-| 45 s | broad | 0.228 | 0.25 | -0.022 |
-| 90 s | subtopic | 0.321 | 0.52 | -0.199 |
-| 90 s | broad | 0.321 | 0.52 | -0.199 |
+| 45 s | subtopic | 0.245 | 0.391 | -0.146 |
+| 45 s | broad | 0.245 | 0.391 | -0.146 |
+| 90 s | subtopic | 0.387 | 0.72 | -0.333 |
+| 90 s | broad | 0.387 | 0.72 | -0.333 |
 
 _Lift near zero or negative means interruptions did not precede topic changes more often than chance here; window coarseness and the OSD-only interruption list bound this result._
 
 ## Discourse metrics + validation (Phase 4)
 
-- episodes analyzed: 1 | skipped: 1
+- episodes analyzed: 1 | skipped: 0
 - duration: 7110 s | interruptions: 313 | overlap candidates: 403 | transitions: 866
 - re-derivation: 18/18 metrics matched (0 mismatched)
 - structural checks: out-of-order=0, zero-duration=0, duplicates=0, nested overlaps=10
