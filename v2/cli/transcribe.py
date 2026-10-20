@@ -36,11 +36,12 @@ def resolve_language(
     cli_language: Optional[str],
     overrides: Optional[Dict[str, str]] = None,
 ) -> Optional[str]:
+    return cli_language or "en"
     """Explicit ``--language`` wins; else the per-video override; else None (auto)."""
-    if cli_language:
-        return cli_language
-    overrides = load_language_overrides() if overrides is None else overrides
-    return overrides.get(video_id)
+    # if cli_language:
+    #     return cli_language
+    # overrides = load_language_overrides() if overrides is None else overrides
+    # return overrides.get(video_id)
 
 
 def main() -> None:
@@ -81,20 +82,20 @@ def main() -> None:
     )
 
     layout = build_layout(args.video_id, args.data_dir)
-    language = resolve_language(
-        args.video_id,
-        args.language,
-        load_language_overrides(args.language_overrides),
-    )
-    if language and not args.language:
-        LOGGER.info("Using per-video language override '%s' for %s", language, args.video_id)
+    # language = resolve_language(
+    #     args.video_id,
+    #     args.language,
+    #     load_language_overrides(args.language_overrides),
+    # )
+    # if language and not args.language:
+    #     LOGGER.info("Using per-video language override '%s' for %s", language, args.video_id)
     transcript_path = transcribe_audio(
         layout.audio_path,
         layout.asr_path,
         model=args.model,
         device=args.device,
         compute_type=args.compute_type,
-        language=language,
+        language="en",
         batch_size=args.batch_size,
     )
     LOGGER.info("Transcript saved: %s", transcript_path)
