@@ -10,9 +10,13 @@ import argparse
 import json
 from pathlib import Path
 
-DEFAULT_INPUT = Path("data/v2/videos/eiY9KJ2SHnA/final.json")
+# Resolve project data directory relative to this script.
+SCRIPT_DIR = Path(__file__).resolve().parent
+PROJECT_DIR = SCRIPT_DIR.parent
+VIDEOS_DIR = PROJECT_DIR /"data" /"v2" / "videos"
+
 DEFAULT_WINDOW_SECONDS = 3.0
-DEFAULT_HOST_SPEAKER = "SPEAKER_02"  # Manually confirmed for this episode.
+DEFAULT_HOST_SPEAKER = None  # Prefer per-video host_identification.json.
 
 
 def as_number(value):
@@ -58,23 +62,44 @@ def build_artifact(data, input_path, window_seconds, host_speaker):
         if overlap_start is None or overlap_end is None or overlap_end <= overlap_start:
             continue
 
+        # Existing post-overlap window: 3 seconds after overlap ends
         window_start = overlap_end
         window_end = window_start + window_seconds
+
+        # NEW: Pre-overlap window: 3 seconds before overlap starts
+        pre_window_start = max(0.0, overlap_start - window_seconds)
+        pre_window_end = overlap_start
+
+        
         events = []
+        pre_overlap_events = []
+
         for segment in segments:
-            # Include any transcript segment intersecting [window_start, window_end).
-            # Keep the full source segment text/timestamps; flags show partial overlap.
-            if segment["start"] < window_end and segment["end"] > window_start:
-                starts_in_window = segment["start"] >= window_start and segment["start"] < window_end
-                active_at_window_start = segment["start"] < window_start < segment["end"]
-                events.append({
+
+            # ==========================================
+            # PRE-OVERLAP: 3 seconds BEFORE overlap
+            # ==========================================
+            if (segment["start"] < pre_window_end and segment["end"] > pre_window_start):
+                pre_overlap_events.append({
                     "speaker": segment["speaker"],
                     "start": round(segment["start"], 3),
                     "end": round(segment["end"], 3),
                     "text": segment["text"],
-                    "starts_in_window": starts_in_window,
-                    "active_at_window_start": active_at_window_start,
-                    "extends_beyond_window": segment["end"] > window_end,
+
+                    "starts_in_window": (
+                        segment["start"] >= pre_window_start
+                        and segment["start"] < pre_window_end
+                    ),
+
+                    "active_at_window_end": (
+                        segment["start"] < pre_window_end
+                        and segment["end"] > pre_window_end
+                    ),
+
+                    "extends_before_window": (
+                        segment["start"] < pre_window_start
+                    ),
+
                     "utterance_form": None,
                     "conversational_function": None,
                     "target_speaker": None,
@@ -83,6 +108,68 @@ def build_artifact(data, input_path, window_seconds, host_speaker):
                     "classification_status": "pending",
                 })
 
+            # ==========================================
+            # POST-OVERLAP: 3 seconds AFTER overlap
+            # ==========================================
+            if (segment["start"] < window_end and segment["end"] > window_start):
+                starts_in_window = (
+                    segment["start"] >= window_start
+                    and segment["start"] < window_end
+                )
+
+                active_at_window_start = (
+                    segment["start"] < window_start
+                    and segment["end"] > window_start
+                )
+
+                events.append({
+                    "speaker": segment["speaker"],
+                    "start": round(segment["start"], 3),
+                    "end": round(segment["end"], 3),
+                    "text": segment["text"],
+                    "starts_in_window": starts_in_window,
+                    "active_at_window_start": active_at_window_start,
+                    "extends_beyond_window": segment["end"] > window_end,
+
+                    "utterance_form": None,
+                    "conversational_function": None,
+                    "target_speaker": None,
+                    "classification_evidence": [],
+                    "classification_confidence": None,
+                    "classification_status": "pending",
+                })
+
+         # Maintain chronological order
+        pre_overlap_events.sort(
+            key=lambda event: (
+                event["start"],
+                event["end"],
+                event["speaker"]
+            )
+        )
+        # Identify the speaker whose segment ends closest to the overlap start.
+        preceding_segments = [
+            segment for segment in segments
+            if segment["end"] <= overlap_start
+        ]
+
+        immediately_preceding_speaker = None
+
+        if preceding_segments:
+            last_segment = max(
+                preceding_segments,
+                key=lambda segment: (
+                    segment["end"],
+                    segment["start"]
+                )
+            )
+
+            immediately_preceding_speaker = {
+                "speaker": last_segment["speaker"],
+                "start": round(last_segment["start"], 3),
+                "end": round(last_segment["end"], 3),
+                "text": last_segment["text"],
+            }
         events.sort(key=lambda event: (event["start"], event["end"], event["speaker"]))
         active_at_start = [event for event in events if event["active_at_window_start"]]
         new_entries = [event for event in events if event["starts_in_window"]]
@@ -121,9 +208,26 @@ def build_artifact(data, input_path, window_seconds, host_speaker):
                 "confidence": overlap.get("confidence"),
             },
             "window_seconds": window_seconds,
+
+            # Existing post-overlap window
             "window_start": round(window_start, 3),
             "window_end": round(window_end, 3),
             "speech_events": events,
+
+            # NEW: Pre-overlap window
+            "pre_overlap_window": {
+                "start": round(pre_window_start, 3),
+                "end": round(pre_window_end, 3),
+                "duration": round(
+                    pre_window_end - pre_window_start, 3
+                ),
+            },
+
+            "pre_overlap_speaker_sequence": pre_overlap_events,
+
+            "immediately_preceding_speaker": (
+                immediately_preceding_speaker
+            ),
             "observations": {
                 "speech_event_count": len(events),
                 "speakers_in_window": list(dict.fromkeys(event["speaker"] for event in events)),
@@ -201,38 +305,112 @@ def build_artifact(data, input_path, window_seconds, host_speaker):
     }
 
 
-def main():
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--input", type=Path, default=DEFAULT_INPUT, help="Path to episode final.json")
-    parser.add_argument("--output", type=Path, default=None, help="Output JSON path; defaults beside input")
-    parser.add_argument("--window-seconds", type=float, default=DEFAULT_WINDOW_SECONDS)
-    parser.add_argument("--host-speaker", default=DEFAULT_HOST_SPEAKER)
-    args = parser.parse_args()
+def extract_host_speaker(host_data):
+    """Find a host speaker label in host_identification.json."""
+    preferred_keys = (
+        "host_speaker", "identified_host", "predicted_host",
+        "predicted_host_speaker", "host", "speaker_id",
+    )
 
-    if args.window_seconds <= 0:
-        raise SystemExit("--window-seconds must be greater than zero")
-    if not args.input.is_file():
-        raise SystemExit(f"Input file not found: {args.input.resolve()}")
+    def walk(obj):
+        if isinstance(obj, dict):
+            for key in preferred_keys:
+                value = obj.get(key)
+                if isinstance(value, str) and value.strip().startswith("SPEAKER_"):
+                    return value.strip()
+                if isinstance(value, dict):
+                    for nested_key in ("speaker", "speaker_id", "label", "id"):
+                        nested_value = value.get(nested_key)
+                        if isinstance(nested_value, str) and nested_value.strip().startswith("SPEAKER_"):
+                            return nested_value.strip()
+            for value in obj.values():
+                found = walk(value)
+                if found:
+                    return found
+        elif isinstance(obj, list):
+            for value in obj:
+                found = walk(value)
+                if found:
+                    return found
+        return None
 
-    with args.input.open("r", encoding="utf-8") as handle:
-        data = json.load(handle)
+    return walk(host_data)
 
-    artifact = build_artifact(data, args.input, args.window_seconds, args.host_speaker)
-    output = args.output or args.input.parent / "overlap_followup_analysis.json"
-    output.parent.mkdir(parents=True, exist_ok=True)
-    with output.open("w", encoding="utf-8") as handle:
+
+def process_video(video_dir, window_seconds, host_override=None):
+    input_path = video_dir / "final.json"
+
+    host_path = (
+        video_dir
+        / "host_identification"
+        / "host_identification.json"
+    )
+
+    output_path = video_dir / "overlap_followup_analysis.json"
+
+    if not input_path.is_file():
+        print(f"[SKIP] {video_dir.name}: missing final.json")
+        return False
+
+    if host_override:
+        host_speaker = host_override
+    elif host_path.is_file():
+        try:
+            with host_path.open("r", encoding="utf-8") as handle:
+                host_data = json.load(handle)
+            host_speaker = extract_host_speaker(host_data)
+        except (json.JSONDecodeError, OSError) as exc:
+            print(f"[SKIP] {video_dir.name}: could not read host file ({exc})")
+            return False
+    else:
+        host_speaker = None
+
+    if not host_speaker:
+        print(f"[SKIP] {video_dir.name}: host speaker not found in host_identification.json")
+        return False
+
+    try:
+        with input_path.open("r", encoding="utf-8") as handle:
+            data = json.load(handle)
+    except (json.JSONDecodeError, OSError) as exc:
+        print(f"[SKIP] {video_dir.name}: could not read final.json ({exc})")
+        return False
+
+    artifact = build_artifact(data, input_path, window_seconds, host_speaker)
+    with output_path.open("w", encoding="utf-8") as handle:
         json.dump(artifact, handle, indent=2, ensure_ascii=False)
         handle.write("\n")
 
     total_events = sum(len(item["speech_events"]) for item in artifact["overlap_events"])
     no_speech = sum(item["observations"]["no_speech_in_window"] for item in artifact["overlap_events"])
     host_spoke = sum(item["observations"]["host_spoke_in_window"] for item in artifact["overlap_events"])
-    print(f"Episode: {artifact['source']['video_id']} — {artifact['source']['title']}")
-    print(f"Overlap events processed: {artifact['source']['overlap_count_processed']}")
-    print(f"Speech events extracted: {total_events}")
-    print(f"Windows with host speech: {host_spoke}")
-    print(f"Windows with no speech: {no_speech}")
-    print(f"Output: {output.resolve()}")
+    print(f"[DONE] {video_dir.name} — {artifact['source'].get('title')}")
+    print(f"       Host: {host_speaker}")
+    print(f"       Overlaps processed: {artifact['source']['overlap_count_processed']}")
+    print(f"       Speech events: {total_events}; host speech windows: {host_spoke}; empty windows: {no_speech}")
+    print(f"       Output: {output_path}")
+    return True
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--window-seconds",
+        type=float,
+        default=DEFAULT_WINDOW_SECONDS
+    )
+    args = parser.parse_args()
+
+    if not VIDEOS_DIR.exists():
+        raise SystemExit(f"Videos directory not found: {VIDEOS_DIR}")
+
+    video_dirs = sorted(
+        path for path in VIDEOS_DIR.iterdir()
+        if path.is_dir()
+    )
+
+    for video_dir in video_dirs:
+        process_video(video_dir, args.window_seconds)
 
 
 if __name__ == "__main__":
