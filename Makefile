@@ -149,7 +149,7 @@ analysis: analysis-followup \
 analysis-followup: finalize
 	@echo "===== Overlap Follow-up Analysis ====="
 	@for v in $(VIDEOS); do \
-		$(PY) $(ANALYSIS_DIR)/overlap_followup_analysis.py \
+		$(PY) $(ANALYSIS_DIR)/build_overlap_followup_analysis.py \
 			--video-id "$$v" || exit 1; \
 	done
 
@@ -158,7 +158,7 @@ analysis-followup: finalize
 analysis-classification: analysis-followup
 	@echo "===== Overlap Follow-up Classification ====="
 	@for v in $(VIDEOS); do \
-		$(PY) $(ANALYSIS_DIR)/build_overlap_followup.py \
+		$(PY) $(ANALYSIS_DIR)/build_overlap_followup_analysis.py \
 			--video-id "$$v" || exit 1; \
 	done
 
@@ -167,7 +167,7 @@ analysis-classification: analysis-followup
 analysis-turn-gap: finalize
 	@echo "===== Turn Gap Analysis ====="
 	@for v in $(VIDEOS); do \
-		$(PY) $(ANALYSIS_DIR)/turn_gap_analysis.py \
+		$(PY) $(ANALYSIS_DIR)/build_turn_gap_analysis.py \
 			--video-id "$$v" || exit 1; \
 	done
 
@@ -176,7 +176,7 @@ analysis-turn-gap: finalize
 analysis-clusters: analysis-classification analysis-turn-gap
 	@echo "===== Overlap Cluster Analysis ====="
 	@for v in $(VIDEOS); do \
-		$(PY) $(ANALYSIS_DIR)/overlap_cluster_analysis.py \
+		$(PY) $(ANALYSIS_DIR)/build_cluster_analysis.py \
 			--video-id "$$v" || exit 1; \
 	done
 
