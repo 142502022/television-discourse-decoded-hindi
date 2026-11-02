@@ -1,0 +1,173 @@
+{
+  "detector": {
+    "model": "pyannote/segmentation-3.0",
+    "device": "cpu"
+  },
+  "regions": [
+    {
+      "start": 480.698,
+      "end": 485.457
+    },
+    {
+      "start": 649.297,
+      "end": 651.676
+    },
+    {
+      "start": 698.673,
+      "end": 700.765
+    },
+    {
+      "start": 863.862,
+      "end": 866.022
+    }
+  ],
+  "events": [
+    {
+      "start": 480.698,
+      "end": 485.457,
+      "duration": 4.759,
+      "speakers": [
+        "SPEAKER_01",
+        "SPEAKER_02"
+      ],
+      "interrupter": "SPEAKER_02"
+    },
+    {
+      "start": 649.297,
+      "end": 651.676,
+      "duration": 2.379,
+      "speakers": [
+        "SPEAKER_00",
+        "SPEAKER_02"
+      ],
+      "interrupter": "SPEAKER_00"
+    },
+    {
+      "start": 698.673,
+      "end": 700.765,
+      "duration": 2.092,
+      "speakers": [
+        "SPEAKER_00",
+        "SPEAKER_01"
+      ],
+      "interrupter": "SPEAKER_01"
+    },
+    {
+      "start": 863.862,
+      "end": 866.022,
+      "duration": 2.16,
+      "speakers": [
+        "SPEAKER_01",
+        "SPEAKER_02"
+      ],
+      "interrupter": null
+    }
+  ],
+  "interruptions": [
+    {
+      "start": 480.698,
+      "end": 485.457,
+      "duration": 4.759,
+      "speakers": [
+        "SPEAKER_01",
+        "SPEAKER_02"
+      ],
+      "interrupter": "SPEAKER_02"
+    },
+    {
+      "start": 649.297,
+      "end": 651.676,
+      "duration": 2.379,
+      "speakers": [
+        "SPEAKER_00",
+        "SPEAKER_02"
+      ],
+      "interrupter": "SPEAKER_00"
+    },
+    {
+      "start": 698.673,
+      "end": 700.765,
+      "duration": 2.092,
+      "speakers": [
+        "SPEAKER_00",
+        "SPEAKER_01"
+      ],
+      "interrupter": "SPEAKER_01"
+    }
+  ],
+  "stats": {
+    "total_duration_s": 998.288,
+    "overlap_seconds": 11.3900000000001,
+    "num_regions": 4,
+    "mean_overlap_s": 0.903,
+    "max_overlap_s": 4.759,
+    "num_interruptions": 3,
+    "by_pair": [
+      {
+        "pair": [
+          "SPEAKER_00",
+          "SPEAKER_01"
+        ],
+        "seconds": 5.232,
+        "count": 7
+      },
+      {
+        "pair": [
+          "SPEAKER_00",
+          "SPEAKER_01",
+          "SPEAKER_02"
+        ],
+        "seconds": 0.422,
+        "count": 1
+      },
+      {
+        "pair": [
+          "SPEAKER_00",
+          "SPEAKER_02"
+        ],
+        "seconds": 14.245,
+        "count": 18
+      },
+      {
+        "pair": [
+          "SPEAKER_01",
+          "SPEAKER_02"
+        ],
+        "seconds": 12.572,
+        "count": 9
+      }
+    ],
+    "interruptions_by_pair": [
+      {
+        "interrupter": "SPEAKER_00",
+        "victim": "SPEAKER_01",
+        "seconds": 0.355,
+        "count": 2
+      },
+      {
+        "interrupter": "SPEAKER_00",
+        "victim": "SPEAKER_02",
+        "seconds": 3.73,
+        "count": 4
+      },
+      {
+        "interrupter": "SPEAKER_01",
+        "victim": "SPEAKER_00",
+        "seconds": 4.877,
+        "count": 5
+      },
+      {
+        "interrupter": "SPEAKER_02",
+        "victim": "SPEAKER_00",
+        "seconds": 8.625,
+        "count": 13
+      },
+      {
+        "interrupter": "SPEAKER_02",
+        "victim": "SPEAKER_01",
+        "seconds": 10.109,
+        "count": 7
+      }
+    ]
+  }
+}
