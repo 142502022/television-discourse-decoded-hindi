@@ -57,6 +57,8 @@ class VideoPaths:
     candidates_path: Path
     followup_path: Path
     final_path: Path
+    merge_final_path: Path
+    merge_overlap_path: Path
 
 
 @dataclass(frozen=True)
@@ -80,6 +82,8 @@ def get_video_paths(video_id: str, videos_dir: Path = VIDEOS_DIR) -> VideoPaths:
         candidates_path=video_dir / "osd" / "candidates.json",
         followup_path=video_dir / "overlapped" / "overlap_followup_analysis.json",
         final_path=video_dir / "final.json",
+        merge_final_path=video_dir / "merge_final.json",
+        merge_overlap_path=video_dir / "merge_overlap.json",
     )
 
 
@@ -192,20 +196,16 @@ def filter_records(
 # ---------------------------------------------------------------------
 
 def filter_overlap_json(
-    data: Dict[str, Any], threshold: float
+    data: Dict[str, Any],
+    removed_identities: List[Tuple[float, float]],
 ) -> Tuple[Dict[str, Any], List[Dict[str, Any]]]:
+    """Filter legacy overlap.json records using original constituent timestamps."""
     if not isinstance(data, dict) or not isinstance(data.get("regions"), list):
         raise ValueError("overlap.json must contain a dictionary with a 'regions' list.")
 
     kept, removed = [], []
     for region in data["regions"]:
-        start, end = get_start(region), get_end(region)
-        if start is None or end is None:
-            LOGGER.warning("Region missing valid start/end; retaining: %r", region)
-            kept.append(region)
-            continue
-        duration = get_duration(region)
-        if duration is not None and duration <= threshold:
+        if matches_any_identity(region, removed_identities):
             removed.append(region)
         else:
             kept.append(region)
@@ -213,6 +213,52 @@ def filter_overlap_json(
     result = copy.deepcopy(data)
     result["regions"] = kept
     return result, removed
+
+
+def get_merged_overlap_regions(data: Dict[str, Any]) -> List[Dict[str, Any]]:
+    """Extract merged OSD overlap regions from merge_overlap.json."""
+    osd = data.get("osd", {})
+    regions = osd.get("overlap_regions", []) if isinstance(osd, dict) else []
+    if not isinstance(regions, list):
+        raise ValueError("merge_overlap.json: osd.overlap_regions must be a list.")
+    return regions
+
+
+def get_constituent_identities(region: Dict[str, Any]) -> List[Tuple[float, float]]:
+    """Get original timestamp identities represented by a merged region."""
+    constituents = region.get("source_regions")
+    if not isinstance(constituents, list) or not constituents:
+        pair = identity(region)
+        return [pair] if pair is not None else []
+
+    identities = []
+    for source_region in constituents:
+        pair = identity(source_region)
+        if pair is not None:
+            identities.append(pair)
+    return identities
+
+
+def filter_merged_osd_regions(
+    regions: List[Dict[str, Any]], threshold: float,
+) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]], List[Tuple[float, float]]]:
+    """Filter merged OSD events by merged interval duration (end-start)."""
+    kept, removed, removed_source_identities = [], [], []
+
+    for region in regions:
+        start, end = get_start(region), get_end(region)
+        if start is None or end is None:
+            LOGGER.warning("Merged OSD region has invalid timestamps; retaining: %r", region)
+            kept.append(region)
+            continue
+
+        if (end - start) <= threshold:
+            removed.append(region)
+            removed_source_identities.extend(get_constituent_identities(region))
+        else:
+            kept.append(region)
+
+    return kept, removed, removed_source_identities
 
 
 # ---------------------------------------------------------------------
@@ -323,6 +369,7 @@ def regenerate_final_json(
     paths: ThresholdPaths,
     threshold: float,
     removed_count: int,
+    merge_final_path: Path,
 ) -> Dict[str, Any]:
     """
     Reuse original metadata/ASR/diarization/identity inputs, but point the
@@ -343,11 +390,33 @@ def regenerate_final_json(
     )
 
     final_data = build_final(layout_for_finalizer)
+
+    # Load merged speaker turns from merge_final.json
+    merged_data = load_json(
+        merge_final_path
+    )
+
+    # Replace speaker_turns with merged version
+    final_data["speaker_turns"] = copy.deepcopy(
+        merged_data["speaker_turns"]
+    )
+    # Use the merged OSD overlap regions as the threshold-specific source too.
+    merge_overlap_data = load_json(
+        paths.output_dir.parent / "merge_overlap.json"
+    )
+    merged_osd_regions = get_merged_overlap_regions(merge_overlap_data)
+    kept_osd_regions, _, _ = filter_merged_osd_regions(
+        merged_osd_regions, threshold
+    )
+    if isinstance(final_data.get("osd"), dict):
+        final_data["osd"]["overlap_regions"] = copy.deepcopy(kept_osd_regions)
+    else:
+        final_data["osd"] = {"overlap_regions": copy.deepcopy(kept_osd_regions)}
     final_data["preprocessing"] = {
         "method": "overlap_duration_threshold_filtering",
         "overlap_threshold_seconds": threshold,
         "removed_overlap_regions": removed_count,
-        "rule": f"Removed overlap regions with duration <= {threshold:.1f} seconds.",
+        "rule": f"Removed merged OSD overlap intervals with duration <= {threshold:.1f} seconds.",
         "timestamp_match_tolerance_seconds": TIMESTAMP_TOLERANCE,
     }
     save_json(final_data, paths.final_path)
@@ -371,6 +440,8 @@ def process_threshold(
         video_paths.analysis_path,
         video_paths.candidates_path,
         video_paths.followup_path,
+        video_paths.merge_final_path,
+        video_paths.merge_overlap_path,
     )
     missing = [p for p in required if not p.is_file()]
     if missing:
@@ -385,16 +456,23 @@ def process_threshold(
         import shutil
         shutil.rmtree(paths.output_dir)
 
-    # Read ORIGINAL files (not outputs from any other threshold).
+    # Load source artifacts plus the two merged inputs.
     original_overlap = load_json(video_paths.overlap_path)
     original_analysis = load_json(video_paths.analysis_path)
     original_candidates = load_json(video_paths.candidates_path)
     original_followup = load_json(video_paths.followup_path)
+    merge_overlap_data = load_json(video_paths.merge_overlap_path)
 
-    filtered_overlap, removed_regions = filter_overlap_json(original_overlap, threshold)
-    removed_identities = [
-        pair for region in removed_regions if (pair := identity(region)) is not None
-    ]
+    merged_osd_regions = get_merged_overlap_regions(merge_overlap_data)
+    kept_merged_regions, removed_merged_regions, removed_identities = (
+        filter_merged_osd_regions(merged_osd_regions, threshold)
+    )
+
+    # Filter records by original constituent event timestamps belonging to
+    # merged OSD intervals removed by this threshold.
+    filtered_overlap, removed_overlap_records = filter_overlap_json(
+        original_overlap, removed_identities
+    )
 
     filtered_analysis = filter_analysis_json(original_analysis, removed_identities)
     filtered_candidates = filter_candidates_json(original_candidates, removed_identities)
@@ -411,11 +489,12 @@ def process_threshold(
         original_layout=original_layout,
         paths=paths,
         threshold=threshold,
-        removed_count=len(removed_regions),
+        removed_count=len(removed_merged_regions),
+        merge_final_path=video_paths.merge_final_path,
     )
 
-    original_regions_count = len(original_overlap.get("regions", []))
-    retained_regions_count = len(filtered_overlap.get("regions", []))
+    original_regions_count = len(merged_osd_regions)
+    retained_regions_count = len(kept_merged_regions)
     original_candidates_count = len(original_candidates.get("candidates", []))
     retained_candidates_count = len(filtered_candidates.get("candidates", []))
 
@@ -424,7 +503,7 @@ def process_threshold(
         "threshold_seconds": threshold,
         "status": "success",
         "overlap_regions_before": original_regions_count,
-        "overlap_regions_removed": len(removed_regions),
+        "overlap_regions_removed": len(removed_merged_regions),
         "overlap_regions_remaining": retained_regions_count,
         "candidates_before": original_candidates_count,
         "candidates_removed": original_candidates_count - retained_candidates_count,
@@ -440,7 +519,7 @@ def process_threshold(
         threshold,
         original_regions_count,
         retained_regions_count,
-        len(removed_regions),
+        len(removed_merged_regions),
         original_candidates_count,
         retained_candidates_count,
         paths.output_dir,
@@ -487,6 +566,8 @@ def main() -> None:
     )
 
     video_paths = get_video_paths(args.video_id, args.data_dir)
+    if not video_paths.merge_final_path.is_file():
+        raise FileNotFoundError(f"merge_final.json not found: {video_paths.merge_final_path}")
     if not video_paths.video_dir.is_dir():
         raise FileNotFoundError(f"Video directory not found: {video_paths.video_dir}")
 
