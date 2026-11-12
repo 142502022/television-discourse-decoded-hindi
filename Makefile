@@ -1,266 +1,88 @@
+# Five-stage Hindi TV debate analysis pipeline.
+# Source of truth: analysis/run_variant_pipeline.py and
+# analysis/build_five_stage_comparison.py, not the legacy Make targets.
 
-# Television Discourse Decoded — V2 + MTP Analysis Pipeline
+PYTHON ?= .venv/bin/python
+DATA_DIR := data/v2/videos
+IDS_FILE := ids.json
+LOG_DIR := logs
+VIDEO_ID ?=
+OVERWRITE ?= 0
+OVERWRITE_FLAG := $(if $(filter 1 yes true,$(OVERWRITE)),--overwrite,)
+IDS := $(shell $(PYTHON) -c 'import json; print(" ".join(x for x in json.load(open("$(IDS_FILE)")) if isinstance(x, str) and x.strip()))')
 
-PY    := .venv/bin/python
-IDS   := $(shell $(PY) -c "import json;print(' '.join(json.load(open('ids.json'))))" 2>/dev/null)
+.DEFAULT_GOAL := help
+.PHONY: help list check original baseline threshold-0.5 threshold-1.0 threshold-2.0 thresholds compare run all clean-generated summary
 
-ifeq ($(strip $(IDS)),)
-$(error ids.json not found or not a JSON list; expected ["id1","id2",...])
-endif
+help:
+	@echo "Five-stage Hindi TV debate analysis"
+	@echo "  make list"
+	@echo "  make check [VIDEO_ID=<id>]"
+	@echo "  make original|baseline|threshold-0.5|threshold-1.0|threshold-2.0 VIDEO_ID=<id>"
+	@echo "  make run VIDEO_ID=<id> [OVERWRITE=1]"
+	@echo "  make all [OVERWRITE=1]"
+	@echo "  make compare VIDEO_ID=<id>"
+	@echo "OVERWRITE=1 replaces generated baseline/threshold directories only; it never writes root final.json or source ASR/OSD artifacts."
 
-VIDEO ?=
-ifeq ($(strip $(VIDEO)),)
-VIDEOS := $(IDS)
-else
-VIDEOS := $(VIDEO)
-endif
+list:
+	@$(PYTHON) -c 'import json; [print(v) for v in json.load(open("$(IDS_FILE)")) if isinstance(v, str) and v.strip()]'
 
-ANALYSIS_DIR := analysis
-VIDEOS_DIR   := data/v2/videos
+check:
+	@$(PYTHON) -c 'import json, pathlib, sys; ids=["$(VIDEO_ID)"] if "$(VIDEO_ID)" else json.load(open("$(IDS_FILE)")); missing=[v for v in ids if not (pathlib.Path("$(DATA_DIR)")/v/"final.json").is_file()]; print("Checking", len(ids), "video(s)"); print("Missing final.json:", ", ".join(missing) if missing else "none"); sys.exit(bool(missing))'
+	@test -f analysis/run_variant_pipeline.py
+	@test -f analysis/build_five_stage_comparison.py
 
-.PHONY: all all12 media asr diarize osd verify roster identity \
-        validate link finalize chunk labelstudio status \
-        analysis analysis-followup analysis-classification \
-        analysis-turn-gap analysis-clusters analysis-final \
-        analysis-numeric topics topic-analysis drift discourse \
-        discourse-review report host test py clean
+# S1 is the immutable root final.json plus its root analysis artifacts.
+original: check
+	@echo "S1 source validation complete; original final.json is read-only."
 
-# ============================================================
-# FULL PIPELINE
-# ============================================================
+# S2 only. --thresholds with no values asks the runner for baseline only.
+baseline: check
+	@test -n "$(VIDEO_ID)" || (echo "ERROR: specify VIDEO_ID=<id>"; exit 2)
+	@mkdir -p $(LOG_DIR)/$(VIDEO_ID)
+	@$(PYTHON) analysis/run_variant_pipeline.py --data-dir $(DATA_DIR) --video-id $(VIDEO_ID) --thresholds $(OVERWRITE_FLAG) 2>&1 | tee $(LOG_DIR)/$(VIDEO_ID)/baseline.log
 
-# Run the entire pipeline for all videos in ids.json
-all: media asr diarize osd verify link finalize analysis
+# Each threshold starts from root source artifacts; no threshold reads another threshold.
+threshold-0.5: check
+	@test -n "$(VIDEO_ID)" || (echo "ERROR: specify VIDEO_ID=<id>"; exit 2)
+	@mkdir -p $(LOG_DIR)/$(VIDEO_ID)
+	@$(PYTHON) analysis/run_variant_pipeline.py --data-dir $(DATA_DIR) --video-id $(VIDEO_ID) --thresholds 0.5 $(OVERWRITE_FLAG) 2>&1 | tee $(LOG_DIR)/$(VIDEO_ID)/threshold_0.5.log
 
-# Run the pipeline for one video:
-# make all VIDEO=VIDEO_ID
+threshold-1.0: check
+	@test -n "$(VIDEO_ID)" || (echo "ERROR: specify VIDEO_ID=<id>"; exit 2)
+	@mkdir -p $(LOG_DIR)/$(VIDEO_ID)
+	@$(PYTHON) analysis/run_variant_pipeline.py --data-dir $(DATA_DIR) --video-id $(VIDEO_ID) --thresholds 1.0 $(OVERWRITE_FLAG) 2>&1 | tee $(LOG_DIR)/$(VIDEO_ID)/threshold_1.0.log
 
-# Original pipeline through Label Studio
-all12: media asr diarize osd verify link finalize chunk labelstudio
+threshold-2.0: check
+	@test -n "$(VIDEO_ID)" || (echo "ERROR: specify VIDEO_ID=<id>"; exit 2)
+	@mkdir -p $(LOG_DIR)/$(VIDEO_ID)
+	@$(PYTHON) analysis/run_variant_pipeline.py --data-dir $(DATA_DIR) --video-id $(VIDEO_ID) --thresholds 2.0 $(OVERWRITE_FLAG) 2>&1 | tee $(LOG_DIR)/$(VIDEO_ID)/threshold_2.0.log
 
+thresholds: check
+	@test -n "$(VIDEO_ID)" || (echo "ERROR: specify VIDEO_ID=<id>"; exit 2)
+	@mkdir -p $(LOG_DIR)/$(VIDEO_ID)
+	@$(PYTHON) analysis/run_variant_pipeline.py --data-dir $(DATA_DIR) --video-id $(VIDEO_ID) --thresholds 0.5 1.0 2.0 $(OVERWRITE_FLAG) 2>&1 | tee $(LOG_DIR)/$(VIDEO_ID)/thresholds.log
 
-# ============================================================
-# V2 CORE PIPELINE
-# ============================================================
+compare: check
+	@test -n "$(VIDEO_ID)" || (echo "ERROR: specify VIDEO_ID=<id>"; exit 2)
+	@mkdir -p $(LOG_DIR)/$(VIDEO_ID)
+	@$(PYTHON) analysis/build_five_stage_comparison.py --data-dir $(DATA_DIR) --video-id $(VIDEO_ID) 2>&1 | tee $(LOG_DIR)/$(VIDEO_ID)/comparison.log
+	@test -s $(DATA_DIR)/$(VIDEO_ID)/comparison/five_stage_comparison.json
 
-# Step 1: Download video + metadata
-media:
-	@for v in $(VIDEOS); do \
-		$(PY) -m v2.cli.prepare_media --video-id "$$v" || exit 1; \
-	done
+run: check
+	@test -n "$(VIDEO_ID)" || (echo "ERROR: specify VIDEO_ID=<id>"; exit 2)
+	@mkdir -p $(LOG_DIR)/$(VIDEO_ID)
+	@$(PYTHON) analysis/run_variant_pipeline.py --data-dir $(DATA_DIR) --video-id $(VIDEO_ID) --thresholds 0.5 1.0 2.0 $(OVERWRITE_FLAG) 2>&1 | tee $(LOG_DIR)/$(VIDEO_ID)/run.log
+	@$(PYTHON) analysis/build_five_stage_comparison.py --data-dir $(DATA_DIR) --video-id $(VIDEO_ID) 2>&1 | tee $(LOG_DIR)/$(VIDEO_ID)/comparison.log
+	@test -s $(DATA_DIR)/$(VIDEO_ID)/comparison/five_stage_comparison.json
 
-# Step 2: ASR transcription
-asr:
-	@for v in $(VIDEOS); do \
-		$(PY) -m v2.cli.transcribe --video-id "$$v" || exit 1; \
-	done
+all: check
+	@set -e; total=0; ok=0; failed=''; for id in $(IDS); do total=$$((total+1)); echo "[$$total] $$id"; if $(MAKE) --no-print-directory run VIDEO_ID=$$id OVERWRITE=$(OVERWRITE); then ok=$$((ok+1)); else failed="$$failed $$id"; fi; done; echo "Completed $$ok/$$total; failed:$${failed:- none}"; test -z "$$failed"
 
-# Step 3: Speaker diarization
-diarize:
-	@test -n "$$HF_TOKEN" || { echo "ERROR: set HF_TOKEN"; exit 1; }
-	@for v in $(VIDEOS); do \
-		$(PY) -m v2.cli.diarize --video-id "$$v" || exit 1; \
-	done
+summary:
+	@$(PYTHON) -c 'import json, pathlib, datetime; ids=json.load(open("$(IDS_FILE)")); rows=[{"video_id":v,"comparison_exists":(pathlib.Path("$(DATA_DIR)")/v/"comparison/five_stage_comparison.json").is_file()} for v in ids]; pathlib.Path("$(LOG_DIR)").mkdir(exist_ok=True); json.dump({"generated_at_utc":datetime.datetime.now(datetime.timezone.utc).isoformat(),"videos":rows},open("$(LOG_DIR)/pipeline_summary.json","w"),indent=2); print("Wrote $(LOG_DIR)/pipeline_summary.json")'
 
-# Step 4: Overlapping Speech Detection
-osd:
-	@test -n "$$HF_TOKEN" || { echo "ERROR: set HF_TOKEN"; exit 1; }
-	@for v in $(VIDEOS); do \
-		$(PY) -m v2.cli.osd --video-id "$$v" || exit 1; \
-	done
-
-# Step 5: Reconcile OSD and diarization
-verify:
-	@for v in $(VIDEOS); do \
-		$(PY) -m v2.cli.verify --video-id "$$v" || exit 1; \
-	done
-
-# Step 6: Gemini roster extraction
-roster:
-	@test -n "$$GEMINI_API_KEY" || { echo "ERROR: set GEMINI_API_KEY"; exit 1; }
-	@for v in $(VIDEOS); do \
-		$(PY) -m v2.cli.roster --video-id "$$v" || exit 1; \
-	done
-
-# Step 7: Validate artifacts
-validate:
-	@for v in $(VIDEOS); do \
-		$(PY) -m v2.cli.validate SAMPLE --video-id "$$v" || exit 1; \
-	done
-	$(PY) -m v2.cli.validate RUN --data-dir $(VIDEOS_DIR)
-
-# Step 8: Link speaker clusters to real names
-link:
-	@for v in $(VIDEOS); do \
-		$(PY) -m v2.cli.link --video-id "$$v" || exit 1; \
-	done
-
-# Step 9: Generate final.json
-finalize:
-	@for v in $(VIDEOS); do \
-		$(PY) -m v2.cli.finalize --video-id "$$v" || exit 1; \
-	done
-
-
-# ============================================================
-# LABEL STUDIO PIPELINE
-# ============================================================
-
-chunk:
-	@for v in $(VIDEOS); do \
-		$(PY) -m v2.cli.chunk --video-id "$$v" || exit 1; \
-	done
-
-labelstudio:
-	@for v in $(VIDEOS); do \
-		$(PY) -m v2.cli.labelstudio --video-id "$$v" || exit 1; \
-	done
-
-
-# ============================================================
-# IDENTITY PIPELINE
-# ============================================================
-
-identity:
-	@test -n "$$HF_TOKEN" || { echo "ERROR: set HF_TOKEN"; exit 1; }
-	@test -n "$$GEMINI_API_KEY" || { echo "ERROR: set GEMINI_API_KEY"; exit 1; }
-	@for v in $(VIDEOS); do \
-		$(PY) -m v2.cli.identity --video-id "$$v" || exit 1; \
-		$(PY) -m v2.cli.roster --video-id "$$v" || exit 1; \
-	done
-
-
-# ============================================================
-# MTP ANALYSIS PIPELINE
-# All analysis scripts are stored in analysis/
-# Each script processes one video at a time.
-# ============================================================
-
-# Run all the analysis stages sequentially
-analysis: analysis-followup \
-          analysis-classification \
-          analysis-turn-gap \
-          analysis-clusters \
-          analysis-final \
-          analysis-numeric
-
-
-# Step 10: Overlap follow-up analysis
-analysis-followup: finalize
-	@echo "===== Overlap Follow-up Analysis ====="
-	@for v in $(VIDEOS); do \
-		$(PY) $(ANALYSIS_DIR)/build_overlap_followup_analysis.py \
-			--video-id "$$v" || exit 1; \
-	done
-
-
-# Step 11: Overlap follow-up classification
-analysis-classification: analysis-followup
-	@echo "===== Overlap Follow-up Classification ====="
-	@for v in $(VIDEOS); do \
-		$(PY) $(ANALYSIS_DIR)/build_overlap_followup_analysis.py \
-			--video-id "$$v" || exit 1; \
-	done
-
-
-# Step 12: Turn gap analysis
-analysis-turn-gap: finalize
-	@echo "===== Turn Gap Analysis ====="
-	@for v in $(VIDEOS); do \
-		$(PY) $(ANALYSIS_DIR)/build_turn_gap_analysis.py \
-			--video-id "$$v" || exit 1; \
-	done
-
-
-# Step 13: Overlap cluster analysis
-analysis-clusters: analysis-classification analysis-turn-gap
-	@echo "===== Overlap Cluster Analysis ====="
-	@for v in $(VIDEOS); do \
-		$(PY) $(ANALYSIS_DIR)/build_cluster_analysis.py \
-			--video-id "$$v" || exit 1; \
-	done
-
-
-# Step 14: Generate final_result.json
-analysis-final: analysis-clusters
-	@echo "===== Generating final_result.json ====="
-	@for v in $(VIDEOS); do \
-		$(PY) $(ANALYSIS_DIR)/final_result.py \
-			--video-id "$$v" || exit 1; \
-	done
-
-
-# Step 15: Generate numerical-only JSON for visualization
-analysis-numeric: analysis-final
-	@echo "===== Generating final_result_numeric.json ====="
-	@for v in $(VIDEOS); do \
-		$(PY) $(ANALYSIS_DIR)/final_result_numeric.py \
-			--video-id "$$v" --overwrite || exit 1; \
-	done
-
-
-# ============================================================
-# EXISTING TOPIC / DISCOURSE ANALYSIS
-# ============================================================
-
-topics:
-	$(PY) topic_modeling.py --trim-config data/v2/topic_trims.json \
-		--output data/v2/topic_analysis/topic_modeling.json \
-		--windows-output data/v2/topic_analysis/topic_windows.json \
-		--review-output data/v2/topic_analysis/topic_modeling_review.json
-
-topic-analysis:
-	$(PY) topic_analysis.py --all \
-		--output data/v2/topic_analysis/topic_analysis_sample.json
-
-drift:
-	$(PY) topic_drift.py \
-		--topic-modeling data/v2/topic_analysis/topic_modeling.json \
-		--output data/v2/topic_analysis/interruption_topic_drift.json
-
-discourse:
-	$(PY) discourse_summary.py --videos-dir $(VIDEOS_DIR) \
-		--output data/v2/analysis/discourse_summary.json
-
-discourse-review:
-	$(PY) discourse_review.py --videos-dir $(VIDEOS_DIR) \
-		--summary data/v2/analysis/discourse_summary.json \
-		--output data/v2/analysis/discourse_summary_review.json
-
-report:
-	$(PY) pilot_report.py --output PILOT_EPISODE_REPORT.md
-
-
-# ============================================================
-# HOST IDENTIFICATION
-# ============================================================
-
-REFERENCE ?= SPEAKER_24
-TRIM      ?= 720
-
-host:
-	@test -n "$(VIDEO)" || { echo "ERROR: set VIDEO=<id>"; exit 1; }
-	$(PY) -m v2.cli.host --video-id "$(VIDEO)" \
-		--reference-label "$(REFERENCE)" \
-		--trim-start "$(TRIM)" \
-		--output data/v2/analysis/host_identification.json
-
-
-# ============================================================
-# UTILITIES
-# ============================================================
-
-status:
-	@$(PY) -m v2.cli.status
-
-test: py
-	$(PY) -m pytest -q
-
-py:
-	@test -d .venv || python3.11 -m venv .venv
-	./.venv/bin/pip install -q -U pip
-	./.venv/bin/pip install -q -r requirements-v2.txt
-
-clean:
-	@rm -rf data/v2/videos/* data/* 2>/dev/null; \
-	echo "Removed generated artifacts under data/. ids.json kept."
+clean-generated:
+	@test -n "$(VIDEO_ID)" || (echo "ERROR: specify VIDEO_ID=<id>; refusing broad cleanup"; exit 2)
+	@rm -rf $(DATA_DIR)/$(VIDEO_ID)/baseline $(DATA_DIR)/$(VIDEO_ID)/threshold_0.5 $(DATA_DIR)/$(VIDEO_ID)/threshold_1.0 $(DATA_DIR)/$(VIDEO_ID)/threshold_2.0 $(DATA_DIR)/$(VIDEO_ID)/comparison $(LOG_DIR)/$(VIDEO_ID)
+	@echo "Removed generated five-stage outputs for $(VIDEO_ID); source final.json and source artifacts were preserved."

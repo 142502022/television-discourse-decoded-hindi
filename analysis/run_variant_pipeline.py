@@ -142,7 +142,8 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--data-dir", type=Path, default=ROOT / "data" / "v2" / "videos")
     parser.add_argument("--video-id", help="Process one video ID; default processes all source final.json files.")
-    parser.add_argument("--thresholds", type=float, nargs="+", default=DEFAULT_THRESHOLDS)
+    parser.add_argument("--thresholds", type=float, nargs="*", default=DEFAULT_THRESHOLDS,
+                        help="Thresholds to build; pass --thresholds with no values for baseline only.")
     parser.add_argument("--overwrite", action="store_true", help="Replace only generated baseline/threshold variant directories.")
     args = parser.parse_args()
     video_dirs = [args.data_dir / args.video_id] if args.video_id else sorted(p.parent for p in args.data_dir.glob("*/final.json"))
