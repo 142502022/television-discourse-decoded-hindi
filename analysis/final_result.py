@@ -306,12 +306,13 @@ def overlap_stats(pipeline: Optional[dict], cluster_data: Optional[dict], durati
 
 # ----------------------------- Main aggregation -----------------------------
 
-def build_final_result(video_dir: Path) -> dict:
+def build_final_result(video_dir: Path, pipeline_path: Optional[Path] = None) -> dict:
     video_id = video_dir.name
     loaded = {}
     statuses = {}
     for key, filename in SOURCE_FILES.items():
-        loaded[key], statuses[key] = load_json(video_dir / filename)
+        path = pipeline_path if key == "pipeline" and pipeline_path is not None else video_dir / filename
+        loaded[key], statuses[key] = load_json(path)
 
     pipeline = loaded.get("pipeline")
     turn_gap = loaded.get("turn_gap")

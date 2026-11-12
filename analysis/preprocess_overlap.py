@@ -369,7 +369,7 @@ def regenerate_final_json(
     paths: ThresholdPaths,
     threshold: float,
     removed_count: int,
-    merge_final_path: Path,
+    merge_overlap_path: Path,
 ) -> Dict[str, Any]:
     """
     Reuse original metadata/ASR/diarization/identity inputs, but point the
@@ -391,19 +391,10 @@ def regenerate_final_json(
 
     final_data = build_final(layout_for_finalizer)
 
-    # Load merged speaker turns from merge_final.json
-    merged_data = load_json(
-        merge_final_path
-    )
-
-    # Replace speaker_turns with merged version
-    final_data["speaker_turns"] = copy.deepcopy(
-        merged_data["speaker_turns"]
-    )
-    # Use the merged OSD overlap regions as the threshold-specific source too.
-    merge_overlap_data = load_json(
-        paths.output_dir.parent / "merge_overlap.json"
-    )
+    # Keep the original diarization turns at this stage.  The caller must run
+    # the regular speaker-turn merge *after* thresholding, so every threshold
+    # branch gets an independent second merge.
+    merge_overlap_data = load_json(merge_overlap_path)
     merged_osd_regions = get_merged_overlap_regions(merge_overlap_data)
     kept_osd_regions, _, _ = filter_merged_osd_regions(
         merged_osd_regions, threshold
@@ -432,6 +423,7 @@ def process_threshold(
     original_layout: Any,
     threshold: float,
     overwrite: bool = True,
+    merge_overlap_path: Optional[Path] = None,
 ) -> Dict[str, Any]:
     paths = get_threshold_paths(video_paths, threshold)
 
@@ -439,9 +431,7 @@ def process_threshold(
         video_paths.overlap_path,
         video_paths.analysis_path,
         video_paths.candidates_path,
-        video_paths.followup_path,
-        video_paths.merge_final_path,
-        video_paths.merge_overlap_path,
+        video_paths.merge_overlap_path if merge_overlap_path is None else merge_overlap_path,
     )
     missing = [p for p in required if not p.is_file()]
     if missing:
@@ -460,8 +450,12 @@ def process_threshold(
     original_overlap = load_json(video_paths.overlap_path)
     original_analysis = load_json(video_paths.analysis_path)
     original_candidates = load_json(video_paths.candidates_path)
-    original_followup = load_json(video_paths.followup_path)
-    merge_overlap_data = load_json(video_paths.merge_overlap_path)
+    original_followup = (
+        load_json(video_paths.followup_path)
+        if video_paths.followup_path.is_file() else None
+    )
+    merge_overlap_path = merge_overlap_path or video_paths.merge_overlap_path
+    merge_overlap_data = load_json(merge_overlap_path)
 
     merged_osd_regions = get_merged_overlap_regions(merge_overlap_data)
     kept_merged_regions, removed_merged_regions, removed_identities = (
@@ -476,13 +470,17 @@ def process_threshold(
 
     filtered_analysis = filter_analysis_json(original_analysis, removed_identities)
     filtered_candidates = filter_candidates_json(original_candidates, removed_identities)
-    filtered_followup = filter_followup_json(original_followup, removed_identities)
+    filtered_followup = (
+        filter_followup_json(original_followup, removed_identities)
+        if original_followup is not None else None
+    )
 
     # Write only the four threshold-specific files; no recursive source copy.
     write_json(filtered_overlap, paths.overlap_path)
     write_json(filtered_analysis, paths.analysis_path)
     write_json(filtered_candidates, paths.candidates_path)
-    write_json(filtered_followup, paths.followup_path)
+    if filtered_followup is not None:
+        write_json(filtered_followup, paths.followup_path)
 
     final_data = regenerate_final_json(
         video_id=video_paths.video_id,
@@ -490,7 +488,7 @@ def process_threshold(
         paths=paths,
         threshold=threshold,
         removed_count=len(removed_merged_regions),
-        merge_final_path=video_paths.merge_final_path,
+        merge_overlap_path=merge_overlap_path,
     )
 
     original_regions_count = len(merged_osd_regions)
@@ -566,8 +564,6 @@ def main() -> None:
     )
 
     video_paths = get_video_paths(args.video_id, args.data_dir)
-    if not video_paths.merge_final_path.is_file():
-        raise FileNotFoundError(f"merge_final.json not found: {video_paths.merge_final_path}")
     if not video_paths.video_dir.is_dir():
         raise FileNotFoundError(f"Video directory not found: {video_paths.video_dir}")
 
