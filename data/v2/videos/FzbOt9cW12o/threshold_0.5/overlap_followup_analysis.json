@@ -1,0 +1,774 @@
+{
+  "schema_version": "overlap-followup-analysis-1.1",
+  "analysis_status": "deterministic_extraction_only_classification_and_interpretation_pending",
+  "language_scope": {
+    "selected_scope": "English-only pilot",
+    "source_asr_language": "en",
+    "source_language_verified_by_human": false,
+    "out_of_scope_policy": "Flag non-English, mixed-language, or uncertain speech for review; do not silently classify it as English."
+  },
+  "classification_taxonomy": {
+    "utterance_form": [
+      "question",
+      "statement",
+      "imperative",
+      "fragment",
+      "unclear"
+    ],
+    "conversational_function": [
+      "asking",
+      "challenging",
+      "answering",
+      "interrupting",
+      "yielding_floor",
+      "redirecting",
+      "backchanneling",
+      "asserting",
+      "unclear"
+    ],
+    "target_speaker_policy": "Use a speaker label only when the target is supported by transcript/context; otherwise null.",
+    "host_behavior": [
+      "regaining_control",
+      "challenging_participant",
+      "asking_for_clarification",
+      "redirecting_topic",
+      "allocating_floor",
+      "allowing_guest_to_continue",
+      "summarizing",
+      "closing_discussion",
+      "other",
+      "unclear",
+      "not_applicable"
+    ],
+    "inference_policy": "Observable timing/order is not by itself proof of conversational intent. Use transcript evidence and abstain when evidence is insufficient."
+  },
+  "manual_verification": {
+    "status": "pending",
+    "recommended_initial_sample_size": 7,
+    "review_fields": [
+      "event completeness",
+      "speaker labels",
+      "timestamps",
+      "transcript fidelity",
+      "continuation versus new entry",
+      "first-speaker observations"
+    ]
+  },
+  "source": {
+    "file": "data/v2/videos/FzbOt9cW12o/threshold_0.5/merge_final.json",
+    "video_id": "FzbOt9cW12o",
+    "title": "Oppn's Mock Parliament Debate: BJP's Sanju Verma Slams Rahul Gandhi Over Absenteeism In Parliament",
+    "host_speaker": "SPEAKER_01",
+    "window_seconds": 3.0,
+    "overlap_count_in_source": 7,
+    "overlap_count_processed": 7,
+    "transcript_segment_count": 104
+  },
+  "overlap_events": [
+    {
+      "overlap_id": 1,
+      "overlap": {
+        "start": 169.034,
+        "end": 170.789,
+        "duration": 1.755,
+        "speakers": [
+          "SPEAKER_00",
+          "SPEAKER_01"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 170.789,
+      "window_end": 173.789,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_00",
+          "start": 171.229,
+          "end": 179.571,
+          "text": "Why is his average attendance in the last three Lok Sabha sessions 37% vis-a-vis all India averaged of 79.6%?",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 166.034,
+        "end": 169.034,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_00",
+          "start": 162.906,
+          "end": 169.088,
+          "text": "You cannot do shoot and scoot politics if as the leader of the opposition, he wants to be taken seriously.",
+          "starts_in_window": false,
+          "active_at_window_end": true,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_00",
+        "start": 155.424,
+        "end": 162.646,
+        "text": "you know, topic that he wanted a dialogue with the government, but he's the one who has been MIA."
+      },
+      "observations": {
+        "speech_event_count": 1,
+        "speakers_in_window": [
+          "SPEAKER_00"
+        ],
+        "host_spoke_in_window": false,
+        "speakers_active_at_window_start": [],
+        "first_speaker_in_window": "SPEAKER_00",
+        "host_spoke_first_in_window": false,
+        "first_new_speaker_after_overlap": "SPEAKER_00",
+        "host_spoke_first_new_after_overlap": false,
+        "new_speech_event_count": 1,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 2,
+      "overlap": {
+        "start": 205.805,
+        "end": 206.48,
+        "duration": 0.675,
+        "speakers": [
+          "SPEAKER_01",
+          "SPEAKER_02"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 206.48,
+      "window_end": 209.48,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_01",
+          "start": 206.962,
+          "end": 213.755,
+          "text": "Rajat, you know the fact that the BJP is also fighting against the Congress on the streets.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 202.805,
+        "end": 205.805,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_01",
+          "start": 202.698,
+          "end": 203.798,
+          "text": "Missing in action, right?",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_02",
+          "start": 205.139,
+          "end": 205.72,
+          "text": "Of course.",
+          "starts_in_window": true,
+          "active_at_window_end": false,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_02",
+        "start": 205.139,
+        "end": 205.72,
+        "text": "Of course."
+      },
+      "observations": {
+        "speech_event_count": 1,
+        "speakers_in_window": [
+          "SPEAKER_01"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [],
+        "first_speaker_in_window": "SPEAKER_01",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": "SPEAKER_01",
+        "host_spoke_first_new_after_overlap": true,
+        "new_speech_event_count": 1,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 3,
+      "overlap": {
+        "start": 371.838,
+        "end": 372.26,
+        "duration": 0.422,
+        "speakers": [
+          "SPEAKER_01",
+          "SPEAKER_02"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 372.26,
+      "window_end": 375.26,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_01",
+          "start": 372.047,
+          "end": 377.248,
+          "text": "But Rajat, I'm going to take that question to Sanju Verma.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 368.838,
+        "end": 371.838,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_02",
+          "start": 366.804,
+          "end": 368.925,
+          "text": "And they'll say that, OK, this is mock prime minister's chair.",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_02",
+          "start": 369.165,
+          "end": 371.187,
+          "text": "Let them be happy on a mock prime minister.",
+          "starts_in_window": true,
+          "active_at_window_end": false,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_02",
+        "start": 369.165,
+        "end": 371.187,
+        "text": "Let them be happy on a mock prime minister."
+      },
+      "observations": {
+        "speech_event_count": 1,
+        "speakers_in_window": [
+          "SPEAKER_01"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_01"
+        ],
+        "first_speaker_in_window": "SPEAKER_01",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": null,
+        "host_spoke_first_new_after_overlap": null,
+        "new_speech_event_count": 0,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 4,
+      "overlap": {
+        "start": 372.985,
+        "end": 376.613,
+        "duration": 3.628,
+        "speakers": [
+          "SPEAKER_01",
+          "SPEAKER_02"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 376.613,
+      "window_end": 379.613,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_01",
+          "start": 372.047,
+          "end": 377.248,
+          "text": "But Rajat, I'm going to take that question to Sanju Verma.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_01",
+          "start": 377.628,
+          "end": 392.832,
+          "text": "Sanju Verma, if the opposition indeed does that, first a public impeachment of a constitutional authority like an election commission, and if it is followed by what Rajat Sethi is saying, isn't that a matter of concern for you?",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 369.985,
+        "end": 372.985,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_02",
+          "start": 369.165,
+          "end": 371.187,
+          "text": "Let them be happy on a mock prime minister.",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_01",
+          "start": 372.047,
+          "end": 377.248,
+          "text": "But Rajat, I'm going to take that question to Sanju Verma.",
+          "starts_in_window": true,
+          "active_at_window_end": true,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_02",
+        "start": 369.165,
+        "end": 371.187,
+        "text": "Let them be happy on a mock prime minister."
+      },
+      "observations": {
+        "speech_event_count": 2,
+        "speakers_in_window": [
+          "SPEAKER_01"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_01"
+        ],
+        "first_speaker_in_window": "SPEAKER_01",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": "SPEAKER_01",
+        "host_spoke_first_new_after_overlap": true,
+        "new_speech_event_count": 1,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 5,
+      "overlap": {
+        "start": 377.508,
+        "end": 380.107,
+        "duration": 2.599,
+        "speakers": [
+          "SPEAKER_00",
+          "SPEAKER_01",
+          "SPEAKER_02"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 380.107,
+      "window_end": 383.107,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_01",
+          "start": 377.628,
+          "end": 392.832,
+          "text": "Sanju Verma, if the opposition indeed does that, first a public impeachment of a constitutional authority like an election commission, and if it is followed by what Rajat Sethi is saying, isn't that a matter of concern for you?",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 374.508,
+        "end": 377.508,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_01",
+          "start": 372.047,
+          "end": 377.248,
+          "text": "But Rajat, I'm going to take that question to Sanju Verma.",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_01",
+        "start": 372.047,
+        "end": 377.248,
+        "text": "But Rajat, I'm going to take that question to Sanju Verma."
+      },
+      "observations": {
+        "speech_event_count": 1,
+        "speakers_in_window": [
+          "SPEAKER_01"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_01"
+        ],
+        "first_speaker_in_window": "SPEAKER_01",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": null,
+        "host_spoke_first_new_after_overlap": null,
+        "new_speech_event_count": 0,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 6,
+      "overlap": {
+        "start": 381.22,
+        "end": 382.925,
+        "duration": 1.705,
+        "speakers": [
+          "SPEAKER_00",
+          "SPEAKER_01"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 382.925,
+      "window_end": 385.925,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_01",
+          "start": 377.628,
+          "end": 392.832,
+          "text": "Sanju Verma, if the opposition indeed does that, first a public impeachment of a constitutional authority like an election commission, and if it is followed by what Rajat Sethi is saying, isn't that a matter of concern for you?",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 378.22,
+        "end": 381.22,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_01",
+          "start": 377.628,
+          "end": 392.832,
+          "text": "Sanju Verma, if the opposition indeed does that, first a public impeachment of a constitutional authority like an election commission, and if it is followed by what Rajat Sethi is saying, isn't that a matter of concern for you?",
+          "starts_in_window": false,
+          "active_at_window_end": true,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_01",
+        "start": 372.047,
+        "end": 377.248,
+        "text": "But Rajat, I'm going to take that question to Sanju Verma."
+      },
+      "observations": {
+        "speech_event_count": 1,
+        "speakers_in_window": [
+          "SPEAKER_01"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_01"
+        ],
+        "first_speaker_in_window": "SPEAKER_01",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": null,
+        "host_spoke_first_new_after_overlap": null,
+        "new_speech_event_count": 0,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 7,
+      "overlap": {
+        "start": 436.925,
+        "end": 437.988,
+        "duration": 1.063,
+        "speakers": [
+          "SPEAKER_00",
+          "SPEAKER_01"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 437.988,
+      "window_end": 440.988,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_01",
+          "start": 435.939,
+          "end": 439.14,
+          "text": "No, but you are also responding to Rahul Gandhi, no, Sanjuji?",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_00",
+          "start": 440.44,
+          "end": 442.221,
+          "text": "No, Mariaji, one minute, one minute.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 433.925,
+        "end": 436.925,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_00",
+          "start": 428.637,
+          "end": 435.559,
+          "text": "Rahul Gandhi is being treated by the Darbari ecosystem as the next best thing after brown bread and spaghetti.",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_01",
+          "start": 435.939,
+          "end": 439.14,
+          "text": "No, but you are also responding to Rahul Gandhi, no, Sanjuji?",
+          "starts_in_window": true,
+          "active_at_window_end": true,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_00",
+        "start": 428.637,
+        "end": 435.559,
+        "text": "Rahul Gandhi is being treated by the Darbari ecosystem as the next best thing after brown bread and spaghetti."
+      },
+      "observations": {
+        "speech_event_count": 2,
+        "speakers_in_window": [
+          "SPEAKER_01",
+          "SPEAKER_00"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_01"
+        ],
+        "first_speaker_in_window": "SPEAKER_01",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": "SPEAKER_00",
+        "host_spoke_first_new_after_overlap": false,
+        "new_speech_event_count": 1,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    }
+  ],
+  "notes": [
+    "This artifact is a separate analysis output; it does not modify final.json or any existing pipeline stage.",
+    "Transcript text and source segment timestamps are preserved exactly; events may extend beyond the 3-second window and are flagged.",
+    "All classification and host-behavior fields are intentionally unclassified pending manual verification and later LLM analysis.",
+    "first_speaker_in_window accounts for speech already active at the window boundary; first_new_speaker_after_overlap separately records a segment beginning after the overlap.",
+    "Tied or ambiguous speaker starts are represented as null rather than forcing a conclusion.",
+    "Speaker labels are diarization labels, not verified real-world identities."
+  ]
+}

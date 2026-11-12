@@ -1,0 +1,1084 @@
+{
+  "schema_version": "overlap-followup-analysis-1.1",
+  "analysis_status": "deterministic_extraction_only_classification_and_interpretation_pending",
+  "language_scope": {
+    "selected_scope": "English-only pilot",
+    "source_asr_language": "en",
+    "source_language_verified_by_human": false,
+    "out_of_scope_policy": "Flag non-English, mixed-language, or uncertain speech for review; do not silently classify it as English."
+  },
+  "classification_taxonomy": {
+    "utterance_form": [
+      "question",
+      "statement",
+      "imperative",
+      "fragment",
+      "unclear"
+    ],
+    "conversational_function": [
+      "asking",
+      "challenging",
+      "answering",
+      "interrupting",
+      "yielding_floor",
+      "redirecting",
+      "backchanneling",
+      "asserting",
+      "unclear"
+    ],
+    "target_speaker_policy": "Use a speaker label only when the target is supported by transcript/context; otherwise null.",
+    "host_behavior": [
+      "regaining_control",
+      "challenging_participant",
+      "asking_for_clarification",
+      "redirecting_topic",
+      "allocating_floor",
+      "allowing_guest_to_continue",
+      "summarizing",
+      "closing_discussion",
+      "other",
+      "unclear",
+      "not_applicable"
+    ],
+    "inference_policy": "Observable timing/order is not by itself proof of conversational intent. Use transcript evidence and abstain when evidence is insufficient."
+  },
+  "manual_verification": {
+    "status": "pending",
+    "recommended_initial_sample_size": 9,
+    "review_fields": [
+      "event completeness",
+      "speaker labels",
+      "timestamps",
+      "transcript fidelity",
+      "continuation versus new entry",
+      "first-speaker observations"
+    ]
+  },
+  "source": {
+    "file": "data/v2/videos/ncoiZ6Uk6wg/threshold_2.0/merge_final.json",
+    "video_id": "ncoiZ6Uk6wg",
+    "title": "Rahul Gandhi Ups Ante On 'Vote Chori'! BJP Mocks Ramlila Rally, Says 'India Isn't His Fiefdom'",
+    "host_speaker": "SPEAKER_02",
+    "window_seconds": 3.0,
+    "overlap_count_in_source": 9,
+    "overlap_count_processed": 9,
+    "transcript_segment_count": 181
+  },
+  "overlap_events": [
+    {
+      "overlap_id": 1,
+      "overlap": {
+        "start": 610.417,
+        "end": 610.906,
+        "duration": 0.489,
+        "speakers": [
+          "SPEAKER_02",
+          "SPEAKER_09"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 610.906,
+      "window_end": 613.906,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_09",
+          "start": 610.861,
+          "end": 611.501,
+          "text": "Madhav, just 10 seconds.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_09",
+          "start": 611.521,
+          "end": 612.402,
+          "text": "Madhav, 10 seconds.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_02",
+          "start": 612.502,
+          "end": 613.402,
+          "text": "No, no, one second.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_02",
+          "start": 613.482,
+          "end": 614.943,
+          "text": "Please, now other panelists also.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 607.417,
+        "end": 610.417,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_02",
+          "start": 606.098,
+          "end": 609.16,
+          "text": "Those letters were written to the cabinet secretary and that's not been denied.",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_02",
+          "start": 609.46,
+          "end": 610.801,
+          "text": "So those letters are very much there.",
+          "starts_in_window": true,
+          "active_at_window_end": true,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_02",
+        "start": 606.098,
+        "end": 609.16,
+        "text": "Those letters were written to the cabinet secretary and that's not been denied."
+      },
+      "observations": {
+        "speech_event_count": 4,
+        "speakers_in_window": [
+          "SPEAKER_09",
+          "SPEAKER_02"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_09"
+        ],
+        "first_speaker_in_window": "SPEAKER_09",
+        "host_spoke_first_in_window": false,
+        "first_new_speaker_after_overlap": "SPEAKER_09",
+        "host_spoke_first_new_after_overlap": false,
+        "new_speech_event_count": 3,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 2,
+      "overlap": {
+        "start": 611.345,
+        "end": 612.593,
+        "duration": 1.248,
+        "speakers": [
+          "SPEAKER_02",
+          "SPEAKER_09"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 612.593,
+      "window_end": 615.593,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_02",
+          "start": 612.502,
+          "end": 613.402,
+          "text": "No, no, one second.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_02",
+          "start": 613.482,
+          "end": 614.943,
+          "text": "Please, now other panelists also.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_09",
+          "start": 615.443,
+          "end": 616.804,
+          "text": "Just let me complete.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 608.345,
+        "end": 611.345,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_02",
+          "start": 606.098,
+          "end": 609.16,
+          "text": "Those letters were written to the cabinet secretary and that's not been denied.",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_02",
+          "start": 609.46,
+          "end": 610.801,
+          "text": "So those letters are very much there.",
+          "starts_in_window": true,
+          "active_at_window_end": false,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_09",
+          "start": 610.861,
+          "end": 611.501,
+          "text": "Madhav, just 10 seconds.",
+          "starts_in_window": true,
+          "active_at_window_end": true,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_02",
+        "start": 609.46,
+        "end": 610.801,
+        "text": "So those letters are very much there."
+      },
+      "observations": {
+        "speech_event_count": 3,
+        "speakers_in_window": [
+          "SPEAKER_02",
+          "SPEAKER_09"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_02"
+        ],
+        "first_speaker_in_window": "SPEAKER_02",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": "SPEAKER_02",
+        "host_spoke_first_new_after_overlap": true,
+        "new_speech_event_count": 2,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 3,
+      "overlap": {
+        "start": 665.767,
+        "end": 666.948,
+        "duration": 1.181,
+        "speakers": [
+          "SPEAKER_00",
+          "SPEAKER_04"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 666.948,
+      "window_end": 669.948,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_04",
+          "start": 659.417,
+          "end": 667.828,
+          "text": "But unfortunately, people like the Indian party neither like democracy, nor do they like the citizens of this country, nor do they like their rights.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_04",
+          "start": 669.26,
+          "end": 671.502,
+          "text": "They did not protect their rights.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 662.767,
+        "end": 665.767,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_04",
+          "start": 659.417,
+          "end": 667.828,
+          "text": "But unfortunately, people like the Indian party neither like democracy, nor do they like the citizens of this country, nor do they like their rights.",
+          "starts_in_window": false,
+          "active_at_window_end": true,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_04",
+        "start": 655.752,
+        "end": 659.377,
+        "text": "And Ram Leela Maidan was representing the whole country today."
+      },
+      "observations": {
+        "speech_event_count": 2,
+        "speakers_in_window": [
+          "SPEAKER_04"
+        ],
+        "host_spoke_in_window": false,
+        "speakers_active_at_window_start": [
+          "SPEAKER_04"
+        ],
+        "first_speaker_in_window": "SPEAKER_04",
+        "host_spoke_first_in_window": false,
+        "first_new_speaker_after_overlap": "SPEAKER_04",
+        "host_spoke_first_new_after_overlap": false,
+        "new_speech_event_count": 1,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 4,
+      "overlap": {
+        "start": 667.589,
+        "end": 668.433,
+        "duration": 0.844,
+        "speakers": [
+          "SPEAKER_00",
+          "SPEAKER_04"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 668.433,
+      "window_end": 671.433,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_04",
+          "start": 669.26,
+          "end": 671.502,
+          "text": "They did not protect their rights.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 664.589,
+        "end": 667.589,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_04",
+          "start": 659.417,
+          "end": 667.828,
+          "text": "But unfortunately, people like the Indian party neither like democracy, nor do they like the citizens of this country, nor do they like their rights.",
+          "starts_in_window": false,
+          "active_at_window_end": true,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_04",
+        "start": 655.752,
+        "end": 659.377,
+        "text": "And Ram Leela Maidan was representing the whole country today."
+      },
+      "observations": {
+        "speech_event_count": 1,
+        "speakers_in_window": [
+          "SPEAKER_04"
+        ],
+        "host_spoke_in_window": false,
+        "speakers_active_at_window_start": [],
+        "first_speaker_in_window": "SPEAKER_04",
+        "host_spoke_first_in_window": false,
+        "first_new_speaker_after_overlap": "SPEAKER_04",
+        "host_spoke_first_new_after_overlap": false,
+        "new_speech_event_count": 1,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 5,
+      "overlap": {
+        "start": 676.448,
+        "end": 677.883,
+        "duration": 1.435,
+        "speakers": [
+          "SPEAKER_00",
+          "SPEAKER_04"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 677.883,
+      "window_end": 680.883,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_04",
+          "start": 677.206,
+          "end": 679.748,
+          "text": "They did it systematically.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_04",
+          "start": 679.828,
+          "end": 682.39,
+          "text": "I will tell you the numbers of those who are justified.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 673.448,
+        "end": 676.448,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_04",
+          "start": 671.642,
+          "end": 676.706,
+          "text": "They took away 13 crore people's voting rights with the election commission.",
+          "starts_in_window": false,
+          "active_at_window_end": true,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_04",
+        "start": 669.26,
+        "end": 671.502,
+        "text": "They did not protect their rights."
+      },
+      "observations": {
+        "speech_event_count": 2,
+        "speakers_in_window": [
+          "SPEAKER_04"
+        ],
+        "host_spoke_in_window": false,
+        "speakers_active_at_window_start": [
+          "SPEAKER_04"
+        ],
+        "first_speaker_in_window": "SPEAKER_04",
+        "host_spoke_first_in_window": false,
+        "first_new_speaker_after_overlap": "SPEAKER_04",
+        "host_spoke_first_new_after_overlap": false,
+        "new_speech_event_count": 1,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 6,
+      "overlap": {
+        "start": 678.322,
+        "end": 681.308,
+        "duration": 2.986,
+        "speakers": [
+          "SPEAKER_00",
+          "SPEAKER_04"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 681.308,
+      "window_end": 684.308,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_04",
+          "start": 679.828,
+          "end": 682.39,
+          "text": "I will tell you the numbers of those who are justified.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_04",
+          "start": 682.41,
+          "end": 687.514,
+          "text": "The tribunal in West Bengal was made under the orders of Manny Ustamanyala, in which 19 retards work.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 675.322,
+        "end": 678.322,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_04",
+          "start": 671.642,
+          "end": 676.706,
+          "text": "They took away 13 crore people's voting rights with the election commission.",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_04",
+          "start": 677.206,
+          "end": 679.748,
+          "text": "They did it systematically.",
+          "starts_in_window": true,
+          "active_at_window_end": true,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_04",
+        "start": 671.642,
+        "end": 676.706,
+        "text": "They took away 13 crore people's voting rights with the election commission."
+      },
+      "observations": {
+        "speech_event_count": 2,
+        "speakers_in_window": [
+          "SPEAKER_04"
+        ],
+        "host_spoke_in_window": false,
+        "speakers_active_at_window_start": [
+          "SPEAKER_04"
+        ],
+        "first_speaker_in_window": "SPEAKER_04",
+        "host_spoke_first_in_window": false,
+        "first_new_speaker_after_overlap": "SPEAKER_04",
+        "host_spoke_first_new_after_overlap": false,
+        "new_speech_event_count": 1,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 7,
+      "overlap": {
+        "start": 856.235,
+        "end": 858.344,
+        "duration": 2.109,
+        "speakers": [
+          "SPEAKER_02",
+          "SPEAKER_08"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 858.344,
+      "window_end": 861.344,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_02",
+          "start": 857.353,
+          "end": 863.558,
+          "text": "If you start doing that, people will associate BJP with other media and I don't think that's the route to go.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 853.235,
+        "end": 856.235,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_08",
+          "start": 842.461,
+          "end": 854.411,
+          "text": "It talks about that this whole rhetoric of vote Jory and all that when you can't win an MLC election in your state in the state ruled by Congress party in Karnataka itself.",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_08",
+          "start": 854.711,
+          "end": 856.032,
+          "text": "The people know that he's the",
+          "starts_in_window": true,
+          "active_at_window_end": false,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_08",
+        "start": 854.711,
+        "end": 856.032,
+        "text": "The people know that he's the"
+      },
+      "observations": {
+        "speech_event_count": 1,
+        "speakers_in_window": [
+          "SPEAKER_02"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_02"
+        ],
+        "first_speaker_in_window": "SPEAKER_02",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": null,
+        "host_spoke_first_new_after_overlap": null,
+        "new_speech_event_count": 0,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 8,
+      "overlap": {
+        "start": 858.58,
+        "end": 858.682,
+        "duration": 0.102,
+        "speakers": [
+          "SPEAKER_02"
+        ],
+        "case": "OSD_ONLY",
+        "source": "osd",
+        "confidence": 0.7
+      },
+      "window_seconds": 3.0,
+      "window_start": 858.682,
+      "window_end": 861.682,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_02",
+          "start": 857.353,
+          "end": 863.558,
+          "text": "If you start doing that, people will associate BJP with other media and I don't think that's the route to go.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 855.58,
+        "end": 858.58,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_08",
+          "start": 854.711,
+          "end": 856.032,
+          "text": "The people know that he's the",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_02",
+          "start": 857.353,
+          "end": 863.558,
+          "text": "If you start doing that, people will associate BJP with other media and I don't think that's the route to go.",
+          "starts_in_window": true,
+          "active_at_window_end": true,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_08",
+        "start": 854.711,
+        "end": 856.032,
+        "text": "The people know that he's the"
+      },
+      "observations": {
+        "speech_event_count": 1,
+        "speakers_in_window": [
+          "SPEAKER_02"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_02"
+        ],
+        "first_speaker_in_window": "SPEAKER_02",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": null,
+        "host_spoke_first_new_after_overlap": null,
+        "new_speech_event_count": 0,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 9,
+      "overlap": {
+        "start": 859.711,
+        "end": 860.892,
+        "duration": 1.181,
+        "speakers": [
+          "SPEAKER_02",
+          "SPEAKER_08"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 860.892,
+      "window_end": 863.892,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_02",
+          "start": 857.353,
+          "end": 863.558,
+          "text": "If you start doing that, people will associate BJP with other media and I don't think that's the route to go.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_02",
+          "start": 863.578,
+          "end": 865.119,
+          "text": "There are certain very basic questions.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 856.711,
+        "end": 859.711,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_02",
+          "start": 857.353,
+          "end": 863.558,
+          "text": "If you start doing that, people will associate BJP with other media and I don't think that's the route to go.",
+          "starts_in_window": true,
+          "active_at_window_end": true,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_08",
+        "start": 854.711,
+        "end": 856.032,
+        "text": "The people know that he's the"
+      },
+      "observations": {
+        "speech_event_count": 2,
+        "speakers_in_window": [
+          "SPEAKER_02"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_02"
+        ],
+        "first_speaker_in_window": "SPEAKER_02",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": "SPEAKER_02",
+        "host_spoke_first_new_after_overlap": true,
+        "new_speech_event_count": 1,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    }
+  ],
+  "notes": [
+    "This artifact is a separate analysis output; it does not modify final.json or any existing pipeline stage.",
+    "Transcript text and source segment timestamps are preserved exactly; events may extend beyond the 3-second window and are flagged.",
+    "All classification and host-behavior fields are intentionally unclassified pending manual verification and later LLM analysis.",
+    "first_speaker_in_window accounts for speech already active at the window boundary; first_new_speaker_after_overlap separately records a segment beginning after the overlap.",
+    "Tied or ambiguous speaker starts are represented as null rather than forcing a conclusion.",
+    "Speaker labels are diarization labels, not verified real-world identities."
+  ]
+}

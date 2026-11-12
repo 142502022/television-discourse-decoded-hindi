@@ -1,0 +1,3333 @@
+{
+  "schema_version": "overlap-followup-analysis-1.1",
+  "analysis_status": "deterministic_extraction_only_classification_and_interpretation_pending",
+  "language_scope": {
+    "selected_scope": "English-only pilot",
+    "source_asr_language": "en",
+    "source_language_verified_by_human": false,
+    "out_of_scope_policy": "Flag non-English, mixed-language, or uncertain speech for review; do not silently classify it as English."
+  },
+  "classification_taxonomy": {
+    "utterance_form": [
+      "question",
+      "statement",
+      "imperative",
+      "fragment",
+      "unclear"
+    ],
+    "conversational_function": [
+      "asking",
+      "challenging",
+      "answering",
+      "interrupting",
+      "yielding_floor",
+      "redirecting",
+      "backchanneling",
+      "asserting",
+      "unclear"
+    ],
+    "target_speaker_policy": "Use a speaker label only when the target is supported by transcript/context; otherwise null.",
+    "host_behavior": [
+      "regaining_control",
+      "challenging_participant",
+      "asking_for_clarification",
+      "redirecting_topic",
+      "allocating_floor",
+      "allowing_guest_to_continue",
+      "summarizing",
+      "closing_discussion",
+      "other",
+      "unclear",
+      "not_applicable"
+    ],
+    "inference_policy": "Observable timing/order is not by itself proof of conversational intent. Use transcript evidence and abstain when evidence is insufficient."
+  },
+  "manual_verification": {
+    "status": "pending",
+    "recommended_initial_sample_size": 10,
+    "review_fields": [
+      "event completeness",
+      "speaker labels",
+      "timestamps",
+      "transcript fidelity",
+      "continuation versus new entry",
+      "first-speaker observations"
+    ]
+  },
+  "source": {
+    "file": "data/v2/videos/uXLK0Iuy_4E/threshold_2.0/merge_final.json",
+    "video_id": "uXLK0Iuy_4E",
+    "title": "Rahul Gandhi Goes For Broke With SIR Agitation Against CEC? Cong, BJP & CJP Spokesperson Debate",
+    "host_speaker": "SPEAKER_03",
+    "window_seconds": 3.0,
+    "overlap_count_in_source": 27,
+    "overlap_count_processed": 27,
+    "transcript_segment_count": 320
+  },
+  "overlap_events": [
+    {
+      "overlap_id": 1,
+      "overlap": {
+        "start": 241.073,
+        "end": 246.085,
+        "duration": 5.012,
+        "speakers": [
+          "SPEAKER_01",
+          "SPEAKER_03"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 246.085,
+      "window_end": 249.085,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_03",
+          "start": 242.692,
+          "end": 253.898,
+          "text": "Just a minute Mr. Pandari, they had the 50 MPs did sign which was the requisite number in March this year and yet the Chairman of the House didn't allow the impeachment to go through.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 238.073,
+        "end": 241.073,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_01",
+          "start": 234.367,
+          "end": 242.652,
+          "text": "So if the Congress party is so confident about it, the Congress party should ask for a special session, get the numbers and do it.",
+          "starts_in_window": false,
+          "active_at_window_end": true,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_01",
+        "start": 230.944,
+        "end": 233.907,
+        "text": "That is how it has to happen by both the Houses of the Parliament."
+      },
+      "observations": {
+        "speech_event_count": 1,
+        "speakers_in_window": [
+          "SPEAKER_03"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_03"
+        ],
+        "first_speaker_in_window": "SPEAKER_03",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": null,
+        "host_spoke_first_new_after_overlap": null,
+        "new_speech_event_count": 0,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 2,
+      "overlap": {
+        "start": 499.042,
+        "end": 500.172,
+        "duration": 1.13,
+        "speakers": [
+          "SPEAKER_00",
+          "SPEAKER_03"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 500.172,
+      "window_end": 503.172,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_00",
+          "start": 499.515,
+          "end": 503.419,
+          "text": "I mean, for example, look at four votes in Trilokpuri.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 496.042,
+        "end": 499.042,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_03",
+          "start": 489.547,
+          "end": 496.353,
+          "text": "13 crore voters include, admittedly, also several who are dead, several who moved residents.",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_03",
+          "start": 496.393,
+          "end": 499.415,
+          "text": "But yes, there are question marks over the number of voters.",
+          "starts_in_window": true,
+          "active_at_window_end": true,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_03",
+        "start": 489.547,
+        "end": 496.353,
+        "text": "13 crore voters include, admittedly, also several who are dead, several who moved residents."
+      },
+      "observations": {
+        "speech_event_count": 1,
+        "speakers_in_window": [
+          "SPEAKER_00"
+        ],
+        "host_spoke_in_window": false,
+        "speakers_active_at_window_start": [
+          "SPEAKER_00"
+        ],
+        "first_speaker_in_window": "SPEAKER_00",
+        "host_spoke_first_in_window": false,
+        "first_new_speaker_after_overlap": null,
+        "host_spoke_first_new_after_overlap": null,
+        "new_speech_event_count": 0,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 3,
+      "overlap": {
+        "start": 500.813,
+        "end": 501.185,
+        "duration": 0.372,
+        "speakers": [
+          "SPEAKER_00",
+          "SPEAKER_03"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 501.185,
+      "window_end": 504.185,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_00",
+          "start": 499.515,
+          "end": 503.419,
+          "text": "I mean, for example, look at four votes in Trilokpuri.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_00",
+          "start": 503.459,
+          "end": 504.179,
+          "text": "I want to go back.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 497.813,
+        "end": 500.813,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_03",
+          "start": 496.393,
+          "end": 499.415,
+          "text": "But yes, there are question marks over the number of voters.",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_00",
+          "start": 499.515,
+          "end": 503.419,
+          "text": "I mean, for example, look at four votes in Trilokpuri.",
+          "starts_in_window": true,
+          "active_at_window_end": true,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_03",
+        "start": 496.393,
+        "end": 499.415,
+        "text": "But yes, there are question marks over the number of voters."
+      },
+      "observations": {
+        "speech_event_count": 2,
+        "speakers_in_window": [
+          "SPEAKER_00"
+        ],
+        "host_spoke_in_window": false,
+        "speakers_active_at_window_start": [
+          "SPEAKER_00"
+        ],
+        "first_speaker_in_window": "SPEAKER_00",
+        "host_spoke_first_in_window": false,
+        "first_new_speaker_after_overlap": "SPEAKER_00",
+        "host_spoke_first_new_after_overlap": false,
+        "new_speech_event_count": 1,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 4,
+      "overlap": {
+        "start": 887.892,
+        "end": 892.229,
+        "duration": 4.337,
+        "speakers": [
+          "SPEAKER_00",
+          "SPEAKER_01",
+          "SPEAKER_03"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 892.229,
+      "window_end": 895.229,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_01",
+          "start": 885.244,
+          "end": 893.189,
+          "text": "Point number two, service rules of anybody who applies for a government job, please he or she, there is no political protest quote unquote.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_01",
+          "start": 894.15,
+          "end": 897.012,
+          "text": "Mr. Cockroach, I was not interrupting.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 884.892,
+        "end": 887.892,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_01",
+          "start": 880.621,
+          "end": 884.924,
+          "text": "So let's not read 19 Article 19 in isolation or selectively.",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_01",
+          "start": 885.244,
+          "end": 893.189,
+          "text": "Point number two, service rules of anybody who applies for a government job, please he or she, there is no political protest quote unquote.",
+          "starts_in_window": true,
+          "active_at_window_end": true,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_01",
+        "start": 880.621,
+        "end": 884.924,
+        "text": "So let's not read 19 Article 19 in isolation or selectively."
+      },
+      "observations": {
+        "speech_event_count": 2,
+        "speakers_in_window": [
+          "SPEAKER_01"
+        ],
+        "host_spoke_in_window": false,
+        "speakers_active_at_window_start": [
+          "SPEAKER_01"
+        ],
+        "first_speaker_in_window": "SPEAKER_01",
+        "host_spoke_first_in_window": false,
+        "first_new_speaker_after_overlap": "SPEAKER_01",
+        "host_spoke_first_new_after_overlap": false,
+        "new_speech_event_count": 1,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 5,
+      "overlap": {
+        "start": 957.991,
+        "end": 963.374,
+        "duration": 5.383,
+        "speakers": [
+          "SPEAKER_01",
+          "SPEAKER_03"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 963.374,
+      "window_end": 966.374,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_03",
+          "start": 962.437,
+          "end": 967.544,
+          "text": "Pradeep Bhandari, good argument, but the same thing was said about the Ram Janma Bhoomi movement.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 954.991,
+        "end": 957.991,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_01",
+          "start": 952.612,
+          "end": 956.974,
+          "text": "So let us admit on your show that what cockroach and Congress is doing is not constitutional, not democratic.",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_01",
+          "start": 957.214,
+          "end": 957.834,
+          "text": "It's politics.",
+          "starts_in_window": true,
+          "active_at_window_end": false,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_01",
+        "start": 957.214,
+        "end": 957.834,
+        "text": "It's politics."
+      },
+      "observations": {
+        "speech_event_count": 1,
+        "speakers_in_window": [
+          "SPEAKER_03"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_03"
+        ],
+        "first_speaker_in_window": "SPEAKER_03",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": null,
+        "host_spoke_first_new_after_overlap": null,
+        "new_speech_event_count": 0,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 6,
+      "overlap": {
+        "start": 1111.098,
+        "end": 1112.397,
+        "duration": 1.299,
+        "speakers": [
+          "SPEAKER_00",
+          "SPEAKER_02"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 1112.397,
+      "window_end": 1115.397,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_02",
+          "start": 1112.988,
+          "end": 1113.448,
+          "text": "I've heard you.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_00",
+          "start": 1113.748,
+          "end": 1114.308,
+          "text": "I've heard you.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_00",
+          "start": 1114.669,
+          "end": 1117.109,
+          "text": "And the language has really not changed at all.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 1108.098,
+        "end": 1111.098,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_00",
+          "start": 1101.924,
+          "end": 1110.887,
+          "text": "So almost a hundred years later, what is happening is that you've got a government in place that is consistently using the language of the colonial masters.",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_00",
+          "start": 1110.907,
+          "end": 1112.128,
+          "text": "Okay, I've heard you.",
+          "starts_in_window": true,
+          "active_at_window_end": true,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_00",
+        "start": 1101.924,
+        "end": 1110.887,
+        "text": "So almost a hundred years later, what is happening is that you've got a government in place that is consistently using the language of the colonial masters."
+      },
+      "observations": {
+        "speech_event_count": 3,
+        "speakers_in_window": [
+          "SPEAKER_02",
+          "SPEAKER_00"
+        ],
+        "host_spoke_in_window": false,
+        "speakers_active_at_window_start": [],
+        "first_speaker_in_window": "SPEAKER_02",
+        "host_spoke_first_in_window": false,
+        "first_new_speaker_after_overlap": "SPEAKER_02",
+        "host_spoke_first_new_after_overlap": false,
+        "new_speech_event_count": 3,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 7,
+      "overlap": {
+        "start": 1112.87,
+        "end": 1114.338,
+        "duration": 1.468,
+        "speakers": [
+          "SPEAKER_00",
+          "SPEAKER_02"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 1114.338,
+      "window_end": 1117.338,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_00",
+          "start": 1114.669,
+          "end": 1117.109,
+          "text": "And the language has really not changed at all.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_00",
+          "start": 1117.169,
+          "end": 1119.71,
+          "text": "And my question is exactly that.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 1109.87,
+        "end": 1112.87,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_00",
+          "start": 1101.924,
+          "end": 1110.887,
+          "text": "So almost a hundred years later, what is happening is that you've got a government in place that is consistently using the language of the colonial masters.",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_00",
+          "start": 1110.907,
+          "end": 1112.128,
+          "text": "Okay, I've heard you.",
+          "starts_in_window": true,
+          "active_at_window_end": false,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_00",
+        "start": 1110.907,
+        "end": 1112.128,
+        "text": "Okay, I've heard you."
+      },
+      "observations": {
+        "speech_event_count": 2,
+        "speakers_in_window": [
+          "SPEAKER_00"
+        ],
+        "host_spoke_in_window": false,
+        "speakers_active_at_window_start": [],
+        "first_speaker_in_window": "SPEAKER_00",
+        "host_spoke_first_in_window": false,
+        "first_new_speaker_after_overlap": "SPEAKER_00",
+        "host_spoke_first_new_after_overlap": false,
+        "new_speech_event_count": 2,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 8,
+      "overlap": {
+        "start": 1143.97,
+        "end": 1146.383,
+        "duration": 2.413,
+        "speakers": [
+          "SPEAKER_00",
+          "SPEAKER_03"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 1146.383,
+      "window_end": 1149.383,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1146.159,
+          "end": 1147.1,
+          "text": "I take your point.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1147.3,
+          "end": 1148.681,
+          "text": "I will give Pranav a final word.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1148.701,
+          "end": 1157.126,
+          "text": "Pranav, as a lawyer turned CJP spokesperson, a final word according to Pradeep Bhatari who led the Supreme Court this time.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 1140.97,
+        "end": 1143.97,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_00",
+          "start": 1140.816,
+          "end": 1143.578,
+          "text": "These questions, they deserve answers.",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_00",
+          "start": 1143.618,
+          "end": 1146.019,
+          "text": "They do not deserve some stories about anarchy.",
+          "starts_in_window": true,
+          "active_at_window_end": true,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_00",
+        "start": 1140.816,
+        "end": 1143.578,
+        "text": "These questions, they deserve answers."
+      },
+      "observations": {
+        "speech_event_count": 3,
+        "speakers_in_window": [
+          "SPEAKER_03"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_03"
+        ],
+        "first_speaker_in_window": "SPEAKER_03",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": "SPEAKER_03",
+        "host_spoke_first_new_after_overlap": true,
+        "new_speech_event_count": 2,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 9,
+      "overlap": {
+        "start": 1153.977,
+        "end": 1157.251,
+        "duration": 3.274,
+        "speakers": [
+          "SPEAKER_02",
+          "SPEAKER_03"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 1157.251,
+      "window_end": 1160.251,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_02",
+          "start": 1157.206,
+          "end": 1157.766,
+          "text": "Allow me 10 seconds.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_02",
+          "start": 1157.866,
+          "end": 1165.111,
+          "text": "I want to remind the BJP of Article 19 sub clause 2 which says there can only be reasonable restriction on eight enumerated grounds.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 1150.977,
+        "end": 1153.977,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1148.701,
+          "end": 1157.126,
+          "text": "Pranav, as a lawyer turned CJP spokesperson, a final word according to Pradeep Bhatari who led the Supreme Court this time.",
+          "starts_in_window": false,
+          "active_at_window_end": true,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_03",
+        "start": 1147.3,
+        "end": 1148.681,
+        "text": "I will give Pranav a final word."
+      },
+      "observations": {
+        "speech_event_count": 2,
+        "speakers_in_window": [
+          "SPEAKER_02"
+        ],
+        "host_spoke_in_window": false,
+        "speakers_active_at_window_start": [
+          "SPEAKER_02"
+        ],
+        "first_speaker_in_window": "SPEAKER_02",
+        "host_spoke_first_in_window": false,
+        "first_new_speaker_after_overlap": "SPEAKER_02",
+        "host_spoke_first_new_after_overlap": false,
+        "new_speech_event_count": 1,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 10,
+      "overlap": {
+        "start": 1157.943,
+        "end": 1158.736,
+        "duration": 0.793,
+        "speakers": [
+          "SPEAKER_02",
+          "SPEAKER_03"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 1158.736,
+      "window_end": 1161.736,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_02",
+          "start": 1157.866,
+          "end": 1165.111,
+          "text": "I want to remind the BJP of Article 19 sub clause 2 which says there can only be reasonable restriction on eight enumerated grounds.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 1154.943,
+        "end": 1157.943,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1148.701,
+          "end": 1157.126,
+          "text": "Pranav, as a lawyer turned CJP spokesperson, a final word according to Pradeep Bhatari who led the Supreme Court this time.",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_02",
+          "start": 1157.206,
+          "end": 1157.766,
+          "text": "Allow me 10 seconds.",
+          "starts_in_window": true,
+          "active_at_window_end": false,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_02",
+          "start": 1157.866,
+          "end": 1165.111,
+          "text": "I want to remind the BJP of Article 19 sub clause 2 which says there can only be reasonable restriction on eight enumerated grounds.",
+          "starts_in_window": true,
+          "active_at_window_end": true,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_02",
+        "start": 1157.206,
+        "end": 1157.766,
+        "text": "Allow me 10 seconds."
+      },
+      "observations": {
+        "speech_event_count": 1,
+        "speakers_in_window": [
+          "SPEAKER_02"
+        ],
+        "host_spoke_in_window": false,
+        "speakers_active_at_window_start": [
+          "SPEAKER_02"
+        ],
+        "first_speaker_in_window": "SPEAKER_02",
+        "host_spoke_first_in_window": false,
+        "first_new_speaker_after_overlap": null,
+        "host_spoke_first_new_after_overlap": null,
+        "new_speech_event_count": 0,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 11,
+      "overlap": {
+        "start": 1167.055,
+        "end": 1175.341,
+        "duration": 8.286,
+        "speakers": [
+          "SPEAKER_00",
+          "SPEAKER_01",
+          "SPEAKER_02"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 1175.341,
+      "window_end": 1178.341,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_02",
+          "start": 1174.714,
+          "end": 1175.954,
+          "text": "Pradeep, you're being unfair.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_02",
+          "start": 1176.155,
+          "end": 1177.415,
+          "text": "How is this interference permitted?",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_02",
+          "start": 1177.715,
+          "end": 1178.295,
+          "text": "No, no.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 1164.055,
+        "end": 1167.055,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_02",
+          "start": 1157.866,
+          "end": 1165.111,
+          "text": "I want to remind the BJP of Article 19 sub clause 2 which says there can only be reasonable restriction on eight enumerated grounds.",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_02",
+          "start": 1165.531,
+          "end": 1166.792,
+          "text": "None of these grounds relate to",
+          "starts_in_window": true,
+          "active_at_window_end": false,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_02",
+        "start": 1165.531,
+        "end": 1166.792,
+        "text": "None of these grounds relate to"
+      },
+      "observations": {
+        "speech_event_count": 3,
+        "speakers_in_window": [
+          "SPEAKER_02"
+        ],
+        "host_spoke_in_window": false,
+        "speakers_active_at_window_start": [
+          "SPEAKER_02"
+        ],
+        "first_speaker_in_window": "SPEAKER_02",
+        "host_spoke_first_in_window": false,
+        "first_new_speaker_after_overlap": "SPEAKER_02",
+        "host_spoke_first_new_after_overlap": false,
+        "new_speech_event_count": 2,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 12,
+      "overlap": {
+        "start": 1203.775,
+        "end": 1210.492,
+        "duration": 6.717,
+        "speakers": [
+          "SPEAKER_00",
+          "SPEAKER_01",
+          "SPEAKER_02",
+          "SPEAKER_03"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 1210.492,
+      "window_end": 1213.492,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1209.885,
+          "end": 1211.245,
+          "text": "Why has Jantar Mantar been denoted?",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1211.325,
+          "end": 1212.606,
+          "text": "Why has Jantar Mantar been denoted?",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1212.626,
+          "end": 1213.746,
+          "text": "Why has Jantar Mantar been denoted?",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 1200.775,
+        "end": 1203.775,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_02",
+          "start": 1197.761,
+          "end": 1204.863,
+          "text": "Secondly, we will have to ultimately run this government, this country by the edicts of the court and we have to justify.",
+          "starts_in_window": false,
+          "active_at_window_end": true,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_02",
+        "start": 1196.2,
+        "end": 1197.48,
+        "text": "Let us end it there."
+      },
+      "observations": {
+        "speech_event_count": 3,
+        "speakers_in_window": [
+          "SPEAKER_03"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_03"
+        ],
+        "first_speaker_in_window": "SPEAKER_03",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": "SPEAKER_03",
+        "host_spoke_first_new_after_overlap": true,
+        "new_speech_event_count": 2,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 13,
+      "overlap": {
+        "start": 1212.01,
+        "end": 1213.31,
+        "duration": 1.3,
+        "speakers": [
+          "SPEAKER_02",
+          "SPEAKER_03"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 1213.31,
+      "window_end": 1216.31,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1212.626,
+          "end": 1213.746,
+          "text": "Why has Jantar Mantar been denoted?",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1214.226,
+          "end": 1215.867,
+          "text": "We must show courtesy to each other.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1215.907,
+          "end": 1216.827,
+          "text": "Y'all are younger people.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 1209.01,
+        "end": 1212.01,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_02",
+          "start": 1208.624,
+          "end": 1209.865,
+          "text": "Why has Jantar Mantar been denoted?",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1209.885,
+          "end": 1211.245,
+          "text": "Why has Jantar Mantar been denoted?",
+          "starts_in_window": true,
+          "active_at_window_end": false,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1211.325,
+          "end": 1212.606,
+          "text": "Why has Jantar Mantar been denoted?",
+          "starts_in_window": true,
+          "active_at_window_end": true,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_03",
+        "start": 1209.885,
+        "end": 1211.245,
+        "text": "Why has Jantar Mantar been denoted?"
+      },
+      "observations": {
+        "speech_event_count": 3,
+        "speakers_in_window": [
+          "SPEAKER_03"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_03"
+        ],
+        "first_speaker_in_window": "SPEAKER_03",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": "SPEAKER_03",
+        "host_spoke_first_new_after_overlap": true,
+        "new_speech_event_count": 2,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 14,
+      "overlap": {
+        "start": 1214.609,
+        "end": 1214.862,
+        "duration": 0.253,
+        "speakers": [
+          "SPEAKER_01",
+          "SPEAKER_03"
+        ],
+        "case": "DIARIZATION_ONLY",
+        "source": "diarization",
+        "confidence": 0.6
+      },
+      "window_seconds": 3.0,
+      "window_start": 1214.862,
+      "window_end": 1217.862,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1214.226,
+          "end": 1215.867,
+          "text": "We must show courtesy to each other.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1215.907,
+          "end": 1216.827,
+          "text": "Y'all are younger people.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1216.867,
+          "end": 1218.888,
+          "text": "Pradeep Bandari, final word therefore to you.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 1211.609,
+        "end": 1214.609,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1211.325,
+          "end": 1212.606,
+          "text": "Why has Jantar Mantar been denoted?",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1212.626,
+          "end": 1213.746,
+          "text": "Why has Jantar Mantar been denoted?",
+          "starts_in_window": true,
+          "active_at_window_end": false,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1214.226,
+          "end": 1215.867,
+          "text": "We must show courtesy to each other.",
+          "starts_in_window": true,
+          "active_at_window_end": true,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_03",
+        "start": 1212.626,
+        "end": 1213.746,
+        "text": "Why has Jantar Mantar been denoted?"
+      },
+      "observations": {
+        "speech_event_count": 3,
+        "speakers_in_window": [
+          "SPEAKER_03"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_03"
+        ],
+        "first_speaker_in_window": "SPEAKER_03",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": "SPEAKER_03",
+        "host_spoke_first_new_after_overlap": true,
+        "new_speech_event_count": 2,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 15,
+      "overlap": {
+        "start": 1214.71,
+        "end": 1214.812,
+        "duration": 0.102,
+        "speakers": [
+          "SPEAKER_01",
+          "SPEAKER_03"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 1214.812,
+      "window_end": 1217.812,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1214.226,
+          "end": 1215.867,
+          "text": "We must show courtesy to each other.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1215.907,
+          "end": 1216.827,
+          "text": "Y'all are younger people.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1216.867,
+          "end": 1218.888,
+          "text": "Pradeep Bandari, final word therefore to you.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 1211.71,
+        "end": 1214.71,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1211.325,
+          "end": 1212.606,
+          "text": "Why has Jantar Mantar been denoted?",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1212.626,
+          "end": 1213.746,
+          "text": "Why has Jantar Mantar been denoted?",
+          "starts_in_window": true,
+          "active_at_window_end": false,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1214.226,
+          "end": 1215.867,
+          "text": "We must show courtesy to each other.",
+          "starts_in_window": true,
+          "active_at_window_end": true,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_03",
+        "start": 1212.626,
+        "end": 1213.746,
+        "text": "Why has Jantar Mantar been denoted?"
+      },
+      "observations": {
+        "speech_event_count": 3,
+        "speakers_in_window": [
+          "SPEAKER_03"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_03"
+        ],
+        "first_speaker_in_window": "SPEAKER_03",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": "SPEAKER_03",
+        "host_spoke_first_new_after_overlap": true,
+        "new_speech_event_count": 2,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 16,
+      "overlap": {
+        "start": 1217.309,
+        "end": 1218.727,
+        "duration": 1.418,
+        "speakers": [
+          "SPEAKER_00",
+          "SPEAKER_03"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 1218.727,
+      "window_end": 1221.727,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1216.867,
+          "end": 1218.888,
+          "text": "Pradeep Bandari, final word therefore to you.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1219.288,
+          "end": 1222.109,
+          "text": "Has Rahul Gandhi in the end again got under your skin?",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 1214.309,
+        "end": 1217.309,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1214.226,
+          "end": 1215.867,
+          "text": "We must show courtesy to each other.",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1215.907,
+          "end": 1216.827,
+          "text": "Y'all are younger people.",
+          "starts_in_window": true,
+          "active_at_window_end": false,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1216.867,
+          "end": 1218.888,
+          "text": "Pradeep Bandari, final word therefore to you.",
+          "starts_in_window": true,
+          "active_at_window_end": true,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_03",
+        "start": 1215.907,
+        "end": 1216.827,
+        "text": "Y'all are younger people."
+      },
+      "observations": {
+        "speech_event_count": 2,
+        "speakers_in_window": [
+          "SPEAKER_03"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_03"
+        ],
+        "first_speaker_in_window": "SPEAKER_03",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": "SPEAKER_03",
+        "host_spoke_first_new_after_overlap": true,
+        "new_speech_event_count": 1,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 17,
+      "overlap": {
+        "start": 1219.013,
+        "end": 1220.296,
+        "duration": 1.283,
+        "speakers": [
+          "SPEAKER_00",
+          "SPEAKER_03"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 1220.296,
+      "window_end": 1223.296,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1219.288,
+          "end": 1222.109,
+          "text": "Has Rahul Gandhi in the end again got under your skin?",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1222.269,
+          "end": 1225.571,
+          "text": "Are you all rattled with Rahul Gandhi trying to make these speeches?",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 1216.013,
+        "end": 1219.013,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1215.907,
+          "end": 1216.827,
+          "text": "Y'all are younger people.",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1216.867,
+          "end": 1218.888,
+          "text": "Pradeep Bandari, final word therefore to you.",
+          "starts_in_window": true,
+          "active_at_window_end": false,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_03",
+        "start": 1216.867,
+        "end": 1218.888,
+        "text": "Pradeep Bandari, final word therefore to you."
+      },
+      "observations": {
+        "speech_event_count": 2,
+        "speakers_in_window": [
+          "SPEAKER_03"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_03"
+        ],
+        "first_speaker_in_window": "SPEAKER_03",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": "SPEAKER_03",
+        "host_spoke_first_new_after_overlap": true,
+        "new_speech_event_count": 1,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 18,
+      "overlap": {
+        "start": 1243.398,
+        "end": 1244.005,
+        "duration": 0.607,
+        "speakers": [
+          "SPEAKER_01",
+          "SPEAKER_03"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 1244.005,
+      "window_end": 1247.005,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_01",
+          "start": 1238.803,
+          "end": 1246.968,
+          "text": "Rajdeepji, the students of the country voted in Delhi University Student Union elections and the Congress got... 13%... 13%... No, no, no, no, man.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 1240.398,
+        "end": 1243.398,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_01",
+          "start": 1238.803,
+          "end": 1246.968,
+          "text": "Rajdeepji, the students of the country voted in Delhi University Student Union elections and the Congress got... 13%... 13%... No, no, no, no, man.",
+          "starts_in_window": false,
+          "active_at_window_end": true,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_03",
+        "start": 1229.412,
+        "end": 1234.214,
+        "text": "Your problem is more with these student protesters who don't affiliate themselves to any party."
+      },
+      "observations": {
+        "speech_event_count": 1,
+        "speakers_in_window": [
+          "SPEAKER_01"
+        ],
+        "host_spoke_in_window": false,
+        "speakers_active_at_window_start": [
+          "SPEAKER_01"
+        ],
+        "first_speaker_in_window": "SPEAKER_01",
+        "host_spoke_first_in_window": false,
+        "first_new_speaker_after_overlap": null,
+        "host_spoke_first_new_after_overlap": null,
+        "new_speech_event_count": 0,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 19,
+      "overlap": {
+        "start": 1244.478,
+        "end": 1250.215,
+        "duration": 5.737,
+        "speakers": [
+          "SPEAKER_01",
+          "SPEAKER_03"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 1250.215,
+      "window_end": 1253.215,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_01",
+          "start": 1249.97,
+          "end": 1251.191,
+          "text": "Let's not link it to that.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_01",
+          "start": 1251.611,
+          "end": 1252.832,
+          "text": "Let's not link it to that.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 1241.478,
+        "end": 1244.478,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_01",
+          "start": 1238.803,
+          "end": 1246.968,
+          "text": "Rajdeepji, the students of the country voted in Delhi University Student Union elections and the Congress got... 13%... 13%... No, no, no, no, man.",
+          "starts_in_window": false,
+          "active_at_window_end": true,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_03",
+        "start": 1229.412,
+        "end": 1234.214,
+        "text": "Your problem is more with these student protesters who don't affiliate themselves to any party."
+      },
+      "observations": {
+        "speech_event_count": 2,
+        "speakers_in_window": [
+          "SPEAKER_01"
+        ],
+        "host_spoke_in_window": false,
+        "speakers_active_at_window_start": [
+          "SPEAKER_01"
+        ],
+        "first_speaker_in_window": "SPEAKER_01",
+        "host_spoke_first_in_window": false,
+        "first_new_speaker_after_overlap": "SPEAKER_01",
+        "host_spoke_first_new_after_overlap": false,
+        "new_speech_event_count": 1,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 20,
+      "overlap": {
+        "start": 1274.954,
+        "end": 1283.611,
+        "duration": 8.657,
+        "speakers": [
+          "SPEAKER_01",
+          "SPEAKER_02",
+          "SPEAKER_03"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 1283.611,
+      "window_end": 1286.611,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1279.155,
+          "end": 1287.101,
+          "text": "Pradeep Bandhari, there are examples of Hindu Rakshad Dal, members attacking protestors, peaceful protestors.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 1271.954,
+        "end": 1274.954,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_01",
+          "start": 1266.864,
+          "end": 1274.01,
+          "text": "He did not follow the lines and my dear cockroaches, last time when you protested, there was attempt to lynch a policeman.",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_01",
+          "start": 1274.21,
+          "end": 1274.751,
+          "text": "So please do",
+          "starts_in_window": true,
+          "active_at_window_end": false,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_01",
+        "start": 1274.21,
+        "end": 1274.751,
+        "text": "So please do"
+      },
+      "observations": {
+        "speech_event_count": 1,
+        "speakers_in_window": [
+          "SPEAKER_03"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_03"
+        ],
+        "first_speaker_in_window": "SPEAKER_03",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": null,
+        "host_spoke_first_new_after_overlap": null,
+        "new_speech_event_count": 0,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 21,
+      "overlap": {
+        "start": 1283.645,
+        "end": 1285.535,
+        "duration": 1.89,
+        "speakers": [
+          "SPEAKER_00",
+          "SPEAKER_01",
+          "SPEAKER_02",
+          "SPEAKER_03"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 1285.535,
+      "window_end": 1288.535,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1279.155,
+          "end": 1287.101,
+          "text": "Pradeep Bandhari, there are examples of Hindu Rakshad Dal, members attacking protestors, peaceful protestors.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1287.121,
+          "end": 1287.802,
+          "text": "So let's not go.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1288.222,
+          "end": 1289.904,
+          "text": "You know, let's not be selective.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 1280.645,
+        "end": 1283.645,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1279.155,
+          "end": 1287.101,
+          "text": "Pradeep Bandhari, there are examples of Hindu Rakshad Dal, members attacking protestors, peaceful protestors.",
+          "starts_in_window": false,
+          "active_at_window_end": true,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_01",
+        "start": 1275.511,
+        "end": 1279.115,
+        "text": "You see Pradeep Bandhari selected you."
+      },
+      "observations": {
+        "speech_event_count": 3,
+        "speakers_in_window": [
+          "SPEAKER_03"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_03"
+        ],
+        "first_speaker_in_window": "SPEAKER_03",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": "SPEAKER_03",
+        "host_spoke_first_new_after_overlap": true,
+        "new_speech_event_count": 2,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 22,
+      "overlap": {
+        "start": 1292.302,
+        "end": 1293.365,
+        "duration": 1.063,
+        "speakers": [
+          "SPEAKER_01",
+          "SPEAKER_02",
+          "SPEAKER_03"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 1293.365,
+      "window_end": 1296.365,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1293.847,
+          "end": 1294.887,
+          "text": "Two wrongs don't make a right.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1294.907,
+          "end": 1296.788,
+          "text": "No, no, it's not about two wrongs don't make a right.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 1289.302,
+        "end": 1292.302,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1288.222,
+          "end": 1289.904,
+          "text": "You know, let's not be selective.",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1289.944,
+          "end": 1291.025,
+          "text": "These are serious issues.",
+          "starts_in_window": true,
+          "active_at_window_end": false,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1291.305,
+          "end": 1293.166,
+          "text": "We can all use all kinds of videos.",
+          "starts_in_window": true,
+          "active_at_window_end": true,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_03",
+        "start": 1289.944,
+        "end": 1291.025,
+        "text": "These are serious issues."
+      },
+      "observations": {
+        "speech_event_count": 2,
+        "speakers_in_window": [
+          "SPEAKER_03"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [],
+        "first_speaker_in_window": "SPEAKER_03",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": "SPEAKER_03",
+        "host_spoke_first_new_after_overlap": true,
+        "new_speech_event_count": 2,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 23,
+      "overlap": {
+        "start": 1294.36,
+        "end": 1296.014,
+        "duration": 1.654,
+        "speakers": [
+          "SPEAKER_02",
+          "SPEAKER_03"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 1296.014,
+      "window_end": 1299.014,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1294.907,
+          "end": 1296.788,
+          "text": "No, no, it's not about two wrongs don't make a right.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_02",
+          "start": 1296.828,
+          "end": 1299.428,
+          "text": "The fact is... It's a matter of investigation.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 1291.36,
+        "end": 1294.36,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1291.305,
+          "end": 1293.166,
+          "text": "We can all use all kinds of videos.",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1293.847,
+          "end": 1294.887,
+          "text": "Two wrongs don't make a right.",
+          "starts_in_window": true,
+          "active_at_window_end": true,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_03",
+        "start": 1291.305,
+        "end": 1293.166,
+        "text": "We can all use all kinds of videos."
+      },
+      "observations": {
+        "speech_event_count": 2,
+        "speakers_in_window": [
+          "SPEAKER_03",
+          "SPEAKER_02"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_03"
+        ],
+        "first_speaker_in_window": "SPEAKER_03",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": "SPEAKER_02",
+        "host_spoke_first_new_after_overlap": false,
+        "new_speech_event_count": 1,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 24,
+      "overlap": {
+        "start": 1296.132,
+        "end": 1297.718,
+        "duration": 1.586,
+        "speakers": [
+          "SPEAKER_02",
+          "SPEAKER_03"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 1297.718,
+      "window_end": 1300.718,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_02",
+          "start": 1296.828,
+          "end": 1299.428,
+          "text": "The fact is... It's a matter of investigation.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_02",
+          "start": 1299.608,
+          "end": 1301.108,
+          "text": "Okay, I'm going to leave it there.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 1293.132,
+        "end": 1296.132,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1291.305,
+          "end": 1293.166,
+          "text": "We can all use all kinds of videos.",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1293.847,
+          "end": 1294.887,
+          "text": "Two wrongs don't make a right.",
+          "starts_in_window": true,
+          "active_at_window_end": false,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1294.907,
+          "end": 1296.788,
+          "text": "No, no, it's not about two wrongs don't make a right.",
+          "starts_in_window": true,
+          "active_at_window_end": true,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_03",
+        "start": 1293.847,
+        "end": 1294.887,
+        "text": "Two wrongs don't make a right."
+      },
+      "observations": {
+        "speech_event_count": 2,
+        "speakers_in_window": [
+          "SPEAKER_02"
+        ],
+        "host_spoke_in_window": false,
+        "speakers_active_at_window_start": [
+          "SPEAKER_02"
+        ],
+        "first_speaker_in_window": "SPEAKER_02",
+        "host_spoke_first_in_window": false,
+        "first_new_speaker_after_overlap": "SPEAKER_02",
+        "host_spoke_first_new_after_overlap": false,
+        "new_speech_event_count": 1,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 25,
+      "overlap": {
+        "start": 1303.591,
+        "end": 1305.008,
+        "duration": 1.417,
+        "speakers": [
+          "SPEAKER_01",
+          "SPEAKER_02",
+          "SPEAKER_03"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 1305.008,
+      "window_end": 1308.008,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1304.289,
+          "end": 1306.47,
+          "text": "So now you are saying the matter is of investigation.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1306.51,
+          "end": 1309.93,
+          "text": "I still wonder... No, no, when it is a matter of investigation, how can you have selective videos?",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 1300.591,
+        "end": 1303.591,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_02",
+          "start": 1299.608,
+          "end": 1301.108,
+          "text": "Okay, I'm going to leave it there.",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1301.629,
+          "end": 1302.949,
+          "text": "I've heard all three of you.",
+          "starts_in_window": true,
+          "active_at_window_end": false,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1303.049,
+          "end": 1304.209,
+          "text": "I wonder though what the end game is.",
+          "starts_in_window": true,
+          "active_at_window_end": true,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_03",
+        "start": 1301.629,
+        "end": 1302.949,
+        "text": "I've heard all three of you."
+      },
+      "observations": {
+        "speech_event_count": 2,
+        "speakers_in_window": [
+          "SPEAKER_03"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_03"
+        ],
+        "first_speaker_in_window": "SPEAKER_03",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": "SPEAKER_03",
+        "host_spoke_first_new_after_overlap": true,
+        "new_speech_event_count": 1,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 26,
+      "overlap": {
+        "start": 1305.751,
+        "end": 1309.767,
+        "duration": 4.016,
+        "speakers": [
+          "SPEAKER_01",
+          "SPEAKER_02",
+          "SPEAKER_03"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 1309.767,
+      "window_end": 1312.767,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1306.51,
+          "end": 1309.93,
+          "text": "I still wonder... No, no, when it is a matter of investigation, how can you have selective videos?",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_02",
+          "start": 1310.23,
+          "end": 1311.671,
+          "text": "Okay, we've heard all three.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_02",
+          "start": 1311.731,
+          "end": 1313.191,
+          "text": "Okay, we've heard all three.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 1302.751,
+        "end": 1305.751,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1301.629,
+          "end": 1302.949,
+          "text": "I've heard all three of you.",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1303.049,
+          "end": 1304.209,
+          "text": "I wonder though what the end game is.",
+          "starts_in_window": true,
+          "active_at_window_end": false,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1304.289,
+          "end": 1306.47,
+          "text": "So now you are saying the matter is of investigation.",
+          "starts_in_window": true,
+          "active_at_window_end": true,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_03",
+        "start": 1303.049,
+        "end": 1304.209,
+        "text": "I wonder though what the end game is."
+      },
+      "observations": {
+        "speech_event_count": 3,
+        "speakers_in_window": [
+          "SPEAKER_03",
+          "SPEAKER_02"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_03"
+        ],
+        "first_speaker_in_window": "SPEAKER_03",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": "SPEAKER_02",
+        "host_spoke_first_new_after_overlap": false,
+        "new_speech_event_count": 2,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 27,
+      "overlap": {
+        "start": 1310.425,
+        "end": 1313.783,
+        "duration": 3.358,
+        "speakers": [
+          "SPEAKER_02",
+          "SPEAKER_03"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 1313.783,
+      "window_end": 1316.783,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1313.211,
+          "end": 1314.711,
+          "text": "Put the faders down, producer.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1315.191,
+          "end": 1316.872,
+          "text": "It's supposed to be news without the noise.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 1307.425,
+        "end": 1310.425,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1306.51,
+          "end": 1309.93,
+          "text": "I still wonder... No, no, when it is a matter of investigation, how can you have selective videos?",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_02",
+          "start": 1310.23,
+          "end": 1311.671,
+          "text": "Okay, we've heard all three.",
+          "starts_in_window": true,
+          "active_at_window_end": true,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_03",
+        "start": 1306.51,
+        "end": 1309.93,
+        "text": "I still wonder... No, no, when it is a matter of investigation, how can you have selective videos?"
+      },
+      "observations": {
+        "speech_event_count": 2,
+        "speakers_in_window": [
+          "SPEAKER_03"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_03"
+        ],
+        "first_speaker_in_window": "SPEAKER_03",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": "SPEAKER_03",
+        "host_spoke_first_new_after_overlap": true,
+        "new_speech_event_count": 1,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    }
+  ],
+  "notes": [
+    "This artifact is a separate analysis output; it does not modify final.json or any existing pipeline stage.",
+    "Transcript text and source segment timestamps are preserved exactly; events may extend beyond the 3-second window and are flagged.",
+    "All classification and host-behavior fields are intentionally unclassified pending manual verification and later LLM analysis.",
+    "first_speaker_in_window accounts for speech already active at the window boundary; first_new_speaker_after_overlap separately records a segment beginning after the overlap.",
+    "Tied or ambiguous speaker starts are represented as null rather than forcing a conclusion.",
+    "Speaker labels are diarization labels, not verified real-world identities."
+  ]
+}
