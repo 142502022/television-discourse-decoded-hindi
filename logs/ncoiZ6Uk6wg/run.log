@@ -1,30 +1,8 @@
-2026-11-12 23:46:32,913 | WARNING | Skipping overlap candidate #2 with fewer than 2 speakers
-2026-11-12 23:46:32,913 | WARNING | Skipping overlap candidate #25 with fewer than 2 speakers
-2026-11-12 23:46:32,913 | WARNING | Skipping overlap candidate #31 with fewer than 2 speakers
-2026-11-12 23:46:32,913 | WARNING | Skipping overlap candidate #35 with fewer than 2 speakers
-2026-11-12 23:46:32,914 | INFO | Saved merged speaker turns: data/v2/videos/ncoiZ6Uk6wg/baseline/merged_speaker_sections.json
-2026-11-12 23:46:32,914 | INFO | Saved: data/v2/videos/ncoiZ6Uk6wg/baseline/speaker_transition_analysis.json
-2026-11-12 23:46:32,953 | INFO | Artifact saved: final.json
-2026-11-12 23:46:32,954 | INFO | threshold 0.5s | overlap regions 27 -> 18 (removed 9) | candidates 36 -> 27 | output: data/v2/videos/ncoiZ6Uk6wg/threshold_0.5
-2026-11-12 23:46:32,972 | WARNING | Skipping overlap candidate #17 with fewer than 2 speakers
-2026-11-12 23:46:32,972 | WARNING | Skipping overlap candidate #22 with fewer than 2 speakers
-2026-11-12 23:46:32,972 | WARNING | Skipping overlap candidate #26 with fewer than 2 speakers
-2026-11-12 23:46:32,973 | INFO | Saved merged speaker turns: data/v2/videos/ncoiZ6Uk6wg/threshold_0.5/merged_speaker_sections.json
-2026-11-12 23:46:32,973 | INFO | Saved: data/v2/videos/ncoiZ6Uk6wg/threshold_0.5/speaker_transition_analysis.json
-2026-11-12 23:46:33,011 | INFO | Artifact saved: final.json
-2026-11-12 23:46:33,011 | INFO | threshold 1.0s | overlap regions 27 -> 12 (removed 15) | candidates 36 -> 21 | output: data/v2/videos/ncoiZ6Uk6wg/threshold_1.0
-2026-11-12 23:46:33,030 | WARNING | Skipping overlap candidate #11 with fewer than 2 speakers
-2026-11-12 23:46:33,030 | WARNING | Skipping overlap candidate #16 with fewer than 2 speakers
-2026-11-12 23:46:33,030 | WARNING | Skipping overlap candidate #20 with fewer than 2 speakers
-2026-11-12 23:46:33,031 | INFO | Saved merged speaker turns: data/v2/videos/ncoiZ6Uk6wg/threshold_1.0/merged_speaker_sections.json
-2026-11-12 23:46:33,031 | INFO | Saved: data/v2/videos/ncoiZ6Uk6wg/threshold_1.0/speaker_transition_analysis.json
-2026-11-12 23:46:33,066 | INFO | Artifact saved: final.json
-2026-11-12 23:46:33,066 | INFO | threshold 2.0s | overlap regions 27 -> 4 (removed 23) | candidates 36 -> 9 | output: data/v2/videos/ncoiZ6Uk6wg/threshold_2.0
-2026-11-12 23:46:33,084 | WARNING | Skipping overlap candidate #7 with fewer than 2 speakers
-2026-11-12 23:46:33,084 | INFO | Saved merged speaker turns: data/v2/videos/ncoiZ6Uk6wg/threshold_2.0/merged_speaker_sections.json
-2026-11-12 23:46:33,085 | INFO | Saved: data/v2/videos/ncoiZ6Uk6wg/threshold_2.0/speaker_transition_analysis.json
-[SAVED] data/v2/videos/ncoiZ6Uk6wg/baseline/short_result_numeric.json
-[SAVED] data/v2/videos/ncoiZ6Uk6wg/threshold_0.5/short_result_numeric.json
-[SAVED] data/v2/videos/ncoiZ6Uk6wg/threshold_1.0/short_result_numeric.json
-[SAVED] data/v2/videos/ncoiZ6Uk6wg/threshold_2.0/short_result_numeric.json
-[OK] ncoiZ6Uk6wg
+Traceback (most recent call last):
+  File "/home/user/MTP/Code/television-discourse-decoded-hindi/analysis/run_variant_pipeline.py", line 158, in <module>
+    main()
+  File "/home/user/MTP/Code/television-discourse-decoded-hindi/analysis/run_variant_pipeline.py", line 153, in main
+    process_video(video_dir, args.thresholds, args.overwrite)
+  File "/home/user/MTP/Code/television-discourse-decoded-hindi/analysis/run_variant_pipeline.py", line 115, in process_video
+    raise FileExistsError(f"Baseline exists: {baseline_dir}; pass --overwrite to replace it")
+FileExistsError: Baseline exists: data/v2/videos/ncoiZ6Uk6wg/baseline; pass --overwrite to replace it
