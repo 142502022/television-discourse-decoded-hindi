@@ -226,6 +226,7 @@ def main() -> None:
     video_dirs = [args.data_dir / args.video_id] if args.video_id else sorted(p.parent for p in args.data_dir.glob("*/final.json"))
     for video_dir in video_dirs:
         missing = []
+        advertisements = load(video_dir / "advertisement_analysis" / "advertisement_exclusions.json", missing, "advertisement_exclusions")
         stages = {sid: build_stage(video_dir, sid, desc, rel, missing) for sid, desc, rel in STAGES}
         original, baseline = stages["original"], stages["merged_no_threshold"]
         impact = {"merge_S1_to_S2": {"turns_removed": (original["timeline_statistics"]["source_speaker_turn_count"] - baseline["timeline_statistics"]["analysis_turn_count"]),
@@ -237,7 +238,7 @@ def main() -> None:
                 "overlap_duration_change_from_S2": changes(current["overlap_statistics"]["duration"]["total"], baseline["overlap_statistics"]["duration"]["total"]),
                 "additional_turns_removed_after_threshold": baseline["timeline_statistics"]["analysis_turn_count"] - current["timeline_statistics"]["analysis_turn_count"]}
             impact["cumulative_from_S1"][label] = {"turn_count_change": changes(current["timeline_statistics"]["analysis_turn_count"], original["timeline_statistics"]["source_speaker_turn_count"]), "overlap_duration_change": changes(current["overlap_statistics"]["duration"]["total"], original["overlap_statistics"]["duration"]["total"])}
-        output = {"schema_version": "five-stage-comparison-1.0", "metadata": {"video_id": video_dir.name, "video_title": (stages["original"].get("source_files") and (load(video_dir / "final.json", [], "metadata") or {}).get("episode", {}).get("title")), "language": "Hindi"},
+        output = {"schema_version": "five-stage-comparison-1.0", "metadata": {"video_id": video_dir.name, "video_title": (stages["original"].get("source_files") and (load(video_dir / "final.json", [], "metadata") or {}).get("episode", {}).get("title")), "language": "Hindi", "advertisement_exclusion": (advertisements or {}).get("summary")},
             "comparison_metadata": {"stages": [x[0] for x in STAGES], "generated_at_utc": datetime.now(timezone.utc).isoformat(), "metric_definitions": {"speech_share": "attributed turn duration / total attributed turn duration", "switch": "same as confirmed transition", "overlap_duration": "sum of stage-local overlap candidate durations"}},
             "stage_results": stages, "processing_impact": impact, "data_quality": {"unavailable_sources": missing, "validation_warnings": ["Pairwise gap totals are not union-of-silence coverage.", "Host predictions and clusters are not human-verified."]}}
         out = video_dir / "comparison" / "five_stage_comparison.json"

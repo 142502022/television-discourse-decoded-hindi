@@ -5,7 +5,9 @@
 PYTHON ?= .venv/bin/python
 SHELL := /bin/bash
 .SHELLFLAGS := -eu -o pipefail -c
-DATA_DIR := data/v2/videos
+SOURCE_DATA_DIR := data/v2/videos
+DEBATE_DATA_DIR := data/v2/debate_only/videos
+DATA_DIR := $(DEBATE_DATA_DIR)
 IDS_FILE := ids.json
 LOG_DIR := logs
 VIDEO_ID ?=
@@ -15,13 +17,14 @@ OVERWRITE_FLAG := $(if $(filter 1 yes true,$(OVERWRITE)),--overwrite,)
 IDS := $(shell $(PYTHON) -c 'import json; print(" ".join(x for x in json.load(open("$(IDS_FILE)")) if isinstance(x, str) and x.strip()))')
 
 .DEFAULT_GOAL := help
-.PHONY: help list check check-final media prepare transcribe diarize overlap build-final acquire original baseline threshold-0.5 threshold-1.0 threshold-2.0 thresholds compare run all clean-generated summary
+.PHONY: help list check check-final media prepare transcribe detect-ads diarize overlap build-final acquire original baseline threshold-0.5 threshold-1.0 threshold-2.0 thresholds compare run all clean-generated summary
 
 help:
 	@echo "Five-stage Hindi TV debate analysis"
 	@echo "  make list"
 	@echo "  make check [VIDEO_ID=<id>]             # scripts and IDs"
 	@echo "  make media|transcribe|diarize|overlap|build-final VIDEO_ID=<id>"
+	@echo "  make detect-ads VIDEO_ID=<id>           # conservative Hindi ad screening"
 	@echo "  make acquire VIDEO_ID=<id>              # full V2 source acquisition"
 	@echo "  make original|baseline|threshold-0.5|threshold-1.0|threshold-2.0 VIDEO_ID=<id>"
 	@echo "  make run VIDEO_ID=<id> [OVERWRITE=1]"
@@ -45,31 +48,34 @@ check:
 
 check-final: check
 	@test -n "$(VIDEO_ID)" || (echo "ERROR: specify VIDEO_ID=<id>"; exit 2)
-	@$(PYTHON) -c 'import json, pathlib; p=pathlib.Path("$(DATA_DIR)")/"$(VIDEO_ID)"/"final.json"; d=json.load(p.open()); assert isinstance(d,dict) and isinstance(d.get("speaker_turns"),list); print("Valid final.json:", p)'
+	@$(PYTHON) -c 'import json, pathlib; p=pathlib.Path("$(DEBATE_DATA_DIR)")/"$(VIDEO_ID)"/"final.json"; d=json.load(p.open()); assert isinstance(d,dict) and isinstance(d.get("speaker_turns"),list); print("Valid debate-only final.json:", p)'
 
 # prepare_media is the repository's actual combined media stage: yt-dlp video
 # + metadata, FFmpeg 16-kHz mono WAV, and 480p H.264/AAC proxy.  It is idempotent.
 media: check
 	@test -n "$(VIDEO_ID)" || (echo "ERROR: specify VIDEO_ID=<id>"; exit 2)
 	@mkdir -p $(LOG_DIR)/$(VIDEO_ID)
-	@$(PYTHON) -m v2.cli.prepare_media --video-id $(VIDEO_ID) --data-dir $(DATA_DIR) 2>&1 | tee $(LOG_DIR)/$(VIDEO_ID)/preparation.log
+	@$(PYTHON) -m v2.cli.prepare_media --video-id $(VIDEO_ID) --data-dir $(SOURCE_DATA_DIR) 2>&1 | tee $(LOG_DIR)/$(VIDEO_ID)/preparation.log
 
 prepare: media
 
 transcribe: media
-	@$(PYTHON) -m v2.cli.transcribe --video-id $(VIDEO_ID) --data-dir $(DATA_DIR) 2>&1 | tee $(LOG_DIR)/$(VIDEO_ID)/transcription.log
+	@$(PYTHON) -m v2.cli.transcribe --video-id $(VIDEO_ID) --data-dir $(SOURCE_DATA_DIR) 2>&1 | tee $(LOG_DIR)/$(VIDEO_ID)/transcription.log
 
-diarize: transcribe
+detect-ads: transcribe
+	@$(PYTHON) -m v2.cli.detect_ads --video-id $(VIDEO_ID) --data-dir $(SOURCE_DATA_DIR) --debate-data-dir $(DEBATE_DATA_DIR) 2>&1 | tee $(LOG_DIR)/$(VIDEO_ID)/advertisements.log
+
+diarize: detect-ads
 	@test -n "$$HF_TOKEN" || (echo "ERROR: set HF_TOKEN for gated Pyannote diarization"; exit 2)
-	@$(PYTHON) -m v2.cli.diarize --video-id $(VIDEO_ID) --data-dir $(DATA_DIR) 2>&1 | tee $(LOG_DIR)/$(VIDEO_ID)/diarization.log
+	@$(PYTHON) -m v2.cli.diarize --video-id $(VIDEO_ID) --data-dir $(DEBATE_DATA_DIR) 2>&1 | tee $(LOG_DIR)/$(VIDEO_ID)/diarization.log
 
 overlap: diarize
 	@test -n "$$HF_TOKEN" || (echo "ERROR: set HF_TOKEN for gated Pyannote OSD"; exit 2)
-	@$(PYTHON) -m v2.cli.osd --video-id $(VIDEO_ID) --data-dir $(DATA_DIR) 2>&1 | tee $(LOG_DIR)/$(VIDEO_ID)/overlap.log
-	@$(PYTHON) -m v2.cli.verify --video-id $(VIDEO_ID) --data-dir $(DATA_DIR) 2>&1 | tee -a $(LOG_DIR)/$(VIDEO_ID)/overlap.log
+	@$(PYTHON) -m v2.cli.osd --video-id $(VIDEO_ID) --data-dir $(DEBATE_DATA_DIR) 2>&1 | tee $(LOG_DIR)/$(VIDEO_ID)/overlap.log
+	@$(PYTHON) -m v2.cli.verify --video-id $(VIDEO_ID) --data-dir $(DEBATE_DATA_DIR) 2>&1 | tee -a $(LOG_DIR)/$(VIDEO_ID)/overlap.log
 
 build-final: overlap
-	@$(PYTHON) -m v2.cli.finalize --video-id $(VIDEO_ID) --data-dir $(DATA_DIR) 2>&1 | tee $(LOG_DIR)/$(VIDEO_ID)/final_generation.log
+	@$(PYTHON) -m v2.cli.finalize --video-id $(VIDEO_ID) --data-dir $(DEBATE_DATA_DIR) 2>&1 | tee $(LOG_DIR)/$(VIDEO_ID)/final_generation.log
 	@$(MAKE) --no-print-directory check-final VIDEO_ID=$(VIDEO_ID)
 
 acquire: build-final
