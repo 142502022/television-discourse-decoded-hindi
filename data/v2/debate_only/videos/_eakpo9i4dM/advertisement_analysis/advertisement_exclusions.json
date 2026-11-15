@@ -1,0 +1,57 @@
+{
+  "schema_version": "advertisement-exclusion-1.0",
+  "video_id": "_eakpo9i4dM",
+  "advertisement_detection": {
+    "method": "conservative_rules_only",
+    "language": "Hindi_or_Hinglish",
+    "duration_threshold_seconds": 60,
+    "exclusion_rule": "duration > 60 seconds",
+    "continuous_gap_seconds": 2.0
+  },
+  "summary": {
+    "total_advertisement_candidates": 2,
+    "total_continuous_advertisements": 0,
+    "total_excluded_advertisements": 0,
+    "total_retained_advertisements": 0,
+    "total_excluded_duration_seconds": 0,
+    "total_retained_duration_seconds": 0,
+    "uncertain_candidate_count": 2
+  },
+  "advertisement_candidates": [
+    {
+      "source_segment_indices": [
+        400
+      ],
+      "start_timestamp": 1783.404,
+      "end_timestamp": 1786.467,
+      "duration_seconds": 3.063,
+      "transcript_evidence": "The price of oil was going too high and I was like, you know, this is a better way.",
+      "rule_score": 1,
+      "evidence_categories": [
+        "product_or_price"
+      ],
+      "classification": "uncertain"
+    },
+    {
+      "source_segment_indices": [
+        402
+      ],
+      "start_timestamp": 1789.489,
+      "end_timestamp": 1792.531,
+      "duration_seconds": 3.042,
+      "transcript_evidence": "because, you know, the battery price, the cars are more expensive.",
+      "rule_score": 1,
+      "evidence_categories": [
+        "product_or_price"
+      ],
+      "classification": "uncertain"
+    }
+  ],
+  "excluded_advertisements": [],
+  "retained_advertisements": [],
+  "validation": {
+    "human_verified": false,
+    "review_required": true,
+    "warning": "Rules do not establish commercial intent; uncertain candidates are retained."
+  }
+}

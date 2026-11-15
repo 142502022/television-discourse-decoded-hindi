@@ -1,0 +1,5176 @@
+{
+  "schema_version": "overlap-followup-analysis-1.1",
+  "analysis_status": "deterministic_extraction_only_classification_and_interpretation_pending",
+  "language_scope": {
+    "selected_scope": "English-only pilot",
+    "source_asr_language": "en",
+    "source_language_verified_by_human": false,
+    "out_of_scope_policy": "Flag non-English, mixed-language, or uncertain speech for review; do not silently classify it as English."
+  },
+  "classification_taxonomy": {
+    "utterance_form": [
+      "question",
+      "statement",
+      "imperative",
+      "fragment",
+      "unclear"
+    ],
+    "conversational_function": [
+      "asking",
+      "challenging",
+      "answering",
+      "interrupting",
+      "yielding_floor",
+      "redirecting",
+      "backchanneling",
+      "asserting",
+      "unclear"
+    ],
+    "target_speaker_policy": "Use a speaker label only when the target is supported by transcript/context; otherwise null.",
+    "host_behavior": [
+      "regaining_control",
+      "challenging_participant",
+      "asking_for_clarification",
+      "redirecting_topic",
+      "allocating_floor",
+      "allowing_guest_to_continue",
+      "summarizing",
+      "closing_discussion",
+      "other",
+      "unclear",
+      "not_applicable"
+    ],
+    "inference_policy": "Observable timing/order is not by itself proof of conversational intent. Use transcript evidence and abstain when evidence is insufficient."
+  },
+  "manual_verification": {
+    "status": "pending",
+    "recommended_initial_sample_size": 10,
+    "review_fields": [
+      "event completeness",
+      "speaker labels",
+      "timestamps",
+      "transcript fidelity",
+      "continuation versus new entry",
+      "first-speaker observations"
+    ]
+  },
+  "source": {
+    "file": "data/v2/debate_only/videos/rAFhQSMU69A/threshold_1.0/merge_final.json",
+    "video_id": "rAFhQSMU69A",
+    "title": "Sam Pitroda Praises Modi| Congress Fears 'Loyalty Chori'| Rahul Couldn't Even Convince 'Uncle Sam'?",
+    "host_speaker": "SPEAKER_04",
+    "window_seconds": 3.0,
+    "overlap_count_in_source": 52,
+    "overlap_count_processed": 52,
+    "transcript_segment_count": 446
+  },
+  "overlap_events": [
+    {
+      "overlap_id": 1,
+      "overlap": {
+        "start": 690.185,
+        "end": 691.484,
+        "duration": 1.299,
+        "speakers": [
+          "SPEAKER_03",
+          "SPEAKER_04"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 691.484,
+      "window_end": 694.484,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_04",
+          "start": 690.194,
+          "end": 693.556,
+          "text": "They also forgave the killers of the Sikh riots.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 687.185,
+        "end": 690.185,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_03",
+          "start": 682.131,
+          "end": 688.054,
+          "text": "They forgave the killers of their own father and in the case of Sonia Gandhi, her husband.",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_03",
+          "start": 688.554,
+          "end": 690.114,
+          "text": "That to me is humanity.",
+          "starts_in_window": true,
+          "active_at_window_end": false,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_03",
+        "start": 688.554,
+        "end": 690.114,
+        "text": "That to me is humanity."
+      },
+      "observations": {
+        "speech_event_count": 1,
+        "speakers_in_window": [
+          "SPEAKER_04"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_04"
+        ],
+        "first_speaker_in_window": "SPEAKER_04",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": null,
+        "host_spoke_first_new_after_overlap": null,
+        "new_speech_event_count": 0,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 2,
+      "overlap": {
+        "start": 703.938,
+        "end": 704.478,
+        "duration": 0.54,
+        "speakers": [
+          "SPEAKER_03",
+          "SPEAKER_04"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 704.478,
+      "window_end": 707.478,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_04",
+          "start": 703.74,
+          "end": 705.021,
+          "text": "They forgave them as well.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_03",
+          "start": 706.836,
+          "end": 707.877,
+          "text": "Now, let me finish.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 700.938,
+        "end": 703.938,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_04",
+          "start": 694.551,
+          "end": 703.279,
+          "text": "They also forgave the killers of those who burnt the train in Godhra.",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_04",
+          "start": 703.74,
+          "end": 705.021,
+          "text": "They forgave them as well.",
+          "starts_in_window": true,
+          "active_at_window_end": true,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_04",
+        "start": 694.551,
+        "end": 703.279,
+        "text": "They also forgave the killers of those who burnt the train in Godhra."
+      },
+      "observations": {
+        "speech_event_count": 2,
+        "speakers_in_window": [
+          "SPEAKER_04",
+          "SPEAKER_03"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_04"
+        ],
+        "first_speaker_in_window": "SPEAKER_04",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": "SPEAKER_03",
+        "host_spoke_first_new_after_overlap": false,
+        "new_speech_event_count": 1,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 3,
+      "overlap": {
+        "start": 705.355,
+        "end": 705.845,
+        "duration": 0.49,
+        "speakers": [
+          "SPEAKER_03",
+          "SPEAKER_04"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 705.845,
+      "window_end": 708.845,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_03",
+          "start": 706.836,
+          "end": 707.877,
+          "text": "Now, let me finish.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_03",
+          "start": 708.298,
+          "end": 718.007,
+          "text": "Since we are talking about people in their entire holistic sense, and I know Mr. Modi is not going to like hearing this, but he has to know the truth and I'm going to rattle it out very quickly.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 702.355,
+        "end": 705.355,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_04",
+          "start": 694.551,
+          "end": 703.279,
+          "text": "They also forgave the killers of those who burnt the train in Godhra.",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_04",
+          "start": 703.74,
+          "end": 705.021,
+          "text": "They forgave them as well.",
+          "starts_in_window": true,
+          "active_at_window_end": false,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_04",
+        "start": 703.74,
+        "end": 705.021,
+        "text": "They forgave them as well."
+      },
+      "observations": {
+        "speech_event_count": 2,
+        "speakers_in_window": [
+          "SPEAKER_03"
+        ],
+        "host_spoke_in_window": false,
+        "speakers_active_at_window_start": [],
+        "first_speaker_in_window": "SPEAKER_03",
+        "host_spoke_first_in_window": false,
+        "first_new_speaker_after_overlap": "SPEAKER_03",
+        "host_spoke_first_new_after_overlap": false,
+        "new_speech_event_count": 2,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 4,
+      "overlap": {
+        "start": 744.927,
+        "end": 746.176,
+        "duration": 1.249,
+        "speakers": [
+          "SPEAKER_03",
+          "SPEAKER_04"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 746.176,
+      "window_end": 749.176,
+      "speech_events": [],
+      "pre_overlap_window": {
+        "start": 741.927,
+        "end": 744.927,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_03",
+        "start": 728.137,
+        "end": 730.479,
+        "text": "Because in the Congress, the diktat goes that Modi teri kabru khudegi."
+      },
+      "observations": {
+        "speech_event_count": 0,
+        "speakers_in_window": [],
+        "host_spoke_in_window": false,
+        "speakers_active_at_window_start": [],
+        "first_speaker_in_window": null,
+        "host_spoke_first_in_window": null,
+        "first_new_speaker_after_overlap": null,
+        "host_spoke_first_new_after_overlap": null,
+        "new_speech_event_count": 0,
+        "no_speech_in_window": true
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 5,
+      "overlap": {
+        "start": 746.378,
+        "end": 747.155,
+        "duration": 0.777,
+        "speakers": [
+          "SPEAKER_03",
+          "SPEAKER_04"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 747.155,
+      "window_end": 750.155,
+      "speech_events": [],
+      "pre_overlap_window": {
+        "start": 743.378,
+        "end": 746.378,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_03",
+        "start": 728.137,
+        "end": 730.479,
+        "text": "Because in the Congress, the diktat goes that Modi teri kabru khudegi."
+      },
+      "observations": {
+        "speech_event_count": 0,
+        "speakers_in_window": [],
+        "host_spoke_in_window": false,
+        "speakers_active_at_window_start": [],
+        "first_speaker_in_window": null,
+        "host_spoke_first_in_window": null,
+        "first_new_speaker_after_overlap": null,
+        "host_spoke_first_new_after_overlap": null,
+        "new_speech_event_count": 0,
+        "no_speech_in_window": true
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 6,
+      "overlap": {
+        "start": 764.502,
+        "end": 766.072,
+        "duration": 1.57,
+        "speakers": [
+          "SPEAKER_03",
+          "SPEAKER_04"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 766.072,
+      "window_end": 769.072,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_04",
+          "start": 765.349,
+          "end": 767.011,
+          "text": "That's why you're not inside the Congress.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_04",
+          "start": 767.211,
+          "end": 768.972,
+          "text": "That's why you're outside the Congress.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 761.502,
+        "end": 764.502,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_03",
+          "start": 760.586,
+          "end": 761.506,
+          "text": "He's the prime minister.",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_03",
+          "start": 761.787,
+          "end": 765.329,
+          "text": "I disagree with him politically, ideologically, but nobody is into calling names.",
+          "starts_in_window": true,
+          "active_at_window_end": true,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_03",
+        "start": 760.586,
+        "end": 761.506,
+        "text": "He's the prime minister."
+      },
+      "observations": {
+        "speech_event_count": 2,
+        "speakers_in_window": [
+          "SPEAKER_04"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_04"
+        ],
+        "first_speaker_in_window": "SPEAKER_04",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": "SPEAKER_04",
+        "host_spoke_first_new_after_overlap": true,
+        "new_speech_event_count": 1,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 7,
+      "overlap": {
+        "start": 998.525,
+        "end": 999.942,
+        "duration": 1.417,
+        "speakers": [
+          "SPEAKER_04",
+          "SPEAKER_08"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 999.942,
+      "window_end": 1002.942,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_04",
+          "start": 995.047,
+          "end": 1017.299,
+          "text": "Well true, when you are expecting political niceties, Sanjay Jha, I want to ask you, Sonia Gandhi writes in her book, she says there are no courtesies extended by the Prime Minister to her and she even mentions that he doesn't maintain eye contact.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 995.525,
+        "end": 998.525,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_04",
+          "start": 995.047,
+          "end": 1017.299,
+          "text": "Well true, when you are expecting political niceties, Sanjay Jha, I want to ask you, Sonia Gandhi writes in her book, she says there are no courtesies extended by the Prime Minister to her and she even mentions that he doesn't maintain eye contact.",
+          "starts_in_window": false,
+          "active_at_window_end": true,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_08",
+        "start": 974.78,
+        "end": 994.427,
+        "text": "Ultimately, the hard life of Prime Minister Narendra Modi, which he has said seven or eight years back during his foreign tour, when it was asked how much energy you get, you work for 24 hours without taking even a leave of single day, Modiji replied,"
+      },
+      "observations": {
+        "speech_event_count": 1,
+        "speakers_in_window": [
+          "SPEAKER_04"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_04"
+        ],
+        "first_speaker_in_window": "SPEAKER_04",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": null,
+        "host_spoke_first_new_after_overlap": null,
+        "new_speech_event_count": 0,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 8,
+      "overlap": {
+        "start": 1100.905,
+        "end": 1102.238,
+        "duration": 1.333,
+        "speakers": [
+          "SPEAKER_03",
+          "SPEAKER_04"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 1102.238,
+      "window_end": 1105.238,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_04",
+          "start": 1101.703,
+          "end": 1103.126,
+          "text": "That is what people want to know.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 1097.905,
+        "end": 1100.905,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1095.361,
+          "end": 1101.323,
+          "text": "And I think it's hurt the entire opposition, you know, putting opposition in jail on framed charges and fabricated charges.",
+          "starts_in_window": false,
+          "active_at_window_end": true,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_03",
+        "start": 1092.761,
+        "end": 1095.021,
+        "text": "These were demeaning remarks, they were disparaging."
+      },
+      "observations": {
+        "speech_event_count": 1,
+        "speakers_in_window": [
+          "SPEAKER_04"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_04"
+        ],
+        "first_speaker_in_window": "SPEAKER_04",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": null,
+        "host_spoke_first_new_after_overlap": null,
+        "new_speech_event_count": 0,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 9,
+      "overlap": {
+        "start": 1103.302,
+        "end": 1103.96,
+        "duration": 0.658,
+        "speakers": [
+          "SPEAKER_03",
+          "SPEAKER_04"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 1103.96,
+      "window_end": 1106.96,
+      "speech_events": [],
+      "pre_overlap_window": {
+        "start": 1100.302,
+        "end": 1103.302,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_03",
+          "start": 1095.361,
+          "end": 1101.323,
+          "text": "And I think it's hurt the entire opposition, you know, putting opposition in jail on framed charges and fabricated charges.",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_04",
+          "start": 1101.703,
+          "end": 1103.126,
+          "text": "That is what people want to know.",
+          "starts_in_window": true,
+          "active_at_window_end": false,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_04",
+        "start": 1101.703,
+        "end": 1103.126,
+        "text": "That is what people want to know."
+      },
+      "observations": {
+        "speech_event_count": 0,
+        "speakers_in_window": [],
+        "host_spoke_in_window": false,
+        "speakers_active_at_window_start": [],
+        "first_speaker_in_window": null,
+        "host_spoke_first_in_window": null,
+        "first_new_speaker_after_overlap": null,
+        "host_spoke_first_new_after_overlap": null,
+        "new_speech_event_count": 0,
+        "no_speech_in_window": true
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 10,
+      "overlap": {
+        "start": 1460.95,
+        "end": 1462.3,
+        "duration": 1.35,
+        "speakers": [
+          "SPEAKER_02",
+          "SPEAKER_04"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 1462.3,
+      "window_end": 1465.3,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_02",
+          "start": 1462.102,
+          "end": 1466.923,
+          "text": "Sonia Gandhi doesn't give up, but she is now redeemed herself by bringing out a book.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 1457.95,
+        "end": 1460.95,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_02",
+          "start": 1454.539,
+          "end": 1458.2,
+          "text": "She was never the prime minister of the country.",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_02",
+          "start": 1458.901,
+          "end": 1460.401,
+          "text": "She was only the congress president.",
+          "starts_in_window": true,
+          "active_at_window_end": false,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_02",
+          "start": 1460.661,
+          "end": 1462.082,
+          "text": "She was the UPA chairperson.",
+          "starts_in_window": true,
+          "active_at_window_end": true,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_02",
+        "start": 1458.901,
+        "end": 1460.401,
+        "text": "She was only the congress president."
+      },
+      "observations": {
+        "speech_event_count": 1,
+        "speakers_in_window": [
+          "SPEAKER_02"
+        ],
+        "host_spoke_in_window": false,
+        "speakers_active_at_window_start": [
+          "SPEAKER_02"
+        ],
+        "first_speaker_in_window": "SPEAKER_02",
+        "host_spoke_first_in_window": false,
+        "first_new_speaker_after_overlap": null,
+        "host_spoke_first_new_after_overlap": null,
+        "new_speech_event_count": 0,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 11,
+      "overlap": {
+        "start": 1516.621,
+        "end": 1517.887,
+        "duration": 1.266,
+        "speakers": [
+          "SPEAKER_00",
+          "SPEAKER_08"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 1517.887,
+      "window_end": 1520.887,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_08",
+          "start": 1512.352,
+          "end": 1518.7,
+          "text": "If she was just a congress president, why every head of the state uses to meet first Sonia Gandhiji, then Manmohan Singh ji?",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_08",
+          "start": 1518.78,
+          "end": 1519.22,
+          "text": "And in 2005,",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_08",
+          "start": 1520.622,
+          "end": 1539.763,
+          "text": "DMO has written a letter to all the ministries at least you should inform all the decisions to prime minister office so everybody know that what was happening at the time so one thing just I would like to remind yes she said correctly that every leader should write its own memoirs but I would like to remind Sita Ram Kesari",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 1513.621,
+        "end": 1516.621,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_08",
+          "start": 1512.352,
+          "end": 1518.7,
+          "text": "If she was just a congress president, why every head of the state uses to meet first Sonia Gandhiji, then Manmohan Singh ji?",
+          "starts_in_window": false,
+          "active_at_window_end": true,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_08",
+        "start": 1506.305,
+        "end": 1512.112,
+        "text": "What Renu Muttal ji was saying, I just want to say, it was Sonia Gandhiji who was super prime minister."
+      },
+      "observations": {
+        "speech_event_count": 3,
+        "speakers_in_window": [
+          "SPEAKER_08"
+        ],
+        "host_spoke_in_window": false,
+        "speakers_active_at_window_start": [
+          "SPEAKER_08"
+        ],
+        "first_speaker_in_window": "SPEAKER_08",
+        "host_spoke_first_in_window": false,
+        "first_new_speaker_after_overlap": "SPEAKER_08",
+        "host_spoke_first_new_after_overlap": false,
+        "new_speech_event_count": 2,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 12,
+      "overlap": {
+        "start": 1519.034,
+        "end": 1524.704,
+        "duration": 5.67,
+        "speakers": [
+          "SPEAKER_00",
+          "SPEAKER_02",
+          "SPEAKER_08"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 1524.704,
+      "window_end": 1527.704,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_08",
+          "start": 1520.622,
+          "end": 1539.763,
+          "text": "DMO has written a letter to all the ministries at least you should inform all the decisions to prime minister office so everybody know that what was happening at the time so one thing just I would like to remind yes she said correctly that every leader should write its own memoirs but I would like to remind Sita Ram Kesari",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 1516.034,
+        "end": 1519.034,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_08",
+          "start": 1512.352,
+          "end": 1518.7,
+          "text": "If she was just a congress president, why every head of the state uses to meet first Sonia Gandhiji, then Manmohan Singh ji?",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_08",
+          "start": 1518.78,
+          "end": 1519.22,
+          "text": "And in 2005,",
+          "starts_in_window": true,
+          "active_at_window_end": true,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_08",
+        "start": 1512.352,
+        "end": 1518.7,
+        "text": "If she was just a congress president, why every head of the state uses to meet first Sonia Gandhiji, then Manmohan Singh ji?"
+      },
+      "observations": {
+        "speech_event_count": 1,
+        "speakers_in_window": [
+          "SPEAKER_08"
+        ],
+        "host_spoke_in_window": false,
+        "speakers_active_at_window_start": [
+          "SPEAKER_08"
+        ],
+        "first_speaker_in_window": "SPEAKER_08",
+        "host_spoke_first_in_window": false,
+        "first_new_speaker_after_overlap": null,
+        "host_spoke_first_new_after_overlap": null,
+        "new_speech_event_count": 0,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 13,
+      "overlap": {
+        "start": 1534.07,
+        "end": 1536.112,
+        "duration": 2.042,
+        "speakers": [
+          "SPEAKER_00",
+          "SPEAKER_08"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 1536.112,
+      "window_end": 1539.112,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_08",
+          "start": 1520.622,
+          "end": 1539.763,
+          "text": "DMO has written a letter to all the ministries at least you should inform all the decisions to prime minister office so everybody know that what was happening at the time so one thing just I would like to remind yes she said correctly that every leader should write its own memoirs but I would like to remind Sita Ram Kesari",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 1531.07,
+        "end": 1534.07,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_08",
+          "start": 1520.622,
+          "end": 1539.763,
+          "text": "DMO has written a letter to all the ministries at least you should inform all the decisions to prime minister office so everybody know that what was happening at the time so one thing just I would like to remind yes she said correctly that every leader should write its own memoirs but I would like to remind Sita Ram Kesari",
+          "starts_in_window": false,
+          "active_at_window_end": true,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_08",
+        "start": 1518.78,
+        "end": 1519.22,
+        "text": "And in 2005,"
+      },
+      "observations": {
+        "speech_event_count": 1,
+        "speakers_in_window": [
+          "SPEAKER_08"
+        ],
+        "host_spoke_in_window": false,
+        "speakers_active_at_window_start": [
+          "SPEAKER_08"
+        ],
+        "first_speaker_in_window": "SPEAKER_08",
+        "host_spoke_first_in_window": false,
+        "first_new_speaker_after_overlap": null,
+        "host_spoke_first_new_after_overlap": null,
+        "new_speech_event_count": 0,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 14,
+      "overlap": {
+        "start": 1536.753,
+        "end": 1537.242,
+        "duration": 0.489,
+        "speakers": [
+          "SPEAKER_00",
+          "SPEAKER_06",
+          "SPEAKER_08"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 1537.242,
+      "window_end": 1540.242,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_08",
+          "start": 1520.622,
+          "end": 1539.763,
+          "text": "DMO has written a letter to all the ministries at least you should inform all the decisions to prime minister office so everybody know that what was happening at the time so one thing just I would like to remind yes she said correctly that every leader should write its own memoirs but I would like to remind Sita Ram Kesari",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 1533.753,
+        "end": 1536.753,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_08",
+          "start": 1520.622,
+          "end": 1539.763,
+          "text": "DMO has written a letter to all the ministries at least you should inform all the decisions to prime minister office so everybody know that what was happening at the time so one thing just I would like to remind yes she said correctly that every leader should write its own memoirs but I would like to remind Sita Ram Kesari",
+          "starts_in_window": false,
+          "active_at_window_end": true,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_08",
+        "start": 1518.78,
+        "end": 1519.22,
+        "text": "And in 2005,"
+      },
+      "observations": {
+        "speech_event_count": 1,
+        "speakers_in_window": [
+          "SPEAKER_08"
+        ],
+        "host_spoke_in_window": false,
+        "speakers_active_at_window_start": [
+          "SPEAKER_08"
+        ],
+        "first_speaker_in_window": "SPEAKER_08",
+        "host_spoke_first_in_window": false,
+        "first_new_speaker_after_overlap": null,
+        "host_spoke_first_new_after_overlap": null,
+        "new_speech_event_count": 0,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 15,
+      "overlap": {
+        "start": 1563.382,
+        "end": 1566.655,
+        "duration": 3.273,
+        "speakers": [
+          "SPEAKER_02",
+          "SPEAKER_08"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 1566.655,
+      "window_end": 1569.655,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_08",
+          "start": 1559.211,
+          "end": 1568.316,
+          "text": "And in her memoir, there is no difference of Ottavio Cotrucci, Guido H.K., Christian Michel and Hande Anderson.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_02",
+          "start": 1568.916,
+          "end": 1574.198,
+          "text": "Everybody knows that they were so close.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 1560.382,
+        "end": 1563.382,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_08",
+          "start": 1559.211,
+          "end": 1568.316,
+          "text": "And in her memoir, there is no difference of Ottavio Cotrucci, Guido H.K., Christian Michel and Hande Anderson.",
+          "starts_in_window": false,
+          "active_at_window_end": true,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_08",
+        "start": 1540.443,
+        "end": 1558.451,
+        "text": "as guru murthy ji has written i think in july 2004 referring to that incident in new indian express he has said sitaram kesari has said that i am the loyal dog of sonia gandhiji but the treatment which was remit as guru murthy has used the word the loyal dog got the cruel master"
+      },
+      "observations": {
+        "speech_event_count": 2,
+        "speakers_in_window": [
+          "SPEAKER_08",
+          "SPEAKER_02"
+        ],
+        "host_spoke_in_window": false,
+        "speakers_active_at_window_start": [
+          "SPEAKER_08"
+        ],
+        "first_speaker_in_window": "SPEAKER_08",
+        "host_spoke_first_in_window": false,
+        "first_new_speaker_after_overlap": "SPEAKER_02",
+        "host_spoke_first_new_after_overlap": false,
+        "new_speech_event_count": 1,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 16,
+      "overlap": {
+        "start": 1567.229,
+        "end": 1568.495,
+        "duration": 1.266,
+        "speakers": [
+          "SPEAKER_02",
+          "SPEAKER_08"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 1568.495,
+      "window_end": 1571.495,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_02",
+          "start": 1568.916,
+          "end": 1574.198,
+          "text": "Everybody knows that they were so close.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 1564.229,
+        "end": 1567.229,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_08",
+          "start": 1559.211,
+          "end": 1568.316,
+          "text": "And in her memoir, there is no difference of Ottavio Cotrucci, Guido H.K., Christian Michel and Hande Anderson.",
+          "starts_in_window": false,
+          "active_at_window_end": true,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_08",
+        "start": 1540.443,
+        "end": 1558.451,
+        "text": "as guru murthy ji has written i think in july 2004 referring to that incident in new indian express he has said sitaram kesari has said that i am the loyal dog of sonia gandhiji but the treatment which was remit as guru murthy has used the word the loyal dog got the cruel master"
+      },
+      "observations": {
+        "speech_event_count": 1,
+        "speakers_in_window": [
+          "SPEAKER_02"
+        ],
+        "host_spoke_in_window": false,
+        "speakers_active_at_window_start": [],
+        "first_speaker_in_window": "SPEAKER_02",
+        "host_spoke_first_in_window": false,
+        "first_new_speaker_after_overlap": "SPEAKER_02",
+        "host_spoke_first_new_after_overlap": false,
+        "new_speech_event_count": 1,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 17,
+      "overlap": {
+        "start": 1568.748,
+        "end": 1569.912,
+        "duration": 1.164,
+        "speakers": [
+          "SPEAKER_02",
+          "SPEAKER_08"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 1569.912,
+      "window_end": 1572.912,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_02",
+          "start": 1568.916,
+          "end": 1574.198,
+          "text": "Everybody knows that they were so close.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 1565.748,
+        "end": 1568.748,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_08",
+          "start": 1559.211,
+          "end": 1568.316,
+          "text": "And in her memoir, there is no difference of Ottavio Cotrucci, Guido H.K., Christian Michel and Hande Anderson.",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_08",
+        "start": 1559.211,
+        "end": 1568.316,
+        "text": "And in her memoir, there is no difference of Ottavio Cotrucci, Guido H.K., Christian Michel and Hande Anderson."
+      },
+      "observations": {
+        "speech_event_count": 1,
+        "speakers_in_window": [
+          "SPEAKER_02"
+        ],
+        "host_spoke_in_window": false,
+        "speakers_active_at_window_start": [
+          "SPEAKER_02"
+        ],
+        "first_speaker_in_window": "SPEAKER_02",
+        "host_spoke_first_in_window": false,
+        "first_new_speaker_after_overlap": null,
+        "host_spoke_first_new_after_overlap": null,
+        "new_speech_event_count": 0,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 18,
+      "overlap": {
+        "start": 1573.186,
+        "end": 1577.219,
+        "duration": 4.033,
+        "speakers": [
+          "SPEAKER_02",
+          "SPEAKER_04"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 1577.219,
+      "window_end": 1580.219,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_04",
+          "start": 1574.258,
+          "end": 1579.341,
+          "text": "Renu ji, one at a time, let's not speak over each other.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_04",
+          "start": 1580.181,
+          "end": 1583.623,
+          "text": "My audience, my viewers cannot hear two people at the same time.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 1570.186,
+        "end": 1573.186,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_02",
+          "start": 1568.916,
+          "end": 1574.198,
+          "text": "Everybody knows that they were so close.",
+          "starts_in_window": false,
+          "active_at_window_end": true,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_08",
+        "start": 1559.211,
+        "end": 1568.316,
+        "text": "And in her memoir, there is no difference of Ottavio Cotrucci, Guido H.K., Christian Michel and Hande Anderson."
+      },
+      "observations": {
+        "speech_event_count": 2,
+        "speakers_in_window": [
+          "SPEAKER_04"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_04"
+        ],
+        "first_speaker_in_window": "SPEAKER_04",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": "SPEAKER_04",
+        "host_spoke_first_new_after_overlap": true,
+        "new_speech_event_count": 1,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 19,
+      "overlap": {
+        "start": 1664.429,
+        "end": 1665.458,
+        "duration": 1.029,
+        "speakers": [
+          "SPEAKER_00",
+          "SPEAKER_05",
+          "SPEAKER_08"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 1665.458,
+      "window_end": 1668.458,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_08",
+          "start": 1658.999,
+          "end": 1671.55,
+          "text": "such a flimsy logic that if she would be having an indian passport and that too the daughter-in-law of the prime minister of india she will have any problem i think it is ill-advised",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 1661.429,
+        "end": 1664.429,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_08",
+          "start": 1658.999,
+          "end": 1671.55,
+          "text": "such a flimsy logic that if she would be having an indian passport and that too the daughter-in-law of the prime minister of india she will have any problem i think it is ill-advised",
+          "starts_in_window": false,
+          "active_at_window_end": true,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_08",
+        "start": 1630.902,
+        "end": 1658.359,
+        "text": "uh... i'd just want to say in so many what my presumption is that whosoever has given advice to sonia gandhiji to write her memoir is an ill-advised because any person who is having so many baggages if somebody gives a reason that for why fifteen years she didn't opted for indian citizenship because she was saying that it will facilitate her going back to her mother's house"
+      },
+      "observations": {
+        "speech_event_count": 1,
+        "speakers_in_window": [
+          "SPEAKER_08"
+        ],
+        "host_spoke_in_window": false,
+        "speakers_active_at_window_start": [
+          "SPEAKER_08"
+        ],
+        "first_speaker_in_window": "SPEAKER_08",
+        "host_spoke_first_in_window": false,
+        "first_new_speaker_after_overlap": null,
+        "host_spoke_first_new_after_overlap": null,
+        "new_speech_event_count": 0,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 20,
+      "overlap": {
+        "start": 1666.842,
+        "end": 1670.521,
+        "duration": 3.679,
+        "speakers": [
+          "SPEAKER_00",
+          "SPEAKER_05",
+          "SPEAKER_08"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 1670.521,
+      "window_end": 1673.521,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_08",
+          "start": 1658.999,
+          "end": 1671.55,
+          "text": "such a flimsy logic that if she would be having an indian passport and that too the daughter-in-law of the prime minister of india she will have any problem i think it is ill-advised",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 1663.842,
+        "end": 1666.842,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_08",
+          "start": 1658.999,
+          "end": 1671.55,
+          "text": "such a flimsy logic that if she would be having an indian passport and that too the daughter-in-law of the prime minister of india she will have any problem i think it is ill-advised",
+          "starts_in_window": false,
+          "active_at_window_end": true,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_08",
+        "start": 1630.902,
+        "end": 1658.359,
+        "text": "uh... i'd just want to say in so many what my presumption is that whosoever has given advice to sonia gandhiji to write her memoir is an ill-advised because any person who is having so many baggages if somebody gives a reason that for why fifteen years she didn't opted for indian citizenship because she was saying that it will facilitate her going back to her mother's house"
+      },
+      "observations": {
+        "speech_event_count": 1,
+        "speakers_in_window": [
+          "SPEAKER_08"
+        ],
+        "host_spoke_in_window": false,
+        "speakers_active_at_window_start": [
+          "SPEAKER_08"
+        ],
+        "first_speaker_in_window": "SPEAKER_08",
+        "host_spoke_first_in_window": false,
+        "first_new_speaker_after_overlap": null,
+        "host_spoke_first_new_after_overlap": null,
+        "new_speech_event_count": 0,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 21,
+      "overlap": {
+        "start": 1670.622,
+        "end": 1670.757,
+        "duration": 0.135,
+        "speakers": [
+          "SPEAKER_00",
+          "SPEAKER_08"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 1670.757,
+      "window_end": 1673.757,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_08",
+          "start": 1658.999,
+          "end": 1671.55,
+          "text": "such a flimsy logic that if she would be having an indian passport and that too the daughter-in-law of the prime minister of india she will have any problem i think it is ill-advised",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 1667.622,
+        "end": 1670.622,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_08",
+          "start": 1658.999,
+          "end": 1671.55,
+          "text": "such a flimsy logic that if she would be having an indian passport and that too the daughter-in-law of the prime minister of india she will have any problem i think it is ill-advised",
+          "starts_in_window": false,
+          "active_at_window_end": true,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_08",
+        "start": 1630.902,
+        "end": 1658.359,
+        "text": "uh... i'd just want to say in so many what my presumption is that whosoever has given advice to sonia gandhiji to write her memoir is an ill-advised because any person who is having so many baggages if somebody gives a reason that for why fifteen years she didn't opted for indian citizenship because she was saying that it will facilitate her going back to her mother's house"
+      },
+      "observations": {
+        "speech_event_count": 1,
+        "speakers_in_window": [
+          "SPEAKER_08"
+        ],
+        "host_spoke_in_window": false,
+        "speakers_active_at_window_start": [
+          "SPEAKER_08"
+        ],
+        "first_speaker_in_window": "SPEAKER_08",
+        "host_spoke_first_in_window": false,
+        "first_new_speaker_after_overlap": null,
+        "host_spoke_first_new_after_overlap": null,
+        "new_speech_event_count": 0,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 22,
+      "overlap": {
+        "start": 1670.825,
+        "end": 1672.394,
+        "duration": 1.569,
+        "speakers": [
+          "SPEAKER_00",
+          "SPEAKER_02",
+          "SPEAKER_08"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 1672.394,
+      "window_end": 1675.394,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_08",
+          "start": 1674.352,
+          "end": 1679.919,
+          "text": "and so many faults have come, RSS founded in 1921, Himachal in 1971, so many mistakes.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 1667.825,
+        "end": 1670.825,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_08",
+          "start": 1658.999,
+          "end": 1671.55,
+          "text": "such a flimsy logic that if she would be having an indian passport and that too the daughter-in-law of the prime minister of india she will have any problem i think it is ill-advised",
+          "starts_in_window": false,
+          "active_at_window_end": true,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_08",
+        "start": 1630.902,
+        "end": 1658.359,
+        "text": "uh... i'd just want to say in so many what my presumption is that whosoever has given advice to sonia gandhiji to write her memoir is an ill-advised because any person who is having so many baggages if somebody gives a reason that for why fifteen years she didn't opted for indian citizenship because she was saying that it will facilitate her going back to her mother's house"
+      },
+      "observations": {
+        "speech_event_count": 1,
+        "speakers_in_window": [
+          "SPEAKER_08"
+        ],
+        "host_spoke_in_window": false,
+        "speakers_active_at_window_start": [],
+        "first_speaker_in_window": "SPEAKER_08",
+        "host_spoke_first_in_window": false,
+        "first_new_speaker_after_overlap": "SPEAKER_08",
+        "host_spoke_first_new_after_overlap": false,
+        "new_speech_event_count": 1,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 23,
+      "overlap": {
+        "start": 1702.617,
+        "end": 1703.815,
+        "duration": 1.198,
+        "speakers": [
+          "SPEAKER_04",
+          "SPEAKER_08"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 1703.815,
+      "window_end": 1706.815,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_08",
+          "start": 1696.557,
+          "end": 1704.082,
+          "text": "Those chapters which the people have forgotten, unnecessarily you have revoked all those controversies in the mind of the people again.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_04",
+          "start": 1704.522,
+          "end": 1709.126,
+          "text": "Well Anand Ranganathan, let me bring in Anand Ranganathan.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 1699.617,
+        "end": 1702.617,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_08",
+          "start": 1696.557,
+          "end": 1704.082,
+          "text": "Those chapters which the people have forgotten, unnecessarily you have revoked all those controversies in the mind of the people again.",
+          "starts_in_window": false,
+          "active_at_window_end": true,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_08",
+        "start": 1689.331,
+        "end": 1696.236,
+        "text": "I think that whosoever has written the book and whosoever has advised the book has not done good to Sonia Gandhi Ji."
+      },
+      "observations": {
+        "speech_event_count": 2,
+        "speakers_in_window": [
+          "SPEAKER_08",
+          "SPEAKER_04"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_08"
+        ],
+        "first_speaker_in_window": "SPEAKER_08",
+        "host_spoke_first_in_window": false,
+        "first_new_speaker_after_overlap": "SPEAKER_04",
+        "host_spoke_first_new_after_overlap": true,
+        "new_speech_event_count": 1,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 24,
+      "overlap": {
+        "start": 1705.621,
+        "end": 1705.975,
+        "duration": 0.354,
+        "speakers": [
+          "SPEAKER_04",
+          "SPEAKER_08"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 1705.975,
+      "window_end": 1708.975,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_04",
+          "start": 1704.522,
+          "end": 1709.126,
+          "text": "Well Anand Ranganathan, let me bring in Anand Ranganathan.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 1702.621,
+        "end": 1705.621,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_08",
+          "start": 1696.557,
+          "end": 1704.082,
+          "text": "Those chapters which the people have forgotten, unnecessarily you have revoked all those controversies in the mind of the people again.",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_04",
+          "start": 1704.522,
+          "end": 1709.126,
+          "text": "Well Anand Ranganathan, let me bring in Anand Ranganathan.",
+          "starts_in_window": true,
+          "active_at_window_end": true,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_08",
+        "start": 1696.557,
+        "end": 1704.082,
+        "text": "Those chapters which the people have forgotten, unnecessarily you have revoked all those controversies in the mind of the people again."
+      },
+      "observations": {
+        "speech_event_count": 1,
+        "speakers_in_window": [
+          "SPEAKER_04"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_04"
+        ],
+        "first_speaker_in_window": "SPEAKER_04",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": null,
+        "host_spoke_first_new_after_overlap": null,
+        "new_speech_event_count": 0,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 25,
+      "overlap": {
+        "start": 1706.363,
+        "end": 1707.427,
+        "duration": 1.064,
+        "speakers": [
+          "SPEAKER_04",
+          "SPEAKER_08"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 1707.427,
+      "window_end": 1710.427,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_04",
+          "start": 1704.522,
+          "end": 1709.126,
+          "text": "Well Anand Ranganathan, let me bring in Anand Ranganathan.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_04",
+          "start": 1709.626,
+          "end": 1733.671,
+          "text": "Anand Ranganathan is this about courtesies is this who's really cussed in this equation whether it is Prime Minister Narendra Modi or has it been the Gandhi's where do you stand on this debate because I thought the Prime Minister was extremely pleasant with Sam Pitroda is something cooking there.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 1703.363,
+        "end": 1706.363,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_08",
+          "start": 1696.557,
+          "end": 1704.082,
+          "text": "Those chapters which the people have forgotten, unnecessarily you have revoked all those controversies in the mind of the people again.",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_04",
+          "start": 1704.522,
+          "end": 1709.126,
+          "text": "Well Anand Ranganathan, let me bring in Anand Ranganathan.",
+          "starts_in_window": true,
+          "active_at_window_end": true,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_08",
+        "start": 1696.557,
+        "end": 1704.082,
+        "text": "Those chapters which the people have forgotten, unnecessarily you have revoked all those controversies in the mind of the people again."
+      },
+      "observations": {
+        "speech_event_count": 2,
+        "speakers_in_window": [
+          "SPEAKER_04"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_04"
+        ],
+        "first_speaker_in_window": "SPEAKER_04",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": "SPEAKER_04",
+        "host_spoke_first_new_after_overlap": true,
+        "new_speech_event_count": 1,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 26,
+      "overlap": {
+        "start": 1876.717,
+        "end": 1877.932,
+        "duration": 1.215,
+        "speakers": [
+          "SPEAKER_04",
+          "SPEAKER_05"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 1877.932,
+      "window_end": 1880.932,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_05",
+          "start": 1869.374,
+          "end": 1877.981,
+          "text": "Has anybody asked Sonia Gandhi or Rahul Gandhi why they took 1600 crores from the same anonymous electoral bonds or why they amended FCRA Act to escape connection?",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_04",
+          "start": 1879.102,
+          "end": 1884.025,
+          "text": "compliant media that gives them cushion and cushy interviews.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 1873.717,
+        "end": 1876.717,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_05",
+          "start": 1869.374,
+          "end": 1877.981,
+          "text": "Has anybody asked Sonia Gandhi or Rahul Gandhi why they took 1600 crores from the same anonymous electoral bonds or why they amended FCRA Act to escape connection?",
+          "starts_in_window": false,
+          "active_at_window_end": true,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_05",
+        "start": 1862.167,
+        "end": 1868.993,
+        "text": "This is the kind of interview that Sonia Gandhi and congresses give to pliant journalists and then they complain about Gaudi media."
+      },
+      "observations": {
+        "speech_event_count": 2,
+        "speakers_in_window": [
+          "SPEAKER_05",
+          "SPEAKER_04"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_05"
+        ],
+        "first_speaker_in_window": "SPEAKER_05",
+        "host_spoke_first_in_window": false,
+        "first_new_speaker_after_overlap": "SPEAKER_04",
+        "host_spoke_first_new_after_overlap": true,
+        "new_speech_event_count": 1,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 27,
+      "overlap": {
+        "start": 1950.055,
+        "end": 1952.738,
+        "duration": 2.683,
+        "speakers": [
+          "SPEAKER_01",
+          "SPEAKER_04"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 1952.738,
+      "window_end": 1955.738,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_01",
+          "start": 1948.932,
+          "end": 1954.154,
+          "text": "Why did you remove Sam Pitroda for a while from his position?",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_04",
+          "start": 1954.175,
+          "end": 1957.036,
+          "text": "Why did the Congress remove Sam Pitroda?",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 1947.055,
+        "end": 1950.055,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_01",
+          "start": 1944.588,
+          "end": 1947.39,
+          "text": "But we still follow the same constitution and we are loyal to this nation.",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_01",
+          "start": 1948.932,
+          "end": 1954.154,
+          "text": "Why did you remove Sam Pitroda for a while from his position?",
+          "starts_in_window": true,
+          "active_at_window_end": true,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_01",
+        "start": 1944.588,
+        "end": 1947.39,
+        "text": "But we still follow the same constitution and we are loyal to this nation."
+      },
+      "observations": {
+        "speech_event_count": 2,
+        "speakers_in_window": [
+          "SPEAKER_01",
+          "SPEAKER_04"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_01"
+        ],
+        "first_speaker_in_window": "SPEAKER_01",
+        "host_spoke_first_in_window": false,
+        "first_new_speaker_after_overlap": "SPEAKER_04",
+        "host_spoke_first_new_after_overlap": true,
+        "new_speech_event_count": 1,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 28,
+      "overlap": {
+        "start": 1952.806,
+        "end": 1953.987,
+        "duration": 1.181,
+        "speakers": [
+          "SPEAKER_01",
+          "SPEAKER_04"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 1953.987,
+      "window_end": 1956.987,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_01",
+          "start": 1948.932,
+          "end": 1954.154,
+          "text": "Why did you remove Sam Pitroda for a while from his position?",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_04",
+          "start": 1954.175,
+          "end": 1957.036,
+          "text": "Why did the Congress remove Sam Pitroda?",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 1949.806,
+        "end": 1952.806,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_01",
+          "start": 1948.932,
+          "end": 1954.154,
+          "text": "Why did you remove Sam Pitroda for a while from his position?",
+          "starts_in_window": false,
+          "active_at_window_end": true,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_01",
+        "start": 1944.588,
+        "end": 1947.39,
+        "text": "But we still follow the same constitution and we are loyal to this nation."
+      },
+      "observations": {
+        "speech_event_count": 2,
+        "speakers_in_window": [
+          "SPEAKER_01",
+          "SPEAKER_04"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_01"
+        ],
+        "first_speaker_in_window": "SPEAKER_01",
+        "host_spoke_first_in_window": false,
+        "first_new_speaker_after_overlap": "SPEAKER_04",
+        "host_spoke_first_new_after_overlap": true,
+        "new_speech_event_count": 1,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 29,
+      "overlap": {
+        "start": 1969.208,
+        "end": 1973.883,
+        "duration": 4.675,
+        "speakers": [
+          "SPEAKER_01",
+          "SPEAKER_04"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 1973.883,
+      "window_end": 1976.883,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_04",
+          "start": 1969.26,
+          "end": 1975.583,
+          "text": "See the basic thing is the Gandhis must be asked questions like and I quote this very famous interview of Triyanka Gandhi.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_04",
+          "start": 1975.823,
+          "end": 1977.524,
+          "text": "What is your favorite food?",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 1966.208,
+        "end": 1969.208,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_01",
+          "start": 1966.159,
+          "end": 1967.06,
+          "text": "No, absolutely not.",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_01",
+        "start": 1966.159,
+        "end": 1967.06,
+        "text": "No, absolutely not."
+      },
+      "observations": {
+        "speech_event_count": 2,
+        "speakers_in_window": [
+          "SPEAKER_04"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_04"
+        ],
+        "first_speaker_in_window": "SPEAKER_04",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": "SPEAKER_04",
+        "host_spoke_first_new_after_overlap": true,
+        "new_speech_event_count": 1,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 30,
+      "overlap": {
+        "start": 2017.42,
+        "end": 2019.732,
+        "duration": 2.312,
+        "speakers": [
+          "SPEAKER_03",
+          "SPEAKER_04"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 2019.732,
+      "window_end": 2022.732,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_03",
+          "start": 2019.699,
+          "end": 2021.2,
+          "text": "He can conduct it the way he likes.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 2014.42,
+        "end": 2017.42,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_04",
+          "start": 2011.973,
+          "end": 2014.435,
+          "text": "That was the raging controversy about it.",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_04",
+          "start": 2014.495,
+          "end": 2017.037,
+          "text": "But that is not democratic Renu Mittal.",
+          "starts_in_window": true,
+          "active_at_window_end": false,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_04",
+          "start": 2017.097,
+          "end": 2017.337,
+          "text": "Why?",
+          "starts_in_window": true,
+          "active_at_window_end": false,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_04",
+        "start": 2017.097,
+        "end": 2017.337,
+        "text": "Why?"
+      },
+      "observations": {
+        "speech_event_count": 1,
+        "speakers_in_window": [
+          "SPEAKER_03"
+        ],
+        "host_spoke_in_window": false,
+        "speakers_active_at_window_start": [
+          "SPEAKER_03"
+        ],
+        "first_speaker_in_window": "SPEAKER_03",
+        "host_spoke_first_in_window": false,
+        "first_new_speaker_after_overlap": null,
+        "host_spoke_first_new_after_overlap": null,
+        "new_speech_event_count": 0,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 31,
+      "overlap": {
+        "start": 2022.162,
+        "end": 2024.137,
+        "duration": 1.975,
+        "speakers": [
+          "SPEAKER_03",
+          "SPEAKER_04"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 2024.137,
+      "window_end": 2027.137,
+      "speech_events": [],
+      "pre_overlap_window": {
+        "start": 2019.162,
+        "end": 2022.162,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_03",
+          "start": 2018.338,
+          "end": 2019.659,
+          "text": "It was a well-known film actor.",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_03",
+          "start": 2019.699,
+          "end": 2021.2,
+          "text": "He can conduct it the way he likes.",
+          "starts_in_window": true,
+          "active_at_window_end": false,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_03",
+        "start": 2019.699,
+        "end": 2021.2,
+        "text": "He can conduct it the way he likes."
+      },
+      "observations": {
+        "speech_event_count": 0,
+        "speakers_in_window": [],
+        "host_spoke_in_window": false,
+        "speakers_active_at_window_start": [],
+        "first_speaker_in_window": null,
+        "host_spoke_first_in_window": null,
+        "first_new_speaker_after_overlap": null,
+        "host_spoke_first_new_after_overlap": null,
+        "new_speech_event_count": 0,
+        "no_speech_in_window": true
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 32,
+      "overlap": {
+        "start": 2025.098,
+        "end": 2025.655,
+        "duration": 0.557,
+        "speakers": [
+          "SPEAKER_00",
+          "SPEAKER_02",
+          "SPEAKER_04"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 2025.655,
+      "window_end": 2028.655,
+      "speech_events": [],
+      "pre_overlap_window": {
+        "start": 2022.098,
+        "end": 2025.098,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_03",
+        "start": 2019.699,
+        "end": 2021.2,
+        "text": "He can conduct it the way he likes."
+      },
+      "observations": {
+        "speech_event_count": 0,
+        "speakers_in_window": [],
+        "host_spoke_in_window": false,
+        "speakers_active_at_window_start": [],
+        "first_speaker_in_window": null,
+        "host_spoke_first_in_window": null,
+        "first_new_speaker_after_overlap": null,
+        "host_spoke_first_new_after_overlap": null,
+        "new_speech_event_count": 0,
+        "no_speech_in_window": true
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 33,
+      "overlap": {
+        "start": 2025.757,
+        "end": 2025.892,
+        "duration": 0.135,
+        "speakers": [
+          "SPEAKER_03",
+          "SPEAKER_04"
+        ],
+        "case": "DIARIZATION_ONLY",
+        "source": "diarization",
+        "confidence": 0.6
+      },
+      "window_seconds": 3.0,
+      "window_start": 2025.892,
+      "window_end": 2028.892,
+      "speech_events": [],
+      "pre_overlap_window": {
+        "start": 2022.757,
+        "end": 2025.757,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_03",
+        "start": 2019.699,
+        "end": 2021.2,
+        "text": "He can conduct it the way he likes."
+      },
+      "observations": {
+        "speech_event_count": 0,
+        "speakers_in_window": [],
+        "host_spoke_in_window": false,
+        "speakers_active_at_window_start": [],
+        "first_speaker_in_window": null,
+        "host_spoke_first_in_window": null,
+        "first_new_speaker_after_overlap": null,
+        "host_spoke_first_new_after_overlap": null,
+        "new_speech_event_count": 0,
+        "no_speech_in_window": true
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 34,
+      "overlap": {
+        "start": 2026.027,
+        "end": 2027.073,
+        "duration": 1.046,
+        "speakers": [
+          "SPEAKER_02",
+          "SPEAKER_04"
+        ],
+        "case": "DIARIZATION_ONLY",
+        "source": "diarization",
+        "confidence": 0.6
+      },
+      "window_seconds": 3.0,
+      "window_start": 2027.073,
+      "window_end": 2030.073,
+      "speech_events": [],
+      "pre_overlap_window": {
+        "start": 2023.027,
+        "end": 2026.027,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_03",
+        "start": 2019.699,
+        "end": 2021.2,
+        "text": "He can conduct it the way he likes."
+      },
+      "observations": {
+        "speech_event_count": 0,
+        "speakers_in_window": [],
+        "host_spoke_in_window": false,
+        "speakers_active_at_window_start": [],
+        "first_speaker_in_window": null,
+        "host_spoke_first_in_window": null,
+        "first_new_speaker_after_overlap": null,
+        "host_spoke_first_new_after_overlap": null,
+        "new_speech_event_count": 0,
+        "no_speech_in_window": true
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 35,
+      "overlap": {
+        "start": 2026.128,
+        "end": 2026.634,
+        "duration": 0.506,
+        "speakers": [
+          "SPEAKER_02",
+          "SPEAKER_04"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 2026.634,
+      "window_end": 2029.634,
+      "speech_events": [],
+      "pre_overlap_window": {
+        "start": 2023.128,
+        "end": 2026.128,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_03",
+        "start": 2019.699,
+        "end": 2021.2,
+        "text": "He can conduct it the way he likes."
+      },
+      "observations": {
+        "speech_event_count": 0,
+        "speakers_in_window": [],
+        "host_spoke_in_window": false,
+        "speakers_active_at_window_start": [],
+        "first_speaker_in_window": null,
+        "host_spoke_first_in_window": null,
+        "first_new_speaker_after_overlap": null,
+        "host_spoke_first_new_after_overlap": null,
+        "new_speech_event_count": 0,
+        "no_speech_in_window": true
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 36,
+      "overlap": {
+        "start": 2051.44,
+        "end": 2052.959,
+        "duration": 1.519,
+        "speakers": [
+          "SPEAKER_03",
+          "SPEAKER_04"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 2052.959,
+      "window_end": 2055.959,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_04",
+          "start": 2053.126,
+          "end": 2054.106,
+          "text": "Who is a Muslim?",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_03",
+          "start": 2054.126,
+          "end": 2054.947,
+          "text": "Who is eating fish?",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_04",
+          "start": 2054.967,
+          "end": 2055.647,
+          "text": "It's a long list.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_04",
+          "start": 2055.687,
+          "end": 2056.147,
+          "text": "Sanjay Jha.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 2048.44,
+        "end": 2051.44,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_04",
+          "start": 2046.363,
+          "end": 2048.924,
+          "text": "Who called Modi a murderer?",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_04",
+          "start": 2048.984,
+          "end": 2049.684,
+          "text": "Who did that?",
+          "starts_in_window": true,
+          "active_at_window_end": false,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_03",
+          "start": 2049.744,
+          "end": 2050.384,
+          "text": "Who said that?",
+          "starts_in_window": true,
+          "active_at_window_end": false,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_04",
+          "start": 2050.865,
+          "end": 2052.085,
+          "text": "Modi will dig your grave?",
+          "starts_in_window": true,
+          "active_at_window_end": true,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_03",
+        "start": 2049.744,
+        "end": 2050.384,
+        "text": "Who said that?"
+      },
+      "observations": {
+        "speech_event_count": 4,
+        "speakers_in_window": [
+          "SPEAKER_04",
+          "SPEAKER_03"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [],
+        "first_speaker_in_window": "SPEAKER_04",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": "SPEAKER_04",
+        "host_spoke_first_new_after_overlap": true,
+        "new_speech_event_count": 4,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 37,
+      "overlap": {
+        "start": 2053.972,
+        "end": 2054.697,
+        "duration": 0.725,
+        "speakers": [
+          "SPEAKER_03",
+          "SPEAKER_04"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 2054.697,
+      "window_end": 2057.697,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_03",
+          "start": 2054.126,
+          "end": 2054.947,
+          "text": "Who is eating fish?",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_04",
+          "start": 2054.967,
+          "end": 2055.647,
+          "text": "It's a long list.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_04",
+          "start": 2055.687,
+          "end": 2056.147,
+          "text": "Sanjay Jha.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 2050.972,
+        "end": 2053.972,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_04",
+          "start": 2050.865,
+          "end": 2052.085,
+          "text": "Modi will dig your grave?",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_04",
+          "start": 2052.125,
+          "end": 2052.866,
+          "text": "Who said that?",
+          "starts_in_window": true,
+          "active_at_window_end": false,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_04",
+          "start": 2053.126,
+          "end": 2054.106,
+          "text": "Who is a Muslim?",
+          "starts_in_window": true,
+          "active_at_window_end": true,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_04",
+        "start": 2052.125,
+        "end": 2052.866,
+        "text": "Who said that?"
+      },
+      "observations": {
+        "speech_event_count": 3,
+        "speakers_in_window": [
+          "SPEAKER_03",
+          "SPEAKER_04"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_03"
+        ],
+        "first_speaker_in_window": "SPEAKER_03",
+        "host_spoke_first_in_window": false,
+        "first_new_speaker_after_overlap": "SPEAKER_04",
+        "host_spoke_first_new_after_overlap": true,
+        "new_speech_event_count": 2,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 38,
+      "overlap": {
+        "start": 2056.469,
+        "end": 2056.975,
+        "duration": 0.506,
+        "speakers": [
+          "SPEAKER_03",
+          "SPEAKER_04"
+        ],
+        "case": "DIARIZATION_ONLY",
+        "source": "diarization",
+        "confidence": 0.6
+      },
+      "window_seconds": 3.0,
+      "window_start": 2056.975,
+      "window_end": 2059.975,
+      "speech_events": [],
+      "pre_overlap_window": {
+        "start": 2053.469,
+        "end": 2056.469,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_04",
+          "start": 2053.126,
+          "end": 2054.106,
+          "text": "Who is a Muslim?",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_03",
+          "start": 2054.126,
+          "end": 2054.947,
+          "text": "Who is eating fish?",
+          "starts_in_window": true,
+          "active_at_window_end": false,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_04",
+          "start": 2054.967,
+          "end": 2055.647,
+          "text": "It's a long list.",
+          "starts_in_window": true,
+          "active_at_window_end": false,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_04",
+          "start": 2055.687,
+          "end": 2056.147,
+          "text": "Sanjay Jha.",
+          "starts_in_window": true,
+          "active_at_window_end": false,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_04",
+        "start": 2055.687,
+        "end": 2056.147,
+        "text": "Sanjay Jha."
+      },
+      "observations": {
+        "speech_event_count": 0,
+        "speakers_in_window": [],
+        "host_spoke_in_window": false,
+        "speakers_active_at_window_start": [],
+        "first_speaker_in_window": null,
+        "host_spoke_first_in_window": null,
+        "first_new_speaker_after_overlap": null,
+        "host_spoke_first_new_after_overlap": null,
+        "new_speech_event_count": 0,
+        "no_speech_in_window": true
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 39,
+      "overlap": {
+        "start": 2057.093,
+        "end": 2057.363,
+        "duration": 0.27,
+        "speakers": [
+          "SPEAKER_03",
+          "SPEAKER_04"
+        ],
+        "case": "DIARIZATION_ONLY",
+        "source": "diarization",
+        "confidence": 0.6
+      },
+      "window_seconds": 3.0,
+      "window_start": 2057.363,
+      "window_end": 2060.363,
+      "speech_events": [],
+      "pre_overlap_window": {
+        "start": 2054.093,
+        "end": 2057.093,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_04",
+          "start": 2053.126,
+          "end": 2054.106,
+          "text": "Who is a Muslim?",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_03",
+          "start": 2054.126,
+          "end": 2054.947,
+          "text": "Who is eating fish?",
+          "starts_in_window": true,
+          "active_at_window_end": false,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_04",
+          "start": 2054.967,
+          "end": 2055.647,
+          "text": "It's a long list.",
+          "starts_in_window": true,
+          "active_at_window_end": false,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_04",
+          "start": 2055.687,
+          "end": 2056.147,
+          "text": "Sanjay Jha.",
+          "starts_in_window": true,
+          "active_at_window_end": false,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_04",
+        "start": 2055.687,
+        "end": 2056.147,
+        "text": "Sanjay Jha."
+      },
+      "observations": {
+        "speech_event_count": 0,
+        "speakers_in_window": [],
+        "host_spoke_in_window": false,
+        "speakers_active_at_window_start": [],
+        "first_speaker_in_window": null,
+        "host_spoke_first_in_window": null,
+        "first_new_speaker_after_overlap": null,
+        "host_spoke_first_new_after_overlap": null,
+        "new_speech_event_count": 0,
+        "no_speech_in_window": true
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 40,
+      "overlap": {
+        "start": 2057.802,
+        "end": 2057.971,
+        "duration": 0.169,
+        "speakers": [
+          "SPEAKER_03",
+          "SPEAKER_04"
+        ],
+        "case": "DIARIZATION_ONLY",
+        "source": "diarization",
+        "confidence": 0.6
+      },
+      "window_seconds": 3.0,
+      "window_start": 2057.971,
+      "window_end": 2060.971,
+      "speech_events": [],
+      "pre_overlap_window": {
+        "start": 2054.802,
+        "end": 2057.802,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_03",
+          "start": 2054.126,
+          "end": 2054.947,
+          "text": "Who is eating fish?",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_04",
+          "start": 2054.967,
+          "end": 2055.647,
+          "text": "It's a long list.",
+          "starts_in_window": true,
+          "active_at_window_end": false,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_04",
+          "start": 2055.687,
+          "end": 2056.147,
+          "text": "Sanjay Jha.",
+          "starts_in_window": true,
+          "active_at_window_end": false,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_04",
+        "start": 2055.687,
+        "end": 2056.147,
+        "text": "Sanjay Jha."
+      },
+      "observations": {
+        "speech_event_count": 0,
+        "speakers_in_window": [],
+        "host_spoke_in_window": false,
+        "speakers_active_at_window_start": [],
+        "first_speaker_in_window": null,
+        "host_spoke_first_in_window": null,
+        "first_new_speaker_after_overlap": null,
+        "host_spoke_first_new_after_overlap": null,
+        "new_speech_event_count": 0,
+        "no_speech_in_window": true
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 41,
+      "overlap": {
+        "start": 2059.473,
+        "end": 2060.89,
+        "duration": 1.417,
+        "speakers": [
+          "SPEAKER_02",
+          "SPEAKER_03",
+          "SPEAKER_04"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 2060.89,
+      "window_end": 2063.89,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_04",
+          "start": 2062.27,
+          "end": 2069.72,
+          "text": "Sanjay Jha, I am not taking any sides, I am just saying that the list is long even on this side.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 2056.473,
+        "end": 2059.473,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_04",
+        "start": 2055.687,
+        "end": 2056.147,
+        "text": "Sanjay Jha."
+      },
+      "observations": {
+        "speech_event_count": 1,
+        "speakers_in_window": [
+          "SPEAKER_04"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [],
+        "first_speaker_in_window": "SPEAKER_04",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": "SPEAKER_04",
+        "host_spoke_first_new_after_overlap": true,
+        "new_speech_event_count": 1,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 42,
+      "overlap": {
+        "start": 2060.958,
+        "end": 2062.122,
+        "duration": 1.164,
+        "speakers": [
+          "SPEAKER_02",
+          "SPEAKER_03",
+          "SPEAKER_04"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 2062.122,
+      "window_end": 2065.122,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_04",
+          "start": 2062.27,
+          "end": 2069.72,
+          "text": "Sanjay Jha, I am not taking any sides, I am just saying that the list is long even on this side.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 2057.958,
+        "end": 2060.958,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_04",
+        "start": 2055.687,
+        "end": 2056.147,
+        "text": "Sanjay Jha."
+      },
+      "observations": {
+        "speech_event_count": 1,
+        "speakers_in_window": [
+          "SPEAKER_04"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [],
+        "first_speaker_in_window": "SPEAKER_04",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": "SPEAKER_04",
+        "host_spoke_first_new_after_overlap": true,
+        "new_speech_event_count": 1,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 43,
+      "overlap": {
+        "start": 2086.017,
+        "end": 2087.148,
+        "duration": 1.131,
+        "speakers": [
+          "SPEAKER_02",
+          "SPEAKER_04"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 2087.148,
+      "window_end": 2090.148,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_04",
+          "start": 2087.04,
+          "end": 2088.661,
+          "text": "She's a member of parliament.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_04",
+          "start": 2089.342,
+          "end": 2094.267,
+          "text": "Maybe if she had sought an appointment like other members of parliament, they get.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 2083.017,
+        "end": 2086.017,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_04",
+          "start": 2081.174,
+          "end": 2086.139,
+          "text": "So maybe there is no opportunity for her to be invited to all party meetings.",
+          "starts_in_window": false,
+          "active_at_window_end": true,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_04",
+        "start": 2078.912,
+        "end": 2081.054,
+        "text": "She's not in a constitutional position."
+      },
+      "observations": {
+        "speech_event_count": 2,
+        "speakers_in_window": [
+          "SPEAKER_04"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_04"
+        ],
+        "first_speaker_in_window": "SPEAKER_04",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": "SPEAKER_04",
+        "host_spoke_first_new_after_overlap": true,
+        "new_speech_event_count": 1,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 44,
+      "overlap": {
+        "start": 2122.248,
+        "end": 2122.822,
+        "duration": 0.574,
+        "speakers": [
+          "SPEAKER_03",
+          "SPEAKER_06"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 2122.822,
+      "window_end": 2125.822,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_06",
+          "start": 2121.18,
+          "end": 2123.803,
+          "text": "Sorry, when was the last conference Sonia Gandhi had?",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_03",
+          "start": 2123.823,
+          "end": 2126.106,
+          "text": "By the way, she's interacted with the press.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 2119.248,
+        "end": 2122.248,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_06",
+          "start": 2117.1,
+          "end": 2120.022,
+          "text": "Did you just tell us when Sonia Gandhi held a press conference?",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_06",
+          "start": 2121.18,
+          "end": 2123.803,
+          "text": "Sorry, when was the last conference Sonia Gandhi had?",
+          "starts_in_window": true,
+          "active_at_window_end": true,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_06",
+        "start": 2117.1,
+        "end": 2120.022,
+        "text": "Did you just tell us when Sonia Gandhi held a press conference?"
+      },
+      "observations": {
+        "speech_event_count": 2,
+        "speakers_in_window": [
+          "SPEAKER_06",
+          "SPEAKER_03"
+        ],
+        "host_spoke_in_window": false,
+        "speakers_active_at_window_start": [
+          "SPEAKER_06"
+        ],
+        "first_speaker_in_window": "SPEAKER_06",
+        "host_spoke_first_in_window": false,
+        "first_new_speaker_after_overlap": "SPEAKER_03",
+        "host_spoke_first_new_after_overlap": false,
+        "new_speech_event_count": 1,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 45,
+      "overlap": {
+        "start": 2123.395,
+        "end": 2123.986,
+        "duration": 0.591,
+        "speakers": [
+          "SPEAKER_03",
+          "SPEAKER_06"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 2123.986,
+      "window_end": 2126.986,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_03",
+          "start": 2123.823,
+          "end": 2126.106,
+          "text": "By the way, she's interacted with the press.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_03",
+          "start": 2126.286,
+          "end": 2126.847,
+          "text": "No, no, no, no.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_03",
+          "start": 2126.967,
+          "end": 2131.513,
+          "text": "I saw it right next to Modi and he did it today, this morning.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 2120.395,
+        "end": 2123.395,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_06",
+          "start": 2121.18,
+          "end": 2123.803,
+          "text": "Sorry, when was the last conference Sonia Gandhi had?",
+          "starts_in_window": true,
+          "active_at_window_end": true,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_06",
+        "start": 2117.1,
+        "end": 2120.022,
+        "text": "Did you just tell us when Sonia Gandhi held a press conference?"
+      },
+      "observations": {
+        "speech_event_count": 3,
+        "speakers_in_window": [
+          "SPEAKER_03"
+        ],
+        "host_spoke_in_window": false,
+        "speakers_active_at_window_start": [
+          "SPEAKER_03"
+        ],
+        "first_speaker_in_window": "SPEAKER_03",
+        "host_spoke_first_in_window": false,
+        "first_new_speaker_after_overlap": "SPEAKER_03",
+        "host_spoke_first_new_after_overlap": false,
+        "new_speech_event_count": 2,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 46,
+      "overlap": {
+        "start": 2126.23,
+        "end": 2130.483,
+        "duration": 4.253,
+        "speakers": [
+          "SPEAKER_03",
+          "SPEAKER_04",
+          "SPEAKER_06"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 2130.483,
+      "window_end": 2133.483,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_03",
+          "start": 2126.967,
+          "end": 2131.513,
+          "text": "I saw it right next to Modi and he did it today, this morning.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_04",
+          "start": 2131.733,
+          "end": 2133.575,
+          "text": "He interacted with the press.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 2123.23,
+        "end": 2126.23,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_06",
+          "start": 2121.18,
+          "end": 2123.803,
+          "text": "Sorry, when was the last conference Sonia Gandhi had?",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_03",
+          "start": 2123.823,
+          "end": 2126.106,
+          "text": "By the way, she's interacted with the press.",
+          "starts_in_window": true,
+          "active_at_window_end": false,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_03",
+        "start": 2123.823,
+        "end": 2126.106,
+        "text": "By the way, she's interacted with the press."
+      },
+      "observations": {
+        "speech_event_count": 2,
+        "speakers_in_window": [
+          "SPEAKER_03",
+          "SPEAKER_04"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_03"
+        ],
+        "first_speaker_in_window": "SPEAKER_03",
+        "host_spoke_first_in_window": false,
+        "first_new_speaker_after_overlap": "SPEAKER_04",
+        "host_spoke_first_new_after_overlap": true,
+        "new_speech_event_count": 1,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 47,
+      "overlap": {
+        "start": 2131.107,
+        "end": 2134.297,
+        "duration": 3.19,
+        "speakers": [
+          "SPEAKER_03",
+          "SPEAKER_04",
+          "SPEAKER_05"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 2134.297,
+      "window_end": 2137.297,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_04",
+          "start": 2133.615,
+          "end": 2137.24,
+          "text": "He interacted with the press today.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 2128.107,
+        "end": 2131.107,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_03",
+          "start": 2126.967,
+          "end": 2131.513,
+          "text": "I saw it right next to Modi and he did it today, this morning.",
+          "starts_in_window": false,
+          "active_at_window_end": true,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_03",
+        "start": 2126.286,
+        "end": 2126.847,
+        "text": "No, no, no, no."
+      },
+      "observations": {
+        "speech_event_count": 1,
+        "speakers_in_window": [
+          "SPEAKER_04"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_04"
+        ],
+        "first_speaker_in_window": "SPEAKER_04",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": null,
+        "host_spoke_first_new_after_overlap": null,
+        "new_speech_event_count": 0,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 48,
+      "overlap": {
+        "start": 2134.685,
+        "end": 2135.95,
+        "duration": 1.265,
+        "speakers": [
+          "SPEAKER_04",
+          "SPEAKER_05"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 2135.95,
+      "window_end": 2138.95,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_04",
+          "start": 2133.615,
+          "end": 2137.24,
+          "text": "He interacted with the press today.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_04",
+          "start": 2137.32,
+          "end": 2137.92,
+          "text": "He does it.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_04",
+          "start": 2138.241,
+          "end": 2139.603,
+          "text": "He does it every year, sir.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 2131.685,
+        "end": 2134.685,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_04",
+          "start": 2131.733,
+          "end": 2133.575,
+          "text": "He interacted with the press.",
+          "starts_in_window": true,
+          "active_at_window_end": false,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_04",
+          "start": 2133.615,
+          "end": 2137.24,
+          "text": "He interacted with the press today.",
+          "starts_in_window": true,
+          "active_at_window_end": true,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_04",
+        "start": 2131.733,
+        "end": 2133.575,
+        "text": "He interacted with the press."
+      },
+      "observations": {
+        "speech_event_count": 3,
+        "speakers_in_window": [
+          "SPEAKER_04"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_04"
+        ],
+        "first_speaker_in_window": "SPEAKER_04",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": "SPEAKER_04",
+        "host_spoke_first_new_after_overlap": true,
+        "new_speech_event_count": 2,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 49,
+      "overlap": {
+        "start": 2162.41,
+        "end": 2163.862,
+        "duration": 1.452,
+        "speakers": [
+          "SPEAKER_03",
+          "SPEAKER_04"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 2163.862,
+      "window_end": 2166.862,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_04",
+          "start": 2163.568,
+          "end": 2168.97,
+          "text": "My friend that was exactly the speculation when we were covering the UPA government.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 2159.41,
+        "end": 2162.41,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_03",
+          "start": 2142.05,
+          "end": 2162.147,
+          "text": "Navika, the question is, in the world's largest democracy, when the Prime Minister of the country refuses to express himself on matters of policy or even political opponents, he does it through people who work for him, you know, like Sudhanshuji or other supporters of the right-wing ecosystem, you will create speculation, you will create suspicion.",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_03",
+        "start": 2142.05,
+        "end": 2162.147,
+        "text": "Navika, the question is, in the world's largest democracy, when the Prime Minister of the country refuses to express himself on matters of policy or even political opponents, he does it through people who work for him, you know, like Sudhanshuji or other supporters of the right-wing ecosystem, you will create speculation, you will create suspicion."
+      },
+      "observations": {
+        "speech_event_count": 1,
+        "speakers_in_window": [
+          "SPEAKER_04"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_04"
+        ],
+        "first_speaker_in_window": "SPEAKER_04",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": null,
+        "host_spoke_first_new_after_overlap": null,
+        "new_speech_event_count": 0,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 50,
+      "overlap": {
+        "start": 2202.387,
+        "end": 2203.653,
+        "duration": 1.266,
+        "speakers": [
+          "SPEAKER_00",
+          "SPEAKER_04"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 2203.653,
+      "window_end": 2206.653,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_04",
+          "start": 2202.177,
+          "end": 2210.002,
+          "text": "In the opposition, the supporters of democracy and free speech have banned 16 journalists.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 2199.387,
+        "end": 2202.387,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_04",
+          "start": 2198.474,
+          "end": 2200.556,
+          "text": "Why are they different yardsticks?",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_04",
+          "start": 2200.616,
+          "end": 2201.636,
+          "text": "And I am the question.",
+          "starts_in_window": true,
+          "active_at_window_end": false,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_04",
+          "start": 2202.177,
+          "end": 2210.002,
+          "text": "In the opposition, the supporters of democracy and free speech have banned 16 journalists.",
+          "starts_in_window": true,
+          "active_at_window_end": true,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_04",
+        "start": 2200.616,
+        "end": 2201.636,
+        "text": "And I am the question."
+      },
+      "observations": {
+        "speech_event_count": 1,
+        "speakers_in_window": [
+          "SPEAKER_04"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_04"
+        ],
+        "first_speaker_in_window": "SPEAKER_04",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": null,
+        "host_spoke_first_new_after_overlap": null,
+        "new_speech_event_count": 0,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 51,
+      "overlap": {
+        "start": 2299.672,
+        "end": 2300.87,
+        "duration": 1.198,
+        "speakers": [
+          "SPEAKER_04",
+          "SPEAKER_08"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 2300.87,
+      "window_end": 2303.87,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_04",
+          "start": 2299.62,
+          "end": 2307.644,
+          "text": "He also asked journalists whether they are from the BJP if an uncomfortable question is asked.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 2296.672,
+        "end": 2299.672,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_08",
+          "start": 2293.478,
+          "end": 2297.26,
+          "text": "And when the same caste is asked in the parliament.",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_08",
+          "start": 2298.3,
+          "end": 2299.1,
+          "text": "Such a ruckus.",
+          "starts_in_window": true,
+          "active_at_window_end": false,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_04",
+          "start": 2299.62,
+          "end": 2307.644,
+          "text": "He also asked journalists whether they are from the BJP if an uncomfortable question is asked.",
+          "starts_in_window": true,
+          "active_at_window_end": true,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_08",
+        "start": 2298.3,
+        "end": 2299.1,
+        "text": "Such a ruckus."
+      },
+      "observations": {
+        "speech_event_count": 1,
+        "speakers_in_window": [
+          "SPEAKER_04"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_04"
+        ],
+        "first_speaker_in_window": "SPEAKER_04",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": null,
+        "host_spoke_first_new_after_overlap": null,
+        "new_speech_event_count": 0,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 52,
+      "overlap": {
+        "start": 2314.454,
+        "end": 2315.5,
+        "duration": 1.046,
+        "speakers": [
+          "SPEAKER_04",
+          "SPEAKER_05"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 2315.5,
+      "window_end": 2318.5,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_05",
+          "start": 2314.186,
+          "end": 2332.201,
+          "text": "One of the reasons why Modiji is very courteous especially to the detractors who abuses because half the people who abuse Modi are now in BJP but one thing needs to be clarified which is that this Jersey Cow thing now you know Spike Millikan said sense of humor is no laughing matter.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 2311.454,
+        "end": 2314.454,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_04",
+          "start": 2310.965,
+          "end": 2313.066,
+          "text": "Anand Ranganathan completely out of time.",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_04",
+          "start": 2313.086,
+          "end": 2313.906,
+          "text": "30 seconds.",
+          "starts_in_window": true,
+          "active_at_window_end": false,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_05",
+          "start": 2314.186,
+          "end": 2332.201,
+          "text": "One of the reasons why Modiji is very courteous especially to the detractors who abuses because half the people who abuse Modi are now in BJP but one thing needs to be clarified which is that this Jersey Cow thing now you know Spike Millikan said sense of humor is no laughing matter.",
+          "starts_in_window": true,
+          "active_at_window_end": true,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_04",
+        "start": 2313.086,
+        "end": 2313.906,
+        "text": "30 seconds."
+      },
+      "observations": {
+        "speech_event_count": 1,
+        "speakers_in_window": [
+          "SPEAKER_05"
+        ],
+        "host_spoke_in_window": false,
+        "speakers_active_at_window_start": [
+          "SPEAKER_05"
+        ],
+        "first_speaker_in_window": "SPEAKER_05",
+        "host_spoke_first_in_window": false,
+        "first_new_speaker_after_overlap": null,
+        "host_spoke_first_new_after_overlap": null,
+        "new_speech_event_count": 0,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    }
+  ],
+  "notes": [
+    "This artifact is a separate analysis output; it does not modify final.json or any existing pipeline stage.",
+    "Transcript text and source segment timestamps are preserved exactly; events may extend beyond the 3-second window and are flagged.",
+    "All classification and host-behavior fields are intentionally unclassified pending manual verification and later LLM analysis.",
+    "first_speaker_in_window accounts for speech already active at the window boundary; first_new_speaker_after_overlap separately records a segment beginning after the overlap.",
+    "Tied or ambiguous speaker starts are represented as null rather than forcing a conclusion.",
+    "Speaker labels are diarization labels, not verified real-world identities."
+  ]
+}

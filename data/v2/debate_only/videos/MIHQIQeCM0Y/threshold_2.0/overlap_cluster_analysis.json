@@ -1,0 +1,3100 @@
+{
+  "schema_version": "overlap-cluster-analysis-2.0",
+  "episode": {
+    "video_id": "MIHQIQeCM0Y",
+    "title": "To The Point Debate On Owaisi-Azad Alliance: Third Front Or Opposition Vote Cutter? | UP Elections",
+    "duration_s": null
+  },
+  "configuration": {
+    "overlap_merge_gap_seconds": 1.0,
+    "prolonged_overlap_threshold_seconds": 1.0,
+    "post_overlap_followup_window_seconds": 3.0,
+    "cluster_A_clean_transition_max_gap_seconds": 1.0,
+    "primary_cluster_policy": "A is classified from all speaker transitions. B-G are classified from overlap events. A is excluded from overlap-event percentages."
+  },
+  "source": {
+    "final_json": "final.json",
+    "followup_json": "overlap_followup_analysis.json",
+    "original_speaker_turn_count": 103,
+    "all_speaker_transition_count": 102,
+    "raw_overlap_candidate_count": 37,
+    "followup_event_count": 37
+  },
+  "cluster_definitions": {
+    "A": "clean_turn_transfer",
+    "B": "short_supportive_switch",
+    "C": "short_disagreement",
+    "D": "successful_interruption",
+    "E": "failed_interruption",
+    "F": "unresolved_floor_competition",
+    "G": "prolonged_overlap"
+  },
+  "statistics": {
+    "speaker_transitions": {
+      "total_speaker_transitions": 102,
+      "cluster_A_candidate_count": 14,
+      "cluster_A_candidate_percentage": 13.73,
+      "pairwise_transition_counts": [
+        {
+          "from_speaker": "SPEAKER_00",
+          "to_speaker": "SPEAKER_01",
+          "count": 1
+        },
+        {
+          "from_speaker": "SPEAKER_00",
+          "to_speaker": "SPEAKER_03",
+          "count": 1
+        },
+        {
+          "from_speaker": "SPEAKER_00",
+          "to_speaker": "SPEAKER_05",
+          "count": 1
+        },
+        {
+          "from_speaker": "SPEAKER_00",
+          "to_speaker": "SPEAKER_06",
+          "count": 9
+        },
+        {
+          "from_speaker": "SPEAKER_01",
+          "to_speaker": "SPEAKER_00",
+          "count": 4
+        },
+        {
+          "from_speaker": "SPEAKER_01",
+          "to_speaker": "SPEAKER_02",
+          "count": 2
+        },
+        {
+          "from_speaker": "SPEAKER_01",
+          "to_speaker": "SPEAKER_04",
+          "count": 3
+        },
+        {
+          "from_speaker": "SPEAKER_01",
+          "to_speaker": "SPEAKER_05",
+          "count": 1
+        },
+        {
+          "from_speaker": "SPEAKER_01",
+          "to_speaker": "SPEAKER_06",
+          "count": 1
+        },
+        {
+          "from_speaker": "SPEAKER_02",
+          "to_speaker": "SPEAKER_01",
+          "count": 1
+        },
+        {
+          "from_speaker": "SPEAKER_02",
+          "to_speaker": "SPEAKER_05",
+          "count": 1
+        },
+        {
+          "from_speaker": "SPEAKER_02",
+          "to_speaker": "SPEAKER_06",
+          "count": 18
+        },
+        {
+          "from_speaker": "SPEAKER_03",
+          "to_speaker": "SPEAKER_06",
+          "count": 4
+        },
+        {
+          "from_speaker": "SPEAKER_04",
+          "to_speaker": "SPEAKER_00",
+          "count": 1
+        },
+        {
+          "from_speaker": "SPEAKER_04",
+          "to_speaker": "SPEAKER_01",
+          "count": 2
+        },
+        {
+          "from_speaker": "SPEAKER_04",
+          "to_speaker": "SPEAKER_06",
+          "count": 8
+        },
+        {
+          "from_speaker": "SPEAKER_05",
+          "to_speaker": "SPEAKER_00",
+          "count": 1
+        },
+        {
+          "from_speaker": "SPEAKER_05",
+          "to_speaker": "SPEAKER_01",
+          "count": 2
+        },
+        {
+          "from_speaker": "SPEAKER_06",
+          "to_speaker": "SPEAKER_00",
+          "count": 6
+        },
+        {
+          "from_speaker": "SPEAKER_06",
+          "to_speaker": "SPEAKER_01",
+          "count": 5
+        },
+        {
+          "from_speaker": "SPEAKER_06",
+          "to_speaker": "SPEAKER_02",
+          "count": 18
+        },
+        {
+          "from_speaker": "SPEAKER_06",
+          "to_speaker": "SPEAKER_03",
+          "count": 3
+        },
+        {
+          "from_speaker": "SPEAKER_06",
+          "to_speaker": "SPEAKER_04",
+          "count": 8
+        },
+        {
+          "from_speaker": "SPEAKER_06",
+          "to_speaker": "SPEAKER_05",
+          "count": 1
+        }
+      ],
+      "speaker_transition_totals": {
+        "SPEAKER_00": {
+          "outgoing_transitions": 12,
+          "incoming_transitions": 12
+        },
+        "SPEAKER_01": {
+          "outgoing_transitions": 11,
+          "incoming_transitions": 11
+        },
+        "SPEAKER_02": {
+          "outgoing_transitions": 20,
+          "incoming_transitions": 20
+        },
+        "SPEAKER_03": {
+          "outgoing_transitions": 4,
+          "incoming_transitions": 4
+        },
+        "SPEAKER_04": {
+          "outgoing_transitions": 11,
+          "incoming_transitions": 11
+        },
+        "SPEAKER_05": {
+          "outgoing_transitions": 3,
+          "incoming_transitions": 4
+        },
+        "SPEAKER_06": {
+          "outgoing_transitions": 41,
+          "incoming_transitions": 40
+        }
+      }
+    },
+    "overlap_interaction_clusters": {
+      "debate_level": {
+        "total_overlap_events": 37,
+        "classified_event_count": 37,
+        "unclassified_event_count": 0,
+        "cluster_counts": {
+          "B": 0,
+          "C": 0,
+          "D": 0,
+          "E": 0,
+          "F": 15,
+          "G": 22
+        },
+        "cluster_percentages": {
+          "B": 0.0,
+          "C": 0.0,
+          "D": 0.0,
+          "E": 0.0,
+          "F": 40.54,
+          "G": 59.46
+        }
+      },
+      "speaker_level": {
+        "SPEAKER_00": {
+          "cluster_counts": {
+            "B": 0,
+            "C": 0,
+            "D": 0,
+            "E": 0,
+            "F": 2,
+            "G": 3
+          }
+        },
+        "SPEAKER_01": {
+          "cluster_counts": {
+            "B": 0,
+            "C": 0,
+            "D": 0,
+            "E": 0,
+            "F": 2,
+            "G": 6
+          }
+        },
+        "SPEAKER_02": {
+          "cluster_counts": {
+            "B": 0,
+            "C": 0,
+            "D": 0,
+            "E": 0,
+            "F": 10,
+            "G": 10
+          }
+        },
+        "SPEAKER_03": {
+          "cluster_counts": {
+            "B": 0,
+            "C": 0,
+            "D": 0,
+            "E": 0,
+            "F": 0,
+            "G": 1
+          }
+        },
+        "SPEAKER_04": {
+          "cluster_counts": {
+            "B": 0,
+            "C": 0,
+            "D": 0,
+            "E": 0,
+            "F": 2,
+            "G": 7
+          }
+        },
+        "SPEAKER_06": {
+          "cluster_counts": {
+            "B": 0,
+            "C": 0,
+            "D": 0,
+            "E": 0,
+            "F": 14,
+            "G": 19
+          }
+        }
+      }
+    }
+  },
+  "speaker_transitions": [
+    {
+      "transition_id": "ST00001",
+      "from_speaker": "SPEAKER_06",
+      "to_speaker": "SPEAKER_04",
+      "timestamp": 29.748,
+      "previous_turn_end": 27.672,
+      "current_turn_start": 29.748,
+      "turn_gap": 2.076,
+      "is_overlapping_transition": false,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00002",
+      "from_speaker": "SPEAKER_04",
+      "to_speaker": "SPEAKER_06",
+      "timestamp": 78.398,
+      "previous_turn_end": 83.41,
+      "current_turn_start": 78.398,
+      "turn_gap": -5.012,
+      "is_overlapping_transition": true,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00003",
+      "from_speaker": "SPEAKER_06",
+      "to_speaker": "SPEAKER_04",
+      "timestamp": 83.782,
+      "previous_turn_end": 82.769,
+      "current_turn_start": 83.782,
+      "turn_gap": 1.013,
+      "is_overlapping_transition": false,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00004",
+      "from_speaker": "SPEAKER_04",
+      "to_speaker": "SPEAKER_06",
+      "timestamp": 83.967,
+      "previous_turn_end": 83.967,
+      "current_turn_start": 83.967,
+      "turn_gap": 0.0,
+      "is_overlapping_transition": false,
+      "overlap_near_transition": false,
+      "primary_cluster": "A",
+      "cluster_name": "clean_turn_transfer",
+      "classification_status": "provisional_candidate",
+      "classification_evidence": [
+        "Sequential speaker transition",
+        "Turn gap 0.000s is within configured threshold",
+        "No reconciled overlap detected near transition"
+      ],
+      "classification_note": "Structural candidate for clean turn transfer. Conversational context is needed for confirmation."
+    },
+    {
+      "transition_id": "ST00005",
+      "from_speaker": "SPEAKER_06",
+      "to_speaker": "SPEAKER_04",
+      "timestamp": 84.068,
+      "previous_turn_end": 84.068,
+      "current_turn_start": 84.068,
+      "turn_gap": 0.0,
+      "is_overlapping_transition": false,
+      "overlap_near_transition": false,
+      "primary_cluster": "A",
+      "cluster_name": "clean_turn_transfer",
+      "classification_status": "provisional_candidate",
+      "classification_evidence": [
+        "Sequential speaker transition",
+        "Turn gap 0.000s is within configured threshold",
+        "No reconciled overlap detected near transition"
+      ],
+      "classification_note": "Structural candidate for clean turn transfer. Conversational context is needed for confirmation."
+    },
+    {
+      "transition_id": "ST00006",
+      "from_speaker": "SPEAKER_04",
+      "to_speaker": "SPEAKER_06",
+      "timestamp": 84.524,
+      "previous_turn_end": 84.085,
+      "current_turn_start": 84.524,
+      "turn_gap": 0.439,
+      "is_overlapping_transition": false,
+      "overlap_near_transition": false,
+      "primary_cluster": "A",
+      "cluster_name": "clean_turn_transfer",
+      "classification_status": "provisional_candidate",
+      "classification_evidence": [
+        "Sequential speaker transition",
+        "Turn gap 0.439s is within configured threshold",
+        "No reconciled overlap detected near transition"
+      ],
+      "classification_note": "Structural candidate for clean turn transfer. Conversational context is needed for confirmation."
+    },
+    {
+      "transition_id": "ST00007",
+      "from_speaker": "SPEAKER_06",
+      "to_speaker": "SPEAKER_04",
+      "timestamp": 96.353,
+      "previous_turn_end": 95.003,
+      "current_turn_start": 96.353,
+      "turn_gap": 1.35,
+      "is_overlapping_transition": false,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00008",
+      "from_speaker": "SPEAKER_04",
+      "to_speaker": "SPEAKER_06",
+      "timestamp": 116.806,
+      "previous_turn_end": 117.616,
+      "current_turn_start": 116.806,
+      "turn_gap": -0.81,
+      "is_overlapping_transition": true,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00009",
+      "from_speaker": "SPEAKER_06",
+      "to_speaker": "SPEAKER_03",
+      "timestamp": 130.525,
+      "previous_turn_end": 127.572,
+      "current_turn_start": 130.525,
+      "turn_gap": 2.953,
+      "is_overlapping_transition": false,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00010",
+      "from_speaker": "SPEAKER_03",
+      "to_speaker": "SPEAKER_06",
+      "timestamp": 225.886,
+      "previous_turn_end": 226.797,
+      "current_turn_start": 225.886,
+      "turn_gap": -0.911,
+      "is_overlapping_transition": true,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00011",
+      "from_speaker": "SPEAKER_06",
+      "to_speaker": "SPEAKER_00",
+      "timestamp": 277.861,
+      "previous_turn_end": 276.578,
+      "current_turn_start": 277.861,
+      "turn_gap": 1.283,
+      "is_overlapping_transition": false,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00012",
+      "from_speaker": "SPEAKER_00",
+      "to_speaker": "SPEAKER_06",
+      "timestamp": 389.962,
+      "previous_turn_end": 392.83,
+      "current_turn_start": 389.962,
+      "turn_gap": -2.868,
+      "is_overlapping_transition": true,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00013",
+      "from_speaker": "SPEAKER_06",
+      "to_speaker": "SPEAKER_00",
+      "timestamp": 394.13,
+      "previous_turn_end": 404.997,
+      "current_turn_start": 394.13,
+      "turn_gap": -10.867,
+      "is_overlapping_transition": true,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00014",
+      "from_speaker": "SPEAKER_00",
+      "to_speaker": "SPEAKER_06",
+      "timestamp": 406.583,
+      "previous_turn_end": 395.665,
+      "current_turn_start": 406.583,
+      "turn_gap": 10.918,
+      "is_overlapping_transition": false,
+      "overlap_near_transition": true,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00015",
+      "from_speaker": "SPEAKER_06",
+      "to_speaker": "SPEAKER_02",
+      "timestamp": 439.76,
+      "previous_turn_end": 438.578,
+      "current_turn_start": 439.76,
+      "turn_gap": 1.182,
+      "is_overlapping_transition": false,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00016",
+      "from_speaker": "SPEAKER_02",
+      "to_speaker": "SPEAKER_06",
+      "timestamp": 489.777,
+      "previous_turn_end": 490.553,
+      "current_turn_start": 489.777,
+      "turn_gap": -0.776,
+      "is_overlapping_transition": true,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00017",
+      "from_speaker": "SPEAKER_06",
+      "to_speaker": "SPEAKER_02",
+      "timestamp": 491.144,
+      "previous_turn_end": 495.92,
+      "current_turn_start": 491.144,
+      "turn_gap": -4.776,
+      "is_overlapping_transition": true,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00018",
+      "from_speaker": "SPEAKER_02",
+      "to_speaker": "SPEAKER_06",
+      "timestamp": 499.548,
+      "previous_turn_end": 500.442,
+      "current_turn_start": 499.548,
+      "turn_gap": -0.894,
+      "is_overlapping_transition": true,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00019",
+      "from_speaker": "SPEAKER_06",
+      "to_speaker": "SPEAKER_02",
+      "timestamp": 502.535,
+      "previous_turn_end": 503.277,
+      "current_turn_start": 502.535,
+      "turn_gap": -0.742,
+      "is_overlapping_transition": true,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00020",
+      "from_speaker": "SPEAKER_02",
+      "to_speaker": "SPEAKER_06",
+      "timestamp": 506.551,
+      "previous_turn_end": 507.344,
+      "current_turn_start": 506.551,
+      "turn_gap": -0.793,
+      "is_overlapping_transition": true,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00021",
+      "from_speaker": "SPEAKER_06",
+      "to_speaker": "SPEAKER_02",
+      "timestamp": 508.424,
+      "previous_turn_end": 509.605,
+      "current_turn_start": 508.424,
+      "turn_gap": -1.181,
+      "is_overlapping_transition": true,
+      "overlap_near_transition": true,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00022",
+      "from_speaker": "SPEAKER_02",
+      "to_speaker": "SPEAKER_06",
+      "timestamp": 514.955,
+      "previous_turn_end": 515.495,
+      "current_turn_start": 514.955,
+      "turn_gap": -0.54,
+      "is_overlapping_transition": true,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00023",
+      "from_speaker": "SPEAKER_06",
+      "to_speaker": "SPEAKER_02",
+      "timestamp": 518.6,
+      "previous_turn_end": 517.03,
+      "current_turn_start": 518.6,
+      "turn_gap": 1.57,
+      "is_overlapping_transition": false,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00024",
+      "from_speaker": "SPEAKER_02",
+      "to_speaker": "SPEAKER_06",
+      "timestamp": 524.894,
+      "previous_turn_end": 525.704,
+      "current_turn_start": 524.894,
+      "turn_gap": -0.81,
+      "is_overlapping_transition": true,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00025",
+      "from_speaker": "SPEAKER_06",
+      "to_speaker": "SPEAKER_02",
+      "timestamp": 544.064,
+      "previous_turn_end": 543.524,
+      "current_turn_start": 544.064,
+      "turn_gap": 0.54,
+      "is_overlapping_transition": false,
+      "overlap_near_transition": false,
+      "primary_cluster": "A",
+      "cluster_name": "clean_turn_transfer",
+      "classification_status": "provisional_candidate",
+      "classification_evidence": [
+        "Sequential speaker transition",
+        "Turn gap 0.540s is within configured threshold",
+        "No reconciled overlap detected near transition"
+      ],
+      "classification_note": "Structural candidate for clean turn transfer. Conversational context is needed for confirmation."
+    },
+    {
+      "transition_id": "ST00026",
+      "from_speaker": "SPEAKER_02",
+      "to_speaker": "SPEAKER_06",
+      "timestamp": 547.945,
+      "previous_turn_end": 573.494,
+      "current_turn_start": 547.945,
+      "turn_gap": -25.549,
+      "is_overlapping_transition": true,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00027",
+      "from_speaker": "SPEAKER_06",
+      "to_speaker": "SPEAKER_02",
+      "timestamp": 573.697,
+      "previous_turn_end": 578.05,
+      "current_turn_start": 573.697,
+      "turn_gap": -4.353,
+      "is_overlapping_transition": true,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00028",
+      "from_speaker": "SPEAKER_02",
+      "to_speaker": "SPEAKER_06",
+      "timestamp": 592.748,
+      "previous_turn_end": 593.052,
+      "current_turn_start": 592.748,
+      "turn_gap": -0.304,
+      "is_overlapping_transition": true,
+      "overlap_near_transition": true,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00029",
+      "from_speaker": "SPEAKER_06",
+      "to_speaker": "SPEAKER_02",
+      "timestamp": 593.542,
+      "previous_turn_end": 598.03,
+      "current_turn_start": 593.542,
+      "turn_gap": -4.488,
+      "is_overlapping_transition": true,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00030",
+      "from_speaker": "SPEAKER_02",
+      "to_speaker": "SPEAKER_06",
+      "timestamp": 598.705,
+      "previous_turn_end": 600.595,
+      "current_turn_start": 598.705,
+      "turn_gap": -1.89,
+      "is_overlapping_transition": true,
+      "overlap_near_transition": true,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00031",
+      "from_speaker": "SPEAKER_06",
+      "to_speaker": "SPEAKER_02",
+      "timestamp": 603.245,
+      "previous_turn_end": 601.608,
+      "current_turn_start": 603.245,
+      "turn_gap": 1.637,
+      "is_overlapping_transition": false,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00032",
+      "from_speaker": "SPEAKER_02",
+      "to_speaker": "SPEAKER_06",
+      "timestamp": 608.577,
+      "previous_turn_end": 615.226,
+      "current_turn_start": 608.577,
+      "turn_gap": -6.649,
+      "is_overlapping_transition": true,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00033",
+      "from_speaker": "SPEAKER_06",
+      "to_speaker": "SPEAKER_02",
+      "timestamp": 615.749,
+      "previous_turn_end": 609.067,
+      "current_turn_start": 615.749,
+      "turn_gap": 6.682,
+      "is_overlapping_transition": false,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00034",
+      "from_speaker": "SPEAKER_02",
+      "to_speaker": "SPEAKER_06",
+      "timestamp": 620.373,
+      "previous_turn_end": 627.427,
+      "current_turn_start": 620.373,
+      "turn_gap": -7.054,
+      "is_overlapping_transition": true,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00035",
+      "from_speaker": "SPEAKER_06",
+      "to_speaker": "SPEAKER_02",
+      "timestamp": 627.663,
+      "previous_turn_end": 625.975,
+      "current_turn_start": 627.663,
+      "turn_gap": 1.688,
+      "is_overlapping_transition": false,
+      "overlap_near_transition": true,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00036",
+      "from_speaker": "SPEAKER_02",
+      "to_speaker": "SPEAKER_06",
+      "timestamp": 627.781,
+      "previous_turn_end": 631.493,
+      "current_turn_start": 627.781,
+      "turn_gap": -3.712,
+      "is_overlapping_transition": true,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00037",
+      "from_speaker": "SPEAKER_06",
+      "to_speaker": "SPEAKER_02",
+      "timestamp": 632.236,
+      "previous_turn_end": 638.648,
+      "current_turn_start": 632.236,
+      "turn_gap": -6.412,
+      "is_overlapping_transition": true,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00038",
+      "from_speaker": "SPEAKER_02",
+      "to_speaker": "SPEAKER_06",
+      "timestamp": 639.323,
+      "previous_turn_end": 635.189,
+      "current_turn_start": 639.323,
+      "turn_gap": 4.134,
+      "is_overlapping_transition": false,
+      "overlap_near_transition": true,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00039",
+      "from_speaker": "SPEAKER_06",
+      "to_speaker": "SPEAKER_02",
+      "timestamp": 649.685,
+      "previous_turn_end": 648.537,
+      "current_turn_start": 649.685,
+      "turn_gap": 1.148,
+      "is_overlapping_transition": false,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00040",
+      "from_speaker": "SPEAKER_02",
+      "to_speaker": "SPEAKER_06",
+      "timestamp": 653.583,
+      "previous_turn_end": 662.088,
+      "current_turn_start": 653.583,
+      "turn_gap": -8.505,
+      "is_overlapping_transition": true,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00041",
+      "from_speaker": "SPEAKER_06",
+      "to_speaker": "SPEAKER_02",
+      "timestamp": 667.522,
+      "previous_turn_end": 670.458,
+      "current_turn_start": 667.522,
+      "turn_gap": -2.936,
+      "is_overlapping_transition": true,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00042",
+      "from_speaker": "SPEAKER_02",
+      "to_speaker": "SPEAKER_06",
+      "timestamp": 677.596,
+      "previous_turn_end": 681.899,
+      "current_turn_start": 677.596,
+      "turn_gap": -4.303,
+      "is_overlapping_transition": true,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00043",
+      "from_speaker": "SPEAKER_06",
+      "to_speaker": "SPEAKER_02",
+      "timestamp": 682.169,
+      "previous_turn_end": 677.63,
+      "current_turn_start": 682.169,
+      "turn_gap": 4.539,
+      "is_overlapping_transition": false,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00044",
+      "from_speaker": "SPEAKER_02",
+      "to_speaker": "SPEAKER_06",
+      "timestamp": 683.536,
+      "previous_turn_end": 684.16,
+      "current_turn_start": 683.536,
+      "turn_gap": -0.624,
+      "is_overlapping_transition": true,
+      "overlap_near_transition": true,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00045",
+      "from_speaker": "SPEAKER_06",
+      "to_speaker": "SPEAKER_02",
+      "timestamp": 684.818,
+      "previous_turn_end": 693.307,
+      "current_turn_start": 684.818,
+      "turn_gap": -8.489,
+      "is_overlapping_transition": true,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00046",
+      "from_speaker": "SPEAKER_02",
+      "to_speaker": "SPEAKER_06",
+      "timestamp": 699.888,
+      "previous_turn_end": 700.698,
+      "current_turn_start": 699.888,
+      "turn_gap": -0.81,
+      "is_overlapping_transition": true,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00047",
+      "from_speaker": "SPEAKER_06",
+      "to_speaker": "SPEAKER_02",
+      "timestamp": 701.238,
+      "previous_turn_end": 700.63,
+      "current_turn_start": 701.238,
+      "turn_gap": 0.608,
+      "is_overlapping_transition": false,
+      "overlap_near_transition": true,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00048",
+      "from_speaker": "SPEAKER_02",
+      "to_speaker": "SPEAKER_06",
+      "timestamp": 701.71,
+      "previous_turn_end": 702.52,
+      "current_turn_start": 701.71,
+      "turn_gap": -0.81,
+      "is_overlapping_transition": true,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00049",
+      "from_speaker": "SPEAKER_06",
+      "to_speaker": "SPEAKER_02",
+      "timestamp": 704.275,
+      "previous_turn_end": 705.895,
+      "current_turn_start": 704.275,
+      "turn_gap": -1.62,
+      "is_overlapping_transition": true,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00050",
+      "from_speaker": "SPEAKER_02",
+      "to_speaker": "SPEAKER_06",
+      "timestamp": 706.587,
+      "previous_turn_end": 706.013,
+      "current_turn_start": 706.587,
+      "turn_gap": 0.574,
+      "is_overlapping_transition": false,
+      "overlap_near_transition": false,
+      "primary_cluster": "A",
+      "cluster_name": "clean_turn_transfer",
+      "classification_status": "provisional_candidate",
+      "classification_evidence": [
+        "Sequential speaker transition",
+        "Turn gap 0.574s is within configured threshold",
+        "No reconciled overlap detected near transition"
+      ],
+      "classification_note": "Structural candidate for clean turn transfer. Conversational context is needed for confirmation."
+    },
+    {
+      "transition_id": "ST00051",
+      "from_speaker": "SPEAKER_06",
+      "to_speaker": "SPEAKER_01",
+      "timestamp": 715.008,
+      "previous_turn_end": 712.578,
+      "current_turn_start": 715.008,
+      "turn_gap": 2.43,
+      "is_overlapping_transition": false,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00052",
+      "from_speaker": "SPEAKER_01",
+      "to_speaker": "SPEAKER_02",
+      "timestamp": 824.138,
+      "previous_turn_end": 826.4,
+      "current_turn_start": 824.138,
+      "turn_gap": -2.262,
+      "is_overlapping_transition": true,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00053",
+      "from_speaker": "SPEAKER_02",
+      "to_speaker": "SPEAKER_01",
+      "timestamp": 828.138,
+      "previous_turn_end": 827.024,
+      "current_turn_start": 828.138,
+      "turn_gap": 1.114,
+      "is_overlapping_transition": false,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00054",
+      "from_speaker": "SPEAKER_01",
+      "to_speaker": "SPEAKER_02",
+      "timestamp": 828.172,
+      "previous_turn_end": 828.762,
+      "current_turn_start": 828.172,
+      "turn_gap": -0.59,
+      "is_overlapping_transition": true,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00055",
+      "from_speaker": "SPEAKER_02",
+      "to_speaker": "SPEAKER_05",
+      "timestamp": 828.222,
+      "previous_turn_end": 828.222,
+      "current_turn_start": 828.222,
+      "turn_gap": 0.0,
+      "is_overlapping_transition": false,
+      "overlap_near_transition": false,
+      "primary_cluster": "A",
+      "cluster_name": "clean_turn_transfer",
+      "classification_status": "provisional_candidate",
+      "classification_evidence": [
+        "Sequential speaker transition",
+        "Turn gap 0.000s is within configured threshold",
+        "No reconciled overlap detected near transition"
+      ],
+      "classification_note": "Structural candidate for clean turn transfer. Conversational context is needed for confirmation."
+    },
+    {
+      "transition_id": "ST00056",
+      "from_speaker": "SPEAKER_05",
+      "to_speaker": "SPEAKER_01",
+      "timestamp": 828.897,
+      "previous_turn_end": 828.897,
+      "current_turn_start": 828.897,
+      "turn_gap": 0.0,
+      "is_overlapping_transition": false,
+      "overlap_near_transition": false,
+      "primary_cluster": "A",
+      "cluster_name": "clean_turn_transfer",
+      "classification_status": "provisional_candidate",
+      "classification_evidence": [
+        "Sequential speaker transition",
+        "Turn gap 0.000s is within configured threshold",
+        "No reconciled overlap detected near transition"
+      ],
+      "classification_note": "Structural candidate for clean turn transfer. Conversational context is needed for confirmation."
+    },
+    {
+      "transition_id": "ST00057",
+      "from_speaker": "SPEAKER_01",
+      "to_speaker": "SPEAKER_05",
+      "timestamp": 831.597,
+      "previous_turn_end": 829.403,
+      "current_turn_start": 831.597,
+      "turn_gap": 2.194,
+      "is_overlapping_transition": false,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00058",
+      "from_speaker": "SPEAKER_05",
+      "to_speaker": "SPEAKER_01",
+      "timestamp": 832.964,
+      "previous_turn_end": 835.782,
+      "current_turn_start": 832.964,
+      "turn_gap": -2.818,
+      "is_overlapping_transition": true,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00059",
+      "from_speaker": "SPEAKER_01",
+      "to_speaker": "SPEAKER_00",
+      "timestamp": 862.748,
+      "previous_turn_end": 886.492,
+      "current_turn_start": 862.748,
+      "turn_gap": -23.744,
+      "is_overlapping_transition": true,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00060",
+      "from_speaker": "SPEAKER_00",
+      "to_speaker": "SPEAKER_06",
+      "timestamp": 883.623,
+      "previous_turn_end": 863.153,
+      "current_turn_start": 883.623,
+      "turn_gap": 20.47,
+      "is_overlapping_transition": false,
+      "overlap_near_transition": true,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00061",
+      "from_speaker": "SPEAKER_06",
+      "to_speaker": "SPEAKER_01",
+      "timestamp": 889.377,
+      "previous_turn_end": 934.855,
+      "current_turn_start": 889.377,
+      "turn_gap": -45.478,
+      "is_overlapping_transition": true,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00062",
+      "from_speaker": "SPEAKER_01",
+      "to_speaker": "SPEAKER_00",
+      "timestamp": 892.263,
+      "previous_turn_end": 889.715,
+      "current_turn_start": 892.263,
+      "turn_gap": 2.548,
+      "is_overlapping_transition": false,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00063",
+      "from_speaker": "SPEAKER_00",
+      "to_speaker": "SPEAKER_01",
+      "timestamp": 892.28,
+      "previous_turn_end": 892.28,
+      "current_turn_start": 892.28,
+      "turn_gap": 0.0,
+      "is_overlapping_transition": false,
+      "overlap_near_transition": false,
+      "primary_cluster": "A",
+      "cluster_name": "clean_turn_transfer",
+      "classification_status": "provisional_candidate",
+      "classification_evidence": [
+        "Sequential speaker transition",
+        "Turn gap 0.000s is within configured threshold",
+        "No reconciled overlap detected near transition"
+      ],
+      "classification_note": "Structural candidate for clean turn transfer. Conversational context is needed for confirmation."
+    },
+    {
+      "transition_id": "ST00064",
+      "from_speaker": "SPEAKER_01",
+      "to_speaker": "SPEAKER_00",
+      "timestamp": 892.6,
+      "previous_turn_end": 892.6,
+      "current_turn_start": 892.6,
+      "turn_gap": 0.0,
+      "is_overlapping_transition": false,
+      "overlap_near_transition": false,
+      "primary_cluster": "A",
+      "cluster_name": "clean_turn_transfer",
+      "classification_status": "provisional_candidate",
+      "classification_evidence": [
+        "Sequential speaker transition",
+        "Turn gap 0.000s is within configured threshold",
+        "No reconciled overlap detected near transition"
+      ],
+      "classification_note": "Structural candidate for clean turn transfer. Conversational context is needed for confirmation."
+    },
+    {
+      "transition_id": "ST00065",
+      "from_speaker": "SPEAKER_00",
+      "to_speaker": "SPEAKER_06",
+      "timestamp": 935.513,
+      "previous_turn_end": 900.329,
+      "current_turn_start": 935.513,
+      "turn_gap": 35.184,
+      "is_overlapping_transition": false,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00066",
+      "from_speaker": "SPEAKER_06",
+      "to_speaker": "SPEAKER_04",
+      "timestamp": 942.348,
+      "previous_turn_end": 940.829,
+      "current_turn_start": 942.348,
+      "turn_gap": 1.519,
+      "is_overlapping_transition": false,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00067",
+      "from_speaker": "SPEAKER_04",
+      "to_speaker": "SPEAKER_06",
+      "timestamp": 1015.737,
+      "previous_turn_end": 1023.263,
+      "current_turn_start": 1015.737,
+      "turn_gap": -7.526,
+      "is_overlapping_transition": true,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00068",
+      "from_speaker": "SPEAKER_06",
+      "to_speaker": "SPEAKER_04",
+      "timestamp": 1026.824,
+      "previous_turn_end": 1035.852,
+      "current_turn_start": 1026.824,
+      "turn_gap": -9.028,
+      "is_overlapping_transition": true,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00069",
+      "from_speaker": "SPEAKER_04",
+      "to_speaker": "SPEAKER_06",
+      "timestamp": 1039.092,
+      "previous_turn_end": 1053.436,
+      "current_turn_start": 1039.092,
+      "turn_gap": -14.344,
+      "is_overlapping_transition": true,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00070",
+      "from_speaker": "SPEAKER_06",
+      "to_speaker": "SPEAKER_03",
+      "timestamp": 1061.215,
+      "previous_turn_end": 1060.017,
+      "current_turn_start": 1061.215,
+      "turn_gap": 1.198,
+      "is_overlapping_transition": false,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00071",
+      "from_speaker": "SPEAKER_03",
+      "to_speaker": "SPEAKER_06",
+      "timestamp": 1124.598,
+      "previous_turn_end": 1123.349,
+      "current_turn_start": 1124.598,
+      "turn_gap": 1.249,
+      "is_overlapping_transition": false,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00072",
+      "from_speaker": "SPEAKER_06",
+      "to_speaker": "SPEAKER_00",
+      "timestamp": 1132.411,
+      "previous_turn_end": 1131.601,
+      "current_turn_start": 1132.411,
+      "turn_gap": 0.81,
+      "is_overlapping_transition": false,
+      "overlap_near_transition": false,
+      "primary_cluster": "A",
+      "cluster_name": "clean_turn_transfer",
+      "classification_status": "provisional_candidate",
+      "classification_evidence": [
+        "Sequential speaker transition",
+        "Turn gap 0.810s is within configured threshold",
+        "No reconciled overlap detected near transition"
+      ],
+      "classification_note": "Structural candidate for clean turn transfer. Conversational context is needed for confirmation."
+    },
+    {
+      "transition_id": "ST00073",
+      "from_speaker": "SPEAKER_00",
+      "to_speaker": "SPEAKER_06",
+      "timestamp": 1225.696,
+      "previous_turn_end": 1223.992,
+      "current_turn_start": 1225.696,
+      "turn_gap": 1.704,
+      "is_overlapping_transition": false,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00074",
+      "from_speaker": "SPEAKER_06",
+      "to_speaker": "SPEAKER_00",
+      "timestamp": 1261.37,
+      "previous_turn_end": 1260.442,
+      "current_turn_start": 1261.37,
+      "turn_gap": 0.928,
+      "is_overlapping_transition": false,
+      "overlap_near_transition": false,
+      "primary_cluster": "A",
+      "cluster_name": "clean_turn_transfer",
+      "classification_status": "provisional_candidate",
+      "classification_evidence": [
+        "Sequential speaker transition",
+        "Turn gap 0.928s is within configured threshold",
+        "No reconciled overlap detected near transition"
+      ],
+      "classification_note": "Structural candidate for clean turn transfer. Conversational context is needed for confirmation."
+    },
+    {
+      "transition_id": "ST00075",
+      "from_speaker": "SPEAKER_00",
+      "to_speaker": "SPEAKER_05",
+      "timestamp": 1293.803,
+      "previous_turn_end": 1297.027,
+      "current_turn_start": 1293.803,
+      "turn_gap": -3.224,
+      "is_overlapping_transition": true,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00076",
+      "from_speaker": "SPEAKER_05",
+      "to_speaker": "SPEAKER_00",
+      "timestamp": 1297.6,
+      "previous_turn_end": 1294.259,
+      "current_turn_start": 1297.6,
+      "turn_gap": 3.341,
+      "is_overlapping_transition": false,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00077",
+      "from_speaker": "SPEAKER_00",
+      "to_speaker": "SPEAKER_06",
+      "timestamp": 1297.803,
+      "previous_turn_end": 1300.925,
+      "current_turn_start": 1297.803,
+      "turn_gap": -3.122,
+      "is_overlapping_transition": true,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00078",
+      "from_speaker": "SPEAKER_06",
+      "to_speaker": "SPEAKER_00",
+      "timestamp": 1301.819,
+      "previous_turn_end": 1303.017,
+      "current_turn_start": 1301.819,
+      "turn_gap": -1.198,
+      "is_overlapping_transition": true,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00079",
+      "from_speaker": "SPEAKER_00",
+      "to_speaker": "SPEAKER_06",
+      "timestamp": 1309.683,
+      "previous_turn_end": 1311.083,
+      "current_turn_start": 1309.683,
+      "turn_gap": -1.4,
+      "is_overlapping_transition": true,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00080",
+      "from_speaker": "SPEAKER_06",
+      "to_speaker": "SPEAKER_01",
+      "timestamp": 1313.935,
+      "previous_turn_end": 1312.484,
+      "current_turn_start": 1313.935,
+      "turn_gap": 1.451,
+      "is_overlapping_transition": false,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00081",
+      "from_speaker": "SPEAKER_01",
+      "to_speaker": "SPEAKER_04",
+      "timestamp": 1379.545,
+      "previous_turn_end": 1382.802,
+      "current_turn_start": 1379.545,
+      "turn_gap": -3.257,
+      "is_overlapping_transition": true,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00082",
+      "from_speaker": "SPEAKER_04",
+      "to_speaker": "SPEAKER_06",
+      "timestamp": 1379.562,
+      "previous_turn_end": 1379.562,
+      "current_turn_start": 1379.562,
+      "turn_gap": 0.0,
+      "is_overlapping_transition": false,
+      "overlap_near_transition": true,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00083",
+      "from_speaker": "SPEAKER_06",
+      "to_speaker": "SPEAKER_01",
+      "timestamp": 1383.292,
+      "previous_turn_end": 1382.161,
+      "current_turn_start": 1383.292,
+      "turn_gap": 1.131,
+      "is_overlapping_transition": false,
+      "overlap_near_transition": true,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00084",
+      "from_speaker": "SPEAKER_01",
+      "to_speaker": "SPEAKER_06",
+      "timestamp": 1383.308,
+      "previous_turn_end": 1394.311,
+      "current_turn_start": 1383.308,
+      "turn_gap": -11.003,
+      "is_overlapping_transition": true,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00085",
+      "from_speaker": "SPEAKER_06",
+      "to_speaker": "SPEAKER_04",
+      "timestamp": 1391.527,
+      "previous_turn_end": 1386.481,
+      "current_turn_start": 1391.527,
+      "turn_gap": 5.046,
+      "is_overlapping_transition": false,
+      "overlap_near_transition": true,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00086",
+      "from_speaker": "SPEAKER_04",
+      "to_speaker": "SPEAKER_01",
+      "timestamp": 1395.425,
+      "previous_turn_end": 1394.834,
+      "current_turn_start": 1395.425,
+      "turn_gap": 0.591,
+      "is_overlapping_transition": false,
+      "overlap_near_transition": false,
+      "primary_cluster": "A",
+      "cluster_name": "clean_turn_transfer",
+      "classification_status": "provisional_candidate",
+      "classification_evidence": [
+        "Sequential speaker transition",
+        "Turn gap 0.591s is within configured threshold",
+        "No reconciled overlap detected near transition"
+      ],
+      "classification_note": "Structural candidate for clean turn transfer. Conversational context is needed for confirmation."
+    },
+    {
+      "transition_id": "ST00087",
+      "from_speaker": "SPEAKER_01",
+      "to_speaker": "SPEAKER_04",
+      "timestamp": 1395.661,
+      "previous_turn_end": 1399.036,
+      "current_turn_start": 1395.661,
+      "turn_gap": -3.375,
+      "is_overlapping_transition": true,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00088",
+      "from_speaker": "SPEAKER_04",
+      "to_speaker": "SPEAKER_01",
+      "timestamp": 1399.61,
+      "previous_turn_end": 1398.209,
+      "current_turn_start": 1399.61,
+      "turn_gap": 1.401,
+      "is_overlapping_transition": false,
+      "overlap_near_transition": true,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00089",
+      "from_speaker": "SPEAKER_01",
+      "to_speaker": "SPEAKER_04",
+      "timestamp": 1399.846,
+      "previous_turn_end": 1455.922,
+      "current_turn_start": 1399.846,
+      "turn_gap": -56.076,
+      "is_overlapping_transition": true,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00090",
+      "from_speaker": "SPEAKER_04",
+      "to_speaker": "SPEAKER_06",
+      "timestamp": 1452.715,
+      "previous_turn_end": 1401.803,
+      "current_turn_start": 1452.715,
+      "turn_gap": 50.912,
+      "is_overlapping_transition": false,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00091",
+      "from_speaker": "SPEAKER_06",
+      "to_speaker": "SPEAKER_04",
+      "timestamp": 1462.823,
+      "previous_turn_end": 1461.71,
+      "current_turn_start": 1462.823,
+      "turn_gap": 1.113,
+      "is_overlapping_transition": false,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00092",
+      "from_speaker": "SPEAKER_04",
+      "to_speaker": "SPEAKER_00",
+      "timestamp": 1521.532,
+      "previous_turn_end": 1529.969,
+      "current_turn_start": 1521.532,
+      "turn_gap": -8.437,
+      "is_overlapping_transition": true,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00093",
+      "from_speaker": "SPEAKER_00",
+      "to_speaker": "SPEAKER_03",
+      "timestamp": 1524.029,
+      "previous_turn_end": 1524.029,
+      "current_turn_start": 1524.029,
+      "turn_gap": 0.0,
+      "is_overlapping_transition": false,
+      "overlap_near_transition": true,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00094",
+      "from_speaker": "SPEAKER_03",
+      "to_speaker": "SPEAKER_06",
+      "timestamp": 1529.969,
+      "previous_turn_end": 1525.328,
+      "current_turn_start": 1529.969,
+      "turn_gap": 4.641,
+      "is_overlapping_transition": false,
+      "overlap_near_transition": true,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00095",
+      "from_speaker": "SPEAKER_06",
+      "to_speaker": "SPEAKER_03",
+      "timestamp": 1533.226,
+      "previous_turn_end": 1531.994,
+      "current_turn_start": 1533.226,
+      "turn_gap": 1.232,
+      "is_overlapping_transition": false,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00096",
+      "from_speaker": "SPEAKER_03",
+      "to_speaker": "SPEAKER_06",
+      "timestamp": 1575.717,
+      "previous_turn_end": 1575.717,
+      "current_turn_start": 1575.717,
+      "turn_gap": 0.0,
+      "is_overlapping_transition": false,
+      "overlap_near_transition": false,
+      "primary_cluster": "A",
+      "cluster_name": "clean_turn_transfer",
+      "classification_status": "provisional_candidate",
+      "classification_evidence": [
+        "Sequential speaker transition",
+        "Turn gap 0.000s is within configured threshold",
+        "No reconciled overlap detected near transition"
+      ],
+      "classification_note": "Structural candidate for clean turn transfer. Conversational context is needed for confirmation."
+    },
+    {
+      "transition_id": "ST00097",
+      "from_speaker": "SPEAKER_06",
+      "to_speaker": "SPEAKER_00",
+      "timestamp": 1579.582,
+      "previous_turn_end": 1578.012,
+      "current_turn_start": 1579.582,
+      "turn_gap": 1.57,
+      "is_overlapping_transition": false,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00098",
+      "from_speaker": "SPEAKER_00",
+      "to_speaker": "SPEAKER_06",
+      "timestamp": 1637.615,
+      "previous_turn_end": 1636.822,
+      "current_turn_start": 1637.615,
+      "turn_gap": 0.793,
+      "is_overlapping_transition": false,
+      "overlap_near_transition": false,
+      "primary_cluster": "A",
+      "cluster_name": "clean_turn_transfer",
+      "classification_status": "provisional_candidate",
+      "classification_evidence": [
+        "Sequential speaker transition",
+        "Turn gap 0.793s is within configured threshold",
+        "No reconciled overlap detected near transition"
+      ],
+      "classification_note": "Structural candidate for clean turn transfer. Conversational context is needed for confirmation."
+    },
+    {
+      "transition_id": "ST00099",
+      "from_speaker": "SPEAKER_06",
+      "to_speaker": "SPEAKER_01",
+      "timestamp": 1644.01,
+      "previous_turn_end": 1642.458,
+      "current_turn_start": 1644.01,
+      "turn_gap": 1.552,
+      "is_overlapping_transition": false,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00100",
+      "from_speaker": "SPEAKER_01",
+      "to_speaker": "SPEAKER_00",
+      "timestamp": 1704.473,
+      "previous_turn_end": 1719.965,
+      "current_turn_start": 1704.473,
+      "turn_gap": -15.492,
+      "is_overlapping_transition": true,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00101",
+      "from_speaker": "SPEAKER_00",
+      "to_speaker": "SPEAKER_06",
+      "timestamp": 1712.084,
+      "previous_turn_end": 1704.895,
+      "current_turn_start": 1712.084,
+      "turn_gap": 7.189,
+      "is_overlapping_transition": false,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    },
+    {
+      "transition_id": "ST00102",
+      "from_speaker": "SPEAKER_06",
+      "to_speaker": "SPEAKER_05",
+      "timestamp": 1741.987,
+      "previous_turn_end": 1744.484,
+      "current_turn_start": 1741.987,
+      "turn_gap": -2.497,
+      "is_overlapping_transition": true,
+      "overlap_near_transition": false,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
+    }
+  ],
+  "merged_overlap_regions": [
+    {
+      "merged_overlap_id": "MO0001",
+      "start": 389.962,
+      "end": 392.83,
+      "source_overlap_indices": [
+        0,
+        1
+      ],
+      "speakers": [
+        "SPEAKER_00",
+        "SPEAKER_06"
+      ],
+      "duration": 2.867999999999995
+    },
+    {
+      "merged_overlap_id": "MO0002",
+      "start": 394.13,
+      "end": 395.665,
+      "source_overlap_indices": [
+        2
+      ],
+      "speakers": [
+        "SPEAKER_00",
+        "SPEAKER_06"
+      ],
+      "duration": 1.535000000000025
+    },
+    {
+      "merged_overlap_id": "MO0003",
+      "start": 506.551,
+      "end": 507.327,
+      "source_overlap_indices": [
+        3
+      ],
+      "speakers": [
+        "SPEAKER_02",
+        "SPEAKER_06"
+      ],
+      "duration": 0.7760000000000105
+    },
+    {
+      "merged_overlap_id": "MO0004",
+      "start": 508.424,
+      "end": 509.605,
+      "source_overlap_indices": [
+        4
+      ],
+      "speakers": [
+        "SPEAKER_02",
+        "SPEAKER_06"
+      ],
+      "duration": 1.18100000000004
+    },
+    {
+      "merged_overlap_id": "MO0005",
+      "start": 572.735,
+      "end": 574.743,
+      "source_overlap_indices": [
+        5,
+        6
+      ],
+      "speakers": [
+        "SPEAKER_02",
+        "SPEAKER_06"
+      ],
+      "duration": 2.008000000000038
+    },
+    {
+      "merged_overlap_id": "MO0006",
+      "start": 592.748,
+      "end": 600.595,
+      "source_overlap_indices": [
+        7,
+        8,
+        9,
+        10
+      ],
+      "speakers": [
+        "SPEAKER_02",
+        "SPEAKER_06"
+      ],
+      "duration": 7.84699999999998
+    },
+    {
+      "merged_overlap_id": "MO0007",
+      "start": 620.39,
+      "end": 620.879,
+      "source_overlap_indices": [
+        11
+      ],
+      "speakers": [
+        "SPEAKER_02",
+        "SPEAKER_06"
+      ],
+      "duration": 0.48900000000003274
+    },
+    {
+      "merged_overlap_id": "MO0008",
+      "start": 622.263,
+      "end": 625.975,
+      "source_overlap_indices": [
+        12
+      ],
+      "speakers": [
+        "SPEAKER_02",
+        "SPEAKER_06"
+      ],
+      "duration": 3.711999999999989
+    },
+    {
+      "merged_overlap_id": "MO0009",
+      "start": 630.751,
+      "end": 635.189,
+      "source_overlap_indices": [
+        13,
+        14
+      ],
+      "speakers": [
+        "SPEAKER_02",
+        "SPEAKER_06"
+      ],
+      "duration": 4.437999999999988
+    },
+    {
+      "merged_overlap_id": "MO0010",
+      "start": 659.658,
+      "end": 662.088,
+      "source_overlap_indices": [
+        15
+      ],
+      "speakers": [
+        "SPEAKER_02",
+        "SPEAKER_06"
+      ],
+      "duration": 2.42999999999995
+    },
+    {
+      "merged_overlap_id": "MO0011",
+      "start": 683.536,
+      "end": 689.864,
+      "source_overlap_indices": [
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "speakers": [
+        "SPEAKER_02",
+        "SPEAKER_06"
+      ],
+      "duration": 6.328000000000088
+    },
+    {
+      "merged_overlap_id": "MO0012",
+      "start": 699.888,
+      "end": 700.63,
+      "source_overlap_indices": [
+        21
+      ],
+      "speakers": [
+        "SPEAKER_02",
+        "SPEAKER_06"
+      ],
+      "duration": 0.7419999999999618
+    },
+    {
+      "merged_overlap_id": "MO0013",
+      "start": 701.727,
+      "end": 702.52,
+      "source_overlap_indices": [
+        22
+      ],
+      "speakers": [
+        "SPEAKER_02",
+        "SPEAKER_06"
+      ],
+      "duration": 0.7930000000000064
+    },
+    {
+      "merged_overlap_id": "MO0014",
+      "start": 883.623,
+      "end": 886.492,
+      "source_overlap_indices": [
+        23,
+        24
+      ],
+      "speakers": [
+        "SPEAKER_01",
+        "SPEAKER_06"
+      ],
+      "duration": 2.8689999999999145
+    },
+    {
+      "merged_overlap_id": "MO0015",
+      "start": 1021.087,
+      "end": 1023.247,
+      "source_overlap_indices": [
+        25
+      ],
+      "speakers": [
+        "SPEAKER_04",
+        "SPEAKER_06"
+      ],
+      "duration": 2.159999999999968
+    },
+    {
+      "merged_overlap_id": "MO0016",
+      "start": 1039.143,
+      "end": 1043.615,
+      "source_overlap_indices": [
+        26,
+        27
+      ],
+      "speakers": [
+        "SPEAKER_04",
+        "SPEAKER_06"
+      ],
+      "duration": 4.47199999999998
+    },
+    {
+      "merged_overlap_id": "MO0017",
+      "start": 1049.116,
+      "end": 1051.917,
+      "source_overlap_indices": [
+        28
+      ],
+      "speakers": [
+        "SPEAKER_04",
+        "SPEAKER_06"
+      ],
+      "duration": 2.800999999999931
+    },
+    {
+      "merged_overlap_id": "MO0018",
+      "start": 1379.545,
+      "end": 1382.127,
+      "source_overlap_indices": [
+        29
+      ],
+      "speakers": [
+        "SPEAKER_01",
+        "SPEAKER_04",
+        "SPEAKER_06"
+      ],
+      "duration": 2.58199999999988
+    },
+    {
+      "merged_overlap_id": "MO0019",
+      "start": 1383.292,
+      "end": 1386.481,
+      "source_overlap_indices": [
+        30
+      ],
+      "speakers": [
+        "SPEAKER_01",
+        "SPEAKER_06"
+      ],
+      "duration": 3.189000000000078
+    },
+    {
+      "merged_overlap_id": "MO0020",
+      "start": 1391.527,
+      "end": 1394.311,
+      "source_overlap_indices": [
+        31
+      ],
+      "speakers": [
+        "SPEAKER_01",
+        "SPEAKER_04"
+      ],
+      "duration": 2.783999999999878
+    },
+    {
+      "merged_overlap_id": "MO0021",
+      "start": 1395.661,
+      "end": 1398.209,
+      "source_overlap_indices": [
+        32
+      ],
+      "speakers": [
+        "SPEAKER_01",
+        "SPEAKER_04"
+      ],
+      "duration": 2.548000000000002
+    },
+    {
+      "merged_overlap_id": "MO0022",
+      "start": 1521.532,
+      "end": 1522.173,
+      "source_overlap_indices": [
+        33
+      ],
+      "speakers": [
+        "SPEAKER_00",
+        "SPEAKER_04"
+      ],
+      "duration": 0.6410000000000764
+    },
+    {
+      "merged_overlap_id": "MO0023",
+      "start": 1523.371,
+      "end": 1525.345,
+      "source_overlap_indices": [
+        34
+      ],
+      "speakers": [
+        "SPEAKER_00",
+        "SPEAKER_03",
+        "SPEAKER_04"
+      ],
+      "duration": 1.9739999999999327
+    },
+    {
+      "merged_overlap_id": "MO0024",
+      "start": 1717.433,
+      "end": 1720.015,
+      "source_overlap_indices": [
+        35,
+        36
+      ],
+      "speakers": [
+        "SPEAKER_01",
+        "SPEAKER_06"
+      ],
+      "duration": 2.5820000000001073
+    }
+  ],
+  "classified_events": [
+    {
+      "event_id": "OC0001",
+      "source_overlap_index": 0,
+      "start": 389.962,
+      "end": 390.552,
+      "duration": 0.59,
+      "speakers": [
+        "SPEAKER_00",
+        "SPEAKER_06"
+      ],
+      "case": "AGREE",
+      "source": "osd",
+      "confidence": 1.0,
+      "primary_cluster": "F",
+      "cluster_name": "unresolved_floor_competition",
+      "classification_status": "provisional",
+      "classification_evidence": [
+        "Multiple speakers overlap.",
+        "No clear first new speaker identified after overlap."
+      ],
+      "followup_matched": false
+    },
+    {
+      "event_id": "OC0002",
+      "source_overlap_index": 1,
+      "start": 391.379,
+      "end": 392.83,
+      "duration": 1.451,
+      "speakers": [
+        "SPEAKER_00",
+        "SPEAKER_06"
+      ],
+      "case": "AGREE",
+      "source": "osd",
+      "confidence": 1.0,
+      "primary_cluster": "G",
+      "cluster_name": "prolonged_overlap",
+      "classification_status": "classified",
+      "classification_evidence": [
+        "Overlap duration 1.451s >= threshold 1.000s"
+      ],
+      "followup_matched": false
+    },
+    {
+      "event_id": "OC0003",
+      "source_overlap_index": 2,
+      "start": 394.13,
+      "end": 395.665,
+      "duration": 1.535,
+      "speakers": [
+        "SPEAKER_00",
+        "SPEAKER_06"
+      ],
+      "case": "AGREE",
+      "source": "osd",
+      "confidence": 1.0,
+      "primary_cluster": "G",
+      "cluster_name": "prolonged_overlap",
+      "classification_status": "classified",
+      "classification_evidence": [
+        "Overlap duration 1.535s >= threshold 1.000s"
+      ],
+      "followup_matched": false
+    },
+    {
+      "event_id": "OC0004",
+      "source_overlap_index": 3,
+      "start": 506.551,
+      "end": 507.327,
+      "duration": 0.776,
+      "speakers": [
+        "SPEAKER_02",
+        "SPEAKER_06"
+      ],
+      "case": "AGREE",
+      "source": "osd",
+      "confidence": 1.0,
+      "primary_cluster": "F",
+      "cluster_name": "unresolved_floor_competition",
+      "classification_status": "provisional",
+      "classification_evidence": [
+        "Multiple speakers overlap.",
+        "No clear first new speaker identified after overlap."
+      ],
+      "followup_matched": false
+    },
+    {
+      "event_id": "OC0005",
+      "source_overlap_index": 4,
+      "start": 508.424,
+      "end": 509.605,
+      "duration": 1.181,
+      "speakers": [
+        "SPEAKER_02",
+        "SPEAKER_06"
+      ],
+      "case": "AGREE",
+      "source": "osd",
+      "confidence": 1.0,
+      "primary_cluster": "G",
+      "cluster_name": "prolonged_overlap",
+      "classification_status": "classified",
+      "classification_evidence": [
+        "Overlap duration 1.181s >= threshold 1.000s"
+      ],
+      "followup_matched": false
+    },
+    {
+      "event_id": "OC0006",
+      "source_overlap_index": 5,
+      "start": 572.735,
+      "end": 573.511,
+      "duration": 0.776,
+      "speakers": [
+        "SPEAKER_02",
+        "SPEAKER_06"
+      ],
+      "case": "AGREE",
+      "source": "osd",
+      "confidence": 1.0,
+      "primary_cluster": "F",
+      "cluster_name": "unresolved_floor_competition",
+      "classification_status": "provisional",
+      "classification_evidence": [
+        "Multiple speakers overlap.",
+        "No clear first new speaker identified after overlap."
+      ],
+      "followup_matched": false
+    },
+    {
+      "event_id": "OC0007",
+      "source_overlap_index": 6,
+      "start": 573.68,
+      "end": 574.743,
+      "duration": 1.063,
+      "speakers": [
+        "SPEAKER_02",
+        "SPEAKER_06"
+      ],
+      "case": "AGREE",
+      "source": "osd",
+      "confidence": 1.0,
+      "primary_cluster": "G",
+      "cluster_name": "prolonged_overlap",
+      "classification_status": "classified",
+      "classification_evidence": [
+        "Overlap duration 1.063s >= threshold 1.000s"
+      ],
+      "followup_matched": false
+    },
+    {
+      "event_id": "OC0008",
+      "source_overlap_index": 7,
+      "start": 592.748,
+      "end": 593.052,
+      "duration": 0.304,
+      "speakers": [
+        "SPEAKER_02",
+        "SPEAKER_06"
+      ],
+      "case": "AGREE",
+      "source": "osd",
+      "confidence": 1.0,
+      "primary_cluster": "F",
+      "cluster_name": "unresolved_floor_competition",
+      "classification_status": "provisional",
+      "classification_evidence": [
+        "Multiple speakers overlap.",
+        "No clear first new speaker identified after overlap."
+      ],
+      "followup_matched": false
+    },
+    {
+      "event_id": "OC0009",
+      "source_overlap_index": 8,
+      "start": 593.542,
+      "end": 596.258,
+      "duration": 2.716,
+      "speakers": [
+        "SPEAKER_02",
+        "SPEAKER_06"
+      ],
+      "case": "AGREE",
+      "source": "osd",
+      "confidence": 1.0,
+      "primary_cluster": "G",
+      "cluster_name": "prolonged_overlap",
+      "classification_status": "classified",
+      "classification_evidence": [
+        "Overlap duration 2.716s >= threshold 1.000s"
+      ],
+      "followup_matched": false
+    },
+    {
+      "event_id": "OC0010",
+      "source_overlap_index": 9,
+      "start": 596.647,
+      "end": 598.047,
+      "duration": 1.4,
+      "speakers": [
+        "SPEAKER_02",
+        "SPEAKER_06"
+      ],
+      "case": "AGREE",
+      "source": "osd",
+      "confidence": 1.0,
+      "primary_cluster": "G",
+      "cluster_name": "prolonged_overlap",
+      "classification_status": "classified",
+      "classification_evidence": [
+        "Overlap duration 1.400s >= threshold 1.000s"
+      ],
+      "followup_matched": false
+    },
+    {
+      "event_id": "OC0011",
+      "source_overlap_index": 10,
+      "start": 598.705,
+      "end": 600.595,
+      "duration": 1.89,
+      "speakers": [
+        "SPEAKER_02",
+        "SPEAKER_06"
+      ],
+      "case": "AGREE",
+      "source": "osd",
+      "confidence": 1.0,
+      "primary_cluster": "G",
+      "cluster_name": "prolonged_overlap",
+      "classification_status": "classified",
+      "classification_evidence": [
+        "Overlap duration 1.890s >= threshold 1.000s"
+      ],
+      "followup_matched": false
+    },
+    {
+      "event_id": "OC0012",
+      "source_overlap_index": 11,
+      "start": 620.39,
+      "end": 620.879,
+      "duration": 0.489,
+      "speakers": [
+        "SPEAKER_02",
+        "SPEAKER_06"
+      ],
+      "case": "AGREE",
+      "source": "osd",
+      "confidence": 1.0,
+      "primary_cluster": "F",
+      "cluster_name": "unresolved_floor_competition",
+      "classification_status": "provisional",
+      "classification_evidence": [
+        "Multiple speakers overlap.",
+        "No clear first new speaker identified after overlap."
+      ],
+      "followup_matched": false
+    },
+    {
+      "event_id": "OC0013",
+      "source_overlap_index": 12,
+      "start": 622.263,
+      "end": 625.975,
+      "duration": 3.712,
+      "speakers": [
+        "SPEAKER_02",
+        "SPEAKER_06"
+      ],
+      "case": "AGREE",
+      "source": "osd",
+      "confidence": 1.0,
+      "primary_cluster": "G",
+      "cluster_name": "prolonged_overlap",
+      "classification_status": "classified",
+      "classification_evidence": [
+        "Overlap duration 3.712s >= threshold 1.000s"
+      ],
+      "followup_matched": false
+    },
+    {
+      "event_id": "OC0014",
+      "source_overlap_index": 13,
+      "start": 630.751,
+      "end": 631.46,
+      "duration": 0.709,
+      "speakers": [
+        "SPEAKER_02",
+        "SPEAKER_06"
+      ],
+      "case": "AGREE",
+      "source": "osd",
+      "confidence": 1.0,
+      "primary_cluster": "F",
+      "cluster_name": "unresolved_floor_competition",
+      "classification_status": "provisional",
+      "classification_evidence": [
+        "Multiple speakers overlap.",
+        "No clear first new speaker identified after overlap."
+      ],
+      "followup_matched": false
+    },
+    {
+      "event_id": "OC0015",
+      "source_overlap_index": 14,
+      "start": 632.236,
+      "end": 635.189,
+      "duration": 2.953,
+      "speakers": [
+        "SPEAKER_02",
+        "SPEAKER_06"
+      ],
+      "case": "AGREE",
+      "source": "osd",
+      "confidence": 1.0,
+      "primary_cluster": "G",
+      "cluster_name": "prolonged_overlap",
+      "classification_status": "classified",
+      "classification_evidence": [
+        "Overlap duration 2.953s >= threshold 1.000s"
+      ],
+      "followup_matched": false
+    },
+    {
+      "event_id": "OC0016",
+      "source_overlap_index": 15,
+      "start": 659.658,
+      "end": 662.088,
+      "duration": 2.43,
+      "speakers": [
+        "SPEAKER_02",
+        "SPEAKER_06"
+      ],
+      "case": "AGREE",
+      "source": "osd",
+      "confidence": 1.0,
+      "primary_cluster": "G",
+      "cluster_name": "prolonged_overlap",
+      "classification_status": "classified",
+      "classification_evidence": [
+        "Overlap duration 2.430s >= threshold 1.000s"
+      ],
+      "followup_matched": false
+    },
+    {
+      "event_id": "OC0017",
+      "source_overlap_index": 16,
+      "start": 683.536,
+      "end": 684.16,
+      "duration": 0.624,
+      "speakers": [
+        "SPEAKER_02",
+        "SPEAKER_06"
+      ],
+      "case": "AGREE",
+      "source": "osd",
+      "confidence": 1.0,
+      "primary_cluster": "F",
+      "cluster_name": "unresolved_floor_competition",
+      "classification_status": "provisional",
+      "classification_evidence": [
+        "Multiple speakers overlap.",
+        "No clear first new speaker identified after overlap."
+      ],
+      "followup_matched": false
+    },
+    {
+      "event_id": "OC0018",
+      "source_overlap_index": 17,
+      "start": 684.818,
+      "end": 684.987,
+      "duration": 0.169,
+      "speakers": [
+        "SPEAKER_02",
+        "SPEAKER_06"
+      ],
+      "case": "AGREE",
+      "source": "osd",
+      "confidence": 1.0,
+      "primary_cluster": "F",
+      "cluster_name": "unresolved_floor_competition",
+      "classification_status": "provisional",
+      "classification_evidence": [
+        "Multiple speakers overlap.",
+        "No clear first new speaker identified after overlap."
+      ],
+      "followup_matched": false
+    },
+    {
+      "event_id": "OC0019",
+      "source_overlap_index": 18,
+      "start": 685.004,
+      "end": 686.624,
+      "duration": 1.62,
+      "speakers": [
+        "SPEAKER_02",
+        "SPEAKER_06"
+      ],
+      "case": "AGREE",
+      "source": "osd",
+      "confidence": 1.0,
+      "primary_cluster": "G",
+      "cluster_name": "prolonged_overlap",
+      "classification_status": "classified",
+      "classification_evidence": [
+        "Overlap duration 1.620s >= threshold 1.000s"
+      ],
+      "followup_matched": false
+    },
+    {
+      "event_id": "OC0020",
+      "source_overlap_index": 19,
+      "start": 687.181,
+      "end": 688.767,
+      "duration": 1.586,
+      "speakers": [
+        "SPEAKER_02",
+        "SPEAKER_06"
+      ],
+      "case": "AGREE",
+      "source": "osd",
+      "confidence": 1.0,
+      "primary_cluster": "G",
+      "cluster_name": "prolonged_overlap",
+      "classification_status": "classified",
+      "classification_evidence": [
+        "Overlap duration 1.586s >= threshold 1.000s"
+      ],
+      "followup_matched": false
+    },
+    {
+      "event_id": "OC0021",
+      "source_overlap_index": 20,
+      "start": 689.02,
+      "end": 689.864,
+      "duration": 0.844,
+      "speakers": [
+        "SPEAKER_02",
+        "SPEAKER_06"
+      ],
+      "case": "AGREE",
+      "source": "osd",
+      "confidence": 1.0,
+      "primary_cluster": "F",
+      "cluster_name": "unresolved_floor_competition",
+      "classification_status": "provisional",
+      "classification_evidence": [
+        "Multiple speakers overlap.",
+        "No clear first new speaker identified after overlap."
+      ],
+      "followup_matched": false
+    },
+    {
+      "event_id": "OC0022",
+      "source_overlap_index": 21,
+      "start": 699.888,
+      "end": 700.63,
+      "duration": 0.742,
+      "speakers": [
+        "SPEAKER_02",
+        "SPEAKER_06"
+      ],
+      "case": "AGREE",
+      "source": "osd",
+      "confidence": 1.0,
+      "primary_cluster": "F",
+      "cluster_name": "unresolved_floor_competition",
+      "classification_status": "provisional",
+      "classification_evidence": [
+        "Multiple speakers overlap.",
+        "No clear first new speaker identified after overlap."
+      ],
+      "followup_matched": false
+    },
+    {
+      "event_id": "OC0023",
+      "source_overlap_index": 22,
+      "start": 701.727,
+      "end": 702.52,
+      "duration": 0.793,
+      "speakers": [
+        "SPEAKER_02",
+        "SPEAKER_06"
+      ],
+      "case": "AGREE",
+      "source": "osd",
+      "confidence": 1.0,
+      "primary_cluster": "F",
+      "cluster_name": "unresolved_floor_competition",
+      "classification_status": "provisional",
+      "classification_evidence": [
+        "Multiple speakers overlap.",
+        "No clear first new speaker identified after overlap."
+      ],
+      "followup_matched": false
+    },
+    {
+      "event_id": "OC0024",
+      "source_overlap_index": 23,
+      "start": 883.623,
+      "end": 886.12,
+      "duration": 2.497,
+      "speakers": [
+        "SPEAKER_01",
+        "SPEAKER_06"
+      ],
+      "case": "AGREE",
+      "source": "osd",
+      "confidence": 1.0,
+      "primary_cluster": "G",
+      "cluster_name": "prolonged_overlap",
+      "classification_status": "classified",
+      "classification_evidence": [
+        "Overlap duration 2.497s >= threshold 1.000s"
+      ],
+      "followup_matched": false
+    },
+    {
+      "event_id": "OC0025",
+      "source_overlap_index": 24,
+      "start": 886.34,
+      "end": 886.492,
+      "duration": 0.152,
+      "speakers": [
+        "SPEAKER_01",
+        "SPEAKER_06"
+      ],
+      "case": "AGREE",
+      "source": "osd",
+      "confidence": 1.0,
+      "primary_cluster": "F",
+      "cluster_name": "unresolved_floor_competition",
+      "classification_status": "provisional",
+      "classification_evidence": [
+        "Multiple speakers overlap.",
+        "No clear first new speaker identified after overlap."
+      ],
+      "followup_matched": false
+    },
+    {
+      "event_id": "OC0026",
+      "source_overlap_index": 25,
+      "start": 1021.087,
+      "end": 1023.247,
+      "duration": 2.16,
+      "speakers": [
+        "SPEAKER_04",
+        "SPEAKER_06"
+      ],
+      "case": "AGREE",
+      "source": "osd",
+      "confidence": 1.0,
+      "primary_cluster": "G",
+      "cluster_name": "prolonged_overlap",
+      "classification_status": "classified",
+      "classification_evidence": [
+        "Overlap duration 2.160s >= threshold 1.000s"
+      ],
+      "followup_matched": false
+    },
+    {
+      "event_id": "OC0027",
+      "source_overlap_index": 26,
+      "start": 1039.143,
+      "end": 1039.683,
+      "duration": 0.54,
+      "speakers": [
+        "SPEAKER_04",
+        "SPEAKER_06"
+      ],
+      "case": "AGREE",
+      "source": "osd",
+      "confidence": 1.0,
+      "primary_cluster": "F",
+      "cluster_name": "unresolved_floor_competition",
+      "classification_status": "provisional",
+      "classification_evidence": [
+        "Multiple speakers overlap.",
+        "No clear first new speaker identified after overlap."
+      ],
+      "followup_matched": false
+    },
+    {
+      "event_id": "OC0028",
+      "source_overlap_index": 27,
+      "start": 1040.577,
+      "end": 1043.615,
+      "duration": 3.038,
+      "speakers": [
+        "SPEAKER_04",
+        "SPEAKER_06"
+      ],
+      "case": "AGREE",
+      "source": "osd",
+      "confidence": 1.0,
+      "primary_cluster": "G",
+      "cluster_name": "prolonged_overlap",
+      "classification_status": "classified",
+      "classification_evidence": [
+        "Overlap duration 3.038s >= threshold 1.000s"
+      ],
+      "followup_matched": false
+    },
+    {
+      "event_id": "OC0029",
+      "source_overlap_index": 28,
+      "start": 1049.116,
+      "end": 1051.917,
+      "duration": 2.801,
+      "speakers": [
+        "SPEAKER_04",
+        "SPEAKER_06"
+      ],
+      "case": "AGREE",
+      "source": "osd",
+      "confidence": 1.0,
+      "primary_cluster": "G",
+      "cluster_name": "prolonged_overlap",
+      "classification_status": "classified",
+      "classification_evidence": [
+        "Overlap duration 2.801s >= threshold 1.000s"
+      ],
+      "followup_matched": false
+    },
+    {
+      "event_id": "OC0030",
+      "source_overlap_index": 29,
+      "start": 1379.545,
+      "end": 1382.127,
+      "duration": 2.582,
+      "speakers": [
+        "SPEAKER_01",
+        "SPEAKER_04",
+        "SPEAKER_06"
+      ],
+      "case": "AGREE",
+      "source": "osd",
+      "confidence": 1.0,
+      "primary_cluster": "G",
+      "cluster_name": "prolonged_overlap",
+      "classification_status": "classified",
+      "classification_evidence": [
+        "Overlap duration 2.582s >= threshold 1.000s"
+      ],
+      "followup_matched": false
+    },
+    {
+      "event_id": "OC0031",
+      "source_overlap_index": 30,
+      "start": 1383.292,
+      "end": 1386.481,
+      "duration": 3.189,
+      "speakers": [
+        "SPEAKER_01",
+        "SPEAKER_06"
+      ],
+      "case": "AGREE",
+      "source": "osd",
+      "confidence": 1.0,
+      "primary_cluster": "G",
+      "cluster_name": "prolonged_overlap",
+      "classification_status": "classified",
+      "classification_evidence": [
+        "Overlap duration 3.189s >= threshold 1.000s"
+      ],
+      "followup_matched": false
+    },
+    {
+      "event_id": "OC0032",
+      "source_overlap_index": 31,
+      "start": 1391.527,
+      "end": 1394.311,
+      "duration": 2.784,
+      "speakers": [
+        "SPEAKER_01",
+        "SPEAKER_04"
+      ],
+      "case": "AGREE",
+      "source": "osd",
+      "confidence": 1.0,
+      "primary_cluster": "G",
+      "cluster_name": "prolonged_overlap",
+      "classification_status": "classified",
+      "classification_evidence": [
+        "Overlap duration 2.784s >= threshold 1.000s"
+      ],
+      "followup_matched": false
+    },
+    {
+      "event_id": "OC0033",
+      "source_overlap_index": 32,
+      "start": 1395.661,
+      "end": 1398.209,
+      "duration": 2.548,
+      "speakers": [
+        "SPEAKER_01",
+        "SPEAKER_04"
+      ],
+      "case": "AGREE",
+      "source": "osd",
+      "confidence": 1.0,
+      "primary_cluster": "G",
+      "cluster_name": "prolonged_overlap",
+      "classification_status": "classified",
+      "classification_evidence": [
+        "Overlap duration 2.548s >= threshold 1.000s"
+      ],
+      "followup_matched": false
+    },
+    {
+      "event_id": "OC0034",
+      "source_overlap_index": 33,
+      "start": 1521.532,
+      "end": 1522.173,
+      "duration": 0.641,
+      "speakers": [
+        "SPEAKER_00",
+        "SPEAKER_04"
+      ],
+      "case": "AGREE",
+      "source": "osd",
+      "confidence": 1.0,
+      "primary_cluster": "F",
+      "cluster_name": "unresolved_floor_competition",
+      "classification_status": "provisional",
+      "classification_evidence": [
+        "Multiple speakers overlap.",
+        "No clear first new speaker identified after overlap."
+      ],
+      "followup_matched": false
+    },
+    {
+      "event_id": "OC0035",
+      "source_overlap_index": 34,
+      "start": 1523.371,
+      "end": 1525.345,
+      "duration": 1.974,
+      "speakers": [
+        "SPEAKER_00",
+        "SPEAKER_03",
+        "SPEAKER_04"
+      ],
+      "case": "AGREE",
+      "source": "osd",
+      "confidence": 1.0,
+      "primary_cluster": "G",
+      "cluster_name": "prolonged_overlap",
+      "classification_status": "classified",
+      "classification_evidence": [
+        "Overlap duration 1.974s >= threshold 1.000s"
+      ],
+      "followup_matched": false
+    },
+    {
+      "event_id": "OC0036",
+      "source_overlap_index": 35,
+      "start": 1717.433,
+      "end": 1719.374,
+      "duration": 1.941,
+      "speakers": [
+        "SPEAKER_01",
+        "SPEAKER_06"
+      ],
+      "case": "AGREE",
+      "source": "osd",
+      "confidence": 1.0,
+      "primary_cluster": "G",
+      "cluster_name": "prolonged_overlap",
+      "classification_status": "classified",
+      "classification_evidence": [
+        "Overlap duration 1.941s >= threshold 1.000s"
+      ],
+      "followup_matched": false
+    },
+    {
+      "event_id": "OC0037",
+      "source_overlap_index": 36,
+      "start": 1719.425,
+      "end": 1720.015,
+      "duration": 0.59,
+      "speakers": [
+        "SPEAKER_01",
+        "SPEAKER_06"
+      ],
+      "case": "AGREE",
+      "source": "osd",
+      "confidence": 1.0,
+      "primary_cluster": "F",
+      "cluster_name": "unresolved_floor_competition",
+      "classification_status": "provisional",
+      "classification_evidence": [
+        "Multiple speakers overlap.",
+        "No clear first new speaker identified after overlap."
+      ],
+      "followup_matched": false
+    }
+  ],
+  "notes": [
+    "This is a separate analytical artifact.",
+    "final.json and overlap_followup_analysis.json are not modified.",
+    "Cluster A is analyzed across all sequential speaker transitions, not only overlaps.",
+    "Cluster A candidates are structural and require contextual confirmation.",
+    "Clusters B-G are based on overlap interaction events.",
+    "D/E floor outcomes should be interpreted cautiously; timing alone does not prove interruption success.",
+    "Unclassified events are preserved rather than forced into a cluster."
+  ]
+}

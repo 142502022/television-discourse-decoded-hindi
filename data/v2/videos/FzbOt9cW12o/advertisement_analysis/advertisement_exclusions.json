@@ -1,0 +1,43 @@
+{
+  "schema_version": "advertisement-exclusion-1.0",
+  "video_id": "FzbOt9cW12o",
+  "advertisement_detection": {
+    "method": "conservative_rules_only",
+    "language": "Hindi_or_Hinglish",
+    "duration_threshold_seconds": 60,
+    "exclusion_rule": "duration > 60 seconds",
+    "continuous_gap_seconds": 2.0
+  },
+  "summary": {
+    "total_advertisement_candidates": 1,
+    "total_continuous_advertisements": 0,
+    "total_excluded_advertisements": 0,
+    "total_retained_advertisements": 0,
+    "total_excluded_duration_seconds": 0,
+    "total_retained_duration_seconds": 0,
+    "uncertain_candidate_count": 1
+  },
+  "advertisement_candidates": [
+    {
+      "source_segment_indices": [
+        26
+      ],
+      "start_timestamp": 155.424,
+      "end_timestamp": 162.646,
+      "duration_seconds": 7.222,
+      "transcript_evidence": "you know, topic that he wanted a dialogue with the government, but he's the one who has been MIA.",
+      "rule_score": 1,
+      "evidence_categories": [
+        "call_to_action"
+      ],
+      "classification": "uncertain"
+    }
+  ],
+  "excluded_advertisements": [],
+  "retained_advertisements": [],
+  "validation": {
+    "human_verified": false,
+    "review_required": true,
+    "warning": "Rules do not establish commercial intent; uncertain candidates are retained."
+  }
+}

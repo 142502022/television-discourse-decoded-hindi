@@ -1,0 +1,618 @@
+{
+  "schema_version": "overlap-followup-analysis-1.1",
+  "analysis_status": "deterministic_extraction_only_classification_and_interpretation_pending",
+  "language_scope": {
+    "selected_scope": "English-only pilot",
+    "source_asr_language": "en",
+    "source_language_verified_by_human": false,
+    "out_of_scope_policy": "Flag non-English, mixed-language, or uncertain speech for review; do not silently classify it as English."
+  },
+  "classification_taxonomy": {
+    "utterance_form": [
+      "question",
+      "statement",
+      "imperative",
+      "fragment",
+      "unclear"
+    ],
+    "conversational_function": [
+      "asking",
+      "challenging",
+      "answering",
+      "interrupting",
+      "yielding_floor",
+      "redirecting",
+      "backchanneling",
+      "asserting",
+      "unclear"
+    ],
+    "target_speaker_policy": "Use a speaker label only when the target is supported by transcript/context; otherwise null.",
+    "host_behavior": [
+      "regaining_control",
+      "challenging_participant",
+      "asking_for_clarification",
+      "redirecting_topic",
+      "allocating_floor",
+      "allowing_guest_to_continue",
+      "summarizing",
+      "closing_discussion",
+      "other",
+      "unclear",
+      "not_applicable"
+    ],
+    "inference_policy": "Observable timing/order is not by itself proof of conversational intent. Use transcript evidence and abstain when evidence is insufficient."
+  },
+  "manual_verification": {
+    "status": "pending",
+    "recommended_initial_sample_size": 5,
+    "review_fields": [
+      "event completeness",
+      "speaker labels",
+      "timestamps",
+      "transcript fidelity",
+      "continuation versus new entry",
+      "first-speaker observations"
+    ]
+  },
+  "source": {
+    "file": "data/v2/debate_only/videos/Cp9kTDGfJk4/threshold_1.0/merge_final.json",
+    "video_id": "Cp9kTDGfJk4",
+    "title": "Debate On Sonia Gandhi's Memoir: BJP VS Sonia Gandhi Over Memoir | Blue Star To Babri | 84 Riots",
+    "host_speaker": "SPEAKER_04",
+    "window_seconds": 3.0,
+    "overlap_count_in_source": 5,
+    "overlap_count_processed": 5,
+    "transcript_segment_count": 234
+  },
+  "overlap_events": [
+    {
+      "overlap_id": 1,
+      "overlap": {
+        "start": 189.858,
+        "end": 191.242,
+        "duration": 1.384,
+        "speakers": [
+          "SPEAKER_03",
+          "SPEAKER_04"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 191.242,
+      "window_end": 194.242,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_04",
+          "start": 190.573,
+          "end": 193.254,
+          "text": "So you raise multiple points Dr. Shama Mohammed.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_04",
+          "start": 193.994,
+          "end": 210.12,
+          "text": "Her personal account may be very intense, yes, but her political commentary is being described as whitewashing the role of the Congress party, whether it's emergency or Punjab, Operation Blue Star, subsequent developments.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 186.858,
+        "end": 189.858,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_03",
+          "start": 186.151,
+          "end": 190.553,
+          "text": "Or like I said she only gets worried when her port bank is in danger enough.",
+          "starts_in_window": false,
+          "active_at_window_end": true,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_03",
+        "start": 180.709,
+        "end": 185.471,
+        "text": "Has she tried when 74 CRPF Jawans were brutalized by by Naxals."
+      },
+      "observations": {
+        "speech_event_count": 2,
+        "speakers_in_window": [
+          "SPEAKER_04"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_04"
+        ],
+        "first_speaker_in_window": "SPEAKER_04",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": "SPEAKER_04",
+        "host_spoke_first_new_after_overlap": true,
+        "new_speech_event_count": 1,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 2,
+      "overlap": {
+        "start": 693.998,
+        "end": 696.496,
+        "duration": 2.498,
+        "speakers": [
+          "SPEAKER_02",
+          "SPEAKER_04"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 696.496,
+      "window_end": 699.496,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_04",
+          "start": 693.891,
+          "end": 702.941,
+          "text": "I'll get both of them to respond, but since you specifically mentioned Anand Ranganathan's name, I'm getting Anand Ranganathan to respond to you, and then Tuhin Sinha on the political point of L.K.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 690.998,
+        "end": 693.998,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_02",
+          "start": 690.668,
+          "end": 693.611,
+          "text": "Where will Anand and Tuhin Sinha go into hiding now?",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_04",
+          "start": 693.891,
+          "end": 702.941,
+          "text": "I'll get both of them to respond, but since you specifically mentioned Anand Ranganathan's name, I'm getting Anand Ranganathan to respond to you, and then Tuhin Sinha on the political point of L.K.",
+          "starts_in_window": true,
+          "active_at_window_end": true,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_02",
+        "start": 690.668,
+        "end": 693.611,
+        "text": "Where will Anand and Tuhin Sinha go into hiding now?"
+      },
+      "observations": {
+        "speech_event_count": 1,
+        "speakers_in_window": [
+          "SPEAKER_04"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_04"
+        ],
+        "first_speaker_in_window": "SPEAKER_04",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": null,
+        "host_spoke_first_new_after_overlap": null,
+        "new_speech_event_count": 0,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 3,
+      "overlap": {
+        "start": 827.834,
+        "end": 828.56,
+        "duration": 0.726,
+        "speakers": [
+          "SPEAKER_03",
+          "SPEAKER_04"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 828.56,
+      "window_end": 831.56,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_04",
+          "start": 827.199,
+          "end": 830.697,
+          "text": "thought of or tried to build, blame is on BJP RSS.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 824.834,
+        "end": 827.834,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_04",
+          "start": 811.587,
+          "end": 826.478,
+          "text": "Babri is where, if Sonia Gandhi had tears in her eyes at the demolition, that, you know, it's going to be an uphill battle or what's to that effect to protect the secularism or the India that Mahatma Gandhi and Pandit Jawaharlal Nehru",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_04",
+          "start": 827.199,
+          "end": 830.697,
+          "text": "thought of or tried to build, blame is on BJP RSS.",
+          "starts_in_window": true,
+          "active_at_window_end": true,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_04",
+        "start": 811.587,
+        "end": 826.478,
+        "text": "Babri is where, if Sonia Gandhi had tears in her eyes at the demolition, that, you know, it's going to be an uphill battle or what's to that effect to protect the secularism or the India that Mahatma Gandhi and Pandit Jawaharlal Nehru"
+      },
+      "observations": {
+        "speech_event_count": 1,
+        "speakers_in_window": [
+          "SPEAKER_04"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_04"
+        ],
+        "first_speaker_in_window": "SPEAKER_04",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": null,
+        "host_spoke_first_new_after_overlap": null,
+        "new_speech_event_count": 0,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 4,
+      "overlap": {
+        "start": 828.83,
+        "end": 830.078,
+        "duration": 1.248,
+        "speakers": [
+          "SPEAKER_03",
+          "SPEAKER_04"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 830.078,
+      "window_end": 833.078,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_04",
+          "start": 827.199,
+          "end": 830.697,
+          "text": "thought of or tried to build, blame is on BJP RSS.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_03",
+          "start": 831.617,
+          "end": 832.838,
+          "text": "No, no, I understand.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_03",
+          "start": 832.958,
+          "end": 835.359,
+          "text": "Sonia Gandhi is a very emotional person.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 825.83,
+        "end": 828.83,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_04",
+          "start": 811.587,
+          "end": 826.478,
+          "text": "Babri is where, if Sonia Gandhi had tears in her eyes at the demolition, that, you know, it's going to be an uphill battle or what's to that effect to protect the secularism or the India that Mahatma Gandhi and Pandit Jawaharlal Nehru",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_04",
+          "start": 827.199,
+          "end": 830.697,
+          "text": "thought of or tried to build, blame is on BJP RSS.",
+          "starts_in_window": true,
+          "active_at_window_end": true,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_04",
+        "start": 811.587,
+        "end": 826.478,
+        "text": "Babri is where, if Sonia Gandhi had tears in her eyes at the demolition, that, you know, it's going to be an uphill battle or what's to that effect to protect the secularism or the India that Mahatma Gandhi and Pandit Jawaharlal Nehru"
+      },
+      "observations": {
+        "speech_event_count": 3,
+        "speakers_in_window": [
+          "SPEAKER_04",
+          "SPEAKER_03"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_04"
+        ],
+        "first_speaker_in_window": "SPEAKER_04",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": "SPEAKER_03",
+        "host_spoke_first_new_after_overlap": false,
+        "new_speech_event_count": 2,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 5,
+      "overlap": {
+        "start": 1051.9,
+        "end": 1056.895,
+        "duration": 4.995,
+        "speakers": [
+          "SPEAKER_00",
+          "SPEAKER_04"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 1056.895,
+      "window_end": 1059.895,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_04",
+          "start": 1055.245,
+          "end": 1058.575,
+          "text": "Because this discussion is on Sonia Gandhi's book.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 1048.9,
+        "end": 1051.9,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_00",
+          "start": 1044.572,
+          "end": 1049.427,
+          "text": "saying where Mr. Modi said, you know what, get on, let the Hindus attack them.",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_00",
+          "start": 1050.911,
+          "end": 1055.164,
+          "text": "So is this word right versus right versus right?",
+          "starts_in_window": true,
+          "active_at_window_end": true,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_00",
+        "start": 1044.572,
+        "end": 1049.427,
+        "text": "saying where Mr. Modi said, you know what, get on, let the Hindus attack them."
+      },
+      "observations": {
+        "speech_event_count": 1,
+        "speakers_in_window": [
+          "SPEAKER_04"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_04"
+        ],
+        "first_speaker_in_window": "SPEAKER_04",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": null,
+        "host_spoke_first_new_after_overlap": null,
+        "new_speech_event_count": 0,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    }
+  ],
+  "notes": [
+    "This artifact is a separate analysis output; it does not modify final.json or any existing pipeline stage.",
+    "Transcript text and source segment timestamps are preserved exactly; events may extend beyond the 3-second window and are flagged.",
+    "All classification and host-behavior fields are intentionally unclassified pending manual verification and later LLM analysis.",
+    "first_speaker_in_window accounts for speech already active at the window boundary; first_new_speaker_after_overlap separately records a segment beginning after the overlap.",
+    "Tied or ambiguous speaker starts are represented as null rather than forcing a conclusion.",
+    "Speaker labels are diarization labels, not verified real-world identities."
+  ]
+}
