@@ -56,8 +56,9 @@ def gap_artifact(data: Dict[str, Any], source_name: str) -> Dict[str, Any]:
     turns = load_valid_turns(data)
     overlaps = load_valid_overlaps(data)
     gaps = calculate_gaps(turns, overlaps)
-    # The established gap-analysis merge protection is retained here.
-    merged_turns = merge_turns(turns, gaps, merge_gap=1.0)
+    # Same-speaker turns are merged across clean gaps; overlap remains a hard
+    # boundary.  Speech duration remains distinct from the resulting span.
+    merged_turns = merge_turns(turns, gaps, merge_gap=None)
     episode = data.get("episode", {})
     return {
         "schema_version": "turn-gap-analysis-1.0",
@@ -66,7 +67,7 @@ def gap_artifact(data: Dict[str, Any], source_name: str) -> Dict[str, Any]:
             "title": episode.get("title"),
             "duration_s": episode.get("duration_s"),
         },
-        "configuration": {"merge_gap_seconds": 1.0, "overlap_protection": True, "same_speaker_only": True},
+        "configuration": {"merge_gap_seconds": None, "overlap_protection": True, "same_speaker_only": True},
         "source": {"file": source_name, "original_speaker_turn_count": len(turns), "overlap_candidate_count": len(overlaps)},
         "statistics": build_statistics(turns, gaps, merged_turns),
         "original_turns": turns,

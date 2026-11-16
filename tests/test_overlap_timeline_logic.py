@@ -26,7 +26,8 @@ def test_merge_preserves_same_speaker_turns_across_genuine_silence():
         {"start": 1.0, "end": 5.0, "speaker": "S00"},
         {"start": 7.0, "end": 10.0, "speaker": "S00"},
     ]
-    assert len(merger.merge_speaker_turns(turns)) == 2
+    assert len(merger.merge_speaker_turns(turns)) == 1
+    assert len(merger.merge_speaker_turns(turns, merge_gap=1.0)) == 2
     assert len(merger.merge_speaker_turns(turns, merge_gap=2.0)) == 1
 
 

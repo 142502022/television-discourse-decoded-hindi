@@ -28,7 +28,7 @@ from copy import deepcopy
 LOGGER = logging.getLogger(__name__)
 
 
-DEFAULT_MERGE_GAP = 1.0
+DEFAULT_MERGE_GAP = None
 
 
 def _intervals_overlap(start, end, overlap_regions):
@@ -59,7 +59,7 @@ def merge_speaker_turns(speaker_turns, merge_gap=DEFAULT_MERGE_GAP,
     if not speaker_turns:
         return []
 
-    if merge_gap < 0:
+    if merge_gap is not None and merge_gap < 0:
         raise ValueError("merge_gap must be non-negative")
 
     # Sort chronologically by start time.
@@ -82,12 +82,11 @@ def merge_speaker_turns(speaker_turns, merge_gap=DEFAULT_MERGE_GAP,
         previous_turn = merged_turns[-1]
 
         gap = current_turn["start"] - previous_turn["end"]
-        # Only bridge the short, clean gaps supported by the dedicated
-        # turn-gap analysis.  The former implementation merged every
-        # consecutive same-speaker turn, including ones separated by minutes
-        # of silence, which converted silence into apparent speech/floor time.
+        # Merge consecutive same-speaker turns unless an overlap intervenes.
+        # ``merge_gap=None`` deliberately disables a maximum clean-gap rule.
         if (previous_turn.get("speaker") == current_turn.get("speaker")
-                and 0 <= gap <= merge_gap
+                and gap >= 0
+                and (merge_gap is None or gap <= merge_gap)
                 and not _intervals_overlap(previous_turn["end"], current_turn["start"], overlap_regions)):
 
             # Extend the temporal boundaries.

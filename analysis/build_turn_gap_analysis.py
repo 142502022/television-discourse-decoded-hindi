@@ -268,7 +268,7 @@ def merge_turns(turns, gaps, merge_gap):
 
         can_merge = (
             previous["speaker"] == next_turn["speaker"]
-            and gap["duration"] <= merge_gap
+            and (merge_gap is None or gap["duration"] <= merge_gap)
             and not gap["contains_overlap"]
             and gap["duration"] >= 0
         )

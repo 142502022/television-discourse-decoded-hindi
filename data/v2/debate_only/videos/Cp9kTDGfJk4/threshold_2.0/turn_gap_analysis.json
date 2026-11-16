@@ -6,7 +6,7 @@
     "duration_s": 1060
   },
   "configuration": {
-    "merge_gap_seconds": 1.0,
+    "merge_gap_seconds": null,
     "overlap_protection": true,
     "same_speaker_only": true
   },
@@ -18,8 +18,8 @@
   "statistics": {
     "debate_level": {
       "original_turn_count": 89,
-      "merged_turn_count": 31,
-      "turns_merged": 58,
+      "merged_turn_count": 24,
+      "turns_merged": 65,
       "total_gap_statistics": {
         "count": 78,
         "total": 110.939,
@@ -64,19 +64,28 @@
       "overlapping_turn_pairs": 9,
       "gaps_with_overlap_events": 10,
       "floor_holding_duration_statistics": {
-        "count": 31,
-        "total": 1053.185,
-        "mean": 33.974,
-        "median": 14.664,
+        "count": 24,
+        "total": 1066.771,
+        "mean": 44.449,
+        "median": 32.897,
         "min": 0.051,
-        "max": 125.938
+        "max": 158.422
       },
       "longest_floor_holding_turn": {
-        "merged_turn_id": "MT0008",
+        "merged_turn_id": "MT0005",
         "speaker": "SPEAKER_00",
-        "start": 259.872,
+        "start": 227.388,
         "end": 385.81,
         "source_turn_indices": [
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
           30,
           31,
           32,
@@ -90,6 +99,60 @@
           40
         ],
         "internal_gaps": [
+          {
+            "gap_id": "G0022",
+            "start": 231.86,
+            "end": 232.568,
+            "duration": 0.708
+          },
+          {
+            "gap_id": "G0023",
+            "start": 236.669,
+            "end": 237.226,
+            "duration": 0.557
+          },
+          {
+            "gap_id": "G0024",
+            "start": 238.508,
+            "end": 239.082,
+            "duration": 0.574
+          },
+          {
+            "gap_id": "G0025",
+            "start": 242.052,
+            "end": 243.082,
+            "duration": 1.03
+          },
+          {
+            "gap_id": "G0026",
+            "start": 245.309,
+            "end": 247.064,
+            "duration": 1.755
+          },
+          {
+            "gap_id": "G0027",
+            "start": 247.958,
+            "end": 248.296,
+            "duration": 0.338
+          },
+          {
+            "gap_id": "G0028",
+            "start": 249.055,
+            "end": 249.123,
+            "duration": 0.068
+          },
+          {
+            "gap_id": "G0029",
+            "start": 250.996,
+            "end": 251.907,
+            "duration": 0.911
+          },
+          {
+            "gap_id": "G0030",
+            "start": 258.505,
+            "end": 259.872,
+            "duration": 1.367
+          },
           {
             "gap_id": "G0031",
             "start": 265.188,
@@ -151,16 +214,16 @@
             "duration": 0.135
           }
         ],
-        "speech_duration": 121.703,
-        "floor_holding_duration": 125.938,
-        "largest_internal_gap": 0.844
+        "speech_duration": 146.879,
+        "floor_holding_duration": 158.422,
+        "largest_internal_gap": 1.755
       }
     },
     "speaker_level": {
       "SPEAKER_00": {
         "original_turn_count": 38,
-        "merged_turn_count": 10,
-        "turns_merged": 28,
+        "merged_turn_count": 6,
+        "turns_merged": 32,
         "gap_statistics": {
           "count": 35,
           "total": 60.123,
@@ -172,19 +235,28 @@
         "same_speaker_gap_count": 32,
         "different_speaker_gap_count": 3,
         "floor_holding_duration_statistics": {
-          "count": 10,
-          "total": 277.729,
-          "mean": 27.773,
-          "median": 8.716,
+          "count": 6,
+          "total": 283.18,
+          "mean": 47.197,
+          "median": 29.456,
           "min": 0.388,
-          "max": 125.938
+          "max": 158.422
         },
         "longest_floor_holding_turn": {
-          "merged_turn_id": "MT0008",
+          "merged_turn_id": "MT0005",
           "speaker": "SPEAKER_00",
-          "start": 259.872,
+          "start": 227.388,
           "end": 385.81,
           "source_turn_indices": [
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
             30,
             31,
             32,
@@ -198,6 +270,60 @@
             40
           ],
           "internal_gaps": [
+            {
+              "gap_id": "G0022",
+              "start": 231.86,
+              "end": 232.568,
+              "duration": 0.708
+            },
+            {
+              "gap_id": "G0023",
+              "start": 236.669,
+              "end": 237.226,
+              "duration": 0.557
+            },
+            {
+              "gap_id": "G0024",
+              "start": 238.508,
+              "end": 239.082,
+              "duration": 0.574
+            },
+            {
+              "gap_id": "G0025",
+              "start": 242.052,
+              "end": 243.082,
+              "duration": 1.03
+            },
+            {
+              "gap_id": "G0026",
+              "start": 245.309,
+              "end": 247.064,
+              "duration": 1.755
+            },
+            {
+              "gap_id": "G0027",
+              "start": 247.958,
+              "end": 248.296,
+              "duration": 0.338
+            },
+            {
+              "gap_id": "G0028",
+              "start": 249.055,
+              "end": 249.123,
+              "duration": 0.068
+            },
+            {
+              "gap_id": "G0029",
+              "start": 250.996,
+              "end": 251.907,
+              "duration": 0.911
+            },
+            {
+              "gap_id": "G0030",
+              "start": 258.505,
+              "end": 259.872,
+              "duration": 1.367
+            },
             {
               "gap_id": "G0031",
               "start": 265.188,
@@ -259,9 +385,9 @@
               "duration": 0.135
             }
           ],
-          "speech_duration": 121.703,
-          "floor_holding_duration": 125.938,
-          "largest_internal_gap": 0.844
+          "speech_duration": 146.879,
+          "floor_holding_duration": 158.422,
+          "largest_internal_gap": 1.755
         }
       },
       "SPEAKER_01": {
@@ -287,7 +413,7 @@
           "max": 115.493
         },
         "longest_floor_holding_turn": {
-          "merged_turn_id": "MT0011",
+          "merged_turn_id": "MT0008",
           "speaker": "SPEAKER_01",
           "start": 410.802,
           "end": 526.295,
@@ -373,7 +499,7 @@
           "max": 113.163
         },
         "longest_floor_holding_turn": {
-          "merged_turn_id": "MT0014",
+          "merged_turn_id": "MT0010",
           "speaker": "SPEAKER_02",
           "start": 556.552,
           "end": 669.715,
@@ -417,8 +543,8 @@
       },
       "SPEAKER_03": {
         "original_turn_count": 16,
-        "merged_turn_count": 4,
-        "turns_merged": 12,
+        "merged_turn_count": 3,
+        "turns_merged": 13,
         "gap_statistics": {
           "count": 13,
           "total": 7.815,
@@ -430,10 +556,10 @@
         "same_speaker_gap_count": 13,
         "different_speaker_gap_count": 0,
         "floor_holding_duration_statistics": {
-          "count": 4,
-          "total": 167.738,
-          "mean": 41.934,
-          "median": 33.311,
+          "count": 3,
+          "total": 169.257,
+          "mean": 56.419,
+          "median": 68.141,
           "min": 0.726,
           "max": 100.39
         },
@@ -531,8 +657,8 @@
       },
       "SPEAKER_04": {
         "original_turn_count": 18,
-        "merged_turn_count": 11,
-        "turns_merged": 7,
+        "merged_turn_count": 9,
+        "turns_merged": 9,
         "gap_statistics": {
           "count": 15,
           "total": 18.715,
@@ -544,10 +670,10 @@
         "same_speaker_gap_count": 9,
         "different_speaker_gap_count": 6,
         "floor_holding_duration_statistics": {
-          "count": 11,
-          "total": 261.443,
-          "mean": 23.768,
-          "median": 23.305,
+          "count": 9,
+          "total": 268.059,
+          "mean": 29.784,
+          "median": 32.501,
           "min": 0.051,
           "max": 89.049
         },
@@ -2559,12 +2685,28 @@
       "merged_turn_id": "MT0005",
       "speaker": "SPEAKER_00",
       "start": 227.388,
-      "end": 242.052,
+      "end": 385.81,
       "source_turn_indices": [
         21,
         22,
         23,
-        24
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40
       ],
       "internal_gaps": [
         {
@@ -2584,37 +2726,19 @@
           "start": 238.508,
           "end": 239.082,
           "duration": 0.574
-        }
-      ],
-      "speech_duration": 12.825,
-      "floor_holding_duration": 14.664,
-      "largest_internal_gap": 0.708
-    },
-    {
-      "merged_turn_id": "MT0006",
-      "speaker": "SPEAKER_00",
-      "start": 243.082,
-      "end": 245.309,
-      "source_turn_indices": [
-        25
-      ],
-      "internal_gaps": [],
-      "speech_duration": 2.227,
-      "floor_holding_duration": 2.227,
-      "largest_internal_gap": 0.0
-    },
-    {
-      "merged_turn_id": "MT0007",
-      "speaker": "SPEAKER_00",
-      "start": 247.064,
-      "end": 258.505,
-      "source_turn_indices": [
-        26,
-        27,
-        28,
-        29
-      ],
-      "internal_gaps": [
+        },
+        {
+          "gap_id": "G0025",
+          "start": 242.052,
+          "end": 243.082,
+          "duration": 1.03
+        },
+        {
+          "gap_id": "G0026",
+          "start": 245.309,
+          "end": 247.064,
+          "duration": 1.755
+        },
         {
           "gap_id": "G0027",
           "start": 247.958,
@@ -2632,31 +2756,13 @@
           "start": 250.996,
           "end": 251.907,
           "duration": 0.911
-        }
-      ],
-      "speech_duration": 10.124,
-      "floor_holding_duration": 11.441,
-      "largest_internal_gap": 0.911
-    },
-    {
-      "merged_turn_id": "MT0008",
-      "speaker": "SPEAKER_00",
-      "start": 259.872,
-      "end": 385.81,
-      "source_turn_indices": [
-        30,
-        31,
-        32,
-        33,
-        34,
-        35,
-        36,
-        37,
-        38,
-        39,
-        40
-      ],
-      "internal_gaps": [
+        },
+        {
+          "gap_id": "G0030",
+          "start": 258.505,
+          "end": 259.872,
+          "duration": 1.367
+        },
         {
           "gap_id": "G0031",
           "start": 265.188,
@@ -2718,12 +2824,12 @@
           "duration": 0.135
         }
       ],
-      "speech_duration": 121.703,
-      "floor_holding_duration": 125.938,
-      "largest_internal_gap": 0.844
+      "speech_duration": 146.879,
+      "floor_holding_duration": 158.422,
+      "largest_internal_gap": 1.755
     },
     {
-      "merged_turn_id": "MT0009",
+      "merged_turn_id": "MT0006",
       "speaker": "SPEAKER_01",
       "start": 371.753,
       "end": 372.361,
@@ -2736,7 +2842,7 @@
       "largest_internal_gap": 0.0
     },
     {
-      "merged_turn_id": "MT0010",
+      "merged_turn_id": "MT0007",
       "speaker": "SPEAKER_04",
       "start": 385.81,
       "end": 409.115,
@@ -2749,7 +2855,7 @@
       "largest_internal_gap": 0.0
     },
     {
-      "merged_turn_id": "MT0011",
+      "merged_turn_id": "MT0008",
       "speaker": "SPEAKER_01",
       "start": 410.802,
       "end": 526.295,
@@ -2812,33 +2918,28 @@
       "largest_internal_gap": 0.54
     },
     {
-      "merged_turn_id": "MT0012",
+      "merged_turn_id": "MT0009",
       "speaker": "SPEAKER_04",
       "start": 522.802,
-      "end": 522.953,
-      "source_turn_indices": [
-        51
-      ],
-      "internal_gaps": [],
-      "speech_duration": 0.151,
-      "floor_holding_duration": 0.151,
-      "largest_internal_gap": 0.0
-    },
-    {
-      "merged_turn_id": "MT0013",
-      "speaker": "SPEAKER_04",
-      "start": 526.295,
       "end": 555.303,
       "source_turn_indices": [
+        51,
         52
       ],
-      "internal_gaps": [],
-      "speech_duration": 29.008,
-      "floor_holding_duration": 29.008,
-      "largest_internal_gap": 0.0
+      "internal_gaps": [
+        {
+          "gap_id": "G0052",
+          "start": 522.953,
+          "end": 526.295,
+          "duration": 3.342
+        }
+      ],
+      "speech_duration": 29.159,
+      "floor_holding_duration": 32.501,
+      "largest_internal_gap": 3.342
     },
     {
-      "merged_turn_id": "MT0014",
+      "merged_turn_id": "MT0010",
       "speaker": "SPEAKER_02",
       "start": 556.552,
       "end": 669.715,
@@ -2880,7 +2981,7 @@
       "largest_internal_gap": 0.523
     },
     {
-      "merged_turn_id": "MT0015",
+      "merged_turn_id": "MT0011",
       "speaker": "SPEAKER_00",
       "start": 652.148,
       "end": 652.57,
@@ -2893,7 +2994,7 @@
       "largest_internal_gap": 0.0
     },
     {
-      "merged_turn_id": "MT0016",
+      "merged_turn_id": "MT0012",
       "speaker": "SPEAKER_02",
       "start": 670.255,
       "end": 696.496,
@@ -2906,7 +3007,7 @@
       "largest_internal_gap": 0.0
     },
     {
-      "merged_turn_id": "MT0017",
+      "merged_turn_id": "MT0013",
       "speaker": "SPEAKER_04",
       "start": 693.998,
       "end": 706.199,
@@ -2919,7 +3020,7 @@
       "largest_internal_gap": 0.0
     },
     {
-      "merged_turn_id": "MT0018",
+      "merged_turn_id": "MT0014",
       "speaker": "SPEAKER_01",
       "start": 707.043,
       "end": 797.577,
@@ -2932,7 +3033,7 @@
       "largest_internal_gap": 0.0
     },
     {
-      "merged_turn_id": "MT0019",
+      "merged_turn_id": "MT0015",
       "speaker": "SPEAKER_04",
       "start": 797.864,
       "end": 831.158,
@@ -2945,7 +3046,7 @@
       "largest_internal_gap": 0.0
     },
     {
-      "merged_turn_id": "MT0020",
+      "merged_turn_id": "MT0016",
       "speaker": "SPEAKER_03",
       "start": 827.834,
       "end": 828.56,
@@ -2958,28 +3059,22 @@
       "largest_internal_gap": 0.0
     },
     {
-      "merged_turn_id": "MT0021",
+      "merged_turn_id": "MT0017",
       "speaker": "SPEAKER_03",
       "start": 828.83,
-      "end": 830.078,
-      "source_turn_indices": [
-        64
-      ],
-      "internal_gaps": [],
-      "speech_duration": 1.248,
-      "floor_holding_duration": 1.248,
-      "largest_internal_gap": 0.0
-    },
-    {
-      "merged_turn_id": "MT0022",
-      "speaker": "SPEAKER_03",
-      "start": 831.597,
       "end": 896.971,
       "source_turn_indices": [
+        64,
         65,
         66
       ],
       "internal_gaps": [
+        {
+          "gap_id": "G0065",
+          "start": 830.078,
+          "end": 831.597,
+          "duration": 1.519
+        },
         {
           "gap_id": "G0066",
           "start": 876.417,
@@ -2987,18 +3082,19 @@
           "duration": 0.135
         }
       ],
-      "speech_duration": 65.239,
-      "floor_holding_duration": 65.374,
-      "largest_internal_gap": 0.135
+      "speech_duration": 66.487,
+      "floor_holding_duration": 68.141,
+      "largest_internal_gap": 1.519
     },
     {
-      "merged_turn_id": "MT0023",
+      "merged_turn_id": "MT0018",
       "speaker": "SPEAKER_04",
       "start": 896.971,
-      "end": 925.658,
+      "end": 930.653,
       "source_turn_indices": [
         67,
-        68
+        68,
+        69
       ],
       "internal_gaps": [
         {
@@ -3006,27 +3102,20 @@
           "start": 897.224,
           "end": 898.034,
           "duration": 0.81
+        },
+        {
+          "gap_id": "G0069",
+          "start": 925.658,
+          "end": 928.932,
+          "duration": 3.274
         }
       ],
-      "speech_duration": 27.877,
-      "floor_holding_duration": 28.687,
-      "largest_internal_gap": 0.81
+      "speech_duration": 29.598,
+      "floor_holding_duration": 33.682,
+      "largest_internal_gap": 3.274
     },
     {
-      "merged_turn_id": "MT0024",
-      "speaker": "SPEAKER_04",
-      "start": 928.932,
-      "end": 930.653,
-      "source_turn_indices": [
-        69
-      ],
-      "internal_gaps": [],
-      "speech_duration": 1.721,
-      "floor_holding_duration": 1.721,
-      "largest_internal_gap": 0.0
-    },
-    {
-      "merged_turn_id": "MT0025",
+      "merged_turn_id": "MT0019",
       "speaker": "SPEAKER_00",
       "start": 933.083,
       "end": 991.252,
@@ -3082,7 +3171,7 @@
       "largest_internal_gap": 0.574
     },
     {
-      "merged_turn_id": "MT0026",
+      "merged_turn_id": "MT0020",
       "speaker": "SPEAKER_01",
       "start": 984.957,
       "end": 985.193,
@@ -3095,10 +3184,10 @@
       "largest_internal_gap": 0.0
     },
     {
-      "merged_turn_id": "MT0027",
+      "merged_turn_id": "MT0021",
       "speaker": "SPEAKER_00",
       "start": 991.775,
-      "end": 1049.521,
+      "end": 1056.811,
       "source_turn_indices": [
         78,
         79,
@@ -3106,7 +3195,8 @@
         81,
         82,
         83,
-        84
+        84,
+        85
       ],
       "internal_gaps": [
         {
@@ -3144,27 +3234,20 @@
           "start": 1036.865,
           "end": 1037.185,
           "duration": 0.32
+        },
+        {
+          "gap_id": "G0085",
+          "start": 1049.521,
+          "end": 1050.82,
+          "duration": 1.299
         }
       ],
-      "speech_duration": 55.2,
-      "floor_holding_duration": 57.746,
-      "largest_internal_gap": 0.624
+      "speech_duration": 61.191,
+      "floor_holding_duration": 65.036,
+      "largest_internal_gap": 1.299
     },
     {
-      "merged_turn_id": "MT0028",
-      "speaker": "SPEAKER_00",
-      "start": 1050.82,
-      "end": 1056.811,
-      "source_turn_indices": [
-        85
-      ],
-      "internal_gaps": [],
-      "speech_duration": 5.991,
-      "floor_holding_duration": 5.991,
-      "largest_internal_gap": 0.0
-    },
-    {
-      "merged_turn_id": "MT0029",
+      "merged_turn_id": "MT0022",
       "speaker": "SPEAKER_04",
       "start": 1051.9,
       "end": 1059.713,
@@ -3177,7 +3260,7 @@
       "largest_internal_gap": 0.0
     },
     {
-      "merged_turn_id": "MT0030",
+      "merged_turn_id": "MT0023",
       "speaker": "SPEAKER_00",
       "start": 1058.819,
       "end": 1059.562,
@@ -3190,7 +3273,7 @@
       "largest_internal_gap": 0.0
     },
     {
-      "merged_turn_id": "MT0031",
+      "merged_turn_id": "MT0024",
       "speaker": "SPEAKER_04",
       "start": 1059.916,
       "end": 1059.967,
