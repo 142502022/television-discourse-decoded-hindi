@@ -15,10 +15,10 @@
   "source": {
     "final_json": "final.json",
     "followup_json": "overlap_followup_analysis.json",
-    "original_speaker_turn_count": 23,
+    "original_speaker_turn_count": 31,
     "all_speaker_transition_count": 22,
-    "raw_overlap_candidate_count": 11,
-    "followup_event_count": 11
+    "raw_overlap_candidate_count": 10,
+    "followup_event_count": 10
   },
   "cluster_definitions": {
     "A": "clean_turn_transfer",
@@ -126,15 +126,15 @@
     },
     "overlap_interaction_clusters": {
       "debate_level": {
-        "total_overlap_events": 11,
-        "classified_event_count": 11,
+        "total_overlap_events": 10,
+        "classified_event_count": 10,
         "unclassified_event_count": 0,
         "cluster_counts": {
           "B": 0,
           "C": 0,
           "D": 0,
           "E": 0,
-          "F": 7,
+          "F": 6,
           "G": 4
         },
         "cluster_percentages": {
@@ -142,8 +142,8 @@
           "C": 0.0,
           "D": 0.0,
           "E": 0.0,
-          "F": 63.64,
-          "G": 36.36
+          "F": 60.0,
+          "G": 40.0
         }
       },
       "speaker_level": {
@@ -183,7 +183,7 @@
             "C": 0,
             "D": 0,
             "E": 0,
-            "F": 2,
+            "F": 1,
             "G": 2
           }
         },
@@ -193,7 +193,7 @@
             "C": 0,
             "D": 0,
             "E": 0,
-            "F": 3,
+            "F": 2,
             "G": 4
           }
         }
@@ -650,8 +650,7 @@
       "start": 827.834,
       "end": 830.078,
       "source_overlap_indices": [
-        6,
-        7
+        6
       ],
       "speakers": [
         "SPEAKER_03",
@@ -664,7 +663,7 @@
       "start": 984.957,
       "end": 985.193,
       "source_overlap_indices": [
-        8
+        7
       ],
       "speakers": [
         "SPEAKER_00",
@@ -677,7 +676,7 @@
       "start": 1051.9,
       "end": 1056.895,
       "source_overlap_indices": [
-        9
+        8
       ],
       "speakers": [
         "SPEAKER_00",
@@ -690,7 +689,7 @@
       "start": 1058.819,
       "end": 1059.562,
       "source_overlap_indices": [
-        10
+        9
       ],
       "speakers": [
         "SPEAKER_00",
@@ -834,30 +833,8 @@
       "event_id": "OC0007",
       "source_overlap_index": 6,
       "start": 827.834,
-      "end": 828.56,
-      "duration": 0.726,
-      "speakers": [
-        "SPEAKER_03",
-        "SPEAKER_04"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "F",
-      "cluster_name": "unresolved_floor_competition",
-      "classification_status": "provisional",
-      "classification_evidence": [
-        "Multiple speakers overlap.",
-        "No clear first new speaker identified after overlap."
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0008",
-      "source_overlap_index": 7,
-      "start": 828.83,
       "end": 830.078,
-      "duration": 1.248,
+      "duration": 2.244,
       "speakers": [
         "SPEAKER_03",
         "SPEAKER_04"
@@ -869,13 +846,13 @@
       "cluster_name": "prolonged_overlap",
       "classification_status": "classified",
       "classification_evidence": [
-        "Overlap duration 1.248s >= threshold 1.000s"
+        "Overlap duration 2.244s >= threshold 1.000s"
       ],
       "followup_matched": false
     },
     {
-      "event_id": "OC0009",
-      "source_overlap_index": 8,
+      "event_id": "OC0008",
+      "source_overlap_index": 7,
       "start": 984.957,
       "end": 985.193,
       "duration": 0.236,
@@ -896,8 +873,8 @@
       "followup_matched": false
     },
     {
-      "event_id": "OC0010",
-      "source_overlap_index": 9,
+      "event_id": "OC0009",
+      "source_overlap_index": 8,
       "start": 1051.9,
       "end": 1056.895,
       "duration": 4.995,
@@ -917,8 +894,8 @@
       "followup_matched": false
     },
     {
-      "event_id": "OC0011",
-      "source_overlap_index": 10,
+      "event_id": "OC0010",
+      "source_overlap_index": 9,
       "start": 1058.819,
       "end": 1059.562,
       "duration": 0.743,

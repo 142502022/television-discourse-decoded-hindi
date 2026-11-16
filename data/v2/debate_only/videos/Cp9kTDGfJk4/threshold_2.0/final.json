@@ -19334,31 +19334,59 @@
         "SPEAKER_04"
       ],
       "source": "osd",
-      "confidence": 1.0
+      "confidence": 1.0,
+      "source_regions": [
+        {
+          "case": "AGREE",
+          "start": 693.998,
+          "end": 696.496,
+          "duration": 2.498,
+          "speakers": [
+            "SPEAKER_02",
+            "SPEAKER_04"
+          ],
+          "source": "osd",
+          "confidence": 1.0
+        }
+      ]
     },
     {
       "case": "AGREE",
       "start": 827.834,
-      "end": 828.56,
-      "duration": 0.726,
-      "speakers": [
-        "SPEAKER_03",
-        "SPEAKER_04"
-      ],
-      "source": "osd",
-      "confidence": 1.0
-    },
-    {
-      "case": "AGREE",
-      "start": 828.83,
       "end": 830.078,
-      "duration": 1.248,
+      "duration": 2.244000000000028,
       "speakers": [
         "SPEAKER_03",
         "SPEAKER_04"
       ],
       "source": "osd",
-      "confidence": 1.0
+      "confidence": 1.0,
+      "source_regions": [
+        {
+          "case": "AGREE",
+          "start": 827.834,
+          "end": 828.56,
+          "duration": 0.726,
+          "speakers": [
+            "SPEAKER_03",
+            "SPEAKER_04"
+          ],
+          "source": "osd",
+          "confidence": 1.0
+        },
+        {
+          "case": "AGREE",
+          "start": 828.83,
+          "end": 830.078,
+          "duration": 1.248,
+          "speakers": [
+            "SPEAKER_03",
+            "SPEAKER_04"
+          ],
+          "source": "osd",
+          "confidence": 1.0
+        }
+      ]
     },
     {
       "case": "AGREE",
@@ -19370,7 +19398,21 @@
         "SPEAKER_04"
       ],
       "source": "osd",
-      "confidence": 1.0
+      "confidence": 1.0,
+      "source_regions": [
+        {
+          "case": "AGREE",
+          "start": 1051.9,
+          "end": 1056.895,
+          "duration": 4.995,
+          "speakers": [
+            "SPEAKER_00",
+            "SPEAKER_04"
+          ],
+          "source": "osd",
+          "confidence": 1.0
+        }
+      ]
     }
   ],
   "interruptions": [
@@ -19629,7 +19671,7 @@
     "method": "overlap_duration_threshold_filtering",
     "overlap_threshold_seconds": 2.0,
     "removed_overlap_regions": 7,
-    "rule": "Removed merged OSD overlap intervals with duration <= 2.0 seconds.",
+    "rule": "Removed merged OSD overlap intervals with span <= 2.0 seconds.",
     "timestamp_match_tolerance_seconds": 0.01
   }
 }

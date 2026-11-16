@@ -11,6 +11,7 @@ from pathlib import Path
 
 NUMERIC_FILENAME = "final_result_numeric.json"
 FINAL_FILENAME = "final.json"
+FINAL_RESULT_FILENAME = "final_result.json"
 OUTPUT_FILENAME = "short_result_numeric.json"
 
 
@@ -142,10 +143,6 @@ def extract_merged_turn_stats(summary, final_data):
             if duration is not None:
                 durations.append(float(turn["floor_holding_duration"]))
 
-    short_frequency = sum(d <= SHORT_TURN_THRESHOLD for d in durations) if durations else None
-    long_frequency = sum(d >= LONG_TURN_THRESHOLD for d in durations) if durations else None
-    denominator = len(durations)
-
     result = {
         "count": count,
         "mean_seconds": num(get_flat(summary, prefix + "mean")),
@@ -162,6 +159,11 @@ def extract_merged_turn_stats(summary, final_data):
     elif count is not None and len(durations) != count:
         result["note"] = (
             f"Calculated from {len(durations)} individual durations, but numeric summary count is {count}."
+        )
+    else:
+        result["note"] = (
+            "Short- and long-turn frequencies are unavailable because this project "
+            "does not define configurable duration thresholds for them."
         )
 
     return result
@@ -342,6 +344,9 @@ def build_short_result(video_dir):
         print(f"[SKIP] Missing or invalid {numeric_path}")
         return False
     final_data = load_json(final_path)
+    # Merged floor-holding records are emitted by final_result.json, not the
+    # source final.json.  Keep final.json only for immutable episode metadata.
+    final_result = load_json(video_dir / FINAL_RESULT_FILENAME)
     summary = data.get("numeric_summary", {})
 
     metadata = extract_metadata(data, final_data, video_dir, summary)
@@ -357,7 +362,13 @@ def build_short_result(video_dir):
     overlap_duration = get_flat(summary, "overlap_analysis.summary.total_overlap_duration_seconds", 0)
     overlap_ratio = (num(overlap_duration / duration * 100) if duration and duration > 0 else None)
 
-    original_turns = get_flat(summary, "episode_overview.speaker_turn_count", 0)
+    # The pipeline summary is built from merge_final.json.  The authoritative
+    # original count is retained by the independently generated gap artifact.
+    original_turns = get_flat(
+        summary,
+        "speaker_participation.floor_holding.source.statistics.debate_level.original_turn_count",
+        get_flat(summary, "episode_overview.speaker_turn_count"),
+    )
     merged_turns = get_flat(summary, "speaker_participation.floor_holding.source.statistics.debate_level.merged_turn_count")
     merged_operations = None if original_turns is None or merged_turns is None else original_turns - merged_turns
 
@@ -377,7 +388,7 @@ def build_short_result(video_dir):
         "speaker_shares_percent": shares,
         "speaker_original_turn_frequency": speaker_turns,
         "pairwise_transition_frequency": transitions,
-        "merged_turn_duration_statistics": extract_merged_turn_stats(summary, final_data),
+        "merged_turn_duration_statistics": extract_merged_turn_stats(summary, final_result),
         "speaker_wise_merged_turn_statistics": speaker_merged,
         "gap_duration_statistics": extract_gap_stats(summary),
         "interaction_cluster_counts": extract_clusters(summary),
