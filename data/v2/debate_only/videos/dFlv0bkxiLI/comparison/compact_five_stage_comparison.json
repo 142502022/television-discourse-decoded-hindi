@@ -1,0 +1,167 @@
+{
+  "schema_version": "five-stage-compact-1.0",
+  "video_id": "dFlv0bkxiLI",
+  "metric_definitions": {
+    "overlap_duration": "union of original constituent overlap intervals; not merged-episode span",
+    "merge_operations": "original turn count minus merged analytical turn count",
+    "speaker_transitions": "speaker-ID changes in ordered original turns",
+    "speaker_shares": "actual attributed turn duration / total attributed turn duration"
+  },
+  "stages": [
+    {
+      "stage": "original",
+      "label": "Baseline (without merge)",
+      "sources": {
+        "final": "data/v2/debate_only/videos/dFlv0bkxiLI/final.json",
+        "merged": null,
+        "gap": null
+      },
+      "metrics": {
+        "video_duration_seconds": 1684.0,
+        "video_duration": "28:04",
+        "speaker_count": 8,
+        "structural_speaker_transitions": 268,
+        "overlap_events": 157,
+        "actual_overlap_duration_seconds": 294.634,
+        "original_speaker_turns": 380,
+        "merged_speaker_turns": 380,
+        "merge_operations": 0,
+        "total_gap_duration_seconds": null
+      },
+      "speaker_shares_percent": {
+        "SPEAKER_07": 27.297,
+        "SPEAKER_01": 20.831,
+        "SPEAKER_00": 1.694,
+        "SPEAKER_03": 15.693,
+        "SPEAKER_02": 1.64,
+        "SPEAKER_04": 12.794,
+        "SPEAKER_06": 11.83,
+        "SPEAKER_05": 8.22
+      }
+    },
+    {
+      "stage": "baseline",
+      "label": "Baseline (with merge)",
+      "sources": {
+        "final": "data/v2/debate_only/videos/dFlv0bkxiLI/baseline/final.json",
+        "merged": "data/v2/debate_only/videos/dFlv0bkxiLI/baseline/merge_final.json",
+        "gap": "data/v2/debate_only/videos/dFlv0bkxiLI/baseline/turn_gap_analysis.json"
+      },
+      "metrics": {
+        "video_duration_seconds": 1684.0,
+        "video_duration": "28:04",
+        "speaker_count": 8,
+        "structural_speaker_transitions": 268,
+        "overlap_events": 88,
+        "actual_overlap_duration_seconds": 294.634,
+        "original_speaker_turns": 380,
+        "merged_speaker_turns": 309,
+        "merge_operations": 71,
+        "total_gap_duration_seconds": 521.488
+      },
+      "speaker_shares_percent": {
+        "SPEAKER_07": 27.297,
+        "SPEAKER_01": 20.831,
+        "SPEAKER_00": 1.694,
+        "SPEAKER_03": 15.693,
+        "SPEAKER_02": 1.64,
+        "SPEAKER_04": 12.794,
+        "SPEAKER_06": 11.83,
+        "SPEAKER_05": 8.22
+      }
+    },
+    {
+      "stage": "threshold_0.5",
+      "label": "Threshold 0.5 s",
+      "sources": {
+        "final": "data/v2/debate_only/videos/dFlv0bkxiLI/threshold_0.5/final.json",
+        "merged": "data/v2/debate_only/videos/dFlv0bkxiLI/threshold_0.5/merge_final.json",
+        "gap": "data/v2/debate_only/videos/dFlv0bkxiLI/threshold_0.5/turn_gap_analysis.json"
+      },
+      "metrics": {
+        "video_duration_seconds": 1684.0,
+        "video_duration": "28:04",
+        "speaker_count": 8,
+        "structural_speaker_transitions": 268,
+        "overlap_events": 79,
+        "actual_overlap_duration_seconds": 291.629,
+        "original_speaker_turns": 380,
+        "merged_speaker_turns": 309,
+        "merge_operations": 71,
+        "total_gap_duration_seconds": 521.488
+      },
+      "speaker_shares_percent": {
+        "SPEAKER_07": 27.297,
+        "SPEAKER_01": 20.831,
+        "SPEAKER_00": 1.694,
+        "SPEAKER_03": 15.693,
+        "SPEAKER_02": 1.64,
+        "SPEAKER_04": 12.794,
+        "SPEAKER_06": 11.83,
+        "SPEAKER_05": 8.22
+      }
+    },
+    {
+      "stage": "threshold_1.0",
+      "label": "Threshold 1.0 s",
+      "sources": {
+        "final": "data/v2/debate_only/videos/dFlv0bkxiLI/threshold_1.0/final.json",
+        "merged": "data/v2/debate_only/videos/dFlv0bkxiLI/threshold_1.0/merge_final.json",
+        "gap": "data/v2/debate_only/videos/dFlv0bkxiLI/threshold_1.0/turn_gap_analysis.json"
+      },
+      "metrics": {
+        "video_duration_seconds": 1684.0,
+        "video_duration": "28:04",
+        "speaker_count": 8,
+        "structural_speaker_transitions": 268,
+        "overlap_events": 59,
+        "actual_overlap_duration_seconds": 278.481,
+        "original_speaker_turns": 380,
+        "merged_speaker_turns": 306,
+        "merge_operations": 74,
+        "total_gap_duration_seconds": 521.488
+      },
+      "speaker_shares_percent": {
+        "SPEAKER_07": 27.297,
+        "SPEAKER_01": 20.831,
+        "SPEAKER_00": 1.694,
+        "SPEAKER_03": 15.693,
+        "SPEAKER_02": 1.64,
+        "SPEAKER_04": 12.794,
+        "SPEAKER_06": 11.83,
+        "SPEAKER_05": 8.22
+      }
+    },
+    {
+      "stage": "threshold_2.0",
+      "label": "Threshold 2.0 s",
+      "sources": {
+        "final": "data/v2/debate_only/videos/dFlv0bkxiLI/threshold_2.0/final.json",
+        "merged": "data/v2/debate_only/videos/dFlv0bkxiLI/threshold_2.0/merge_final.json",
+        "gap": "data/v2/debate_only/videos/dFlv0bkxiLI/threshold_2.0/turn_gap_analysis.json"
+      },
+      "metrics": {
+        "video_duration_seconds": 1684.0,
+        "video_duration": "28:04",
+        "speaker_count": 8,
+        "structural_speaker_transitions": 268,
+        "overlap_events": 39,
+        "actual_overlap_duration_seconds": 251.445,
+        "original_speaker_turns": 380,
+        "merged_speaker_turns": 302,
+        "merge_operations": 78,
+        "total_gap_duration_seconds": 521.488
+      },
+      "speaker_shares_percent": {
+        "SPEAKER_07": 27.297,
+        "SPEAKER_01": 20.831,
+        "SPEAKER_00": 1.694,
+        "SPEAKER_03": 15.693,
+        "SPEAKER_02": 1.64,
+        "SPEAKER_04": 12.794,
+        "SPEAKER_06": 11.83,
+        "SPEAKER_05": 8.22
+      }
+    }
+  ]
+}

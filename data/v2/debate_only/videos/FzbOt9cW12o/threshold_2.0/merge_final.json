@@ -138,11 +138,21 @@
     },
     {
       "start": 373.019,
+      "end": 376.63,
+      "speaker": "SPEAKER_02"
+    },
+    {
+      "start": 377.508,
       "end": 378.976,
       "speaker": "SPEAKER_02"
     },
     {
       "start": 378.976,
+      "end": 380.09,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 381.22,
       "end": 382.925,
       "speaker": "SPEAKER_00"
     },
@@ -10430,51 +10440,66 @@
     {
       "case": "AGREE",
       "start": 371.838,
-      "end": 372.26,
-      "duration": 0.422,
-      "speakers": [
-        "SPEAKER_01",
-        "SPEAKER_02"
-      ],
-      "source": "osd",
-      "confidence": 1.0
-    },
-    {
-      "case": "AGREE",
-      "start": 372.985,
-      "end": 376.613,
-      "duration": 3.628,
-      "speakers": [
-        "SPEAKER_01",
-        "SPEAKER_02"
-      ],
-      "source": "osd",
-      "confidence": 1.0
-    },
-    {
-      "case": "AGREE",
-      "start": 377.508,
-      "end": 380.107,
-      "duration": 2.599,
-      "speakers": [
-        "SPEAKER_00",
-        "SPEAKER_01",
-        "SPEAKER_02"
-      ],
-      "source": "osd",
-      "confidence": 1.0
-    },
-    {
-      "case": "AGREE",
-      "start": 381.22,
       "end": 382.925,
-      "duration": 1.705,
+      "duration": 11.086999999999989,
       "speakers": [
         "SPEAKER_00",
-        "SPEAKER_01"
+        "SPEAKER_01",
+        "SPEAKER_02"
       ],
       "source": "osd",
-      "confidence": 1.0
+      "confidence": 1.0,
+      "source_regions": [
+        {
+          "case": "AGREE",
+          "start": 371.838,
+          "end": 372.26,
+          "duration": 0.422,
+          "speakers": [
+            "SPEAKER_01",
+            "SPEAKER_02"
+          ],
+          "source": "osd",
+          "confidence": 1.0
+        },
+        {
+          "case": "AGREE",
+          "start": 372.985,
+          "end": 376.613,
+          "duration": 3.628,
+          "speakers": [
+            "SPEAKER_01",
+            "SPEAKER_02"
+          ],
+          "source": "osd",
+          "confidence": 1.0
+        },
+        {
+          "case": "AGREE",
+          "start": 377.508,
+          "end": 380.107,
+          "duration": 2.599,
+          "speakers": [
+            "SPEAKER_00",
+            "SPEAKER_01",
+            "SPEAKER_02"
+          ],
+          "source": "osd",
+          "confidence": 1.0
+        },
+        {
+          "case": "AGREE",
+          "start": 381.22,
+          "end": 382.925,
+          "duration": 1.705,
+          "speakers": [
+            "SPEAKER_00",
+            "SPEAKER_01"
+          ],
+          "source": "osd",
+          "confidence": 1.0
+        }
+      ]
     }
   ],
   "interruptions": [
@@ -10605,6 +10630,7 @@
         "end": 382.925,
         "duration": 11.086999999999989,
         "speakers": [
+          "SPEAKER_00",
           "SPEAKER_01",
           "SPEAKER_02"
         ],
@@ -10668,7 +10694,7 @@
     "method": "overlap_duration_threshold_filtering",
     "overlap_threshold_seconds": 2.0,
     "removed_overlap_regions": 10,
-    "rule": "Removed merged OSD overlap intervals with duration <= 2.0 seconds.",
+    "rule": "Removed merged OSD overlap intervals with span <= 2.0 seconds.",
     "timestamp_match_tolerance_seconds": 0.01
   }
 }

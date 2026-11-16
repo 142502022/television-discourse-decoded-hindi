@@ -15,10 +15,10 @@
   "source": {
     "final_json": "final.json",
     "followup_json": "overlap_followup_analysis.json",
-    "original_speaker_turn_count": 269,
+    "original_speaker_turn_count": 309,
     "all_speaker_transition_count": 268,
-    "raw_overlap_candidate_count": 148,
-    "followup_event_count": 148
+    "raw_overlap_candidate_count": 79,
+    "followup_event_count": 79
   },
   "cluster_definitions": {
     "A": "clean_turn_transfer",
@@ -32,8 +32,8 @@
   "statistics": {
     "speaker_transitions": {
       "total_speaker_transitions": 268,
-      "cluster_A_candidate_count": 50,
-      "cluster_A_candidate_percentage": 18.66,
+      "cluster_A_candidate_count": 35,
+      "cluster_A_candidate_percentage": 13.06,
       "pairwise_transition_counts": [
         {
           "from_speaker": "SPEAKER_00",
@@ -283,24 +283,24 @@
     },
     "overlap_interaction_clusters": {
       "debate_level": {
-        "total_overlap_events": 148,
-        "classified_event_count": 148,
+        "total_overlap_events": 79,
+        "classified_event_count": 79,
         "unclassified_event_count": 0,
         "cluster_counts": {
           "B": 0,
           "C": 0,
           "D": 0,
           "E": 0,
-          "F": 70,
-          "G": 78
+          "F": 20,
+          "G": 59
         },
         "cluster_percentages": {
           "B": 0.0,
           "C": 0.0,
           "D": 0.0,
           "E": 0.0,
-          "F": 47.3,
-          "G": 52.7
+          "F": 25.32,
+          "G": 74.68
         }
       },
       "speaker_level": {
@@ -310,8 +310,8 @@
             "C": 0,
             "D": 0,
             "E": 0,
-            "F": 14,
-            "G": 21
+            "F": 5,
+            "G": 16
           }
         },
         "SPEAKER_01": {
@@ -320,8 +320,8 @@
             "C": 0,
             "D": 0,
             "E": 0,
-            "F": 31,
-            "G": 42
+            "F": 5,
+            "G": 32
           }
         },
         "SPEAKER_02": {
@@ -330,8 +330,8 @@
             "C": 0,
             "D": 0,
             "E": 0,
-            "F": 8,
-            "G": 12
+            "F": 3,
+            "G": 10
           }
         },
         "SPEAKER_03": {
@@ -340,8 +340,8 @@
             "C": 0,
             "D": 0,
             "E": 0,
-            "F": 24,
-            "G": 26
+            "F": 7,
+            "G": 23
           }
         },
         "SPEAKER_04": {
@@ -350,8 +350,8 @@
             "C": 0,
             "D": 0,
             "E": 0,
-            "F": 17,
-            "G": 15
+            "F": 7,
+            "G": 12
           }
         },
         "SPEAKER_05": {
@@ -360,8 +360,8 @@
             "C": 0,
             "D": 0,
             "E": 0,
-            "F": 5,
-            "G": 9
+            "F": 3,
+            "G": 10
           }
         },
         "SPEAKER_06": {
@@ -370,8 +370,8 @@
             "C": 0,
             "D": 0,
             "E": 0,
-            "F": 7,
-            "G": 10
+            "F": 1,
+            "G": 12
           }
         },
         "SPEAKER_07": {
@@ -380,8 +380,8 @@
             "C": 0,
             "D": 0,
             "E": 0,
-            "F": 47,
-            "G": 60
+            "F": 13,
+            "G": 45
           }
         }
       }
@@ -449,16 +449,12 @@
       "current_turn_start": 183.158,
       "turn_gap": 0.0,
       "is_overlapping_transition": false,
-      "overlap_near_transition": false,
-      "primary_cluster": "A",
-      "cluster_name": "clean_turn_transfer",
-      "classification_status": "provisional_candidate",
-      "classification_evidence": [
-        "Sequential speaker transition",
-        "Turn gap 0.000s is within configured threshold",
-        "No reconciled overlap detected near transition"
-      ],
-      "classification_note": "Structural candidate for clean turn transfer. Conversational context is needed for confirmation."
+      "overlap_near_transition": true,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
     },
     {
       "transition_id": "ST00005",
@@ -469,16 +465,12 @@
       "current_turn_start": 183.968,
       "turn_gap": 0.0,
       "is_overlapping_transition": false,
-      "overlap_near_transition": false,
-      "primary_cluster": "A",
-      "cluster_name": "clean_turn_transfer",
-      "classification_status": "provisional_candidate",
-      "classification_evidence": [
-        "Sequential speaker transition",
-        "Turn gap 0.000s is within configured threshold",
-        "No reconciled overlap detected near transition"
-      ],
-      "classification_note": "Structural candidate for clean turn transfer. Conversational context is needed for confirmation."
+      "overlap_near_transition": true,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
     },
     {
       "transition_id": "ST00006",
@@ -621,7 +613,7 @@
       "current_turn_start": 236.315,
       "turn_gap": -11.627,
       "is_overlapping_transition": true,
-      "overlap_near_transition": false,
+      "overlap_near_transition": true,
       "primary_cluster": null,
       "cluster_name": "not_cluster_A",
       "classification_status": "not_automatically_classified",
@@ -653,16 +645,12 @@
       "current_turn_start": 248.026,
       "turn_gap": 0.0,
       "is_overlapping_transition": false,
-      "overlap_near_transition": false,
-      "primary_cluster": "A",
-      "cluster_name": "clean_turn_transfer",
-      "classification_status": "provisional_candidate",
-      "classification_evidence": [
-        "Sequential speaker transition",
-        "Turn gap 0.000s is within configured threshold",
-        "No reconciled overlap detected near transition"
-      ],
-      "classification_note": "Structural candidate for clean turn transfer. Conversational context is needed for confirmation."
+      "overlap_near_transition": true,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
     },
     {
       "transition_id": "ST00017",
@@ -833,7 +821,7 @@
       "current_turn_start": 273.153,
       "turn_gap": -6.817,
       "is_overlapping_transition": true,
-      "overlap_near_transition": false,
+      "overlap_near_transition": true,
       "primary_cluster": null,
       "cluster_name": "not_cluster_A",
       "classification_status": "not_automatically_classified",
@@ -1033,7 +1021,7 @@
       "current_turn_start": 303.494,
       "turn_gap": -11.408,
       "is_overlapping_transition": true,
-      "overlap_near_transition": false,
+      "overlap_near_transition": true,
       "primary_cluster": null,
       "cluster_name": "not_cluster_A",
       "classification_status": "not_automatically_classified",
@@ -1321,16 +1309,12 @@
       "current_turn_start": 469.207,
       "turn_gap": 0.0,
       "is_overlapping_transition": false,
-      "overlap_near_transition": false,
-      "primary_cluster": "A",
-      "cluster_name": "clean_turn_transfer",
-      "classification_status": "provisional_candidate",
-      "classification_evidence": [
-        "Sequential speaker transition",
-        "Turn gap 0.000s is within configured threshold",
-        "No reconciled overlap detected near transition"
-      ],
-      "classification_note": "Structural candidate for clean turn transfer. Conversational context is needed for confirmation."
+      "overlap_near_transition": true,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
     },
     {
       "transition_id": "ST00058",
@@ -1341,16 +1325,12 @@
       "current_turn_start": 469.223,
       "turn_gap": 0.0,
       "is_overlapping_transition": false,
-      "overlap_near_transition": false,
-      "primary_cluster": "A",
-      "cluster_name": "clean_turn_transfer",
-      "classification_status": "provisional_candidate",
-      "classification_evidence": [
-        "Sequential speaker transition",
-        "Turn gap 0.000s is within configured threshold",
-        "No reconciled overlap detected near transition"
-      ],
-      "classification_note": "Structural candidate for clean turn transfer. Conversational context is needed for confirmation."
+      "overlap_near_transition": true,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
     },
     {
       "transition_id": "ST00059",
@@ -1361,16 +1341,12 @@
       "current_turn_start": 469.51,
       "turn_gap": 0.0,
       "is_overlapping_transition": false,
-      "overlap_near_transition": false,
-      "primary_cluster": "A",
-      "cluster_name": "clean_turn_transfer",
-      "classification_status": "provisional_candidate",
-      "classification_evidence": [
-        "Sequential speaker transition",
-        "Turn gap 0.000s is within configured threshold",
-        "No reconciled overlap detected near transition"
-      ],
-      "classification_note": "Structural candidate for clean turn transfer. Conversational context is needed for confirmation."
+      "overlap_near_transition": true,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
     },
     {
       "transition_id": "ST00060",
@@ -1477,7 +1453,7 @@
       "current_turn_start": 497.573,
       "turn_gap": -8.624,
       "is_overlapping_transition": true,
-      "overlap_near_transition": false,
+      "overlap_near_transition": true,
       "primary_cluster": null,
       "cluster_name": "not_cluster_A",
       "classification_status": "not_automatically_classified",
@@ -1605,7 +1581,7 @@
       "current_turn_start": 519.967,
       "turn_gap": -0.86,
       "is_overlapping_transition": true,
-      "overlap_near_transition": false,
+      "overlap_near_transition": true,
       "primary_cluster": null,
       "cluster_name": "not_cluster_A",
       "classification_status": "not_automatically_classified",
@@ -2029,16 +2005,12 @@
       "current_turn_start": 687.957,
       "turn_gap": 0.86,
       "is_overlapping_transition": false,
-      "overlap_near_transition": false,
-      "primary_cluster": "A",
-      "cluster_name": "clean_turn_transfer",
-      "classification_status": "provisional_candidate",
-      "classification_evidence": [
-        "Sequential speaker transition",
-        "Turn gap 0.860s is within configured threshold",
-        "No reconciled overlap detected near transition"
-      ],
-      "classification_note": "Structural candidate for clean turn transfer. Conversational context is needed for confirmation."
+      "overlap_near_transition": true,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
     },
     {
       "transition_id": "ST00100",
@@ -2129,7 +2101,7 @@
       "current_turn_start": 705.963,
       "turn_gap": -8.083,
       "is_overlapping_transition": true,
-      "overlap_near_transition": false,
+      "overlap_near_transition": true,
       "primary_cluster": null,
       "cluster_name": "not_cluster_A",
       "classification_status": "not_automatically_classified",
@@ -2193,16 +2165,12 @@
       "current_turn_start": 714.063,
       "turn_gap": 0.0,
       "is_overlapping_transition": false,
-      "overlap_near_transition": false,
-      "primary_cluster": "A",
-      "cluster_name": "clean_turn_transfer",
-      "classification_status": "provisional_candidate",
-      "classification_evidence": [
-        "Sequential speaker transition",
-        "Turn gap 0.000s is within configured threshold",
-        "No reconciled overlap detected near transition"
-      ],
-      "classification_note": "Structural candidate for clean turn transfer. Conversational context is needed for confirmation."
+      "overlap_near_transition": true,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
     },
     {
       "transition_id": "ST00110",
@@ -2213,16 +2181,12 @@
       "current_turn_start": 714.147,
       "turn_gap": 0.0,
       "is_overlapping_transition": false,
-      "overlap_near_transition": false,
-      "primary_cluster": "A",
-      "cluster_name": "clean_turn_transfer",
-      "classification_status": "provisional_candidate",
-      "classification_evidence": [
-        "Sequential speaker transition",
-        "Turn gap 0.000s is within configured threshold",
-        "No reconciled overlap detected near transition"
-      ],
-      "classification_note": "Structural candidate for clean turn transfer. Conversational context is needed for confirmation."
+      "overlap_near_transition": true,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
     },
     {
       "transition_id": "ST00111",
@@ -2233,7 +2197,7 @@
       "current_turn_start": 715.362,
       "turn_gap": -1.671,
       "is_overlapping_transition": true,
-      "overlap_near_transition": false,
+      "overlap_near_transition": true,
       "primary_cluster": null,
       "cluster_name": "not_cluster_A",
       "classification_status": "not_automatically_classified",
@@ -2713,16 +2677,12 @@
       "current_turn_start": 949.418,
       "turn_gap": 0.0,
       "is_overlapping_transition": false,
-      "overlap_near_transition": false,
-      "primary_cluster": "A",
-      "cluster_name": "clean_turn_transfer",
-      "classification_status": "provisional_candidate",
-      "classification_evidence": [
-        "Sequential speaker transition",
-        "Turn gap 0.000s is within configured threshold",
-        "No reconciled overlap detected near transition"
-      ],
-      "classification_note": "Structural candidate for clean turn transfer. Conversational context is needed for confirmation."
+      "overlap_near_transition": true,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
     },
     {
       "transition_id": "ST00142",
@@ -2733,16 +2693,12 @@
       "current_turn_start": 950.11,
       "turn_gap": 0.675,
       "is_overlapping_transition": false,
-      "overlap_near_transition": false,
-      "primary_cluster": "A",
-      "cluster_name": "clean_turn_transfer",
-      "classification_status": "provisional_candidate",
-      "classification_evidence": [
-        "Sequential speaker transition",
-        "Turn gap 0.675s is within configured threshold",
-        "No reconciled overlap detected near transition"
-      ],
-      "classification_note": "Structural candidate for clean turn transfer. Conversational context is needed for confirmation."
+      "overlap_near_transition": true,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
     },
     {
       "transition_id": "ST00143",
@@ -2753,16 +2709,12 @@
       "current_turn_start": 950.178,
       "turn_gap": 0.0,
       "is_overlapping_transition": false,
-      "overlap_near_transition": false,
-      "primary_cluster": "A",
-      "cluster_name": "clean_turn_transfer",
-      "classification_status": "provisional_candidate",
-      "classification_evidence": [
-        "Sequential speaker transition",
-        "Turn gap 0.000s is within configured threshold",
-        "No reconciled overlap detected near transition"
-      ],
-      "classification_note": "Structural candidate for clean turn transfer. Conversational context is needed for confirmation."
+      "overlap_near_transition": true,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
     },
     {
       "transition_id": "ST00144",
@@ -2773,7 +2725,7 @@
       "current_turn_start": 950.397,
       "turn_gap": -2.177,
       "is_overlapping_transition": true,
-      "overlap_near_transition": false,
+      "overlap_near_transition": true,
       "primary_cluster": null,
       "cluster_name": "not_cluster_A",
       "classification_status": "not_automatically_classified",
@@ -3621,7 +3573,7 @@
       "current_turn_start": 1426.897,
       "turn_gap": -2.986,
       "is_overlapping_transition": true,
-      "overlap_near_transition": false,
+      "overlap_near_transition": true,
       "primary_cluster": null,
       "cluster_name": "not_cluster_A",
       "classification_status": "not_automatically_classified",
@@ -3825,7 +3777,7 @@
       "current_turn_start": 1563.331,
       "turn_gap": -9.703,
       "is_overlapping_transition": true,
-      "overlap_near_transition": false,
+      "overlap_near_transition": true,
       "primary_cluster": null,
       "cluster_name": "not_cluster_A",
       "classification_status": "not_automatically_classified",
@@ -3985,7 +3937,7 @@
       "current_turn_start": 1573.169,
       "turn_gap": -0.54,
       "is_overlapping_transition": true,
-      "overlap_near_transition": false,
+      "overlap_near_transition": true,
       "primary_cluster": null,
       "cluster_name": "not_cluster_A",
       "classification_status": "not_automatically_classified",
@@ -4001,7 +3953,7 @@
       "current_turn_start": 1575.025,
       "turn_gap": -1.755,
       "is_overlapping_transition": true,
-      "overlap_near_transition": false,
+      "overlap_near_transition": true,
       "primary_cluster": null,
       "cluster_name": "not_cluster_A",
       "classification_status": "not_automatically_classified",
@@ -4017,16 +3969,12 @@
       "current_turn_start": 1577.185,
       "turn_gap": 0.0,
       "is_overlapping_transition": false,
-      "overlap_near_transition": false,
-      "primary_cluster": "A",
-      "cluster_name": "clean_turn_transfer",
-      "classification_status": "provisional_candidate",
-      "classification_evidence": [
-        "Sequential speaker transition",
-        "Turn gap 0.000s is within configured threshold",
-        "No reconciled overlap detected near transition"
-      ],
-      "classification_note": "Structural candidate for clean turn transfer. Conversational context is needed for confirmation."
+      "overlap_near_transition": true,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
     },
     {
       "transition_id": "ST00220",
@@ -4037,16 +3985,12 @@
       "current_turn_start": 1577.455,
       "turn_gap": 0.0,
       "is_overlapping_transition": false,
-      "overlap_near_transition": false,
-      "primary_cluster": "A",
-      "cluster_name": "clean_turn_transfer",
-      "classification_status": "provisional_candidate",
-      "classification_evidence": [
-        "Sequential speaker transition",
-        "Turn gap 0.000s is within configured threshold",
-        "No reconciled overlap detected near transition"
-      ],
-      "classification_note": "Structural candidate for clean turn transfer. Conversational context is needed for confirmation."
+      "overlap_near_transition": true,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
     },
     {
       "transition_id": "ST00221",
@@ -4057,16 +4001,12 @@
       "current_turn_start": 1577.54,
       "turn_gap": 0.0,
       "is_overlapping_transition": false,
-      "overlap_near_transition": false,
-      "primary_cluster": "A",
-      "cluster_name": "clean_turn_transfer",
-      "classification_status": "provisional_candidate",
-      "classification_evidence": [
-        "Sequential speaker transition",
-        "Turn gap 0.000s is within configured threshold",
-        "No reconciled overlap detected near transition"
-      ],
-      "classification_note": "Structural candidate for clean turn transfer. Conversational context is needed for confirmation."
+      "overlap_near_transition": true,
+      "primary_cluster": null,
+      "cluster_name": "not_cluster_A",
+      "classification_status": "not_automatically_classified",
+      "classification_evidence": [],
+      "classification_note": "Transition does not satisfy the structural criteria for an automatic Cluster A candidate."
     },
     {
       "transition_id": "ST00222",
@@ -4837,7 +4777,7 @@
       "current_turn_start": 1682.924,
       "turn_gap": -0.236,
       "is_overlapping_transition": true,
-      "overlap_near_transition": false,
+      "overlap_near_transition": true,
       "primary_cluster": null,
       "cluster_name": "not_cluster_A",
       "classification_status": "not_automatically_classified",
@@ -4881,7 +4821,7 @@
     {
       "merged_overlap_id": "MO0001",
       "start": 181.522,
-      "end": 183.125,
+      "end": 184.812,
       "source_overlap_indices": [
         0
       ],
@@ -4889,27 +4829,14 @@
         "SPEAKER_01",
         "SPEAKER_03"
       ],
-      "duration": 1.6030000000000086
+      "duration": 3.2900000000000205
     },
     {
       "merged_overlap_id": "MO0002",
-      "start": 184.373,
-      "end": 184.812,
-      "source_overlap_indices": [
-        1
-      ],
-      "speakers": [
-        "SPEAKER_01",
-        "SPEAKER_03"
-      ],
-      "duration": 0.4390000000000214
-    },
-    {
-      "merged_overlap_id": "MO0003",
       "start": 191.579,
       "end": 192.473,
       "source_overlap_indices": [
-        2
+        1
       ],
       "speakers": [
         "SPEAKER_01",
@@ -4918,12 +4845,11 @@
       "duration": 0.8940000000000055
     },
     {
-      "merged_overlap_id": "MO0004",
+      "merged_overlap_id": "MO0003",
       "start": 198.43,
       "end": 200.388,
       "source_overlap_indices": [
-        3,
-        4
+        2
       ],
       "speakers": [
         "SPEAKER_00",
@@ -4934,11 +4860,11 @@
       "duration": 1.9579999999999984
     },
     {
-      "merged_overlap_id": "MO0005",
+      "merged_overlap_id": "MO0004",
       "start": 215.71,
       "end": 217.33,
       "source_overlap_indices": [
-        5
+        3
       ],
       "speakers": [
         "SPEAKER_01",
@@ -4947,11 +4873,11 @@
       "duration": 1.6200000000000045
     },
     {
-      "merged_overlap_id": "MO0006",
+      "merged_overlap_id": "MO0005",
       "start": 233.159,
       "end": 234.374,
       "source_overlap_indices": [
-        6
+        4
       ],
       "speakers": [
         "SPEAKER_01",
@@ -4960,13 +4886,11 @@
       "duration": 1.2150000000000034
     },
     {
-      "merged_overlap_id": "MO0007",
+      "merged_overlap_id": "MO0006",
       "start": 236.315,
       "end": 249.494,
       "source_overlap_indices": [
-        7,
-        8,
-        9
+        5
       ],
       "speakers": [
         "SPEAKER_01",
@@ -4976,11 +4900,11 @@
       "duration": 13.179000000000002
     },
     {
-      "merged_overlap_id": "MO0008",
+      "merged_overlap_id": "MO0007",
       "start": 251.097,
       "end": 261.712,
       "source_overlap_indices": [
-        10
+        6
       ],
       "speakers": [
         "SPEAKER_00",
@@ -4991,14 +4915,11 @@
       "duration": 10.61499999999998
     },
     {
-      "merged_overlap_id": "MO0009",
+      "merged_overlap_id": "MO0008",
       "start": 264.428,
       "end": 270.385,
       "source_overlap_indices": [
-        11,
-        12,
-        13,
-        14
+        7
       ],
       "speakers": [
         "SPEAKER_00",
@@ -5008,12 +4929,11 @@
       "duration": 5.956999999999994
     },
     {
-      "merged_overlap_id": "MO0010",
+      "merged_overlap_id": "MO0009",
       "start": 273.136,
       "end": 279.97,
       "source_overlap_indices": [
-        15,
-        16
+        8
       ],
       "speakers": [
         "SPEAKER_01",
@@ -5022,38 +4942,25 @@
       "duration": 6.834000000000003
     },
     {
-      "merged_overlap_id": "MO0011",
+      "merged_overlap_id": "MO0010",
       "start": 285.303,
-      "end": 292.441,
+      "end": 294.247,
       "source_overlap_indices": [
-        17
+        9
       ],
       "speakers": [
         "SPEAKER_01",
         "SPEAKER_03",
         "SPEAKER_07"
       ],
-      "duration": 7.137999999999977
+      "duration": 8.944000000000017
     },
     {
-      "merged_overlap_id": "MO0012",
-      "start": 293.605,
-      "end": 294.247,
-      "source_overlap_indices": [
-        18
-      ],
-      "speakers": [
-        "SPEAKER_03",
-        "SPEAKER_07"
-      ],
-      "duration": 0.6419999999999959
-    },
-    {
-      "merged_overlap_id": "MO0013",
+      "merged_overlap_id": "MO0011",
       "start": 296.12,
       "end": 297.503,
       "source_overlap_indices": [
-        19
+        10
       ],
       "speakers": [
         "SPEAKER_01",
@@ -5063,12 +4970,11 @@
       "duration": 1.3829999999999814
     },
     {
-      "merged_overlap_id": "MO0014",
+      "merged_overlap_id": "MO0012",
       "start": 303.494,
       "end": 314.902,
       "source_overlap_indices": [
-        20,
-        21
+        11
       ],
       "speakers": [
         "SPEAKER_00",
@@ -5079,12 +4985,11 @@
       "duration": 11.407999999999959
     },
     {
-      "merged_overlap_id": "MO0015",
+      "merged_overlap_id": "MO0013",
       "start": 316.775,
       "end": 320.032,
       "source_overlap_indices": [
-        22,
-        23
+        12
       ],
       "speakers": [
         "SPEAKER_00",
@@ -5095,11 +5000,11 @@
       "duration": 3.257000000000005
     },
     {
-      "merged_overlap_id": "MO0016",
+      "merged_overlap_id": "MO0014",
       "start": 352.28,
       "end": 352.82,
       "source_overlap_indices": [
-        24
+        13
       ],
       "speakers": [
         "SPEAKER_00",
@@ -5109,11 +5014,11 @@
       "duration": 0.5400000000000205
     },
     {
-      "merged_overlap_id": "MO0017",
+      "merged_overlap_id": "MO0015",
       "start": 356.836,
       "end": 357.427,
       "source_overlap_indices": [
-        25
+        14
       ],
       "speakers": [
         "SPEAKER_03",
@@ -5122,11 +5027,11 @@
       "duration": 0.5910000000000082
     },
     {
-      "merged_overlap_id": "MO0018",
+      "merged_overlap_id": "MO0016",
       "start": 384.393,
       "end": 385.135,
       "source_overlap_indices": [
-        26
+        15
       ],
       "speakers": [
         "SPEAKER_04",
@@ -5135,14 +5040,11 @@
       "duration": 0.7420000000000186
     },
     {
-      "merged_overlap_id": "MO0019",
+      "merged_overlap_id": "MO0017",
       "start": 437.093,
       "end": 442.73,
       "source_overlap_indices": [
-        27,
-        28,
-        29,
-        30
+        16
       ],
       "speakers": [
         "SPEAKER_04",
@@ -5151,11 +5053,11 @@
       "duration": 5.6370000000000005
     },
     {
-      "merged_overlap_id": "MO0020",
+      "merged_overlap_id": "MO0018",
       "start": 448.838,
       "end": 449.547,
       "source_overlap_indices": [
-        31
+        17
       ],
       "speakers": [
         "SPEAKER_04",
@@ -5164,13 +5066,11 @@
       "duration": 0.7090000000000032
     },
     {
-      "merged_overlap_id": "MO0021",
+      "merged_overlap_id": "MO0019",
       "start": 465.95,
       "end": 473.122,
       "source_overlap_indices": [
-        32,
-        33,
-        34
+        18
       ],
       "speakers": [
         "SPEAKER_01",
@@ -5179,11 +5079,11 @@
       "duration": 7.1720000000000255
     },
     {
-      "merged_overlap_id": "MO0022",
+      "merged_overlap_id": "MO0020",
       "start": 485.035,
       "end": 487.297,
       "source_overlap_indices": [
-        35
+        19
       ],
       "speakers": [
         "SPEAKER_04",
@@ -5192,45 +5092,27 @@
       "duration": 2.2620000000000005
     },
     {
-      "merged_overlap_id": "MO0023",
+      "merged_overlap_id": "MO0021",
       "start": 490.537,
-      "end": 492.46,
+      "end": 512.93,
       "source_overlap_indices": [
-        36
+        20
       ],
       "speakers": [
         "SPEAKER_01",
         "SPEAKER_02",
-        "SPEAKER_04"
-      ],
-      "duration": 1.9230000000000018
-    },
-    {
-      "merged_overlap_id": "MO0024",
-      "start": 493.591,
-      "end": 512.93,
-      "source_overlap_indices": [
-        37,
-        38,
-        39,
-        40,
-        41
-      ],
-      "speakers": [
-        "SPEAKER_01",
         "SPEAKER_03",
         "SPEAKER_04",
         "SPEAKER_07"
       ],
-      "duration": 19.338999999999942
+      "duration": 22.392999999999972
     },
     {
-      "merged_overlap_id": "MO0025",
+      "merged_overlap_id": "MO0022",
       "start": 519.764,
       "end": 520.827,
       "source_overlap_indices": [
-        42,
-        43
+        21
       ],
       "speakers": [
         "SPEAKER_00",
@@ -5240,12 +5122,11 @@
       "duration": 1.0629999999999882
     },
     {
-      "merged_overlap_id": "MO0026",
+      "merged_overlap_id": "MO0023",
       "start": 527.105,
       "end": 528.893,
       "source_overlap_indices": [
-        44,
-        45
+        22
       ],
       "speakers": [
         "SPEAKER_02",
@@ -5254,11 +5135,11 @@
       "duration": 1.788000000000011
     },
     {
-      "merged_overlap_id": "MO0027",
+      "merged_overlap_id": "MO0024",
       "start": 630.7,
       "end": 632.033,
       "source_overlap_indices": [
-        46
+        23
       ],
       "speakers": [
         "SPEAKER_04",
@@ -5267,11 +5148,11 @@
       "duration": 1.33299999999997
     },
     {
-      "merged_overlap_id": "MO0028",
+      "merged_overlap_id": "MO0025",
       "start": 634.885,
       "end": 638.615,
       "source_overlap_indices": [
-        47
+        24
       ],
       "speakers": [
         "SPEAKER_04",
@@ -5281,11 +5162,11 @@
       "duration": 3.730000000000018
     },
     {
-      "merged_overlap_id": "MO0029",
+      "merged_overlap_id": "MO0026",
       "start": 642.344,
       "end": 645.23,
       "source_overlap_indices": [
-        48
+        25
       ],
       "speakers": [
         "SPEAKER_06",
@@ -5294,27 +5175,11 @@
       "duration": 2.8859999999999673
     },
     {
-      "merged_overlap_id": "MO0030",
+      "merged_overlap_id": "MO0027",
       "start": 675.47,
-      "end": 676.432,
-      "source_overlap_indices": [
-        49
-      ],
-      "speakers": [
-        "SPEAKER_01",
-        "SPEAKER_06"
-      ],
-      "duration": 0.9619999999999891
-    },
-    {
-      "merged_overlap_id": "MO0031",
-      "start": 677.697,
       "end": 683.013,
       "source_overlap_indices": [
-        50,
-        51,
-        52,
-        53
+        26
       ],
       "speakers": [
         "SPEAKER_01",
@@ -5322,16 +5187,14 @@
         "SPEAKER_06",
         "SPEAKER_07"
       ],
-      "duration": 5.316000000000031
+      "duration": 7.543000000000006
     },
     {
-      "merged_overlap_id": "MO0032",
+      "merged_overlap_id": "MO0028",
       "start": 686.388,
       "end": 689.189,
       "source_overlap_indices": [
-        54,
-        55,
-        56
+        27
       ],
       "speakers": [
         "SPEAKER_01",
@@ -5340,45 +5203,27 @@
       "duration": 2.800999999999931
     },
     {
-      "merged_overlap_id": "MO0033",
+      "merged_overlap_id": "MO0029",
       "start": 694.437,
-      "end": 714.046,
+      "end": 720.273,
       "source_overlap_indices": [
-        57,
-        58,
-        59,
-        60,
-        61
+        28
       ],
       "speakers": [
         "SPEAKER_00",
         "SPEAKER_01",
         "SPEAKER_02",
-        "SPEAKER_07"
-      ],
-      "duration": 19.609000000000037
-    },
-    {
-      "merged_overlap_id": "MO0034",
-      "start": 715.396,
-      "end": 720.273,
-      "source_overlap_indices": [
-        62
-      ],
-      "speakers": [
-        "SPEAKER_00",
-        "SPEAKER_02",
         "SPEAKER_05",
         "SPEAKER_07"
       ],
-      "duration": 4.877000000000066
+      "duration": 25.836000000000013
     },
     {
-      "merged_overlap_id": "MO0035",
+      "merged_overlap_id": "MO0030",
       "start": 723.665,
       "end": 724.441,
       "source_overlap_indices": [
-        63
+        29
       ],
       "speakers": [
         "SPEAKER_05",
@@ -5387,11 +5232,11 @@
       "duration": 0.7760000000000673
     },
     {
-      "merged_overlap_id": "MO0036",
+      "merged_overlap_id": "MO0031",
       "start": 793.291,
       "end": 793.932,
       "source_overlap_indices": [
-        64
+        30
       ],
       "speakers": [
         "SPEAKER_00",
@@ -5400,11 +5245,11 @@
       "duration": 0.6409999999999627
     },
     {
-      "merged_overlap_id": "MO0037",
+      "merged_overlap_id": "MO0032",
       "start": 796.666,
       "end": 797.695,
       "source_overlap_indices": [
-        65
+        31
       ],
       "speakers": [
         "SPEAKER_00",
@@ -5414,11 +5259,11 @@
       "duration": 1.0289999999999964
     },
     {
-      "merged_overlap_id": "MO0038",
+      "merged_overlap_id": "MO0033",
       "start": 825.421,
       "end": 826.923,
       "source_overlap_indices": [
-        66
+        32
       ],
       "speakers": [
         "SPEAKER_05",
@@ -5427,13 +5272,11 @@
       "duration": 1.5019999999999527
     },
     {
-      "merged_overlap_id": "MO0039",
+      "merged_overlap_id": "MO0034",
       "start": 856.876,
-      "end": 870.022,
+      "end": 871.388,
       "source_overlap_indices": [
-        67,
-        68,
-        69
+        33
       ],
       "speakers": [
         "SPEAKER_00",
@@ -5441,54 +5284,14 @@
         "SPEAKER_05",
         "SPEAKER_07"
       ],
-      "duration": 13.146000000000072
+      "duration": 14.512000000000057
     },
     {
-      "merged_overlap_id": "MO0040",
-      "start": 871.186,
-      "end": 871.388,
-      "source_overlap_indices": [
-        70
-      ],
-      "speakers": [
-        "SPEAKER_00",
-        "SPEAKER_03",
-        "SPEAKER_07"
-      ],
-      "duration": 0.20199999999999818
-    },
-    {
-      "merged_overlap_id": "MO0041",
+      "merged_overlap_id": "MO0035",
       "start": 872.89,
-      "end": 873.43,
-      "source_overlap_indices": [
-        71
-      ],
-      "speakers": [
-        "SPEAKER_03",
-        "SPEAKER_07"
-      ],
-      "duration": 0.5399999999999636
-    },
-    {
-      "merged_overlap_id": "MO0042",
-      "start": 874.645,
-      "end": 879.488,
-      "source_overlap_indices": [
-        72
-      ],
-      "speakers": [
-        "SPEAKER_03",
-        "SPEAKER_07"
-      ],
-      "duration": 4.843000000000075
-    },
-    {
-      "merged_overlap_id": "MO0043",
-      "start": 880.771,
       "end": 886.205,
       "source_overlap_indices": [
-        73
+        34
       ],
       "speakers": [
         "SPEAKER_00",
@@ -5496,14 +5299,14 @@
         "SPEAKER_03",
         "SPEAKER_07"
       ],
-      "duration": 5.434000000000083
+      "duration": 13.315000000000055
     },
     {
-      "merged_overlap_id": "MO0044",
+      "merged_overlap_id": "MO0036",
       "start": 897.41,
       "end": 897.967,
       "source_overlap_indices": [
-        74
+        35
       ],
       "speakers": [
         "SPEAKER_00",
@@ -5512,11 +5315,11 @@
       "duration": 0.5570000000000164
     },
     {
-      "merged_overlap_id": "MO0045",
+      "merged_overlap_id": "MO0037",
       "start": 910.792,
       "end": 911.298,
       "source_overlap_indices": [
-        75
+        36
       ],
       "speakers": [
         "SPEAKER_00",
@@ -5525,11 +5328,11 @@
       "duration": 0.5059999999999718
     },
     {
-      "merged_overlap_id": "MO0046",
+      "merged_overlap_id": "MO0038",
       "start": 939.158,
       "end": 939.884,
       "source_overlap_indices": [
-        76
+        37
       ],
       "speakers": [
         "SPEAKER_03",
@@ -5538,39 +5341,24 @@
       "duration": 0.7259999999999991
     },
     {
-      "merged_overlap_id": "MO0047",
+      "merged_overlap_id": "MO0039",
       "start": 948.237,
-      "end": 949.385,
-      "source_overlap_indices": [
-        77
-      ],
-      "speakers": [
-        "SPEAKER_03",
-        "SPEAKER_07"
-      ],
-      "duration": 1.1480000000000246
-    },
-    {
-      "merged_overlap_id": "MO0048",
-      "start": 950.414,
       "end": 952.574,
       "source_overlap_indices": [
-        78,
-        79
+        38
       ],
       "speakers": [
         "SPEAKER_03",
         "SPEAKER_07"
       ],
-      "duration": 2.159999999999968
+      "duration": 4.336999999999989
     },
     {
-      "merged_overlap_id": "MO0049",
+      "merged_overlap_id": "MO0040",
       "start": 954.076,
       "end": 954.734,
       "source_overlap_indices": [
-        80,
-        81
+        39
       ],
       "speakers": [
         "SPEAKER_03",
@@ -5579,11 +5367,11 @@
       "duration": 0.6580000000000155
     },
     {
-      "merged_overlap_id": "MO0050",
+      "merged_overlap_id": "MO0041",
       "start": 971.845,
       "end": 972.605,
       "source_overlap_indices": [
-        82
+        40
       ],
       "speakers": [
         "SPEAKER_02",
@@ -5592,11 +5380,11 @@
       "duration": 0.7599999999999909
     },
     {
-      "merged_overlap_id": "MO0051",
+      "merged_overlap_id": "MO0042",
       "start": 984.333,
       "end": 990.307,
       "source_overlap_indices": [
-        83
+        41
       ],
       "speakers": [
         "SPEAKER_01",
@@ -5606,11 +5394,11 @@
       "duration": 5.974000000000046
     },
     {
-      "merged_overlap_id": "MO0052",
+      "merged_overlap_id": "MO0043",
       "start": 992.77,
       "end": 994.205,
       "source_overlap_indices": [
-        84
+        42
       ],
       "speakers": [
         "SPEAKER_01",
@@ -5619,11 +5407,11 @@
       "duration": 1.4350000000000591
     },
     {
-      "merged_overlap_id": "MO0053",
+      "merged_overlap_id": "MO0044",
       "start": 996.685,
       "end": 998.643,
       "source_overlap_indices": [
-        85
+        43
       ],
       "speakers": [
         "SPEAKER_01",
@@ -5632,13 +5420,11 @@
       "duration": 1.9580000000000837
     },
     {
-      "merged_overlap_id": "MO0054",
+      "merged_overlap_id": "MO0045",
       "start": 1032.022,
       "end": 1035.953,
       "source_overlap_indices": [
-        86,
-        87,
-        88
+        44
       ],
       "speakers": [
         "SPEAKER_01",
@@ -5647,11 +5433,11 @@
       "duration": 3.93100000000004
     },
     {
-      "merged_overlap_id": "MO0055",
+      "merged_overlap_id": "MO0046",
       "start": 1037.995,
       "end": 1038.603,
       "source_overlap_indices": [
-        89
+        45
       ],
       "speakers": [
         "SPEAKER_01",
@@ -5660,11 +5446,11 @@
       "duration": 0.6080000000001746
     },
     {
-      "merged_overlap_id": "MO0056",
+      "merged_overlap_id": "MO0047",
       "start": 1054.651,
       "end": 1056.322,
       "source_overlap_indices": [
-        90
+        46
       ],
       "speakers": [
         "SPEAKER_00",
@@ -5675,13 +5461,11 @@
       "duration": 1.6709999999998217
     },
     {
-      "merged_overlap_id": "MO0057",
+      "merged_overlap_id": "MO0048",
       "start": 1058.414,
       "end": 1062.987,
       "source_overlap_indices": [
-        91,
-        92,
-        93
+        47
       ],
       "speakers": [
         "SPEAKER_01",
@@ -5690,11 +5474,11 @@
       "duration": 4.573000000000093
     },
     {
-      "merged_overlap_id": "MO0058",
+      "merged_overlap_id": "MO0049",
       "start": 1065.518,
       "end": 1069.383,
       "source_overlap_indices": [
-        94
+        48
       ],
       "speakers": [
         "SPEAKER_01",
@@ -5704,15 +5488,11 @@
       "duration": 3.865000000000009
     },
     {
-      "merged_overlap_id": "MO0059",
+      "merged_overlap_id": "MO0050",
       "start": 1071.509,
       "end": 1081.128,
       "source_overlap_indices": [
-        95,
-        96,
-        97,
-        98,
-        99
+        49
       ],
       "speakers": [
         "SPEAKER_00",
@@ -5723,38 +5503,24 @@
       "duration": 9.618999999999915
     },
     {
-      "merged_overlap_id": "MO0060",
+      "merged_overlap_id": "MO0051",
       "start": 1124.176,
-      "end": 1124.547,
-      "source_overlap_indices": [
-        100
-      ],
-      "speakers": [
-        "SPEAKER_01",
-        "SPEAKER_07"
-      ],
-      "duration": 0.3710000000000946
-    },
-    {
-      "merged_overlap_id": "MO0061",
-      "start": 1125.56,
       "end": 1125.762,
       "source_overlap_indices": [
-        101
+        50
       ],
       "speakers": [
         "SPEAKER_01",
         "SPEAKER_07"
       ],
-      "duration": 0.20199999999999818
+      "duration": 1.5860000000000127
     },
     {
-      "merged_overlap_id": "MO0062",
+      "merged_overlap_id": "MO0052",
       "start": 1130.082,
       "end": 1142.3,
       "source_overlap_indices": [
-        102,
-        103
+        51
       ],
       "speakers": [
         "SPEAKER_01",
@@ -5763,11 +5529,11 @@
       "duration": 12.217999999999847
     },
     {
-      "merged_overlap_id": "MO0063",
+      "merged_overlap_id": "MO0053",
       "start": 1147.328,
       "end": 1147.987,
       "source_overlap_indices": [
-        104
+        52
       ],
       "speakers": [
         "SPEAKER_01",
@@ -5777,11 +5543,11 @@
       "duration": 0.6590000000001055
     },
     {
-      "merged_overlap_id": "MO0064",
+      "merged_overlap_id": "MO0054",
       "start": 1153.808,
       "end": 1154.517,
       "source_overlap_indices": [
-        105
+        53
       ],
       "speakers": [
         "SPEAKER_01",
@@ -5791,12 +5557,11 @@
       "duration": 0.70900000000006
     },
     {
-      "merged_overlap_id": "MO0065",
+      "merged_overlap_id": "MO0055",
       "start": 1156.39,
       "end": 1169.097,
       "source_overlap_indices": [
-        106,
-        107
+        54
       ],
       "speakers": [
         "SPEAKER_00",
@@ -5807,12 +5572,11 @@
       "duration": 12.70699999999988
     },
     {
-      "merged_overlap_id": "MO0066",
+      "merged_overlap_id": "MO0056",
       "start": 1239.652,
       "end": 1244.377,
       "source_overlap_indices": [
-        108,
-        109
+        55
       ],
       "speakers": [
         "SPEAKER_03",
@@ -5821,11 +5585,11 @@
       "duration": 4.724999999999909
     },
     {
-      "merged_overlap_id": "MO0067",
+      "merged_overlap_id": "MO0057",
       "start": 1248.545,
       "end": 1251.43,
       "source_overlap_indices": [
-        110
+        56
       ],
       "speakers": [
         "SPEAKER_03",
@@ -5834,11 +5598,11 @@
       "duration": 2.884999999999991
     },
     {
-      "merged_overlap_id": "MO0068",
+      "merged_overlap_id": "MO0058",
       "start": 1262.585,
       "end": 1267.006,
       "source_overlap_indices": [
-        111
+        57
       ],
       "speakers": [
         "SPEAKER_03",
@@ -5847,11 +5611,11 @@
       "duration": 4.421000000000049
     },
     {
-      "merged_overlap_id": "MO0069",
+      "merged_overlap_id": "MO0059",
       "start": 1335.13,
       "end": 1335.991,
       "source_overlap_indices": [
-        112
+        58
       ],
       "speakers": [
         "SPEAKER_04",
@@ -5860,11 +5624,11 @@
       "duration": 0.8609999999998763
     },
     {
-      "merged_overlap_id": "MO0070",
+      "merged_overlap_id": "MO0060",
       "start": 1337.51,
       "end": 1338.927,
       "source_overlap_indices": [
-        113
+        59
       ],
       "speakers": [
         "SPEAKER_04",
@@ -5873,11 +5637,11 @@
       "duration": 1.4169999999999163
     },
     {
-      "merged_overlap_id": "MO0071",
+      "merged_overlap_id": "MO0061",
       "start": 1414.055,
       "end": 1415.523,
       "source_overlap_indices": [
-        114
+        60
       ],
       "speakers": [
         "SPEAKER_06",
@@ -5886,13 +5650,11 @@
       "duration": 1.4679999999998472
     },
     {
-      "merged_overlap_id": "MO0072",
+      "merged_overlap_id": "MO0062",
       "start": 1422.745,
       "end": 1436.06,
       "source_overlap_indices": [
-        115,
-        116,
-        117
+        61
       ],
       "speakers": [
         "SPEAKER_02",
@@ -5903,12 +5665,11 @@
       "duration": 13.315000000000055
     },
     {
-      "merged_overlap_id": "MO0073",
+      "merged_overlap_id": "MO0063",
       "start": 1437.848,
       "end": 1439.671,
       "source_overlap_indices": [
-        118,
-        119
+        62
       ],
       "speakers": [
         "SPEAKER_05",
@@ -5917,11 +5678,11 @@
       "duration": 1.8230000000000928
     },
     {
-      "merged_overlap_id": "MO0074",
+      "merged_overlap_id": "MO0064",
       "start": 1510.073,
       "end": 1511.643,
       "source_overlap_indices": [
-        120
+        63
       ],
       "speakers": [
         "SPEAKER_05",
@@ -5930,11 +5691,11 @@
       "duration": 1.5699999999999363
     },
     {
-      "merged_overlap_id": "MO0075",
+      "merged_overlap_id": "MO0065",
       "start": 1514.36,
       "end": 1516.402,
       "source_overlap_indices": [
-        121
+        64
       ],
       "speakers": [
         "SPEAKER_05",
@@ -5943,53 +5704,25 @@
       "duration": 2.0420000000001437
     },
     {
-      "merged_overlap_id": "MO0076",
+      "merged_overlap_id": "MO0066",
       "start": 1563.331,
-      "end": 1573.692,
+      "end": 1579.632,
       "source_overlap_indices": [
-        122,
-        123,
-        124
+        65
       ],
       "speakers": [
         "SPEAKER_00",
         "SPEAKER_01",
         "SPEAKER_07"
       ],
-      "duration": 10.361000000000104
+      "duration": 16.30100000000016
     },
     {
-      "merged_overlap_id": "MO0077",
-      "start": 1575.025,
-      "end": 1576.561,
-      "source_overlap_indices": [
-        125
-      ],
-      "speakers": [
-        "SPEAKER_01",
-        "SPEAKER_07"
-      ],
-      "duration": 1.5359999999998308
-    },
-    {
-      "merged_overlap_id": "MO0078",
-      "start": 1577.573,
-      "end": 1579.632,
-      "source_overlap_indices": [
-        126
-      ],
-      "speakers": [
-        "SPEAKER_01",
-        "SPEAKER_07"
-      ],
-      "duration": 2.058999999999969
-    },
-    {
-      "merged_overlap_id": "MO0079",
+      "merged_overlap_id": "MO0067",
       "start": 1581.877,
       "end": 1582.568,
       "source_overlap_indices": [
-        127
+        66
       ],
       "speakers": [
         "SPEAKER_02",
@@ -5998,38 +5731,24 @@
       "duration": 0.6910000000000309
     },
     {
-      "merged_overlap_id": "MO0080",
+      "merged_overlap_id": "MO0068",
       "start": 1584.273,
-      "end": 1585.488,
-      "source_overlap_indices": [
-        128
-      ],
-      "speakers": [
-        "SPEAKER_02",
-        "SPEAKER_07"
-      ],
-      "duration": 1.2150000000001455
-    },
-    {
-      "merged_overlap_id": "MO0081",
-      "start": 1586.551,
       "end": 1587.007,
       "source_overlap_indices": [
-        129
+        67
       ],
       "speakers": [
         "SPEAKER_02",
         "SPEAKER_07"
       ],
-      "duration": 0.45600000000013097
+      "duration": 2.734000000000151
     },
     {
-      "merged_overlap_id": "MO0082",
+      "merged_overlap_id": "MO0069",
       "start": 1590.145,
       "end": 1591.968,
       "source_overlap_indices": [
-        130,
-        131
+        68
       ],
       "speakers": [
         "SPEAKER_02",
@@ -6040,11 +5759,11 @@
       "duration": 1.8230000000000928
     },
     {
-      "merged_overlap_id": "MO0083",
+      "merged_overlap_id": "MO0070",
       "start": 1607.425,
       "end": 1608.083,
       "source_overlap_indices": [
-        132
+        69
       ],
       "speakers": [
         "SPEAKER_01",
@@ -6053,11 +5772,11 @@
       "duration": 0.6580000000001291
     },
     {
-      "merged_overlap_id": "MO0084",
+      "merged_overlap_id": "MO0071",
       "start": 1612.808,
       "end": 1614.04,
       "source_overlap_indices": [
-        133
+        70
       ],
       "speakers": [
         "SPEAKER_00",
@@ -6067,14 +5786,11 @@
       "duration": 1.231999999999971
     },
     {
-      "merged_overlap_id": "MO0085",
+      "merged_overlap_id": "MO0072",
       "start": 1619.913,
       "end": 1624.756,
       "source_overlap_indices": [
-        134,
-        135,
-        136,
-        137
+        71
       ],
       "speakers": [
         "SPEAKER_01",
@@ -6083,37 +5799,24 @@
       "duration": 4.843000000000075
     },
     {
-      "merged_overlap_id": "MO0086",
+      "merged_overlap_id": "MO0073",
       "start": 1626.376,
-      "end": 1627.642,
-      "source_overlap_indices": [
-        138
-      ],
-      "speakers": [
-        "SPEAKER_04",
-        "SPEAKER_07"
-      ],
-      "duration": 1.2660000000000764
-    },
-    {
-      "merged_overlap_id": "MO0087",
-      "start": 1628.806,
       "end": 1629.599,
       "source_overlap_indices": [
-        139
+        72
       ],
       "speakers": [
         "SPEAKER_04",
         "SPEAKER_07"
       ],
-      "duration": 0.7929999999998927
+      "duration": 3.2229999999999563
     },
     {
-      "merged_overlap_id": "MO0088",
+      "merged_overlap_id": "MO0074",
       "start": 1633.193,
       "end": 1633.717,
       "source_overlap_indices": [
-        140
+        73
       ],
       "speakers": [
         "SPEAKER_04",
@@ -6122,37 +5825,24 @@
       "duration": 0.5240000000001146
     },
     {
-      "merged_overlap_id": "MO0089",
+      "merged_overlap_id": "MO0075",
       "start": 1637.007,
-      "end": 1637.497,
-      "source_overlap_indices": [
-        141
-      ],
-      "speakers": [
-        "SPEAKER_04",
-        "SPEAKER_07"
-      ],
-      "duration": 0.4900000000000091
-    },
-    {
-      "merged_overlap_id": "MO0090",
-      "start": 1638.965,
       "end": 1639.538,
       "source_overlap_indices": [
-        142
+        74
       ],
       "speakers": [
         "SPEAKER_04",
         "SPEAKER_07"
       ],
-      "duration": 0.5730000000000928
+      "duration": 2.530999999999949
     },
     {
-      "merged_overlap_id": "MO0091",
+      "merged_overlap_id": "MO0076",
       "start": 1653.359,
       "end": 1653.899,
       "source_overlap_indices": [
-        143
+        75
       ],
       "speakers": [
         "SPEAKER_00",
@@ -6162,11 +5852,11 @@
       "duration": 0.5399999999999636
     },
     {
-      "merged_overlap_id": "MO0092",
+      "merged_overlap_id": "MO0077",
       "start": 1655.401,
       "end": 1658.101,
       "source_overlap_indices": [
-        144
+        76
       ],
       "speakers": [
         "SPEAKER_05",
@@ -6175,11 +5865,11 @@
       "duration": 2.7000000000000455
     },
     {
-      "merged_overlap_id": "MO0093",
+      "merged_overlap_id": "MO0078",
       "start": 1665.593,
       "end": 1666.775,
       "source_overlap_indices": [
-        145
+        77
       ],
       "speakers": [
         "SPEAKER_01",
@@ -6188,12 +5878,11 @@
       "duration": 1.1820000000000164
     },
     {
-      "merged_overlap_id": "MO0094",
+      "merged_overlap_id": "MO0079",
       "start": 1681.085,
       "end": 1683.16,
       "source_overlap_indices": [
-        146,
-        147
+        78
       ],
       "speakers": [
         "SPEAKER_00",
@@ -6208,8 +5897,8 @@
       "event_id": "OC0001",
       "source_overlap_index": 0,
       "start": 181.522,
-      "end": 183.125,
-      "duration": 1.603,
+      "end": 184.812,
+      "duration": 3.29,
       "speakers": [
         "SPEAKER_01",
         "SPEAKER_03"
@@ -6221,35 +5910,13 @@
       "cluster_name": "prolonged_overlap",
       "classification_status": "classified",
       "classification_evidence": [
-        "Overlap duration 1.603s >= threshold 1.000s"
+        "Overlap duration 3.290s >= threshold 1.000s"
       ],
       "followup_matched": false
     },
     {
       "event_id": "OC0002",
       "source_overlap_index": 1,
-      "start": 184.373,
-      "end": 184.812,
-      "duration": 0.439,
-      "speakers": [
-        "SPEAKER_01",
-        "SPEAKER_03"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "F",
-      "cluster_name": "unresolved_floor_competition",
-      "classification_status": "provisional",
-      "classification_evidence": [
-        "Multiple speakers overlap.",
-        "No clear first new speaker identified after overlap."
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0003",
-      "source_overlap_index": 2,
       "start": 191.579,
       "end": 192.473,
       "duration": 0.894,
@@ -6270,34 +5937,11 @@
       "followup_matched": false
     },
     {
-      "event_id": "OC0004",
-      "source_overlap_index": 3,
+      "event_id": "OC0003",
+      "source_overlap_index": 2,
       "start": 198.43,
-      "end": 199.055,
-      "duration": 0.625,
-      "speakers": [
-        "SPEAKER_00",
-        "SPEAKER_01",
-        "SPEAKER_03"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "F",
-      "cluster_name": "unresolved_floor_competition",
-      "classification_status": "provisional",
-      "classification_evidence": [
-        "Multiple speakers overlap.",
-        "No clear first new speaker identified after overlap."
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0005",
-      "source_overlap_index": 4,
-      "start": 199.645,
       "end": 200.388,
-      "duration": 0.743,
+      "duration": 1.958,
       "speakers": [
         "SPEAKER_00",
         "SPEAKER_01",
@@ -6307,18 +5951,17 @@
       "case": "AGREE",
       "source": "osd",
       "confidence": 1.0,
-      "primary_cluster": "F",
-      "cluster_name": "unresolved_floor_competition",
-      "classification_status": "provisional",
+      "primary_cluster": "G",
+      "cluster_name": "prolonged_overlap",
+      "classification_status": "classified",
       "classification_evidence": [
-        "Multiple speakers overlap.",
-        "No clear first new speaker identified after overlap."
+        "Overlap duration 1.958s >= threshold 1.000s"
       ],
       "followup_matched": false
     },
     {
-      "event_id": "OC0006",
-      "source_overlap_index": 5,
+      "event_id": "OC0004",
+      "source_overlap_index": 3,
       "start": 215.71,
       "end": 217.33,
       "duration": 1.62,
@@ -6338,8 +5981,8 @@
       "followup_matched": false
     },
     {
-      "event_id": "OC0007",
-      "source_overlap_index": 6,
+      "event_id": "OC0005",
+      "source_overlap_index": 4,
       "start": 233.159,
       "end": 234.374,
       "duration": 1.215,
@@ -6359,56 +6002,13 @@
       "followup_matched": false
     },
     {
-      "event_id": "OC0008",
-      "source_overlap_index": 7,
+      "event_id": "OC0006",
+      "source_overlap_index": 5,
       "start": 236.315,
-      "end": 237.023,
-      "duration": 0.708,
-      "speakers": [
-        "SPEAKER_01",
-        "SPEAKER_03"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "F",
-      "cluster_name": "unresolved_floor_competition",
-      "classification_status": "provisional",
-      "classification_evidence": [
-        "Multiple speakers overlap.",
-        "No clear first new speaker identified after overlap."
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0009",
-      "source_overlap_index": 8,
-      "start": 237.682,
-      "end": 247.942,
-      "duration": 10.26,
-      "speakers": [
-        "SPEAKER_01",
-        "SPEAKER_03",
-        "SPEAKER_07"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "G",
-      "cluster_name": "prolonged_overlap",
-      "classification_status": "classified",
-      "classification_evidence": [
-        "Overlap duration 10.260s >= threshold 1.000s"
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0010",
-      "source_overlap_index": 9,
-      "start": 248.06,
       "end": 249.494,
-      "duration": 1.434,
+      "duration": 13.179,
       "speakers": [
+        "SPEAKER_01",
         "SPEAKER_03",
         "SPEAKER_07"
       ],
@@ -6419,13 +6019,13 @@
       "cluster_name": "prolonged_overlap",
       "classification_status": "classified",
       "classification_evidence": [
-        "Overlap duration 1.434s >= threshold 1.000s"
+        "Overlap duration 13.179s >= threshold 1.000s"
       ],
       "followup_matched": false
     },
     {
-      "event_id": "OC0011",
-      "source_overlap_index": 10,
+      "event_id": "OC0007",
+      "source_overlap_index": 6,
       "start": 251.097,
       "end": 261.712,
       "duration": 10.615,
@@ -6447,11 +6047,11 @@
       "followup_matched": false
     },
     {
-      "event_id": "OC0012",
-      "source_overlap_index": 11,
+      "event_id": "OC0008",
+      "source_overlap_index": 7,
       "start": 264.428,
-      "end": 265.593,
-      "duration": 1.165,
+      "end": 270.385,
+      "duration": 5.957,
       "speakers": [
         "SPEAKER_00",
         "SPEAKER_01",
@@ -6464,102 +6064,16 @@
       "cluster_name": "prolonged_overlap",
       "classification_status": "classified",
       "classification_evidence": [
-        "Overlap duration 1.165s >= threshold 1.000s"
+        "Overlap duration 5.957s >= threshold 1.000s"
       ],
       "followup_matched": false
     },
     {
-      "event_id": "OC0013",
-      "source_overlap_index": 12,
-      "start": 265.947,
-      "end": 269.255,
-      "duration": 3.308,
-      "speakers": [
-        "SPEAKER_01",
-        "SPEAKER_07"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "G",
-      "cluster_name": "prolonged_overlap",
-      "classification_status": "classified",
-      "classification_evidence": [
-        "Overlap duration 3.308s >= threshold 1.000s"
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0014",
-      "source_overlap_index": 13,
-      "start": 269.508,
-      "end": 269.727,
-      "duration": 0.219,
-      "speakers": [
-        "SPEAKER_01",
-        "SPEAKER_07"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "F",
-      "cluster_name": "unresolved_floor_competition",
-      "classification_status": "provisional",
-      "classification_evidence": [
-        "Multiple speakers overlap.",
-        "No clear first new speaker identified after overlap."
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0015",
-      "source_overlap_index": 14,
-      "start": 269.812,
-      "end": 270.385,
-      "duration": 0.573,
-      "speakers": [
-        "SPEAKER_01",
-        "SPEAKER_07"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "F",
-      "cluster_name": "unresolved_floor_competition",
-      "classification_status": "provisional",
-      "classification_evidence": [
-        "Multiple speakers overlap.",
-        "No clear first new speaker identified after overlap."
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0016",
-      "source_overlap_index": 15,
+      "event_id": "OC0009",
+      "source_overlap_index": 8,
       "start": 273.136,
-      "end": 276.967,
-      "duration": 3.831,
-      "speakers": [
-        "SPEAKER_01",
-        "SPEAKER_07"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "G",
-      "cluster_name": "prolonged_overlap",
-      "classification_status": "classified",
-      "classification_evidence": [
-        "Overlap duration 3.831s >= threshold 1.000s"
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0017",
-      "source_overlap_index": 16,
-      "start": 277.49,
       "end": 279.97,
-      "duration": 2.48,
+      "duration": 6.834,
       "speakers": [
         "SPEAKER_01",
         "SPEAKER_07"
@@ -6571,16 +6085,16 @@
       "cluster_name": "prolonged_overlap",
       "classification_status": "classified",
       "classification_evidence": [
-        "Overlap duration 2.480s >= threshold 1.000s"
+        "Overlap duration 6.834s >= threshold 1.000s"
       ],
       "followup_matched": false
     },
     {
-      "event_id": "OC0018",
-      "source_overlap_index": 17,
+      "event_id": "OC0010",
+      "source_overlap_index": 9,
       "start": 285.303,
-      "end": 292.441,
-      "duration": 7.138,
+      "end": 294.247,
+      "duration": 8.944,
       "speakers": [
         "SPEAKER_01",
         "SPEAKER_03",
@@ -6593,35 +6107,13 @@
       "cluster_name": "prolonged_overlap",
       "classification_status": "classified",
       "classification_evidence": [
-        "Overlap duration 7.138s >= threshold 1.000s"
+        "Overlap duration 8.944s >= threshold 1.000s"
       ],
       "followup_matched": false
     },
     {
-      "event_id": "OC0019",
-      "source_overlap_index": 18,
-      "start": 293.605,
-      "end": 294.247,
-      "duration": 0.642,
-      "speakers": [
-        "SPEAKER_03",
-        "SPEAKER_07"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "F",
-      "cluster_name": "unresolved_floor_competition",
-      "classification_status": "provisional",
-      "classification_evidence": [
-        "Multiple speakers overlap.",
-        "No clear first new speaker identified after overlap."
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0020",
-      "source_overlap_index": 19,
+      "event_id": "OC0011",
+      "source_overlap_index": 10,
       "start": 296.12,
       "end": 297.503,
       "duration": 1.383,
@@ -6642,33 +6134,11 @@
       "followup_matched": false
     },
     {
-      "event_id": "OC0021",
-      "source_overlap_index": 20,
+      "event_id": "OC0012",
+      "source_overlap_index": 11,
       "start": 303.494,
-      "end": 305.08,
-      "duration": 1.586,
-      "speakers": [
-        "SPEAKER_00",
-        "SPEAKER_01",
-        "SPEAKER_07"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "G",
-      "cluster_name": "prolonged_overlap",
-      "classification_status": "classified",
-      "classification_evidence": [
-        "Overlap duration 1.586s >= threshold 1.000s"
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0022",
-      "source_overlap_index": 21,
-      "start": 305.553,
       "end": 314.902,
-      "duration": 9.349,
+      "duration": 11.408,
       "speakers": [
         "SPEAKER_00",
         "SPEAKER_01",
@@ -6682,17 +6152,18 @@
       "cluster_name": "prolonged_overlap",
       "classification_status": "classified",
       "classification_evidence": [
-        "Overlap duration 9.349s >= threshold 1.000s"
+        "Overlap duration 11.408s >= threshold 1.000s"
       ],
       "followup_matched": false
     },
     {
-      "event_id": "OC0023",
-      "source_overlap_index": 22,
+      "event_id": "OC0013",
+      "source_overlap_index": 12,
       "start": 316.775,
-      "end": 318.648,
-      "duration": 1.873,
+      "end": 320.032,
+      "duration": 3.257,
       "speakers": [
+        "SPEAKER_00",
         "SPEAKER_01",
         "SPEAKER_03",
         "SPEAKER_07"
@@ -6704,35 +6175,13 @@
       "cluster_name": "prolonged_overlap",
       "classification_status": "classified",
       "classification_evidence": [
-        "Overlap duration 1.873s >= threshold 1.000s"
+        "Overlap duration 3.257s >= threshold 1.000s"
       ],
       "followup_matched": false
     },
     {
-      "event_id": "OC0024",
-      "source_overlap_index": 23,
-      "start": 319.559,
-      "end": 320.032,
-      "duration": 0.473,
-      "speakers": [
-        "SPEAKER_00",
-        "SPEAKER_03"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "F",
-      "cluster_name": "unresolved_floor_competition",
-      "classification_status": "provisional",
-      "classification_evidence": [
-        "Multiple speakers overlap.",
-        "No clear first new speaker identified after overlap."
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0025",
-      "source_overlap_index": 24,
+      "event_id": "OC0014",
+      "source_overlap_index": 13,
       "start": 352.28,
       "end": 352.82,
       "duration": 0.54,
@@ -6754,8 +6203,8 @@
       "followup_matched": false
     },
     {
-      "event_id": "OC0026",
-      "source_overlap_index": 25,
+      "event_id": "OC0015",
+      "source_overlap_index": 14,
       "start": 356.836,
       "end": 357.427,
       "duration": 0.591,
@@ -6776,8 +6225,8 @@
       "followup_matched": false
     },
     {
-      "event_id": "OC0027",
-      "source_overlap_index": 26,
+      "event_id": "OC0016",
+      "source_overlap_index": 15,
       "start": 384.393,
       "end": 385.135,
       "duration": 0.742,
@@ -6798,75 +6247,11 @@
       "followup_matched": false
     },
     {
-      "event_id": "OC0028",
-      "source_overlap_index": 27,
+      "event_id": "OC0017",
+      "source_overlap_index": 16,
       "start": 437.093,
-      "end": 438.578,
-      "duration": 1.485,
-      "speakers": [
-        "SPEAKER_04",
-        "SPEAKER_07"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "G",
-      "cluster_name": "prolonged_overlap",
-      "classification_status": "classified",
-      "classification_evidence": [
-        "Overlap duration 1.485s >= threshold 1.000s"
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0029",
-      "source_overlap_index": 28,
-      "start": 439.169,
-      "end": 440.097,
-      "duration": 0.928,
-      "speakers": [
-        "SPEAKER_04",
-        "SPEAKER_07"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "F",
-      "cluster_name": "unresolved_floor_competition",
-      "classification_status": "provisional",
-      "classification_evidence": [
-        "Multiple speakers overlap.",
-        "No clear first new speaker identified after overlap."
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0030",
-      "source_overlap_index": 29,
-      "start": 440.958,
-      "end": 441.97,
-      "duration": 1.012,
-      "speakers": [
-        "SPEAKER_04",
-        "SPEAKER_07"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "G",
-      "cluster_name": "prolonged_overlap",
-      "classification_status": "classified",
-      "classification_evidence": [
-        "Overlap duration 1.012s >= threshold 1.000s"
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0031",
-      "source_overlap_index": 30,
-      "start": 442.223,
       "end": 442.73,
-      "duration": 0.507,
+      "duration": 5.637,
       "speakers": [
         "SPEAKER_04",
         "SPEAKER_07"
@@ -6874,18 +6259,17 @@
       "case": "AGREE",
       "source": "osd",
       "confidence": 1.0,
-      "primary_cluster": "F",
-      "cluster_name": "unresolved_floor_competition",
-      "classification_status": "provisional",
+      "primary_cluster": "G",
+      "cluster_name": "prolonged_overlap",
+      "classification_status": "classified",
       "classification_evidence": [
-        "Multiple speakers overlap.",
-        "No clear first new speaker identified after overlap."
+        "Overlap duration 5.637s >= threshold 1.000s"
       ],
       "followup_matched": false
     },
     {
-      "event_id": "OC0032",
-      "source_overlap_index": 31,
+      "event_id": "OC0018",
+      "source_overlap_index": 17,
       "start": 448.838,
       "end": 449.547,
       "duration": 0.709,
@@ -6906,54 +6290,11 @@
       "followup_matched": false
     },
     {
-      "event_id": "OC0033",
-      "source_overlap_index": 32,
+      "event_id": "OC0019",
+      "source_overlap_index": 18,
       "start": 465.95,
-      "end": 466.743,
-      "duration": 0.793,
-      "speakers": [
-        "SPEAKER_01",
-        "SPEAKER_04"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "F",
-      "cluster_name": "unresolved_floor_competition",
-      "classification_status": "provisional",
-      "classification_evidence": [
-        "Multiple speakers overlap.",
-        "No clear first new speaker identified after overlap."
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0034",
-      "source_overlap_index": 33,
-      "start": 466.945,
-      "end": 469.105,
-      "duration": 2.16,
-      "speakers": [
-        "SPEAKER_01",
-        "SPEAKER_04"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "G",
-      "cluster_name": "prolonged_overlap",
-      "classification_status": "classified",
-      "classification_evidence": [
-        "Overlap duration 2.160s >= threshold 1.000s"
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0035",
-      "source_overlap_index": 34,
-      "start": 469.831,
       "end": 473.122,
-      "duration": 3.291,
+      "duration": 7.172,
       "speakers": [
         "SPEAKER_01",
         "SPEAKER_04"
@@ -6965,13 +6306,13 @@
       "cluster_name": "prolonged_overlap",
       "classification_status": "classified",
       "classification_evidence": [
-        "Overlap duration 3.291s >= threshold 1.000s"
+        "Overlap duration 7.172s >= threshold 1.000s"
       ],
       "followup_matched": false
     },
     {
-      "event_id": "OC0036",
-      "source_overlap_index": 35,
+      "event_id": "OC0020",
+      "source_overlap_index": 19,
       "start": 485.035,
       "end": 487.297,
       "duration": 2.262,
@@ -6991,78 +6332,14 @@
       "followup_matched": false
     },
     {
-      "event_id": "OC0037",
-      "source_overlap_index": 36,
+      "event_id": "OC0021",
+      "source_overlap_index": 20,
       "start": 490.537,
-      "end": 492.46,
-      "duration": 1.923,
+      "end": 512.93,
+      "duration": 22.393,
       "speakers": [
         "SPEAKER_01",
         "SPEAKER_02",
-        "SPEAKER_04"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "G",
-      "cluster_name": "prolonged_overlap",
-      "classification_status": "classified",
-      "classification_evidence": [
-        "Overlap duration 1.923s >= threshold 1.000s"
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0038",
-      "source_overlap_index": 37,
-      "start": 493.591,
-      "end": 498.502,
-      "duration": 4.911,
-      "speakers": [
-        "SPEAKER_01",
-        "SPEAKER_04"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "G",
-      "cluster_name": "prolonged_overlap",
-      "classification_status": "classified",
-      "classification_evidence": [
-        "Overlap duration 4.911s >= threshold 1.000s"
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0039",
-      "source_overlap_index": 38,
-      "start": 498.957,
-      "end": 499.953,
-      "duration": 0.996,
-      "speakers": [
-        "SPEAKER_01",
-        "SPEAKER_04"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "F",
-      "cluster_name": "unresolved_floor_competition",
-      "classification_status": "provisional",
-      "classification_evidence": [
-        "Multiple speakers overlap.",
-        "No clear first new speaker identified after overlap."
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0040",
-      "source_overlap_index": 39,
-      "start": 500.307,
-      "end": 502.535,
-      "duration": 2.228,
-      "speakers": [
-        "SPEAKER_01",
         "SPEAKER_03",
         "SPEAKER_04",
         "SPEAKER_07"
@@ -7074,82 +6351,16 @@
       "cluster_name": "prolonged_overlap",
       "classification_status": "classified",
       "classification_evidence": [
-        "Overlap duration 2.228s >= threshold 1.000s"
+        "Overlap duration 22.393s >= threshold 1.000s"
       ],
       "followup_matched": false
     },
     {
-      "event_id": "OC0041",
-      "source_overlap_index": 40,
-      "start": 502.855,
-      "end": 506.433,
-      "duration": 3.578,
-      "speakers": [
-        "SPEAKER_01",
-        "SPEAKER_04",
-        "SPEAKER_07"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "G",
-      "cluster_name": "prolonged_overlap",
-      "classification_status": "classified",
-      "classification_evidence": [
-        "Overlap duration 3.578s >= threshold 1.000s"
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0042",
-      "source_overlap_index": 41,
-      "start": 506.5,
-      "end": 512.93,
-      "duration": 6.43,
-      "speakers": [
-        "SPEAKER_04",
-        "SPEAKER_07"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "G",
-      "cluster_name": "prolonged_overlap",
-      "classification_status": "classified",
-      "classification_evidence": [
-        "Overlap duration 6.430s >= threshold 1.000s"
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0043",
-      "source_overlap_index": 42,
+      "event_id": "OC0022",
+      "source_overlap_index": 21,
       "start": 519.764,
-      "end": 520.068,
-      "duration": 0.304,
-      "speakers": [
-        "SPEAKER_00",
-        "SPEAKER_04",
-        "SPEAKER_06"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "F",
-      "cluster_name": "unresolved_floor_competition",
-      "classification_status": "provisional",
-      "classification_evidence": [
-        "Multiple speakers overlap.",
-        "No clear first new speaker identified after overlap."
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0044",
-      "source_overlap_index": 43,
-      "start": 520.372,
       "end": 520.827,
-      "duration": 0.455,
+      "duration": 1.063,
       "speakers": [
         "SPEAKER_00",
         "SPEAKER_04",
@@ -7158,21 +6369,20 @@
       "case": "AGREE",
       "source": "osd",
       "confidence": 1.0,
-      "primary_cluster": "F",
-      "cluster_name": "unresolved_floor_competition",
-      "classification_status": "provisional",
+      "primary_cluster": "G",
+      "cluster_name": "prolonged_overlap",
+      "classification_status": "classified",
       "classification_evidence": [
-        "Multiple speakers overlap.",
-        "No clear first new speaker identified after overlap."
+        "Overlap duration 1.063s >= threshold 1.000s"
       ],
       "followup_matched": false
     },
     {
-      "event_id": "OC0045",
-      "source_overlap_index": 44,
+      "event_id": "OC0023",
+      "source_overlap_index": 22,
       "start": 527.105,
-      "end": 528.438,
-      "duration": 1.333,
+      "end": 528.893,
+      "duration": 1.788,
       "speakers": [
         "SPEAKER_02",
         "SPEAKER_06"
@@ -7184,35 +6394,13 @@
       "cluster_name": "prolonged_overlap",
       "classification_status": "classified",
       "classification_evidence": [
-        "Overlap duration 1.333s >= threshold 1.000s"
+        "Overlap duration 1.788s >= threshold 1.000s"
       ],
       "followup_matched": false
     },
     {
-      "event_id": "OC0046",
-      "source_overlap_index": 45,
-      "start": 528.758,
-      "end": 528.893,
-      "duration": 0.135,
-      "speakers": [
-        "SPEAKER_02",
-        "SPEAKER_06"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "F",
-      "cluster_name": "unresolved_floor_competition",
-      "classification_status": "provisional",
-      "classification_evidence": [
-        "Multiple speakers overlap.",
-        "No clear first new speaker identified after overlap."
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0047",
-      "source_overlap_index": 46,
+      "event_id": "OC0024",
+      "source_overlap_index": 23,
       "start": 630.7,
       "end": 632.033,
       "duration": 1.333,
@@ -7232,8 +6420,8 @@
       "followup_matched": false
     },
     {
-      "event_id": "OC0048",
-      "source_overlap_index": 47,
+      "event_id": "OC0025",
+      "source_overlap_index": 24,
       "start": 634.885,
       "end": 638.615,
       "duration": 3.73,
@@ -7254,8 +6442,8 @@
       "followup_matched": false
     },
     {
-      "event_id": "OC0049",
-      "source_overlap_index": 48,
+      "event_id": "OC0026",
+      "source_overlap_index": 25,
       "start": 642.344,
       "end": 645.23,
       "duration": 2.886,
@@ -7275,58 +6463,15 @@
       "followup_matched": false
     },
     {
-      "event_id": "OC0050",
-      "source_overlap_index": 49,
+      "event_id": "OC0027",
+      "source_overlap_index": 26,
       "start": 675.47,
-      "end": 676.432,
-      "duration": 0.962,
-      "speakers": [
-        "SPEAKER_01",
-        "SPEAKER_06"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "F",
-      "cluster_name": "unresolved_floor_competition",
-      "classification_status": "provisional",
-      "classification_evidence": [
-        "Multiple speakers overlap.",
-        "No clear first new speaker identified after overlap."
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0051",
-      "source_overlap_index": 50,
-      "start": 677.697,
-      "end": 678.322,
-      "duration": 0.625,
-      "speakers": [
-        "SPEAKER_01",
-        "SPEAKER_06"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "F",
-      "cluster_name": "unresolved_floor_competition",
-      "classification_status": "provisional",
-      "classification_evidence": [
-        "Multiple speakers overlap.",
-        "No clear first new speaker identified after overlap."
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0052",
-      "source_overlap_index": 51,
-      "start": 678.777,
-      "end": 681.494,
-      "duration": 2.717,
+      "end": 683.013,
+      "duration": 7.543,
       "speakers": [
         "SPEAKER_01",
         "SPEAKER_04",
+        "SPEAKER_06",
         "SPEAKER_07"
       ],
       "case": "AGREE",
@@ -7336,104 +6481,16 @@
       "cluster_name": "prolonged_overlap",
       "classification_status": "classified",
       "classification_evidence": [
-        "Overlap duration 2.717s >= threshold 1.000s"
+        "Overlap duration 7.543s >= threshold 1.000s"
       ],
       "followup_matched": false
     },
     {
-      "event_id": "OC0053",
-      "source_overlap_index": 52,
-      "start": 681.781,
-      "end": 682.22,
-      "duration": 0.439,
-      "speakers": [
-        "SPEAKER_01",
-        "SPEAKER_07"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "F",
-      "cluster_name": "unresolved_floor_competition",
-      "classification_status": "provisional",
-      "classification_evidence": [
-        "Multiple speakers overlap.",
-        "No clear first new speaker identified after overlap."
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0054",
-      "source_overlap_index": 53,
-      "start": 682.574,
-      "end": 683.013,
-      "duration": 0.439,
-      "speakers": [
-        "SPEAKER_01",
-        "SPEAKER_07"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "F",
-      "cluster_name": "unresolved_floor_competition",
-      "classification_status": "provisional",
-      "classification_evidence": [
-        "Multiple speakers overlap.",
-        "No clear first new speaker identified after overlap."
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0055",
-      "source_overlap_index": 54,
+      "event_id": "OC0028",
+      "source_overlap_index": 27,
       "start": 686.388,
-      "end": 687.063,
-      "duration": 0.675,
-      "speakers": [
-        "SPEAKER_01",
-        "SPEAKER_07"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "F",
-      "cluster_name": "unresolved_floor_competition",
-      "classification_status": "provisional",
-      "classification_evidence": [
-        "Multiple speakers overlap.",
-        "No clear first new speaker identified after overlap."
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0056",
-      "source_overlap_index": 55,
-      "start": 687.974,
-      "end": 688.362,
-      "duration": 0.388,
-      "speakers": [
-        "SPEAKER_01",
-        "SPEAKER_07"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "F",
-      "cluster_name": "unresolved_floor_competition",
-      "classification_status": "provisional",
-      "classification_evidence": [
-        "Multiple speakers overlap.",
-        "No clear first new speaker identified after overlap."
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0057",
-      "source_overlap_index": 56,
-      "start": 688.852,
       "end": 689.189,
-      "duration": 0.337,
+      "duration": 2.801,
       "speakers": [
         "SPEAKER_01",
         "SPEAKER_07"
@@ -7441,134 +6498,23 @@
       "case": "AGREE",
       "source": "osd",
       "confidence": 1.0,
-      "primary_cluster": "F",
-      "cluster_name": "unresolved_floor_competition",
-      "classification_status": "provisional",
+      "primary_cluster": "G",
+      "cluster_name": "prolonged_overlap",
+      "classification_status": "classified",
       "classification_evidence": [
-        "Multiple speakers overlap.",
-        "No clear first new speaker identified after overlap."
+        "Overlap duration 2.801s >= threshold 1.000s"
       ],
       "followup_matched": false
     },
     {
-      "event_id": "OC0058",
-      "source_overlap_index": 57,
+      "event_id": "OC0029",
+      "source_overlap_index": 28,
       "start": 694.437,
-      "end": 695.028,
-      "duration": 0.591,
-      "speakers": [
-        "SPEAKER_00",
-        "SPEAKER_01",
-        "SPEAKER_07"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "F",
-      "cluster_name": "unresolved_floor_competition",
-      "classification_status": "provisional",
-      "classification_evidence": [
-        "Multiple speakers overlap.",
-        "No clear first new speaker identified after overlap."
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0059",
-      "source_overlap_index": 58,
-      "start": 695.804,
-      "end": 701.778,
-      "duration": 5.974,
-      "speakers": [
-        "SPEAKER_00",
-        "SPEAKER_01",
-        "SPEAKER_07"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "G",
-      "cluster_name": "prolonged_overlap",
-      "classification_status": "classified",
-      "classification_evidence": [
-        "Overlap duration 5.974s >= threshold 1.000s"
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0060",
-      "source_overlap_index": 59,
-      "start": 702.098,
-      "end": 706.807,
-      "duration": 4.709,
-      "speakers": [
-        "SPEAKER_00",
-        "SPEAKER_01",
-        "SPEAKER_07"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "G",
-      "cluster_name": "prolonged_overlap",
-      "classification_status": "classified",
-      "classification_evidence": [
-        "Overlap duration 4.709s >= threshold 1.000s"
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0061",
-      "source_overlap_index": 60,
-      "start": 707.262,
-      "end": 709.895,
-      "duration": 2.633,
-      "speakers": [
-        "SPEAKER_00",
-        "SPEAKER_02",
-        "SPEAKER_07"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "G",
-      "cluster_name": "prolonged_overlap",
-      "classification_status": "classified",
-      "classification_evidence": [
-        "Overlap duration 2.633s >= threshold 1.000s"
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0062",
-      "source_overlap_index": 61,
-      "start": 710.536,
-      "end": 714.046,
-      "duration": 3.51,
-      "speakers": [
-        "SPEAKER_00",
-        "SPEAKER_02",
-        "SPEAKER_07"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "G",
-      "cluster_name": "prolonged_overlap",
-      "classification_status": "classified",
-      "classification_evidence": [
-        "Overlap duration 3.510s >= threshold 1.000s"
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0063",
-      "source_overlap_index": 62,
-      "start": 715.396,
       "end": 720.273,
-      "duration": 4.877,
+      "duration": 25.836,
       "speakers": [
         "SPEAKER_00",
+        "SPEAKER_01",
         "SPEAKER_02",
         "SPEAKER_05",
         "SPEAKER_07"
@@ -7580,13 +6526,13 @@
       "cluster_name": "prolonged_overlap",
       "classification_status": "classified",
       "classification_evidence": [
-        "Overlap duration 4.877s >= threshold 1.000s"
+        "Overlap duration 25.836s >= threshold 1.000s"
       ],
       "followup_matched": false
     },
     {
-      "event_id": "OC0064",
-      "source_overlap_index": 63,
+      "event_id": "OC0030",
+      "source_overlap_index": 29,
       "start": 723.665,
       "end": 724.441,
       "duration": 0.776,
@@ -7607,8 +6553,8 @@
       "followup_matched": false
     },
     {
-      "event_id": "OC0065",
-      "source_overlap_index": 64,
+      "event_id": "OC0031",
+      "source_overlap_index": 30,
       "start": 793.291,
       "end": 793.932,
       "duration": 0.641,
@@ -7629,8 +6575,8 @@
       "followup_matched": false
     },
     {
-      "event_id": "OC0066",
-      "source_overlap_index": 65,
+      "event_id": "OC0032",
+      "source_overlap_index": 31,
       "start": 796.666,
       "end": 797.695,
       "duration": 1.029,
@@ -7651,8 +6597,8 @@
       "followup_matched": false
     },
     {
-      "event_id": "OC0067",
-      "source_overlap_index": 66,
+      "event_id": "OC0033",
+      "source_overlap_index": 32,
       "start": 825.421,
       "end": 826.923,
       "duration": 1.502,
@@ -7672,11 +6618,11 @@
       "followup_matched": false
     },
     {
-      "event_id": "OC0068",
-      "source_overlap_index": 67,
+      "event_id": "OC0034",
+      "source_overlap_index": 33,
       "start": 856.876,
-      "end": 869.532,
-      "duration": 12.656,
+      "end": 871.388,
+      "duration": 14.512,
       "speakers": [
         "SPEAKER_00",
         "SPEAKER_03",
@@ -7690,126 +6636,16 @@
       "cluster_name": "prolonged_overlap",
       "classification_status": "classified",
       "classification_evidence": [
-        "Overlap duration 12.656s >= threshold 1.000s"
+        "Overlap duration 14.512s >= threshold 1.000s"
       ],
       "followup_matched": false
     },
     {
-      "event_id": "OC0069",
-      "source_overlap_index": 68,
-      "start": 869.583,
-      "end": 869.701,
-      "duration": 0.118,
-      "speakers": [
-        "SPEAKER_03",
-        "SPEAKER_07"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "F",
-      "cluster_name": "unresolved_floor_competition",
-      "classification_status": "provisional",
-      "classification_evidence": [
-        "Multiple speakers overlap.",
-        "No clear first new speaker identified after overlap."
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0070",
-      "source_overlap_index": 69,
-      "start": 869.785,
-      "end": 870.022,
-      "duration": 0.237,
-      "speakers": [
-        "SPEAKER_03",
-        "SPEAKER_07"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "F",
-      "cluster_name": "unresolved_floor_competition",
-      "classification_status": "provisional",
-      "classification_evidence": [
-        "Multiple speakers overlap.",
-        "No clear first new speaker identified after overlap."
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0071",
-      "source_overlap_index": 70,
-      "start": 871.186,
-      "end": 871.388,
-      "duration": 0.202,
-      "speakers": [
-        "SPEAKER_00",
-        "SPEAKER_03",
-        "SPEAKER_07"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "F",
-      "cluster_name": "unresolved_floor_competition",
-      "classification_status": "provisional",
-      "classification_evidence": [
-        "Multiple speakers overlap.",
-        "No clear first new speaker identified after overlap."
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0072",
-      "source_overlap_index": 71,
+      "event_id": "OC0035",
+      "source_overlap_index": 34,
       "start": 872.89,
-      "end": 873.43,
-      "duration": 0.54,
-      "speakers": [
-        "SPEAKER_03",
-        "SPEAKER_07"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "F",
-      "cluster_name": "unresolved_floor_competition",
-      "classification_status": "provisional",
-      "classification_evidence": [
-        "Multiple speakers overlap.",
-        "No clear first new speaker identified after overlap."
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0073",
-      "source_overlap_index": 72,
-      "start": 874.645,
-      "end": 879.488,
-      "duration": 4.843,
-      "speakers": [
-        "SPEAKER_03",
-        "SPEAKER_07"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "G",
-      "cluster_name": "prolonged_overlap",
-      "classification_status": "classified",
-      "classification_evidence": [
-        "Overlap duration 4.843s >= threshold 1.000s"
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0074",
-      "source_overlap_index": 73,
-      "start": 880.771,
       "end": 886.205,
-      "duration": 5.434,
+      "duration": 13.315,
       "speakers": [
         "SPEAKER_00",
         "SPEAKER_02",
@@ -7823,13 +6659,13 @@
       "cluster_name": "prolonged_overlap",
       "classification_status": "classified",
       "classification_evidence": [
-        "Overlap duration 5.434s >= threshold 1.000s"
+        "Overlap duration 13.315s >= threshold 1.000s"
       ],
       "followup_matched": false
     },
     {
-      "event_id": "OC0075",
-      "source_overlap_index": 74,
+      "event_id": "OC0036",
+      "source_overlap_index": 35,
       "start": 897.41,
       "end": 897.967,
       "duration": 0.557,
@@ -7850,8 +6686,8 @@
       "followup_matched": false
     },
     {
-      "event_id": "OC0076",
-      "source_overlap_index": 75,
+      "event_id": "OC0037",
+      "source_overlap_index": 36,
       "start": 910.792,
       "end": 911.298,
       "duration": 0.506,
@@ -7872,8 +6708,8 @@
       "followup_matched": false
     },
     {
-      "event_id": "OC0077",
-      "source_overlap_index": 76,
+      "event_id": "OC0038",
+      "source_overlap_index": 37,
       "start": 939.158,
       "end": 939.884,
       "duration": 0.726,
@@ -7894,11 +6730,11 @@
       "followup_matched": false
     },
     {
-      "event_id": "OC0078",
-      "source_overlap_index": 77,
+      "event_id": "OC0039",
+      "source_overlap_index": 38,
       "start": 948.237,
-      "end": 949.385,
-      "duration": 1.148,
+      "end": 952.574,
+      "duration": 4.337,
       "speakers": [
         "SPEAKER_03",
         "SPEAKER_07"
@@ -7910,82 +6746,16 @@
       "cluster_name": "prolonged_overlap",
       "classification_status": "classified",
       "classification_evidence": [
-        "Overlap duration 1.148s >= threshold 1.000s"
+        "Overlap duration 4.337s >= threshold 1.000s"
       ],
       "followup_matched": false
     },
     {
-      "event_id": "OC0079",
-      "source_overlap_index": 78,
-      "start": 950.414,
-      "end": 951.376,
-      "duration": 0.962,
-      "speakers": [
-        "SPEAKER_03",
-        "SPEAKER_07"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "F",
-      "cluster_name": "unresolved_floor_competition",
-      "classification_status": "provisional",
-      "classification_evidence": [
-        "Multiple speakers overlap.",
-        "No clear first new speaker identified after overlap."
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0080",
-      "source_overlap_index": 79,
-      "start": 951.899,
-      "end": 952.574,
-      "duration": 0.675,
-      "speakers": [
-        "SPEAKER_03",
-        "SPEAKER_07"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "F",
-      "cluster_name": "unresolved_floor_competition",
-      "classification_status": "provisional",
-      "classification_evidence": [
-        "Multiple speakers overlap.",
-        "No clear first new speaker identified after overlap."
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0081",
-      "source_overlap_index": 80,
+      "event_id": "OC0040",
+      "source_overlap_index": 39,
       "start": 954.076,
-      "end": 954.245,
-      "duration": 0.169,
-      "speakers": [
-        "SPEAKER_03",
-        "SPEAKER_07"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "F",
-      "cluster_name": "unresolved_floor_competition",
-      "classification_status": "provisional",
-      "classification_evidence": [
-        "Multiple speakers overlap.",
-        "No clear first new speaker identified after overlap."
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0082",
-      "source_overlap_index": 81,
-      "start": 954.447,
       "end": 954.734,
-      "duration": 0.287,
+      "duration": 0.658,
       "speakers": [
         "SPEAKER_03",
         "SPEAKER_07"
@@ -8003,8 +6773,8 @@
       "followup_matched": false
     },
     {
-      "event_id": "OC0083",
-      "source_overlap_index": 82,
+      "event_id": "OC0041",
+      "source_overlap_index": 40,
       "start": 971.845,
       "end": 972.605,
       "duration": 0.76,
@@ -8025,8 +6795,8 @@
       "followup_matched": false
     },
     {
-      "event_id": "OC0084",
-      "source_overlap_index": 83,
+      "event_id": "OC0042",
+      "source_overlap_index": 41,
       "start": 984.333,
       "end": 990.307,
       "duration": 5.974,
@@ -8047,8 +6817,8 @@
       "followup_matched": false
     },
     {
-      "event_id": "OC0085",
-      "source_overlap_index": 84,
+      "event_id": "OC0043",
+      "source_overlap_index": 42,
       "start": 992.77,
       "end": 994.205,
       "duration": 1.435,
@@ -8068,8 +6838,8 @@
       "followup_matched": false
     },
     {
-      "event_id": "OC0086",
-      "source_overlap_index": 85,
+      "event_id": "OC0044",
+      "source_overlap_index": 43,
       "start": 996.685,
       "end": 998.643,
       "duration": 1.958,
@@ -8089,54 +6859,11 @@
       "followup_matched": false
     },
     {
-      "event_id": "OC0087",
-      "source_overlap_index": 86,
+      "event_id": "OC0045",
+      "source_overlap_index": 44,
       "start": 1032.022,
-      "end": 1032.325,
-      "duration": 0.303,
-      "speakers": [
-        "SPEAKER_01",
-        "SPEAKER_03"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "F",
-      "cluster_name": "unresolved_floor_competition",
-      "classification_status": "provisional",
-      "classification_evidence": [
-        "Multiple speakers overlap.",
-        "No clear first new speaker identified after overlap."
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0088",
-      "source_overlap_index": 87,
-      "start": 1032.68,
-      "end": 1034.114,
-      "duration": 1.434,
-      "speakers": [
-        "SPEAKER_01",
-        "SPEAKER_03"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "G",
-      "cluster_name": "prolonged_overlap",
-      "classification_status": "classified",
-      "classification_evidence": [
-        "Overlap duration 1.434s >= threshold 1.000s"
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0089",
-      "source_overlap_index": 88,
-      "start": 1034.519,
       "end": 1035.953,
-      "duration": 1.434,
+      "duration": 3.931,
       "speakers": [
         "SPEAKER_01",
         "SPEAKER_03"
@@ -8148,13 +6875,13 @@
       "cluster_name": "prolonged_overlap",
       "classification_status": "classified",
       "classification_evidence": [
-        "Overlap duration 1.434s >= threshold 1.000s"
+        "Overlap duration 3.931s >= threshold 1.000s"
       ],
       "followup_matched": false
     },
     {
-      "event_id": "OC0090",
-      "source_overlap_index": 89,
+      "event_id": "OC0046",
+      "source_overlap_index": 45,
       "start": 1037.995,
       "end": 1038.603,
       "duration": 0.608,
@@ -8175,8 +6902,8 @@
       "followup_matched": false
     },
     {
-      "event_id": "OC0091",
-      "source_overlap_index": 90,
+      "event_id": "OC0047",
+      "source_overlap_index": 46,
       "start": 1054.651,
       "end": 1056.322,
       "duration": 1.671,
@@ -8198,11 +6925,11 @@
       "followup_matched": false
     },
     {
-      "event_id": "OC0092",
-      "source_overlap_index": 91,
+      "event_id": "OC0048",
+      "source_overlap_index": 47,
       "start": 1058.414,
-      "end": 1058.701,
-      "duration": 0.287,
+      "end": 1062.987,
+      "duration": 4.573,
       "speakers": [
         "SPEAKER_01",
         "SPEAKER_03"
@@ -8210,61 +6937,17 @@
       "case": "DIARIZATION_ONLY",
       "source": "diarization",
       "confidence": 0.6,
-      "primary_cluster": "F",
-      "cluster_name": "unresolved_floor_competition",
-      "classification_status": "provisional",
-      "classification_evidence": [
-        "Multiple speakers overlap.",
-        "No clear first new speaker identified after overlap."
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0093",
-      "source_overlap_index": 92,
-      "start": 1058.515,
-      "end": 1058.65,
-      "duration": 0.135,
-      "speakers": [
-        "SPEAKER_01",
-        "SPEAKER_03"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "F",
-      "cluster_name": "unresolved_floor_competition",
-      "classification_status": "provisional",
-      "classification_evidence": [
-        "Multiple speakers overlap.",
-        "No clear first new speaker identified after overlap."
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0094",
-      "source_overlap_index": 93,
-      "start": 1059.697,
-      "end": 1062.987,
-      "duration": 3.29,
-      "speakers": [
-        "SPEAKER_01",
-        "SPEAKER_03"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
       "primary_cluster": "G",
       "cluster_name": "prolonged_overlap",
       "classification_status": "classified",
       "classification_evidence": [
-        "Overlap duration 3.290s >= threshold 1.000s"
+        "Overlap duration 4.573s >= threshold 1.000s"
       ],
       "followup_matched": false
     },
     {
-      "event_id": "OC0095",
-      "source_overlap_index": 94,
+      "event_id": "OC0049",
+      "source_overlap_index": 48,
       "start": 1065.518,
       "end": 1069.383,
       "duration": 3.865,
@@ -8285,101 +6968,15 @@
       "followup_matched": false
     },
     {
-      "event_id": "OC0096",
-      "source_overlap_index": 95,
+      "event_id": "OC0050",
+      "source_overlap_index": 49,
       "start": 1071.509,
-      "end": 1072.471,
-      "duration": 0.962,
-      "speakers": [
-        "SPEAKER_00",
-        "SPEAKER_03",
-        "SPEAKER_07"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "F",
-      "cluster_name": "unresolved_floor_competition",
-      "classification_status": "provisional",
-      "classification_evidence": [
-        "Multiple speakers overlap.",
-        "No clear first new speaker identified after overlap."
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0097",
-      "source_overlap_index": 96,
-      "start": 1073.062,
-      "end": 1074.867,
-      "duration": 1.805,
-      "speakers": [
-        "SPEAKER_00",
-        "SPEAKER_03",
-        "SPEAKER_07"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "G",
-      "cluster_name": "prolonged_overlap",
-      "classification_status": "classified",
-      "classification_evidence": [
-        "Overlap duration 1.805s >= threshold 1.000s"
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0098",
-      "source_overlap_index": 97,
-      "start": 1075.407,
-      "end": 1077.702,
-      "duration": 2.295,
-      "speakers": [
-        "SPEAKER_00",
-        "SPEAKER_07"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "G",
-      "cluster_name": "prolonged_overlap",
-      "classification_status": "classified",
-      "classification_evidence": [
-        "Overlap duration 2.295s >= threshold 1.000s"
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0099",
-      "source_overlap_index": 98,
-      "start": 1078.225,
-      "end": 1079.288,
-      "duration": 1.063,
-      "speakers": [
-        "SPEAKER_00",
-        "SPEAKER_07"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "G",
-      "cluster_name": "prolonged_overlap",
-      "classification_status": "classified",
-      "classification_evidence": [
-        "Overlap duration 1.063s >= threshold 1.000s"
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0100",
-      "source_overlap_index": 99,
-      "start": 1079.727,
       "end": 1081.128,
-      "duration": 1.401,
+      "duration": 9.619,
       "speakers": [
         "SPEAKER_00",
         "SPEAKER_01",
+        "SPEAKER_03",
         "SPEAKER_07"
       ],
       "case": "AGREE",
@@ -8389,38 +6986,16 @@
       "cluster_name": "prolonged_overlap",
       "classification_status": "classified",
       "classification_evidence": [
-        "Overlap duration 1.401s >= threshold 1.000s"
+        "Overlap duration 9.619s >= threshold 1.000s"
       ],
       "followup_matched": false
     },
     {
-      "event_id": "OC0101",
-      "source_overlap_index": 100,
+      "event_id": "OC0051",
+      "source_overlap_index": 50,
       "start": 1124.176,
-      "end": 1124.547,
-      "duration": 0.371,
-      "speakers": [
-        "SPEAKER_01",
-        "SPEAKER_07"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "F",
-      "cluster_name": "unresolved_floor_competition",
-      "classification_status": "provisional",
-      "classification_evidence": [
-        "Multiple speakers overlap.",
-        "No clear first new speaker identified after overlap."
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0102",
-      "source_overlap_index": 101,
-      "start": 1125.56,
       "end": 1125.762,
-      "duration": 0.202,
+      "duration": 1.586,
       "speakers": [
         "SPEAKER_01",
         "SPEAKER_07"
@@ -8428,42 +7003,20 @@
       "case": "AGREE",
       "source": "osd",
       "confidence": 1.0,
-      "primary_cluster": "F",
-      "cluster_name": "unresolved_floor_competition",
-      "classification_status": "provisional",
+      "primary_cluster": "G",
+      "cluster_name": "prolonged_overlap",
+      "classification_status": "classified",
       "classification_evidence": [
-        "Multiple speakers overlap.",
-        "No clear first new speaker identified after overlap."
+        "Overlap duration 1.586s >= threshold 1.000s"
       ],
       "followup_matched": false
     },
     {
-      "event_id": "OC0103",
-      "source_overlap_index": 102,
+      "event_id": "OC0052",
+      "source_overlap_index": 51,
       "start": 1130.082,
-      "end": 1139.785,
-      "duration": 9.703,
-      "speakers": [
-        "SPEAKER_01",
-        "SPEAKER_07"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "G",
-      "cluster_name": "prolonged_overlap",
-      "classification_status": "classified",
-      "classification_evidence": [
-        "Overlap duration 9.703s >= threshold 1.000s"
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0104",
-      "source_overlap_index": 103,
-      "start": 1140.747,
       "end": 1142.3,
-      "duration": 1.553,
+      "duration": 12.218,
       "speakers": [
         "SPEAKER_01",
         "SPEAKER_07"
@@ -8475,13 +7028,13 @@
       "cluster_name": "prolonged_overlap",
       "classification_status": "classified",
       "classification_evidence": [
-        "Overlap duration 1.553s >= threshold 1.000s"
+        "Overlap duration 12.218s >= threshold 1.000s"
       ],
       "followup_matched": false
     },
     {
-      "event_id": "OC0105",
-      "source_overlap_index": 104,
+      "event_id": "OC0053",
+      "source_overlap_index": 52,
       "start": 1147.328,
       "end": 1147.987,
       "duration": 0.659,
@@ -8503,8 +7056,8 @@
       "followup_matched": false
     },
     {
-      "event_id": "OC0106",
-      "source_overlap_index": 105,
+      "event_id": "OC0054",
+      "source_overlap_index": 53,
       "start": 1153.808,
       "end": 1154.517,
       "duration": 0.709,
@@ -8526,33 +7079,11 @@
       "followup_matched": false
     },
     {
-      "event_id": "OC0107",
-      "source_overlap_index": 106,
+      "event_id": "OC0055",
+      "source_overlap_index": 54,
       "start": 1156.39,
-      "end": 1157.099,
-      "duration": 0.709,
-      "speakers": [
-        "SPEAKER_01",
-        "SPEAKER_07"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "F",
-      "cluster_name": "unresolved_floor_competition",
-      "classification_status": "provisional",
-      "classification_evidence": [
-        "Multiple speakers overlap.",
-        "No clear first new speaker identified after overlap."
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0108",
-      "source_overlap_index": 107,
-      "start": 1157.437,
       "end": 1169.097,
-      "duration": 11.66,
+      "duration": 12.707,
       "speakers": [
         "SPEAKER_00",
         "SPEAKER_01",
@@ -8566,37 +7097,16 @@
       "cluster_name": "prolonged_overlap",
       "classification_status": "classified",
       "classification_evidence": [
-        "Overlap duration 11.660s >= threshold 1.000s"
+        "Overlap duration 12.707s >= threshold 1.000s"
       ],
       "followup_matched": false
     },
     {
-      "event_id": "OC0109",
-      "source_overlap_index": 108,
+      "event_id": "OC0056",
+      "source_overlap_index": 55,
       "start": 1239.652,
-      "end": 1240.816,
-      "duration": 1.164,
-      "speakers": [
-        "SPEAKER_03",
-        "SPEAKER_07"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "G",
-      "cluster_name": "prolonged_overlap",
-      "classification_status": "classified",
-      "classification_evidence": [
-        "Overlap duration 1.164s >= threshold 1.000s"
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0110",
-      "source_overlap_index": 109,
-      "start": 1241.542,
       "end": 1244.377,
-      "duration": 2.835,
+      "duration": 4.725,
       "speakers": [
         "SPEAKER_03",
         "SPEAKER_07"
@@ -8608,13 +7118,13 @@
       "cluster_name": "prolonged_overlap",
       "classification_status": "classified",
       "classification_evidence": [
-        "Overlap duration 2.835s >= threshold 1.000s"
+        "Overlap duration 4.725s >= threshold 1.000s"
       ],
       "followup_matched": false
     },
     {
-      "event_id": "OC0111",
-      "source_overlap_index": 110,
+      "event_id": "OC0057",
+      "source_overlap_index": 56,
       "start": 1248.545,
       "end": 1251.43,
       "duration": 2.885,
@@ -8634,8 +7144,8 @@
       "followup_matched": false
     },
     {
-      "event_id": "OC0112",
-      "source_overlap_index": 111,
+      "event_id": "OC0058",
+      "source_overlap_index": 57,
       "start": 1262.585,
       "end": 1267.006,
       "duration": 4.421,
@@ -8655,8 +7165,8 @@
       "followup_matched": false
     },
     {
-      "event_id": "OC0113",
-      "source_overlap_index": 112,
+      "event_id": "OC0059",
+      "source_overlap_index": 58,
       "start": 1335.13,
       "end": 1335.991,
       "duration": 0.861,
@@ -8677,8 +7187,8 @@
       "followup_matched": false
     },
     {
-      "event_id": "OC0114",
-      "source_overlap_index": 113,
+      "event_id": "OC0060",
+      "source_overlap_index": 59,
       "start": 1337.51,
       "end": 1338.927,
       "duration": 1.417,
@@ -8698,8 +7208,8 @@
       "followup_matched": false
     },
     {
-      "event_id": "OC0115",
-      "source_overlap_index": 114,
+      "event_id": "OC0061",
+      "source_overlap_index": 60,
       "start": 1414.055,
       "end": 1415.523,
       "duration": 1.468,
@@ -8719,55 +7229,35 @@
       "followup_matched": false
     },
     {
-      "event_id": "OC0116",
-      "source_overlap_index": 115,
+      "event_id": "OC0062",
+      "source_overlap_index": 61,
       "start": 1422.745,
-      "end": 1426.357,
-      "duration": 3.612,
-      "speakers": [
-        "SPEAKER_02",
-        "SPEAKER_06"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "G",
-      "cluster_name": "prolonged_overlap",
-      "classification_status": "classified",
-      "classification_evidence": [
-        "Overlap duration 3.612s >= threshold 1.000s"
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0117",
-      "source_overlap_index": 116,
-      "start": 1426.846,
-      "end": 1429.867,
-      "duration": 3.021,
-      "speakers": [
-        "SPEAKER_02",
-        "SPEAKER_06"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "G",
-      "cluster_name": "prolonged_overlap",
-      "classification_status": "classified",
-      "classification_evidence": [
-        "Overlap duration 3.021s >= threshold 1.000s"
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0118",
-      "source_overlap_index": 117,
-      "start": 1430.845,
       "end": 1436.06,
-      "duration": 5.215,
+      "duration": 13.315,
       "speakers": [
         "SPEAKER_02",
+        "SPEAKER_05",
+        "SPEAKER_06",
+        "SPEAKER_07"
+      ],
+      "case": "AGREE",
+      "source": "osd",
+      "confidence": 1.0,
+      "primary_cluster": "G",
+      "cluster_name": "prolonged_overlap",
+      "classification_status": "classified",
+      "classification_evidence": [
+        "Overlap duration 13.315s >= threshold 1.000s"
+      ],
+      "followup_matched": false
+    },
+    {
+      "event_id": "OC0063",
+      "source_overlap_index": 62,
+      "start": 1437.848,
+      "end": 1439.671,
+      "duration": 1.823,
+      "speakers": [
         "SPEAKER_05",
         "SPEAKER_07"
       ],
@@ -8778,57 +7268,13 @@
       "cluster_name": "prolonged_overlap",
       "classification_status": "classified",
       "classification_evidence": [
-        "Overlap duration 5.215s >= threshold 1.000s"
+        "Overlap duration 1.823s >= threshold 1.000s"
       ],
       "followup_matched": false
     },
     {
-      "event_id": "OC0119",
-      "source_overlap_index": 118,
-      "start": 1437.848,
-      "end": 1438.658,
-      "duration": 0.81,
-      "speakers": [
-        "SPEAKER_05",
-        "SPEAKER_07"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "F",
-      "cluster_name": "unresolved_floor_competition",
-      "classification_status": "provisional",
-      "classification_evidence": [
-        "Multiple speakers overlap.",
-        "No clear first new speaker identified after overlap."
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0120",
-      "source_overlap_index": 119,
-      "start": 1438.945,
-      "end": 1439.671,
-      "duration": 0.726,
-      "speakers": [
-        "SPEAKER_05",
-        "SPEAKER_07"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "F",
-      "cluster_name": "unresolved_floor_competition",
-      "classification_status": "provisional",
-      "classification_evidence": [
-        "Multiple speakers overlap.",
-        "No clear first new speaker identified after overlap."
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0121",
-      "source_overlap_index": 120,
+      "event_id": "OC0064",
+      "source_overlap_index": 63,
       "start": 1510.073,
       "end": 1511.643,
       "duration": 1.57,
@@ -8848,8 +7294,8 @@
       "followup_matched": false
     },
     {
-      "event_id": "OC0122",
-      "source_overlap_index": 121,
+      "event_id": "OC0065",
+      "source_overlap_index": 64,
       "start": 1514.36,
       "end": 1516.402,
       "duration": 2.042,
@@ -8869,11 +7315,11 @@
       "followup_matched": false
     },
     {
-      "event_id": "OC0123",
-      "source_overlap_index": 122,
+      "event_id": "OC0066",
+      "source_overlap_index": 65,
       "start": 1563.331,
-      "end": 1571.026,
-      "duration": 7.695,
+      "end": 1579.632,
+      "duration": 16.301,
       "speakers": [
         "SPEAKER_00",
         "SPEAKER_01",
@@ -8886,98 +7332,13 @@
       "cluster_name": "prolonged_overlap",
       "classification_status": "classified",
       "classification_evidence": [
-        "Overlap duration 7.695s >= threshold 1.000s"
+        "Overlap duration 16.301s >= threshold 1.000s"
       ],
       "followup_matched": false
     },
     {
-      "event_id": "OC0124",
-      "source_overlap_index": 123,
-      "start": 1571.802,
-      "end": 1573.034,
-      "duration": 1.232,
-      "speakers": [
-        "SPEAKER_01",
-        "SPEAKER_07"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "G",
-      "cluster_name": "prolonged_overlap",
-      "classification_status": "classified",
-      "classification_evidence": [
-        "Overlap duration 1.232s >= threshold 1.000s"
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0125",
-      "source_overlap_index": 124,
-      "start": 1573.203,
-      "end": 1573.692,
-      "duration": 0.489,
-      "speakers": [
-        "SPEAKER_01",
-        "SPEAKER_07"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "F",
-      "cluster_name": "unresolved_floor_competition",
-      "classification_status": "provisional",
-      "classification_evidence": [
-        "Multiple speakers overlap.",
-        "No clear first new speaker identified after overlap."
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0126",
-      "source_overlap_index": 125,
-      "start": 1575.025,
-      "end": 1576.561,
-      "duration": 1.536,
-      "speakers": [
-        "SPEAKER_01",
-        "SPEAKER_07"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "G",
-      "cluster_name": "prolonged_overlap",
-      "classification_status": "classified",
-      "classification_evidence": [
-        "Overlap duration 1.536s >= threshold 1.000s"
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0127",
-      "source_overlap_index": 126,
-      "start": 1577.573,
-      "end": 1579.632,
-      "duration": 2.059,
-      "speakers": [
-        "SPEAKER_01",
-        "SPEAKER_07"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "G",
-      "cluster_name": "prolonged_overlap",
-      "classification_status": "classified",
-      "classification_evidence": [
-        "Overlap duration 2.059s >= threshold 1.000s"
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0128",
-      "source_overlap_index": 127,
+      "event_id": "OC0067",
+      "source_overlap_index": 66,
       "start": 1581.877,
       "end": 1582.568,
       "duration": 0.691,
@@ -8998,11 +7359,11 @@
       "followup_matched": false
     },
     {
-      "event_id": "OC0129",
-      "source_overlap_index": 128,
+      "event_id": "OC0068",
+      "source_overlap_index": 67,
       "start": 1584.273,
-      "end": 1585.488,
-      "duration": 1.215,
+      "end": 1587.007,
+      "duration": 2.734,
       "speakers": [
         "SPEAKER_02",
         "SPEAKER_07"
@@ -9014,80 +7375,36 @@
       "cluster_name": "prolonged_overlap",
       "classification_status": "classified",
       "classification_evidence": [
-        "Overlap duration 1.215s >= threshold 1.000s"
+        "Overlap duration 2.734s >= threshold 1.000s"
       ],
       "followup_matched": false
     },
     {
-      "event_id": "OC0130",
-      "source_overlap_index": 129,
-      "start": 1586.551,
-      "end": 1587.007,
-      "duration": 0.456,
-      "speakers": [
-        "SPEAKER_02",
-        "SPEAKER_07"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "F",
-      "cluster_name": "unresolved_floor_competition",
-      "classification_status": "provisional",
-      "classification_evidence": [
-        "Multiple speakers overlap.",
-        "No clear first new speaker identified after overlap."
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0131",
-      "source_overlap_index": 130,
+      "event_id": "OC0069",
+      "source_overlap_index": 68,
       "start": 1590.145,
-      "end": 1591.057,
-      "duration": 0.912,
-      "speakers": [
-        "SPEAKER_04",
-        "SPEAKER_07"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "F",
-      "cluster_name": "unresolved_floor_competition",
-      "classification_status": "provisional",
-      "classification_evidence": [
-        "Multiple speakers overlap.",
-        "No clear first new speaker identified after overlap."
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0132",
-      "source_overlap_index": 131,
-      "start": 1591.563,
       "end": 1591.968,
-      "duration": 0.405,
+      "duration": 1.823,
       "speakers": [
         "SPEAKER_02",
+        "SPEAKER_04",
         "SPEAKER_06",
         "SPEAKER_07"
       ],
       "case": "AGREE",
       "source": "osd",
       "confidence": 1.0,
-      "primary_cluster": "F",
-      "cluster_name": "unresolved_floor_competition",
-      "classification_status": "provisional",
+      "primary_cluster": "G",
+      "cluster_name": "prolonged_overlap",
+      "classification_status": "classified",
       "classification_evidence": [
-        "Multiple speakers overlap.",
-        "No clear first new speaker identified after overlap."
+        "Overlap duration 1.823s >= threshold 1.000s"
       ],
       "followup_matched": false
     },
     {
-      "event_id": "OC0133",
-      "source_overlap_index": 132,
+      "event_id": "OC0070",
+      "source_overlap_index": 69,
       "start": 1607.425,
       "end": 1608.083,
       "duration": 0.658,
@@ -9108,8 +7425,8 @@
       "followup_matched": false
     },
     {
-      "event_id": "OC0134",
-      "source_overlap_index": 133,
+      "event_id": "OC0071",
+      "source_overlap_index": 70,
       "start": 1612.808,
       "end": 1614.04,
       "duration": 1.232,
@@ -9130,76 +7447,11 @@
       "followup_matched": false
     },
     {
-      "event_id": "OC0135",
-      "source_overlap_index": 134,
+      "event_id": "OC0072",
+      "source_overlap_index": 71,
       "start": 1619.913,
-      "end": 1622.528,
-      "duration": 2.615,
-      "speakers": [
-        "SPEAKER_01",
-        "SPEAKER_07"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "G",
-      "cluster_name": "prolonged_overlap",
-      "classification_status": "classified",
-      "classification_evidence": [
-        "Overlap duration 2.615s >= threshold 1.000s"
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0136",
-      "source_overlap_index": 135,
-      "start": 1622.714,
-      "end": 1622.917,
-      "duration": 0.203,
-      "speakers": [
-        "SPEAKER_01",
-        "SPEAKER_07"
-      ],
-      "case": "DIARIZATION_ONLY",
-      "source": "diarization",
-      "confidence": 0.6,
-      "primary_cluster": "F",
-      "cluster_name": "unresolved_floor_competition",
-      "classification_status": "provisional",
-      "classification_evidence": [
-        "Multiple speakers overlap.",
-        "No clear first new speaker identified after overlap."
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0137",
-      "source_overlap_index": 136,
-      "start": 1623.355,
-      "end": 1623.811,
-      "duration": 0.456,
-      "speakers": [
-        "SPEAKER_01",
-        "SPEAKER_07"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "F",
-      "cluster_name": "unresolved_floor_competition",
-      "classification_status": "provisional",
-      "classification_evidence": [
-        "Multiple speakers overlap.",
-        "No clear first new speaker identified after overlap."
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0138",
-      "source_overlap_index": 137,
-      "start": 1624.553,
       "end": 1624.756,
-      "duration": 0.203,
+      "duration": 4.843,
       "speakers": [
         "SPEAKER_01",
         "SPEAKER_07"
@@ -9207,21 +7459,20 @@
       "case": "AGREE",
       "source": "osd",
       "confidence": 1.0,
-      "primary_cluster": "F",
-      "cluster_name": "unresolved_floor_competition",
-      "classification_status": "provisional",
+      "primary_cluster": "G",
+      "cluster_name": "prolonged_overlap",
+      "classification_status": "classified",
       "classification_evidence": [
-        "Multiple speakers overlap.",
-        "No clear first new speaker identified after overlap."
+        "Overlap duration 4.843s >= threshold 1.000s"
       ],
       "followup_matched": false
     },
     {
-      "event_id": "OC0139",
-      "source_overlap_index": 138,
+      "event_id": "OC0073",
+      "source_overlap_index": 72,
       "start": 1626.376,
-      "end": 1627.642,
-      "duration": 1.266,
+      "end": 1629.599,
+      "duration": 3.223,
       "speakers": [
         "SPEAKER_04",
         "SPEAKER_07"
@@ -9233,35 +7484,13 @@
       "cluster_name": "prolonged_overlap",
       "classification_status": "classified",
       "classification_evidence": [
-        "Overlap duration 1.266s >= threshold 1.000s"
+        "Overlap duration 3.223s >= threshold 1.000s"
       ],
       "followup_matched": false
     },
     {
-      "event_id": "OC0140",
-      "source_overlap_index": 139,
-      "start": 1628.806,
-      "end": 1629.599,
-      "duration": 0.793,
-      "speakers": [
-        "SPEAKER_04",
-        "SPEAKER_07"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "F",
-      "cluster_name": "unresolved_floor_competition",
-      "classification_status": "provisional",
-      "classification_evidence": [
-        "Multiple speakers overlap.",
-        "No clear first new speaker identified after overlap."
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0141",
-      "source_overlap_index": 140,
+      "event_id": "OC0074",
+      "source_overlap_index": 73,
       "start": 1633.193,
       "end": 1633.717,
       "duration": 0.524,
@@ -9282,33 +7511,11 @@
       "followup_matched": false
     },
     {
-      "event_id": "OC0142",
-      "source_overlap_index": 141,
+      "event_id": "OC0075",
+      "source_overlap_index": 74,
       "start": 1637.007,
-      "end": 1637.497,
-      "duration": 0.49,
-      "speakers": [
-        "SPEAKER_04",
-        "SPEAKER_07"
-      ],
-      "case": "AGREE",
-      "source": "osd",
-      "confidence": 1.0,
-      "primary_cluster": "F",
-      "cluster_name": "unresolved_floor_competition",
-      "classification_status": "provisional",
-      "classification_evidence": [
-        "Multiple speakers overlap.",
-        "No clear first new speaker identified after overlap."
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0143",
-      "source_overlap_index": 142,
-      "start": 1638.965,
       "end": 1639.538,
-      "duration": 0.573,
+      "duration": 2.531,
       "speakers": [
         "SPEAKER_04",
         "SPEAKER_07"
@@ -9316,18 +7523,17 @@
       "case": "AGREE",
       "source": "osd",
       "confidence": 1.0,
-      "primary_cluster": "F",
-      "cluster_name": "unresolved_floor_competition",
-      "classification_status": "provisional",
+      "primary_cluster": "G",
+      "cluster_name": "prolonged_overlap",
+      "classification_status": "classified",
       "classification_evidence": [
-        "Multiple speakers overlap.",
-        "No clear first new speaker identified after overlap."
+        "Overlap duration 2.531s >= threshold 1.000s"
       ],
       "followup_matched": false
     },
     {
-      "event_id": "OC0144",
-      "source_overlap_index": 143,
+      "event_id": "OC0076",
+      "source_overlap_index": 75,
       "start": 1653.359,
       "end": 1653.899,
       "duration": 0.54,
@@ -9349,8 +7555,8 @@
       "followup_matched": false
     },
     {
-      "event_id": "OC0145",
-      "source_overlap_index": 144,
+      "event_id": "OC0077",
+      "source_overlap_index": 76,
       "start": 1655.401,
       "end": 1658.101,
       "duration": 2.7,
@@ -9370,8 +7576,8 @@
       "followup_matched": false
     },
     {
-      "event_id": "OC0146",
-      "source_overlap_index": 145,
+      "event_id": "OC0078",
+      "source_overlap_index": 77,
       "start": 1665.593,
       "end": 1666.775,
       "duration": 1.182,
@@ -9391,11 +7597,11 @@
       "followup_matched": false
     },
     {
-      "event_id": "OC0147",
-      "source_overlap_index": 146,
+      "event_id": "OC0079",
+      "source_overlap_index": 78,
       "start": 1681.085,
-      "end": 1682.924,
-      "duration": 1.839,
+      "end": 1683.16,
+      "duration": 2.075,
       "speakers": [
         "SPEAKER_00",
         "SPEAKER_02",
@@ -9408,29 +7614,7 @@
       "cluster_name": "prolonged_overlap",
       "classification_status": "classified",
       "classification_evidence": [
-        "Overlap duration 1.839s >= threshold 1.000s"
-      ],
-      "followup_matched": false
-    },
-    {
-      "event_id": "OC0148",
-      "source_overlap_index": 147,
-      "start": 1682.975,
-      "end": 1683.16,
-      "duration": 0.185,
-      "speakers": [
-        "SPEAKER_00",
-        "SPEAKER_02"
-      ],
-      "case": "DIARIZATION_ONLY",
-      "source": "diarization",
-      "confidence": 0.6,
-      "primary_cluster": "F",
-      "cluster_name": "unresolved_floor_competition",
-      "classification_status": "provisional",
-      "classification_evidence": [
-        "Multiple speakers overlap.",
-        "No clear first new speaker identified after overlap."
+        "Overlap duration 2.075s >= threshold 1.000s"
       ],
       "followup_matched": false
     }
