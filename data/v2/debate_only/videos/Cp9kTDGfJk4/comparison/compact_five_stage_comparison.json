@@ -1,0 +1,152 @@
+{
+  "schema_version": "five-stage-compact-1.0",
+  "video_id": "Cp9kTDGfJk4",
+  "metric_definitions": {
+    "overlap_duration": "union of original constituent overlap intervals; not merged-episode span",
+    "merge_operations": "original turn count minus merged analytical turn count",
+    "speaker_transitions": "speaker-ID changes in ordered original turns",
+    "speaker_shares": "actual attributed turn duration / total attributed turn duration"
+  },
+  "stages": [
+    {
+      "stage": "original",
+      "label": "Baseline (without merge)",
+      "sources": {
+        "final": "/Users/fysiki_mac/Desktop/MTP/television-discourse-decoded-hindi/data/v2/debate_only/videos/Cp9kTDGfJk4/final.json",
+        "merged": null,
+        "gap": null
+      },
+      "metrics": {
+        "video_duration_seconds": 1060.0,
+        "video_duration": "17:40",
+        "speaker_count": 5,
+        "structural_speaker_transitions": 22,
+        "overlap_events": 11,
+        "actual_overlap_duration_seconds": 13.415,
+        "original_speaker_turns": 89,
+        "merged_speaker_turns": 89,
+        "merge_operations": 0,
+        "total_gap_duration_seconds": null
+      },
+      "speaker_shares_percent": {
+        "SPEAKER_04": 25.161,
+        "SPEAKER_03": 15.702,
+        "SPEAKER_00": 25.818,
+        "SPEAKER_01": 19.905,
+        "SPEAKER_02": 13.414
+      }
+    },
+    {
+      "stage": "baseline",
+      "label": "Baseline (with merge)",
+      "sources": {
+        "final": "/Users/fysiki_mac/Desktop/MTP/television-discourse-decoded-hindi/data/v2/debate_only/videos/Cp9kTDGfJk4/baseline/final.json",
+        "merged": "/Users/fysiki_mac/Desktop/MTP/television-discourse-decoded-hindi/data/v2/debate_only/videos/Cp9kTDGfJk4/baseline/merge_final.json",
+        "gap": "/Users/fysiki_mac/Desktop/MTP/television-discourse-decoded-hindi/data/v2/debate_only/videos/Cp9kTDGfJk4/baseline/turn_gap_analysis.json"
+      },
+      "metrics": {
+        "video_duration_seconds": 1060.0,
+        "video_duration": "17:40",
+        "speaker_count": 5,
+        "structural_speaker_transitions": 22,
+        "overlap_events": 10,
+        "actual_overlap_duration_seconds": 13.415,
+        "original_speaker_turns": 89,
+        "merged_speaker_turns": 24,
+        "merge_operations": 65,
+        "total_gap_duration_seconds": 110.939
+      },
+      "speaker_shares_percent": {
+        "SPEAKER_04": 25.161,
+        "SPEAKER_03": 15.702,
+        "SPEAKER_00": 25.818,
+        "SPEAKER_01": 19.905,
+        "SPEAKER_02": 13.414
+      }
+    },
+    {
+      "stage": "threshold_0.5",
+      "label": "Threshold 0.5 s",
+      "sources": {
+        "final": "/Users/fysiki_mac/Desktop/MTP/television-discourse-decoded-hindi/data/v2/debate_only/videos/Cp9kTDGfJk4/threshold_0.5/final.json",
+        "merged": "/Users/fysiki_mac/Desktop/MTP/television-discourse-decoded-hindi/data/v2/debate_only/videos/Cp9kTDGfJk4/threshold_0.5/merge_final.json",
+        "gap": "/Users/fysiki_mac/Desktop/MTP/television-discourse-decoded-hindi/data/v2/debate_only/videos/Cp9kTDGfJk4/threshold_0.5/turn_gap_analysis.json"
+      },
+      "metrics": {
+        "video_duration_seconds": 1060.0,
+        "video_duration": "17:40",
+        "speaker_count": 5,
+        "structural_speaker_transitions": 22,
+        "overlap_events": 6,
+        "actual_overlap_duration_seconds": 12.202,
+        "original_speaker_turns": 89,
+        "merged_speaker_turns": 24,
+        "merge_operations": 65,
+        "total_gap_duration_seconds": 110.939
+      },
+      "speaker_shares_percent": {
+        "SPEAKER_04": 25.161,
+        "SPEAKER_03": 15.702,
+        "SPEAKER_00": 25.818,
+        "SPEAKER_01": 19.905,
+        "SPEAKER_02": 13.414
+      }
+    },
+    {
+      "stage": "threshold_1.0",
+      "label": "Threshold 1.0 s",
+      "sources": {
+        "final": "/Users/fysiki_mac/Desktop/MTP/television-discourse-decoded-hindi/data/v2/debate_only/videos/Cp9kTDGfJk4/threshold_1.0/final.json",
+        "merged": "/Users/fysiki_mac/Desktop/MTP/television-discourse-decoded-hindi/data/v2/debate_only/videos/Cp9kTDGfJk4/threshold_1.0/merge_final.json",
+        "gap": "/Users/fysiki_mac/Desktop/MTP/television-discourse-decoded-hindi/data/v2/debate_only/videos/Cp9kTDGfJk4/threshold_1.0/turn_gap_analysis.json"
+      },
+      "metrics": {
+        "video_duration_seconds": 1060.0,
+        "video_duration": "17:40",
+        "speaker_count": 5,
+        "structural_speaker_transitions": 22,
+        "overlap_events": 4,
+        "actual_overlap_duration_seconds": 10.851,
+        "original_speaker_turns": 89,
+        "merged_speaker_turns": 24,
+        "merge_operations": 65,
+        "total_gap_duration_seconds": 110.939
+      },
+      "speaker_shares_percent": {
+        "SPEAKER_04": 25.161,
+        "SPEAKER_03": 15.702,
+        "SPEAKER_00": 25.818,
+        "SPEAKER_01": 19.905,
+        "SPEAKER_02": 13.414
+      }
+    },
+    {
+      "stage": "threshold_2.0",
+      "label": "Threshold 2.0 s",
+      "sources": {
+        "final": "/Users/fysiki_mac/Desktop/MTP/television-discourse-decoded-hindi/data/v2/debate_only/videos/Cp9kTDGfJk4/threshold_2.0/final.json",
+        "merged": "/Users/fysiki_mac/Desktop/MTP/television-discourse-decoded-hindi/data/v2/debate_only/videos/Cp9kTDGfJk4/threshold_2.0/merge_final.json",
+        "gap": "/Users/fysiki_mac/Desktop/MTP/television-discourse-decoded-hindi/data/v2/debate_only/videos/Cp9kTDGfJk4/threshold_2.0/turn_gap_analysis.json"
+      },
+      "metrics": {
+        "video_duration_seconds": 1060.0,
+        "video_duration": "17:40",
+        "speaker_count": 5,
+        "structural_speaker_transitions": 22,
+        "overlap_events": 3,
+        "actual_overlap_duration_seconds": 9.467,
+        "original_speaker_turns": 89,
+        "merged_speaker_turns": 24,
+        "merge_operations": 65,
+        "total_gap_duration_seconds": 110.939
+      },
+      "speaker_shares_percent": {
+        "SPEAKER_04": 25.161,
+        "SPEAKER_03": 15.702,
+        "SPEAKER_00": 25.818,
+        "SPEAKER_01": 19.905,
+        "SPEAKER_02": 13.414
+      }
+    }
+  ]
+}
