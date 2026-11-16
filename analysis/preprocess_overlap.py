@@ -403,11 +403,16 @@ def regenerate_final_json(
         final_data["osd"]["overlap_regions"] = copy.deepcopy(kept_osd_regions)
     else:
         final_data["osd"] = {"overlap_regions": copy.deepcopy(kept_osd_regions)}
+    # Downstream transition, gap and summary analyses consume the canonical
+    # top-level overlap list.  It must therefore use the same merged episodes
+    # on which thresholding was evaluated, rather than stale constituent OSD
+    # records.  The original constituents remain traceable in source_regions.
+    final_data["overlap_candidates"] = copy.deepcopy(kept_osd_regions)
     final_data["preprocessing"] = {
         "method": "overlap_duration_threshold_filtering",
         "overlap_threshold_seconds": threshold,
         "removed_overlap_regions": removed_count,
-        "rule": f"Removed merged OSD overlap intervals with duration <= {threshold:.1f} seconds.",
+        "rule": f"Removed merged OSD overlap intervals with span <= {threshold:.1f} seconds.",
         "timestamp_match_tolerance_seconds": TIMESTAMP_TOLERANCE,
     }
     save_json(final_data, paths.final_path)

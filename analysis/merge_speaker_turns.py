@@ -1,7 +1,7 @@
 
 #!/usr/bin/env python3
 """
-Merge consecutive speaker turns belonging to the same speaker.
+Merge adjacent same-speaker turns without bridging genuine silence or overlap.
 
 Input:
     data/v2/videos/<video_id>/final.json
@@ -28,7 +28,24 @@ from copy import deepcopy
 LOGGER = logging.getLogger(__name__)
 
 
-def merge_speaker_turns(speaker_turns):
+DEFAULT_MERGE_GAP = 1.0
+
+
+def _intervals_overlap(start, end, overlap_regions):
+    """Whether a positive-length gap intersects a recorded overlap event."""
+    if end <= start:
+        return False
+    for region in overlap_regions or []:
+        try:
+            if float(region["start"]) < end and float(region["end"]) > start:
+                return True
+        except (KeyError, TypeError, ValueError):
+            continue
+    return False
+
+
+def merge_speaker_turns(speaker_turns, merge_gap=DEFAULT_MERGE_GAP,
+                        overlap_regions=None):
     """
     Merge consecutive turns from the same speaker.
 
@@ -41,6 +58,9 @@ def merge_speaker_turns(speaker_turns):
 
     if not speaker_turns:
         return []
+
+    if merge_gap < 0:
+        raise ValueError("merge_gap must be non-negative")
 
     # Sort chronologically by start time.
     sorted_turns = sorted(
@@ -61,8 +81,14 @@ def merge_speaker_turns(speaker_turns):
 
         previous_turn = merged_turns[-1]
 
-        # Merge only consecutive turns belonging to the same speaker.
-        if previous_turn.get("speaker") == current_turn.get("speaker"):
+        gap = current_turn["start"] - previous_turn["end"]
+        # Only bridge the short, clean gaps supported by the dedicated
+        # turn-gap analysis.  The former implementation merged every
+        # consecutive same-speaker turn, including ones separated by minutes
+        # of silence, which converted silence into apparent speech/floor time.
+        if (previous_turn.get("speaker") == current_turn.get("speaker")
+                and 0 <= gap <= merge_gap
+                and not _intervals_overlap(previous_turn["end"], current_turn["start"], overlap_regions)):
 
             # Extend the temporal boundaries.
             previous_turn["start"] = min(
@@ -90,7 +116,7 @@ def merge_speaker_turns(speaker_turns):
     return merged_turns
 
 
-def build_merge_final(final_data):
+def build_merge_final(final_data, merge_gap=DEFAULT_MERGE_GAP):
     """
     Create merge_final.json while preserving the entire
     original final.json structure.
@@ -101,7 +127,11 @@ def build_merge_final(final_data):
 
     original_turns = final_data.get("speaker_turns", [])
 
-    merged_turns = merge_speaker_turns(original_turns)
+    merged_turns = merge_speaker_turns(
+        original_turns,
+        merge_gap=merge_gap,
+        overlap_regions=final_data.get("overlap_candidates", []),
+    )
 
     # Replace ONLY speaker_turns.
     merged_data["speaker_turns"] = merged_turns

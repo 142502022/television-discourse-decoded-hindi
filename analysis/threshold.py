@@ -30,6 +30,11 @@ from pathlib import Path
 
 
 LOG = logging.getLogger("speaker_transition_analysis")
+DEFAULT_POST_OVERLAP_WINDOW = 3.0
+# Timing alone is weak evidence.  This deliberately modest, configurable
+# continuity requirement prevents a one-word entry from becoming a confirmed
+# floor transfer.
+DEFAULT_CONFIRMATION_SECONDS = 1.0
 
 
 def normalize_speakers(value):
@@ -100,7 +105,11 @@ def make_sections(turns, overlap_candidates=None):
             "case": event.get("case"),
         })
 
-    all_turns.sort(key=lambda x: (x["start"], x["end"], str(x["source_index"])))
+    # At an identical start, activate the multi-speaker evidence before a
+    # constituent solo turn.  Otherwise that solo can be emitted as a false
+    # pre-overlap section and reverse the apparent incoming speaker.
+    all_turns.sort(key=lambda x: (x["start"], 0 if len(x["speakers"]) > 1 else 1,
+                                  x["end"], str(x["source_index"])))
     sections, active = [], []
     active_end = float("-inf")
 
@@ -159,7 +168,8 @@ def merge_adjacent_solos(sections):
         if (sec["section_type"] == "solo" and out
                 and out[-1]["section_type"] == "solo"
                 and out[-1]["speaker"] == sec["speaker"]
-                and sec["start"] >= out[-1]["end"]):
+                # Contiguity is allowed; a positive silence gap is not.
+                and abs(sec["start"] - out[-1]["end"]) <= 1e-9):
             out[-1]["end"] = sec["end"]
             out[-1].setdefault("source_indices", []).extend(sec.get("source_indices", []))
         else:
@@ -167,70 +177,94 @@ def merge_adjacent_solos(sections):
     return out
 
 
-def count_transitions(sections):
-    confirmed, candidate, overlap_related = defaultdict(int), defaultdict(int), defaultdict(int)
-    confirmed_events, candidate_events = [], []
+def count_transitions(sections, post_overlap_window=DEFAULT_POST_OVERLAP_WINDOW,
+                      confirmation_seconds=DEFAULT_CONFIRMATION_SECONDS):
+    """Classify floor ownership separately from structural turn changes.
+
+    Each evaluated event receives exactly one final label.  A short or absent
+    post-overlap continuation remains candidate/uncertain instead of being
+    double-counted as both a candidate and a confirmed transition.
+    """
+    confirmed, candidate, uncertain, overlap_related = (defaultdict(int) for _ in range(4))
+    confirmed_events, candidate_events, uncertain_events = [], [], []
     last_solo = None
-    pending_candidates = []
+    previous_section_was_overlap = False
+
+    def record(event, classification):
+        pair = f'{event["from_speaker"]} -> {event["to_speaker"]}'
+        event["classification"] = classification
+        if classification == "CONFIRMED":
+            confirmed[pair] += 1
+            confirmed_events.append(event)
+            if event.get("overlap_related"):
+                overlap_related[pair] += 1
+        elif classification == "CANDIDATE":
+            candidate[pair] += 1
+            candidate_events.append(event)
+        else:
+            uncertain[pair] += 1
+            uncertain_events.append(event)
 
     for section_idx, sec in enumerate(sections):
         if sec["section_type"] == "solo":
             solo = sec["speaker"]
-
-            # Resolve candidates from the preceding overlap section.
-            for event in pending_candidates:
-                if solo == event["to_speaker"]:
-                    pair = f'{event["from_speaker"]} -> {event["to_speaker"]}'
-                    confirmed[pair] += 1
-                    overlap_related[pair] += 1
-                    confirmed_events.append({**event, "confirmed_at": sec["start"],
-                                            "confirmed_solo_section_index": section_idx})
-            pending_candidates = []
-
-            # A clean change from one solo speaker to another is confirmed.
-            if last_solo is not None and last_solo != solo:
-                pair = f"{last_solo} -> {solo}"
-                confirmed[pair] += 1
-                confirmed_events.append({"from_speaker": last_solo,
-                    "to_speaker": solo, "transition_type": "clean_solo",
-                    "timestamp": sec["start"], "section_index": section_idx})
+            if (not previous_section_was_overlap
+                    and last_solo is not None and last_solo != solo):
+                event = {"from_speaker": last_solo, "to_speaker": solo,
+                         "transition_type": "clean_solo", "timestamp": sec["start"],
+                         "section_index": section_idx, "overlap_related": False}
+                record(event, "CONFIRMED" if sec["end"] - sec["start"] > confirmation_seconds else "UNCERTAIN")
             last_solo = solo
+            previous_section_was_overlap = False
             continue
 
-
-        # One candidate per distinct entering speaker per overlap section.
-        if last_solo is not None:
-            targets = [s for s in sec["speakers"] if s != last_solo]
-            for target in sorted(set(targets)):
-                pair = f"{last_solo} -> {target}"
-                candidate[pair] += 1
-                event = {"from_speaker": last_solo, "to_speaker": target,
-                    "transition_type": "overlap_candidate",
-                    "overlap_section_index": section_idx,
-                    "overlap_start": sec["start"], "overlap_end": sec["end"]}
-                candidate_events.append(event)
-                pending_candidates.append(event)
+        if last_solo is None:
+            previous_section_was_overlap = True
+            continue
+        next_solo = next((following for following in sections[section_idx + 1:]
+                          if following["section_type"] == "solo"), None)
+        for target in sorted({speaker for speaker in sec["speakers"] if speaker != last_solo}):
+            event = {"from_speaker": last_solo, "to_speaker": target,
+                     "transition_type": "overlap_floor_observation",
+                     "overlap_section_index": section_idx,
+                     "overlap_start": sec["start"], "overlap_end": sec["end"],
+                     "observation_window_seconds": post_overlap_window,
+                     "overlap_related": True}
+            if next_solo is None or next_solo["start"] > sec["end"] + post_overlap_window:
+                record(event, "UNCERTAIN")
+            elif next_solo["speaker"] != target:
+                record(event, "UNCERTAIN")
+            else:
+                observed = max(0.0, min(next_solo["end"], sec["end"] + post_overlap_window) - next_solo["start"])
+                event["post_overlap_solo_seconds"] = observed
+                record(event, "CONFIRMED" if observed > confirmation_seconds else "CANDIDATE")
+        previous_section_was_overlap = True
 
     return {
         "confirmed_transition_counts": dict(sorted(confirmed.items())),
         "candidate_transition_counts": dict(sorted(candidate.items())),
+        "uncertain_transition_counts": dict(sorted(uncertain.items())),
         "overlap_related_transition_counts": dict(sorted(overlap_related.items())),
         "confirmed_transitions": confirmed_events,
         "candidate_transitions": candidate_events,
+        "uncertain_transitions": uncertain_events,
         "totals": {"confirmed": sum(confirmed.values()),
                    "candidate": sum(candidate.values()),
+                   "uncertain": sum(uncertain.values()),
                    "overlap_related": sum(overlap_related.values())},
     }
 
 
-def analyze(path, label=None, output=None, merged_output=None):
+def analyze(path, label=None, output=None, merged_output=None,
+            post_overlap_window=DEFAULT_POST_OVERLAP_WINDOW,
+            confirmation_seconds=DEFAULT_CONFIRMATION_SECONDS):
     data, turns = load_final(path)
     overlap_candidates = data.get("overlap_candidates", [])
     if not isinstance(overlap_candidates, list):
         LOG.warning("%s: overlap_candidates is not a list; treating as empty", path)
         overlap_candidates = []
     sections = merge_adjacent_solos(make_sections(turns, overlap_candidates))
-    transitions = count_transitions(sections)
+    transitions = count_transitions(sections, post_overlap_window, confirmation_seconds)
     merged_result = {
         "schema_version": "1.0",
         "source_file": str(path),

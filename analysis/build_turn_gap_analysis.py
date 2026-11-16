@@ -341,12 +341,16 @@ def finalize_merged_turn(turn, output):
 
 def build_statistics(turns, gaps, merged_turns):
 
-    # All positive, non-overlapping inter-turn gaps
+    # Keep all positive inter-turn gaps separate from clean silence.  A gap
+    # intersecting an overlap event is not silence and must not be mixed into
+    # clean-silence statistics.
     valid_gaps = [
         gap for gap in gaps
         if gap["duration"] > 0
         and gap["gap_type"] != "overlapping_turns"
     ]
+
+    clean_gaps = [gap for gap in valid_gaps if not gap["contains_overlap"]]
 
     same_speaker_gaps = [
         gap for gap in valid_gaps
@@ -371,6 +375,14 @@ def build_statistics(turns, gaps, merged_turns):
         "total_gap_statistics": calculate_stats(
             [gap["duration"] for gap in valid_gaps]
         ),
+
+        "clean_gap_statistics": calculate_stats(
+            [gap["duration"] for gap in clean_gaps]
+        ),
+        "clean_silence_statistics": calculate_stats(
+            [gap["duration"] for gap in clean_gaps]
+        ),
+        "clean_gap_count": len(clean_gaps),
 
         "same_speaker_gap_statistics": calculate_stats(
             [gap["duration"] for gap in same_speaker_gaps]
@@ -411,7 +423,7 @@ def build_statistics(turns, gaps, merged_turns):
     for turn in turns:
         speaker_turns[turn["speaker"]].append(turn)
 
-    for gap in valid_gaps:
+    for gap in clean_gaps:
 
         # Attribute the gap to the speaker who just finished.
         speaker_gaps[gap["previous_speaker"]].append(gap)

@@ -117,6 +117,17 @@ def merge_overlap_regions(
                 deepcopy(current.get("source_regions", [current]))
             )
 
+            # A merged episode represents all participating speakers, not
+            # merely the speakers of its first constituent region.
+            speakers = []
+            for source in previous["source_regions"]:
+                value = source.get("speakers", []) if isinstance(source, dict) else []
+                if isinstance(value, str):
+                    value = [value]
+                speakers.extend(str(item) for item in value if str(item))
+            if speakers:
+                previous["speakers"] = sorted(set(speakers))
+
             # Preserve additional information from the current region.
             # Do not overwrite existing values.
             for key, value in current.items():

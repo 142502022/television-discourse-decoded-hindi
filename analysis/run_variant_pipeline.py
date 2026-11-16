@@ -94,7 +94,9 @@ def run_variant(variant_dir: Path, final_data: Dict[str, Any], label: str, overw
     merged = build_merge_final(copy.deepcopy(final_data))
     merged_path = variant_dir / "merge_final.json"
     write_json(merged_path, merged)
-    write_json(variant_dir / "turn_gap_analysis.json", gap_artifact(merged, "merge_final.json"))
+    # Gaps are derived from the unmodified diarization timeline.  Merging is a
+    # separate analytical view and must not erase genuine silence intervals.
+    write_json(variant_dir / "turn_gap_analysis.json", gap_artifact(final_data, "final.json"))
     analyze_transitions(merged_path, label=label, output=variant_dir / "speaker_transition_analysis.json", merged_output=variant_dir / "merged_speaker_sections.json")
     _write_host_and_followup(variant_dir, merged_path)
     result = build_final_result(variant_dir, pipeline_path=merged_path)
@@ -118,9 +120,17 @@ def process_video(video_dir: Path, thresholds: Iterable[float], overwrite: bool)
     # Baseline overlap merging is an input to threshold filtering, but remains
     # contained in baseline rather than altering the source episode directory.
     baseline_dir.mkdir(parents=True, exist_ok=True)
-    write_json(baseline_dir / "final.json", source)
-    write_json(baseline_dir / "merge_overlap.json", build_merge_overlap(source))
-    run_variant(baseline_dir, source, "baseline", overwrite)
+    baseline_overlap = build_merge_overlap(source)
+    write_json(baseline_dir / "merge_overlap.json", baseline_overlap)
+    # Baseline has no duration exclusion, but still uses the authoritative
+    # merged OSD episodes.  Preserve constituent records in source_regions.
+    baseline_source = copy.deepcopy(source)
+    baseline_source["overlap_candidates"] = copy.deepcopy(
+        baseline_overlap.get("osd", {}).get("overlap_regions", [])
+    )
+    baseline_source["osd"] = copy.deepcopy(baseline_overlap.get("osd", {}))
+    write_json(baseline_dir / "final.json", baseline_source)
+    run_variant(baseline_dir, baseline_source, "baseline", overwrite)
 
     paths = get_video_paths(video_dir.name, video_dir.parent)
     for threshold in thresholds:

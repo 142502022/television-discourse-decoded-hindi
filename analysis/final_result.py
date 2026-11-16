@@ -24,6 +24,7 @@ SOURCE_FILES = {
     "overlap_followup": "overlap_followup_analysis.json",
     "overlap_followup_classified": "overlap_followup_classified.json",
     "turn_gap": "turn_gap_analysis.json",
+    "speaker_transition": "speaker_transition_analysis.json",
     "overlap_clusters": "overlap_cluster_analysis.json",
     "floor_management": "floor_management_analysis.json",
     "host_actions": "host_actions.json",
@@ -131,7 +132,7 @@ def extract_overlap_candidates(pipeline: Optional[dict]) -> List[dict]:
 
 def episode_duration(pipeline: Optional[dict]) -> Optional[float]:
     return safe_float(first_value(get_path(pipeline, "episode", default={}) or {},
-                                  "duration", "duration_seconds"))
+                                  "duration", "duration_seconds", "duration_s"))
 
 
 def metadata(pipeline: Optional[dict], video_id: str) -> dict:
@@ -316,6 +317,7 @@ def build_final_result(video_dir: Path, pipeline_path: Optional[Path] = None) ->
 
     pipeline = loaded.get("pipeline")
     turn_gap = loaded.get("turn_gap")
+    speaker_transition = loaded.get("speaker_transition")
     cluster_data = loaded.get("overlap_clusters")
     followup = loaded.get("overlap_followup")
     classified_followup = loaded.get("overlap_followup_classified")
@@ -333,6 +335,11 @@ def build_final_result(video_dir: Path, pipeline_path: Optional[Path] = None) ->
 
         "speaker_participation": analyze_participation(pipeline, turn_gap, duration),
         "speaker_transitions": analyze_transitions(pipeline, duration),
+        "floor_transition_classification": wrapped(
+            speaker_transition,
+            statuses.get("speaker_transition", "not_available"),
+            "Configured post-overlap floor-transition classifications; separate from structural changes.",
+        ),
 
         "overlap_analysis": {
             "summary": overlap_stats(pipeline, cluster_data, duration),
