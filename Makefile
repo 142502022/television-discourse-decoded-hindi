@@ -123,6 +123,9 @@ run: acquire
 	@$(PYTHON) analysis/run_variant_pipeline.py --data-dir $(DATA_DIR) --video-id $(VIDEO_ID) --thresholds 0.5 1.0 2.0 $(OVERWRITE_FLAG) 2>&1 | tee $(LOG_DIR)/$(VIDEO_ID)/run.log
 	@$(PYTHON) analysis/build_five_stage_comparison.py --data-dir $(DATA_DIR) --video-id $(VIDEO_ID) 2>&1 | tee $(LOG_DIR)/$(VIDEO_ID)/comparison.log
 	@test -s $(DATA_DIR)/$(VIDEO_ID)/comparison/five_stage_comparison.json
+	@$(PYTHON) analysis/compare_five_stages.py --data-dir $(DATA_DIR) --video-id $(VIDEO_ID) 2>&1 | tee $(LOG_DIR)/$(VIDEO_ID)/compact_comparison.log
+	@test -s $(DATA_DIR)/$(VIDEO_ID)/comparison/compact_five_stage_comparison.json
+	@test -s $(DATA_DIR)/$(VIDEO_ID)/comparison/compact_five_stage_comparison.html
 
 all: check
 	@set -e; total=0; ok=0; failed=''; for id in $(IDS); do total=$$((total+1)); echo "[$$total] $$id"; if $(MAKE) --no-print-directory run VIDEO_ID=$$id OVERWRITE=$(OVERWRITE) FORCE=$(FORCE); then ok=$$((ok+1)); else failed="$$failed $$id"; fi; done; echo "Completed $$ok/$$total; failed:$${failed:- none}"; test -z "$$failed"
