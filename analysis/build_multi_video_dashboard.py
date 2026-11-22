@@ -16,10 +16,6 @@ STAGES = {
     "5.0": "threshold_5.0",
 }
 
-# The comparison artifact explicitly marks every available host assignment as
-# heuristic.  Do not present an inferred identity as a manually verified one.
-VERIFIED_HOST_STATUS = "manually verified"
-
 
 def load(path: Path, issues: list[dict], label: str) -> dict | None:
     try:
@@ -75,10 +71,14 @@ def build_video(video_dir: Path, issues: list[dict]) -> dict:
             continue
         participation = stage.get("speaker_participation", {})
         by_speaker = participation.get("by_speaker", {}) if isinstance(participation, dict) else {}
-        host_analysis = stage.get("host_analysis", {})
-        host_id = host_analysis.get("identified_host_speaker")
-        host_is_verified = str(host_analysis.get("status", "")).lower() == VERIFIED_HOST_STATUS
-        final = load(video_dir / ("baseline" if selector == "baseline" else f"threshold_{selector}") / "final.json", issues, f"{selector}.stage final")
+        stage_dir = video_dir / ("baseline" if selector == "baseline" else f"threshold_{selector}")
+        host_source = stage_dir / "host_identification" / "host_identification.json"
+        host_data = load(host_source, issues, f"{selector}.host identification")
+        host_id = host_data.get("predicted_host_speaker") if host_data else None
+        host_id_matches_video = bool(host_data and host_data.get("video_id") == video_dir.name)
+        if not host_id_matches_video:
+            host_id = None
+        final = load(stage_dir / "final.json", issues, f"{selector}.stage final")
         gap = stage.get("gap_analysis", {})
         overlap = stage.get("overlap_statistics", {})
         host = by_speaker.get(host_id, {}) if host_id else {}
@@ -90,12 +90,17 @@ def build_video(video_dir: Path, issues: list[dict]) -> dict:
                                             "clean_seconds": row.get("clean_speech_seconds"),
                                             "excluded_seconds": row.get("speech_excluded_by_retained_overlap_seconds")}
                                for speaker, row in by_speaker.items()},
-            "host": {"speaker_id": host_id if host_is_verified else None,
-                     "source_speaker_id": host_id,
-                     "verification_status": host_analysis.get("status", "unavailable"),
-                     "original_share_percent": host.get("speech_share_percent_of_attributed_total") if host_is_verified else None,
-                     "clean_share_percent": host.get("clean_speech_share_percent") if host_is_verified else None,
-                     **(host_turn_stats(final, host_id) if host_is_verified else host_turn_stats(None, None))},
+            "host": {
+                "speaker_id": host_id,
+                "host_id_source": str(host_source),
+                "host_id_matches_video": host_id_matches_video,
+                "host_found_in_analysis": bool(host_id and host_id in by_speaker),
+                "attributed_speaking_duration_seconds": host.get("attributed_speaking_seconds") if host_id else None,
+                "original_share_percent": host.get("speech_share_percent_of_attributed_total") if host_id else None,
+                "clean_speaking_duration_seconds": host.get("clean_speech_seconds") if host_id else None,
+                "clean_share_percent": host.get("clean_speech_share_percent") if host_id else None,
+                **host_turn_stats(final, host_id),
+            },
             "overlap_events": overlap.get("total_overlap_events"),
             "actual_overlap_duration_seconds": overlap.get("duration", {}).get("total"),
             "clean_silence_duration_seconds": gap.get("clean_silence_duration"),
@@ -127,8 +132,8 @@ def prepare_dashboard_data(data_dir: Path) -> dict:
             "duration": "comparison.stage_results.original.timeline_statistics.episode_duration_seconds",
             "speaker_count": "comparison.stage_results.original.speaker_participation.by_speaker (unique local diarization labels)",
             "shares": "comparison.stage_results.<stage>.speaker_participation.by_speaker",
-            "host": "No manually verified host mapping is present; heuristic host predictions are intentionally unavailable.",
-            "host_turns": "stage final.json speaker_turns, conditional on a manually verified host mapping",
+            "host": "<stage>/host_identification/host_identification.json predicted_host_speaker, matched to that JSON's video_id; speaker shares and turns are sourced from the same stage.",
+            "host_turns": "<stage>/final.json speaker_turns for the matching host speaker ID",
             "overlap": "comparison.stage_results.<stage>.overlap_statistics.duration.total (sum of stage-local candidate intervals)",
             "clean_silence": "comparison.stage_results.<stage>.gap_analysis.clean_silence_duration",
             "ads_removed": "advertisement_analysis/advertisement_exclusions.json summary.total_excluded_advertisements",
@@ -136,7 +141,7 @@ def prepare_dashboard_data(data_dir: Path) -> dict:
         "quality": {
             "discovered": len(dirs), "loaded": sum(v["available"] for v in videos),
             "incomplete_videos": incomplete, "invalid_json": invalid_json, "issues": issues,
-            "note": "Host charts are unavailable because the supplied host mappings are explicitly heuristic, not manually verified.",
+            "note": "Host IDs are resolved independently for each video and selected stage from its host-identification JSON.",
         },
     }
 
@@ -151,9 +156,10 @@ const valid=v=>v!==null&&v!==undefined&&Number.isFinite(+v); const fmt=v=>valid(
 function values(key,stage){return D.videos.map(v=>({id:v.video_id,value:key==='duration'?v.overview.duration_seconds/60:key==='ads'?v.overview.ads_removed:key==='speaker_count'?v.overview.speaker_count:(v.stages[stage]||{})[key]}))}
 function bar(title,key,stage,unit){let rows=values(key,stage), max=Math.max(1,...rows.filter(x=>valid(x.value)).map(x=>+x.value));return `<article class="card"><h2>${title}</h2><p class="note">${rows.filter(x=>valid(x.value)).length}/${rows.length} videos valid · ${unit}</p><div class="bar">${rows.map(x=>`<div class="item" title="${x.id}: ${fmt(x.value)} ${unit}"><i style="height:${valid(x.value)?100*x.value/max:0}%"></i><small>${x.id}</small></div>`).join('')}</div><table><tr><th>Video ID</th><th>${unit}</th></tr>${rows.map(x=>`<tr><td>${x.id}</td><td class="${valid(x.value)?'':'na'}">${fmt(x.value)}</td></tr>`).join('')}</table></article>`}
 function shares(stage,metric){let rows=D.videos.map(v=>({id:v.video_id,s:(v.stages[stage]||{}).speaker_shares||{}}));let speakers=[...new Set(rows.flatMap(r=>Object.keys(r.s)))];return `<article class="card wide"><h2>Speaker share distribution — ${metric==='original_percent'?'original attributed':'clean speech'}</h2><p class="note">100% stacked bars; speaker IDs are local to each video.</p><div class="legend">${speakers.map((s,i)=>`<span style="border-left:10px solid ${colors[i%colors.length]}">${s}</span>`).join('')}</div>${rows.map(r=>{let sum=Object.values(r.s).reduce((a,x)=>a+(+x[metric]||0),0);return `<div><b>${r.id}</b><div class="stack">${Object.entries(r.s).map(([s,x])=>`<span title="${s}: ${fmt(x[metric])}%" style="width:${x[metric]||0}%;background:${colors[speakers.indexOf(s)%colors.length]}"></span>`).join('')}</div><small>${valid(sum)&&sum>0?`Total ${sum.toFixed(2)}%`:'Unavailable'}</small></div>`}).join('')}</article>`}
-function host(stage,metric){let rows=D.videos.map(v=>({id:v.video_id,h:(v.stages[stage]||{}).host||{}})),key=metric==='original_percent'?'original_share_percent':'clean_share_percent';let max=Math.max(1,...rows.filter(r=>valid(r.h[key])).map(r=>+r.h[key]));return `<article class="card"><h2>Host speaking share</h2><p class="note">${metric==='original_percent'?'Original attributed':'Clean speech'} share. Only manually verified hosts are shown.</p><div class="bar">${rows.map(r=>`<div class="item" title="${r.id}: ${fmt(r.h[key])}%"><i style="height:${valid(r.h[key])?100*r.h[key]/max:0}%"></i><small>${r.id}</small></div>`).join('')}</div><table><tr><th>Video ID</th><th>Host</th><th>Share (%)</th><th>Status</th></tr>${rows.map(r=>`<tr><td>${r.id}</td><td>${r.h.speaker_id||'Unavailable'}</td><td class="${valid(r.h[key])?'':'na'}">${fmt(r.h[key])}</td><td>${r.h.verification_status||'Unavailable'}</td></tr>`).join('')}</table></article>`}
-function hostTurns(stage){let rows=D.videos.map(v=>({id:v.video_id,h:(v.stages[stage]||{}).host||{}})),max=Math.max(1,...rows.flatMap(r=>[r.h.longest_seconds,r.h.mean_seconds]).filter(valid).map(Number));return `<article class="card"><h2>Host speaking behaviour</h2><p class="note">Longest and mean continuous host turn; only manually verified hosts are shown.</p><div class="bar">${rows.map(r=>`<div class="item" title="${r.id}: longest ${fmt(r.h.longest_seconds)} s; mean ${fmt(r.h.mean_seconds)} s"><i style="height:${valid(r.h.longest_seconds)?100*r.h.longest_seconds/max:0}%;width:34%;background:#2463a5"></i><i style="height:${valid(r.h.mean_seconds)?100*r.h.mean_seconds/max:0}%;width:34%;background:#e48127"></i><small>${r.id}</small></div>`).join('')}</div><p class="note">Blue: longest turn; orange: mean turn.</p><table><tr><th>Video ID</th><th>Longest turn (s)</th><th>Mean turn (s)</th></tr>${rows.map(r=>`<tr><td>${r.id}</td><td class="${valid(r.h.longest_seconds)?'':'na'}">${fmt(r.h.longest_seconds)}</td><td class="${valid(r.h.mean_seconds)?'':'na'}">${fmt(r.h.mean_seconds)}</td></tr>`).join('')}</table></article>`}
-function render(){let s=document.querySelector('#threshold').value,m=document.querySelector('#share').value;document.querySelector('#charts').innerHTML=bar('Video duration','duration',s,'minutes')+bar('Number of speakers','speaker_count',s,'speakers')+bar('Ads removed','ads',s,'sections')+shares(s,m)+host(s,m)+hostTurns(s)+bar('Overlap events','overlap_events',s,'events')+bar('Actual overlap duration','actual_overlap_duration_seconds',s,'seconds')+bar('Clean silence duration','clean_silence_duration_seconds',s,'seconds')+bar('Total inter-turn gap duration','total_inter_turn_gap_duration_seconds',s,'seconds')+bar('Gap duration containing overlap','gaps_containing_overlap_duration_seconds',s,'seconds');}
+function host(stage,metric){let rows=D.videos.map(v=>({id:v.video_id,h:(v.stages[stage]||{}).host||{}})),key=metric==='original_percent'?'original_share_percent':'clean_share_percent';let max=Math.max(1,...rows.filter(r=>valid(r.h[key])).map(r=>+r.h[key]));return `<article class="card"><h2>Host Speaking Share by Video</h2><p class="note">${metric==='original_percent'?'Original attributed':'Clean-speech'} share; ${rows.filter(r=>valid(r.h[key])).length}/${rows.length} videos valid.</p><div class="bar">${rows.map(r=>`<div class="item" title="${r.id}: ${fmt(r.h[key])}%"><i style="height:${valid(r.h[key])?100*r.h[key]/max:0}%"></i><small>${r.id}</small></div>`).join('')}</div><table><tr><th>Video ID</th><th>Host</th><th>Speech (s)</th><th>Share (%)</th></tr>${rows.map(r=>`<tr><td>${r.id}</td><td>${r.h.speaker_id||'Unavailable'}</td><td class="${valid(r.h[metric==='original_percent'?'attributed_speaking_duration_seconds':'clean_speaking_duration_seconds'])?'':'na'}">${fmt(r.h[metric==='original_percent'?'attributed_speaking_duration_seconds':'clean_speaking_duration_seconds'])}</td><td class="${valid(r.h[key])?'':'na'}">${fmt(r.h[key])}</td></tr>`).join('')}</table></article>`}
+function hostTurns(stage){let rows=D.videos.map(v=>({id:v.video_id,h:(v.stages[stage]||{}).host||{}})),max=Math.max(1,...rows.flatMap(r=>[r.h.longest_seconds,r.h.mean_seconds]).filter(valid).map(Number));return `<article class="card"><h2>Host Speaking Behaviour by Video</h2><p class="note">Longest and average continuous host turn; ${rows.filter(r=>valid(r.h.longest_seconds)&&valid(r.h.mean_seconds)).length}/${rows.length} videos valid.</p><div class="bar">${rows.map(r=>`<div class="item" title="${r.id}: longest ${fmt(r.h.longest_seconds)} s; average ${fmt(r.h.mean_seconds)} s"><i style="height:${valid(r.h.longest_seconds)?100*r.h.longest_seconds/max:0}%;width:34%;background:#2463a5"></i><i style="height:${valid(r.h.mean_seconds)?100*r.h.mean_seconds/max:0}%;width:34%;background:#e48127"></i><small>${r.id}</small></div>`).join('')}</div><p class="note">Blue: longest turn; orange: average turn.</p><table><tr><th>Video ID</th><th>Longest turn (s)</th><th>Average turn (s)</th><th>Turn count</th></tr>${rows.map(r=>`<tr><td>${r.id}</td><td class="${valid(r.h.longest_seconds)?'':'na'}">${fmt(r.h.longest_seconds)}</td><td class="${valid(r.h.mean_seconds)?'':'na'}">${fmt(r.h.mean_seconds)}</td><td>${r.h.turn_count||'Unavailable'}</td></tr>`).join('')}</table></article>`}
+function hostValidation(stage){let rows=D.videos.map(v=>({id:v.video_id,h:(v.stages[stage]||{}).host||{}}));return `<article class="card wide"><h2>Host mapping validation</h2><table><tr><th>Video ID</th><th>Host ID</th><th>Host ID source</th><th>Host found in analysis</th><th>Speaking share available</th><th>Behaviour available</th></tr>${rows.map(r=>`<tr><td>${r.id}</td><td>${r.h.speaker_id||'Unavailable'}</td><td>${r.h.host_id_source||'Unavailable'}</td><td>${r.h.host_found_in_analysis?'Yes':'No'}</td><td>${valid(r.h.original_share_percent)&&valid(r.h.clean_share_percent)?'Yes':'No'}</td><td>${valid(r.h.longest_seconds)&&valid(r.h.mean_seconds)?'Yes':'No'}</td></tr>`).join('')}</table></article>`}
+function render(){let s=document.querySelector('#threshold').value,m=document.querySelector('#share').value;document.querySelector('#charts').innerHTML=bar('Video duration','duration',s,'minutes')+bar('Number of speakers','speaker_count',s,'speakers')+bar('Ads removed','ads',s,'sections')+shares(s,m)+host(s,m)+hostTurns(s)+hostValidation(s)+bar('Overlap events','overlap_events',s,'events')+bar('Actual overlap duration','actual_overlap_duration_seconds',s,'seconds')+bar('Clean silence duration','clean_silence_duration_seconds',s,'seconds')+bar('Total inter-turn gap duration','total_inter_turn_gap_duration_seconds',s,'seconds')+bar('Gap duration containing overlap','gaps_containing_overlap_duration_seconds',s,'seconds');}
 document.querySelector('#threshold').onchange=render;document.querySelector('#share').onchange=render;document.querySelector('#quality').textContent=`${D.quality.loaded}/${D.quality.discovered} videos loaded`;document.querySelector('#issues').textContent=JSON.stringify(D.quality,null,2);render();</script></html>'''
 
 
