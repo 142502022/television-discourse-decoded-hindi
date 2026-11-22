@@ -1,0 +1,732 @@
+{
+  "schema_version": "overlap-followup-analysis-1.1",
+  "analysis_status": "deterministic_extraction_only_classification_and_interpretation_pending",
+  "language_scope": {
+    "selected_scope": "English-only pilot",
+    "source_asr_language": "en",
+    "source_language_verified_by_human": false,
+    "out_of_scope_policy": "Flag non-English, mixed-language, or uncertain speech for review; do not silently classify it as English."
+  },
+  "classification_taxonomy": {
+    "utterance_form": [
+      "question",
+      "statement",
+      "imperative",
+      "fragment",
+      "unclear"
+    ],
+    "conversational_function": [
+      "asking",
+      "challenging",
+      "answering",
+      "interrupting",
+      "yielding_floor",
+      "redirecting",
+      "backchanneling",
+      "asserting",
+      "unclear"
+    ],
+    "target_speaker_policy": "Use a speaker label only when the target is supported by transcript/context; otherwise null.",
+    "host_behavior": [
+      "regaining_control",
+      "challenging_participant",
+      "asking_for_clarification",
+      "redirecting_topic",
+      "allocating_floor",
+      "allowing_guest_to_continue",
+      "summarizing",
+      "closing_discussion",
+      "other",
+      "unclear",
+      "not_applicable"
+    ],
+    "inference_policy": "Observable timing/order is not by itself proof of conversational intent. Use transcript evidence and abstain when evidence is insufficient."
+  },
+  "manual_verification": {
+    "status": "pending",
+    "recommended_initial_sample_size": 6,
+    "review_fields": [
+      "event completeness",
+      "speaker labels",
+      "timestamps",
+      "transcript fidelity",
+      "continuation versus new entry",
+      "first-speaker observations"
+    ]
+  },
+  "source": {
+    "file": "data/v2/debate_only/videos/MIHQIQeCM0Y/threshold_5.0/merge_final.json",
+    "video_id": "MIHQIQeCM0Y",
+    "title": "To The Point Debate On Owaisi-Azad Alliance: Third Front Or Opposition Vote Cutter? | UP Elections",
+    "host_speaker": "SPEAKER_06",
+    "window_seconds": 3.0,
+    "overlap_count_in_source": 6,
+    "overlap_count_processed": 6,
+    "transcript_segment_count": 372
+  },
+  "overlap_events": [
+    {
+      "overlap_id": 1,
+      "overlap": {
+        "start": 389.962,
+        "end": 395.665,
+        "duration": 5.703,
+        "speakers": [
+          "SPEAKER_00",
+          "SPEAKER_06"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 395.665,
+      "window_end": 398.665,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_06",
+          "start": 393.848,
+          "end": 396.289,
+          "text": "Till now, it hasn't worked in Uttar Pradesh.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_06",
+          "start": 396.309,
+          "end": 396.969,
+          "text": "It worked in Bihar.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_06",
+          "start": 396.989,
+          "end": 399.95,
+          "text": "It also, I would think, worked in Bengal as well in pockets.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 386.962,
+        "end": 389.962,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_00",
+          "start": 386.987,
+          "end": 393.288,
+          "text": "His game worked in Bihar, but I don't think he's... But it hasn't ever worked in Uttar Pradesh.",
+          "starts_in_window": true,
+          "active_at_window_end": true,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_00",
+        "start": 381.045,
+        "end": 386.047,
+        "text": "And OIC is just a spoiler, as he always think he is."
+      },
+      "observations": {
+        "speech_event_count": 3,
+        "speakers_in_window": [
+          "SPEAKER_06"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_06"
+        ],
+        "first_speaker_in_window": "SPEAKER_06",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": "SPEAKER_06",
+        "host_spoke_first_new_after_overlap": true,
+        "new_speech_event_count": 2,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 2,
+      "overlap": {
+        "start": 592.748,
+        "end": 600.595,
+        "duration": 7.847,
+        "speakers": [
+          "SPEAKER_02",
+          "SPEAKER_06"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 600.595,
+      "window_end": 603.595,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_06",
+          "start": 601.112,
+          "end": 601.433,
+          "text": "Of course.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_02",
+          "start": 603.365,
+          "end": 610.247,
+          "text": "I would like to ask a simple question to the Samajwadi party spokespersons, especially to the Muslim MLAs and the MPs.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 589.748,
+        "end": 592.748,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_02",
+          "start": 589.217,
+          "end": 590.158,
+          "text": "enemies of Muslims.",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_02",
+          "start": 590.439,
+          "end": 592.802,
+          "text": "Here also what we are seeing Akhilesh now going to Ayodhya.",
+          "starts_in_window": true,
+          "active_at_window_end": true,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_02",
+        "start": 589.217,
+        "end": 590.158,
+        "text": "enemies of Muslims."
+      },
+      "observations": {
+        "speech_event_count": 2,
+        "speakers_in_window": [
+          "SPEAKER_06",
+          "SPEAKER_02"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [],
+        "first_speaker_in_window": "SPEAKER_06",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": "SPEAKER_06",
+        "host_spoke_first_new_after_overlap": true,
+        "new_speech_event_count": 2,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 3,
+      "overlap": {
+        "start": 620.39,
+        "end": 625.975,
+        "duration": 5.585,
+        "speakers": [
+          "SPEAKER_02",
+          "SPEAKER_06"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 625.975,
+      "window_end": 628.975,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_02",
+          "start": 625.251,
+          "end": 627.192,
+          "text": "We are fighting for the protection of the community.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_02",
+          "start": 627.812,
+          "end": 629.473,
+          "text": "And so we have founded an alliance.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 617.39,
+        "end": 620.39,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_02",
+          "start": 616.629,
+          "end": 617.569,
+          "text": "They are not saying.",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_02",
+          "start": 617.649,
+          "end": 619.37,
+          "text": "What have they got to say now?",
+          "starts_in_window": true,
+          "active_at_window_end": false,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_02",
+          "start": 619.71,
+          "end": 624.191,
+          "text": "See, that is why we say you took the name of, you took the votes of, this is the name of secularism.",
+          "starts_in_window": true,
+          "active_at_window_end": true,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_02",
+        "start": 617.649,
+        "end": 619.37,
+        "text": "What have they got to say now?"
+      },
+      "observations": {
+        "speech_event_count": 2,
+        "speakers_in_window": [
+          "SPEAKER_02"
+        ],
+        "host_spoke_in_window": false,
+        "speakers_active_at_window_start": [
+          "SPEAKER_02"
+        ],
+        "first_speaker_in_window": "SPEAKER_02",
+        "host_spoke_first_in_window": false,
+        "first_new_speaker_after_overlap": "SPEAKER_02",
+        "host_spoke_first_new_after_overlap": false,
+        "new_speech_event_count": 1,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 4,
+      "overlap": {
+        "start": 683.536,
+        "end": 689.864,
+        "duration": 6.328,
+        "speakers": [
+          "SPEAKER_02",
+          "SPEAKER_06"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 689.864,
+      "window_end": 692.864,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_06",
+          "start": 685.23,
+          "end": 693.192,
+          "text": "So it doesn't matter, you will even join hands with an anti-Muslim party and a BJP team to defeat the BJP.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 680.536,
+        "end": 683.536,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_02",
+          "start": 680.588,
+          "end": 683.369,
+          "text": "That is why we told them.",
+          "starts_in_window": true,
+          "active_at_window_end": false,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_06",
+          "start": 683.389,
+          "end": 684.65,
+          "text": "Okay, you made your point sir.",
+          "starts_in_window": true,
+          "active_at_window_end": true,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_02",
+        "start": 680.588,
+        "end": 683.369,
+        "text": "That is why we told them."
+      },
+      "observations": {
+        "speech_event_count": 1,
+        "speakers_in_window": [
+          "SPEAKER_06"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_06"
+        ],
+        "first_speaker_in_window": "SPEAKER_06",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": null,
+        "host_spoke_first_new_after_overlap": null,
+        "new_speech_event_count": 0,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 5,
+      "overlap": {
+        "start": 1379.545,
+        "end": 1386.481,
+        "duration": 6.936,
+        "speakers": [
+          "SPEAKER_01",
+          "SPEAKER_04",
+          "SPEAKER_06"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 1386.481,
+      "window_end": 1389.481,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_01",
+          "start": 1385.153,
+          "end": 1391.537,
+          "text": "So when you when you try to be everything to everyone, you end up just being a congressman.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 1376.545,
+        "end": 1379.545,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_01",
+          "start": 1375.102,
+          "end": 1378.084,
+          "text": "You're trying to be pleasing to too many constituents together.",
+          "starts_in_window": false,
+          "active_at_window_end": false,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_01",
+          "start": 1378.445,
+          "end": 1380.786,
+          "text": "And in this, in this sort of a setting,",
+          "starts_in_window": true,
+          "active_at_window_end": true,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_01",
+        "start": 1375.102,
+        "end": 1378.084,
+        "text": "You're trying to be pleasing to too many constituents together."
+      },
+      "observations": {
+        "speech_event_count": 1,
+        "speakers_in_window": [
+          "SPEAKER_01"
+        ],
+        "host_spoke_in_window": false,
+        "speakers_active_at_window_start": [
+          "SPEAKER_01"
+        ],
+        "first_speaker_in_window": "SPEAKER_01",
+        "host_spoke_first_in_window": false,
+        "first_new_speaker_after_overlap": null,
+        "host_spoke_first_new_after_overlap": null,
+        "new_speech_event_count": 0,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 6,
+      "overlap": {
+        "start": 1391.527,
+        "end": 1398.209,
+        "duration": 6.682,
+        "speakers": [
+          "SPEAKER_01",
+          "SPEAKER_04"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 1398.209,
+      "window_end": 1401.209,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_01",
+          "start": 1399.933,
+          "end": 1413.988,
+          "text": "So my point is that when the MIM and when Chandrasekhar Azad, they make more shrill arguments, they suddenly stand to draw a lot of attention because a Samajwadi party is trying to be too risk averse in its position.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 1388.527,
+        "end": 1391.527,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_01",
+          "start": 1385.153,
+          "end": 1391.537,
+          "text": "So when you when you try to be everything to everyone, you end up just being a congressman.",
+          "starts_in_window": false,
+          "active_at_window_end": true,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_01",
+        "start": 1383.352,
+        "end": 1384.052,
+        "text": "Okay, allow him."
+      },
+      "observations": {
+        "speech_event_count": 1,
+        "speakers_in_window": [
+          "SPEAKER_01"
+        ],
+        "host_spoke_in_window": false,
+        "speakers_active_at_window_start": [],
+        "first_speaker_in_window": "SPEAKER_01",
+        "host_spoke_first_in_window": false,
+        "first_new_speaker_after_overlap": "SPEAKER_01",
+        "host_spoke_first_new_after_overlap": false,
+        "new_speech_event_count": 1,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    }
+  ],
+  "notes": [
+    "This artifact is a separate analysis output; it does not modify final.json or any existing pipeline stage.",
+    "Transcript text and source segment timestamps are preserved exactly; events may extend beyond the 3-second window and are flagged.",
+    "All classification and host-behavior fields are intentionally unclassified pending manual verification and later LLM analysis.",
+    "first_speaker_in_window accounts for speech already active at the window boundary; first_new_speaker_after_overlap separately records a segment beginning after the overlap.",
+    "Tied or ambiguous speaker starts are represented as null rather than forcing a conclusion.",
+    "Speaker labels are diarization labels, not verified real-world identities."
+  ]
+}

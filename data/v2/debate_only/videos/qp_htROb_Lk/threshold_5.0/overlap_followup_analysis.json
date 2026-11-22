@@ -1,0 +1,267 @@
+{
+  "schema_version": "overlap-followup-analysis-1.1",
+  "analysis_status": "deterministic_extraction_only_classification_and_interpretation_pending",
+  "language_scope": {
+    "selected_scope": "English-only pilot",
+    "source_asr_language": "en",
+    "source_language_verified_by_human": false,
+    "out_of_scope_policy": "Flag non-English, mixed-language, or uncertain speech for review; do not silently classify it as English."
+  },
+  "classification_taxonomy": {
+    "utterance_form": [
+      "question",
+      "statement",
+      "imperative",
+      "fragment",
+      "unclear"
+    ],
+    "conversational_function": [
+      "asking",
+      "challenging",
+      "answering",
+      "interrupting",
+      "yielding_floor",
+      "redirecting",
+      "backchanneling",
+      "asserting",
+      "unclear"
+    ],
+    "target_speaker_policy": "Use a speaker label only when the target is supported by transcript/context; otherwise null.",
+    "host_behavior": [
+      "regaining_control",
+      "challenging_participant",
+      "asking_for_clarification",
+      "redirecting_topic",
+      "allocating_floor",
+      "allowing_guest_to_continue",
+      "summarizing",
+      "closing_discussion",
+      "other",
+      "unclear",
+      "not_applicable"
+    ],
+    "inference_policy": "Observable timing/order is not by itself proof of conversational intent. Use transcript evidence and abstain when evidence is insufficient."
+  },
+  "manual_verification": {
+    "status": "pending",
+    "recommended_initial_sample_size": 2,
+    "review_fields": [
+      "event completeness",
+      "speaker labels",
+      "timestamps",
+      "transcript fidelity",
+      "continuation versus new entry",
+      "first-speaker observations"
+    ]
+  },
+  "source": {
+    "file": "data/v2/debate_only/videos/qp_htROb_Lk/threshold_5.0/merge_final.json",
+    "video_id": "qp_htROb_Lk",
+    "title": "Vote Chori Debate: BJP Padyatra vs INDIA Bloc Ramlila Maidan Rally | CEC Gyanesh Kumar | India Today",
+    "host_speaker": "SPEAKER_04",
+    "window_seconds": 3.0,
+    "overlap_count_in_source": 2,
+    "overlap_count_processed": 2,
+    "transcript_segment_count": 240
+  },
+  "overlap_events": [
+    {
+      "overlap_id": 1,
+      "overlap": {
+        "start": 808.985,
+        "end": 814.857,
+        "duration": 5.872,
+        "speakers": [
+          "SPEAKER_00",
+          "SPEAKER_04"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 814.857,
+      "window_end": 817.857,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_00",
+          "start": 814.479,
+          "end": 816.76,
+          "text": "If somebody is making allegation, they should make, they should,",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 805.985,
+        "end": 808.985,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_00",
+          "start": 794.912,
+          "end": 809.937,
+          "text": "Show the Honorable Court that these are the evidence which I want to put in front of you, that they, instead of making this kind of allegation, but they can only make allegation because they know that everything was done with the right spirit.",
+          "starts_in_window": false,
+          "active_at_window_end": true,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_00",
+        "start": 788.47,
+        "end": 794.272,
+        "text": "instead of making allegation, if they can substantiate, then they must approach the Honorable Court."
+      },
+      "observations": {
+        "speech_event_count": 1,
+        "speakers_in_window": [
+          "SPEAKER_00"
+        ],
+        "host_spoke_in_window": false,
+        "speakers_active_at_window_start": [
+          "SPEAKER_00"
+        ],
+        "first_speaker_in_window": "SPEAKER_00",
+        "host_spoke_first_in_window": false,
+        "first_new_speaker_after_overlap": null,
+        "host_spoke_first_new_after_overlap": null,
+        "new_speech_event_count": 0,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 2,
+      "overlap": {
+        "start": 1131.483,
+        "end": 1137.322,
+        "duration": 5.839,
+        "speakers": [
+          "SPEAKER_00",
+          "SPEAKER_04"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 1137.322,
+      "window_end": 1140.322,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_04",
+          "start": 1132.023,
+          "end": 1139.027,
+          "text": "Alright, so Dr. Zafar Islam is essentially questioning the support of the people that the Congress party... They don't have any positive agenda.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_00",
+          "start": 1139.867,
+          "end": 1153.886,
+          "text": "all right they don't have any positive agenda they have they have no alternative plan they have that there's nothing they can project to the people common man right obviously for common man would like to say if what is the alternative you have all right because",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 1128.483,
+        "end": 1131.483,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_00",
+          "start": 1123.178,
+          "end": 1132.003,
+          "text": "People have categorically rejected, very clearly rejected the opposition parties and they will continue to reject.",
+          "starts_in_window": false,
+          "active_at_window_end": true,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_00",
+        "start": 1114.753,
+        "end": 1122.537,
+        "text": "That only suggests that people's support, people's blessing is not with Congress party or for that matter with opposition parties."
+      },
+      "observations": {
+        "speech_event_count": 2,
+        "speakers_in_window": [
+          "SPEAKER_04",
+          "SPEAKER_00"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_04"
+        ],
+        "first_speaker_in_window": "SPEAKER_04",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": "SPEAKER_00",
+        "host_spoke_first_new_after_overlap": false,
+        "new_speech_event_count": 1,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    }
+  ],
+  "notes": [
+    "This artifact is a separate analysis output; it does not modify final.json or any existing pipeline stage.",
+    "Transcript text and source segment timestamps are preserved exactly; events may extend beyond the 3-second window and are flagged.",
+    "All classification and host-behavior fields are intentionally unclassified pending manual verification and later LLM analysis.",
+    "first_speaker_in_window accounts for speech already active at the window boundary; first_new_speaker_after_overlap separately records a segment beginning after the overlap.",
+    "Tied or ambiguous speaker starts are represented as null rather than forcing a conclusion.",
+    "Speaker labels are diarization labels, not verified real-world identities."
+  ]
+}

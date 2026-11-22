@@ -1,0 +1,655 @@
+{
+  "schema_version": "overlap-followup-analysis-1.1",
+  "analysis_status": "deterministic_extraction_only_classification_and_interpretation_pending",
+  "language_scope": {
+    "selected_scope": "English-only pilot",
+    "source_asr_language": "en",
+    "source_language_verified_by_human": false,
+    "out_of_scope_policy": "Flag non-English, mixed-language, or uncertain speech for review; do not silently classify it as English."
+  },
+  "classification_taxonomy": {
+    "utterance_form": [
+      "question",
+      "statement",
+      "imperative",
+      "fragment",
+      "unclear"
+    ],
+    "conversational_function": [
+      "asking",
+      "challenging",
+      "answering",
+      "interrupting",
+      "yielding_floor",
+      "redirecting",
+      "backchanneling",
+      "asserting",
+      "unclear"
+    ],
+    "target_speaker_policy": "Use a speaker label only when the target is supported by transcript/context; otherwise null.",
+    "host_behavior": [
+      "regaining_control",
+      "challenging_participant",
+      "asking_for_clarification",
+      "redirecting_topic",
+      "allocating_floor",
+      "allowing_guest_to_continue",
+      "summarizing",
+      "closing_discussion",
+      "other",
+      "unclear",
+      "not_applicable"
+    ],
+    "inference_policy": "Observable timing/order is not by itself proof of conversational intent. Use transcript evidence and abstain when evidence is insufficient."
+  },
+  "manual_verification": {
+    "status": "pending",
+    "recommended_initial_sample_size": 6,
+    "review_fields": [
+      "event completeness",
+      "speaker labels",
+      "timestamps",
+      "transcript fidelity",
+      "continuation versus new entry",
+      "first-speaker observations"
+    ]
+  },
+  "source": {
+    "file": "data/v2/debate_only/videos/meZ6VGh7Q7c/threshold_5.0/merge_final.json",
+    "video_id": "meZ6VGh7Q7c",
+    "title": "India First: Panel Debate Politics Of Indian Constitution, Electoral Democracy & National Economy",
+    "host_speaker": "SPEAKER_05",
+    "window_seconds": 3.0,
+    "overlap_count_in_source": 6,
+    "overlap_count_processed": 6,
+    "transcript_segment_count": 246
+  },
+  "overlap_events": [
+    {
+      "overlap_id": 1,
+      "overlap": {
+        "start": 807.348,
+        "end": 816.005,
+        "duration": 8.657,
+        "speakers": [
+          "SPEAKER_00",
+          "SPEAKER_01",
+          "SPEAKER_05"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 816.005,
+      "window_end": 819.005,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_05",
+          "start": 815.791,
+          "end": 816.031,
+          "text": "Thank you.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_05",
+          "start": 816.051,
+          "end": 817.492,
+          "text": "Gaurav, let me... Absolutely.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_05",
+          "start": 817.532,
+          "end": 818.773,
+          "text": "Nobody's interrupting anybody.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_05",
+          "start": 818.833,
+          "end": 819.894,
+          "text": "Everybody gets to speak.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 804.348,
+        "end": 807.348,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_00",
+          "start": 804.822,
+          "end": 805.623,
+          "text": "I need to come in here.",
+          "starts_in_window": true,
+          "active_at_window_end": false,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_00",
+          "start": 806.183,
+          "end": 811.567,
+          "text": "Gaurav, I need a clear... Gaurav, I let her have a free run and I didn't interrupt her.",
+          "starts_in_window": true,
+          "active_at_window_end": true,
+          "extends_before_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_00",
+        "start": 804.822,
+        "end": 805.623,
+        "text": "I need to come in here."
+      },
+      "observations": {
+        "speech_event_count": 4,
+        "speakers_in_window": [
+          "SPEAKER_05"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_05"
+        ],
+        "first_speaker_in_window": "SPEAKER_05",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": "SPEAKER_05",
+        "host_spoke_first_new_after_overlap": true,
+        "new_speech_event_count": 3,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 2,
+      "overlap": {
+        "start": 934.4,
+        "end": 950.414,
+        "duration": 16.014,
+        "speakers": [
+          "SPEAKER_00",
+          "SPEAKER_04"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 950.414,
+      "window_end": 953.414,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_04",
+          "start": 946.791,
+          "end": 953.458,
+          "text": "So how can we ensure the economy and transparency of the organization which is the custodian of the electoral system of the country?",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 931.4,
+        "end": 934.4,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_04",
+          "start": 931.359,
+          "end": 944.188,
+          "text": "Today, we have seen how if they talk about Naveen Chawla and so many other things, the panel which selects the Chief Election Commissioner of India and the Election Commissioner of India, that",
+          "starts_in_window": false,
+          "active_at_window_end": true,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_04",
+        "start": 929.678,
+        "end": 931.119,
+        "text": "Now, we are going to do the same."
+      },
+      "observations": {
+        "speech_event_count": 1,
+        "speakers_in_window": [
+          "SPEAKER_04"
+        ],
+        "host_spoke_in_window": false,
+        "speakers_active_at_window_start": [
+          "SPEAKER_04"
+        ],
+        "first_speaker_in_window": "SPEAKER_04",
+        "host_spoke_first_in_window": false,
+        "first_new_speaker_after_overlap": null,
+        "host_spoke_first_new_after_overlap": null,
+        "new_speech_event_count": 0,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 3,
+      "overlap": {
+        "start": 953.3,
+        "end": 964.792,
+        "duration": 11.492,
+        "speakers": [
+          "SPEAKER_00",
+          "SPEAKER_04",
+          "SPEAKER_05"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 964.792,
+      "window_end": 967.792,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_04",
+          "start": 966.291,
+          "end": 984.579,
+          "text": "a serious discussion about constitution into what about he he want to derail the core issues if somebody is carrying a constitution it is reminding the government the people sitting in the treasury benches that sir you should understand that you have to abide by the laws",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 950.3,
+        "end": 953.3,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_04",
+          "start": 946.791,
+          "end": 953.458,
+          "text": "So how can we ensure the economy and transparency of the organization which is the custodian of the electoral system of the country?",
+          "starts_in_window": false,
+          "active_at_window_end": true,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_04",
+        "start": 944.368,
+        "end": 946.731,
+        "text": "That panel has a majority by the government."
+      },
+      "observations": {
+        "speech_event_count": 1,
+        "speakers_in_window": [
+          "SPEAKER_04"
+        ],
+        "host_spoke_in_window": false,
+        "speakers_active_at_window_start": [],
+        "first_speaker_in_window": "SPEAKER_04",
+        "host_spoke_first_in_window": false,
+        "first_new_speaker_after_overlap": "SPEAKER_04",
+        "host_spoke_first_new_after_overlap": false,
+        "new_speech_event_count": 1,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 4,
+      "overlap": {
+        "start": 982.679,
+        "end": 989.564,
+        "duration": 6.885,
+        "speakers": [
+          "SPEAKER_00",
+          "SPEAKER_04",
+          "SPEAKER_05"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 989.564,
+      "window_end": 992.564,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_05",
+          "start": 987.442,
+          "end": 990.346,
+          "text": "All faders go down.",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_05",
+          "start": 990.927,
+          "end": 991.908,
+          "text": "All faders go down.",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": false,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        },
+        {
+          "speaker": "SPEAKER_05",
+          "start": 992.449,
+          "end": 998.157,
+          "text": "I want to bring in Siddharth Zarabi into this conversation because this is a question that's on facts and Siddharth",
+          "starts_in_window": true,
+          "active_at_window_start": false,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 979.679,
+        "end": 982.679,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_04",
+          "start": 966.291,
+          "end": 984.579,
+          "text": "a serious discussion about constitution into what about he he want to derail the core issues if somebody is carrying a constitution it is reminding the government the people sitting in the treasury benches that sir you should understand that you have to abide by the laws",
+          "starts_in_window": false,
+          "active_at_window_end": true,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_04",
+        "start": 954.699,
+        "end": 954.919,
+        "text": "One by one."
+      },
+      "observations": {
+        "speech_event_count": 3,
+        "speakers_in_window": [
+          "SPEAKER_05"
+        ],
+        "host_spoke_in_window": true,
+        "speakers_active_at_window_start": [
+          "SPEAKER_05"
+        ],
+        "first_speaker_in_window": "SPEAKER_05",
+        "host_spoke_first_in_window": true,
+        "first_new_speaker_after_overlap": "SPEAKER_05",
+        "host_spoke_first_new_after_overlap": true,
+        "new_speech_event_count": 2,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 5,
+      "overlap": {
+        "start": 1307.354,
+        "end": 1316.939,
+        "duration": 9.585,
+        "speakers": [
+          "SPEAKER_04",
+          "SPEAKER_05"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 1316.939,
+      "window_end": 1319.939,
+      "speech_events": [
+        {
+          "speaker": "SPEAKER_04",
+          "start": 1298.537,
+          "end": 1323.292,
+          "text": "okay okay on the substantive issue yes yes let me please keep quiet i think your speech is not clear okay guys guys no personal attack please please no personal attack no personal attack please please i request all my guests i request all my guests no personal attacks please she's not supposed to heckle me when i'm making an opening statement absolutely nobody's heckling anybody absolutely sir",
+          "starts_in_window": false,
+          "active_at_window_start": true,
+          "extends_beyond_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "pre_overlap_window": {
+        "start": 1304.354,
+        "end": 1307.354,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [
+        {
+          "speaker": "SPEAKER_04",
+          "start": 1298.537,
+          "end": 1323.292,
+          "text": "okay okay on the substantive issue yes yes let me please keep quiet i think your speech is not clear okay guys guys no personal attack please please no personal attack no personal attack please please i request all my guests i request all my guests no personal attacks please she's not supposed to heckle me when i'm making an opening statement absolutely nobody's heckling anybody absolutely sir",
+          "starts_in_window": false,
+          "active_at_window_end": true,
+          "extends_before_window": true,
+          "utterance_form": null,
+          "conversational_function": null,
+          "target_speaker": null,
+          "classification_evidence": [],
+          "classification_confidence": null,
+          "classification_status": "pending"
+        }
+      ],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_00",
+        "start": 1297.083,
+        "end": 1297.123,
+        "text": "OK."
+      },
+      "observations": {
+        "speech_event_count": 1,
+        "speakers_in_window": [
+          "SPEAKER_04"
+        ],
+        "host_spoke_in_window": false,
+        "speakers_active_at_window_start": [
+          "SPEAKER_04"
+        ],
+        "first_speaker_in_window": "SPEAKER_04",
+        "host_spoke_first_in_window": false,
+        "first_new_speaker_after_overlap": null,
+        "host_spoke_first_new_after_overlap": null,
+        "new_speech_event_count": 0,
+        "no_speech_in_window": false
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    },
+    {
+      "overlap_id": 6,
+      "overlap": {
+        "start": 1389.687,
+        "end": 1403.761,
+        "duration": 14.074,
+        "speakers": [
+          "SPEAKER_00",
+          "SPEAKER_04",
+          "SPEAKER_05"
+        ],
+        "case": "AGREE",
+        "source": "osd",
+        "confidence": 1.0
+      },
+      "window_seconds": 3.0,
+      "window_start": 1403.761,
+      "window_end": 1406.761,
+      "speech_events": [],
+      "pre_overlap_window": {
+        "start": 1386.687,
+        "end": 1389.687,
+        "duration": 3.0
+      },
+      "pre_overlap_speaker_sequence": [],
+      "immediately_preceding_speaker": {
+        "speaker": "SPEAKER_04",
+        "start": 1381.604,
+        "end": 1383.305,
+        "text": "Even today it is 88 dollars per barrel."
+      },
+      "observations": {
+        "speech_event_count": 0,
+        "speakers_in_window": [],
+        "host_spoke_in_window": false,
+        "speakers_active_at_window_start": [],
+        "first_speaker_in_window": null,
+        "host_spoke_first_in_window": null,
+        "first_new_speaker_after_overlap": null,
+        "host_spoke_first_new_after_overlap": null,
+        "new_speech_event_count": 0,
+        "no_speech_in_window": true
+      },
+      "interpretation": {
+        "host_behavior": null,
+        "behavior_evidence": [],
+        "confidence": null,
+        "rationale": null,
+        "manual_review_status": "pending",
+        "reviewer_notes": null
+      }
+    }
+  ],
+  "notes": [
+    "This artifact is a separate analysis output; it does not modify final.json or any existing pipeline stage.",
+    "Transcript text and source segment timestamps are preserved exactly; events may extend beyond the 3-second window and are flagged.",
+    "All classification and host-behavior fields are intentionally unclassified pending manual verification and later LLM analysis.",
+    "first_speaker_in_window accounts for speech already active at the window boundary; first_new_speaker_after_overlap separately records a segment beginning after the overlap.",
+    "Tied or ambiguous speaker starts are represented as null rather than forcing a conclusion.",
+    "Speaker labels are diarization labels, not verified real-world identities."
+  ]
+}

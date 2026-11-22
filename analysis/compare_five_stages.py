@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Create a compact, source-traceable five-stage comparison report."""
+"""Create a compact, source-traceable six-stage comparison report."""
 from __future__ import annotations
 
 import argparse
@@ -14,6 +14,7 @@ STAGES = (
     ("threshold_0.5", "Threshold 0.5 s", "threshold_0.5"),
     ("threshold_1.0", "Threshold 1.0 s", "threshold_1.0"),
     ("threshold_2.0", "Threshold 2.0 s", "threshold_2.0"),
+    ("threshold_5.0", "Threshold 5.0 s", "threshold_5.0"),
 )
 
 
@@ -132,12 +133,12 @@ def main():
     args = parser.parse_args(); root = args.data_dir / args.video_id
     stages = [stage(root, *item) for item in STAGES]
     speakers = sorted({speaker for item in stages for speaker in item["speaker_shares_percent"]})
-    report = {"schema_version": "five-stage-compact-1.0", "video_id": args.video_id, "metric_definitions": {"overlap_duration": "union of original constituent overlap intervals; not merged-episode span", "merge_operations": "original turn count minus merged analytical turn count", "speaker_transitions": "speaker-ID changes in ordered original turns", "speaker_shares": "actual attributed turn duration / total attributed turn duration"}, "stages": stages}
+    report = {"schema_version": "six-stage-compact-1.0", "video_id": args.video_id, "metric_definitions": {"overlap_duration": "union of original constituent overlap intervals; not merged-episode span", "merge_operations": "original turn count minus merged analytical turn count", "speaker_transitions": "speaker-ID changes in ordered original turns", "speaker_shares": "actual attributed turn duration / total attributed turn duration"}, "stages": stages}
     out = root / "comparison"; out.mkdir(parents=True, exist_ok=True)
     (out / "compact_five_stage_comparison.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
     metrics = (("video_duration", "Video duration (MM:SS)"), ("speaker_count", "Speaker count"), ("structural_speaker_transitions", "Speaker transitions"), ("overlap_events", "Overlap events"), ("actual_overlap_duration_seconds", "Actual overlap duration (s)"), ("original_speaker_turns", "Original speaker turns"), ("merged_speaker_turns", "Merged speaker turns"), ("merge_operations", "Merge operations"), ("total_gap_duration_seconds", "Total gap duration (s)"))
     speaker_table = "<table><tr><th>Speaker</th>" + "".join(f"<th>{html.escape(s['label'])}</th>" for s in stages) + "</tr>" + "".join("<tr><th>"+html.escape(sp)+"</th>"+"".join(f"<td>{fmt(s['speaker_shares_percent'].get(sp))}</td>" for s in stages)+"</tr>" for sp in speakers) + "</table>"
-    page = "<html><head><meta charset='utf-8'><title>Five-stage comparison</title><style>body{font:14px system-ui;margin:28px;color:#172033}h1{margin:0}h2{margin-top:28px}table{border-collapse:collapse;width:100%;margin:10px 0}th,td{padding:7px;border-bottom:1px solid #d9dee8;text-align:right}th:first-child{text-align:left}.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.barrow{display:grid;grid-template-columns:150px 1fr 55px;gap:8px;margin:8px 0;align-items:center}.barrow i{height:16px;background:#2563eb;display:block;border-radius:3px}.note{color:#526074}@media(max-width:800px){.grid{grid-template-columns:1fr}.barrow{grid-template-columns:120px 1fr 50px}}</style></head><body><h1>Five-stage video analysis comparison</h1><p class='note'>Overlap duration is actual interval coverage; merged episode span is not substituted. Thresholds retain episodes whose merged span meets the threshold.</p>" + table(metrics, stages) + "<h2>Speaker shares (% actual attributed speech)</h2>" + speaker_table + "<div class='grid'>" + bars("Overlap events", "overlap_events", stages) + bars("Actual overlap duration (seconds)", "actual_overlap_duration_seconds", stages) + bars("Original speaker turns", "original_speaker_turns", stages) + bars("Merged speaker turns", "merged_speaker_turns", stages) + "</div></body></html>"
+    page = "<html><head><meta charset='utf-8'><title>Six-stage comparison</title><style>body{font:14px system-ui;margin:28px;color:#172033}h1{margin:0}h2{margin-top:28px}table{border-collapse:collapse;width:100%;margin:10px 0}th,td{padding:7px;border-bottom:1px solid #d9dee8;text-align:right}th:first-child{text-align:left}.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.barrow{display:grid;grid-template-columns:150px 1fr 55px;gap:8px;margin:8px 0;align-items:center}.barrow i{height:16px;background:#2563eb;display:block;border-radius:3px}.note{color:#526074}@media(max-width:800px){.grid{grid-template-columns:1fr}.barrow{grid-template-columns:120px 1fr 50px}}</style></head><body><h1>Six-stage video analysis comparison</h1><p class='note'>Overlap duration is actual interval coverage; merged episode span is not substituted. Thresholds retain episodes whose merged span meets the threshold.</p>" + table(metrics, stages) + "<h2>Speaker shares (% actual attributed speech)</h2>" + speaker_table + "<div class='grid'>" + bars("Overlap events", "overlap_events", stages) + bars("Actual overlap duration (seconds)", "actual_overlap_duration_seconds", stages) + bars("Original speaker turns", "original_speaker_turns", stages) + bars("Merged speaker turns", "merged_speaker_turns", stages) + "</div></body></html>"
     (out / "compact_five_stage_comparison.html").write_text(page, encoding="utf-8")
     print(table(metrics, stages).replace("<tr>", "\n").replace("</tr>", "").replace("<th>", " | ").replace("</th>", "").replace("<td>", " | ").replace("</td>", "").replace("<table>", "").replace("</table>", ""))
     print(out / "compact_five_stage_comparison.json"); print(out / "compact_five_stage_comparison.html")

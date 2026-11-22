@@ -34,7 +34,7 @@ from preprocess_overlap import get_video_paths, process_threshold
 from threshold import analyze as analyze_transitions
 
 
-DEFAULT_THRESHOLDS = (0.5, 1.0, 2.0)
+DEFAULT_THRESHOLDS = (0.5, 1.0, 2.0, 5.0)
 
 
 def read_json(path: Path) -> Dict[str, Any]:

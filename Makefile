@@ -11,13 +11,14 @@ DATA_DIR := $(DEBATE_DATA_DIR)
 IDS_FILE := ids.json
 LOG_DIR := logs
 VIDEO_ID ?=
+AD_MIN_DURATION_SECONDS ?= 15
 FORCE ?= 0
 OVERWRITE ?= $(FORCE)
 OVERWRITE_FLAG := $(if $(filter 1 yes true,$(OVERWRITE)),--overwrite,)
 IDS := $(shell $(PYTHON) -c 'import json; print(" ".join(x for x in json.load(open("$(IDS_FILE)")) if isinstance(x, str) and x.strip()))')
 
 .DEFAULT_GOAL := help
-.PHONY: help list check check-final media prepare transcribe detect-ads diarize overlap build-final acquire original baseline threshold-0.5 threshold-1.0 threshold-2.0 thresholds compare run all clean-generated summary
+.PHONY: help list check check-final media prepare transcribe detect-ads diarize overlap build-final acquire original baseline threshold-0.5 threshold-1.0 threshold-2.0 threshold-5.0 thresholds compare run all clean-generated summary
 
 help:
 	@echo "Five-stage Hindi TV debate analysis"
@@ -63,7 +64,7 @@ transcribe: media
 	@$(PYTHON) -m v2.cli.transcribe --video-id $(VIDEO_ID) --data-dir $(SOURCE_DATA_DIR) 2>&1 | tee $(LOG_DIR)/$(VIDEO_ID)/transcription.log
 
 detect-ads: transcribe
-	@$(PYTHON) -m v2.cli.detect_ads --video-id $(VIDEO_ID) --data-dir $(SOURCE_DATA_DIR) --debate-data-dir $(DEBATE_DATA_DIR) 2>&1 | tee $(LOG_DIR)/$(VIDEO_ID)/advertisements.log
+	@$(PYTHON) -m v2.cli.detect_ads --video-id $(VIDEO_ID) --data-dir $(SOURCE_DATA_DIR) --debate-data-dir $(DEBATE_DATA_DIR) --min-duration-seconds $(AD_MIN_DURATION_SECONDS) 2>&1 | tee $(LOG_DIR)/$(VIDEO_ID)/advertisements.log
 
 diarize: detect-ads
 	@test -n "$$HF_TOKEN" || (echo "ERROR: set HF_TOKEN for gated Pyannote diarization"; exit 2)
@@ -106,10 +107,15 @@ threshold-2.0: check-final
 	@mkdir -p $(LOG_DIR)/$(VIDEO_ID)
 	@$(PYTHON) analysis/run_variant_pipeline.py --data-dir $(DATA_DIR) --video-id $(VIDEO_ID) --thresholds 2.0 $(OVERWRITE_FLAG) 2>&1 | tee $(LOG_DIR)/$(VIDEO_ID)/threshold_2.0.log
 
+threshold-5.0: check-final
+	@test -n "$(VIDEO_ID)" || (echo "ERROR: specify VIDEO_ID=<id>"; exit 2)
+	@mkdir -p $(LOG_DIR)/$(VIDEO_ID)
+	@$(PYTHON) analysis/run_variant_pipeline.py --data-dir $(DATA_DIR) --video-id $(VIDEO_ID) --thresholds 5.0 $(OVERWRITE_FLAG) 2>&1 | tee $(LOG_DIR)/$(VIDEO_ID)/threshold_5.0.log
+
 thresholds: check-final
 	@test -n "$(VIDEO_ID)" || (echo "ERROR: specify VIDEO_ID=<id>"; exit 2)
 	@mkdir -p $(LOG_DIR)/$(VIDEO_ID)
-	@$(PYTHON) analysis/run_variant_pipeline.py --data-dir $(DATA_DIR) --video-id $(VIDEO_ID) --thresholds 0.5 1.0 2.0 $(OVERWRITE_FLAG) 2>&1 | tee $(LOG_DIR)/$(VIDEO_ID)/thresholds.log
+	@$(PYTHON) analysis/run_variant_pipeline.py --data-dir $(DATA_DIR) --video-id $(VIDEO_ID) --thresholds 0.5 1.0 2.0 5.0 $(OVERWRITE_FLAG) 2>&1 | tee $(LOG_DIR)/$(VIDEO_ID)/thresholds.log
 
 compare: check-final
 	@test -n "$(VIDEO_ID)" || (echo "ERROR: specify VIDEO_ID=<id>"; exit 2)
@@ -120,7 +126,7 @@ compare: check-final
 run: acquire
 	@test -n "$(VIDEO_ID)" || (echo "ERROR: specify VIDEO_ID=<id>"; exit 2)
 	@mkdir -p $(LOG_DIR)/$(VIDEO_ID)
-	@$(PYTHON) analysis/run_variant_pipeline.py --data-dir $(DATA_DIR) --video-id $(VIDEO_ID) --thresholds 0.5 1.0 2.0 $(OVERWRITE_FLAG) 2>&1 | tee $(LOG_DIR)/$(VIDEO_ID)/run.log
+	@$(PYTHON) analysis/run_variant_pipeline.py --data-dir $(DATA_DIR) --video-id $(VIDEO_ID) --thresholds 0.5 1.0 2.0 5.0 $(OVERWRITE_FLAG) 2>&1 | tee $(LOG_DIR)/$(VIDEO_ID)/run.log
 	@$(PYTHON) analysis/build_five_stage_comparison.py --data-dir $(DATA_DIR) --video-id $(VIDEO_ID) 2>&1 | tee $(LOG_DIR)/$(VIDEO_ID)/comparison.log
 	@test -s $(DATA_DIR)/$(VIDEO_ID)/comparison/five_stage_comparison.json
 	@$(PYTHON) analysis/compare_five_stages.py --data-dir $(DATA_DIR) --video-id $(VIDEO_ID) 2>&1 | tee $(LOG_DIR)/$(VIDEO_ID)/compact_comparison.log
@@ -135,5 +141,5 @@ summary:
 
 clean-generated:
 	@test -n "$(VIDEO_ID)" || (echo "ERROR: specify VIDEO_ID=<id>; refusing broad cleanup"; exit 2)
-	@rm -rf $(DATA_DIR)/$(VIDEO_ID)/baseline $(DATA_DIR)/$(VIDEO_ID)/threshold_0.5 $(DATA_DIR)/$(VIDEO_ID)/threshold_1.0 $(DATA_DIR)/$(VIDEO_ID)/threshold_2.0 $(DATA_DIR)/$(VIDEO_ID)/comparison $(LOG_DIR)/$(VIDEO_ID)
+	@rm -rf $(DATA_DIR)/$(VIDEO_ID)/baseline $(DATA_DIR)/$(VIDEO_ID)/threshold_0.5 $(DATA_DIR)/$(VIDEO_ID)/threshold_1.0 $(DATA_DIR)/$(VIDEO_ID)/threshold_2.0 $(DATA_DIR)/$(VIDEO_ID)/threshold_5.0 $(DATA_DIR)/$(VIDEO_ID)/comparison $(LOG_DIR)/$(VIDEO_ID)
 	@echo "Removed generated five-stage outputs for $(VIDEO_ID); source final.json and source artifacts were preserved."

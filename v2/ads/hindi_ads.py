@@ -12,6 +12,7 @@ from typing import Any
 PROMO = ("ऑफर", "छूट", "डिस्काउंट", "कीमत", "खरीदें", "खरीदिये", "ऑर्डर", "कॉल करें", "आज ही", "फ्री डिलीवरी", "गारंटी", "कैशबैक", "सेल", "बुक करें", "डाउनलोड करें", "buy now", "order now", "limited offer", "discount", "call now", "download now", "free delivery", "cashback", "offer")
 PRODUCT = ("रुपये", "₹", "ऐप", "इंश्योरेंस", "बीमा", "रिचार्ज", "स्कीम", "उत्पाद", "सर्विस", "product", "service", "price", "loan", "insurance")
 CTA = ("करें", "कीजिए", "मिलता है", "पाएं", "जाइए", "visit", "subscribe", "dial", "apply")
+MIN_ADVERTISEMENT_DURATION_SECONDS = 15.0
 
 
 def _number(value: Any) -> float | None:
@@ -42,7 +43,8 @@ def candidates(transcript: dict) -> list[dict]:
     return rows
 
 
-def continuous_blocks(rows: list[dict], max_gap: float = 2.0) -> list[dict]:
+def continuous_blocks(rows: list[dict], max_gap: float = 2.0,
+                      min_duration_seconds: float = MIN_ADVERTISEMENT_DURATION_SECONDS) -> list[dict]:
     """Merge only adjacent high-confidence rows; never bridge debate speech."""
     blocks=[]
     for row in rows:
@@ -52,13 +54,16 @@ def continuous_blocks(rows: list[dict], max_gap: float = 2.0) -> list[dict]:
         else:
             blocks.append({"source_segment_indices":list(row["source_segment_indices"]),"start_timestamp":row["start_timestamp"],"end_timestamp":row["end_timestamp"],"evidence":[row["transcript_evidence"]],"evidence_categories":set(row["evidence_categories"])})
     for i, block in enumerate(blocks,1):
-        block["advertisement_id"]=f"AD_{i:03d}"; block["duration_seconds"]=round(block["end_timestamp"]-block["start_timestamp"],3); block["evidence_categories"]=sorted(block["evidence_categories"]); block["transcript_evidence"]=" ".join(block.pop("evidence")); block["language"]="Hindi_or_Hinglish"; block["classification"]="advertisement"; block["confidence"]="rule_based_high"; block["exclusion_status"]="excluded" if block["duration_seconds"]>60 else "retained"; block["exclusion_reason"]="Hindi advertisement duration exceeded 60 seconds" if block["duration_seconds"]>60 else "duration is 60 seconds or less"
+        block["advertisement_id"]=f"AD_{i:03d}"; block["duration_seconds"]=round(block["end_timestamp"]-block["start_timestamp"],3); block["evidence_categories"]=sorted(block["evidence_categories"]); block["transcript_evidence"]=" ".join(block.pop("evidence")); block["language"]="Hindi_or_Hinglish"; block["classification"]="advertisement"; block["confidence"]="rule_based_high"; block["exclusion_status"]="excluded" if block["duration_seconds"] >= min_duration_seconds else "retained"; block["exclusion_reason"]=f"Hindi advertisement duration is at least {min_duration_seconds:g} seconds" if block["duration_seconds"] >= min_duration_seconds else f"duration is below {min_duration_seconds:g} seconds"
     return blocks
 
 
-def exclusion_record(video_id: str, transcript: dict) -> dict:
-    raw=candidates(transcript); blocks=continuous_blocks(raw); excluded=[x for x in blocks if x["exclusion_status"]=="excluded"]; retained=[x for x in blocks if x["exclusion_status"]=="retained"]
-    return {"schema_version":"advertisement-exclusion-1.0","video_id":video_id,"advertisement_detection":{"method":"conservative_rules_only","language":"Hindi_or_Hinglish","duration_threshold_seconds":60,"exclusion_rule":"duration > 60 seconds","continuous_gap_seconds":2.0},"summary":{"total_advertisement_candidates":len(raw),"total_continuous_advertisements":len(blocks),"total_excluded_advertisements":len(excluded),"total_retained_advertisements":len(retained),"total_excluded_duration_seconds":round(sum(x["duration_seconds"] for x in excluded),3),"total_retained_duration_seconds":round(sum(x["duration_seconds"] for x in retained),3),"uncertain_candidate_count":sum(x["classification"]=="uncertain" for x in raw)},"advertisement_candidates":raw,"excluded_advertisements":excluded,"retained_advertisements":retained,"validation":{"human_verified":False,"review_required":bool(raw),"warning":"Rules do not establish commercial intent; uncertain candidates are retained."}}
+def exclusion_record(video_id: str, transcript: dict,
+                     min_duration_seconds: float = MIN_ADVERTISEMENT_DURATION_SECONDS) -> dict:
+    if min_duration_seconds < 0:
+        raise ValueError("min_duration_seconds must be non-negative")
+    raw=candidates(transcript); blocks=continuous_blocks(raw, min_duration_seconds=min_duration_seconds); excluded=[x for x in blocks if x["exclusion_status"]=="excluded"]; retained=[x for x in blocks if x["exclusion_status"]=="retained"]
+    return {"schema_version":"advertisement-exclusion-1.0","video_id":video_id,"advertisement_detection":{"method":"conservative_rules_only","language":"Hindi_or_Hinglish","duration_threshold_seconds":min_duration_seconds,"exclusion_rule":f"duration >= {min_duration_seconds:g} seconds","continuous_gap_seconds":2.0},"summary":{"total_advertisement_candidates":len(raw),"total_continuous_advertisements":len(blocks),"total_excluded_advertisements":len(excluded),"total_retained_advertisements":len(retained),"total_excluded_duration_seconds":round(sum(x["duration_seconds"] for x in excluded),3),"total_retained_duration_seconds":round(sum(x["duration_seconds"] for x in retained),3),"uncertain_candidate_count":sum(x["classification"]=="uncertain" for x in raw)},"advertisement_candidates":raw,"excluded_advertisements":excluded,"retained_advertisements":retained,"validation":{"human_verified":False,"review_required":bool(raw),"warning":"Rules do not establish commercial intent; uncertain candidates are retained."}}
 
 
 def filter_transcript(transcript: dict, excluded: list[dict]) -> dict:

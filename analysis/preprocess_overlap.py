@@ -2,7 +2,7 @@
 """
 Create duration-threshold versions of overlap artifacts and regenerate final.json.
 
-For each threshold (default: 0.5, 1.0, 2.0 seconds), this script:
+For each threshold (default: 0.5, 1.0, 2.0, 5.0 seconds), this script:
   1. Removes overlap regions whose duration is <= threshold.
   2. Filters matching timestamped records from analysis.json,
      candidates.json, and overlap_followup_analysis.json.
@@ -39,7 +39,7 @@ from v2.io import save_json
 from v2.media.layout import build_layout
 
 VIDEOS_DIR = PROJECT_ROOT / "data" / "v2" / "videos"
-THRESHOLDS = (0.5, 1.0, 2.0)
+THRESHOLDS = (0.5, 1.0, 2.0, 5.0)
 TIMESTAMP_TOLERANCE = 0.01
 LOGGER = logging.getLogger("preprocess_overlap")
 

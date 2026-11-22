@@ -23,6 +23,7 @@ STAGES = (
     ("threshold_0.5", "S3: 0.5 second threshold and fresh merge", Path("threshold_0.5")),
     ("threshold_1.0", "S4: 1.0 second threshold and fresh merge", Path("threshold_1.0")),
     ("threshold_2.0", "S5: 2.0 second threshold and fresh merge", Path("threshold_2.0")),
+    ("threshold_5.0", "S6: 5.0 second threshold and fresh merge", Path("threshold_5.0")),
 )
 
 
@@ -232,13 +233,13 @@ def main() -> None:
         impact = {"merge_S1_to_S2": {"turns_removed": (original["timeline_statistics"]["source_speaker_turn_count"] - baseline["timeline_statistics"]["analysis_turn_count"]),
             "attributed_speech_seconds_change": changes(baseline["timeline_statistics"]["attributed_speech_seconds"], original["timeline_statistics"]["attributed_speech_seconds"]),
             "timeline_span_change": changes(baseline["timeline_statistics"]["timeline_span_seconds"], original["timeline_statistics"]["timeline_span_seconds"])} , "thresholds": {}, "cumulative_from_S1": {}}
-        for key, label in (("threshold_0.5", "0.5"), ("threshold_1.0", "1.0"), ("threshold_2.0", "2.0")):
+        for key, label in (("threshold_0.5", "0.5"), ("threshold_1.0", "1.0"), ("threshold_2.0", "2.0"), ("threshold_5.0", "5.0")):
             current = stages[key]
             impact["thresholds"][label] = {"overlap_events_removed_from_S2": baseline["overlap_statistics"]["total_overlap_events"] - current["overlap_statistics"]["total_overlap_events"],
                 "overlap_duration_change_from_S2": changes(current["overlap_statistics"]["duration"]["total"], baseline["overlap_statistics"]["duration"]["total"]),
                 "additional_turns_removed_after_threshold": baseline["timeline_statistics"]["analysis_turn_count"] - current["timeline_statistics"]["analysis_turn_count"]}
             impact["cumulative_from_S1"][label] = {"turn_count_change": changes(current["timeline_statistics"]["analysis_turn_count"], original["timeline_statistics"]["source_speaker_turn_count"]), "overlap_duration_change": changes(current["overlap_statistics"]["duration"]["total"], original["overlap_statistics"]["duration"]["total"])}
-        output = {"schema_version": "five-stage-comparison-1.0", "metadata": {"video_id": video_dir.name, "video_title": (stages["original"].get("source_files") and (load(video_dir / "final.json", [], "metadata") or {}).get("episode", {}).get("title")), "language": "Hindi", "advertisement_exclusion": (advertisements or {}).get("summary")},
+        output = {"schema_version": "six-stage-comparison-1.0", "metadata": {"video_id": video_dir.name, "video_title": (stages["original"].get("source_files") and (load(video_dir / "final.json", [], "metadata") or {}).get("episode", {}).get("title")), "language": "Hindi", "advertisement_exclusion": (advertisements or {}).get("summary")},
             "comparison_metadata": {"stages": [x[0] for x in STAGES], "generated_at_utc": datetime.now(timezone.utc).isoformat(), "metric_definitions": {"speech_share": "attributed turn duration / total attributed turn duration", "switch": "same as confirmed transition", "overlap_duration": "sum of stage-local overlap candidate durations"}},
             "stage_results": stages, "processing_impact": impact, "data_quality": {"unavailable_sources": missing, "validation_warnings": ["Pairwise gap totals are not union-of-silence coverage.", "Host predictions and clusters are not human-verified."]}}
         out = video_dir / "comparison" / "five_stage_comparison.json"

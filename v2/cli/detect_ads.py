@@ -2,14 +2,14 @@
 import argparse
 import shutil
 from pathlib import Path
-from v2.ads.hindi_ads import exclusion_record, filter_transcript, mask_audio, save_record
+from v2.ads.hindi_ads import MIN_ADVERTISEMENT_DURATION_SECONDS, exclusion_record, filter_transcript, mask_audio, save_record
 from v2.io import load_json, save_json
 from v2.media.layout import build_layout
 
 def main():
-    p=argparse.ArgumentParser(description=__doc__); p.add_argument("--video-id",required=True); p.add_argument("--data-dir",type=Path,default=Path("data/v2/videos")); p.add_argument("--debate-data-dir",type=Path,default=Path("data/v2/debate_only/videos")); args=p.parse_args()
+    p=argparse.ArgumentParser(description=__doc__); p.add_argument("--video-id",required=True); p.add_argument("--data-dir",type=Path,default=Path("data/v2/videos")); p.add_argument("--debate-data-dir",type=Path,default=Path("data/v2/debate_only/videos")); p.add_argument("--min-duration-seconds", type=float, default=MIN_ADVERTISEMENT_DURATION_SECONDS, help="Minimum high-confidence advertisement block duration to remove."); args=p.parse_args()
     source=build_layout(args.video_id,args.data_dir); debate=build_layout(args.video_id,args.debate_data_dir)
-    transcript=load_json(source.asr_path); record=exclusion_record(args.video_id,transcript)
+    transcript=load_json(source.asr_path); record=exclusion_record(args.video_id,transcript, args.min_duration_seconds)
     save_record(record,source.root/"advertisement_analysis"/"advertisement_exclusions.json")
     save_record(record,debate.root/"advertisement_analysis"/"advertisement_exclusions.json")
     save_json(filter_transcript(transcript,record["excluded_advertisements"]),debate.asr_path)
