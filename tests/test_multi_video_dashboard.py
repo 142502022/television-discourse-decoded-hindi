@@ -35,9 +35,26 @@ def test_speaker_counts_are_original_stage_counts_and_clean_shares_normalize():
         assert abs(sum(row["clean_percent"] for row in shares) - 100.0) < 0.01
 
 
-def test_heuristic_hosts_are_not_mislabeled_as_manually_verified():
+def test_each_stage_resolves_its_own_host_json_and_calculates_host_metrics():
     data = dashboard.prepare_dashboard_data(ROOT / "data/v2/debate_only/videos")
     for video in data["videos"]:
         for stage in video["stages"].values():
-            assert stage["host"]["speaker_id"] is None
-            assert stage["host"]["original_share_percent"] is None
+            host = stage["host"]
+            assert host["speaker_id"]
+            assert host["host_id_matches_video"] is True
+            assert host["host_found_in_analysis"] is True
+            assert host["original_share_percent"] is not None
+            assert host["clean_share_percent"] is not None
+            assert host["longest_seconds"] is not None
+            assert host["mean_seconds"] is not None
+
+
+def test_host_turn_metrics_match_source_turns_for_two_videos():
+    data = dashboard.prepare_dashboard_data(ROOT / "data/v2/debate_only/videos")
+    for video_id in ("Cp9kTDGfJk4", "dFlv0bkxiLI"):
+        video = next(row for row in data["videos"] if row["video_id"] == video_id)
+        host = video["stages"]["baseline"]["host"]
+        final = dashboard.load(ROOT / "data/v2/debate_only/videos" / video_id / "baseline" / "final.json", [], "test")
+        expected = dashboard.host_turn_stats(final, host["speaker_id"])
+        assert host["longest_seconds"] == expected["longest_seconds"]
+        assert host["mean_seconds"] == expected["mean_seconds"]
