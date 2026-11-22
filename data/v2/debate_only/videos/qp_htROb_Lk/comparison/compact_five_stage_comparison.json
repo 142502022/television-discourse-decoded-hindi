@@ -1,5 +1,5 @@
 {
-  "schema_version": "five-stage-compact-1.0",
+  "schema_version": "six-stage-compact-1.0",
   "video_id": "qp_htROb_Lk",
   "metric_definitions": {
     "overlap_duration": "union of original constituent overlap intervals; not merged-episode span",
@@ -135,6 +135,34 @@
         "structural_speaker_transitions": 55,
         "overlap_events": 6,
         "actual_overlap_duration_seconds": 17.989,
+        "original_speaker_turns": 175,
+        "merged_speaker_turns": 61,
+        "merge_operations": 114,
+        "total_gap_duration_seconds": 198.315
+      },
+      "speaker_shares_percent": {
+        "SPEAKER_04": 27.885,
+        "SPEAKER_03": 34.594,
+        "SPEAKER_01": 4.936,
+        "SPEAKER_00": 31.715,
+        "SPEAKER_02": 0.87
+      }
+    },
+    {
+      "stage": "threshold_5.0",
+      "label": "Threshold 5.0 s",
+      "sources": {
+        "final": "data/v2/debate_only/videos/qp_htROb_Lk/threshold_5.0/final.json",
+        "merged": "data/v2/debate_only/videos/qp_htROb_Lk/threshold_5.0/merge_final.json",
+        "gap": "data/v2/debate_only/videos/qp_htROb_Lk/threshold_5.0/turn_gap_analysis.json"
+      },
+      "metrics": {
+        "video_duration_seconds": 1361.0,
+        "video_duration": "22:41",
+        "speaker_count": 5,
+        "structural_speaker_transitions": 55,
+        "overlap_events": 2,
+        "actual_overlap_duration_seconds": 8.134,
         "original_speaker_turns": 175,
         "merged_speaker_turns": 61,
         "merge_operations": 114,
