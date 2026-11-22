@@ -23,7 +23,7 @@
       "threshold_2.0",
       "threshold_5.0"
     ],
-    "generated_at_utc": "2026-11-22T17:46:53.011571+00:00",
+    "generated_at_utc": "2026-11-22T20:05:57.016705+00:00",
     "metric_definitions": {
       "speech_share": "attributed turn duration / total attributed turn duration",
       "switch": "same as confirmed transition",
@@ -50,11 +50,16 @@
       },
       "speaker_participation": {
         "share_denominator": "sum of attributed source-turn durations; overlap is counted for each involved speaker",
+        "clean_speech_definition": "attributed turn duration minus union coverage of retained overlap intervals",
         "total_attributed_speaking_seconds": 854.853,
+        "total_clean_speech_seconds": 799.185,
         "by_speaker": {
           "SPEAKER_00": {
             "attributed_speaking_seconds": 37.446,
             "speech_share_percent_of_attributed_total": 4.38,
+            "clean_speech_seconds": 25.01,
+            "speech_excluded_by_retained_overlap_seconds": 12.436,
+            "clean_speech_share_percent": 3.129,
             "original_turn_frequency": 38,
             "continuous_speaking_episode_count": 0,
             "continuous_floor_holding_duration": {
@@ -70,6 +75,9 @@
           "SPEAKER_01": {
             "attributed_speaking_seconds": 25.53,
             "speech_share_percent_of_attributed_total": 2.986,
+            "clean_speech_seconds": 25.53,
+            "speech_excluded_by_retained_overlap_seconds": 0.0,
+            "clean_speech_share_percent": 3.195,
             "original_turn_frequency": 10,
             "continuous_speaking_episode_count": 0,
             "continuous_floor_holding_duration": {
@@ -85,6 +93,9 @@
           "SPEAKER_02": {
             "attributed_speaking_seconds": 247.202,
             "speech_share_percent_of_attributed_total": 28.917,
+            "clean_speech_seconds": 231.709,
+            "speech_excluded_by_retained_overlap_seconds": 15.493,
+            "clean_speech_share_percent": 28.993,
             "original_turn_frequency": 19,
             "continuous_speaking_episode_count": 0,
             "continuous_floor_holding_duration": {
@@ -100,6 +111,9 @@
           "SPEAKER_03": {
             "attributed_speaking_seconds": 110.768,
             "speech_share_percent_of_attributed_total": 12.958,
+            "clean_speech_seconds": 107.089,
+            "speech_excluded_by_retained_overlap_seconds": 3.679,
+            "clean_speech_share_percent": 13.4,
             "original_turn_frequency": 6,
             "continuous_speaking_episode_count": 0,
             "continuous_floor_holding_duration": {
@@ -115,6 +129,9 @@
           "SPEAKER_04": {
             "attributed_speaking_seconds": 99.598,
             "speech_share_percent_of_attributed_total": 11.651,
+            "clean_speech_seconds": 87.059,
+            "speech_excluded_by_retained_overlap_seconds": 12.539,
+            "clean_speech_share_percent": 10.893,
             "original_turn_frequency": 6,
             "continuous_speaking_episode_count": 0,
             "continuous_floor_holding_duration": {
@@ -130,6 +147,9 @@
           "SPEAKER_05": {
             "attributed_speaking_seconds": 23.743,
             "speech_share_percent_of_attributed_total": 2.777,
+            "clean_speech_seconds": 23.743,
+            "speech_excluded_by_retained_overlap_seconds": 0.0,
+            "clean_speech_share_percent": 2.971,
             "original_turn_frequency": 14,
             "continuous_speaking_episode_count": 0,
             "continuous_floor_holding_duration": {
@@ -145,6 +165,9 @@
           "SPEAKER_06": {
             "attributed_speaking_seconds": 14.867,
             "speech_share_percent_of_attributed_total": 1.739,
+            "clean_speech_seconds": 14.867,
+            "speech_excluded_by_retained_overlap_seconds": 0.0,
+            "clean_speech_share_percent": 1.86,
             "original_turn_frequency": 3,
             "continuous_speaking_episode_count": 0,
             "continuous_floor_holding_duration": {
@@ -160,6 +183,9 @@
           "SPEAKER_07": {
             "attributed_speaking_seconds": 27.608,
             "speech_share_percent_of_attributed_total": 3.23,
+            "clean_speech_seconds": 27.608,
+            "speech_excluded_by_retained_overlap_seconds": 0.0,
+            "clean_speech_share_percent": 3.455,
             "original_turn_frequency": 5,
             "continuous_speaking_episode_count": 0,
             "continuous_floor_holding_duration": {
@@ -175,6 +201,9 @@
           "SPEAKER_08": {
             "attributed_speaking_seconds": 84.896,
             "speech_share_percent_of_attributed_total": 9.931,
+            "clean_speech_seconds": 81.186,
+            "speech_excluded_by_retained_overlap_seconds": 3.71,
+            "clean_speech_share_percent": 10.159,
             "original_turn_frequency": 3,
             "continuous_speaking_episode_count": 0,
             "continuous_floor_holding_duration": {
@@ -190,6 +219,9 @@
           "SPEAKER_09": {
             "attributed_speaking_seconds": 183.195,
             "speech_share_percent_of_attributed_total": 21.43,
+            "clean_speech_seconds": 175.384,
+            "speech_excluded_by_retained_overlap_seconds": 7.811,
+            "clean_speech_share_percent": 21.945,
             "original_turn_frequency": 9,
             "continuous_speaking_episode_count": 0,
             "continuous_floor_holding_duration": {
@@ -202,6 +234,32 @@
             },
             "speaker_switches": null
           }
+        }
+      },
+      "speaker_share_metrics": {
+        "original_attributed_speaker_shares": {
+          "SPEAKER_00": 4.38,
+          "SPEAKER_01": 2.986,
+          "SPEAKER_02": 28.917,
+          "SPEAKER_03": 12.958,
+          "SPEAKER_04": 11.651,
+          "SPEAKER_05": 2.777,
+          "SPEAKER_06": 1.739,
+          "SPEAKER_07": 3.23,
+          "SPEAKER_08": 9.931,
+          "SPEAKER_09": 21.43
+        },
+        "clean_speech_speaker_shares": {
+          "SPEAKER_00": 3.129,
+          "SPEAKER_01": 3.195,
+          "SPEAKER_02": 28.993,
+          "SPEAKER_03": 13.4,
+          "SPEAKER_04": 10.893,
+          "SPEAKER_05": 2.971,
+          "SPEAKER_06": 1.86,
+          "SPEAKER_07": 3.455,
+          "SPEAKER_08": 10.159,
+          "SPEAKER_09": 21.945
         }
       },
       "speaker_continuity": {
@@ -394,11 +452,16 @@
       },
       "speaker_participation": {
         "share_denominator": "sum of attributed source-turn durations; overlap is counted for each involved speaker",
+        "clean_speech_definition": "attributed turn duration minus union coverage of retained overlap intervals",
         "total_attributed_speaking_seconds": 854.853,
+        "total_clean_speech_seconds": 794.292,
         "by_speaker": {
           "SPEAKER_00": {
             "attributed_speaking_seconds": 37.446,
             "speech_share_percent_of_attributed_total": 4.38,
+            "clean_speech_seconds": 25.01,
+            "speech_excluded_by_retained_overlap_seconds": 12.436,
+            "clean_speech_share_percent": 3.149,
             "original_turn_frequency": 38,
             "continuous_speaking_episode_count": 22,
             "continuous_floor_holding_duration": {
@@ -417,6 +480,9 @@
           "SPEAKER_01": {
             "attributed_speaking_seconds": 25.53,
             "speech_share_percent_of_attributed_total": 2.986,
+            "clean_speech_seconds": 25.53,
+            "speech_excluded_by_retained_overlap_seconds": 0.0,
+            "clean_speech_share_percent": 3.214,
             "original_turn_frequency": 10,
             "continuous_speaking_episode_count": 2,
             "continuous_floor_holding_duration": {
@@ -435,6 +501,9 @@
           "SPEAKER_02": {
             "attributed_speaking_seconds": 247.202,
             "speech_share_percent_of_attributed_total": 28.917,
+            "clean_speech_seconds": 229.989,
+            "speech_excluded_by_retained_overlap_seconds": 17.213,
+            "clean_speech_share_percent": 28.955,
             "original_turn_frequency": 19,
             "continuous_speaking_episode_count": 18,
             "continuous_floor_holding_duration": {
@@ -453,6 +522,9 @@
           "SPEAKER_03": {
             "attributed_speaking_seconds": 110.768,
             "speech_share_percent_of_attributed_total": 12.958,
+            "clean_speech_seconds": 107.089,
+            "speech_excluded_by_retained_overlap_seconds": 3.679,
+            "clean_speech_share_percent": 13.482,
             "original_turn_frequency": 6,
             "continuous_speaking_episode_count": 2,
             "continuous_floor_holding_duration": {
@@ -471,6 +543,9 @@
           "SPEAKER_04": {
             "attributed_speaking_seconds": 99.598,
             "speech_share_percent_of_attributed_total": 11.651,
+            "clean_speech_seconds": 84.325,
+            "speech_excluded_by_retained_overlap_seconds": 15.273,
+            "clean_speech_share_percent": 10.616,
             "original_turn_frequency": 6,
             "continuous_speaking_episode_count": 5,
             "continuous_floor_holding_duration": {
@@ -489,6 +564,9 @@
           "SPEAKER_05": {
             "attributed_speaking_seconds": 23.743,
             "speech_share_percent_of_attributed_total": 2.777,
+            "clean_speech_seconds": 23.743,
+            "speech_excluded_by_retained_overlap_seconds": 0.0,
+            "clean_speech_share_percent": 2.989,
             "original_turn_frequency": 14,
             "continuous_speaking_episode_count": 3,
             "continuous_floor_holding_duration": {
@@ -507,6 +585,9 @@
           "SPEAKER_06": {
             "attributed_speaking_seconds": 14.867,
             "speech_share_percent_of_attributed_total": 1.739,
+            "clean_speech_seconds": 14.867,
+            "speech_excluded_by_retained_overlap_seconds": 0.0,
+            "clean_speech_share_percent": 1.872,
             "original_turn_frequency": 3,
             "continuous_speaking_episode_count": 2,
             "continuous_floor_holding_duration": {
@@ -525,6 +606,9 @@
           "SPEAKER_07": {
             "attributed_speaking_seconds": 27.608,
             "speech_share_percent_of_attributed_total": 3.23,
+            "clean_speech_seconds": 27.608,
+            "speech_excluded_by_retained_overlap_seconds": 0.0,
+            "clean_speech_share_percent": 3.476,
             "original_turn_frequency": 5,
             "continuous_speaking_episode_count": 2,
             "continuous_floor_holding_duration": {
@@ -543,6 +627,9 @@
           "SPEAKER_08": {
             "attributed_speaking_seconds": 84.896,
             "speech_share_percent_of_attributed_total": 9.931,
+            "clean_speech_seconds": 81.186,
+            "speech_excluded_by_retained_overlap_seconds": 3.71,
+            "clean_speech_share_percent": 10.221,
             "original_turn_frequency": 3,
             "continuous_speaking_episode_count": 3,
             "continuous_floor_holding_duration": {
@@ -558,6 +645,9 @@
           "SPEAKER_09": {
             "attributed_speaking_seconds": 183.195,
             "speech_share_percent_of_attributed_total": 21.43,
+            "clean_speech_seconds": 174.945,
+            "speech_excluded_by_retained_overlap_seconds": 8.25,
+            "clean_speech_share_percent": 22.025,
             "original_turn_frequency": 9,
             "continuous_speaking_episode_count": 7,
             "continuous_floor_holding_duration": {
@@ -573,6 +663,32 @@
               "outgoing": 1
             }
           }
+        }
+      },
+      "speaker_share_metrics": {
+        "original_attributed_speaker_shares": {
+          "SPEAKER_00": 4.38,
+          "SPEAKER_01": 2.986,
+          "SPEAKER_02": 28.917,
+          "SPEAKER_03": 12.958,
+          "SPEAKER_04": 11.651,
+          "SPEAKER_05": 2.777,
+          "SPEAKER_06": 1.739,
+          "SPEAKER_07": 3.23,
+          "SPEAKER_08": 9.931,
+          "SPEAKER_09": 21.43
+        },
+        "clean_speech_speaker_shares": {
+          "SPEAKER_00": 3.149,
+          "SPEAKER_01": 3.214,
+          "SPEAKER_02": 28.955,
+          "SPEAKER_03": 13.482,
+          "SPEAKER_04": 10.616,
+          "SPEAKER_05": 2.989,
+          "SPEAKER_06": 1.872,
+          "SPEAKER_07": 3.476,
+          "SPEAKER_08": 10.221,
+          "SPEAKER_09": 22.025
         }
       },
       "speaker_continuity": {
@@ -831,7 +947,7 @@
       },
       "gap_analysis": {
         "available": true,
-        "positive_silence_gap_duration": {
+        "total_inter_turn_gap_duration": {
           "count": 83,
           "total": 204.017,
           "mean": 2.458,
@@ -839,6 +955,10 @@
           "min": 0.017,
           "max": 27.236
         },
+        "clean_silence_duration": 153.798,
+        "clean_silence_gap_count": 72,
+        "gaps_containing_overlap_count": 11,
+        "gaps_containing_overlap_duration": 50.219,
         "gap_type_counts": {
           "speaker_transition_gap": 25,
           "same_speaker_gap": 47,
@@ -957,6 +1077,9 @@
         "participation": {
           "attributed_speaking_seconds": 247.202,
           "speech_share_percent_of_attributed_total": 28.917,
+          "clean_speech_seconds": 229.989,
+          "speech_excluded_by_retained_overlap_seconds": 17.213,
+          "clean_speech_share_percent": 28.955,
           "original_turn_frequency": 19,
           "continuous_speaking_episode_count": 18,
           "continuous_floor_holding_duration": {
@@ -998,11 +1121,16 @@
       },
       "speaker_participation": {
         "share_denominator": "sum of attributed source-turn durations; overlap is counted for each involved speaker",
+        "clean_speech_definition": "attributed turn duration minus union coverage of retained overlap intervals",
         "total_attributed_speaking_seconds": 854.853,
+        "total_clean_speech_seconds": 799.994,
         "by_speaker": {
           "SPEAKER_00": {
             "attributed_speaking_seconds": 37.446,
             "speech_share_percent_of_attributed_total": 4.38,
+            "clean_speech_seconds": 26.831,
+            "speech_excluded_by_retained_overlap_seconds": 10.615,
+            "clean_speech_share_percent": 3.354,
             "original_turn_frequency": 38,
             "continuous_speaking_episode_count": 22,
             "continuous_floor_holding_duration": {
@@ -1021,6 +1149,9 @@
           "SPEAKER_01": {
             "attributed_speaking_seconds": 25.53,
             "speech_share_percent_of_attributed_total": 2.986,
+            "clean_speech_seconds": 25.53,
+            "speech_excluded_by_retained_overlap_seconds": 0.0,
+            "clean_speech_share_percent": 3.191,
             "original_turn_frequency": 10,
             "continuous_speaking_episode_count": 2,
             "continuous_floor_holding_duration": {
@@ -1039,6 +1170,9 @@
           "SPEAKER_02": {
             "attributed_speaking_seconds": 247.202,
             "speech_share_percent_of_attributed_total": 28.917,
+            "clean_speech_seconds": 230.951,
+            "speech_excluded_by_retained_overlap_seconds": 16.251,
+            "clean_speech_share_percent": 28.869,
             "original_turn_frequency": 19,
             "continuous_speaking_episode_count": 17,
             "continuous_floor_holding_duration": {
@@ -1057,6 +1191,9 @@
           "SPEAKER_03": {
             "attributed_speaking_seconds": 110.768,
             "speech_share_percent_of_attributed_total": 12.958,
+            "clean_speech_seconds": 107.578,
+            "speech_excluded_by_retained_overlap_seconds": 3.19,
+            "clean_speech_share_percent": 13.447,
             "original_turn_frequency": 6,
             "continuous_speaking_episode_count": 2,
             "continuous_floor_holding_duration": {
@@ -1075,6 +1212,9 @@
           "SPEAKER_04": {
             "attributed_speaking_seconds": 99.598,
             "speech_share_percent_of_attributed_total": 11.651,
+            "clean_speech_seconds": 85.068,
+            "speech_excluded_by_retained_overlap_seconds": 14.53,
+            "clean_speech_share_percent": 10.634,
             "original_turn_frequency": 6,
             "continuous_speaking_episode_count": 5,
             "continuous_floor_holding_duration": {
@@ -1093,6 +1233,9 @@
           "SPEAKER_05": {
             "attributed_speaking_seconds": 23.743,
             "speech_share_percent_of_attributed_total": 2.777,
+            "clean_speech_seconds": 23.743,
+            "speech_excluded_by_retained_overlap_seconds": 0.0,
+            "clean_speech_share_percent": 2.968,
             "original_turn_frequency": 14,
             "continuous_speaking_episode_count": 3,
             "continuous_floor_holding_duration": {
@@ -1111,6 +1254,9 @@
           "SPEAKER_06": {
             "attributed_speaking_seconds": 14.867,
             "speech_share_percent_of_attributed_total": 1.739,
+            "clean_speech_seconds": 14.867,
+            "speech_excluded_by_retained_overlap_seconds": 0.0,
+            "clean_speech_share_percent": 1.858,
             "original_turn_frequency": 3,
             "continuous_speaking_episode_count": 2,
             "continuous_floor_holding_duration": {
@@ -1129,6 +1275,9 @@
           "SPEAKER_07": {
             "attributed_speaking_seconds": 27.608,
             "speech_share_percent_of_attributed_total": 3.23,
+            "clean_speech_seconds": 27.608,
+            "speech_excluded_by_retained_overlap_seconds": 0.0,
+            "clean_speech_share_percent": 3.451,
             "original_turn_frequency": 5,
             "continuous_speaking_episode_count": 2,
             "continuous_floor_holding_duration": {
@@ -1147,6 +1296,9 @@
           "SPEAKER_08": {
             "attributed_speaking_seconds": 84.896,
             "speech_share_percent_of_attributed_total": 9.931,
+            "clean_speech_seconds": 81.186,
+            "speech_excluded_by_retained_overlap_seconds": 3.71,
+            "clean_speech_share_percent": 10.148,
             "original_turn_frequency": 3,
             "continuous_speaking_episode_count": 3,
             "continuous_floor_holding_duration": {
@@ -1162,6 +1314,9 @@
           "SPEAKER_09": {
             "attributed_speaking_seconds": 183.195,
             "speech_share_percent_of_attributed_total": 21.43,
+            "clean_speech_seconds": 176.632,
+            "speech_excluded_by_retained_overlap_seconds": 6.563,
+            "clean_speech_share_percent": 22.079,
             "original_turn_frequency": 9,
             "continuous_speaking_episode_count": 7,
             "continuous_floor_holding_duration": {
@@ -1177,6 +1332,32 @@
               "outgoing": 1
             }
           }
+        }
+      },
+      "speaker_share_metrics": {
+        "original_attributed_speaker_shares": {
+          "SPEAKER_00": 4.38,
+          "SPEAKER_01": 2.986,
+          "SPEAKER_02": 28.917,
+          "SPEAKER_03": 12.958,
+          "SPEAKER_04": 11.651,
+          "SPEAKER_05": 2.777,
+          "SPEAKER_06": 1.739,
+          "SPEAKER_07": 3.23,
+          "SPEAKER_08": 9.931,
+          "SPEAKER_09": 21.43
+        },
+        "clean_speech_speaker_shares": {
+          "SPEAKER_00": 3.354,
+          "SPEAKER_01": 3.191,
+          "SPEAKER_02": 28.869,
+          "SPEAKER_03": 13.447,
+          "SPEAKER_04": 10.634,
+          "SPEAKER_05": 2.968,
+          "SPEAKER_06": 1.858,
+          "SPEAKER_07": 3.451,
+          "SPEAKER_08": 10.148,
+          "SPEAKER_09": 22.079
         }
       },
       "speaker_continuity": {
@@ -1426,7 +1607,7 @@
       },
       "gap_analysis": {
         "available": true,
-        "positive_silence_gap_duration": {
+        "total_inter_turn_gap_duration": {
           "count": 83,
           "total": 204.017,
           "mean": 2.458,
@@ -1434,6 +1615,10 @@
           "min": 0.017,
           "max": 27.236
         },
+        "clean_silence_duration": 156.43,
+        "clean_silence_gap_count": 73,
+        "gaps_containing_overlap_count": 10,
+        "gaps_containing_overlap_duration": 47.587,
         "gap_type_counts": {
           "speaker_transition_gap": 25,
           "same_speaker_gap": 48,
@@ -1552,6 +1737,9 @@
         "participation": {
           "attributed_speaking_seconds": 247.202,
           "speech_share_percent_of_attributed_total": 28.917,
+          "clean_speech_seconds": 230.951,
+          "speech_excluded_by_retained_overlap_seconds": 16.251,
+          "clean_speech_share_percent": 28.869,
           "original_turn_frequency": 19,
           "continuous_speaking_episode_count": 17,
           "continuous_floor_holding_duration": {
@@ -1593,11 +1781,16 @@
       },
       "speaker_participation": {
         "share_denominator": "sum of attributed source-turn durations; overlap is counted for each involved speaker",
+        "clean_speech_definition": "attributed turn duration minus union coverage of retained overlap intervals",
         "total_attributed_speaking_seconds": 854.853,
+        "total_clean_speech_seconds": 807.891,
         "by_speaker": {
           "SPEAKER_00": {
             "attributed_speaking_seconds": 37.446,
             "speech_share_percent_of_attributed_total": 4.38,
+            "clean_speech_seconds": 29.092,
+            "speech_excluded_by_retained_overlap_seconds": 8.354,
+            "clean_speech_share_percent": 3.601,
             "original_turn_frequency": 38,
             "continuous_speaking_episode_count": 22,
             "continuous_floor_holding_duration": {
@@ -1616,6 +1809,9 @@
           "SPEAKER_01": {
             "attributed_speaking_seconds": 25.53,
             "speech_share_percent_of_attributed_total": 2.986,
+            "clean_speech_seconds": 25.53,
+            "speech_excluded_by_retained_overlap_seconds": 0.0,
+            "clean_speech_share_percent": 3.16,
             "original_turn_frequency": 10,
             "continuous_speaking_episode_count": 2,
             "continuous_floor_holding_duration": {
@@ -1634,6 +1830,9 @@
           "SPEAKER_02": {
             "attributed_speaking_seconds": 247.202,
             "speech_share_percent_of_attributed_total": 28.917,
+            "clean_speech_seconds": 232.622,
+            "speech_excluded_by_retained_overlap_seconds": 14.58,
+            "clean_speech_share_percent": 28.794,
             "original_turn_frequency": 19,
             "continuous_speaking_episode_count": 17,
             "continuous_floor_holding_duration": {
@@ -1652,6 +1851,9 @@
           "SPEAKER_03": {
             "attributed_speaking_seconds": 110.768,
             "speech_share_percent_of_attributed_total": 12.958,
+            "clean_speech_seconds": 108.827,
+            "speech_excluded_by_retained_overlap_seconds": 1.941,
+            "clean_speech_share_percent": 13.471,
             "original_turn_frequency": 6,
             "continuous_speaking_episode_count": 2,
             "continuous_floor_holding_duration": {
@@ -1670,6 +1872,9 @@
           "SPEAKER_04": {
             "attributed_speaking_seconds": 99.598,
             "speech_share_percent_of_attributed_total": 11.651,
+            "clean_speech_seconds": 85.928,
+            "speech_excluded_by_retained_overlap_seconds": 13.67,
+            "clean_speech_share_percent": 10.636,
             "original_turn_frequency": 6,
             "continuous_speaking_episode_count": 5,
             "continuous_floor_holding_duration": {
@@ -1688,6 +1893,9 @@
           "SPEAKER_05": {
             "attributed_speaking_seconds": 23.743,
             "speech_share_percent_of_attributed_total": 2.777,
+            "clean_speech_seconds": 23.743,
+            "speech_excluded_by_retained_overlap_seconds": 0.0,
+            "clean_speech_share_percent": 2.939,
             "original_turn_frequency": 14,
             "continuous_speaking_episode_count": 3,
             "continuous_floor_holding_duration": {
@@ -1706,6 +1914,9 @@
           "SPEAKER_06": {
             "attributed_speaking_seconds": 14.867,
             "speech_share_percent_of_attributed_total": 1.739,
+            "clean_speech_seconds": 14.867,
+            "speech_excluded_by_retained_overlap_seconds": 0.0,
+            "clean_speech_share_percent": 1.84,
             "original_turn_frequency": 3,
             "continuous_speaking_episode_count": 2,
             "continuous_floor_holding_duration": {
@@ -1724,6 +1935,9 @@
           "SPEAKER_07": {
             "attributed_speaking_seconds": 27.608,
             "speech_share_percent_of_attributed_total": 3.23,
+            "clean_speech_seconds": 27.608,
+            "speech_excluded_by_retained_overlap_seconds": 0.0,
+            "clean_speech_share_percent": 3.417,
             "original_turn_frequency": 5,
             "continuous_speaking_episode_count": 2,
             "continuous_floor_holding_duration": {
@@ -1742,6 +1956,9 @@
           "SPEAKER_08": {
             "attributed_speaking_seconds": 84.896,
             "speech_share_percent_of_attributed_total": 9.931,
+            "clean_speech_seconds": 81.186,
+            "speech_excluded_by_retained_overlap_seconds": 3.71,
+            "clean_speech_share_percent": 10.049,
             "original_turn_frequency": 3,
             "continuous_speaking_episode_count": 3,
             "continuous_floor_holding_duration": {
@@ -1757,6 +1974,9 @@
           "SPEAKER_09": {
             "attributed_speaking_seconds": 183.195,
             "speech_share_percent_of_attributed_total": 21.43,
+            "clean_speech_seconds": 178.488,
+            "speech_excluded_by_retained_overlap_seconds": 4.707,
+            "clean_speech_share_percent": 22.093,
             "original_turn_frequency": 9,
             "continuous_speaking_episode_count": 7,
             "continuous_floor_holding_duration": {
@@ -1772,6 +1992,32 @@
               "outgoing": 1
             }
           }
+        }
+      },
+      "speaker_share_metrics": {
+        "original_attributed_speaker_shares": {
+          "SPEAKER_00": 4.38,
+          "SPEAKER_01": 2.986,
+          "SPEAKER_02": 28.917,
+          "SPEAKER_03": 12.958,
+          "SPEAKER_04": 11.651,
+          "SPEAKER_05": 2.777,
+          "SPEAKER_06": 1.739,
+          "SPEAKER_07": 3.23,
+          "SPEAKER_08": 9.931,
+          "SPEAKER_09": 21.43
+        },
+        "clean_speech_speaker_shares": {
+          "SPEAKER_00": 3.601,
+          "SPEAKER_01": 3.16,
+          "SPEAKER_02": 28.794,
+          "SPEAKER_03": 13.471,
+          "SPEAKER_04": 10.636,
+          "SPEAKER_05": 2.939,
+          "SPEAKER_06": 1.84,
+          "SPEAKER_07": 3.417,
+          "SPEAKER_08": 10.049,
+          "SPEAKER_09": 22.093
         }
       },
       "speaker_continuity": {
@@ -2002,7 +2248,7 @@
       },
       "gap_analysis": {
         "available": true,
-        "positive_silence_gap_duration": {
+        "total_inter_turn_gap_duration": {
           "count": 83,
           "total": 204.017,
           "mean": 2.458,
@@ -2010,6 +2256,10 @@
           "min": 0.017,
           "max": 27.236
         },
+        "clean_silence_duration": 159.67,
+        "clean_silence_gap_count": 74,
+        "gaps_containing_overlap_count": 9,
+        "gaps_containing_overlap_duration": 44.347,
         "gap_type_counts": {
           "speaker_transition_gap": 26,
           "same_speaker_gap": 48,
@@ -2128,6 +2378,9 @@
         "participation": {
           "attributed_speaking_seconds": 247.202,
           "speech_share_percent_of_attributed_total": 28.917,
+          "clean_speech_seconds": 232.622,
+          "speech_excluded_by_retained_overlap_seconds": 14.58,
+          "clean_speech_share_percent": 28.794,
           "original_turn_frequency": 19,
           "continuous_speaking_episode_count": 17,
           "continuous_floor_holding_duration": {
@@ -2169,11 +2422,16 @@
       },
       "speaker_participation": {
         "share_denominator": "sum of attributed source-turn durations; overlap is counted for each involved speaker",
+        "clean_speech_definition": "attributed turn duration minus union coverage of retained overlap intervals",
         "total_attributed_speaking_seconds": 854.853,
+        "total_clean_speech_seconds": 829.73,
         "by_speaker": {
           "SPEAKER_00": {
             "attributed_speaking_seconds": 37.446,
             "speech_share_percent_of_attributed_total": 4.38,
+            "clean_speech_seconds": 31.438,
+            "speech_excluded_by_retained_overlap_seconds": 6.008,
+            "clean_speech_share_percent": 3.789,
             "original_turn_frequency": 38,
             "continuous_speaking_episode_count": 19,
             "continuous_floor_holding_duration": {
@@ -2192,6 +2450,9 @@
           "SPEAKER_01": {
             "attributed_speaking_seconds": 25.53,
             "speech_share_percent_of_attributed_total": 2.986,
+            "clean_speech_seconds": 25.53,
+            "speech_excluded_by_retained_overlap_seconds": 0.0,
+            "clean_speech_share_percent": 3.077,
             "original_turn_frequency": 10,
             "continuous_speaking_episode_count": 2,
             "continuous_floor_holding_duration": {
@@ -2210,6 +2471,9 @@
           "SPEAKER_02": {
             "attributed_speaking_seconds": 247.202,
             "speech_share_percent_of_attributed_total": 28.917,
+            "clean_speech_seconds": 240.808,
+            "speech_excluded_by_retained_overlap_seconds": 6.394,
+            "clean_speech_share_percent": 29.022,
             "original_turn_frequency": 19,
             "continuous_speaking_episode_count": 16,
             "continuous_floor_holding_duration": {
@@ -2228,6 +2492,9 @@
           "SPEAKER_03": {
             "attributed_speaking_seconds": 110.768,
             "speech_share_percent_of_attributed_total": 12.958,
+            "clean_speech_seconds": 110.768,
+            "speech_excluded_by_retained_overlap_seconds": 0.0,
+            "clean_speech_share_percent": 13.35,
             "original_turn_frequency": 6,
             "continuous_speaking_episode_count": 2,
             "continuous_floor_holding_duration": {
@@ -2246,6 +2513,9 @@
           "SPEAKER_04": {
             "attributed_speaking_seconds": 99.598,
             "speech_share_percent_of_attributed_total": 11.651,
+            "clean_speech_seconds": 92.072,
+            "speech_excluded_by_retained_overlap_seconds": 7.526,
+            "clean_speech_share_percent": 11.097,
             "original_turn_frequency": 6,
             "continuous_speaking_episode_count": 5,
             "continuous_floor_holding_duration": {
@@ -2264,6 +2534,9 @@
           "SPEAKER_05": {
             "attributed_speaking_seconds": 23.743,
             "speech_share_percent_of_attributed_total": 2.777,
+            "clean_speech_seconds": 23.743,
+            "speech_excluded_by_retained_overlap_seconds": 0.0,
+            "clean_speech_share_percent": 2.862,
             "original_turn_frequency": 14,
             "continuous_speaking_episode_count": 3,
             "continuous_floor_holding_duration": {
@@ -2282,6 +2555,9 @@
           "SPEAKER_06": {
             "attributed_speaking_seconds": 14.867,
             "speech_share_percent_of_attributed_total": 1.739,
+            "clean_speech_seconds": 14.867,
+            "speech_excluded_by_retained_overlap_seconds": 0.0,
+            "clean_speech_share_percent": 1.792,
             "original_turn_frequency": 3,
             "continuous_speaking_episode_count": 2,
             "continuous_floor_holding_duration": {
@@ -2300,6 +2576,9 @@
           "SPEAKER_07": {
             "attributed_speaking_seconds": 27.608,
             "speech_share_percent_of_attributed_total": 3.23,
+            "clean_speech_seconds": 27.608,
+            "speech_excluded_by_retained_overlap_seconds": 0.0,
+            "clean_speech_share_percent": 3.327,
             "original_turn_frequency": 5,
             "continuous_speaking_episode_count": 2,
             "continuous_floor_holding_duration": {
@@ -2318,6 +2597,9 @@
           "SPEAKER_08": {
             "attributed_speaking_seconds": 84.896,
             "speech_share_percent_of_attributed_total": 9.931,
+            "clean_speech_seconds": 81.877,
+            "speech_excluded_by_retained_overlap_seconds": 3.019,
+            "clean_speech_share_percent": 9.868,
             "original_turn_frequency": 3,
             "continuous_speaking_episode_count": 3,
             "continuous_floor_holding_duration": {
@@ -2336,6 +2618,9 @@
           "SPEAKER_09": {
             "attributed_speaking_seconds": 183.195,
             "speech_share_percent_of_attributed_total": 21.43,
+            "clean_speech_seconds": 181.019,
+            "speech_excluded_by_retained_overlap_seconds": 2.176,
+            "clean_speech_share_percent": 21.817,
             "original_turn_frequency": 9,
             "continuous_speaking_episode_count": 7,
             "continuous_floor_holding_duration": {
@@ -2351,6 +2636,32 @@
               "outgoing": 1
             }
           }
+        }
+      },
+      "speaker_share_metrics": {
+        "original_attributed_speaker_shares": {
+          "SPEAKER_00": 4.38,
+          "SPEAKER_01": 2.986,
+          "SPEAKER_02": 28.917,
+          "SPEAKER_03": 12.958,
+          "SPEAKER_04": 11.651,
+          "SPEAKER_05": 2.777,
+          "SPEAKER_06": 1.739,
+          "SPEAKER_07": 3.23,
+          "SPEAKER_08": 9.931,
+          "SPEAKER_09": 21.43
+        },
+        "clean_speech_speaker_shares": {
+          "SPEAKER_00": 3.789,
+          "SPEAKER_01": 3.077,
+          "SPEAKER_02": 29.022,
+          "SPEAKER_03": 13.35,
+          "SPEAKER_04": 11.097,
+          "SPEAKER_05": 2.862,
+          "SPEAKER_06": 1.792,
+          "SPEAKER_07": 3.327,
+          "SPEAKER_08": 9.868,
+          "SPEAKER_09": 21.817
         }
       },
       "speaker_continuity": {
@@ -2562,7 +2873,7 @@
       },
       "gap_analysis": {
         "available": true,
-        "positive_silence_gap_duration": {
+        "total_inter_turn_gap_duration": {
           "count": 83,
           "total": 204.017,
           "mean": 2.458,
@@ -2570,6 +2881,10 @@
           "min": 0.017,
           "max": 27.236
         },
+        "clean_silence_duration": 171.533,
+        "clean_silence_gap_count": 79,
+        "gaps_containing_overlap_count": 4,
+        "gaps_containing_overlap_duration": 32.484,
         "gap_type_counts": {
           "speaker_transition_gap": 27,
           "same_speaker_gap": 52,
@@ -2678,6 +2993,9 @@
         "participation": {
           "attributed_speaking_seconds": 247.202,
           "speech_share_percent_of_attributed_total": 28.917,
+          "clean_speech_seconds": 240.808,
+          "speech_excluded_by_retained_overlap_seconds": 6.394,
+          "clean_speech_share_percent": 29.022,
           "original_turn_frequency": 19,
           "continuous_speaking_episode_count": 16,
           "continuous_floor_holding_duration": {
@@ -2719,11 +3037,16 @@
       },
       "speaker_participation": {
         "share_denominator": "sum of attributed source-turn durations; overlap is counted for each involved speaker",
+        "clean_speech_definition": "attributed turn duration minus union coverage of retained overlap intervals",
         "total_attributed_speaking_seconds": 854.853,
+        "total_clean_speech_seconds": 854.853,
         "by_speaker": {
           "SPEAKER_00": {
             "attributed_speaking_seconds": 37.446,
             "speech_share_percent_of_attributed_total": 4.38,
+            "clean_speech_seconds": 37.446,
+            "speech_excluded_by_retained_overlap_seconds": 0.0,
+            "clean_speech_share_percent": 4.38,
             "original_turn_frequency": 38,
             "continuous_speaking_episode_count": 17,
             "continuous_floor_holding_duration": {
@@ -2742,6 +3065,9 @@
           "SPEAKER_01": {
             "attributed_speaking_seconds": 25.53,
             "speech_share_percent_of_attributed_total": 2.986,
+            "clean_speech_seconds": 25.53,
+            "speech_excluded_by_retained_overlap_seconds": 0.0,
+            "clean_speech_share_percent": 2.986,
             "original_turn_frequency": 10,
             "continuous_speaking_episode_count": 2,
             "continuous_floor_holding_duration": {
@@ -2760,6 +3086,9 @@
           "SPEAKER_02": {
             "attributed_speaking_seconds": 247.202,
             "speech_share_percent_of_attributed_total": 28.917,
+            "clean_speech_seconds": 247.202,
+            "speech_excluded_by_retained_overlap_seconds": 0.0,
+            "clean_speech_share_percent": 28.917,
             "original_turn_frequency": 19,
             "continuous_speaking_episode_count": 16,
             "continuous_floor_holding_duration": {
@@ -2778,6 +3107,9 @@
           "SPEAKER_03": {
             "attributed_speaking_seconds": 110.768,
             "speech_share_percent_of_attributed_total": 12.958,
+            "clean_speech_seconds": 110.768,
+            "speech_excluded_by_retained_overlap_seconds": 0.0,
+            "clean_speech_share_percent": 12.958,
             "original_turn_frequency": 6,
             "continuous_speaking_episode_count": 2,
             "continuous_floor_holding_duration": {
@@ -2796,6 +3128,9 @@
           "SPEAKER_04": {
             "attributed_speaking_seconds": 99.598,
             "speech_share_percent_of_attributed_total": 11.651,
+            "clean_speech_seconds": 99.598,
+            "speech_excluded_by_retained_overlap_seconds": 0.0,
+            "clean_speech_share_percent": 11.651,
             "original_turn_frequency": 6,
             "continuous_speaking_episode_count": 5,
             "continuous_floor_holding_duration": {
@@ -2814,6 +3149,9 @@
           "SPEAKER_05": {
             "attributed_speaking_seconds": 23.743,
             "speech_share_percent_of_attributed_total": 2.777,
+            "clean_speech_seconds": 23.743,
+            "speech_excluded_by_retained_overlap_seconds": 0.0,
+            "clean_speech_share_percent": 2.777,
             "original_turn_frequency": 14,
             "continuous_speaking_episode_count": 3,
             "continuous_floor_holding_duration": {
@@ -2832,6 +3170,9 @@
           "SPEAKER_06": {
             "attributed_speaking_seconds": 14.867,
             "speech_share_percent_of_attributed_total": 1.739,
+            "clean_speech_seconds": 14.867,
+            "speech_excluded_by_retained_overlap_seconds": 0.0,
+            "clean_speech_share_percent": 1.739,
             "original_turn_frequency": 3,
             "continuous_speaking_episode_count": 2,
             "continuous_floor_holding_duration": {
@@ -2850,6 +3191,9 @@
           "SPEAKER_07": {
             "attributed_speaking_seconds": 27.608,
             "speech_share_percent_of_attributed_total": 3.23,
+            "clean_speech_seconds": 27.608,
+            "speech_excluded_by_retained_overlap_seconds": 0.0,
+            "clean_speech_share_percent": 3.23,
             "original_turn_frequency": 5,
             "continuous_speaking_episode_count": 2,
             "continuous_floor_holding_duration": {
@@ -2868,6 +3212,9 @@
           "SPEAKER_08": {
             "attributed_speaking_seconds": 84.896,
             "speech_share_percent_of_attributed_total": 9.931,
+            "clean_speech_seconds": 84.896,
+            "speech_excluded_by_retained_overlap_seconds": 0.0,
+            "clean_speech_share_percent": 9.931,
             "original_turn_frequency": 3,
             "continuous_speaking_episode_count": 3,
             "continuous_floor_holding_duration": {
@@ -2886,6 +3233,9 @@
           "SPEAKER_09": {
             "attributed_speaking_seconds": 183.195,
             "speech_share_percent_of_attributed_total": 21.43,
+            "clean_speech_seconds": 183.195,
+            "speech_excluded_by_retained_overlap_seconds": 0.0,
+            "clean_speech_share_percent": 21.43,
             "original_turn_frequency": 9,
             "continuous_speaking_episode_count": 7,
             "continuous_floor_holding_duration": {
@@ -2901,6 +3251,32 @@
               "outgoing": 2
             }
           }
+        }
+      },
+      "speaker_share_metrics": {
+        "original_attributed_speaker_shares": {
+          "SPEAKER_00": 4.38,
+          "SPEAKER_01": 2.986,
+          "SPEAKER_02": 28.917,
+          "SPEAKER_03": 12.958,
+          "SPEAKER_04": 11.651,
+          "SPEAKER_05": 2.777,
+          "SPEAKER_06": 1.739,
+          "SPEAKER_07": 3.23,
+          "SPEAKER_08": 9.931,
+          "SPEAKER_09": 21.43
+        },
+        "clean_speech_speaker_shares": {
+          "SPEAKER_00": 4.38,
+          "SPEAKER_01": 2.986,
+          "SPEAKER_02": 28.917,
+          "SPEAKER_03": 12.958,
+          "SPEAKER_04": 11.651,
+          "SPEAKER_05": 2.777,
+          "SPEAKER_06": 1.739,
+          "SPEAKER_07": 3.23,
+          "SPEAKER_08": 9.931,
+          "SPEAKER_09": 21.43
         }
       },
       "speaker_continuity": {
@@ -3092,7 +3468,7 @@
       },
       "gap_analysis": {
         "available": true,
-        "positive_silence_gap_duration": {
+        "total_inter_turn_gap_duration": {
           "count": 83,
           "total": 204.017,
           "mean": 2.458,
@@ -3100,6 +3476,10 @@
           "min": 0.017,
           "max": 27.236
         },
+        "clean_silence_duration": 204.017,
+        "clean_silence_gap_count": 83,
+        "gaps_containing_overlap_count": 0,
+        "gaps_containing_overlap_duration": 0.0,
         "gap_type_counts": {
           "speaker_transition_gap": 29,
           "same_speaker_gap": 54,
@@ -3156,6 +3536,9 @@
         "participation": {
           "attributed_speaking_seconds": 247.202,
           "speech_share_percent_of_attributed_total": 28.917,
+          "clean_speech_seconds": 247.202,
+          "speech_excluded_by_retained_overlap_seconds": 0.0,
+          "clean_speech_share_percent": 28.917,
           "original_turn_frequency": 19,
           "continuous_speaking_episode_count": 16,
           "continuous_floor_holding_duration": {

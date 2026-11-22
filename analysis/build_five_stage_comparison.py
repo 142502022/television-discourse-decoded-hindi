@@ -87,7 +87,26 @@ def overlap_records(data: Optional[dict]) -> list[dict]:
     return result
 
 
-def speaker_stats(source_turns: list[dict], continuity: list[dict], transition_totals: dict) -> dict:
+def merged_coverage(intervals: Iterable[tuple[float, float]]) -> list[tuple[float, float]]:
+    """Return the union of valid intervals, preventing double subtraction."""
+    merged: list[tuple[float, float]] = []
+    for start, end in sorted((x for x in intervals if x[1] > x[0])):
+        if merged and start <= merged[-1][1]:
+            merged[-1] = (merged[-1][0], max(merged[-1][1], end))
+        else:
+            merged.append((start, end))
+    return merged
+
+
+def covered_duration(start: float, end: float, intervals: Iterable[tuple[float, float]]) -> float:
+    """Duration in ``start,end`` covered by the union of ``intervals``."""
+    return sum(max(0.0, min(end, right) - max(start, left))
+               for left, right in merged_coverage((max(start, left), min(end, right))
+                                                  for left, right in intervals))
+
+
+def speaker_stats(source_turns: list[dict], continuity: list[dict], transition_totals: dict,
+                  overlaps: list[dict]) -> dict:
     by_speaker = defaultdict(list)
     for turn in source_turns:
         by_speaker[turn["speaker"]].append(turn["end"] - turn["start"])
@@ -99,22 +118,37 @@ def speaker_stats(source_turns: list[dict], continuity: list[dict], transition_t
         if speaker and duration is not None:
             continuous[str(speaker)].append((duration, speech))
     total = sum(sum(values) for values in by_speaker.values())
+    overlap_intervals = [(row["start"], row["end"]) for row in overlaps]
+    clean_by_speaker = defaultdict(float)
+    excluded_by_speaker = defaultdict(float)
+    for turn in source_turns:
+        excluded = covered_duration(turn["start"], turn["end"], overlap_intervals)
+        excluded_by_speaker[turn["speaker"]] += excluded
+        clean_by_speaker[turn["speaker"]] += (turn["end"] - turn["start"] - excluded)
+    total_clean = sum(clean_by_speaker.values())
     all_speakers = sorted(set(by_speaker) | set(continuous) | set(transition_totals))
     output = {}
     for speaker in all_speakers:
         attributed = sum(by_speaker[speaker])
+        excluded = excluded_by_speaker[speaker]
+        clean = clean_by_speaker[speaker]
         episodes = continuous[speaker]
         held = [x[0] for x in episodes]
         output[speaker] = {
             "attributed_speaking_seconds": round(attributed, 3),
             "speech_share_percent_of_attributed_total": round(attributed / total * 100, 3) if total else None,
+            "clean_speech_seconds": round(clean, 3),
+            "speech_excluded_by_retained_overlap_seconds": round(excluded, 3),
+            "clean_speech_share_percent": round(clean / total_clean * 100, 3) if total_clean else None,
             "original_turn_frequency": len(by_speaker[speaker]),
             "continuous_speaking_episode_count": len(episodes),
             "continuous_floor_holding_duration": summary(held),
             "speaker_switches": transition_totals.get(speaker),
         }
     return {"share_denominator": "sum of attributed source-turn durations; overlap is counted for each involved speaker",
-            "total_attributed_speaking_seconds": round(total, 3), "by_speaker": output}
+            "clean_speech_definition": "attributed turn duration minus union coverage of retained overlap intervals",
+            "total_attributed_speaking_seconds": round(total, 3),
+            "total_clean_speech_seconds": round(total_clean, 3), "by_speaker": output}
 
 
 def transition_stats(analysis: Optional[dict], duration: Optional[float]) -> dict:
@@ -164,7 +198,12 @@ def gap_stats(gap: Optional[dict]) -> dict:
     positive = [num(x.get("duration")) for x in rows if num(x.get("duration")) and num(x.get("duration")) > 0]
     types = Counter(str(x.get("gap_type")) for x in rows)
     debate = gap.get("statistics", {}).get("debate_level", {})
-    return {"available": True, "positive_silence_gap_duration": summary(positive), "gap_type_counts": dict(types),
+    clean = debate.get("clean_silence_statistics", debate.get("clean_gap_statistics", {}))
+    overlap = debate.get("gaps_containing_overlap_statistics", {})
+    return {"available": True, "total_inter_turn_gap_duration": summary(positive),
+            "clean_silence_duration": clean.get("total"), "clean_silence_gap_count": debate.get("clean_gap_count"),
+            "gaps_containing_overlap_count": debate.get("gaps_containing_overlap_count", debate.get("gaps_with_overlap_events")),
+            "gaps_containing_overlap_duration": overlap.get("total"), "gap_type_counts": dict(types),
             "gaps_eliminated_by_gap_merge": debate.get("turns_merged"),
             "overlapping_turn_pairs": debate.get("overlapping_turn_pairs"), "gaps_with_overlap_events": debate.get("gaps_with_overlap_events"),
             "note": "Positive gaps are pairwise inter-turn gaps from the existing gap analysis; they are not union-of-silence coverage."}
@@ -204,8 +243,8 @@ def build_stage(video_dir: Path, stage_id: str, description: str, rel: Path, mis
     continuity = (gap or {}).get("merged_turns", [])
     duration = num((final or {}).get("episode", {}).get("duration_s"))
     transitions = transition_stats(transition, duration)
-    participation = speaker_stats(source_turns, continuity if isinstance(continuity, list) else [], transitions["by_speaker"])
     records = overlap_records(final)
+    participation = speaker_stats(source_turns, continuity if isinstance(continuity, list) else [], transitions["by_speaker"], records)
     host_id = (host or {}).get("predicted_host_speaker")
     host_metrics = participation["by_speaker"].get(host_id) if host_id else None
     return {"description": description, "source_files": {"final": str(directory / "final.json"), "merged": str(directory / "merge_final.json") if merged else None,
@@ -213,7 +252,18 @@ def build_stage(video_dir: Path, stage_id: str, description: str, rel: Path, mis
             "timeline_statistics": {"episode_duration_seconds": duration, "source_speaker_turn_count": len(source_turns), "analysis_turn_count": len(analysis_turns),
                 "merged_speaker_turn_count": len(analysis_turns) if merged else None, "attributed_speech_seconds": participation["total_attributed_speaking_seconds"],
                 "timeline_span_seconds": round(max((x["end"] for x in analysis_turns), default=0) - min((x["start"] for x in analysis_turns), default=0), 3) if analysis_turns else None},
-            "speaker_participation": participation, "speaker_continuity": {"episode_level": summary([num(x.get("floor_holding_duration")) for x in continuity if isinstance(x, dict)]), "definition": "gap-analysis merged turn / floor-holding interval"},
+            "speaker_participation": participation,
+            "speaker_share_metrics": {
+                "original_attributed_speaker_shares": {
+                    speaker: row["speech_share_percent_of_attributed_total"]
+                    for speaker, row in participation["by_speaker"].items()
+                },
+                "clean_speech_speaker_shares": {
+                    speaker: row["clean_speech_share_percent"]
+                    for speaker, row in participation["by_speaker"].items()
+                },
+            },
+            "speaker_continuity": {"episode_level": summary([num(x.get("floor_holding_duration")) for x in continuity if isinstance(x, dict)]), "definition": "gap-analysis merged turn / floor-holding interval"},
             "overlap_statistics": overlap_stats(records, duration, cluster), "speaker_transitions": transitions, "gap_analysis": gap_stats(gap),
             "interaction_clusters": cluster_stats(cluster), "host_analysis": {"identified_host_speaker": host_id, "confidence_band": (host or {}).get("confidence_band"), "participation": host_metrics, "status": "heuristic, not human verified" if host else "unavailable"},
             "interruption_analysis": {"candidate_count": len((final or {}).get("interruptions", [])) if final else None, "status": "candidate events only; no stage-local interruption-management artifact"}}

@@ -43,6 +43,38 @@ def test_gap_statistics_do_not_treat_overlap_as_clean_silence():
     assert result["debate_level"]["clean_gap_count"] == 0
 
 
+def test_clean_silence_is_threshold_sensitive_while_total_gap_duration_is_not():
+    gaps = module("build_turn_gap_analysis")
+    turns = [
+        {"turn_index": 0, "speaker": "S00", "start": 0.0, "end": 2.0, "duration": 2.0},
+        {"turn_index": 1, "speaker": "S01", "start": 5.0, "end": 7.0, "duration": 2.0},
+    ]
+    with_overlap = gaps.calculate_gaps(turns, [{"start": 3.0, "end": 4.0}])
+    without_overlap = gaps.calculate_gaps(turns, [])
+    left = gaps.build_statistics(turns, with_overlap, gaps.merge_turns(turns, with_overlap, None))["debate_level"]
+    right = gaps.build_statistics(turns, without_overlap, gaps.merge_turns(turns, without_overlap, None))["debate_level"]
+    assert left["total_gap_statistics"]["total"] == right["total_gap_statistics"]["total"] == 3.0
+    assert left["clean_silence_statistics"]["total"] == 0.0
+    assert right["clean_silence_statistics"]["total"] == 3.0
+    assert left["gaps_containing_overlap_statistics"]["total"] == 3.0
+
+
+def test_clean_speech_uses_union_of_stage_local_overlap_intervals():
+    comparison = module("build_five_stage_comparison")
+    turns = [
+        {"speaker": "S00", "start": 0.0, "end": 10.0},
+        {"speaker": "S01", "start": 5.0, "end": 15.0},
+    ]
+    result = comparison.speaker_stats(turns, [], {}, [
+        {"start": 2.0, "end": 6.0}, {"start": 4.0, "end": 8.0},
+    ])["by_speaker"]
+    assert result["S00"]["clean_speech_seconds"] == 4.0
+    assert result["S01"]["clean_speech_seconds"] == 7.0
+    assert result["S00"]["speech_excluded_by_retained_overlap_seconds"] == 6.0
+    assert result["S01"]["speech_excluded_by_retained_overlap_seconds"] == 3.0
+    assert sum(row["clean_speech_share_percent"] for row in result.values()) == 100.0
+
+
 def test_merged_osd_episode_is_thresholded_by_span_and_preserves_sources():
     overlap = module("merge_overlap_regions")
     preprocess = module("preprocess_overlap")

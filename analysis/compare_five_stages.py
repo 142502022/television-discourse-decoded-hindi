@@ -49,6 +49,11 @@ def coverage(intervals):
     return round(sum(end - start for start, end in merged), 3)
 
 
+def overlap_coverage(start, end, intervals):
+    clipped = [(max(start, left), min(end, right)) for left, right in intervals]
+    return coverage(clipped)
+
+
 def overlaps(data):
     records = (data or {}).get("overlap_candidates", [])
     episodes, actual = [], []
@@ -92,12 +97,22 @@ def stage(root: Path, key: str, label: str, rel: str):
     merged = turns(merged_data) if merged_data else source
     gap = read(directory / "turn_gap_analysis.json")
     debate = ((gap or {}).get("statistics") or {}).get("debate_level") or {}
-    shares, total = {}, sum(end - start for _, start, end in source)
+    shares, clean, excluded, total = {}, {}, {}, sum(end - start for _, start, end in source)
     for speaker, start, end in source:
         shares[speaker] = shares.get(speaker, 0) + end - start
+        removed = overlap_coverage(start, end, [(x[0], x[1]) for x in []])
     shares = {speaker: round(100 * value / total, 3) if total else None for speaker, value in shares.items()}
     transitions = sum(a[0] != b[0] for a, b in zip(source, source[1:]))
     events, actual_duration = overlaps(final)
+    retained = []
+    for row in (final or {}).get("overlap_candidates", []):
+        try: retained.append((float(row["start"]), float(row["end"])))
+        except (KeyError, TypeError, ValueError): pass
+    raw_shares = {}
+    for speaker, start, end in source:
+        raw_shares[speaker] = raw_shares.get(speaker, 0) + (end - start - overlap_coverage(start, end, retained))
+    clean_total = sum(raw_shares.values())
+    clean = {speaker: round(100 * value / clean_total, 3) if clean_total else None for speaker, value in raw_shares.items()}
     duration = None
     try:
         duration = float(final["episode"].get("duration_s", final["episode"].get("duration_seconds")))
@@ -111,7 +126,10 @@ def stage(root: Path, key: str, label: str, rel: str):
                         "actual_overlap_duration_seconds": actual_duration if final else None, "original_speaker_turns": len(source) if final else None,
                         "merged_speaker_turns": len(merged) if final else None,
                         "merge_operations": len(source) - len(merged) if final else None,
-                        "total_gap_duration_seconds": gap_total}, "speaker_shares_percent": shares}
+                        "total_gap_duration_seconds": gap_total,
+                        "clean_silence_duration_seconds": (debate.get("clean_silence_statistics") or debate.get("clean_gap_statistics") or {}).get("total"),
+                        "gaps_containing_overlap_duration_seconds": (debate.get("gaps_containing_overlap_statistics") or {}).get("total")},
+            "original_attributed_speaker_shares_percent": shares, "clean_speech_speaker_shares_percent": clean}
 
 
 def table(rows, stages):
@@ -132,13 +150,13 @@ def main():
     parser.add_argument("--video-id", required=True)
     args = parser.parse_args(); root = args.data_dir / args.video_id
     stages = [stage(root, *item) for item in STAGES]
-    speakers = sorted({speaker for item in stages for speaker in item["speaker_shares_percent"]})
+    speakers = sorted({speaker for item in stages for speaker in item["original_attributed_speaker_shares_percent"]})
     report = {"schema_version": "six-stage-compact-1.0", "video_id": args.video_id, "metric_definitions": {"overlap_duration": "union of original constituent overlap intervals; not merged-episode span", "merge_operations": "original turn count minus merged analytical turn count", "speaker_transitions": "speaker-ID changes in ordered original turns", "speaker_shares": "actual attributed turn duration / total attributed turn duration"}, "stages": stages}
     out = root / "comparison"; out.mkdir(parents=True, exist_ok=True)
     (out / "compact_five_stage_comparison.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
     metrics = (("video_duration", "Video duration (MM:SS)"), ("speaker_count", "Speaker count"), ("structural_speaker_transitions", "Speaker transitions"), ("overlap_events", "Overlap events"), ("actual_overlap_duration_seconds", "Actual overlap duration (s)"), ("original_speaker_turns", "Original speaker turns"), ("merged_speaker_turns", "Merged speaker turns"), ("merge_operations", "Merge operations"), ("total_gap_duration_seconds", "Total gap duration (s)"))
-    speaker_table = "<table><tr><th>Speaker</th>" + "".join(f"<th>{html.escape(s['label'])}</th>" for s in stages) + "</tr>" + "".join("<tr><th>"+html.escape(sp)+"</th>"+"".join(f"<td>{fmt(s['speaker_shares_percent'].get(sp))}</td>" for s in stages)+"</tr>" for sp in speakers) + "</table>"
-    page = "<html><head><meta charset='utf-8'><title>Six-stage comparison</title><style>body{font:14px system-ui;margin:28px;color:#172033}h1{margin:0}h2{margin-top:28px}table{border-collapse:collapse;width:100%;margin:10px 0}th,td{padding:7px;border-bottom:1px solid #d9dee8;text-align:right}th:first-child{text-align:left}.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.barrow{display:grid;grid-template-columns:150px 1fr 55px;gap:8px;margin:8px 0;align-items:center}.barrow i{height:16px;background:#2563eb;display:block;border-radius:3px}.note{color:#526074}@media(max-width:800px){.grid{grid-template-columns:1fr}.barrow{grid-template-columns:120px 1fr 50px}}</style></head><body><h1>Six-stage video analysis comparison</h1><p class='note'>Overlap duration is actual interval coverage; merged episode span is not substituted. Thresholds retain episodes whose merged span meets the threshold.</p>" + table(metrics, stages) + "<h2>Speaker shares (% actual attributed speech)</h2>" + speaker_table + "<div class='grid'>" + bars("Overlap events", "overlap_events", stages) + bars("Actual overlap duration (seconds)", "actual_overlap_duration_seconds", stages) + bars("Original speaker turns", "original_speaker_turns", stages) + bars("Merged speaker turns", "merged_speaker_turns", stages) + "</div></body></html>"
+    speaker_table = "<table><tr><th>Speaker / share</th>" + "".join(f"<th>{html.escape(s['label'])}</th>" for s in stages) + "</tr>" + "".join("<tr><th>"+html.escape(sp)+" original</th>"+"".join(f"<td>{fmt(s['original_attributed_speaker_shares_percent'].get(sp))}</td>" for s in stages)+"</tr><tr><th>"+html.escape(sp)+" clean</th>"+"".join(f"<td>{fmt(s['clean_speech_speaker_shares_percent'].get(sp))}</td>" for s in stages)+"</tr>" for sp in speakers) + "</table>"
+    page = "<html><head><meta charset='utf-8'><title>Six-stage comparison</title><style>body{font:14px system-ui;margin:28px;color:#172033}h1{margin:0}h2{margin-top:28px}table{border-collapse:collapse;width:100%;margin:10px 0}th,td{padding:7px;border-bottom:1px solid #d9dee8;text-align:right}th:first-child{text-align:left}.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.barrow{display:grid;grid-template-columns:150px 1fr 55px;gap:8px;margin:8px 0;align-items:center}.barrow i{height:16px;background:#2563eb;display:block;border-radius:3px}.note{color:#526074}@media(max-width:800px){.grid{grid-template-columns:1fr}.barrow{grid-template-columns:120px 1fr 50px}}</style></head><body><h1>Six-stage video analysis comparison</h1><p class='note'>Original shares include attributed overlap; clean shares exclude retained-overlap coverage per speaker.</p>" + table(metrics + (("clean_silence_duration_seconds", "Clean silence (s)"), ("gaps_containing_overlap_duration_seconds", "Gap duration containing overlap (s)")), stages) + "<h2>Original versus clean speaker shares (%)</h2>" + speaker_table + "<div class='grid'>" + bars("Total inter-turn gap duration", "total_gap_duration_seconds", stages) + bars("Clean silence duration", "clean_silence_duration_seconds", stages) + bars("Gaps containing overlap duration", "gaps_containing_overlap_duration_seconds", stages) + bars("Actual overlap duration (seconds)", "actual_overlap_duration_seconds", stages) + "</div></body></html>"
     (out / "compact_five_stage_comparison.html").write_text(page, encoding="utf-8")
     print(table(metrics, stages).replace("<tr>", "\n").replace("</tr>", "").replace("<th>", " | ").replace("</th>", "").replace("<td>", " | ").replace("</td>", "").replace("<table>", "").replace("</table>", ""))
     print(out / "compact_five_stage_comparison.json"); print(out / "compact_five_stage_comparison.html")

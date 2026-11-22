@@ -352,6 +352,8 @@ def build_statistics(turns, gaps, merged_turns):
 
     clean_gaps = [gap for gap in valid_gaps if not gap["contains_overlap"]]
 
+    overlap_gaps = [gap for gap in valid_gaps if gap["contains_overlap"]]
+
     same_speaker_gaps = [
         gap for gap in valid_gaps
         if gap["same_speaker"]
@@ -383,6 +385,14 @@ def build_statistics(turns, gaps, merged_turns):
             [gap["duration"] for gap in clean_gaps]
         ),
         "clean_gap_count": len(clean_gaps),
+
+        # These explicitly distinguish pairwise inter-turn gap coverage from
+        # retained-overlap classification.  A single gap is counted once even
+        # if several overlap events intersect it.
+        "gaps_containing_overlap_count": len(overlap_gaps),
+        "gaps_containing_overlap_statistics": calculate_stats(
+            [gap["duration"] for gap in overlap_gaps]
+        ),
 
         "same_speaker_gap_statistics": calculate_stats(
             [gap["duration"] for gap in same_speaker_gaps]
