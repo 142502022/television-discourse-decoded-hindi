@@ -53,3 +53,28 @@ def test_variant_runner_writes_isolated_merged_analysis(tmp_path):
         "short_result_numeric.json",
     ):
         assert (tmp_path / "baseline" / filename).is_file()
+
+
+def test_dashboard_data_uses_stage_local_metrics_and_preserves_missing_ads(tmp_path):
+    dashboard = _load_module("multi_dashboard", "analysis/build_multi_video_dashboard.py")
+    video = tmp_path / "video"; (video / "comparison").mkdir(parents=True)
+    stages = {}
+    for selector, stage_name in dashboard.STAGES.items():
+        directory = video / ("baseline" if selector == "baseline" else f"threshold_{selector}")
+        directory.mkdir(parents=True)
+        (directory / "final.json").write_text(json.dumps({"speaker_turns": [{"speaker": "S00", "start": 0, "end": 10}]}))
+        stages[stage_name] = {"speaker_participation": {"by_speaker": {"S00": {
+            "speech_share_percent_of_attributed_total": 100, "clean_speech_share_percent": 100,
+            "attributed_speaking_seconds": 10, "clean_speech_seconds": 10,
+            "speech_excluded_by_retained_overlap_seconds": 0}}},
+            "host_analysis": {"identified_host_speaker": "S00"},
+            "overlap_statistics": {"total_overlap_events": 2, "duration": {"total": 3}},
+            "gap_analysis": {"clean_silence_duration": 4, "total_inter_turn_gap_duration": {"total": 5},
+                             "gaps_containing_overlap_duration": 1, "clean_silence_gap_count": 1,
+                             "gaps_containing_overlap_count": 1}}
+    stages["original"] = {"timeline_statistics": {"episode_duration_seconds": 120}}
+    (video / "comparison" / "five_stage_comparison.json").write_text(json.dumps({"stage_results": stages}))
+    data = dashboard.build_video(video, [])
+    assert data["overview"]["ads_removed"] is None
+    assert data["stages"]["5.0"]["clean_silence_duration_seconds"] == 4
+    assert data["stages"]["0.5"]["speaker_shares"]["S00"]["clean_percent"] == 100
