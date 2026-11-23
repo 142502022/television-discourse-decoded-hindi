@@ -58,3 +58,42 @@ def test_host_turn_metrics_match_source_turns_for_two_videos():
         expected = dashboard.host_turn_stats(final, host["speaker_id"])
         assert host["longest_seconds"] == expected["longest_seconds"]
         assert host["mean_seconds"] == expected["mean_seconds"]
+
+
+def test_pairwise_metrics_validate_all_videos_and_stages():
+    data = dashboard.prepare_dashboard_data(ROOT / "data/v2/debate_only/videos")
+    for video in data["videos"]:
+        for stage in video["stages"].values():
+            item = stage["pairwise_transitions"]
+            assert item["data_quality"]["host_mapping_available"]
+            assert item["data_quality"]["category_total_matches"]
+            assert item["data_quality"]["matrix_total_matches"]
+            assert item["total_valid_transitions"] == item["host_to_guest_count"] + item["guest_to_host_count"] + item["guest_to_guest_count"]
+            for speaker, row in item["pairwise_transition_counts"].items():
+                assert row[speaker] == 0
+                normalized = item["pairwise_transition_percentages"][speaker]
+                if sum(row.values()):
+                    assert abs(sum(value for value in normalized.values() if value is not None) - 100) < 0.01
+                else:
+                    assert all(value is None for value in normalized.values())
+
+
+def test_pairwise_synthetic_records_cover_categories_and_invalid_data():
+    final = {"episode": {"duration_s": 120}, "speaker_turns": [
+        {"speaker": "HOST", "start": 0, "end": 1}, {"speaker": "A", "start": 2, "end": 3},
+        {"speaker": "B", "start": 4, "end": 5}, {"speaker": "QUIET", "start": 6, "end": 7},
+    ]}
+    transitions = {"transition_analysis": {"confirmed_transitions": [
+        {"from_speaker": "HOST", "to_speaker": "A", "timestamp": 2, "section_index": 1},
+        {"from_speaker": "A", "to_speaker": "HOST", "timestamp": 3, "section_index": 2},
+        {"from_speaker": "A", "to_speaker": "B", "timestamp": 4, "section_index": 3},
+        {"from_speaker": "A", "to_speaker": "B", "timestamp": 4, "section_index": 3},
+        {"from_speaker": "B", "to_speaker": "B", "timestamp": 5, "section_index": 4},
+    ]}}
+    item = dashboard.pairwise_transition_analysis(transitions, final, "HOST", "0.5")
+    assert item["total_valid_transitions"] == 3
+    assert (item["host_to_guest_count"], item["guest_to_host_count"], item["guest_to_guest_count"]) == (1, 1, 1)
+    assert item["overall_transition_rate_per_minute"] == 1.5
+    assert item["pairwise_transition_percentages"]["QUIET"]["HOST"] is None
+    assert item["data_quality"]["excluded_record_count"] == 2
+    assert dashboard.pairwise_transition_analysis(transitions, final, None, "0.5")["host_to_guest_count"] is None
