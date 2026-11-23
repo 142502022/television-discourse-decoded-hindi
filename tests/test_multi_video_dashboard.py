@@ -97,3 +97,15 @@ def test_pairwise_synthetic_records_cover_categories_and_invalid_data():
     assert item["pairwise_transition_percentages"]["QUIET"]["HOST"] is None
     assert item["data_quality"]["excluded_record_count"] == 2
     assert dashboard.pairwise_transition_analysis(transitions, final, None, "0.5")["host_to_guest_count"] is None
+
+
+def test_heatmap_uses_existing_numeric_matrix_without_rebuilding_turns():
+    numeric = {"numeric_summary": {"speaker_participation.floor_holding.source.statistics.debate_level.merged_turn_count": 4},
+               "speaker_transition_matrix": {"HOST": {"HOST": 0, "A": 1, "B": 0}, "A": {"HOST": 1, "A": 0, "B": 0}, "B": {"HOST": 0, "A": 0, "B": 0}}}
+    result = dashboard.merged_pairwise_from_numeric(numeric, "HOST", "1.0")
+    assert result["merged_speaker_turn_count"] == 4
+    assert result["expected_adjacent_pairs"] == 3
+    assert result["total_valid_speaker_changes"] == 2
+    assert result["data_quality"]["adjacent_pair_discrepancy"] == 1
+    assert (result["host_to_guest_count"], result["guest_to_host_count"], result["guest_to_guest_count"]) == (1, 1, 0)
+    assert result["pairwise_transition_percentages"]["B"]["HOST"] is None
