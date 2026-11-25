@@ -18,7 +18,7 @@ OVERWRITE_FLAG := $(if $(filter 1 yes true,$(OVERWRITE)),--overwrite,)
 IDS := $(shell $(PYTHON) -c 'import json; print(" ".join(x for x in json.load(open("$(IDS_FILE)")) if isinstance(x, str) and x.strip()))')
 
 .DEFAULT_GOAL := help
-.PHONY: help list check check-final media prepare transcribe detect-ads diarize overlap build-final acquire original baseline threshold-0.5 threshold-1.0 threshold-2.0 threshold-5.0 thresholds compare run all clean-generated summary
+.PHONY: help list check check-final media prepare transcribe detect-ads diarize overlap build-final acquire original baseline threshold-0.5 threshold-1.0 threshold-2.0 threshold-5.0 thresholds compare run all clean-generated summary overall-topic
 
 help:
 	@echo "Five-stage Hindi TV debate analysis"
@@ -31,6 +31,7 @@ help:
 	@echo "  make run VIDEO_ID=<id> [OVERWRITE=1]"
 	@echo "  make all [OVERWRITE=1]"
 	@echo "  make compare VIDEO_ID=<id>"
+	@echo "  make overall-topic [VIDEO_ID=<id>]      # Stage 2 only; requires GEMINI_API_KEY"
 	@echo "OVERWRITE=1 replaces generated analysis variants only; source stages are idempotent and reuse valid artifacts."
 
 list:
@@ -138,6 +139,9 @@ all: check
 
 summary:
 	@$(PYTHON) -c 'import json, pathlib, datetime; ids=json.load(open("$(IDS_FILE)")); rows=[{"video_id":v,"comparison_exists":(pathlib.Path("$(DATA_DIR)")/v/"comparison/five_stage_comparison.json").is_file()} for v in ids]; pathlib.Path("$(LOG_DIR)").mkdir(exist_ok=True); json.dump({"generated_at_utc":datetime.datetime.now(datetime.timezone.utc).isoformat(),"videos":rows},open("$(LOG_DIR)/pipeline_summary.json","w"),indent=2); print("Wrote $(LOG_DIR)/pipeline_summary.json")'
+
+overall-topic:
+	@$(PYTHON) -m analysis.overall_topic $(if $(VIDEO_ID),--video-id $(VIDEO_ID),)
 
 clean-generated:
 	@test -n "$(VIDEO_ID)" || (echo "ERROR: specify VIDEO_ID=<id>; refusing broad cleanup"; exit 2)
