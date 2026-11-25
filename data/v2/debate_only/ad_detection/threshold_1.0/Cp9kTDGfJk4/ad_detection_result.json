@@ -1,0 +1,87 @@
+{
+  "schema_version": "variant-ad-detection-1.0",
+  "video_id": "Cp9kTDGfJk4",
+  "variant": "threshold_1.0",
+  "source_file": "data/v2/debate_only/videos/Cp9kTDGfJk4/threshold_1.0/merge_final.json",
+  "detection_configuration": {
+    "method": "conservative_rules_only",
+    "language": "Hindi_or_Hinglish",
+    "duration_threshold_seconds": 15.0,
+    "exclusion_rule": "duration >= 15 seconds",
+    "continuous_gap_seconds": 2.0
+  },
+  "speaker_statistics": {
+    "valid_speaker_turn_count": 24,
+    "speaker_count": 5,
+    "by_speaker": {
+      "SPEAKER_00": {
+        "turn_count": 6,
+        "attributed_seconds": 283.18
+      },
+      "SPEAKER_01": {
+        "turn_count": 4,
+        "attributed_seconds": 206.871
+      },
+      "SPEAKER_02": {
+        "turn_count": 2,
+        "attributed_seconds": 139.404
+      },
+      "SPEAKER_03": {
+        "turn_count": 3,
+        "attributed_seconds": 169.257
+      },
+      "SPEAKER_04": {
+        "turn_count": 9,
+        "attributed_seconds": 268.059
+      }
+    }
+  },
+  "advertisement_regions": {
+    "candidates": [
+      {
+        "source_segment_indices": [
+          210
+        ],
+        "start_timestamp": 957.937,
+        "end_timestamp": 962.819,
+        "duration_seconds": 4.882,
+        "transcript_evidence": "Manmohan Singh, for 10 years, Soniaji, none of them visited Pakistan.",
+        "rule_score": 1,
+        "evidence_categories": [
+          "call_to_action"
+        ],
+        "classification": "uncertain"
+      },
+      {
+        "source_segment_indices": [
+          211
+        ],
+        "start_timestamp": 963.459,
+        "end_timestamp": 967.641,
+        "duration_seconds": 4.182,
+        "transcript_evidence": "The prime minister of India, Mr. Narendra Modi, visited Pakistan to have biryani.",
+        "rule_score": 1,
+        "evidence_categories": [
+          "call_to_action"
+        ],
+        "classification": "uncertain"
+      }
+    ],
+    "confirmed": [],
+    "retained": []
+  },
+  "classification_summary": {
+    "total_advertisement_candidates": 2,
+    "total_continuous_advertisements": 0,
+    "total_excluded_advertisements": 0,
+    "total_retained_advertisements": 0,
+    "total_excluded_duration_seconds": 0,
+    "total_retained_duration_seconds": 0,
+    "uncertain_candidate_count": 2
+  },
+  "validation": {
+    "human_verified": false,
+    "review_required": true,
+    "warning": "Rules do not establish commercial intent; uncertain candidates are retained."
+  }
+}

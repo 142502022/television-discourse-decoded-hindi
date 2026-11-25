@@ -1,0 +1,43 @@
+{
+  "schema_version": "advertisement-exclusion-1.0",
+  "video_id": "gvUvQk8H7Aw",
+  "advertisement_detection": {
+    "method": "conservative_rules_only",
+    "language": "Hindi_or_Hinglish",
+    "duration_threshold_seconds": 15.0,
+    "exclusion_rule": "duration >= 15 seconds",
+    "continuous_gap_seconds": 2.0
+  },
+  "summary": {
+    "total_advertisement_candidates": 1,
+    "total_continuous_advertisements": 0,
+    "total_excluded_advertisements": 0,
+    "total_retained_advertisements": 0,
+    "total_excluded_duration_seconds": 0,
+    "total_retained_duration_seconds": 0,
+    "uncertain_candidate_count": 1
+  },
+  "advertisement_candidates": [
+    {
+      "source_segment_indices": [
+        739
+      ],
+      "start_timestamp": 3122.244,
+      "end_timestamp": 3124.205,
+      "duration_seconds": 1.961,
+      "transcript_evidence": "And this SIR is a product of that.",
+      "rule_score": 1,
+      "evidence_categories": [
+        "product_or_price"
+      ],
+      "classification": "uncertain"
+    }
+  ],
+  "excluded_advertisements": [],
+  "retained_advertisements": [],
+  "validation": {
+    "human_verified": false,
+    "review_required": true,
+    "warning": "Rules do not establish commercial intent; uncertain candidates are retained."
+  }
+}

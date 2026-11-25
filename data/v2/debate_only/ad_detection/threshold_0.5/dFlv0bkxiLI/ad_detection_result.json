@@ -1,0 +1,113 @@
+{
+  "schema_version": "variant-ad-detection-1.0",
+  "video_id": "dFlv0bkxiLI",
+  "variant": "threshold_0.5",
+  "source_file": "data/v2/debate_only/videos/dFlv0bkxiLI/threshold_0.5/merge_final.json",
+  "detection_configuration": {
+    "method": "conservative_rules_only",
+    "language": "Hindi_or_Hinglish",
+    "duration_threshold_seconds": 15.0,
+    "exclusion_rule": "duration >= 15 seconds",
+    "continuous_gap_seconds": 2.0
+  },
+  "speaker_statistics": {
+    "valid_speaker_turn_count": 309,
+    "speaker_count": 8,
+    "by_speaker": {
+      "SPEAKER_00": {
+        "turn_count": 58,
+        "attributed_seconds": 103.325
+      },
+      "SPEAKER_01": {
+        "turn_count": 49,
+        "attributed_seconds": 451.798
+      },
+      "SPEAKER_02": {
+        "turn_count": 20,
+        "attributed_seconds": 31.909
+      },
+      "SPEAKER_03": {
+        "turn_count": 37,
+        "attributed_seconds": 311.09
+      },
+      "SPEAKER_04": {
+        "turn_count": 30,
+        "attributed_seconds": 250.531
+      },
+      "SPEAKER_05": {
+        "turn_count": 15,
+        "attributed_seconds": 165.966
+      },
+      "SPEAKER_06": {
+        "turn_count": 21,
+        "attributed_seconds": 241.536
+      },
+      "SPEAKER_07": {
+        "turn_count": 79,
+        "attributed_seconds": 590.049
+      }
+    }
+  },
+  "advertisement_regions": {
+    "candidates": [
+      {
+        "source_segment_indices": [
+          491
+        ],
+        "start_timestamp": 1563.199,
+        "end_timestamp": 1564.16,
+        "duration_seconds": 0.961,
+        "transcript_evidence": "There is a metro service.",
+        "rule_score": 1,
+        "evidence_categories": [
+          "product_or_price"
+        ],
+        "classification": "uncertain"
+      },
+      {
+        "source_segment_indices": [
+          492
+        ],
+        "start_timestamp": 1564.2,
+        "end_timestamp": 1566.802,
+        "duration_seconds": 2.602,
+        "transcript_evidence": "Mumbai now has a much better metro service.",
+        "rule_score": 1,
+        "evidence_categories": [
+          "product_or_price"
+        ],
+        "classification": "uncertain"
+      },
+      {
+        "source_segment_indices": [
+          494
+        ],
+        "start_timestamp": 1568.503,
+        "end_timestamp": 1569.924,
+        "duration_seconds": 1.421,
+        "transcript_evidence": "Delhi has a better metro service.",
+        "rule_score": 1,
+        "evidence_categories": [
+          "product_or_price"
+        ],
+        "classification": "uncertain"
+      }
+    ],
+    "confirmed": [],
+    "retained": []
+  },
+  "classification_summary": {
+    "total_advertisement_candidates": 3,
+    "total_continuous_advertisements": 0,
+    "total_excluded_advertisements": 0,
+    "total_retained_advertisements": 0,
+    "total_excluded_duration_seconds": 0,
+    "total_retained_duration_seconds": 0,
+    "uncertain_candidate_count": 3
+  },
+  "validation": {
+    "human_verified": false,
+    "review_required": true,
+    "warning": "Rules do not establish commercial intent; uncertain candidates are retained."
+  }
+}

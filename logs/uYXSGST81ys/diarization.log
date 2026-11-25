@@ -1,0 +1,10 @@
+INFO v2.speech.diarize: Loading diarization pipeline 'pyannote/speaker-diarization-3.1' on cpu
+INFO speechbrain.utils.quirks: Applied quirks (see `speechbrain.utils.quirks`): [allow_tf32, disable_jit_profiling]
+INFO speechbrain.utils.quirks: Excluded quirks specified by the `SB_DISABLE_QUIRKS` environment (comma-separated list): []
+INFO v2.speech.diarize: Running diarization on data/v2/debate_only/videos/uYXSGST81ys/audio/audio.wav
+/home/user/MTP/Code/television-discourse-decoded-hindi/.venv/lib/python3.11/site-packages/pyannote/audio/models/blocks/pooling.py:104: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1807.)
+  std = sequences.std(dim=-1, correction=1)
+INFO v2.speech.diarize: Diarization complete: 915 turns.
+INFO v2.io: Artifact saved: diarization.json
+INFO v2.io: Artifact saved: diarized_transcript.json
+INFO v2.cli.diarize: Diarized transcript saved: data/v2/debate_only/videos/uYXSGST81ys/asr/diarized_transcript.json

@@ -1,0 +1,65 @@
+{
+  "schema_version": "variant-ad-detection-1.0",
+  "video_id": "FzbOt9cW12o",
+  "variant": "threshold_1.0",
+  "source_file": "data/v2/debate_only/videos/FzbOt9cW12o/threshold_1.0/merge_final.json",
+  "detection_configuration": {
+    "method": "conservative_rules_only",
+    "language": "Hindi_or_Hinglish",
+    "duration_threshold_seconds": 15.0,
+    "exclusion_rule": "duration >= 15 seconds",
+    "continuous_gap_seconds": 2.0
+  },
+  "speaker_statistics": {
+    "valid_speaker_turn_count": 34,
+    "speaker_count": 3,
+    "by_speaker": {
+      "SPEAKER_00": {
+        "turn_count": 11,
+        "attributed_seconds": 361.158
+      },
+      "SPEAKER_01": {
+        "turn_count": 16,
+        "attributed_seconds": 116.927
+      },
+      "SPEAKER_02": {
+        "turn_count": 7,
+        "attributed_seconds": 140.975
+      }
+    }
+  },
+  "advertisement_regions": {
+    "candidates": [
+      {
+        "source_segment_indices": [
+          26
+        ],
+        "start_timestamp": 155.424,
+        "end_timestamp": 162.646,
+        "duration_seconds": 7.222,
+        "transcript_evidence": "you know, topic that he wanted a dialogue with the government, but he's the one who has been MIA.",
+        "rule_score": 1,
+        "evidence_categories": [
+          "call_to_action"
+        ],
+        "classification": "uncertain"
+      }
+    ],
+    "confirmed": [],
+    "retained": []
+  },
+  "classification_summary": {
+    "total_advertisement_candidates": 1,
+    "total_continuous_advertisements": 0,
+    "total_excluded_advertisements": 0,
+    "total_retained_advertisements": 0,
+    "total_excluded_duration_seconds": 0,
+    "total_retained_duration_seconds": 0,
+    "uncertain_candidate_count": 1
+  },
+  "validation": {
+    "human_verified": false,
+    "review_required": true,
+    "warning": "Rules do not establish commercial intent; uncertain candidates are retained."
+  }
+}

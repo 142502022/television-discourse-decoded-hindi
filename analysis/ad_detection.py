@@ -4,8 +4,6 @@ This command is read-only with respect to the pipeline's analysis artifacts.
 It reads each variant's ``merge_final.json`` and writes a separate result to
 ``data/v2/debate_only/ad_detection/<variant>/<video>/ad_detection_result.json``.
 """
-from __future__ import annotations
-
 import argparse
 import json
 import sys
@@ -13,10 +11,22 @@ from collections import Counter
 from pathlib import Path
 from typing import Any
 
+# Add project root to Python module search path
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(PROJECT_ROOT))
+
 from v2.ads.hindi_ads import MIN_ADVERTISEMENT_DURATION_SECONDS, exclusion_record
 
+VARIANTS = (
+    "baseline",
+    "threshold_0.5",
+    "threshold_1.0",
+    "threshold_2.0",
+    "threshold_5.0",
+)
 VARIANTS = ("baseline", "threshold_0.5", "threshold_1.0", "threshold_2.0", "threshold_5.0")
-
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(PROJECT_ROOT))
 
 def load_json(path: Path) -> dict[str, Any]:
     value = json.loads(path.read_text(encoding="utf-8"))

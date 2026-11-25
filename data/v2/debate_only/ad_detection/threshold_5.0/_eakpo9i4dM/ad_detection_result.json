@@ -1,0 +1,99 @@
+{
+  "schema_version": "variant-ad-detection-1.0",
+  "video_id": "_eakpo9i4dM",
+  "variant": "threshold_5.0",
+  "source_file": "data/v2/debate_only/videos/_eakpo9i4dM/threshold_5.0/merge_final.json",
+  "detection_configuration": {
+    "method": "conservative_rules_only",
+    "language": "Hindi_or_Hinglish",
+    "duration_threshold_seconds": 15.0,
+    "exclusion_rule": "duration >= 15 seconds",
+    "continuous_gap_seconds": 2.0
+  },
+  "speaker_statistics": {
+    "valid_speaker_turn_count": 111,
+    "speaker_count": 8,
+    "by_speaker": {
+      "SPEAKER_00": {
+        "turn_count": 12,
+        "attributed_seconds": 176.055
+      },
+      "SPEAKER_01": {
+        "turn_count": 6,
+        "attributed_seconds": 220.286
+      },
+      "SPEAKER_02": {
+        "turn_count": 18,
+        "attributed_seconds": 281.324
+      },
+      "SPEAKER_03": {
+        "turn_count": 41,
+        "attributed_seconds": 895.336
+      },
+      "SPEAKER_04": {
+        "turn_count": 13,
+        "attributed_seconds": 262.575
+      },
+      "SPEAKER_05": {
+        "turn_count": 10,
+        "attributed_seconds": 329.282
+      },
+      "SPEAKER_06": {
+        "turn_count": 5,
+        "attributed_seconds": 189.522
+      },
+      "SPEAKER_07": {
+        "turn_count": 6,
+        "attributed_seconds": 140.57
+      }
+    }
+  },
+  "advertisement_regions": {
+    "candidates": [
+      {
+        "source_segment_indices": [
+          400
+        ],
+        "start_timestamp": 1783.404,
+        "end_timestamp": 1786.467,
+        "duration_seconds": 3.063,
+        "transcript_evidence": "The price of oil was going too high and I was like, you know, this is a better way.",
+        "rule_score": 1,
+        "evidence_categories": [
+          "product_or_price"
+        ],
+        "classification": "uncertain"
+      },
+      {
+        "source_segment_indices": [
+          402
+        ],
+        "start_timestamp": 1789.489,
+        "end_timestamp": 1792.531,
+        "duration_seconds": 3.042,
+        "transcript_evidence": "because, you know, the battery price, the cars are more expensive.",
+        "rule_score": 1,
+        "evidence_categories": [
+          "product_or_price"
+        ],
+        "classification": "uncertain"
+      }
+    ],
+    "confirmed": [],
+    "retained": []
+  },
+  "classification_summary": {
+    "total_advertisement_candidates": 2,
+    "total_continuous_advertisements": 0,
+    "total_excluded_advertisements": 0,
+    "total_retained_advertisements": 0,
+    "total_excluded_duration_seconds": 0,
+    "total_retained_duration_seconds": 0,
+    "uncertain_candidate_count": 2
+  },
+  "validation": {
+    "human_verified": false,
+    "review_required": true,
+    "warning": "Rules do not establish commercial intent; uncertain candidates are retained."
+  }
+}

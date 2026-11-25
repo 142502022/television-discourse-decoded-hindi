@@ -1,0 +1,69 @@
+{
+  "schema_version": "variant-ad-detection-1.0",
+  "video_id": "ep6eexe6g_8",
+  "variant": "threshold_5.0",
+  "source_file": "data/v2/debate_only/videos/ep6eexe6g_8/threshold_5.0/merge_final.json",
+  "detection_configuration": {
+    "method": "conservative_rules_only",
+    "language": "Hindi_or_Hinglish",
+    "duration_threshold_seconds": 15.0,
+    "exclusion_rule": "duration >= 15 seconds",
+    "continuous_gap_seconds": 2.0
+  },
+  "speaker_statistics": {
+    "valid_speaker_turn_count": 230,
+    "speaker_count": 4,
+    "by_speaker": {
+      "SPEAKER_00": {
+        "turn_count": 77,
+        "attributed_seconds": 630.989
+      },
+      "SPEAKER_01": {
+        "turn_count": 57,
+        "attributed_seconds": 480.072
+      },
+      "SPEAKER_02": {
+        "turn_count": 33,
+        "attributed_seconds": 206.585
+      },
+      "SPEAKER_03": {
+        "turn_count": 63,
+        "attributed_seconds": 700.817
+      }
+    }
+  },
+  "advertisement_regions": {
+    "candidates": [
+      {
+        "source_segment_indices": [
+          411
+        ],
+        "start_timestamp": 1284.248,
+        "end_timestamp": 1306.327,
+        "duration_seconds": 22.079,
+        "transcript_evidence": "Quietly, as I said, the same election commission, which for months together was completely silent, has now said home visits instead of compulsory personal hearings, has called for a review of the ECI-Net IT system, has extended deadlines, has provided special assistance for vulnerable and left out voters, has now said there's a clear separation of Form 6 and the additional declaration, has set a cap on objection.",
+        "rule_score": 1,
+        "evidence_categories": [
+          "call_to_action"
+        ],
+        "classification": "uncertain"
+      }
+    ],
+    "confirmed": [],
+    "retained": []
+  },
+  "classification_summary": {
+    "total_advertisement_candidates": 1,
+    "total_continuous_advertisements": 0,
+    "total_excluded_advertisements": 0,
+    "total_retained_advertisements": 0,
+    "total_excluded_duration_seconds": 0,
+    "total_retained_duration_seconds": 0,
+    "uncertain_candidate_count": 1
+  },
+  "validation": {
+    "human_verified": false,
+    "review_required": true,
+    "warning": "Rules do not establish commercial intent; uncertain candidates are retained."
+  }
+}
