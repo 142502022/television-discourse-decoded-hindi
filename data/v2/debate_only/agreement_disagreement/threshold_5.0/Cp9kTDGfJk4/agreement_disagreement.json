@@ -1,6 +1,6 @@
 {
-  "schema_version": "agreement-disagreement-1.2",
-  "script_version": "word-level-host-aware-1.1",
+  "schema_version": "agreement-disagreement-2.0",
+  "script_version": "agreement-disagreement-v2.0-json-recovery",
   "metadata": {
     "video_id": "Cp9kTDGfJk4",
     "variant": "threshold_5.0",
@@ -20,7 +20,7 @@
     },
     "host_prediction_confidence_band": "higher_heuristic_separation",
     "host_prediction_warning": "Scores and confidence bands are heuristic, not calibrated probabilities. Opening/closing phrase lists are incomplete and currently English-oriented; translated ASR text can affect cues. Manually verify predictions and evaluate across known-host episodes.",
-    "generated_at_utc": "2026-11-27T04:46:25.583563+00:00",
+    "generated_at_utc": "2026-11-27T18:46:32.970883+00:00",
     "source_files": {
       "transcript": "/home/user/MTP/Code/television-discourse-decoded-hindi/data/v2/debate_only/videos/Cp9kTDGfJk4/threshold_5.0/merge_final.json",
       "subtopics": "/home/user/MTP/Code/television-discourse-decoded-hindi/data/v2/debate_only/subtopic_analysis/threshold_5.0/Cp9kTDGfJk4/subtopic_analysis.json",
@@ -31,12 +31,10 @@
   "methodology": {
     "analysis_unit": "directed speaker-to-speaker stance interaction",
     "transcript_scope": "full transcript; not limited to overlapping speech",
-    "context_policy": "Each response turn is assessed with up to 5 preceding different-speaker turns.",
+    "context_policy": "Each response turn is assessed against up to 3 immediately preceding chronological turns; target may be any different speaker in that window.",
     "classification_labels": [
       "agreement",
-      "counterargument",
       "disagreement",
-      "neutral",
       "partial_agreement",
       "uncertain"
     ],
@@ -45,12 +43,11 @@
       "partial_agreement"
     ],
     "disagreement_family": [
-      "disagreement",
-      "counterargument"
+      "disagreement"
     ],
-    "moderator_policy": "Moderation, panelist introductions, summaries, follow-up questions, and repetition without a stance are neutral; substantive anchor stances are classified normally. Host identity is not used for classification.",
+    "moderator_policy": "Moderation, introductions, summaries, follow-up questions, and repetition without a stance are uncertain; substantive stances are classified normally. Host identity is not used for classification.",
     "overlap_policy": "Overlap and interruption are not evidence of stance by themselves.",
-    "neutral_policy": "Neutral candidates are counted in the candidate summary but omitted from interaction records; uncertain records are retained.",
+    "uncertain_policy": "Every eligible response turn receives one record; unclear or non-stance turns are classified uncertain.",
     "target_policy": "Target is a specific earlier turn; no reverse inference. Response timestamp determines subtopic mapping.",
     "limitations": [
       "Automated classifications require manual validation.",
@@ -64,99 +61,141 @@
     "transcript_turn_count": 17,
     "subtopic_count": 5,
     "candidate_response_turn_count": 16,
-    "neutral_candidate_count": 11,
     "candidate_classification_counts": {
       "agreement": 0,
       "partial_agreement": 0,
-      "disagreement": 0,
-      "counterargument": 4,
-      "uncertain": 1,
-      "neutral": 11
+      "disagreement": 5,
+      "uncertain": 11
     },
     "classification_counts": {
       "agreement": 0,
       "partial_agreement": 0,
-      "disagreement": 0,
-      "counterargument": 4,
-      "uncertain": 1
+      "disagreement": 5,
+      "uncertain": 11
     },
-    "total_non_neutral_interactions": 5,
-    "decisive_interaction_count": 4,
+    "total_interactions": 16,
+    "decisive_interaction_count": 5,
     "agreement_family_count": 0,
-    "disagreement_family_count": 4,
+    "disagreement_family_count": 5,
     "agreement_to_disagreement_ratio": 0.0,
     "agreement_family_share_percent": 0.0,
     "disagreement_family_share_percent": 100.0,
     "speaker_statistics": {
       "SPEAKER_00": {
         "initiated": {
-          "counterargument": 1
+          "uncertain": 2,
+          "disagreement": 1
         },
         "received": {
-          "counterargument": 1
+          "disagreement": 3
         },
-        "total_initiated": 1,
-        "total_received": 1
+        "total_initiated": 3,
+        "total_received": 3
       },
       "SPEAKER_01": {
         "initiated": {
-          "counterargument": 1
+          "uncertain": 3
         },
         "received": {
-          "counterargument": 2
+          "disagreement": 1,
+          "uncertain": 1
         },
-        "total_initiated": 1,
+        "total_initiated": 3,
         "total_received": 2
       },
       "SPEAKER_02": {
         "initiated": {
-          "counterargument": 1
+          "uncertain": 2
         },
         "received": {
-          "counterargument": 1,
-          "uncertain": 1
+          "uncertain": 2
         },
-        "total_initiated": 1,
+        "total_initiated": 2,
         "total_received": 2
       },
       "SPEAKER_03": {
         "initiated": {
-          "counterargument": 1
+          "uncertain": 2,
+          "disagreement": 3
         },
-        "received": {},
-        "total_initiated": 1,
-        "total_received": 0
+        "received": {
+          "disagreement": 1,
+          "uncertain": 1
+        },
+        "total_initiated": 5,
+        "total_received": 2
       },
       "SPEAKER_04": {
-        "initiated": {},
-        "received": {},
-        "total_initiated": 0,
-        "total_received": 0
+        "initiated": {
+          "disagreement": 1,
+          "uncertain": 1
+        },
+        "received": {
+          "uncertain": 7
+        },
+        "total_initiated": 2,
+        "total_received": 7
       }
     },
     "directional_speaker_pairs": [
       {
+        "source_speaker": "SPEAKER_03",
+        "responding_speaker": "SPEAKER_00",
+        "classification": "disagreement",
+        "count": 3
+      },
+      {
+        "source_speaker": "SPEAKER_00",
+        "responding_speaker": "SPEAKER_04",
+        "classification": "uncertain",
+        "count": 2
+      },
+      {
+        "source_speaker": "SPEAKER_01",
+        "responding_speaker": "SPEAKER_04",
+        "classification": "uncertain",
+        "count": 2
+      },
+      {
+        "source_speaker": "SPEAKER_03",
+        "responding_speaker": "SPEAKER_04",
+        "classification": "uncertain",
+        "count": 2
+      },
+      {
         "source_speaker": "SPEAKER_00",
         "responding_speaker": "SPEAKER_01",
-        "classification": "counterargument",
+        "classification": "disagreement",
         "count": 1
       },
       {
         "source_speaker": "SPEAKER_01",
         "responding_speaker": "SPEAKER_02",
-        "classification": "counterargument",
+        "classification": "uncertain",
         "count": 1
       },
       {
         "source_speaker": "SPEAKER_02",
         "responding_speaker": "SPEAKER_01",
-        "classification": "counterargument",
+        "classification": "uncertain",
         "count": 1
       },
       {
-        "source_speaker": "SPEAKER_03",
-        "responding_speaker": "SPEAKER_00",
-        "classification": "counterargument",
+        "source_speaker": "SPEAKER_02",
+        "responding_speaker": "SPEAKER_04",
+        "classification": "uncertain",
+        "count": 1
+      },
+      {
+        "source_speaker": "SPEAKER_04",
+        "responding_speaker": "SPEAKER_03",
+        "classification": "disagreement",
+        "count": 1
+      },
+      {
+        "source_speaker": "SPEAKER_04",
+        "responding_speaker": "SPEAKER_03",
+        "classification": "uncertain",
         "count": 1
       }
     ],
@@ -166,13 +205,12 @@
         "title": "Opening discussion",
         "start": 0.0,
         "end": 385.829,
-        "interaction_count": 0,
+        "interaction_count": 4,
         "classification_counts": {
           "agreement": 0,
           "partial_agreement": 0,
-          "disagreement": 0,
-          "counterargument": 0,
-          "uncertain": 0
+          "disagreement": 2,
+          "uncertain": 2
         }
       },
       {
@@ -180,13 +218,12 @@
         "title": "Critique of the Memoir as Whitewashing Historical Events",
         "start": 385.829,
         "end": 630.97,
-        "interaction_count": 2,
+        "interaction_count": 3,
         "classification_counts": {
           "agreement": 0,
           "partial_agreement": 0,
-          "disagreement": 0,
-          "counterargument": 2,
-          "uncertain": 0
+          "disagreement": 1,
+          "uncertain": 2
         }
       },
       {
@@ -194,13 +231,12 @@
         "title": "Babri Masjid Demolition and the Liberhan Commission Report",
         "start": 630.97,
         "end": 811.587,
-        "interaction_count": 2,
+        "interaction_count": 4,
         "classification_counts": {
           "agreement": 0,
           "partial_agreement": 0,
           "disagreement": 0,
-          "counterargument": 1,
-          "uncertain": 1
+          "uncertain": 4
         }
       },
       {
@@ -208,13 +244,12 @@
         "title": "National Security and Defense Controversies",
         "start": 811.587,
         "end": 898.845,
-        "interaction_count": 0,
+        "interaction_count": 2,
         "classification_counts": {
           "agreement": 0,
           "partial_agreement": 0,
           "disagreement": 0,
-          "counterargument": 0,
-          "uncertain": 0
+          "uncertain": 2
         }
       },
       {
@@ -222,67 +257,198 @@
         "title": "Allegations of Selective Grief by Congress Leadership",
         "start": 898.845,
         "end": 1058.575,
-        "interaction_count": 1,
+        "interaction_count": 3,
         "classification_counts": {
           "agreement": 0,
           "partial_agreement": 0,
-          "disagreement": 0,
-          "counterargument": 1,
-          "uncertain": 0
+          "disagreement": 2,
+          "uncertain": 1
         }
       }
     ],
     "host_statistics": {
       "host_speaker_id": "SPEAKER_04",
-      "host_initiated_interactions": 0,
+      "host_initiated_interactions": 7,
       "host_initiated_classification_counts": {
         "agreement": 0,
         "partial_agreement": 0,
         "disagreement": 0,
-        "counterargument": 0,
-        "uncertain": 0
+        "uncertain": 7
       },
-      "host_received_interactions": 0,
+      "host_received_interactions": 2,
       "host_received_classification_counts": {
         "agreement": 0,
         "partial_agreement": 0,
-        "disagreement": 0,
-        "counterargument": 0,
-        "uncertain": 0
+        "disagreement": 1,
+        "uncertain": 1
       },
-      "guest_to_guest_interactions": 4,
+      "guest_to_guest_interactions": 6,
       "guest_to_guest_classification_counts": {
         "agreement": 0,
         "partial_agreement": 0,
-        "disagreement": 0,
-        "counterargument": 4,
-        "uncertain": 0
+        "disagreement": 4,
+        "uncertain": 2
       },
-      "host_involved_interactions": 0
+      "host_involved_interactions": 9
     },
     "directional_aggregation_exclusions": {
       "null_source_speaker_interactions": 1,
-      "included_in_directional_pairs": 4
+      "included_in_directional_pairs": 15
     },
-    "ratio_note": "Agreement family = agreement + partial_agreement; disagreement family = disagreement + counterargument. Neutral turns are omitted; uncertain cases are excluded from ratio denominators."
+    "ratio_note": "Agreement family = agreement + partial_agreement; disagreement family = disagreement. Uncertain cases are excluded from ratio denominators."
   },
   "interactions": [
     {
       "video_id": "Cp9kTDGfJk4",
       "interaction_id": "INT_0001",
+      "timestamp": 90.852,
+      "response_turn_id": "T0002",
+      "target_turn_id": "T0001",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_04",
+      "target_speaker": "SPEAKER_04",
+      "responding_speaker": "SPEAKER_03",
+      "classification": "disagreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "The BJP calls it whitewashing facts.",
+        "statement_2": "Well, good evening, Gaurav. Good evening, everybody. You know, first of all, let me extend my congratulations to Sonia Gandhiji on her autobiography or at least, you know, it's supposedly an autobiography."
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "Speaker 03 responds to the host's framing of the book and the BJP's stance by questioning the authenticity of the autobiography and raising various criticisms.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 0.031,
+        "target_end": 89.08,
+        "response_start": 90.852,
+        "response_end": 191.242
+      }
+    },
+    {
+      "video_id": "Cp9kTDGfJk4",
+      "interaction_id": "INT_0002",
+      "timestamp": 189.858,
+      "response_turn_id": "T0003",
+      "target_turn_id": "T0002",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
+      "responding_speaker": "SPEAKER_04",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host (SPEAKER_04) summarizes multiple points and redirects the discussion to Dr. Shama Mohammed rather than taking a stance on SPEAKER_03's specific claims.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 90.852,
+        "target_end": 191.242,
+        "response_start": 189.858,
+        "response_end": 226.021
+      }
+    },
+    {
+      "video_id": "Cp9kTDGfJk4",
+      "interaction_id": "INT_0003",
+      "timestamp": 227.388,
+      "response_turn_id": "T0004",
+      "target_turn_id": "T0002",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
+      "responding_speaker": "SPEAKER_00",
+      "classification": "disagreement",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "writing an autobiography requires a lot of moral courage and you should write it only when you are prepared to bear the truth. completely. Now there are several important aspects.",
+        "statement_2": "So, Gaurav, this is a book, what is it called? A Journey of Love, isn't it? It's about a woman coming from somewhere else, from another country, coming to this country, accepting it"
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "SPEAKER_00 defends Sonia Gandhi's book and personal history in direct contrast to SPEAKER_03's critical remarks regarding her autobiography.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 90.852,
+        "target_end": 191.242,
+        "response_start": 227.388,
+        "response_end": 385.81
+      }
+    },
+    {
+      "video_id": "Cp9kTDGfJk4",
+      "interaction_id": "INT_0004",
+      "timestamp": 385.81,
+      "response_turn_id": "T0005",
+      "target_turn_id": "T0004",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_00",
+      "target_speaker": "SPEAKER_00",
+      "responding_speaker": "SPEAKER_04",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host asks a follow-up question to another panelist (Anand Ranganathan) regarding the previous points without taking a stance on SPEAKER_00's statements.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 227.388,
+        "target_end": 385.81,
+        "response_start": 385.81,
+        "response_end": 409.115
+      }
+    },
+    {
+      "video_id": "Cp9kTDGfJk4",
+      "interaction_id": "INT_0005",
       "timestamp": 410.802,
       "response_turn_id": "T0006",
       "target_turn_id": "T0004",
       "subtopic_id": "ST002",
       "source_speaker": "SPEAKER_00",
+      "target_speaker": "SPEAKER_00",
       "responding_speaker": "SPEAKER_01",
-      "classification": "counterargument",
-      "evidence": "She has ruthlessly tried to vishvash and scrub, not just whitewash. the history right before our very eyes.",
+      "classification": "disagreement",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "So what we understand is she's a person who believes India first, Indian people, all of India, whether they are Sikhs, whether they're Hindus, Muslims, Christians, you know, she's not a divisive person",
+        "statement_2": "She has ruthlessly tried to vishvash and scrub, not just whitewash. the history right before our very eyes."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "The speaker directly refutes the previous supportive portrayal of Sonia Gandhi's memoir by arguing that it is a ruthless attempt to whitewash and scrub history.",
+      "reasoning": "SPEAKER_01 directly contradicts SPEAKER_00's glowing praise of Sonia Gandhi, arguing instead that her memoir is a sanitized and scrubbed version of history.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -294,20 +460,59 @@
     },
     {
       "video_id": "Cp9kTDGfJk4",
-      "interaction_id": "INT_0002",
+      "interaction_id": "INT_0006",
+      "timestamp": 522.802,
+      "response_turn_id": "T0007",
+      "target_turn_id": "T0006",
+      "subtopic_id": "ST002",
+      "source_speaker": "SPEAKER_01",
+      "target_speaker": "SPEAKER_01",
+      "responding_speaker": "SPEAKER_04",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "She is trying to whitewash the crimes and misdemeanors of her close associates.",
+        "statement_2": "BJP says Sonia Gandhi is whitewashing Indira Gandhi's role and blaming Sanjay Gandhi for emergency, or what's to that effect?"
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "The anchor (SPEAKER_04) references Professor Ranganathan's (SPEAKER_01) previous argument about whitewashing history and asks Sanjay Jha to respond to these specific criticisms raised by the BJP speaker.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 410.802,
+        "target_end": 526.295,
+        "response_start": 522.802,
+        "response_end": 555.303
+      }
+    },
+    {
+      "video_id": "Cp9kTDGfJk4",
+      "interaction_id": "INT_0007",
       "timestamp": 556.552,
       "response_turn_id": "T0008",
       "target_turn_id": "T0006",
       "subtopic_id": "ST002",
       "source_speaker": "SPEAKER_01",
+      "target_speaker": "SPEAKER_01",
       "responding_speaker": "SPEAKER_02",
-      "classification": "counterargument",
-      "evidence": "for Anand Ranganathan of the BGP to challenge that is rather ridiculous. It's like me saying that right now I'm sitting here in Pune and I can see a lizard on the wall and Anand Ranganathan said that's not a lizard that's a dinosaur.",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "She is trying to whitewash the crimes and misdemeanors of her close associates.",
+        "statement_2": "Let me remind you who's whitewashing. Let me tell you nothing."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "Speaker 02 directly targets Professor Ranganathan's (Speaker 01) earlier critique of the memoir and provides a dismissive analogy to counter his claims about whitewashing.",
+      "reasoning": "Sanjay Jha (SPEAKER_02) directly challenges Anand Ranganathan's (SPEAKER_01) earlier assertion that the memoir is a whitewashing exercise, defending it as a personal memoir and countering with allegations about the BJP regarding the Babri Masjid demolition.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -319,21 +524,28 @@
     },
     {
       "video_id": "Cp9kTDGfJk4",
-      "interaction_id": "INT_0003",
+      "interaction_id": "INT_0008",
       "timestamp": 670.255,
       "response_turn_id": "T0009",
       "target_turn_id": null,
       "subtopic_id": "ST003",
       "source_speaker": null,
+      "target_speaker": null,
       "responding_speaker": "SPEAKER_02",
       "classification": "uncertain",
-      "evidence": "Mr. L.K. Adwani with due respects to his age. Murali Manohar Joshi due respects to his age. Uma Bharti in fact accepted her responsibility as people responsible for what really went on.",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": "Mr. L.K. Adwani with due respects to his age. Murali Manohar Joshi due respects to his age. Uma Bharti in fact accepted her responsibility as people responsible for what really went on."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": false,
       "evidence_found_in_response": true,
-      "evidence_validation_status": "verified",
+      "evidence_validation_status": "invalid",
       "manual_review_required": false,
-      "reasoning": "Speaker 02 continues their previous argument, adding supporting details on the Liberhan Commission and BJP leaders' responsibility regarding the Babri Masjid demolition.",
-      "confidence": "medium",
+      "reasoning": "In T0009, SPEAKER_02 continues his previous turn (T0008) by naming specific BJP leaders like L.K. Advani and Uma Bharti, thereby supporting and expanding on his prior claim that BJP leaders were responsible for the demolition.",
+      "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
         "target_start": null,
@@ -344,20 +556,59 @@
     },
     {
       "video_id": "Cp9kTDGfJk4",
-      "interaction_id": "INT_0004",
+      "interaction_id": "INT_0009",
+      "timestamp": 693.998,
+      "response_turn_id": "T0010",
+      "target_turn_id": "T0009",
+      "subtopic_id": "ST003",
+      "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
+      "responding_speaker": "SPEAKER_04",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The anchor (SPEAKER_04) is moderating the debate, acknowledging SPEAKER_02's prompt and directing questions to Anand Ranganathan and Tuhin Sinha without taking a substantive stance.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 670.255,
+        "target_end": 696.496,
+        "response_start": 693.998,
+        "response_end": 706.199
+      }
+    },
+    {
+      "video_id": "Cp9kTDGfJk4",
+      "interaction_id": "INT_0010",
       "timestamp": 707.043,
       "response_turn_id": "T0011",
       "target_turn_id": "T0008",
       "subtopic_id": "ST003",
       "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
       "responding_speaker": "SPEAKER_01",
-      "classification": "counterargument",
-      "evidence": "The fact of the matter is, Indira Gandhi is to be blamed for emergency, let's not take away that blame from it.",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "the Commission concluded that the Babri-Masjid demolition was not a spontaneous mob violence as the BJP would like India to believe, but it was a methodical and meticulously planned civil conspiracy to bring down the entire mosque.",
+        "statement_2": "As far as the Babri Masjid demolition is concerned, for her to, you know, whatever she says, she's free to her opinion. I can't dispute that, obviously."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "Speaker 01 responds to Sanjay Jha's previous turns by reasserting his stance that Indira Gandhi bears responsibility for the Emergency and disputing historical interpretations.",
+      "reasoning": "Anand Ranganathan (SPEAKER_01) responds to Sanjay Jha's (SPEAKER_02) previous claims about the Emergency and the Babri Masjid demolition, disputing the facts presented by the memoir and countering Jha's accusations regarding who is responsible.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -369,20 +620,123 @@
     },
     {
       "video_id": "Cp9kTDGfJk4",
-      "interaction_id": "INT_0005",
+      "interaction_id": "INT_0011",
+      "timestamp": 797.864,
+      "response_turn_id": "T0012",
+      "target_turn_id": "T0011",
+      "subtopic_id": "ST003",
+      "source_speaker": "SPEAKER_01",
+      "target_speaker": "SPEAKER_01",
+      "responding_speaker": "SPEAKER_04",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The moderator shifts topics and acknowledges the previous points without taking a specific stance on the speaker's claims, moving the discussion forward.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 707.043,
+        "target_end": 797.577,
+        "response_start": 797.864,
+        "response_end": 831.158
+      }
+    },
+    {
+      "video_id": "Cp9kTDGfJk4",
+      "interaction_id": "INT_0012",
+      "timestamp": 827.834,
+      "response_turn_id": "T0013",
+      "target_turn_id": "T0012",
+      "subtopic_id": "ST004",
+      "source_speaker": "SPEAKER_04",
+      "target_speaker": "SPEAKER_04",
+      "responding_speaker": "SPEAKER_03",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The speaker acknowledges the host's prompt but pivots directly to their own prepared line of questioning regarding Sonia Gandhi's reactions, making the interaction neutral or uncertain regarding a direct stance on the host's exact framing.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 797.864,
+        "target_end": 831.158,
+        "response_start": 827.834,
+        "response_end": 896.971
+      }
+    },
+    {
+      "video_id": "Cp9kTDGfJk4",
+      "interaction_id": "INT_0013",
+      "timestamp": 896.971,
+      "response_turn_id": "T0014",
+      "target_turn_id": "T0013",
+      "subtopic_id": "ST004",
+      "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
+      "responding_speaker": "SPEAKER_04",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host summarizes previous arguments to pose a new question to a different guest, acting in a moderating role rather than taking a stance.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 827.834,
+        "target_end": 896.971,
+        "response_start": 896.971,
+        "response_end": 930.653
+      }
+    },
+    {
+      "video_id": "Cp9kTDGfJk4",
+      "interaction_id": "INT_0014",
       "timestamp": 933.083,
       "response_turn_id": "T0015",
       "target_turn_id": "T0013",
       "subtopic_id": "ST005",
       "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
       "responding_speaker": "SPEAKER_00",
-      "classification": "counterargument",
-      "evidence": "How did we not go against Pakistan when Patankot happened? You had the audacity to invite the ISI to investigate it.",
+      "classification": "disagreement",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "Does India not have the right to know from Sonia Gandhi why India did not go after Pakistan despite a string of bomb blasts",
+        "statement_2": "How did we not go against Pakistan when Patankot happened? You had the audacity to invite the ISI to investigate it."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "The speaker counters the previous criticism from Tuhin Sinha about inaction against Pakistan by pointing out actions taken by the opposing party during Pathankot.",
+      "reasoning": "The speaker directly challenges the previous speaker's accusation about Congress being soft on Pakistan or failing to act, counter-attacking with examples of the BJP's own engagements with Pakistan.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -390,6 +744,70 @@
         "target_end": 896.971,
         "response_start": 933.083,
         "response_end": 991.252
+      }
+    },
+    {
+      "video_id": "Cp9kTDGfJk4",
+      "interaction_id": "INT_0015",
+      "timestamp": 991.775,
+      "response_turn_id": "T0016",
+      "target_turn_id": "T0013",
+      "subtopic_id": "ST005",
+      "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
+      "responding_speaker": "SPEAKER_00",
+      "classification": "disagreement",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "Does India not have the right to know from Sonia Gandhi why India did not go after Pakistan",
+        "statement_2": "Now, I know Mrs. Gandhi has expressed regret about it. She has done it publicly. Mr. Manmohan Singh had apologized inside the parliament."
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "The speaker responds to earlier criticisms from the BJP representatives regarding accountability and apologies for historical events, defending the actions of Congress leaders.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 827.834,
+        "target_end": 896.971,
+        "response_start": 991.775,
+        "response_end": 1056.811
+      }
+    },
+    {
+      "video_id": "Cp9kTDGfJk4",
+      "interaction_id": "INT_0016",
+      "timestamp": 1051.9,
+      "response_turn_id": "T0017",
+      "target_turn_id": "T0016",
+      "subtopic_id": "ST005",
+      "source_speaker": "SPEAKER_00",
+      "target_speaker": "SPEAKER_00",
+      "responding_speaker": "SPEAKER_04",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host (SPEAKER_04) redirects the conversation back to the book's topic without taking a stance on SPEAKER_00's specific claims.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 991.775,
+        "target_end": 1056.811,
+        "response_start": 1051.9,
+        "response_end": 1059.713
       }
     }
   ],
@@ -1242,10 +1660,10 @@
     "subtopics_loaded": 5,
     "interactions_missing_target": 1,
     "evidence_validation_summary": {
-      "records_with_evidence": 5,
-      "records_with_verified_evidence": 5,
-      "records_with_missing_evidence": 0,
-      "records_with_invalid_evidence": 0,
+      "records_with_evidence": 9,
+      "records_with_verified_evidence": 8,
+      "records_with_missing_evidence": 7,
+      "records_with_invalid_evidence": 1,
       "decisive_records_requiring_manual_review": 0
     },
     "validation": {

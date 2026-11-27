@@ -20,64 +20,57 @@ from pathlib import Path
 from typing import Any
 
 VARIANT = "threshold_5.0"
-SCRIPT_VERSION = "word-level-host-aware-1.1"
-SCHEMA_VERSION = "agreement-disagreement-1.2"
-PROMPT_VERSION = "moderation-aware-1.2"
+SCRIPT_VERSION = "agreement-disagreement-v2.0-json-recovery"
+SCHEMA_VERSION = "agreement-disagreement-2.0"
+PROMPT_VERSION = "four-label-two-evidence-context3-v2.0"
 RECONSTRUCTION_CONFIG = {"method": "word_midpoint_to_closest_same_speaker_interval", "fallback_gap_seconds": 1.5}
 DEFAULT_MODEL = "gemini-3.5-flash-lite"
 API_URL = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={key}"
-LABELS = {"agreement", "partial_agreement", "disagreement", "counterargument", "neutral", "uncertain"}
+LABELS = {"agreement", "partial_agreement", "disagreement", "uncertain"}
 BATCH_TARGETS = 5
-CONTEXT_TURNS = 5
+CONTEXT_TURNS = 3
 
-SYSTEM_PROMPT = r"""You are analyzing an ENGLISH televised debate transcript.
-Identify DIRECTED STANCE INTERACTIONS between different speakers only.
+SYSTEM_PROMPT = r"""You analyze a televised debate transcript, which may be Hindi, English, or another language, and identify directed stance interactions. Analyze the original language; do not translate evidence quotations.
 
-Allowed labels:
-- agreement: clearly endorses/supports the target speaker's claim.
-- partial_agreement: accepts a meaningful part but qualifies/rejects another part.
-- disagreement: explicitly rejects or contradicts the target claim.
-- counterargument: gives a substantive opposing reason, fact, or explanation.
-- neutral: no discernible stance toward an earlier speaker's claim.
-- uncertain: evidence/context is insufficient or the target cannot be identified reliably.
+For EACH supplied response turn, return exactly one result. Choose the specific earlier turn
+whose claim is being addressed. It may be any of the supplied previous context turns, not
+necessarily the immediately preceding turn. The responding speaker is the speaker of the
+response turn; the target speaker is the speaker of the selected earlier turn. Never reverse
+the direction.
 
-IMPORTANT MODERATOR / ANCHOR DISTINCTION:
-Assess the actual words and context, not the speaker's presumed role or host identity.
-A turn may be neutral when it merely:
-- moderates the discussion or manages the floor;
-- introduces a panelist or directs a question to them;
-- summarizes or restates another speaker's position without endorsing it;
-- asks a follow-up or clarification question without taking a side;
-- repeats a claim without expressing support or opposition.
-These are not automatically neutral: if the speaker adds a substantive stance, classify that stance normally.
-A substantive opposing reason is counterargument; explicit rejection is disagreement;
-clear support is agreement or partial_agreement as appropriate.
+Allowed classifications (exactly these four):
+- agreement: supports the target statement.
+- partial_agreement: supports a meaningful part but qualifies or rejects another part.
+- disagreement: rejects, contradicts, or clearly opposes the target statement.
+- uncertain: the target or stance is unclear, there is no discernible stance, or the turn is
+  merely moderation, a question, clarification, repetition, topic change, or unrelated speech.
 
 Rules:
-1. Do NOT classify from keywords alone. Analyze contextual meaning, not sentiment.
-2. A question is neutral unless it clearly expresses a stance; challenge-style wording alone is insufficient.
-3. Identify the specific earlier turn being addressed. Use target_turn_id only when supported.
-4. Do not assume the immediately previous speaker is the target; never infer the reverse direction.
-5. Create an interaction only when the response turn contains a discernible stance toward the target claim.
-6. Evidence must be an exact, contiguous quotation copied from the responding turn, under 35 words.
-   Do not normalize, paraphrase, repair, or fabricate the quotation.
-7. If the classification is decisive (agreement, partial_agreement, disagreement,
-   counterargument), it MUST have non-empty exact evidence. If no exact evidence exists,
-   return uncertain and leave evidence empty.
-8. Keep neutral turns out of interaction records. Still return one neutral result for each
-   supplied response turn so candidate/classification counts can be audited.
-9. Uncertain cases may have empty evidence and must remain uncertain.
-10. Host identity is metadata only and MUST NOT affect classification.
-11. Self-continuation is not a directed interaction. Overlap or interruption alone is not stance.
-12. Avoid duplicate records for the same response/target pair.
+1. Analyze meaning and conversational context, not keywords, sentiment, or topic similarity.
+2. Do not infer a stance from a question, speaker-name mention, overlap, interruption, or
+   moderator/host role alone. Host identity is metadata only.
+3. Do not assume the immediately previous speaker is the target. Select an earlier target only
+   when the response semantically addresses that speaker's specific statement.
+4. Return uncertain when target or stance cannot be established confidently. Do not omit it.
+5. Evidence MUST contain two exact quotations copied verbatim from the supplied turns:
+   statement_1: exact target-speaker claim; statement_2: exact responding-speaker response.
+   Do not paraphrase, normalize, repair, or invent quotations. If either quote cannot be
+   identified exactly, use uncertain and empty strings for both quotations.
+6. reasoning briefly explains the semantic relationship and why this target turn was selected.
+7. confidence must be high, medium, or low.
+8. If target_turn_id is not the immediately preceding turn, set non_immediate_target=true
+   and marker="*". Otherwise set false and marker="". For uncertain with no target use null,
+   false, and empty marker.
+9. Return one result for every supplied response_turn_id, no duplicates.
 
-Return ONLY valid JSON:
+Return ONLY valid JSON matching this shape:
 {"results":[{"response_turn_id":"T0002","target_turn_id":"T0001",
-"classification":"agreement|partial_agreement|disagreement|counterargument|neutral|uncertain",
-"evidence":"exact quote from response turn","reasoning":"brief contextual explanation",
-"confidence":"high|medium|low"}]}
-Return one result per supplied response turn. If no interaction exists, return neutral,
-target_turn_id null, and evidence empty. Never output markdown fences."""
+"target_speaker":"SPEAKER_00","responding_speaker":"SPEAKER_01",
+"classification":"agreement|partial_agreement|disagreement|uncertain",
+"non_immediate_target":false,"marker":"",
+"evidence":{"statement_1":"exact target claim","statement_2":"exact response"},
+"reasoning":"brief explanation","confidence":"high|medium|low"}]}
+Never return markdown fences or additional text."""
 
 
 def read_json(path: Path) -> dict[str, Any]:
@@ -248,6 +241,7 @@ def build_target_batches(turns: list[dict[str, Any]], subtopics: list[dict[str, 
         targets.append({
             "response_turn": turn,
             "prior_turns": prior,
+            "immediate_previous_turn_id": turns[idx - 1]["turn_id"] if idx > 0 else None,
             "subtopic": ({"subtopic_id": st.get("subtopic_id"), "title": st.get("title"),
                           "description": st.get("description")} if st else None),
         })
@@ -255,30 +249,25 @@ def build_target_batches(turns: list[dict[str, Any]], subtopics: list[dict[str, 
 
 
 def extract_json(text: str) -> dict[str, Any]:
-    text = text.strip()
+    """Parse a complete JSON object; do not use a greedy brace-regex fallback."""
+    text = text.strip().lstrip("\ufeff")
     if text.startswith("```"):
         text = re.sub(r"^```(?:json)?\s*|\s*```$", "", text, flags=re.I | re.S).strip()
-    try:
-        data = json.loads(text)
-    except json.JSONDecodeError:
-        match = re.search(r"\{.*\}", text, flags=re.S)
-        if not match:
-            raise ValueError("Gemini response did not contain valid JSON")
-        data = json.loads(match.group(0))
+    data = json.loads(text)
     if not isinstance(data, dict) or not isinstance(data.get("results"), list):
-        raise ValueError("Gemini response must contain a results array")
+        raise ValueError("Gemini response must be a JSON object containing a results array")
     return data
 
 
-def call_gemini(api_key: str, model: str, payload: dict[str, Any], max_retries: int = 5) -> dict[str, Any]:
+def _gemini_request(api_key: str, model: str, system_prompt: str, user_text: str,
+                    max_retries: int = 5) -> str:
     body = {
-        "system_instruction": {"parts": [{"text": SYSTEM_PROMPT}]},
-        "contents": [{"role": "user", "parts": [{"text": json.dumps(payload, ensure_ascii=False)}]}],
+        "system_instruction": {"parts": [{"text": system_prompt}]},
+        "contents": [{"role": "user", "parts": [{"text": user_text}]}],
         "generationConfig": {"temperature": 0.1, "responseMimeType": "application/json"},
     }
-    req = urllib.request.Request(
-        API_URL.format(model=model, key=api_key),
-        data=json.dumps(body).encode("utf-8"),
+    req = urllib.request.Request(API_URL.format(model=model, key=api_key),
+        data=json.dumps(body, ensure_ascii=False).encode("utf-8"),
         headers={"Content-Type": "application/json"}, method="POST")
     for attempt in range(max_retries):
         try:
@@ -288,11 +277,10 @@ def call_gemini(api_key: str, model: str, payload: dict[str, Any], max_retries: 
                            for part in candidate.get("content", {}).get("parts", []))
             if not text:
                 raise ValueError(f"Gemini returned no text: {json.dumps(result)[:1000]}")
-            return extract_json(text)
+            return text
         except urllib.error.HTTPError as exc:
             detail = exc.read().decode("utf-8", errors="replace")
-            retryable = exc.code in {429, 500, 502, 503, 504}
-            if not retryable or attempt == max_retries - 1:
+            if exc.code not in {429, 500, 502, 503, 504} or attempt == max_retries - 1:
                 raise RuntimeError(f"Gemini HTTP {exc.code}: {detail[:2000]}") from exc
             wait = min(120, 15 * (2 ** attempt))
             print(f"  Gemini HTTP {exc.code}; retrying in {wait}s", flush=True)
@@ -306,69 +294,111 @@ def call_gemini(api_key: str, model: str, payload: dict[str, Any], max_retries: 
     raise RuntimeError("Gemini request failed after retries")
 
 
+def call_gemini(api_key: str, model: str, payload: dict[str, Any],
+                raw_dump_path: Path | None = None, max_retries: int = 5) -> dict[str, Any]:
+    user_text = json.dumps(payload, ensure_ascii=False)
+    raw = _gemini_request(api_key, model, SYSTEM_PROMPT, user_text, max_retries)
+    try:
+        return extract_json(raw)
+    except (json.JSONDecodeError, ValueError) as first_error:
+        if raw_dump_path:
+            raw_dump_path.parent.mkdir(parents=True, exist_ok=True)
+            raw_dump_path.write_text(raw, encoding="utf-8")
+        print("  Gemini returned malformed JSON; requesting one JSON-only repair", flush=True)
+        repair_prompt = ("You are a strict JSON repair tool. Convert the supplied model response "
+            "into syntactically valid JSON matching the required schema. Preserve every value, "
+            "classification, turn ID, quotation, and reasoning exactly; do not add, remove, "
+            "reinterpret, or summarize records. Fix only JSON syntax. Return only JSON.\n\n"
+            "Required top-level shape: {\"results\":[...]}\n\nMalformed response:\n" + raw)
+        try:
+            repaired = _gemini_request(api_key, model,
+                "Repair JSON syntax only. Do not change semantic content. Return valid JSON only.",
+                repair_prompt, max_retries)
+            parsed = extract_json(repaired)
+            if raw_dump_path and raw_dump_path.exists():
+                raw_dump_path.with_suffix(".repaired.json").write_text(
+                    json.dumps(parsed, ensure_ascii=False, indent=2), encoding="utf-8")
+            return parsed
+        except Exception as repair_error:
+            if raw_dump_path:
+                raw_dump_path.with_suffix(".repair_error.txt").write_text(
+                    f"Initial parse error: {first_error}\nRepair error: {repair_error}\n",
+                    encoding="utf-8")
+            raise ValueError(f"Gemini JSON parse failed and repair failed: {first_error}; {repair_error}") from repair_error
+
+
+
 def validate_records(raw: dict[str, Any], batch: list[dict[str, Any]], video_id: str) -> list[dict[str, Any]]:
     if not isinstance(raw, dict) or not isinstance(raw.get("results"), list):
         raise ValueError("Gemini response schema invalid: expected object with results array")
-    allowed = {x["response_turn"]["turn_id"] for x in batch}
-    turn_map = {x["response_turn"]["turn_id"]: x["response_turn"] for x in batch}
-    prior_map = {x["response_turn"]["turn_id"]: {p["turn_id"]: p for p in x["prior_turns"]} for x in batch}
+    batch_by_id = {x["response_turn"]["turn_id"]: x for x in batch}
     clean, seen = [], set()
+    returned = {}
     for item in raw["results"]:
         if not isinstance(item, dict):
             continue
         rid = item.get("response_turn_id")
-        if rid not in allowed:
+        if rid not in batch_by_id or rid in returned:
             continue
+        returned[rid] = item
+    # Guarantee one retained record for every eligible response turn.
+    for rid, case in batch_by_id.items():
+        item = returned.get(rid, {})
+        response = case["response_turn"]
+        prior = {p["turn_id"]: p for p in case["prior_turns"]}
         model_classification = item.get("classification")
-        classification = model_classification
-        if classification not in LABELS:
-            classification = "uncertain"
-            model_classification = "invalid_label"
+        classification = model_classification if model_classification in LABELS else "uncertain"
         target_id = item.get("target_turn_id")
-        if target_id not in prior_map[rid]:
+        target = prior.get(target_id) if target_id else None
+        if target is None:
             target_id = None
-            if classification not in {"neutral", "uncertain"}:
-                classification = "uncertain"
-        response = turn_map[rid]
-        target = prior_map[rid].get(target_id) if target_id else None
-        if classification == "neutral":
-            continue
-        if classification != "uncertain" and target is None:
             classification = "uncertain"
-        evidence_raw = item.get("evidence")
-        evidence = evidence_raw if isinstance(evidence_raw, str) else ""
-        evidence_present = bool(evidence.strip())
-        # Exact contiguous substring only: no whitespace normalization or case-folding.
-        evidence_found = bool(evidence_present and evidence in response["text"])
-        proposed_decisive = model_classification in {"agreement","partial_agreement","disagreement","counterargument"}
-        if not evidence_found and proposed_decisive:
+        evidence_obj = item.get("evidence") if isinstance(item.get("evidence"), dict) else {}
+        statement_1 = evidence_obj.get("statement_1", "")
+        statement_2 = evidence_obj.get("statement_2", "")
+        statement_1 = statement_1 if isinstance(statement_1, str) else ""
+        statement_2 = statement_2 if isinstance(statement_2, str) else ""
+        target_quote_ok = bool(target and statement_1 and statement_1 in target["text"])
+        response_quote_ok = bool(statement_2 and statement_2 in response["text"])
+        evidence_verified = target_quote_ok and response_quote_ok
+        proposed_decisive = model_classification in {"agreement", "partial_agreement", "disagreement"}
+        if proposed_decisive and not evidence_verified:
             classification = "uncertain"
-        status = "verified" if evidence_found else ("missing" if not evidence_present else "invalid")
-        decisive = proposed_decisive
-        key = (rid, target_id, classification)
+        immediate = bool(target and target["turn_id"] == case.get("immediate_previous_turn_id"))
+        non_immediate = bool(target and not immediate)
+        marker = "*" if non_immediate else ""
+        key = (rid, target_id)
         if key in seen:
             continue
         seen.add(key)
         clean.append({
             "video_id": video_id, "interaction_id": f"INT_{len(clean)+1:04d}",
-            "timestamp": round(float(response["start"]),3), "response_turn_id": rid,
-            "target_turn_id": target_id, "subtopic_id": None,
+            "timestamp": round(float(response["start"]), 3),
+            "response_turn_id": rid, "target_turn_id": target_id,
+            "subtopic_id": None,
             "source_speaker": target["speaker_id"] if target else None,
-            "responding_speaker": response["speaker_id"], "classification": classification,
-            "evidence": evidence, "evidence_present": evidence_present,
-            "evidence_found_in_response": evidence_found, "evidence_validation_status": status,
-            "manual_review_required": bool(decisive and not evidence_found),
+            "target_speaker": target["speaker_id"] if target else None,
+            "responding_speaker": response["speaker_id"],
+            "classification": classification,
+            "non_immediate_target": non_immediate, "marker": marker,
+            "evidence": {"statement_1": statement_1 if target_quote_ok else "",
+                         "statement_2": statement_2 if response_quote_ok else ""},
+            "evidence_present": bool(statement_1 or statement_2),
+            "evidence_found_in_target": target_quote_ok,
+            "evidence_found_in_response": response_quote_ok,
+            "evidence_validation_status": "verified" if evidence_verified else
+                ("missing" if not (statement_1 or statement_2) else "invalid"),
+            "manual_review_required": bool(proposed_decisive and not evidence_verified),
             "reasoning": normalize_text(item.get("reasoning"))[:1000],
-            "confidence": item.get("confidence") if item.get("confidence") in {"high","medium","low"} else "low",
-            "review_status": "manual_review_required" if decisive and not evidence_found else "pending",
+            "confidence": item.get("confidence") if item.get("confidence") in {"high", "medium", "low"} else "low",
+            "review_status": "manual_review_required" if proposed_decisive and not evidence_verified else "pending",
             "source_turn_timestamps": {
-                "target_start": round(float(target["start"]),3) if target else None,
-                "target_end": round(float(target["end"]),3) if target else None,
-                "response_start": round(float(response["start"]),3),
-                "response_end": round(float(response["end"]),3)
-            }
-        })
+                "target_start": round(float(target["start"]), 3) if target else None,
+                "target_end": round(float(target["end"]), 3) if target else None,
+                "response_start": round(float(response["start"]), 3),
+                "response_end": round(float(response["end"]), 3)}})
     return clean
+
 
 
 def load_host_speaker(root: Path, video_id: str, explicit_path: Path | None = None):
@@ -403,7 +433,7 @@ def host_interaction_summary(interactions: list[dict[str, Any]], host_speaker: s
     def counts(events):
         c = Counter(x["classification"] for x in events)
         return {label: c.get(label, 0) for label in
-                ("agreement", "partial_agreement", "disagreement", "counterargument", "uncertain")}
+                ("agreement", "partial_agreement", "disagreement", "uncertain")}
     return {
         "host_speaker_id": host_speaker,
         "host_initiated_interactions": len(host_initiated),
@@ -416,7 +446,7 @@ def host_interaction_summary(interactions: list[dict[str, Any]], host_speaker: s
     }
 
 def aggregate(interactions, turns, subtopics, host_speaker=None):
-    labels = ["agreement","partial_agreement","disagreement","counterargument","uncertain"]
+    labels = ["agreement","partial_agreement","disagreement","uncertain"]
     overall = Counter(x["classification"] for x in interactions)
     directional = [x for x in interactions if x.get("source_speaker") is not None]
     excluded_null_source = len(interactions) - len(directional)
@@ -441,12 +471,12 @@ def aggregate(interactions, turns, subtopics, host_speaker=None):
                             "start":st.get("start"),"end":st.get("end"),
                             "interaction_count":len(events),
                             "classification_counts":{label:counts.get(label,0) for label in labels}})
-    decisive=sum(overall.get(x,0) for x in ("agreement","partial_agreement","disagreement","counterargument"))
+    decisive=sum(overall.get(x,0) for x in ("agreement","partial_agreement","disagreement"))
     agree=overall.get("agreement",0)+overall.get("partial_agreement",0)
-    disagree=overall.get("disagreement",0)+overall.get("counterargument",0)
+    disagree=overall.get("disagreement",0)
     return {
         "classification_counts":{label:overall.get(label,0) for label in labels},
-        "total_non_neutral_interactions":len(interactions),
+        "total_interactions":len(interactions),
         "decisive_interaction_count":decisive,"agreement_family_count":agree,
         "disagreement_family_count":disagree,
         "agreement_to_disagreement_ratio":round(agree/disagree,4) if disagree else None,
@@ -457,7 +487,7 @@ def aggregate(interactions, turns, subtopics, host_speaker=None):
         "host_statistics":host_interaction_summary(interactions,host_speaker),
         "directional_aggregation_exclusions":{"null_source_speaker_interactions":excluded_null_source,
                                                "included_in_directional_pairs":len(directional)},
-        "ratio_note":"Agreement family = agreement + partial_agreement; disagreement family = disagreement + counterargument. Neutral turns are omitted; uncertain cases are excluded from ratio denominators."
+        "ratio_note":"Agreement family = agreement + partial_agreement; disagreement family = disagreement. Uncertain cases are excluded from ratio denominators."
     }
 
 def verify_language(merge):
@@ -476,12 +506,11 @@ def verify_language(merge):
     if p and e and p != e:
         warnings.append(f"Language metadata inconsistent: pipeline.asr.language={p}, episode.language={e}.")
     chosen = p or e
-    if chosen != "English":
-        warnings.append(f"Source metadata does not explicitly identify English (resolved value: {chosen}).")
-        return "unknown", {"status":"inconsistent_or_non_english","pipeline_asr_language":p,
-                           "episode_language":e,"warnings":warnings}
-    return "English", {"status":"verified_from_source_metadata","pipeline_asr_language":p,
-                       "episode_language":e,"warnings":warnings}
+    if chosen is None:
+        return "unknown", {"status":"unverified","pipeline_asr_language":p,
+                           "episode_language":e,"warnings":["Language metadata is unavailable."]}
+    return str(chosen), {"status":"verified_from_source_metadata","pipeline_asr_language":p,
+                         "episode_language":e,"warnings":warnings}
 
 
 def validate_final_output(interactions, turns, subtopics):
@@ -493,7 +522,7 @@ def validate_final_output(interactions, turns, subtopics):
         iid=x.get("interaction_id")
         if iid in seen: issues.append(f"duplicate_interaction_id:{iid}")
         seen.add(iid)
-        if x.get("classification") not in LABELS-{"neutral"}: issues.append(f"invalid_interaction_classification:{iid}")
+        if x.get("classification") not in LABELS: issues.append(f"invalid_interaction_classification:{iid}")
         response=turn_map.get(x.get("response_turn_id"))
         target=turn_map.get(x.get("target_turn_id")) if x.get("target_turn_id") else None
         if response is None: issues.append(f"unknown_response_turn:{iid}")
@@ -516,7 +545,7 @@ def validate_final_output(interactions, turns, subtopics):
             issues.append(f"invalid_response_timestamps:{iid}")
         if x.get("evidence_found_in_response") and not x.get("evidence_present"):
             issues.append(f"evidence_validation_inconsistent:{iid}")
-        if x.get("classification") in {"agreement","partial_agreement","disagreement","counterargument"} and not x.get("evidence_found_in_response"):
+        if x.get("classification") in {"agreement","partial_agreement","disagreement"} and not (x.get("evidence_found_in_target") and x.get("evidence_found_in_response")):
             issues.append(f"decisive_without_verified_evidence:{iid}")
     directional=[x for x in interactions if x.get("source_speaker") is not None]
     if sum(1 for x in interactions if x.get("source_speaker") is None)+len(directional)!=len(interactions):
@@ -557,7 +586,7 @@ def analyze_video(root: Path, video_id: str, model: str, api_key: str, resume: b
     out_dir.mkdir(parents=True, exist_ok=True)
     if force and checkpoint_path.exists():
         checkpoint_path.unlink()
-    completed, neutral_counts = {}, {}
+    completed = {}
     checkpoint_meta = {"script_version":SCRIPT_VERSION,"schema_version":SCHEMA_VERSION,
                        "model":model,"prompt_version":PROMPT_VERSION,
                        "transcript_reconstruction_config":RECONSTRUCTION_CONFIG}
@@ -567,8 +596,7 @@ def analyze_video(root: Path, video_id: str, model: str, api_key: str, resume: b
             compatible = all(cp.get(k)==v for k,v in checkpoint_meta.items()) and cp.get("video_id")==video_id and cp.get("variant")==VARIANT
             if compatible:
                 completed={int(k):v for k,v in cp.get("completed_batches",{}).items()}
-                neutral_counts={int(k):int(v) for k,v in cp.get("neutral_candidate_counts",{}).items()}
-                print(f"  Resuming compatible v1.2 checkpoint: {len(completed)}/{len(batches)} batches")
+                print(f"  Resuming compatible v2.0 checkpoint: {len(completed)}/{len(batches)} batches")
             else:
                 print("  Existing checkpoint metadata is incompatible; starting fresh.")
         except Exception as exc:
@@ -583,10 +611,29 @@ def analyze_video(root: Path, video_id: str, model: str, api_key: str, resume: b
                      "response_turn_cases":[{"response_turn":x["response_turn"],"previous_context_turns":x["prior_turns"],
                                              "subtopic_context":x["subtopic"]} for x in batch]}
             print(f"  Gemini batch {bi+1}/{len(batches)} ({len(batch)} response turns)",flush=True)
-            raw=call_gemini(api_key,model,payload)
+            raw_path = out_dir / "raw_gemini_responses" / f"batch_{bi+1:03d}.txt"
+            try:
+                raw = call_gemini(api_key, model, payload, raw_dump_path=raw_path)
+            except ValueError as batch_error:
+                if len(batch) <= 1:
+                    raise
+                print(f"  Batch JSON recovery failed; splitting {len(batch)} turns into smaller calls", flush=True)
+                repaired_results = []
+                midpoint = (len(batch) + 1) // 2
+                for part_no, part in enumerate((batch[:midpoint], batch[midpoint:]), 1):
+                    if not part:
+                        continue
+                    part_payload = dict(payload)
+                    part_payload["response_turn_cases"] = [
+                        {"response_turn": x["response_turn"],
+                         "previous_context_turns": x["prior_turns"],
+                         "subtopic_context": x["subtopic"]} for x in part]
+                    part_path = out_dir / "raw_gemini_responses" / f"batch_{bi+1:03d}_part_{part_no}.txt"
+                    part_raw = call_gemini(api_key, model, part_payload, raw_dump_path=part_path)
+                    repaired_results.extend(part_raw["results"])
+                raw = {"results": repaired_results}
             if not isinstance(raw,dict) or not isinstance(raw.get("results"),list):
                 raise ValueError(f"Gemini response schema invalid in batch {bi+1}")
-            neutral_counts[bi]=sum(1 for r in raw["results"] if isinstance(r,dict) and r.get("classification")=="neutral")
             records=validate_records(raw,batch,video_id)
             for rec in records:
                 st=assign_subtopic(rec["timestamp"],subtopics)
@@ -594,8 +641,7 @@ def analyze_video(root: Path, video_id: str, model: str, api_key: str, resume: b
             completed[bi]=records
             cp={**checkpoint_meta,"video_id":video_id,"variant":VARIANT,
                 "completed_batches":{str(k):v for k,v in completed.items()},
-                "neutral_candidate_counts":{str(k):v for k,v in neutral_counts.items()},
-                "updated_at_utc":datetime.now(timezone.utc).isoformat()}
+                                "updated_at_utc":datetime.now(timezone.utc).isoformat()}
             checkpoint_path.write_text(json.dumps(cp,ensure_ascii=False,indent=2),encoding="utf-8")
         all_interactions.extend(records)
     all_interactions.sort(key=lambda x:(x["timestamp"],x["responding_speaker"],x.get("target_turn_id") or ""))
@@ -627,21 +673,19 @@ def analyze_video(root: Path, video_id: str, model: str, api_key: str, resume: b
                                   "host_identification":host_path}},
       "methodology":{"analysis_unit":"directed speaker-to-speaker stance interaction",
                      "transcript_scope":"full transcript; not limited to overlapping speech",
-                     "context_policy":f"Each response turn is assessed with up to {CONTEXT_TURNS} preceding different-speaker turns.",
+                     "context_policy":f"Each response turn is assessed against up to {CONTEXT_TURNS} immediately preceding chronological turns; target may be any different speaker in that window.",
                      "classification_labels":sorted(LABELS),
                      "agreement_family":["agreement","partial_agreement"],
-                     "disagreement_family":["disagreement","counterargument"],
-                     "moderator_policy":"Moderation, panelist introductions, summaries, follow-up questions, and repetition without a stance are neutral; substantive anchor stances are classified normally. Host identity is not used for classification.",
+                     "disagreement_family":["disagreement"],
+                     "moderator_policy":"Moderation, introductions, summaries, follow-up questions, and repetition without a stance are uncertain; substantive stances are classified normally. Host identity is not used for classification.",
                      "overlap_policy":"Overlap and interruption are not evidence of stance by themselves.",
-                     "neutral_policy":"Neutral candidates are counted in the candidate summary but omitted from interaction records; uncertain records are retained.",
+                     "uncertain_policy":"Every eligible response turn receives one record; unclear or non-stance turns are classified uncertain.",
                      "target_policy":"Target is a specific earlier turn; no reverse inference. Response timestamp determines subtopic mapping.",
                      "limitations":["Automated classifications require manual validation.","ASR errors can affect stance and exact quote matching.","The analysis does not infer intent, ideology, bias, or factual correctness."]},
       "episode_summary":{"duration_seconds":round(duration,3),"speaker_count":len(speaker_ids),
                          "transcript_turn_count":len(turns),"subtopic_count":len(subtopics),
                          "candidate_response_turn_count":sum(len(b) for b in batches),
-                         "neutral_candidate_count":sum(neutral_counts.values()),
-                         "candidate_classification_counts":{**summary["classification_counts"],
-                             "neutral":sum(neutral_counts.values())},**summary},
+                         "candidate_classification_counts":summary["classification_counts"],**summary},
       "interactions":all_interactions,
       "data_quality":{"turns_with_text":len(turns),"turns_without_text_skipped":TURN_BUILD_DIAGNOSTICS["turns_without_text_skipped"],
                       "turn_reconstruction":TURN_BUILD_DIAGNOSTICS,
@@ -663,15 +707,15 @@ def discover_videos(root: Path) -> list[str]:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="English televised-debate agreement/disagreement analysis v1.2 (threshold_5.0 only)")
+    parser = argparse.ArgumentParser(description="Agreement/disagreement analysis v2.0 (threshold_5.0 only)")
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument("--video-id", help="Process one video")
-    group.add_argument("--all", action="store_true", help="Process all videos (not intended for v1.2 pilot)")
+    group.add_argument("--all", action="store_true", help="Process all videos")
     parser.add_argument("--root", type=Path, default=Path.cwd(), help="Project root (default: current directory)")
     parser.add_argument("--variant", choices=[VARIANT], default=VARIANT, help="Only threshold_5.0 is supported")
     parser.add_argument("--model", default=DEFAULT_MODEL)
     parser.add_argument("--no-resume", action="store_true", help="Disable checkpoint resume")
-    parser.add_argument("--force", action="store_true", help="Delete any existing checkpoint and run fresh Gemini classification")
+    parser.add_argument("--force", action="store_true", help="Delete existing checkpoint and restart all batches")
     parser.add_argument("--host-file", type=Path, help="Optional host-identification JSON for --video-id; auto-discovery is also attempted")
     args = parser.parse_args()
     api_key = os.environ.get("GEMINI_API_KEY")

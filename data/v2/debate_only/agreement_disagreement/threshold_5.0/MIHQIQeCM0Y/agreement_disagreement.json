@@ -1,6 +1,6 @@
 {
-  "schema_version": "agreement-disagreement-1.2",
-  "script_version": "word-level-host-aware-1.1",
+  "schema_version": "agreement-disagreement-2.0",
+  "script_version": "agreement-disagreement-v2.0-json-recovery",
   "metadata": {
     "video_id": "MIHQIQeCM0Y",
     "variant": "threshold_5.0",
@@ -20,7 +20,7 @@
     },
     "host_prediction_confidence_band": "higher_heuristic_separation",
     "host_prediction_warning": "Scores and confidence bands are heuristic, not calibrated probabilities. Opening/closing phrase lists are incomplete and currently English-oriented; translated ASR text can affect cues. Manually verify predictions and evaluate across known-host episodes.",
-    "generated_at_utc": "2026-11-27T04:47:18.919050+00:00",
+    "generated_at_utc": "2026-11-27T18:47:39.451775+00:00",
     "source_files": {
       "transcript": "/home/user/MTP/Code/television-discourse-decoded-hindi/data/v2/debate_only/videos/MIHQIQeCM0Y/threshold_5.0/merge_final.json",
       "subtopics": "/home/user/MTP/Code/television-discourse-decoded-hindi/data/v2/debate_only/subtopic_analysis/threshold_5.0/MIHQIQeCM0Y/subtopic_analysis.json",
@@ -31,12 +31,10 @@
   "methodology": {
     "analysis_unit": "directed speaker-to-speaker stance interaction",
     "transcript_scope": "full transcript; not limited to overlapping speech",
-    "context_policy": "Each response turn is assessed with up to 5 preceding different-speaker turns.",
+    "context_policy": "Each response turn is assessed against up to 3 immediately preceding chronological turns; target may be any different speaker in that window.",
     "classification_labels": [
       "agreement",
-      "counterargument",
       "disagreement",
-      "neutral",
       "partial_agreement",
       "uncertain"
     ],
@@ -45,12 +43,11 @@
       "partial_agreement"
     ],
     "disagreement_family": [
-      "disagreement",
-      "counterargument"
+      "disagreement"
     ],
-    "moderator_policy": "Moderation, panelist introductions, summaries, follow-up questions, and repetition without a stance are neutral; substantive anchor stances are classified normally. Host identity is not used for classification.",
+    "moderator_policy": "Moderation, introductions, summaries, follow-up questions, and repetition without a stance are uncertain; substantive stances are classified normally. Host identity is not used for classification.",
     "overlap_policy": "Overlap and interruption are not evidence of stance by themselves.",
-    "neutral_policy": "Neutral candidates are counted in the candidate summary but omitted from interaction records; uncertain records are retained.",
+    "uncertain_policy": "Every eligible response turn receives one record; unclear or non-stance turns are classified uncertain.",
     "target_policy": "Target is a specific earlier turn; no reverse inference. Response timestamp determines subtopic mapping.",
     "limitations": [
       "Automated classifications require manual validation.",
@@ -64,179 +61,260 @@
     "transcript_turn_count": 71,
     "subtopic_count": 1,
     "candidate_response_turn_count": 70,
-    "neutral_candidate_count": 46,
     "candidate_classification_counts": {
       "agreement": 3,
-      "partial_agreement": 0,
-      "disagreement": 5,
-      "counterargument": 14,
-      "uncertain": 2,
-      "neutral": 46
+      "partial_agreement": 4,
+      "disagreement": 16,
+      "uncertain": 47
     },
     "classification_counts": {
       "agreement": 3,
-      "partial_agreement": 0,
-      "disagreement": 5,
-      "counterargument": 14,
-      "uncertain": 2
+      "partial_agreement": 4,
+      "disagreement": 16,
+      "uncertain": 47
     },
-    "total_non_neutral_interactions": 24,
-    "decisive_interaction_count": 22,
-    "agreement_family_count": 3,
-    "disagreement_family_count": 19,
-    "agreement_to_disagreement_ratio": 0.1579,
-    "agreement_family_share_percent": 13.64,
-    "disagreement_family_share_percent": 86.36,
+    "total_interactions": 70,
+    "decisive_interaction_count": 23,
+    "agreement_family_count": 7,
+    "disagreement_family_count": 16,
+    "agreement_to_disagreement_ratio": 0.4375,
+    "agreement_family_share_percent": 30.43,
+    "disagreement_family_share_percent": 69.57,
     "speaker_statistics": {
       "SPEAKER_00": {
         "initiated": {
-          "counterargument": 3,
-          "agreement": 1
+          "uncertain": 8,
+          "partial_agreement": 1,
+          "disagreement": 2
         },
         "received": {
-          "counterargument": 2
+          "uncertain": 4,
+          "partial_agreement": 1,
+          "disagreement": 1
         },
-        "total_initiated": 4,
-        "total_received": 2
+        "total_initiated": 11,
+        "total_received": 6
       },
       "SPEAKER_01": {
         "initiated": {
-          "counterargument": 1
+          "uncertain": 3,
+          "disagreement": 1,
+          "agreement": 1
         },
         "received": {
-          "counterargument": 2
+          "uncertain": 5,
+          "disagreement": 1
         },
-        "total_initiated": 1,
-        "total_received": 2
+        "total_initiated": 5,
+        "total_received": 6
       },
       "SPEAKER_02": {
         "initiated": {
-          "disagreement": 3,
-          "counterargument": 1
+          "disagreement": 4,
+          "agreement": 1,
+          "uncertain": 9
         },
         "received": {
-          "counterargument": 7,
-          "disagreement": 1
+          "partial_agreement": 1,
+          "disagreement": 6,
+          "uncertain": 10
         },
-        "total_initiated": 4,
-        "total_received": 8
+        "total_initiated": 14,
+        "total_received": 17
       },
       "SPEAKER_03": {
         "initiated": {
-          "counterargument": 2
+          "uncertain": 5,
+          "disagreement": 1
         },
         "received": {
-          "agreement": 2
+          "agreement": 1,
+          "uncertain": 1,
+          "disagreement": 1
         },
-        "total_initiated": 2,
-        "total_received": 2
+        "total_initiated": 6,
+        "total_received": 3
       },
       "SPEAKER_04": {
         "initiated": {
-          "agreement": 1
+          "disagreement": 2,
+          "uncertain": 2
         },
         "received": {
-          "uncertain": 1,
-          "disagreement": 1,
-          "counterargument": 1
+          "uncertain": 2,
+          "partial_agreement": 2,
+          "disagreement": 1
         },
-        "total_initiated": 1,
-        "total_received": 3
+        "total_initiated": 4,
+        "total_received": 5
       },
       "SPEAKER_05": {
         "initiated": {},
-        "received": {},
+        "received": {
+          "uncertain": 1
+        },
         "total_initiated": 0,
-        "total_received": 0
+        "total_received": 1
       },
       "SPEAKER_06": {
         "initiated": {
-          "uncertain": 1,
-          "disagreement": 2,
+          "uncertain": 14,
+          "partial_agreement": 3,
           "agreement": 1,
-          "counterargument": 7
+          "disagreement": 6
         },
         "received": {
-          "uncertain": 1,
-          "disagreement": 3,
-          "counterargument": 2,
-          "agreement": 1
+          "disagreement": 6,
+          "uncertain": 24,
+          "agreement": 2
         },
-        "total_initiated": 11,
-        "total_received": 7
+        "total_initiated": 24,
+        "total_received": 32
       }
     },
     "directional_speaker_pairs": [
       {
+        "source_speaker": "SPEAKER_02",
+        "responding_speaker": "SPEAKER_06",
+        "classification": "uncertain",
+        "count": 9
+      },
+      {
         "source_speaker": "SPEAKER_06",
         "responding_speaker": "SPEAKER_02",
-        "classification": "counterargument",
+        "classification": "uncertain",
+        "count": 9
+      },
+      {
+        "source_speaker": "SPEAKER_00",
+        "responding_speaker": "SPEAKER_06",
+        "classification": "uncertain",
+        "count": 6
+      },
+      {
+        "source_speaker": "SPEAKER_06",
+        "responding_speaker": "SPEAKER_02",
+        "classification": "disagreement",
         "count": 6
       },
       {
         "source_speaker": "SPEAKER_02",
         "responding_speaker": "SPEAKER_06",
         "classification": "disagreement",
+        "count": 4
+      },
+      {
+        "source_speaker": "SPEAKER_03",
+        "responding_speaker": "SPEAKER_06",
+        "classification": "uncertain",
         "count": 3
       },
       {
         "source_speaker": "SPEAKER_00",
         "responding_speaker": "SPEAKER_01",
-        "classification": "counterargument",
+        "classification": "uncertain",
+        "count": 2
+      },
+      {
+        "source_speaker": "SPEAKER_01",
+        "responding_speaker": "SPEAKER_06",
+        "classification": "uncertain",
+        "count": 2
+      },
+      {
+        "source_speaker": "SPEAKER_03",
+        "responding_speaker": "SPEAKER_00",
+        "classification": "uncertain",
+        "count": 2
+      },
+      {
+        "source_speaker": "SPEAKER_04",
+        "responding_speaker": "SPEAKER_06",
+        "classification": "uncertain",
+        "count": 2
+      },
+      {
+        "source_speaker": "SPEAKER_06",
+        "responding_speaker": "SPEAKER_01",
+        "classification": "uncertain",
+        "count": 2
+      },
+      {
+        "source_speaker": "SPEAKER_06",
+        "responding_speaker": "SPEAKER_04",
+        "classification": "partial_agreement",
         "count": 2
       },
       {
         "source_speaker": "SPEAKER_00",
-        "responding_speaker": "SPEAKER_06",
-        "classification": "agreement",
+        "responding_speaker": "SPEAKER_01",
+        "classification": "disagreement",
+        "count": 1
+      },
+      {
+        "source_speaker": "SPEAKER_00",
+        "responding_speaker": "SPEAKER_02",
+        "classification": "partial_agreement",
         "count": 1
       },
       {
         "source_speaker": "SPEAKER_00",
         "responding_speaker": "SPEAKER_06",
-        "classification": "counterargument",
+        "classification": "disagreement",
         "count": 1
       },
       {
         "source_speaker": "SPEAKER_01",
         "responding_speaker": "SPEAKER_04",
-        "classification": "counterargument",
+        "classification": "disagreement",
+        "count": 1
+      },
+      {
+        "source_speaker": "SPEAKER_01",
+        "responding_speaker": "SPEAKER_04",
+        "classification": "uncertain",
+        "count": 1
+      },
+      {
+        "source_speaker": "SPEAKER_01",
+        "responding_speaker": "SPEAKER_06",
+        "classification": "agreement",
         "count": 1
       },
       {
         "source_speaker": "SPEAKER_02",
         "responding_speaker": "SPEAKER_06",
-        "classification": "counterargument",
+        "classification": "agreement",
         "count": 1
       },
       {
         "source_speaker": "SPEAKER_03",
         "responding_speaker": "SPEAKER_00",
-        "classification": "counterargument",
-        "count": 1
-      },
-      {
-        "source_speaker": "SPEAKER_03",
-        "responding_speaker": "SPEAKER_02",
-        "classification": "counterargument",
+        "classification": "disagreement",
         "count": 1
       },
       {
         "source_speaker": "SPEAKER_04",
         "responding_speaker": "SPEAKER_03",
-        "classification": "agreement",
+        "classification": "disagreement",
+        "count": 1
+      },
+      {
+        "source_speaker": "SPEAKER_04",
+        "responding_speaker": "SPEAKER_06",
+        "classification": "disagreement",
         "count": 1
       },
       {
         "source_speaker": "SPEAKER_06",
         "responding_speaker": "SPEAKER_00",
-        "classification": "counterargument",
+        "classification": "partial_agreement",
         "count": 1
       },
       {
         "source_speaker": "SPEAKER_06",
-        "responding_speaker": "SPEAKER_02",
-        "classification": "disagreement",
+        "responding_speaker": "SPEAKER_00",
+        "classification": "uncertain",
         "count": 1
       },
       {
@@ -248,12 +326,12 @@
       {
         "source_speaker": "SPEAKER_06",
         "responding_speaker": "SPEAKER_04",
-        "classification": "disagreement",
+        "classification": "uncertain",
         "count": 1
       },
       {
         "source_speaker": "SPEAKER_06",
-        "responding_speaker": "SPEAKER_04",
+        "responding_speaker": "SPEAKER_05",
         "classification": "uncertain",
         "count": 1
       }
@@ -264,49 +342,45 @@
         "title": "Opening discussion",
         "start": 0.0,
         "end": 1744.448,
-        "interaction_count": 24,
+        "interaction_count": 70,
         "classification_counts": {
           "agreement": 3,
-          "partial_agreement": 0,
-          "disagreement": 5,
-          "counterargument": 14,
-          "uncertain": 2
+          "partial_agreement": 4,
+          "disagreement": 16,
+          "uncertain": 47
         }
       }
     ],
     "host_statistics": {
       "host_speaker_id": "SPEAKER_06",
-      "host_initiated_interactions": 7,
+      "host_initiated_interactions": 32,
       "host_initiated_classification_counts": {
-        "agreement": 1,
+        "agreement": 2,
         "partial_agreement": 0,
-        "disagreement": 3,
-        "counterargument": 2,
-        "uncertain": 1
+        "disagreement": 6,
+        "uncertain": 24
       },
-      "host_received_interactions": 11,
+      "host_received_interactions": 24,
       "host_received_classification_counts": {
         "agreement": 1,
-        "partial_agreement": 0,
-        "disagreement": 2,
-        "counterargument": 7,
-        "uncertain": 1
+        "partial_agreement": 3,
+        "disagreement": 6,
+        "uncertain": 14
       },
-      "guest_to_guest_interactions": 6,
+      "guest_to_guest_interactions": 10,
       "guest_to_guest_classification_counts": {
-        "agreement": 1,
-        "partial_agreement": 0,
-        "disagreement": 0,
-        "counterargument": 5,
-        "uncertain": 0
+        "agreement": 0,
+        "partial_agreement": 1,
+        "disagreement": 4,
+        "uncertain": 5
       },
-      "host_involved_interactions": 18
+      "host_involved_interactions": 56
     },
     "directional_aggregation_exclusions": {
-      "null_source_speaker_interactions": 1,
-      "included_in_directional_pairs": 23
+      "null_source_speaker_interactions": 6,
+      "included_in_directional_pairs": 64
     },
-    "ratio_note": "Agreement family = agreement + partial_agreement; disagreement family = disagreement + counterargument. Neutral turns are omitted; uncertain cases are excluded from ratio denominators."
+    "ratio_note": "Agreement family = agreement + partial_agreement; disagreement family = disagreement. Uncertain cases are excluded from ratio denominators."
   },
   "interactions": [
     {
@@ -317,15 +391,22 @@
       "target_turn_id": "T0001",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_06",
+      "target_speaker": "SPEAKER_06",
       "responding_speaker": "SPEAKER_04",
       "classification": "uncertain",
-      "evidence": "",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
       "evidence_present": false,
+      "evidence_found_in_target": false,
       "evidence_found_in_response": false,
       "evidence_validation_status": "missing",
       "manual_review_required": false,
-      "reasoning": "The speaker addresses the host's framing regarding the Samajwadi Party losing out, but does not explicitly agree or disagree with a specific prior claim.",
-      "confidence": "medium",
+      "reasoning": "The speaker is addressing the host's framing question about the Samajwadi Party losing out, but provides a general statement rather than taking a clear stance of agreement or disagreement on a specific prior claim.",
+      "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
         "target_start": 0.031,
@@ -337,20 +418,59 @@
     {
       "video_id": "MIHQIQeCM0Y",
       "interaction_id": "INT_0002",
+      "timestamp": 84.524,
+      "response_turn_id": "T0003",
+      "target_turn_id": "T0002",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_04",
+      "target_speaker": "SPEAKER_04",
+      "responding_speaker": "SPEAKER_06",
+      "classification": "disagreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "For us, asset means nothing.",
+        "statement_2": "You're saying nothing to lose despite the fact that AIMIM just about a month ago in an open letter had said let's form an alliance in Uttar Pradesh which you had rebuffed."
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "The host challenges the speaker's previous claim that they have nothing to lose, pointing out that they rebuffed an alliance offer from AIMIM.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 29.748,
+        "target_end": 83.41,
+        "response_start": 84.524,
+        "response_end": 95.003
+      }
+    },
+    {
+      "video_id": "MIHQIQeCM0Y",
+      "interaction_id": "INT_0003",
       "timestamp": 96.353,
       "response_turn_id": "T0004",
       "target_turn_id": "T0003",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_06",
+      "target_speaker": "SPEAKER_06",
       "responding_speaker": "SPEAKER_04",
-      "classification": "disagreement",
-      "evidence": "I don't think it worked out.",
+      "classification": "partial_agreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "So you are saying you don't need them.",
+        "statement_2": "I don't think it worked out. I mean, I don't know what the proposal came."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "The speaker rejects the premise of the host's question regarding an alliance proposal.",
-      "confidence": "high",
+      "reasoning": "The speaker responds to the host's assertion that they don't need AIMIM, acknowledging that the proposal didn't work out while pivoting away from the alliance question to voter lists.",
+      "confidence": "medium",
       "review_status": "pending",
       "source_turn_timestamps": {
         "target_start": 84.524,
@@ -361,20 +481,59 @@
     },
     {
       "video_id": "MIHQIQeCM0Y",
-      "interaction_id": "INT_0003",
+      "interaction_id": "INT_0004",
+      "timestamp": 116.806,
+      "response_turn_id": "T0005",
+      "target_turn_id": "T0004",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_04",
+      "target_speaker": "SPEAKER_04",
+      "responding_speaker": "SPEAKER_06",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host moves the conversation to a new panelist and a different topic (whether the alliance benefits the BJP), making this a topic change rather than a direct stance response.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 96.353,
+        "target_end": 117.616,
+        "response_start": 116.806,
+        "response_end": 127.572
+      }
+    },
+    {
+      "video_id": "MIHQIQeCM0Y",
+      "interaction_id": "INT_0005",
       "timestamp": 130.525,
       "response_turn_id": "T0006",
       "target_turn_id": "T0005",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_06",
+      "target_speaker": "SPEAKER_06",
       "responding_speaker": "SPEAKER_03",
       "classification": "agreement",
-      "evidence": "This new alliance is another reason why BJP is headed towards a massive, massive win.",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "some would suggest good news coming in for the BJP, another team B-C of the BJP in Uttar Pradesh this time.",
+        "statement_2": "This new alliance is another reason why BJP is headed towards a massive, massive win."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "The speaker explicitly agrees with the host's suggestion that the new alliance is good news for the BJP.",
+      "reasoning": "The speaker responds directly to the host's prompt suggesting good news for the BJP, agreeing that the alliance helps the BJP head toward a massive win.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -386,70 +545,219 @@
     },
     {
       "video_id": "MIHQIQeCM0Y",
-      "interaction_id": "INT_0004",
-      "timestamp": 439.76,
-      "response_turn_id": "T0011",
+      "interaction_id": "INT_0006",
+      "timestamp": 225.886,
+      "response_turn_id": "T0007",
       "target_turn_id": "T0006",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_03",
-      "responding_speaker": "SPEAKER_02",
-      "classification": "counterargument",
-      "evidence": "our intention and our motive was to ensure that the BJP is defeated",
-      "evidence_present": true,
-      "evidence_found_in_response": true,
-      "evidence_validation_status": "verified",
+      "target_speaker": "SPEAKER_03",
+      "responding_speaker": "SPEAKER_06",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
       "manual_review_required": false,
-      "reasoning": "The speaker responds to earlier claims (like T0006) that their alliance helps the BJP or is desperate, by offering an opposing motive that they formed the alliance specifically to defeat the BJP.",
-      "confidence": "medium",
+      "reasoning": "The host is attempting to reconnect with Varus Pathan and then redirects the question to Ashutosh, which is a conversational transition and moderation rather than a substantive stance on SPEAKER_03's claims.",
+      "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
         "target_start": 130.525,
         "target_end": 226.797,
+        "response_start": 225.886,
+        "response_end": 276.578
+      }
+    },
+    {
+      "video_id": "MIHQIQeCM0Y",
+      "interaction_id": "INT_0007",
+      "timestamp": 277.861,
+      "response_turn_id": "T0008",
+      "target_turn_id": "T0006",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
+      "responding_speaker": "SPEAKER_00",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "SPEAKER_00 starts their own analysis about Dalit votes and the bipolar nature of UP elections without directly addressing SPEAKER_03's specific arguments.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 130.525,
+        "target_end": 226.797,
+        "response_start": 277.861,
+        "response_end": 392.83
+      }
+    },
+    {
+      "video_id": "MIHQIQeCM0Y",
+      "interaction_id": "INT_0008",
+      "timestamp": 391.379,
+      "response_turn_id": "T0009",
+      "target_turn_id": "T0008",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_00",
+      "target_speaker": "SPEAKER_00",
+      "responding_speaker": "SPEAKER_06",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host is summarizing and managing the conversation, asking for a guest, which constitutes moderator speech rather than a stance.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 277.861,
+        "target_end": 392.83,
+        "response_start": 391.379,
+        "response_end": 404.997
+      }
+    },
+    {
+      "video_id": "MIHQIQeCM0Y",
+      "interaction_id": "INT_0009",
+      "timestamp": 406.583,
+      "response_turn_id": "T0010",
+      "target_turn_id": "T0008",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_00",
+      "target_speaker": "SPEAKER_00",
+      "responding_speaker": "SPEAKER_06",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host is asking a question to a newly connected guest and managing the panel, which is a moderator action.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 277.861,
+        "target_end": 392.83,
+        "response_start": 406.583,
+        "response_end": 438.578
+      }
+    },
+    {
+      "video_id": "MIHQIQeCM0Y",
+      "interaction_id": "INT_0010",
+      "timestamp": 439.76,
+      "response_turn_id": "T0011",
+      "target_turn_id": "T0008",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_00",
+      "target_speaker": "SPEAKER_00",
+      "responding_speaker": "SPEAKER_02",
+      "classification": "partial_agreement",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "See, Preeti, this is all about Dalit votes in Uttar Pradesh. This is not all about the Muslim votes. So I am not surprised that OIC has aligned with Chandrasekhar and projected him as the chief ministerial candidate.",
+        "statement_2": "Well, ma'am, today is a very historic day in the politics of Uttar Pradesh, where in our party, Majlis-Ettihad Muslimin and MP Chandrasekhar Azad's party, the Azad Samaj party, today form an alliance and call it Samajik Parivartan Murcha."
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "SPEAKER_02 (Varis Pathan) responds to the discussion initiated about their alliance with Chandrasekhar Azad, acknowledging the alliance formation discussed by SPEAKER_00 while elaborating on their own motives.",
+      "confidence": "medium",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 277.861,
+        "target_end": 392.83,
         "response_start": 439.76,
         "response_end": 490.553
       }
     },
     {
       "video_id": "MIHQIQeCM0Y",
-      "interaction_id": "INT_0005",
+      "interaction_id": "INT_0011",
       "timestamp": 489.777,
       "response_turn_id": "T0012",
-      "target_turn_id": null,
+      "target_turn_id": "T0011",
       "subtopic_id": "ST001",
-      "source_speaker": null,
+      "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
       "responding_speaker": "SPEAKER_06",
-      "classification": "uncertain",
-      "evidence": "your party has never worked in UP",
+      "classification": "disagreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "today we have formed an alliance. And I am sure and I am confident that many of them will be having sleepless nights from today. because since so many years they have been taking the votes of the Muslims, Dalits and the minorities and what did they do for betterment of the political empire?",
+        "statement_2": "Padhan, your party has never worked in UP. Things have never really gone in your favour in the state of Gupta Pradesh."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "The speaker challenges the target speaker's party's viability in the state.",
+      "reasoning": "The host (SPEAKER_06) challenges SPEAKER_02's claims about their party's effectiveness and alliance impact in Uttar Pradesh, stating they have never worked or succeeded there.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
-        "target_start": null,
-        "target_end": null,
+        "target_start": 439.76,
+        "target_end": 490.553,
         "response_start": 489.777,
         "response_end": 495.92
       }
     },
     {
       "video_id": "MIHQIQeCM0Y",
-      "interaction_id": "INT_0006",
+      "interaction_id": "INT_0012",
       "timestamp": 491.144,
       "response_turn_id": "T0013",
       "target_turn_id": "T0012",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_06",
+      "target_speaker": "SPEAKER_06",
       "responding_speaker": "SPEAKER_02",
       "classification": "disagreement",
-      "evidence": "False. These are totally false and baseless allegations",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "Padhan, your party has never worked in UP. Things have never really gone in your favour in the state of Gupta Pradesh.",
+        "statement_2": "False. These are totally false and baseless allegations which are... No sir, I am only"
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "The speaker explicitly rejects the claim made in the previous turn about their party's track record.",
+      "reasoning": "SPEAKER_02 directly rejects SPEAKER_06's assertion that their party has never worked or succeeded in UP, labeling it as false and baseless allegations.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -461,21 +769,28 @@
     },
     {
       "video_id": "MIHQIQeCM0Y",
-      "interaction_id": "INT_0007",
+      "interaction_id": "INT_0013",
       "timestamp": 499.548,
       "response_turn_id": "T0014",
       "target_turn_id": "T0013",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
       "responding_speaker": "SPEAKER_06",
       "classification": "disagreement",
-      "evidence": "How is it false?",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "False. These are totally false and baseless allegations which are... No sir, I am only",
+        "statement_2": "looking at past track record. How is it false?"
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "The host challenges the speaker's dismissal of the track record claims.",
-      "confidence": "medium",
+      "reasoning": "SPEAKER_06 challenges SPEAKER_02's dismissal, questioning how the track-record claims can be false.",
+      "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
         "target_start": 491.144,
@@ -486,20 +801,27 @@
     },
     {
       "video_id": "MIHQIQeCM0Y",
-      "interaction_id": "INT_0008",
+      "interaction_id": "INT_0014",
       "timestamp": 502.535,
       "response_turn_id": "T0015",
       "target_turn_id": "T0014",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_06",
+      "target_speaker": "SPEAKER_06",
       "responding_speaker": "SPEAKER_02",
-      "classification": "counterargument",
-      "evidence": "What is the Congress' first track record?",
+      "classification": "disagreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "looking at past track record. How is it false?",
+        "statement_2": "No, no. What is the Congress' first track record? And what did the Samaritans... Sir, better than"
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "The speaker deflects by questioning the record of other parties.",
+      "reasoning": "SPEAKER_02 counters the host's focus on track record by questioning other parties' track records instead.",
       "confidence": "medium",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -511,20 +833,27 @@
     },
     {
       "video_id": "MIHQIQeCM0Y",
-      "interaction_id": "INT_0009",
+      "interaction_id": "INT_0015",
       "timestamp": 506.551,
       "response_turn_id": "T0016",
       "target_turn_id": "T0015",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
       "responding_speaker": "SPEAKER_06",
       "classification": "disagreement",
-      "evidence": "Better than yours in Uttar Pradesh.",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "No, no. What is the Congress' first track record? And what did the Samaritans... Sir, better than",
+        "statement_2": "yours. Better than yours in Uttar Pradesh. What is"
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "The host pushes back against the speaker's deflection.",
+      "reasoning": "SPEAKER_06 responds to SPEAKER_02's counter-question by asserting that their track record in Uttar Pradesh is better than SPEAKER_02's party's.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -536,45 +865,59 @@
     },
     {
       "video_id": "MIHQIQeCM0Y",
-      "interaction_id": "INT_0010",
+      "interaction_id": "INT_0016",
       "timestamp": 508.424,
       "response_turn_id": "T0017",
-      "target_turn_id": "T0016",
+      "target_turn_id": "T0014",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_06",
+      "target_speaker": "SPEAKER_06",
       "responding_speaker": "SPEAKER_02",
-      "classification": "counterargument",
-      "evidence": "the Samaritans' first track record? They lost almost all the elections in four times.",
+      "classification": "disagreement",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "looking at past track record. How is it false?",
+        "statement_2": "the Samaritans' first track record? They lost almost all the elections in four times. But sir, you"
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "Speaker 02 responds to Speaker 06's challenge by attacking their past electoral track record instead.",
+      "reasoning": "SPEAKER_02 challenges SPEAKER_06's defense of past track records by pointing out failures.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
-        "target_start": 506.551,
-        "target_end": 509.605,
+        "target_start": 499.548,
+        "target_end": 503.277,
         "response_start": 508.424,
         "response_end": 515.495
       }
     },
     {
       "video_id": "MIHQIQeCM0Y",
-      "interaction_id": "INT_0011",
+      "interaction_id": "INT_0017",
       "timestamp": 514.955,
       "response_turn_id": "T0018",
       "target_turn_id": "T0017",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
       "responding_speaker": "SPEAKER_06",
-      "classification": "disagreement",
-      "evidence": "haven't been able to win a single seat.",
+      "classification": "agreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "the Samaritans' first track record? They lost almost all the elections in four times. But sir, you",
+        "statement_2": "haven't been able to win a single seat."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "Speaker 06 directly disputes Speaker 02's previous claims by highlighting their lack of electoral success in the state.",
+      "reasoning": "SPEAKER_06 echoes and reinforces SPEAKER_02's point about losing elections/seats.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -586,20 +929,27 @@
     },
     {
       "video_id": "MIHQIQeCM0Y",
-      "interaction_id": "INT_0012",
+      "interaction_id": "INT_0018",
       "timestamp": 518.6,
       "response_turn_id": "T0019",
       "target_turn_id": "T0018",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_06",
+      "target_speaker": "SPEAKER_06",
       "responding_speaker": "SPEAKER_02",
-      "classification": "counterargument",
-      "evidence": "This was the same thing which was being told to us during the Bihar election as well, and we won five seats in Bihar?",
+      "classification": "disagreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "haven't been able to win a single seat.",
+        "statement_2": "This was the same thing which was being told to us during the Bihar election as well, and we won five seats in Bihar? Sir, you have"
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "Speaker 02 counters Speaker 06's point about losing in UP by drawing a parallel to Bihar where they succeeded despite similar predictions.",
+      "reasoning": "SPEAKER_02 pushes back against SPEAKER_06's claim of zero wins by citing their success in Bihar.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -611,20 +961,27 @@
     },
     {
       "video_id": "MIHQIQeCM0Y",
-      "interaction_id": "INT_0013",
+      "interaction_id": "INT_0019",
       "timestamp": 524.894,
       "response_turn_id": "T0020",
       "target_turn_id": "T0019",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
       "responding_speaker": "SPEAKER_06",
-      "classification": "counterargument",
-      "evidence": "The AIMMM in the last election in UP was less than vote, sir. Less than vote, and you could not convert even one seat.",
+      "classification": "disagreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "This was the same thing which was being told to us during the Bihar election as well, and we won five seats in Bihar? Sir, you have",
+        "statement_2": "You've always had a bit of a vote share and resonance and presence. The AIMMM in the last election in UP was less than vote, sir. Less than vote, and you could not convert even one seat."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "Speaker 06 challenges Speaker 02's Bihar comparison by pointing out their historically poor vote share and seat conversion in UP.",
+      "reasoning": "SPEAKER_06 dismisses the comparison to Bihar and reiterates the poor performance and vote share in UP.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -636,20 +993,27 @@
     },
     {
       "video_id": "MIHQIQeCM0Y",
-      "interaction_id": "INT_0014",
+      "interaction_id": "INT_0020",
       "timestamp": 544.064,
       "response_turn_id": "T0021",
       "target_turn_id": "T0020",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_06",
+      "target_speaker": "SPEAKER_06",
       "responding_speaker": "SPEAKER_02",
-      "classification": "counterargument",
-      "evidence": "But this time, you see, we will be winning. Many of our candidates will win.",
+      "classification": "disagreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "The AIMMM in the last election in UP was less than vote, sir. Less than vote, and you could not convert even one seat.",
+        "statement_2": "But this time, you see, we will be winning. Many of our candidates will win. They will be elected assembly and they will raise their voice for the Dalits, for the Muslims, for the people who have been taken just for granted by the so-called secular parties."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "Speaker 02 pushes back against Speaker 06's dismissal of their electoral prospects by asserting they will win this time.",
+      "reasoning": "SPEAKER_02 refutes SPEAKER_06's claims about past UP failures by asserting they will win this time.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -661,46 +1025,508 @@
     },
     {
       "video_id": "MIHQIQeCM0Y",
-      "interaction_id": "INT_0015",
-      "timestamp": 667.522,
-      "response_turn_id": "T0034",
-      "target_turn_id": "T0033",
+      "interaction_id": "INT_0021",
+      "timestamp": 547.945,
+      "response_turn_id": "T0022",
+      "target_turn_id": "T0021",
       "subtopic_id": "ST001",
-      "source_speaker": "SPEAKER_06",
-      "responding_speaker": "SPEAKER_02",
-      "classification": "counterargument",
-      "evidence": "Madam, our intention aim is to ensure that the BJP does not form the government for the third time. We want to defeat the BJP.",
-      "evidence_present": true,
-      "evidence_found_in_response": true,
-      "evidence_validation_status": "verified",
+      "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
+      "responding_speaker": "SPEAKER_06",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
       "manual_review_required": false,
-      "reasoning": "The speaker responds to the anchor's challenge regarding contradictions by offering their primary goal of defeating the BJP as the underlying rationale for their political actions.",
+      "reasoning": "The host asks a clarifying question about inviting other parties, functioning as a moderator query rather than taking a substantive stance.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
-        "target_start": 653.583,
-        "target_end": 670.458,
+        "target_start": 544.064,
+        "target_end": 573.494,
+        "response_start": 547.945,
+        "response_end": 578.05
+      }
+    },
+    {
+      "video_id": "MIHQIQeCM0Y",
+      "interaction_id": "INT_0022",
+      "timestamp": 573.697,
+      "response_turn_id": "T0023",
+      "target_turn_id": null,
+      "subtopic_id": "ST001",
+      "source_speaker": null,
+      "target_speaker": null,
+      "responding_speaker": "SPEAKER_02",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The speaker continues their own uninterrupted train of thought from the previous turn regarding opposition parties, not directly responding to a different speaker's claim.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": null,
+        "target_end": null,
+        "response_start": 573.697,
+        "response_end": 593.052
+      }
+    },
+    {
+      "video_id": "MIHQIQeCM0Y",
+      "interaction_id": "INT_0023",
+      "timestamp": 592.748,
+      "response_turn_id": "T0024",
+      "target_turn_id": "T0023",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
+      "responding_speaker": "SPEAKER_06",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host transitions the discussion to another guest, acting in a moderating role.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 573.697,
+        "target_end": 593.052,
+        "response_start": 592.748,
+        "response_end": 598.03
+      }
+    },
+    {
+      "video_id": "MIHQIQeCM0Y",
+      "interaction_id": "INT_0024",
+      "timestamp": 596.647,
+      "response_turn_id": "T0025",
+      "target_turn_id": "T0024",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_06",
+      "target_speaker": "SPEAKER_06",
+      "responding_speaker": "SPEAKER_02",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The speaker demands more time to speak rather than addressing a substantive argument.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 592.748,
+        "target_end": 598.03,
+        "response_start": 596.647,
+        "response_end": 600.595
+      }
+    },
+    {
+      "video_id": "MIHQIQeCM0Y",
+      "interaction_id": "INT_0025",
+      "timestamp": 598.705,
+      "response_turn_id": "T0026",
+      "target_turn_id": "T0025",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
+      "responding_speaker": "SPEAKER_06",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "A brief host acknowledgment or procedural remark without a clear stance or direct engagement with a specific claim.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 596.647,
+        "target_end": 600.595,
+        "response_start": 598.705,
+        "response_end": 601.608
+      }
+    },
+    {
+      "video_id": "MIHQIQeCM0Y",
+      "interaction_id": "INT_0026",
+      "timestamp": 603.245,
+      "response_turn_id": "T0027",
+      "target_turn_id": "T0026",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_06",
+      "target_speaker": "SPEAKER_06",
+      "responding_speaker": "SPEAKER_02",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The speaker is posing a question and shifting topics rather than engaging in a stance interaction with the anchor's brief prompt.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 598.705,
+        "target_end": 601.608,
+        "response_start": 603.245,
+        "response_end": 615.226
+      }
+    },
+    {
+      "video_id": "MIHQIQeCM0Y",
+      "interaction_id": "INT_0027",
+      "timestamp": 615.749,
+      "response_turn_id": "T0028",
+      "target_turn_id": "T0026",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_06",
+      "target_speaker": "SPEAKER_06",
+      "responding_speaker": "SPEAKER_02",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "Continuation of the speaker's own monologue criticizing the Samajwadi party; no meaningful stance towards the anchor's prior turn.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 598.705,
+        "target_end": 601.608,
+        "response_start": 615.749,
+        "response_end": 627.427
+      }
+    },
+    {
+      "video_id": "MIHQIQeCM0Y",
+      "interaction_id": "INT_0028",
+      "timestamp": 627.663,
+      "response_turn_id": "T0029",
+      "target_turn_id": "T0026",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_06",
+      "target_speaker": "SPEAKER_06",
+      "responding_speaker": "SPEAKER_02",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "Continuation of speech by SPEAKER_02 without addressing a specific claim from the anchor.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 598.705,
+        "target_end": 601.608,
+        "response_start": 627.663,
+        "response_end": 631.493
+      }
+    },
+    {
+      "video_id": "MIHQIQeCM0Y",
+      "interaction_id": "INT_0029",
+      "timestamp": 627.781,
+      "response_turn_id": "T0030",
+      "target_turn_id": "T0029",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
+      "responding_speaker": "SPEAKER_06",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host is moderating, acknowledging the point, and asking a follow-up question rather than taking a stance.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 627.663,
+        "target_end": 631.493,
+        "response_start": 627.781,
+        "response_end": 638.648
+      }
+    },
+    {
+      "video_id": "MIHQIQeCM0Y",
+      "interaction_id": "INT_0030",
+      "timestamp": 639.323,
+      "response_turn_id": "T0031",
+      "target_turn_id": "T0028",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
+      "responding_speaker": "SPEAKER_06",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host is asking for clarification regarding the speaker's contradictory statements, functioning as a moderator question rather than a stance.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 615.749,
+        "target_end": 627.427,
+        "response_start": 639.323,
+        "response_end": 648.537
+      }
+    },
+    {
+      "video_id": "MIHQIQeCM0Y",
+      "interaction_id": "INT_0031",
+      "timestamp": 649.685,
+      "response_turn_id": "T0032",
+      "target_turn_id": "T0031",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_06",
+      "target_speaker": "SPEAKER_06",
+      "responding_speaker": "SPEAKER_02",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The speaker is deflecting the host's question about contradictory stances regarding the Samajwadi party rather than directly addressing or confirming the claim.",
+      "confidence": "medium",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 639.323,
+        "target_end": 648.537,
+        "response_start": 649.685,
+        "response_end": 662.088
+      }
+    },
+    {
+      "video_id": "MIHQIQeCM0Y",
+      "interaction_id": "INT_0032",
+      "timestamp": 653.583,
+      "response_turn_id": "T0033",
+      "target_turn_id": "T0032",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
+      "responding_speaker": "SPEAKER_06",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host clarifies and presses her question about the alliance paradox, but does not take a stance on SPEAKER_02's previous statement.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 649.685,
+        "target_end": 662.088,
+        "response_start": 653.583,
+        "response_end": 670.458
+      }
+    },
+    {
+      "video_id": "MIHQIQeCM0Y",
+      "interaction_id": "INT_0033",
+      "timestamp": 667.522,
+      "response_turn_id": "T0034",
+      "target_turn_id": "T0031",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_06",
+      "target_speaker": "SPEAKER_06",
+      "responding_speaker": "SPEAKER_02",
+      "classification": "disagreement",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "How do the two add up?",
+        "statement_2": "Madam, our intention aim is to ensure that the BJP does not form the government for the third time. We want to defeat the BJP."
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "SPEAKER_02 responds to the host's challenge about how their actions/invitations add up by explaining their core aim, rejecting the critical implication.",
+      "confidence": "medium",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 639.323,
+        "target_end": 648.537,
         "response_start": 667.522,
         "response_end": 681.899
       }
     },
     {
       "video_id": "MIHQIQeCM0Y",
-      "interaction_id": "INT_0016",
+      "interaction_id": "INT_0034",
+      "timestamp": 682.169,
+      "response_turn_id": "T0035",
+      "target_turn_id": "T0033",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_06",
+      "target_speaker": "SPEAKER_06",
+      "responding_speaker": "SPEAKER_02",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "Incomplete utterance cutting off the previous thought, no clear stance expressed.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 653.583,
+        "target_end": 670.458,
+        "response_start": 682.169,
+        "response_end": 684.16
+      }
+    },
+    {
+      "video_id": "MIHQIQeCM0Y",
+      "interaction_id": "INT_0035",
+      "timestamp": 683.536,
+      "response_turn_id": "T0036",
+      "target_turn_id": "T0034",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
+      "responding_speaker": "SPEAKER_06",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "Host summarizing or reframing the speaker's argument in a critical/questioning manner rather than stating a definitive agreement or disagreement.",
+      "confidence": "medium",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 667.522,
+        "target_end": 681.899,
+        "response_start": 683.536,
+        "response_end": 693.307
+      }
+    },
+    {
+      "video_id": "MIHQIQeCM0Y",
+      "interaction_id": "INT_0036",
       "timestamp": 689.037,
       "response_turn_id": "T0037",
       "target_turn_id": "T0036",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_06",
+      "target_speaker": "SPEAKER_06",
       "responding_speaker": "SPEAKER_02",
-      "classification": "counterargument",
-      "evidence": "Our alliance has today declared Mr. Chandrasekhar Azad as the Chief Minister candidate of Uttar Pradesh.",
-      "evidence_present": true,
-      "evidence_found_in_response": true,
-      "evidence_validation_status": "verified",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
       "manual_review_required": false,
-      "reasoning": "Speaker responds to the host's challenge about alliances by highlighting their own candidate announcement as part of their strategy.",
-      "confidence": "medium",
+      "reasoning": "Speaker 02 ignores the host's accusation about joining hands with an anti-Muslim party and instead makes a completely separate announcement regarding their chief ministerial candidate.",
+      "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
         "target_start": 683.536,
@@ -711,20 +1537,539 @@
     },
     {
       "video_id": "MIHQIQeCM0Y",
-      "interaction_id": "INT_0017",
+      "interaction_id": "INT_0037",
+      "timestamp": 701.238,
+      "response_turn_id": "T0038",
+      "target_turn_id": "T0036",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_06",
+      "target_speaker": "SPEAKER_06",
+      "responding_speaker": "SPEAKER_02",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "This is a brief continuation of the previous turn ('you, sir.') finishing a sentence addressed to the host, containing no clear stance.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 683.536,
+        "target_end": 693.307,
+        "response_start": 701.238,
+        "response_end": 702.52
+      }
+    },
+    {
+      "video_id": "MIHQIQeCM0Y",
+      "interaction_id": "INT_0038",
+      "timestamp": 701.71,
+      "response_turn_id": "T0039",
+      "target_turn_id": "T0038",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
+      "responding_speaker": "SPEAKER_06",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host is moderating the discussion and transitioning to another panelist, which constitutes procedural speech without a substantive stance.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 701.238,
+        "target_end": 702.52,
+        "response_start": 701.71,
+        "response_end": 705.895
+      }
+    },
+    {
+      "video_id": "MIHQIQeCM0Y",
+      "interaction_id": "INT_0039",
+      "timestamp": 704.275,
+      "response_turn_id": "T0040",
+      "target_turn_id": "T0039",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_06",
+      "target_speaker": "SPEAKER_06",
+      "responding_speaker": "SPEAKER_02",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The single word 'panel.' completes the host's interrupted sentence, functioning as routine conversational overlap or completion.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 701.71,
+        "target_end": 705.895,
+        "response_start": 704.275,
+        "response_end": 706.013
+      }
+    },
+    {
+      "video_id": "MIHQIQeCM0Y",
+      "interaction_id": "INT_0040",
+      "timestamp": 706.587,
+      "response_turn_id": "T0041",
+      "target_turn_id": "T0040",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
+      "responding_speaker": "SPEAKER_06",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host is asking a new question to a different panelist (Rajat Sethi), which is a moderator action rather than a stance interaction.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 704.275,
+        "target_end": 706.013,
+        "response_start": 706.587,
+        "response_end": 712.578
+      }
+    },
+    {
+      "video_id": "MIHQIQeCM0Y",
+      "interaction_id": "INT_0041",
+      "timestamp": 715.008,
+      "response_turn_id": "T0042",
+      "target_turn_id": "T0041",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_06",
+      "target_speaker": "SPEAKER_06",
+      "responding_speaker": "SPEAKER_01",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The speaker is starting their commentary in response to the anchor's prompt, but there is no specific claim being agreed with or disputed yet.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 706.587,
+        "target_end": 712.578,
+        "response_start": 715.008,
+        "response_end": 826.4
+      }
+    },
+    {
+      "video_id": "MIHQIQeCM0Y",
+      "interaction_id": "INT_0042",
+      "timestamp": 831.597,
+      "response_turn_id": "T0043",
+      "target_turn_id": "T0041",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_06",
+      "target_speaker": "SPEAKER_06",
+      "responding_speaker": "SPEAKER_05",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The speaker is acting in a moderator role to manage the discussion and direct the flow, which is non-stance bearing.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 706.587,
+        "target_end": 712.578,
+        "response_start": 831.597,
+        "response_end": 835.782
+      }
+    },
+    {
+      "video_id": "MIHQIQeCM0Y",
+      "interaction_id": "INT_0043",
+      "timestamp": 832.964,
+      "response_turn_id": "T0044",
+      "target_turn_id": null,
+      "subtopic_id": "ST001",
+      "source_speaker": null,
+      "target_speaker": null,
+      "responding_speaker": "SPEAKER_01",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "This is a continuation of the same speaker's previous thought after an interruption, rather than a new stance toward another speaker's claim.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": null,
+        "target_end": null,
+        "response_start": 832.964,
+        "response_end": 886.492
+      }
+    },
+    {
+      "video_id": "MIHQIQeCM0Y",
+      "interaction_id": "INT_0044",
+      "timestamp": 883.623,
+      "response_turn_id": "T0045",
+      "target_turn_id": "T0044",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_01",
+      "target_speaker": "SPEAKER_01",
+      "responding_speaker": "SPEAKER_06",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The anchor is managing the debate and redirecting the question to a new panelist, which does not constitute a clear stance interaction.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 832.964,
+        "target_end": 886.492,
+        "response_start": 883.623,
+        "response_end": 934.855
+      }
+    },
+    {
+      "video_id": "MIHQIQeCM0Y",
+      "interaction_id": "INT_0045",
+      "timestamp": 935.513,
+      "response_turn_id": "T0046",
+      "target_turn_id": null,
+      "subtopic_id": "ST001",
+      "source_speaker": null,
+      "target_speaker": null,
+      "responding_speaker": "SPEAKER_06",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "This is a continuation of the host's framing question to the panelist.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": null,
+        "target_end": null,
+        "response_start": 935.513,
+        "response_end": 940.829
+      }
+    },
+    {
+      "video_id": "MIHQIQeCM0Y",
+      "interaction_id": "INT_0046",
+      "timestamp": 942.348,
+      "response_turn_id": "T0047",
+      "target_turn_id": "T0044",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_01",
+      "target_speaker": "SPEAKER_01",
+      "responding_speaker": "SPEAKER_04",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The speaker addresses multiple points from the overall debate context rather than a specific single claim from turn T0044. Marking as uncertain due to lack of a direct target statement match.",
+      "confidence": "low",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 832.964,
+        "target_end": 886.492,
+        "response_start": 942.348,
+        "response_end": 1023.263
+      }
+    },
+    {
+      "video_id": "MIHQIQeCM0Y",
+      "interaction_id": "INT_0047",
+      "timestamp": 1015.737,
+      "response_turn_id": "T0048",
+      "target_turn_id": null,
+      "subtopic_id": "ST001",
+      "source_speaker": null,
+      "target_speaker": null,
+      "responding_speaker": "SPEAKER_06",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host continues a thought or manages the discussion rather than debating a specific previous claim with a clear stance.",
+      "confidence": "low",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": null,
+        "target_end": null,
+        "response_start": 1015.737,
+        "response_end": 1035.852
+      }
+    },
+    {
+      "video_id": "MIHQIQeCM0Y",
+      "interaction_id": "INT_0048",
+      "timestamp": 1026.824,
+      "response_turn_id": "T0049",
+      "target_turn_id": "T0048",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_06",
+      "target_speaker": "SPEAKER_06",
+      "responding_speaker": "SPEAKER_04",
+      "classification": "partial_agreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "it still managed to take a sizable vote percentage, ma'am. And that mattered in the long run for you.",
+        "statement_2": "you think that they took away our vote percentage? I mean, maybe the BJP could have gone higher, it might have been there. Okay, it could have been. Fair point."
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "Speaker 04 partially acknowledges the host's point about vote percentages impacting them, conceding 'Fair point' to a degree.",
+      "confidence": "medium",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1015.737,
+        "target_end": 1035.852,
+        "response_start": 1026.824,
+        "response_end": 1053.436
+      }
+    },
+    {
+      "video_id": "MIHQIQeCM0Y",
+      "interaction_id": "INT_0049",
+      "timestamp": 1039.092,
+      "response_turn_id": "T0050",
+      "target_turn_id": "T0049",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_04",
+      "target_speaker": "SPEAKER_04",
+      "responding_speaker": "SPEAKER_06",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host is moderating and asking for final comments, which does not constitute a substantive stance interaction.",
+      "confidence": "low",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1026.824,
+        "target_end": 1053.436,
+        "response_start": 1039.092,
+        "response_end": 1060.017
+      }
+    },
+    {
+      "video_id": "MIHQIQeCM0Y",
+      "interaction_id": "INT_0050",
+      "timestamp": 1061.215,
+      "response_turn_id": "T0051",
+      "target_turn_id": null,
+      "subtopic_id": "ST001",
+      "source_speaker": null,
+      "target_speaker": null,
+      "responding_speaker": "SPEAKER_03",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": "Opposition parties are clearly feeling the heat. And that is when they go for desperate, unnatural alliances."
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "invalid",
+      "manual_review_required": true,
+      "reasoning": "Speaker 03 counters the previous implication regarding BJP alliances and criticizes the opposition parties as desperate, disagreeing with the overall tone of Speaker 04.",
+      "confidence": "medium",
+      "review_status": "manual_review_required",
+      "source_turn_timestamps": {
+        "target_start": null,
+        "target_end": null,
+        "response_start": 1061.215,
+        "response_end": 1123.349
+      }
+    },
+    {
+      "video_id": "MIHQIQeCM0Y",
+      "interaction_id": "INT_0051",
+      "timestamp": 1124.598,
+      "response_turn_id": "T0052",
+      "target_turn_id": "T0051",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
+      "responding_speaker": "SPEAKER_06",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host is moving on to final comments and inviting Ashutosh to speak, which is a procedural moderation act rather than a semantic stance on SPEAKER_03's political arguments.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1061.215,
+        "target_end": 1123.349,
+        "response_start": 1124.598,
+        "response_end": 1131.601
+      }
+    },
+    {
+      "video_id": "MIHQIQeCM0Y",
+      "interaction_id": "INT_0052",
+      "timestamp": 1132.411,
+      "response_turn_id": "T0053",
+      "target_turn_id": "T0051",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
+      "responding_speaker": "SPEAKER_00",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "SPEAKER_00 shifts the topic to dismissing the importance of Owaisi's party and its limited base in Telangana, rather than directly addressing SPEAKER_03's specific point about AIMIM performing similarly to Congress or Akhilesh Yadav taking Muslims for granted.",
+      "confidence": "medium",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1061.215,
+        "target_end": 1123.349,
+        "response_start": 1132.411,
+        "response_end": 1223.992
+      }
+    },
+    {
+      "video_id": "MIHQIQeCM0Y",
+      "interaction_id": "INT_0053",
       "timestamp": 1225.696,
       "response_turn_id": "T0054",
       "target_turn_id": "T0053",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_00",
+      "target_speaker": "SPEAKER_00",
       "responding_speaker": "SPEAKER_06",
-      "classification": "counterargument",
-      "evidence": "you speak of only Hyderabad, but the fact is, Overseas party has been able to make a fair amount of political capital in Bihar and even in Bengal",
+      "classification": "disagreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "A political party which does not contest even all the seats in Telangana now is arrogantly saying that they are going to defeat the BJP and the Samajmati party together in Uttar Pradesh.",
+        "statement_2": "you speak of only Hyderabad, but the fact is, Overseas party has been able to make a fair amount of political capital in Bihar and even in Bengal, not getting many seats, but denting it for the principle opposition then."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "The speaker directly challenges Ashutosh's dismissal of AIMIM based solely on Telangana/Hyderabad, offering Bihar and Bengal as counterexamples where they dented the opposition.",
+      "reasoning": "The host (SPEAKER_06) challenges SPEAKER_00's claim that Owaisi's party is insignificant and only draws from Hyderabad, pointing out their impact in Bihar and Bengal.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -736,20 +2081,27 @@
     },
     {
       "video_id": "MIHQIQeCM0Y",
-      "interaction_id": "INT_0018",
+      "interaction_id": "INT_0054",
       "timestamp": 1261.37,
       "response_turn_id": "T0055",
       "target_turn_id": "T0054",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_06",
+      "target_speaker": "SPEAKER_06",
       "responding_speaker": "SPEAKER_00",
-      "classification": "counterargument",
-      "evidence": "Preeti, what percentage of votes they are getting is not important. Important is they are more than the out of proportion projection of AMIM",
+      "classification": "partial_agreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "Overseas party has been able to make a fair amount of political capital in Bihar and even in Bengal, not getting many seats, but denting it for the principle opposition then.",
+        "statement_2": "Preeti, what percentage of votes they are getting is not important. Important is they are more than the out of proportion projection of AMIM, that they are going to, that they will talk something which will help a polarized election during the election."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "The speaker counters the host's point regarding vote percentages and impact in Bihar/Bengal by reiterating that their primary effect is disproportionate media projection and polarization.",
+      "reasoning": "SPEAKER_00 acknowledges the host's point about vote percentage/seats not being the primary metric, but qualifies/diverts to argue that their actual importance lies in media projection and polarization rather than electoral capital.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -761,20 +2113,155 @@
     },
     {
       "video_id": "MIHQIQeCM0Y",
-      "interaction_id": "INT_0019",
+      "interaction_id": "INT_0055",
+      "timestamp": 1297.6,
+      "response_turn_id": "T0056",
+      "target_turn_id": "T0054",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_06",
+      "target_speaker": "SPEAKER_06",
+      "responding_speaker": "SPEAKER_00",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "This short turn is a self-continuation or repetition emphasizing SPEAKER_00's own previous point rather than addressing the host's turn directly.",
+      "confidence": "medium",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1225.696,
+        "target_end": 1260.442,
+        "response_start": 1297.6,
+        "response_end": 1300.925
+      }
+    },
+    {
+      "video_id": "MIHQIQeCM0Y",
+      "interaction_id": "INT_0056",
+      "timestamp": 1297.803,
+      "response_turn_id": "T0057",
+      "target_turn_id": "T0056",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_00",
+      "target_speaker": "SPEAKER_00",
+      "responding_speaker": "SPEAKER_06",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host is moderating and calling on Rajat for final comments, which is a procedural turn rather than a stance interaction.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1297.6,
+        "target_end": 1300.925,
+        "response_start": 1297.803,
+        "response_end": 1303.017
+      }
+    },
+    {
+      "video_id": "MIHQIQeCM0Y",
+      "interaction_id": "INT_0057",
+      "timestamp": 1301.819,
+      "response_turn_id": "T0058",
+      "target_turn_id": null,
+      "subtopic_id": "ST001",
+      "source_speaker": null,
+      "target_speaker": null,
+      "responding_speaker": "SPEAKER_00",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The speaker is continuing their own previous point about media attention and political parties, not addressing an interlocutor with a stance.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": null,
+        "target_end": null,
+        "response_start": 1301.819,
+        "response_end": 1311.083
+      }
+    },
+    {
+      "video_id": "MIHQIQeCM0Y",
+      "interaction_id": "INT_0058",
+      "timestamp": 1309.683,
+      "response_turn_id": "T0059",
+      "target_turn_id": "T0058",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_00",
+      "target_speaker": "SPEAKER_00",
+      "responding_speaker": "SPEAKER_06",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host is merely facilitating the conversation and inviting final comments from Rajat Sethi.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1301.819,
+        "target_end": 1311.083,
+        "response_start": 1309.683,
+        "response_end": 1312.484
+      }
+    },
+    {
+      "video_id": "MIHQIQeCM0Y",
+      "interaction_id": "INT_0059",
       "timestamp": 1313.935,
       "response_turn_id": "T0060",
       "target_turn_id": "T0058",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_00",
+      "target_speaker": "SPEAKER_00",
       "responding_speaker": "SPEAKER_01",
-      "classification": "counterargument",
-      "evidence": "if voting percentage is any metric of media coverage, then Aam Aadmi Party when it was starting should have got zero media coverage then, right?",
+      "classification": "disagreement",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "There are many political parties who are getting two percent, three percent vote share across the country. We don't go to them because it doesn't help polarize elections.",
+        "statement_2": "So PPG, if voting percentage is any metric of media coverage, then Aam Aadmi Party when it was starting should have got zero media coverage then, right?"
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "Speaker 01 challenges Speaker 00's premise regarding vote share and media coverage by providing the counterexample of the Aam Aadmi Party.",
+      "reasoning": "SPEAKER_01 directly challenges SPEAKER_00's point about media coverage and vote shares by arguing that other parties received media attention despite small initial vote shares.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -786,20 +2273,123 @@
     },
     {
       "video_id": "MIHQIQeCM0Y",
-      "interaction_id": "INT_0020",
+      "interaction_id": "INT_0060",
+      "timestamp": 1383.292,
+      "response_turn_id": "T0061",
+      "target_turn_id": "T0058",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_00",
+      "target_speaker": "SPEAKER_00",
+      "responding_speaker": "SPEAKER_01",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The turn is a procedural request to continue speaking and a continuation of an ongoing argument rather than a direct stance towards the target turn.",
+      "confidence": "medium",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1301.819,
+        "target_end": 1311.083,
+        "response_start": 1383.292,
+        "response_end": 1394.311
+      }
+    },
+    {
+      "video_id": "MIHQIQeCM0Y",
+      "interaction_id": "INT_0061",
+      "timestamp": 1399.61,
+      "response_turn_id": "T0062",
+      "target_turn_id": "T0059",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_06",
+      "target_speaker": "SPEAKER_06",
+      "responding_speaker": "SPEAKER_01",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The speaker is providing their concluding analysis following the host's prompt, but does not directly engage with or respond to the host's administrative turn beyond starting to speak.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1309.683,
+        "target_end": 1312.484,
+        "response_start": 1399.61,
+        "response_end": 1455.922
+      }
+    },
+    {
+      "video_id": "MIHQIQeCM0Y",
+      "interaction_id": "INT_0062",
+      "timestamp": 1452.715,
+      "response_turn_id": "T0063",
+      "target_turn_id": "T0062",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_01",
+      "target_speaker": "SPEAKER_01",
+      "responding_speaker": "SPEAKER_06",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host (SPEAKER_06) interrupts to manage time and call upon the next speaker, which is procedural moderation rather than a substantive stance interaction.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1399.61,
+        "target_end": 1455.922,
+        "response_start": 1452.715,
+        "response_end": 1461.71
+      }
+    },
+    {
+      "video_id": "MIHQIQeCM0Y",
+      "interaction_id": "INT_0063",
       "timestamp": 1462.823,
       "response_turn_id": "T0064",
       "target_turn_id": "T0062",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_01",
+      "target_speaker": "SPEAKER_01",
       "responding_speaker": "SPEAKER_04",
-      "classification": "counterargument",
-      "evidence": "I don't think people vote. by the fact whether we issue, whether we visit the Ram Mandir or we don't visit the Ram Mandir.",
+      "classification": "disagreement",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "if you start going to Ayodhya, if you start going away from your core plans and your core messaging, it is going to get impacted the way Congress, which was an upper caste party, started appeasing to the Pichhalas also and to the Dalits also, and they ended up being nowhere.",
+        "statement_2": "Yeah, that's an obnoxious comment by Mr. Sethi to say that there is actually some sort of an enmity or act coming between the Dalits and the pundits."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "Speaker directly responds to Rajat Sethi's claim about visiting Ayodhya/Ram Mandir negatively impacting parties, countering it by arguing that voters do not care about temple visits.",
+      "reasoning": "SPEAKER_04 explicitly rejects SPEAKER_01's critique regarding the Samajwadi Party's strategy of trying to appeal to both upper castes and Dalits/Pichhalas.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -811,20 +2401,27 @@
     },
     {
       "video_id": "MIHQIQeCM0Y",
-      "interaction_id": "INT_0021",
+      "interaction_id": "INT_0064",
       "timestamp": 1533.226,
       "response_turn_id": "T0065",
       "target_turn_id": "T0064",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_04",
+      "target_speaker": "SPEAKER_04",
       "responding_speaker": "SPEAKER_03",
-      "classification": "agreement",
-      "evidence": "Look at the ambivalence, look at the confusion in the opposition camp.",
+      "classification": "disagreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "I don't think people vote. by the fact whether we issue, whether we visit the Ram Mandir or we don't visit the Ram Mandir.",
+        "statement_2": "Look at the ambivalence, look at the confusion in the opposition camp. You know, just yesterday, they were tom-toming about, you know, they having the right to decide when to visit the temple. And now Juhi Ji is saying whether we visit the temple or not."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "Speaker agrees with the sentiment that the opposition is confused and shifting stances regarding temple visits.",
+      "reasoning": "SPEAKER_03 targets SPEAKER_04's shifting stance on visiting the temple to argue that the opposition is full of confusion and ambivalence.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -836,20 +2433,59 @@
     },
     {
       "video_id": "MIHQIQeCM0Y",
-      "interaction_id": "INT_0022",
+      "interaction_id": "INT_0065",
+      "timestamp": 1575.717,
+      "response_turn_id": "T0066",
+      "target_turn_id": "T0065",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
+      "responding_speaker": "SPEAKER_06",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host speaks to transition to another panelist, which is a procedural moderation role with no substantive stance.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1533.226,
+        "target_end": 1575.717,
+        "response_start": 1575.717,
+        "response_end": 1578.012
+      }
+    },
+    {
+      "video_id": "MIHQIQeCM0Y",
+      "interaction_id": "INT_0066",
       "timestamp": 1579.582,
       "response_turn_id": "T0067",
       "target_turn_id": "T0065",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
       "responding_speaker": "SPEAKER_00",
-      "classification": "counterargument",
-      "evidence": "See, the reality today is that there is a tough contest in UP. There's no doubt about it.",
+      "classification": "disagreement",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "So let me tell you, you know, this announcement of the unnatural alliance today is the clearest sign yet that it will be a one-sided election very clearly",
+        "statement_2": "See, the reality today is that there is a tough contest in UP. There's no doubt about it."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "Speaker 00 counters Speaker 03's claim that the election will be one-sided by asserting that there is a tough contest.",
+      "reasoning": "SPEAKER_00 directly contradicts SPEAKER_03's assertion that the election will be 'one-sided', arguing instead that 'there is a tough contest in UP'.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -861,22 +2497,93 @@
     },
     {
       "video_id": "MIHQIQeCM0Y",
-      "interaction_id": "INT_0023",
+      "interaction_id": "INT_0067",
+      "timestamp": 1637.615,
+      "response_turn_id": "T0068",
+      "target_turn_id": "T0067",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_00",
+      "target_speaker": "SPEAKER_00",
+      "responding_speaker": "SPEAKER_06",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host (SPEAKER_06) calls on Rajat Sethi for a final comment, which is a procedural host utterance rather than a substantive stance towards SPEAKER_00's claims.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1579.582,
+        "target_end": 1636.822,
+        "response_start": 1637.615,
+        "response_end": 1642.458
+      }
+    },
+    {
+      "video_id": "MIHQIQeCM0Y",
+      "interaction_id": "INT_0068",
+      "timestamp": 1641.89,
+      "response_turn_id": "T0069",
+      "target_turn_id": "T0067",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_00",
+      "target_speaker": "SPEAKER_00",
+      "responding_speaker": "SPEAKER_06",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "This is a fragment/interruption by the host managing time, containing no clear stance.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1579.582,
+        "target_end": 1636.822,
+        "response_start": 1641.89,
+        "response_end": 1643.672
+      }
+    },
+    {
+      "video_id": "MIHQIQeCM0Y",
+      "interaction_id": "INT_0069",
       "timestamp": 1644.01,
       "response_turn_id": "T0070",
       "target_turn_id": "T0067",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_00",
+      "target_speaker": "SPEAKER_00",
       "responding_speaker": "SPEAKER_01",
-      "classification": "counterargument",
-      "evidence": "So I think a lot needs to be seen when the Samajwadi party's workers, which are pretty aggressive workers and supporters, when they start hitting the street. So this entire PDA architecture falls flat.",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "See, the reality today is that there is a tough contest in UP. There's no doubt about it.",
+        "statement_2": ""
+      },
       "evidence_present": true,
-      "evidence_found_in_response": true,
-      "evidence_validation_status": "verified",
-      "manual_review_required": false,
-      "reasoning": "Speaker 01 counters the narrative of a guaranteed tough contest benefiting the opposition by explaining how the Samajwadi party's architecture is vulnerable.",
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "invalid",
+      "manual_review_required": true,
+      "reasoning": "SPEAKER_01 builds upon and agrees with SPEAKER_00's premise that the election is closely contested and that smaller vote shares will be decisive.",
       "confidence": "medium",
-      "review_status": "pending",
+      "review_status": "manual_review_required",
       "source_turn_timestamps": {
         "target_start": 1579.582,
         "target_end": 1636.822,
@@ -886,25 +2593,32 @@
     },
     {
       "video_id": "MIHQIQeCM0Y",
-      "interaction_id": "INT_0024",
+      "interaction_id": "INT_0070",
       "timestamp": 1712.084,
       "response_turn_id": "T0071",
-      "target_turn_id": "T0067",
+      "target_turn_id": "T0070",
       "subtopic_id": "ST001",
-      "source_speaker": "SPEAKER_00",
+      "source_speaker": "SPEAKER_01",
+      "target_speaker": "SPEAKER_01",
       "responding_speaker": "SPEAKER_06",
       "classification": "agreement",
-      "evidence": "I need to end the show, but I think one thing we do agree on, at least the political analysts, that it is going to be a close election",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "And I believe that this alliance will be waiting to bounce up. on to that opportunity",
+        "statement_2": "at least the political analysts, that it is going to be a close election, at least by the looks of it now, and a two, three percent could really come in terms of being a decisive mandate"
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "The host summarizes agreement on the closeness of the contest previously asserted by Speaker 00.",
+      "reasoning": "The host summarizes and agrees with the panel's consensus (including SPEAKER_01) that it is a close election where a few percent of the vote will be decisive.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
-        "target_start": 1579.582,
-        "target_end": 1636.822,
+        "target_start": 1644.01,
+        "target_end": 1719.965,
         "response_start": 1712.084,
         "response_end": 1744.484
       }
@@ -6929,13 +8643,13 @@
       "warning": "Scores and confidence bands are heuristic, not calibrated probabilities. Opening/closing phrase lists are incomplete and currently English-oriented; translated ASR text can affect cues. Manually verify predictions and evaluate across known-host episodes."
     },
     "subtopics_loaded": 1,
-    "interactions_missing_target": 1,
+    "interactions_missing_target": 6,
     "evidence_validation_summary": {
-      "records_with_evidence": 23,
+      "records_with_evidence": 25,
       "records_with_verified_evidence": 23,
-      "records_with_missing_evidence": 1,
-      "records_with_invalid_evidence": 0,
-      "decisive_records_requiring_manual_review": 0
+      "records_with_missing_evidence": 45,
+      "records_with_invalid_evidence": 2,
+      "decisive_records_requiring_manual_review": 2
     },
     "validation": {
       "status": "passed",
@@ -6955,7 +8669,8 @@
       "issues": []
     },
     "validation_warnings": [
-      "Host identification: Scores and confidence bands are heuristic, not calibrated probabilities. Opening/closing phrase lists are incomplete and currently English-oriented; translated ASR text can affect cues. Manually verify predictions and evaluate across known-host episodes."
+      "Host identification: Scores and confidence bands are heuristic, not calibrated probabilities. Opening/closing phrase lists are incomplete and currently English-oriented; translated ASR text can affect cues. Manually verify predictions and evaluate across known-host episodes.",
+      "One or more model-proposed decisive interactions lacked verified evidence and were downgraded to uncertain."
     ],
     "manual_review_status": "required",
     "review_status": "pending_manual_validation"

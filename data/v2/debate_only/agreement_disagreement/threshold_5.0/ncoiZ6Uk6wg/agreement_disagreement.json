@@ -1,6 +1,6 @@
 {
-  "schema_version": "agreement-disagreement-1.2",
-  "script_version": "word-level-host-aware-1.1",
+  "schema_version": "agreement-disagreement-2.0",
+  "script_version": "agreement-disagreement-v2.0-json-recovery",
   "metadata": {
     "video_id": "ncoiZ6Uk6wg",
     "variant": "threshold_5.0",
@@ -20,7 +20,7 @@
     },
     "host_prediction_confidence_band": "higher_heuristic_separation",
     "host_prediction_warning": "Scores and confidence bands are heuristic, not calibrated probabilities. Opening/closing phrase lists are incomplete and currently English-oriented; translated ASR text can affect cues. Manually verify predictions and evaluate across known-host episodes.",
-    "generated_at_utc": "2026-11-27T04:52:10.246372+00:00",
+    "generated_at_utc": "2026-11-27T18:52:26.656141+00:00",
     "source_files": {
       "transcript": "/home/user/MTP/Code/television-discourse-decoded-hindi/data/v2/debate_only/videos/ncoiZ6Uk6wg/threshold_5.0/merge_final.json",
       "subtopics": "/home/user/MTP/Code/television-discourse-decoded-hindi/data/v2/debate_only/subtopic_analysis/threshold_5.0/ncoiZ6Uk6wg/subtopic_analysis.json",
@@ -31,12 +31,10 @@
   "methodology": {
     "analysis_unit": "directed speaker-to-speaker stance interaction",
     "transcript_scope": "full transcript; not limited to overlapping speech",
-    "context_policy": "Each response turn is assessed with up to 5 preceding different-speaker turns.",
+    "context_policy": "Each response turn is assessed against up to 3 immediately preceding chronological turns; target may be any different speaker in that window.",
     "classification_labels": [
       "agreement",
-      "counterargument",
       "disagreement",
-      "neutral",
       "partial_agreement",
       "uncertain"
     ],
@@ -45,12 +43,11 @@
       "partial_agreement"
     ],
     "disagreement_family": [
-      "disagreement",
-      "counterargument"
+      "disagreement"
     ],
-    "moderator_policy": "Moderation, panelist introductions, summaries, follow-up questions, and repetition without a stance are neutral; substantive anchor stances are classified normally. Host identity is not used for classification.",
+    "moderator_policy": "Moderation, introductions, summaries, follow-up questions, and repetition without a stance are uncertain; substantive stances are classified normally. Host identity is not used for classification.",
     "overlap_policy": "Overlap and interruption are not evidence of stance by themselves.",
-    "neutral_policy": "Neutral candidates are counted in the candidate summary but omitted from interaction records; uncertain records are retained.",
+    "uncertain_policy": "Every eligible response turn receives one record; unclear or non-stance turns are classified uncertain.",
     "target_policy": "Target is a specific earlier turn; no reverse inference. Response timestamp determines subtopic mapping.",
     "limitations": [
       "Automated classifications require manual validation.",
@@ -63,75 +60,30 @@
     "speaker_count": 10,
     "transcript_turn_count": 36,
     "subtopic_count": 4,
-    "candidate_response_turn_count": 34,
-    "neutral_candidate_count": 15,
+    "candidate_response_turn_count": 31,
     "candidate_classification_counts": {
-      "agreement": 3,
+      "agreement": 5,
       "partial_agreement": 0,
-      "disagreement": 2,
-      "counterargument": 11,
-      "uncertain": 3,
-      "neutral": 15
+      "disagreement": 12,
+      "uncertain": 14
     },
     "classification_counts": {
-      "agreement": 3,
+      "agreement": 5,
       "partial_agreement": 0,
-      "disagreement": 2,
-      "counterargument": 11,
-      "uncertain": 3
+      "disagreement": 12,
+      "uncertain": 14
     },
-    "total_non_neutral_interactions": 19,
-    "decisive_interaction_count": 16,
-    "agreement_family_count": 3,
-    "disagreement_family_count": 13,
-    "agreement_to_disagreement_ratio": 0.2308,
-    "agreement_family_share_percent": 18.75,
-    "disagreement_family_share_percent": 81.25,
+    "total_interactions": 31,
+    "decisive_interaction_count": 17,
+    "agreement_family_count": 5,
+    "disagreement_family_count": 12,
+    "agreement_to_disagreement_ratio": 0.4167,
+    "agreement_family_share_percent": 29.41,
+    "disagreement_family_share_percent": 70.59,
     "speaker_statistics": {
       "SPEAKER_00": {
-        "initiated": {},
-        "received": {
-          "counterargument": 1
-        },
-        "total_initiated": 0,
-        "total_received": 1
-      },
-      "SPEAKER_01": {
         "initiated": {
-          "disagreement": 1,
-          "counterargument": 1
-        },
-        "received": {
-          "counterargument": 1
-        },
-        "total_initiated": 2,
-        "total_received": 1
-      },
-      "SPEAKER_02": {
-        "initiated": {
-          "agreement": 1,
-          "counterargument": 2,
-          "disagreement": 1
-        },
-        "received": {
-          "counterargument": 3
-        },
-        "total_initiated": 4,
-        "total_received": 3
-      },
-      "SPEAKER_03": {
-        "initiated": {
-          "counterargument": 3
-        },
-        "received": {
-          "counterargument": 1
-        },
-        "total_initiated": 3,
-        "total_received": 1
-      },
-      "SPEAKER_04": {
-        "initiated": {
-          "counterargument": 1
+          "uncertain": 1
         },
         "received": {
           "disagreement": 1,
@@ -140,88 +92,161 @@
         "total_initiated": 1,
         "total_received": 2
       },
+      "SPEAKER_01": {
+        "initiated": {
+          "disagreement": 2
+        },
+        "received": {
+          "agreement": 1
+        },
+        "total_initiated": 2,
+        "total_received": 1
+      },
+      "SPEAKER_02": {
+        "initiated": {
+          "agreement": 2,
+          "uncertain": 3,
+          "disagreement": 4
+        },
+        "received": {
+          "disagreement": 2,
+          "uncertain": 7,
+          "agreement": 1
+        },
+        "total_initiated": 9,
+        "total_received": 10
+      },
+      "SPEAKER_03": {
+        "initiated": {
+          "uncertain": 2,
+          "disagreement": 2
+        },
+        "received": {
+          "uncertain": 1,
+          "disagreement": 1
+        },
+        "total_initiated": 4,
+        "total_received": 2
+      },
+      "SPEAKER_04": {
+        "initiated": {
+          "agreement": 1
+        },
+        "received": {
+          "disagreement": 3
+        },
+        "total_initiated": 1,
+        "total_received": 3
+      },
       "SPEAKER_05": {
         "initiated": {
           "agreement": 1,
-          "counterargument": 2
+          "disagreement": 1,
+          "uncertain": 1
         },
         "received": {
           "agreement": 1,
-          "disagreement": 1,
-          "counterargument": 1
+          "disagreement": 2
         },
         "total_initiated": 3,
         "total_received": 3
       },
       "SPEAKER_06": {
         "initiated": {
+          "uncertain": 1,
           "agreement": 1
         },
         "received": {
           "agreement": 1
         },
-        "total_initiated": 1,
+        "total_initiated": 2,
         "total_received": 1
       },
       "SPEAKER_07": {
         "initiated": {
-          "counterargument": 1
+          "disagreement": 1
         },
         "received": {
+          "uncertain": 1,
           "agreement": 1
         },
         "total_initiated": 1,
-        "total_received": 1
+        "total_received": 2
       },
       "SPEAKER_08": {
         "initiated": {},
         "received": {
-          "counterargument": 1
+          "uncertain": 1
         },
         "total_initiated": 0,
         "total_received": 1
       },
       "SPEAKER_09": {
         "initiated": {
-          "counterargument": 1
+          "uncertain": 3,
+          "disagreement": 2
         },
         "received": {
-          "counterargument": 3,
-          "uncertain": 2
+          "disagreement": 3,
+          "uncertain": 3
         },
-        "total_initiated": 1,
-        "total_received": 5
+        "total_initiated": 5,
+        "total_received": 6
       }
     },
     "directional_speaker_pairs": [
       {
-        "source_speaker": "SPEAKER_03",
-        "responding_speaker": "SPEAKER_09",
-        "classification": "counterargument",
+        "source_speaker": "SPEAKER_02",
+        "responding_speaker": "SPEAKER_04",
+        "classification": "disagreement",
+        "count": 3
+      },
+      {
+        "source_speaker": "SPEAKER_09",
+        "responding_speaker": "SPEAKER_02",
+        "classification": "uncertain",
         "count": 3
       },
       {
         "source_speaker": "SPEAKER_01",
         "responding_speaker": "SPEAKER_05",
-        "classification": "counterargument",
+        "classification": "disagreement",
+        "count": 2
+      },
+      {
+        "source_speaker": "SPEAKER_02",
+        "responding_speaker": "SPEAKER_09",
+        "classification": "uncertain",
+        "count": 2
+      },
+      {
+        "source_speaker": "SPEAKER_03",
+        "responding_speaker": "SPEAKER_02",
+        "classification": "uncertain",
+        "count": 2
+      },
+      {
+        "source_speaker": "SPEAKER_03",
+        "responding_speaker": "SPEAKER_09",
+        "classification": "disagreement",
+        "count": 2
+      },
+      {
+        "source_speaker": "SPEAKER_00",
+        "responding_speaker": "SPEAKER_02",
+        "classification": "uncertain",
         "count": 1
       },
       {
-        "source_speaker": "SPEAKER_01",
-        "responding_speaker": "SPEAKER_05",
-        "classification": "disagreement",
+        "source_speaker": "SPEAKER_02",
+        "responding_speaker": "SPEAKER_01",
+        "classification": "agreement",
         "count": 1
       },
       {
         "source_speaker": "SPEAKER_02",
         "responding_speaker": "SPEAKER_03",
-        "classification": "counterargument",
-        "count": 1
-      },
-      {
-        "source_speaker": "SPEAKER_02",
-        "responding_speaker": "SPEAKER_04",
-        "classification": "disagreement",
+        "classification": "uncertain",
         "count": 1
       },
       {
@@ -232,26 +257,26 @@
       },
       {
         "source_speaker": "SPEAKER_02",
-        "responding_speaker": "SPEAKER_08",
-        "classification": "counterargument",
+        "responding_speaker": "SPEAKER_09",
+        "classification": "disagreement",
         "count": 1
       },
       {
         "source_speaker": "SPEAKER_04",
         "responding_speaker": "SPEAKER_02",
-        "classification": "counterargument",
+        "classification": "agreement",
         "count": 1
       },
       {
         "source_speaker": "SPEAKER_05",
         "responding_speaker": "SPEAKER_00",
-        "classification": "counterargument",
+        "classification": "disagreement",
         "count": 1
       },
       {
         "source_speaker": "SPEAKER_05",
-        "responding_speaker": "SPEAKER_01",
-        "classification": "counterargument",
+        "responding_speaker": "SPEAKER_00",
+        "classification": "uncertain",
         "count": 1
       },
       {
@@ -267,15 +292,27 @@
         "count": 1
       },
       {
+        "source_speaker": "SPEAKER_06",
+        "responding_speaker": "SPEAKER_07",
+        "classification": "uncertain",
+        "count": 1
+      },
+      {
         "source_speaker": "SPEAKER_07",
         "responding_speaker": "SPEAKER_02",
-        "classification": "counterargument",
+        "classification": "disagreement",
         "count": 1
       },
       {
         "source_speaker": "SPEAKER_09",
         "responding_speaker": "SPEAKER_02",
-        "classification": "counterargument",
+        "classification": "disagreement",
+        "count": 1
+      },
+      {
+        "source_speaker": "SPEAKER_09",
+        "responding_speaker": "SPEAKER_03",
+        "classification": "disagreement",
         "count": 1
       }
     ],
@@ -285,13 +322,12 @@
         "title": "Opening discussion",
         "start": 0.0,
         "end": 129.691,
-        "interaction_count": 4,
+        "interaction_count": 5,
         "classification_counts": {
           "agreement": 3,
           "partial_agreement": 0,
-          "disagreement": 0,
-          "counterargument": 1,
-          "uncertain": 0
+          "disagreement": 1,
+          "uncertain": 1
         }
       },
       {
@@ -299,13 +335,12 @@
         "title": "BJP Counter-Strike and Nationwide Protests",
         "start": 129.691,
         "end": 246.197,
-        "interaction_count": 4,
+        "interaction_count": 6,
         "classification_counts": {
-          "agreement": 0,
+          "agreement": 1,
           "partial_agreement": 0,
-          "disagreement": 1,
-          "counterargument": 3,
-          "uncertain": 0
+          "disagreement": 3,
+          "uncertain": 2
         }
       },
       {
@@ -313,13 +348,12 @@
         "title": "Introduction of Panelists and Opposition Response",
         "start": 246.197,
         "end": 775.152,
-        "interaction_count": 11,
+        "interaction_count": 19,
         "classification_counts": {
-          "agreement": 0,
+          "agreement": 1,
           "partial_agreement": 0,
-          "disagreement": 1,
-          "counterargument": 7,
-          "uncertain": 3
+          "disagreement": 8,
+          "uncertain": 10
         }
       },
       {
@@ -327,49 +361,45 @@
         "title": "Rally Attendance and Crowd Size Debate",
         "start": 775.152,
         "end": 887.157,
-        "interaction_count": 0,
+        "interaction_count": 1,
         "classification_counts": {
           "agreement": 0,
           "partial_agreement": 0,
           "disagreement": 0,
-          "counterargument": 0,
-          "uncertain": 0
+          "uncertain": 1
         }
       }
     ],
     "host_statistics": {
       "host_speaker_id": "SPEAKER_02",
-      "host_initiated_interactions": 3,
+      "host_initiated_interactions": 10,
       "host_initiated_classification_counts": {
-        "agreement": 0,
-        "partial_agreement": 0,
-        "disagreement": 0,
-        "counterargument": 3,
-        "uncertain": 0
-      },
-      "host_received_interactions": 4,
-      "host_received_classification_counts": {
         "agreement": 1,
         "partial_agreement": 0,
-        "disagreement": 1,
-        "counterargument": 2,
-        "uncertain": 0
+        "disagreement": 2,
+        "uncertain": 7
       },
-      "guest_to_guest_interactions": 9,
+      "host_received_interactions": 9,
+      "host_received_classification_counts": {
+        "agreement": 2,
+        "partial_agreement": 0,
+        "disagreement": 4,
+        "uncertain": 3
+      },
+      "guest_to_guest_interactions": 10,
       "guest_to_guest_classification_counts": {
         "agreement": 2,
         "partial_agreement": 0,
-        "disagreement": 1,
-        "counterargument": 6,
-        "uncertain": 0
+        "disagreement": 6,
+        "uncertain": 2
       },
-      "host_involved_interactions": 7
+      "host_involved_interactions": 19
     },
     "directional_aggregation_exclusions": {
       "null_source_speaker_interactions": 3,
-      "included_in_directional_pairs": 16
+      "included_in_directional_pairs": 28
     },
-    "ratio_note": "Agreement family = agreement + partial_agreement; disagreement family = disagreement + counterargument. Neutral turns are omitted; uncertain cases are excluded from ratio denominators."
+    "ratio_note": "Agreement family = agreement + partial_agreement; disagreement family = disagreement. Uncertain cases are excluded from ratio denominators."
   },
   "interactions": [
     {
@@ -380,14 +410,21 @@
       "target_turn_id": "T0001",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
       "responding_speaker": "SPEAKER_05",
       "classification": "agreement",
-      "evidence": "election was an illegal election",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "Leading the charge from front, Rahul Gandhi launched an uncompromising attack on the ruling dispensation and the election commission, calling out what the opposition terms systemic vote-chori and describing the subversion of public mandate as nothing short of treason against the constitution.",
+        "statement_2": "This means that the election was an illegal election."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "Speaker supports the premise of systemic vote tampering discussed in the introductory report.",
+      "reasoning": "Speaker 05 elaborates and agrees with the introductory report regarding the opposition's stance that the election was fraudulent/illegal.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -405,14 +442,21 @@
       "target_turn_id": "T0002",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_05",
+      "target_speaker": "SPEAKER_05",
       "responding_speaker": "SPEAKER_06",
       "classification": "agreement",
-      "evidence": "It was a theft election.",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "This means that the election was an illegal election.",
+        "statement_2": "It was a theft election."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "Speaker echoes and reinforces the preceding claim that the election was illegitimate.",
+      "reasoning": "Speaker 06 echoes the preceding speaker's assertion that the election was fraudulent, using synonymous phrasing ('theft election').",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -425,19 +469,58 @@
     {
       "video_id": "ncoiZ6Uk6wg",
       "interaction_id": "INT_0003",
+      "timestamp": 94.97,
+      "response_turn_id": "T0004",
+      "target_turn_id": "T0003",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_06",
+      "target_speaker": "SPEAKER_06",
+      "responding_speaker": "SPEAKER_07",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "Incomplete utterance fragment, unclear context.",
+      "confidence": "low",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 79.124,
+        "target_end": 94.97,
+        "response_start": 94.97,
+        "response_end": 95.763
+      }
+    },
+    {
+      "video_id": "ncoiZ6Uk6wg",
+      "interaction_id": "INT_0004",
       "timestamp": 96.556,
       "response_turn_id": "T0005",
       "target_turn_id": "T0003",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_06",
+      "target_speaker": "SPEAKER_06",
       "responding_speaker": "SPEAKER_07",
       "classification": "agreement",
-      "evidence": "have organized Mahabharat today to leave the vote.",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "It was a theft election.",
+        "statement_2": "have organized Mahabharat today to leave the vote."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "Continues the theme of political conflict and opposition to alleged vote manipulation.",
+      "reasoning": "Speaker 07 continues the theme of political protest and electoral battle started by preceding opposition speakers.",
       "confidence": "medium",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -449,20 +532,27 @@
     },
     {
       "video_id": "ncoiZ6Uk6wg",
-      "interaction_id": "INT_0004",
+      "interaction_id": "INT_0005",
       "timestamp": 129.682,
       "response_turn_id": "T0006",
       "target_turn_id": "T0005",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_07",
+      "target_speaker": "SPEAKER_07",
       "responding_speaker": "SPEAKER_02",
-      "classification": "counterargument",
-      "evidence": "calling out the Congress-led opposition for peddling deceit, anarchy and baseless conspiracy theories.",
+      "classification": "disagreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "we have to make Kurukshetra. We will have to fight in Kurukshetra.",
+        "statement_2": "Now the BJP has mounted a fiery nationwide counter-strike today, calling out the Congress-led opposition for peddling deceit, anarchy and baseless conspiracy theories."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "The anchor reports the BJP's counter-strike, directly opposing the opposition's conspiracy narratives.",
+      "reasoning": "The host/anchor summarizes the BJP's counter-attack against the aggressive rhetoric and protests launched by the opposition.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -474,46 +564,60 @@
     },
     {
       "video_id": "ncoiZ6Uk6wg",
-      "interaction_id": "INT_0005",
+      "interaction_id": "INT_0006",
       "timestamp": 166.351,
       "response_turn_id": "T0007",
-      "target_turn_id": "T0002",
+      "target_turn_id": "T0006",
       "subtopic_id": "ST002",
-      "source_speaker": "SPEAKER_05",
+      "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
       "responding_speaker": "SPEAKER_01",
-      "classification": "counterargument",
-      "evidence": "Sonia ji ka Swapna, unke laal Pradhan Mantri bane poora nahi hota hai, tab unhone naya tarika dunda hai",
+      "classification": "agreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "Disposing Rahul Gandhi's Ram Leela Maidan protest as a desperate flop show aimed at undermining democratic institutions, the BJP took to the streets across multiple states.",
+        "statement_2": "Sonia ji ka Swapna, unke laal Pradhan Mantri bane poora nahi hota hai, tab unhone naya tarika dunda hai, Mokh Parliament karne ka."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "Speaker 01 responds to the opposition's claims about illegal elections by mocking Rahul Gandhi's ambitions and the opposition's new methods of protest.",
-      "confidence": "medium",
+      "reasoning": "SPEAKER_01 elaborates on the criticism of Congress and Rahul Gandhi introduced by SPEAKER_02, agreeing with the negative characterization of their protests.",
+      "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
-        "target_start": 49.795,
-        "target_end": 79.124,
+        "target_start": 129.682,
+        "target_end": 164.09,
         "response_start": 166.351,
         "response_end": 200.32
       }
     },
     {
       "video_id": "ncoiZ6Uk6wg",
-      "interaction_id": "INT_0006",
+      "interaction_id": "INT_0007",
       "timestamp": 200.32,
       "response_turn_id": "T0008",
       "target_turn_id": "T0007",
       "subtopic_id": "ST002",
       "source_speaker": "SPEAKER_01",
+      "target_speaker": "SPEAKER_01",
       "responding_speaker": "SPEAKER_05",
       "classification": "disagreement",
-      "evidence": "to be seen!",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "Modi Ji! Modi Ji is nowhere",
+        "statement_2": "to be seen! Modi Ji"
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "Speaker 05 interrupts or directly challenges Speaker 01's concluding remark about Modi.",
-      "confidence": "medium",
+      "reasoning": "SPEAKER_05 directly catches and counters SPEAKER_01's trailing mention of Modi Ji by finishing/challenging the phrase.",
+      "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
         "target_start": 166.351,
@@ -524,21 +628,28 @@
     },
     {
       "video_id": "ncoiZ6Uk6wg",
-      "interaction_id": "INT_0007",
+      "interaction_id": "INT_0008",
       "timestamp": 202.953,
       "response_turn_id": "T0009",
       "target_turn_id": "T0007",
       "subtopic_id": "ST002",
       "source_speaker": "SPEAKER_01",
+      "target_speaker": "SPEAKER_01",
       "responding_speaker": "SPEAKER_05",
-      "classification": "counterargument",
-      "evidence": "is nowhere to be seen! And in he will be seen in the ancient city of Vrindelal Fort.",
+      "classification": "disagreement",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "Modi Ji! Modi Ji is nowhere",
+        "statement_2": "is nowhere to be seen! And in he will be seen in the ancient city of Vrindelal Fort."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "Speaker 05 directly counters Speaker 01's defense or mention of Modi by claiming Modi is absent and offering an alternative location.",
-      "confidence": "medium",
+      "reasoning": "SPEAKER_05 responds directly to SPEAKER_01's assertion about Modi Ji being nowhere.",
+      "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
         "target_start": 166.351,
@@ -549,20 +660,27 @@
     },
     {
       "video_id": "ncoiZ6Uk6wg",
-      "interaction_id": "INT_0008",
+      "interaction_id": "INT_0009",
       "timestamp": 209.652,
       "response_turn_id": "T0010",
       "target_turn_id": "T0009",
       "subtopic_id": "ST002",
       "source_speaker": "SPEAKER_05",
+      "target_speaker": "SPEAKER_05",
       "responding_speaker": "SPEAKER_00",
-      "classification": "counterargument",
-      "evidence": "Rahul Gandhi, open your ears and listen. This is India. It is not a banana republic.",
+      "classification": "disagreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "is nowhere to be seen! And in he will be seen in the ancient city of Vrindelal Fort.",
+        "statement_2": "Rahul Gandhi, open your ears and listen. This is India. It is not a banana republic."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "Speaker 00 defends the leadership and counters the opposition's narrative criticizing the government and Modi.",
+      "reasoning": "SPEAKER_00 counters the opposition framing and defends the ruling administration against the attacks.",
       "confidence": "medium",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -574,20 +692,155 @@
     },
     {
       "video_id": "ncoiZ6Uk6wg",
-      "interaction_id": "INT_0009",
+      "interaction_id": "INT_0010",
+      "timestamp": 241.596,
+      "response_turn_id": "T0011",
+      "target_turn_id": "T0008",
+      "subtopic_id": "ST002",
+      "source_speaker": "SPEAKER_05",
+      "target_speaker": "SPEAKER_05",
+      "responding_speaker": "SPEAKER_00",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The response turn consists of a single fragment 'this' which lacks clear semantic content or identifiable stance towards any specific prior turn.",
+      "confidence": "low",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 200.32,
+        "target_end": 201.907,
+        "response_start": 241.596,
+        "response_end": 244.617
+      }
+    },
+    {
+      "video_id": "ncoiZ6Uk6wg",
+      "interaction_id": "INT_0011",
+      "timestamp": 244.246,
+      "response_turn_id": "T0012",
+      "target_turn_id": "T0010",
+      "subtopic_id": "ST002",
+      "source_speaker": "SPEAKER_00",
+      "target_speaker": "SPEAKER_00",
+      "responding_speaker": "SPEAKER_02",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host transitions from previous speaker's fiery remarks to introducing the guests on the panel, without taking a stance on the previous speaker's claims.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 209.652,
+        "target_end": 242.812,
+        "response_start": 244.246,
+        "response_end": 263.332
+      }
+    },
+    {
+      "video_id": "ncoiZ6Uk6wg",
+      "interaction_id": "INT_0012",
+      "timestamp": 265.053,
+      "response_turn_id": "T0013",
+      "target_turn_id": "T0012",
+      "subtopic_id": "ST003",
+      "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
+      "responding_speaker": "SPEAKER_03",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The speaker begins responding to criticisms generally, but the prompt asks to address the anchor's prompt to respond rather than engaging in a direct dialogue with the anchor.",
+      "confidence": "medium",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 244.246,
+        "target_end": 263.332,
+        "response_start": 265.053,
+        "response_end": 335.27
+      }
+    },
+    {
+      "video_id": "ncoiZ6Uk6wg",
+      "interaction_id": "INT_0013",
+      "timestamp": 335.827,
+      "response_turn_id": "T0014",
+      "target_turn_id": "T0013",
+      "subtopic_id": "ST003",
+      "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
+      "responding_speaker": "SPEAKER_02",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host is moderating and passing the conversation to the next speaker, commenting on the rally without taking a stance on the previous guest's political arguments.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 265.053,
+        "target_end": 335.27,
+        "response_start": 335.827,
+        "response_end": 361.24
+      }
+    },
+    {
+      "video_id": "ncoiZ6Uk6wg",
+      "interaction_id": "INT_0014",
       "timestamp": 363.805,
       "response_turn_id": "T0015",
       "target_turn_id": "T0013",
       "subtopic_id": "ST003",
       "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
       "responding_speaker": "SPEAKER_09",
-      "classification": "counterargument",
-      "evidence": "It's not a political granny, but a pathetic stage-managed kabuki theatre",
+      "classification": "disagreement",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "Delhi, what it witnessed today was historic.",
+        "statement_2": "It's not a political granny, but a pathetic stage-managed kabuki theatre, a grotesque grand guineole put on by chronic losers."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "The speaker strongly opposes Saral Patel's framing of the protest as historic and successful, dismissing it as theater by 'chronic losers'.",
+      "reasoning": "The BJP spokesperson strongly contradicts the opposition spokesperson's characterization of the Ramlila Maidan protest as historic, dismissing it as a pathetic stage-managed show.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -599,20 +852,27 @@
     },
     {
       "video_id": "ncoiZ6Uk6wg",
-      "interaction_id": "INT_0010",
+      "interaction_id": "INT_0015",
       "timestamp": 407.275,
       "response_turn_id": "T0016",
       "target_turn_id": "T0013",
       "subtopic_id": "ST003",
       "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
       "responding_speaker": "SPEAKER_09",
-      "classification": "counterargument",
-      "evidence": "today I along with the entire nation held my breath, expecting Rahul Gandhi to finally show some spine, pack his bags and hand in his resignation",
+      "classification": "disagreement",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "the vote-chori came to the light again, The entire BJP is now out on the streets fighting and protecting the vote-chots.",
+        "statement_2": "Following that model, today I along with the entire nation held my breath, expecting Rahul Gandhi to finally show some spine, pack his bags and hand in his resignation"
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "The speaker challenges the opposition's narrative regarding the legality of the election and the protests.",
+      "reasoning": "The speaker continues her sarcastic critique challenging the opposition's narrative and hypocrisy regarding the legality of elections.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -624,95 +884,187 @@
     },
     {
       "video_id": "ncoiZ6Uk6wg",
-      "interaction_id": "INT_0011",
-      "timestamp": 468.835,
-      "response_turn_id": "T0018",
-      "target_turn_id": null,
+      "interaction_id": "INT_0016",
+      "timestamp": 427.61,
+      "response_turn_id": "T0017",
+      "target_turn_id": "T0014",
       "subtopic_id": "ST003",
-      "source_speaker": null,
+      "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
       "responding_speaker": "SPEAKER_09",
       "classification": "uncertain",
-      "evidence": "They weren't saving democracy. They were actually chidkoing namak on the ghows of those Sikhs.",
-      "evidence_present": true,
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
       "evidence_found_in_response": false,
-      "evidence_validation_status": "invalid",
-      "manual_review_required": true,
-      "reasoning": "The speaker continues her line of attack from the previous turn, agreeing with and reinforcing her own prior framing that the opposition's protest was an insult to Sikhs.",
-      "confidence": "medium",
-      "review_status": "manual_review_required",
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The speaker launches into a tirade about the anniversary of the 1984 anti-Sikh riots and Rahul Gandhi without directly engaging with the anchor's general framing from T0014.",
+      "confidence": "low",
+      "review_status": "pending",
       "source_turn_timestamps": {
-        "target_start": null,
-        "target_end": null,
-        "response_start": 468.835,
-        "response_end": 473.847
+        "target_start": 335.827,
+        "target_end": 361.24,
+        "response_start": 427.61,
+        "response_end": 468.228
       }
     },
     {
       "video_id": "ncoiZ6Uk6wg",
-      "interaction_id": "INT_0012",
+      "interaction_id": "INT_0017",
+      "timestamp": 473.847,
+      "response_turn_id": "T0019",
+      "target_turn_id": "T0016",
+      "subtopic_id": "ST003",
+      "source_speaker": "SPEAKER_09",
+      "target_speaker": "SPEAKER_09",
+      "responding_speaker": "SPEAKER_02",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host is summarizing and framing the previous speaker's argument to pose a question rather than taking a stance or directly debating.",
+      "confidence": "low",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 407.275,
+        "target_end": 427.255,
+        "response_start": 473.847,
+        "response_end": 485.609
+      }
+    },
+    {
+      "video_id": "ncoiZ6Uk6wg",
+      "interaction_id": "INT_0018",
       "timestamp": 486.908,
       "response_turn_id": "T0020",
-      "target_turn_id": "T0019",
+      "target_turn_id": "T0017",
       "subtopic_id": "ST003",
-      "source_speaker": "SPEAKER_02",
+      "source_speaker": "SPEAKER_09",
+      "target_speaker": "SPEAKER_09",
       "responding_speaker": "SPEAKER_03",
-      "classification": "counterargument",
-      "evidence": "we are ready to resign. I challenge my friend Radhika Khera that we are ready to resign. The moment Prime Minister resigns, we are ready to resign",
+      "classification": "disagreement",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "Today is November 1st, the blood-soaked anniversary of the genocide.",
+        "statement_2": "Madhav country has seen through the rhetoric of the Bharatiya Janata Party, its spokesperson and my friend Radhika Khera, because they love to live in the past."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "The speaker responds to the anchor's prompt containing the BJP's challenge that Rahul Gandhi should resign, offering a conditional counter-challenge instead.",
+      "reasoning": "Speaker 03 rejects the BJP spokesperson's focus on past events like the 1984 riots, calling it rhetoric and demanding they address recent election commission controversies instead.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
-        "target_start": 473.847,
-        "target_end": 485.609,
+        "target_start": 427.61,
+        "target_end": 468.228,
         "response_start": 486.908,
         "response_end": 528.573
       }
     },
     {
       "video_id": "ncoiZ6Uk6wg",
-      "interaction_id": "INT_0013",
-      "timestamp": 557.699,
-      "response_turn_id": "T0022",
+      "interaction_id": "INT_0019",
+      "timestamp": 526.632,
+      "response_turn_id": "T0021",
       "target_turn_id": "T0020",
       "subtopic_id": "ST003",
       "source_speaker": "SPEAKER_03",
-      "responding_speaker": "SPEAKER_09",
-      "classification": "counterargument",
-      "evidence": "Also here my friend Saral said two very important things. He talked about letters and what not.",
-      "evidence_present": true,
-      "evidence_found_in_response": true,
-      "evidence_validation_status": "verified",
+      "target_speaker": "SPEAKER_03",
+      "responding_speaker": "SPEAKER_02",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
       "manual_review_required": false,
-      "reasoning": "Speaker responds to earlier resignation challenge and claims made by Saral by dismissing them and bringing up RTI records.",
-      "confidence": "high",
+      "reasoning": "The host is interjecting legal and judicial context about the Election Commission's functioning rather than taking a stance on the panelists' arguments.",
+      "confidence": "low",
       "review_status": "pending",
       "source_turn_timestamps": {
         "target_start": 486.908,
         "target_end": 528.573,
+        "response_start": 526.632,
+        "response_end": 556.923
+      }
+    },
+    {
+      "video_id": "ncoiZ6Uk6wg",
+      "interaction_id": "INT_0020",
+      "timestamp": 557.699,
+      "response_turn_id": "T0022",
+      "target_turn_id": "T0021",
+      "subtopic_id": "ST003",
+      "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
+      "responding_speaker": "SPEAKER_09",
+      "classification": "disagreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "So there are very serious questions about the manner and the functioning of the election commission, which is currently under judicial scrutiny.",
+        "statement_2": "Madhav, the court also did not say that it is illegal the addition to the Form and that Form addition happened during the Bihar elections."
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "Speaker 09 pushes back against the host's assertion about serious questions and illegality under judicial scrutiny regarding election forms.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 526.632,
+        "target_end": 556.923,
         "response_start": 557.699,
         "response_end": 606.873
       }
     },
     {
       "video_id": "ncoiZ6Uk6wg",
-      "interaction_id": "INT_0014",
+      "interaction_id": "INT_0021",
       "timestamp": 606.13,
       "response_turn_id": "T0023",
       "target_turn_id": "T0022",
       "subtopic_id": "ST003",
       "source_speaker": "SPEAKER_09",
+      "target_speaker": "SPEAKER_09",
       "responding_speaker": "SPEAKER_02",
-      "classification": "counterargument",
-      "evidence": "written to the cabinet secretary and that's not been denied. So those letters are very much there.",
+      "classification": "disagreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "Where are those letters which talk about that they, that they were not taken together, that they were not liked.",
+        "statement_2": "written to the cabinet secretary and that's not been denied. So those letters are very much there."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "The anchor counters the previous speaker's skepticism regarding the existence of letters.",
+      "reasoning": "SPEAKER_02 directly counters SPEAKER_09's questioning of the existence of letters by asserting that letters were written to the cabinet secretary and not denied.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -724,22 +1076,93 @@
     },
     {
       "video_id": "ncoiZ6Uk6wg",
-      "interaction_id": "INT_0015",
+      "interaction_id": "INT_0022",
+      "timestamp": 610.417,
+      "response_turn_id": "T0024",
+      "target_turn_id": "T0023",
+      "subtopic_id": "ST003",
+      "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
+      "responding_speaker": "SPEAKER_09",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "SPEAKER_09's turn asks for time ('Madhav, just seconds') without addressing the substantive claim in SPEAKER_02's turn.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 606.13,
+        "target_end": 610.906,
+        "response_start": 610.417,
+        "response_end": 612.593
+      }
+    },
+    {
+      "video_id": "ncoiZ6Uk6wg",
+      "interaction_id": "INT_0023",
+      "timestamp": 611.345,
+      "response_turn_id": "T0025",
+      "target_turn_id": "T0024",
+      "subtopic_id": "ST003",
+      "source_speaker": "SPEAKER_09",
+      "target_speaker": "SPEAKER_09",
+      "responding_speaker": "SPEAKER_02",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The anchor (SPEAKER_02) interjects to manage the debate and move to other panelists rather than engaging with SPEAKER_09's procedural request.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 610.417,
+        "target_end": 612.593,
+        "response_start": 611.345,
+        "response_end": 615.749
+      }
+    },
+    {
+      "video_id": "ncoiZ6Uk6wg",
+      "interaction_id": "INT_0024",
       "timestamp": 614.551,
       "response_turn_id": "T0026",
       "target_turn_id": null,
       "subtopic_id": "ST003",
       "source_speaker": null,
+      "target_speaker": null,
       "responding_speaker": "SPEAKER_09",
       "classification": "uncertain",
-      "evidence": "If Rahul Gandhi was ready to resign, we would have seen that happening from the Rang Majh today.",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
       "evidence_present": true,
-      "evidence_found_in_response": true,
-      "evidence_validation_status": "verified",
-      "manual_review_required": false,
-      "reasoning": "Speaker directly challenges the opposition's claim that they are ready to resign by arguing Rahul Gandhi did not do so.",
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "invalid",
+      "manual_review_required": true,
+      "reasoning": "SPEAKER_09 addresses SPEAKER_03's challenge about resigning, mocking and challenging the sincerity of the resignation offer regarding Rahul Gandhi.",
       "confidence": "high",
-      "review_status": "pending",
+      "review_status": "manual_review_required",
       "source_turn_timestamps": {
         "target_start": null,
         "target_end": null,
@@ -749,20 +1172,59 @@
     },
     {
       "video_id": "ncoiZ6Uk6wg",
-      "interaction_id": "INT_0016",
+      "interaction_id": "INT_0025",
+      "timestamp": 637.332,
+      "response_turn_id": "T0027",
+      "target_turn_id": "T0026",
+      "subtopic_id": "ST003",
+      "source_speaker": "SPEAKER_09",
+      "target_speaker": "SPEAKER_09",
+      "responding_speaker": "SPEAKER_02",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The anchor (SPEAKER_02) cuts off the exchange to transition the discussion and introduce a new panelist (Dharmendra Yadav) and topic, rather than taking a stance on SPEAKER_09's argument.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 614.551,
+        "target_end": 637.872,
+        "response_start": 637.332,
+        "response_end": 650.41
+      }
+    },
+    {
+      "video_id": "ncoiZ6Uk6wg",
+      "interaction_id": "INT_0026",
       "timestamp": 652.418,
       "response_turn_id": "T0028",
       "target_turn_id": "T0027",
       "subtopic_id": "ST003",
       "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
       "responding_speaker": "SPEAKER_04",
       "classification": "disagreement",
-      "evidence": "BJP's failure is a proof of how successful this rally was",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "Was the rally a flop show as BJP is saying?",
+        "statement_2": "Madhav ji, BJP's failure is a proof of how successful this rally was."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "The speaker explicitly rejects the BJP's claim mentioned by the host that the rally was a flop show, arguing instead that the rally was successful.",
+      "reasoning": "The speaker responds to the anchor's question about whether the rally was a flop show by arguing the exact opposite—that the rally was successful and the BJP's claim is false.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -774,77 +1236,162 @@
     },
     {
       "video_id": "ncoiZ6Uk6wg",
-      "interaction_id": "INT_0017",
-      "timestamp": 728.021,
-      "response_turn_id": "T0031",
-      "target_turn_id": null,
+      "interaction_id": "INT_0027",
+      "timestamp": 669.091,
+      "response_turn_id": "T0029",
+      "target_turn_id": "T0027",
       "subtopic_id": "ST003",
-      "source_speaker": null,
+      "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
       "responding_speaker": "SPEAKER_04",
-      "classification": "uncertain",
-      "evidence": "",
-      "evidence_present": false,
-      "evidence_found_in_response": false,
-      "evidence_validation_status": "missing",
+      "classification": "disagreement",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "Was the rally a flop show as BJP is saying?",
+        "statement_2": "They did not protect their rights. They took away crore people's voting rights with the election commission."
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "The turn is an incomplete fragment cut off mid-sentence, leaving the intent and target unclear.",
+      "reasoning": "The speaker rejects the premise of the BJP's attack introduced by the anchor and pivots to accusing them of taking away voting rights.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
-        "target_start": null,
-        "target_end": null,
-        "response_start": 728.021,
-        "response_end": 729.062
+        "target_start": 637.332,
+        "target_end": 650.41,
+        "response_start": 669.091,
+        "response_end": 707.954
       }
     },
     {
       "video_id": "ncoiZ6Uk6wg",
-      "interaction_id": "INT_0018",
-      "timestamp": 746.26,
-      "response_turn_id": "T0034",
-      "target_turn_id": "T0032",
+      "interaction_id": "INT_0028",
+      "timestamp": 708.207,
+      "response_turn_id": "T0030",
+      "target_turn_id": "T0027",
       "subtopic_id": "ST003",
-      "source_speaker": "SPEAKER_04",
-      "responding_speaker": "SPEAKER_02",
-      "classification": "counterargument",
-      "evidence": "Systematically, in an organized manner, voters were being delayed.",
+      "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
+      "responding_speaker": "SPEAKER_04",
+      "classification": "disagreement",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "Was the rally a flop show as BJP is saying?",
+        "statement_2": "They had to say that the ECI network software, which is regulated by the people who have the right, they do it at the behest of the BJP and no one is listening to us."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "The speaker responds to the previous points by introducing institutional evidence of systematic voter suppression via the Election Commission.",
+      "reasoning": "Continuing the previous turn, the speaker focuses on attacking the ECI and BJP rather than addressing the rally size directly, contesting the narrative.",
       "confidence": "medium",
       "review_status": "pending",
       "source_turn_timestamps": {
-        "target_start": 728.542,
-        "target_end": 738.498,
+        "target_start": 637.332,
+        "target_end": 650.41,
+        "response_start": 708.207,
+        "response_end": 728.12
+      }
+    },
+    {
+      "video_id": "ncoiZ6Uk6wg",
+      "interaction_id": "INT_0029",
+      "timestamp": 746.26,
+      "response_turn_id": "T0034",
+      "target_turn_id": "T0033",
+      "subtopic_id": "ST003",
+      "source_speaker": "SPEAKER_04",
+      "target_speaker": "SPEAKER_04",
+      "responding_speaker": "SPEAKER_02",
+      "classification": "agreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "Systematic manner",
+        "statement_2": "Systematically, in an organized manner, voters were being delayed."
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "The anchor picks up on the phrase and concept introduced by the speaker regarding systematic interference with voters and elaborates on it.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 739.105,
+        "target_end": 754.192,
         "response_start": 746.26,
         "response_end": 773.851
       }
     },
     {
       "video_id": "ncoiZ6Uk6wg",
-      "interaction_id": "INT_0019",
+      "interaction_id": "INT_0030",
       "timestamp": 775.049,
       "response_turn_id": "T0035",
-      "target_turn_id": "T0034",
+      "target_turn_id": null,
       "subtopic_id": "ST003",
-      "source_speaker": "SPEAKER_02",
+      "source_speaker": null,
+      "target_speaker": null,
       "responding_speaker": "SPEAKER_08",
-      "classification": "counterargument",
-      "evidence": "So, why did the people not turn up in the rally? Why there was only people there and half of the chairs empty?",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": "So, why did the people not turn up in the rally? Why there was only people there and half of the chairs empty?"
+      },
       "evidence_present": true,
+      "evidence_found_in_target": false,
       "evidence_found_in_response": true,
-      "evidence_validation_status": "verified",
+      "evidence_validation_status": "invalid",
+      "manual_review_required": true,
+      "reasoning": "The speaker supports the BJP narrative mentioned by the anchor that the rally was a flop show with empty chairs.",
+      "confidence": "high",
+      "review_status": "manual_review_required",
+      "source_turn_timestamps": {
+        "target_start": null,
+        "target_end": null,
+        "response_start": 775.049,
+        "response_end": 858.158
+      }
+    },
+    {
+      "video_id": "ncoiZ6Uk6wg",
+      "interaction_id": "INT_0031",
+      "timestamp": 856.235,
+      "response_turn_id": "T0036",
+      "target_turn_id": null,
+      "subtopic_id": "ST004",
+      "source_speaker": null,
+      "target_speaker": null,
+      "responding_speaker": "SPEAKER_02",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
       "manual_review_required": false,
-      "reasoning": "The speaker counters the claims about systemic issues and protests by pivoting to argue that the opposition rally was a total flop with empty chairs.",
+      "reasoning": "The speaker is acting as the host/moderator concluding the debate, summarizing points, and thanking the guests without taking a directed stance on any specific previous claim.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
-        "target_start": 746.26,
-        "target_end": 773.851,
-        "response_start": 775.049,
-        "response_end": 858.158
+        "target_start": null,
+        "target_end": null,
+        "response_start": 856.235,
+        "response_end": 887.335
       }
     }
   ],
@@ -2857,11 +3404,11 @@
     "subtopics_loaded": 4,
     "interactions_missing_target": 3,
     "evidence_validation_summary": {
-      "records_with_evidence": 18,
+      "records_with_evidence": 19,
       "records_with_verified_evidence": 17,
-      "records_with_missing_evidence": 1,
-      "records_with_invalid_evidence": 1,
-      "decisive_records_requiring_manual_review": 1
+      "records_with_missing_evidence": 12,
+      "records_with_invalid_evidence": 2,
+      "decisive_records_requiring_manual_review": 2
     },
     "validation": {
       "status": "passed",

@@ -1,6 +1,6 @@
 {
-  "schema_version": "agreement-disagreement-1.2",
-  "script_version": "word-level-host-aware-1.1",
+  "schema_version": "agreement-disagreement-2.0",
+  "script_version": "agreement-disagreement-v2.0-json-recovery",
   "metadata": {
     "video_id": "eiY9KJ2SHnA",
     "variant": "threshold_5.0",
@@ -20,7 +20,7 @@
     },
     "host_prediction_confidence_band": "higher_heuristic_separation",
     "host_prediction_warning": "Scores and confidence bands are heuristic, not calibrated probabilities. Opening/closing phrase lists are incomplete and currently English-oriented; translated ASR text can affect cues. Manually verify predictions and evaluate across known-host episodes.",
-    "generated_at_utc": "2026-11-27T04:49:37.950437+00:00",
+    "generated_at_utc": "2026-11-27T18:50:22.726052+00:00",
     "source_files": {
       "transcript": "/home/user/MTP/Code/television-discourse-decoded-hindi/data/v2/debate_only/videos/eiY9KJ2SHnA/threshold_5.0/merge_final.json",
       "subtopics": "/home/user/MTP/Code/television-discourse-decoded-hindi/data/v2/debate_only/subtopic_analysis/threshold_5.0/eiY9KJ2SHnA/subtopic_analysis.json",
@@ -31,12 +31,10 @@
   "methodology": {
     "analysis_unit": "directed speaker-to-speaker stance interaction",
     "transcript_scope": "full transcript; not limited to overlapping speech",
-    "context_policy": "Each response turn is assessed with up to 5 preceding different-speaker turns.",
+    "context_policy": "Each response turn is assessed against up to 3 immediately preceding chronological turns; target may be any different speaker in that window.",
     "classification_labels": [
       "agreement",
-      "counterargument",
       "disagreement",
-      "neutral",
       "partial_agreement",
       "uncertain"
     ],
@@ -45,12 +43,11 @@
       "partial_agreement"
     ],
     "disagreement_family": [
-      "disagreement",
-      "counterargument"
+      "disagreement"
     ],
-    "moderator_policy": "Moderation, panelist introductions, summaries, follow-up questions, and repetition without a stance are neutral; substantive anchor stances are classified normally. Host identity is not used for classification.",
+    "moderator_policy": "Moderation, introductions, summaries, follow-up questions, and repetition without a stance are uncertain; substantive stances are classified normally. Host identity is not used for classification.",
     "overlap_policy": "Overlap and interruption are not evidence of stance by themselves.",
-    "neutral_policy": "Neutral candidates are counted in the candidate summary but omitted from interaction records; uncertain records are retained.",
+    "uncertain_policy": "Every eligible response turn receives one record; unclear or non-stance turns are classified uncertain.",
     "target_policy": "Target is a specific earlier turn; no reverse inference. Response timestamp determines subtopic mapping.",
     "limitations": [
       "Automated classifications require manual validation.",
@@ -64,83 +61,88 @@
     "transcript_turn_count": 36,
     "subtopic_count": 2,
     "candidate_response_turn_count": 35,
-    "neutral_candidate_count": 11,
     "candidate_classification_counts": {
       "agreement": 0,
       "partial_agreement": 1,
-      "disagreement": 4,
-      "counterargument": 12,
-      "uncertain": 7,
-      "neutral": 11
+      "disagreement": 23,
+      "uncertain": 11
     },
     "classification_counts": {
       "agreement": 0,
       "partial_agreement": 1,
-      "disagreement": 4,
-      "counterargument": 12,
-      "uncertain": 7
+      "disagreement": 23,
+      "uncertain": 11
     },
-    "total_non_neutral_interactions": 24,
-    "decisive_interaction_count": 17,
+    "total_interactions": 35,
+    "decisive_interaction_count": 24,
     "agreement_family_count": 1,
-    "disagreement_family_count": 16,
-    "agreement_to_disagreement_ratio": 0.0625,
-    "agreement_family_share_percent": 5.88,
-    "disagreement_family_share_percent": 94.12,
+    "disagreement_family_count": 23,
+    "agreement_to_disagreement_ratio": 0.0435,
+    "agreement_family_share_percent": 4.17,
+    "disagreement_family_share_percent": 95.83,
     "speaker_statistics": {
       "SPEAKER_00": {
         "initiated": {
-          "counterargument": 4,
-          "disagreement": 2,
-          "uncertain": 2
+          "disagreement": 5,
+          "uncertain": 5
         },
         "received": {
-          "counterargument": 4,
-          "uncertain": 2,
-          "disagreement": 1
+          "disagreement": 10,
+          "uncertain": 4
         },
-        "total_initiated": 8,
-        "total_received": 7
+        "total_initiated": 10,
+        "total_received": 14
       },
       "SPEAKER_01": {
         "initiated": {
-          "counterargument": 2,
-          "partial_agreement": 1
+          "disagreement": 2,
+          "partial_agreement": 1,
+          "uncertain": 2
         },
         "received": {
-          "uncertain": 5,
-          "counterargument": 3,
-          "disagreement": 1
+          "disagreement": 6,
+          "uncertain": 3
         },
-        "total_initiated": 3,
+        "total_initiated": 5,
         "total_received": 9
       },
       "SPEAKER_02": {
         "initiated": {
-          "counterargument": 6,
-          "uncertain": 4,
-          "disagreement": 2
+          "disagreement": 16,
+          "uncertain": 3
         },
         "received": {
-          "counterargument": 5,
-          "disagreement": 2,
+          "disagreement": 7,
+          "uncertain": 4,
           "partial_agreement": 1
         },
-        "total_initiated": 12,
-        "total_received": 8
+        "total_initiated": 19,
+        "total_received": 12
       }
     },
     "directional_speaker_pairs": [
       {
         "source_speaker": "SPEAKER_02",
         "responding_speaker": "SPEAKER_00",
-        "classification": "counterargument",
-        "count": 4
+        "classification": "disagreement",
+        "count": 10
+      },
+      {
+        "source_speaker": "SPEAKER_02",
+        "responding_speaker": "SPEAKER_01",
+        "classification": "disagreement",
+        "count": 6
       },
       {
         "source_speaker": "SPEAKER_00",
         "responding_speaker": "SPEAKER_02",
-        "classification": "counterargument",
+        "classification": "disagreement",
+        "count": 5
+      },
+      {
+        "source_speaker": "SPEAKER_00",
+        "responding_speaker": "SPEAKER_02",
+        "classification": "uncertain",
         "count": 3
       },
       {
@@ -150,15 +152,9 @@
         "count": 2
       },
       {
-        "source_speaker": "SPEAKER_00",
-        "responding_speaker": "SPEAKER_02",
-        "classification": "disagreement",
-        "count": 2
-      },
-      {
         "source_speaker": "SPEAKER_01",
         "responding_speaker": "SPEAKER_02",
-        "classification": "counterargument",
+        "classification": "disagreement",
         "count": 2
       },
       {
@@ -168,21 +164,9 @@
         "count": 2
       },
       {
-        "source_speaker": "SPEAKER_02",
-        "responding_speaker": "SPEAKER_01",
-        "classification": "counterargument",
-        "count": 2
-      },
-      {
-        "source_speaker": "SPEAKER_02",
-        "responding_speaker": "SPEAKER_01",
+        "source_speaker": "SPEAKER_01",
+        "responding_speaker": "SPEAKER_00",
         "classification": "uncertain",
-        "count": 2
-      },
-      {
-        "source_speaker": "SPEAKER_00",
-        "responding_speaker": "SPEAKER_01",
-        "classification": "counterargument",
         "count": 1
       },
       {
@@ -192,15 +176,15 @@
         "count": 1
       },
       {
-        "source_speaker": "SPEAKER_02",
-        "responding_speaker": "SPEAKER_00",
-        "classification": "disagreement",
+        "source_speaker": "SPEAKER_01",
+        "responding_speaker": "SPEAKER_02",
+        "classification": "uncertain",
         "count": 1
       },
       {
         "source_speaker": "SPEAKER_02",
         "responding_speaker": "SPEAKER_01",
-        "classification": "disagreement",
+        "classification": "uncertain",
         "count": 1
       }
     ],
@@ -210,13 +194,12 @@
         "title": "Opening discussion",
         "start": 0.0,
         "end": 990.425,
-        "interaction_count": 24,
+        "interaction_count": 35,
         "classification_counts": {
           "agreement": 0,
           "partial_agreement": 1,
-          "disagreement": 4,
-          "counterargument": 12,
-          "uncertain": 7
+          "disagreement": 23,
+          "uncertain": 11
         }
       },
       {
@@ -229,62 +212,97 @@
           "agreement": 0,
           "partial_agreement": 0,
           "disagreement": 0,
-          "counterargument": 0,
           "uncertain": 0
         }
       }
     ],
     "host_statistics": {
       "host_speaker_id": "SPEAKER_02",
-      "host_initiated_interactions": 8,
+      "host_initiated_interactions": 12,
       "host_initiated_classification_counts": {
         "agreement": 0,
         "partial_agreement": 1,
-        "disagreement": 2,
-        "counterargument": 5,
-        "uncertain": 0
+        "disagreement": 7,
+        "uncertain": 4
       },
-      "host_received_interactions": 12,
+      "host_received_interactions": 19,
       "host_received_classification_counts": {
         "agreement": 0,
         "partial_agreement": 0,
-        "disagreement": 2,
-        "counterargument": 6,
-        "uncertain": 4
+        "disagreement": 16,
+        "uncertain": 3
       },
       "guest_to_guest_interactions": 3,
       "guest_to_guest_classification_counts": {
         "agreement": 0,
         "partial_agreement": 0,
         "disagreement": 0,
-        "counterargument": 1,
-        "uncertain": 2
+        "uncertain": 3
       },
-      "host_involved_interactions": 20
+      "host_involved_interactions": 31
     },
     "directional_aggregation_exclusions": {
       "null_source_speaker_interactions": 1,
-      "included_in_directional_pairs": 23
+      "included_in_directional_pairs": 34
     },
-    "ratio_note": "Agreement family = agreement + partial_agreement; disagreement family = disagreement + counterargument. Neutral turns are omitted; uncertain cases are excluded from ratio denominators."
+    "ratio_note": "Agreement family = agreement + partial_agreement; disagreement family = disagreement. Uncertain cases are excluded from ratio denominators."
   },
   "interactions": [
     {
       "video_id": "eiY9KJ2SHnA",
       "interaction_id": "INT_0001",
+      "timestamp": 52.124,
+      "response_turn_id": "T0002",
+      "target_turn_id": "T0001",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
+      "responding_speaker": "SPEAKER_00",
+      "classification": "disagreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "Do you believe that all of this that is happening is damaging the government's image somewhere? That if you are so strong, if you have no fear, why detain, arrest, latte, charge the young? Those optics, are they looking good?",
+        "statement_2": "The moot point is this. We are not a banana republic. We are run by the law of the land."
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "SPEAKER_00 responds to the anchor's challenge about the government's actions and optics by defending the police detentions and emphasizing the rule of law.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 0.031,
+        "target_end": 50.048,
+        "response_start": 52.124,
+        "response_end": 119.438
+      }
+    },
+    {
+      "video_id": "eiY9KJ2SHnA",
+      "interaction_id": "INT_0002",
       "timestamp": 118.544,
       "response_turn_id": "T0003",
       "target_turn_id": "T0002",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_00",
+      "target_speaker": "SPEAKER_00",
       "responding_speaker": "SPEAKER_02",
-      "classification": "counterargument",
-      "evidence": "How is it breaching peace if he wants to do a Tiranga march? How does that breach peace?",
+      "classification": "disagreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "It is incumbent upon them to not breach the provisions of their bail bond. How is it",
+        "statement_2": "breaching peace, ma'am? Just clarify. How is it breaching peace if he wants to do a Tiranga march? How does that breach peace?"
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "The anchor challenges the speaker's claim that the protesters breached peace by asking how a Tiranga march constitutes a breach of peace.",
+      "reasoning": "The host (SPEAKER_02) directly challenges SPEAKER_00's claim about breaching bail bond and peace provisions.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -296,20 +314,27 @@
     },
     {
       "video_id": "eiY9KJ2SHnA",
-      "interaction_id": "INT_0002",
+      "interaction_id": "INT_0003",
       "timestamp": 126.492,
       "response_turn_id": "T0004",
       "target_turn_id": "T0003",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
       "responding_speaker": "SPEAKER_00",
-      "classification": "counterargument",
-      "evidence": "I want to ask Rajdeep Sardesai, Samvidhan ko aag laga do is a peaceful slogan?",
+      "classification": "disagreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "How is it breaching peace if he wants to do a Tiranga march? How does that breach peace?",
+        "statement_2": "Rajdeepji, I thought you would let me speak for at least a minute without interjecting. But let me answer that."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "The speaker responds to the anchor's challenge by offering counter-evidence of inflammatory slogans associated with the protests.",
+      "reasoning": "SPEAKER_00 addresses the host's question about how peace was breached, offering instances of incendiary slogans.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -321,20 +346,27 @@
     },
     {
       "video_id": "eiY9KJ2SHnA",
-      "interaction_id": "INT_0003",
+      "interaction_id": "INT_0004",
       "timestamp": 177.623,
       "response_turn_id": "T0005",
       "target_turn_id": "T0004",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_00",
+      "target_speaker": "SPEAKER_00",
       "responding_speaker": "SPEAKER_02",
       "classification": "disagreement",
-      "evidence": "None of these slogans that you have put on the TV channel today have been said by Abhijit Dipke.",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "I want to ask Rajdeep Sardesai, Samvidhan ko aag laga do is a peaceful slogan? I haven't",
+        "statement_2": "heard Abhijit Dipke give any of these slogans. None of these slogans that you have put on the TV channel today have been said by Abhijit Dipke. Have any of them been said?"
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "The anchor explicitly disputes the speaker's attempt to link specific inflammatory slogans to Abhijit Dipke.",
+      "reasoning": "SPEAKER_02 challenges SPEAKER_00's assertion linking Abhijit Dipke to the inflammatory slogans.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -346,22 +378,29 @@
     },
     {
       "video_id": "eiY9KJ2SHnA",
-      "interaction_id": "INT_0004",
+      "interaction_id": "INT_0005",
       "timestamp": 191.9,
       "response_turn_id": "T0006",
       "target_turn_id": "T0005",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
       "responding_speaker": "SPEAKER_00",
-      "classification": "uncertain",
-      "evidence": "When Abhijit Dipke is sharing stage with Neha Bora... and these slogans are raised, the Delhi Commissioner of Police... tell Abhijit Dipke... please do not carry on with this protest",
+      "classification": "disagreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "None of these slogans that you have put on the TV channel today have been said by Abhijit Dipke. Have any of them been said?",
+        "statement_2": "When Abhijit Dipke is sharing stage with Neha Bora, Yogendra Yadav, Shabana Azmi and a whole lot of other Aam Aadmi party leaders like Kejriwal, Sisodia, what have you, and these slogans are raised, the Delhi Commissioner of Police Mr. Deepak Purohit, again another DCP Mr. Sachin Sharma, tell Abhijit Dipke, tell Saurabh Das, tell Ashutosh Ranka, please do not carry on with this protest because we believe that There are criminal elements who have infiltrated the protest."
+      },
       "evidence_present": true,
-      "evidence_found_in_response": false,
-      "evidence_validation_status": "invalid",
-      "manual_review_required": true,
-      "reasoning": "The speaker counters the anchor's defense by arguing that Dipke shared stages where such slogans were raised and was warned by police.",
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "SPEAKER_00 counters SPEAKER_02's claim that Dipke didn't give those slogans by pointing out his association with leaders where such slogans were raised and police warnings given.",
       "confidence": "high",
-      "review_status": "manual_review_required",
+      "review_status": "pending",
       "source_turn_timestamps": {
         "target_start": 177.623,
         "target_end": 189.723,
@@ -371,45 +410,123 @@
     },
     {
       "video_id": "eiY9KJ2SHnA",
-      "interaction_id": "INT_0005",
-      "timestamp": 284.527,
-      "response_turn_id": "T0008",
-      "target_turn_id": null,
+      "interaction_id": "INT_0006",
+      "timestamp": 243.419,
+      "response_turn_id": "T0007",
+      "target_turn_id": "T0006",
       "subtopic_id": "ST001",
-      "source_speaker": null,
-      "responding_speaker": "SPEAKER_01",
+      "source_speaker": "SPEAKER_00",
+      "target_speaker": "SPEAKER_00",
+      "responding_speaker": "SPEAKER_02",
       "classification": "uncertain",
-      "evidence": "the pathetic moral cowardice of a government that dares to detain three of my friends twice over the course of a week is on full display.",
-      "evidence_present": true,
-      "evidence_found_in_response": true,
-      "evidence_validation_status": "verified",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
       "manual_review_required": false,
-      "reasoning": "SPEAKER_01 responds to SPEAKER_00's defense of police actions and rule of law by arguing that the government's detentions reflect moral cowardice and unjustified repression.",
+      "reasoning": "The host prompts Anish Gawande to respond to the overall discussion about the CJP movement rather than addressing SPEAKER_00's specific claim directly.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
-        "target_start": null,
-        "target_end": null,
+        "target_start": 191.9,
+        "target_end": 243.993,
+        "response_start": 243.419,
+        "response_end": 282.35
+      }
+    },
+    {
+      "video_id": "eiY9KJ2SHnA",
+      "interaction_id": "INT_0007",
+      "timestamp": 284.527,
+      "response_turn_id": "T0008",
+      "target_turn_id": "T0007",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
+      "responding_speaker": "SPEAKER_01",
+      "classification": "disagreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "Was Abhijit Dipke's protest today simply spectacle politics? Let's get eyeballs rather than really about the Tiranga Yatra.",
+        "statement_2": "It's because the pathetic moral cowardice of a government that dares to detain three of my friends twice over the course of a week is on full display."
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "The speaker responds to the host's question about whether the protest was spectacle politics by defending the protest, condemning the police detentions, and arguing against the government's actions.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 243.419,
+        "target_end": 282.35,
         "response_start": 284.527,
         "response_end": 359.57
       }
     },
     {
       "video_id": "eiY9KJ2SHnA",
-      "interaction_id": "INT_0006",
+      "interaction_id": "INT_0008",
+      "timestamp": 359.57,
+      "response_turn_id": "T0009",
+      "target_turn_id": "T0008",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_01",
+      "target_speaker": "SPEAKER_01",
+      "responding_speaker": "SPEAKER_02",
+      "classification": "disagreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "Under what law is a government that says, har ghar tiranga, preventing har sadak tiranga from taking place? This is cowardice.",
+        "statement_2": "They say the apprehension of violence, the apprehension that the CJP was going to use this Tiranga Yatra perhaps to incite violence."
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "The host counters the guest's defense of the protest by introducing the police rationale that there was an apprehension of violence.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 284.527,
+        "target_end": 359.57,
+        "response_start": 359.57,
+        "response_end": 368.378
+      }
+    },
+    {
+      "video_id": "eiY9KJ2SHnA",
+      "interaction_id": "INT_0009",
       "timestamp": 361.072,
       "response_turn_id": "T0010",
       "target_turn_id": "T0009",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
       "responding_speaker": "SPEAKER_01",
-      "classification": "counterargument",
-      "evidence": "Rajdeep, I would love to believe that this government cares about violence.",
+      "classification": "disagreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "They say the apprehension of violence, the apprehension that the CJP was going to use this Tiranga Yatra perhaps to incite violence.",
+        "statement_2": "Rajdeep, I would love to believe that this government cares about violence."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "SPEAKER_01 counters the host's summary of the government's apprehension of violence by expressing disbelief in the government's stated concerns.",
+      "reasoning": "The speaker rejects the host's point about the government's apprehension of violence.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -421,45 +538,59 @@
     },
     {
       "video_id": "eiY9KJ2SHnA",
-      "interaction_id": "INT_0007",
+      "interaction_id": "INT_0010",
       "timestamp": 373.829,
       "response_turn_id": "T0011",
-      "target_turn_id": "T0006",
+      "target_turn_id": "T0009",
       "subtopic_id": "ST001",
-      "source_speaker": "SPEAKER_00",
+      "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
       "responding_speaker": "SPEAKER_01",
-      "classification": "counterargument",
-      "evidence": "you have journalists pointing out hecklers, people with sticks in their hands, not being apprehended by the same police force",
+      "classification": "disagreement",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "They say the apprehension of violence, the apprehension that the CJP was going to use this Tiranga Yatra perhaps to incite violence.",
+        "statement_2": "But today at Karnot Place, you have journalists pointing out hecklers, people with sticks in their hands, not being apprehended by the same police force that picks up innocent people who are there with a tricolour."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "SPEAKER_01 argues against the police actions and justifications described by SPEAKER_00 by pointing out selective enforcement and double standards.",
+      "reasoning": "The speaker continues to argue against the government/police justification of preventing violence by highlighting selective enforcement and double standards.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
-        "target_start": 191.9,
-        "target_end": 243.993,
+        "target_start": 359.57,
+        "target_end": 368.378,
         "response_start": 373.829,
         "response_end": 442.831
       }
     },
     {
       "video_id": "eiY9KJ2SHnA",
-      "interaction_id": "INT_0008",
+      "interaction_id": "INT_0011",
       "timestamp": 440.975,
       "response_turn_id": "T0012",
       "target_turn_id": "T0011",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_01",
+      "target_speaker": "SPEAKER_01",
       "responding_speaker": "SPEAKER_02",
-      "classification": "counterargument",
-      "evidence": "July 20th turned violent. July 20th protest turned violent. So the police will always use that as a reference point.",
+      "classification": "disagreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "And so this regime will also face similar protests. But July 20th, you will recall,",
+        "statement_2": "Anish, July 20th turned violent. July 20th protest turned violent. So the police will always use that as a reference point."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "Speaker 02 responds to SPEAKER_01's lengthy criticism of police repression by introducing the July 20th violence as justification for police actions.",
+      "reasoning": "SPEAKER_02 responds to SPEAKER_01's mention of the protests and July 20th by pointing out that the July 20th protest turned violent, contesting the framing of police action as unjustified.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -471,21 +602,28 @@
     },
     {
       "video_id": "eiY9KJ2SHnA",
-      "interaction_id": "INT_0009",
+      "interaction_id": "INT_0012",
       "timestamp": 451.133,
       "response_turn_id": "T0013",
       "target_turn_id": "T0012",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
       "responding_speaker": "SPEAKER_01",
       "classification": "disagreement",
-      "evidence": "And Rajsi, can you tell me why those protests on the 20th of July turned violent?",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "Anish, July 20th turned violent. July 20th protest turned violent. So the police will always use that as a reference point.",
+        "statement_2": "And Rajsi, can you tell me why those protests on the 20th of July turned violent?"
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "Speaker 01 challenges SPEAKER_02's invocation of the July 20th violence by questioning why it turned violent in the first place.",
-      "confidence": "medium",
+      "reasoning": "SPEAKER_01 challenges SPEAKER_02's assertion about the July 20th protests by turning it back as a question demanding explanation for why it turned violent and questioning police/government accountability.",
+      "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
         "target_start": 440.975,
@@ -496,20 +634,27 @@
     },
     {
       "video_id": "eiY9KJ2SHnA",
-      "interaction_id": "INT_0010",
+      "interaction_id": "INT_0013",
       "timestamp": 455.369,
       "response_turn_id": "T0014",
       "target_turn_id": "T0012",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
       "responding_speaker": "SPEAKER_01",
-      "classification": "counterargument",
-      "evidence": "Why were CCTV cameras disabled? Why was checking stopped at entry and exit points? Why were barricades welded into each other?",
+      "classification": "disagreement",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "Anish, July 20th turned violent. July 20th protest turned violent. So the police will always use that as a reference point.",
+        "statement_2": "Why were CCTV cameras disabled? Why was checking stopped at entry and exit points? Why were barricades welded into each other? Why has no action still been taken against anybody who was violent? And why has action not been taken against the police officers who were seen shoving rods into the private parts of young women? Rajdeep, what an atrocious denial of accountability by a shameless government."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "Speaker 01 pushes back against the premise that police action was justified by prior violence, listing counter-evidence of heavy-handed restrictions.",
+      "reasoning": "SPEAKER_01 strongly disagrees with the justification of police reference to July 20th, listing accountability violations and criticizing the government's stance.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -521,70 +666,219 @@
     },
     {
       "video_id": "eiY9KJ2SHnA",
-      "interaction_id": "INT_0011",
+      "interaction_id": "INT_0014",
       "timestamp": 486.672,
       "response_turn_id": "T0015",
-      "target_turn_id": "T0011",
+      "target_turn_id": "T0014",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_01",
+      "target_speaker": "SPEAKER_01",
       "responding_speaker": "SPEAKER_02",
       "classification": "partial_agreement",
-      "evidence": "You made very strong point. You see, Sanju Verma, we all want to listen to each other. I want to listen to you. I want to listen to Anish.",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "Rajdeep, what an atrocious denial of accountability by a shameless government. No, no, man, you must listen. Just a minute. Anish, I've heard you.",
+        "statement_2": "I have heard you. You made very strong point. You see, Sanju Verma, we all want to listen to each other. I want to listen to you. I want to listen to Anish. You see, these are very serious observations."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "The host acknowledges SPEAKER_01's strong points while moving the discussion forward to another panelist.",
-      "confidence": "medium",
+      "reasoning": "The host (SPEAKER_02) acknowledges and validates SPEAKER_01's strong points about lack of accountability and serious observations, while pivoting the discussion to another participant (Sanju Verma) to address the broader critique.",
+      "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
-        "target_start": 373.829,
-        "target_end": 442.831,
+        "target_start": 455.369,
+        "target_end": 485.457,
         "response_start": 486.672,
         "response_end": 535.323
       }
     },
     {
       "video_id": "eiY9KJ2SHnA",
-      "interaction_id": "INT_0012",
-      "timestamp": 545.06,
-      "response_turn_id": "T0018",
-      "target_turn_id": "T0014",
+      "interaction_id": "INT_0015",
+      "timestamp": 536.251,
+      "response_turn_id": "T0016",
+      "target_turn_id": "T0015",
       "subtopic_id": "ST001",
-      "source_speaker": "SPEAKER_01",
-      "responding_speaker": "SPEAKER_02",
-      "classification": "counterargument",
-      "evidence": "Please don't attack the messenger. Madam, please don't attack me. It's unfair. I asked you a question.",
+      "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
+      "responding_speaker": "SPEAKER_00",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "Why do you need the police to then resort to these repressive measures, even though the Supreme Court, Sanju Verma, had said that they have the right to protest and take out this march? They did not, High Court did not stop them.",
+        "statement_2": "Rajdeep, I heard that it's a lengthy question."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "The host responds to personal attacks and framing in the previous turn by defending himself and demanding the guest answer the question directly.",
+      "reasoning": "SPEAKER_00 merely notes that the previous turn contained a lengthy question without taking a clear stance on the substantive issues raised.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
-        "target_start": 455.369,
-        "target_end": 485.457,
+        "target_start": 486.672,
+        "target_end": 535.323,
+        "response_start": 536.251,
+        "response_end": 538.546
+      }
+    },
+    {
+      "video_id": "eiY9KJ2SHnA",
+      "interaction_id": "INT_0016",
+      "timestamp": 539.018,
+      "response_turn_id": "T0017",
+      "target_turn_id": "T0015",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
+      "responding_speaker": "SPEAKER_00",
+      "classification": "disagreement",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "What can Abhijit Dipke do to the mighty government of the BJP, the largest party in the world?",
+        "statement_2": "Rajdeep Sardesai had been trying since May Rajdeep Sardesai couldn't do anything."
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "SPEAKER_00 challenges SPEAKER_02's point about what individuals like Abhijit Dipke can do against the government by arguing that even Rajdeep Sardesai could not achieve anything since May.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 486.672,
+        "target_end": 535.323,
+        "response_start": 539.018,
+        "response_end": 546.14
+      }
+    },
+    {
+      "video_id": "eiY9KJ2SHnA",
+      "interaction_id": "INT_0017",
+      "timestamp": 545.06,
+      "response_turn_id": "T0018",
+      "target_turn_id": "T0017",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_00",
+      "target_speaker": "SPEAKER_00",
+      "responding_speaker": "SPEAKER_02",
+      "classification": "disagreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "Rajdeep Sardesai had been trying since May Rajdeep Sardesai couldn't do anything.",
+        "statement_2": "Please don't attack the messenger. Madam, please don't attack me."
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "SPEAKER_02 objects to being personally brought into the argument by SPEAKER_00.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 539.018,
+        "target_end": 546.14,
         "response_start": 545.06,
         "response_end": 556.957
       }
     },
     {
       "video_id": "eiY9KJ2SHnA",
-      "interaction_id": "INT_0013",
+      "interaction_id": "INT_0018",
+      "timestamp": 548.435,
+      "response_turn_id": "T0019",
+      "target_turn_id": "T0018",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
+      "responding_speaker": "SPEAKER_00",
+      "classification": "disagreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "I am not involved. You can respond to Anish Gawande.",
+        "statement_2": "You are not involved now. Don't get rattled."
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "SPEAKER_00 pushes back on SPEAKER_02's protest about involvement.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 545.06,
+        "target_end": 556.957,
+        "response_start": 548.435,
+        "response_end": 560.973
+      }
+    },
+    {
+      "video_id": "eiY9KJ2SHnA",
+      "interaction_id": "INT_0019",
+      "timestamp": 560.416,
+      "response_turn_id": "T0020",
+      "target_turn_id": "T0017",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_00",
+      "target_speaker": "SPEAKER_00",
+      "responding_speaker": "SPEAKER_02",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host (SPEAKER_02) pivots back to prompting the guest to respond to the previous substantive point about moral cowardice, functioning as moderation.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 539.018,
+        "target_end": 546.14,
+        "response_start": 560.416,
+        "response_end": 564.466
+      }
+    },
+    {
+      "video_id": "eiY9KJ2SHnA",
+      "interaction_id": "INT_0020",
       "timestamp": 565.867,
       "response_turn_id": "T0021",
       "target_turn_id": "T0020",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
       "responding_speaker": "SPEAKER_00",
       "classification": "disagreement",
-      "evidence": "Rajdeep, do not interject. I heard Aneesh Gawande.",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "moral cowardice. He says your government is showing moral cowardice. Respond.",
+        "statement_2": "Rajdeep, do not interject. I heard Aneesh Gawande. I'm not hard of hearing."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "The speaker explicitly rejects the host's interjection and instruction to respond.",
+      "reasoning": "SPEAKER_00 rejects the host's interjection and instruction to respond.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -596,20 +890,27 @@
     },
     {
       "video_id": "eiY9KJ2SHnA",
-      "interaction_id": "INT_0014",
+      "interaction_id": "INT_0021",
       "timestamp": 575.131,
       "response_turn_id": "T0022",
       "target_turn_id": "T0020",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
       "responding_speaker": "SPEAKER_00",
-      "classification": "counterargument",
-      "evidence": "What is moral cowardice? Moral cowardice is when Abhijit Dipte says that he's bigger than the law of the land.",
+      "classification": "disagreement",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "He says your government is showing moral cowardice. Respond.",
+        "statement_2": "What is moral cowardice? Moral cowardice is when Abhijit Dipte says that he's bigger than the law of the land."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "The speaker responds to the prompt about 'moral cowardice' by redefining and countering the accusation against the government with counter-examples of opposition behavior.",
+      "reasoning": "SPEAKER_00 directly addresses the anchor's prompt regarding 'moral cowardice' by redefining it to attack opponents, rejecting the premise that her side is showing moral cowardice.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -621,20 +922,27 @@
     },
     {
       "video_id": "eiY9KJ2SHnA",
-      "interaction_id": "INT_0015",
+      "interaction_id": "INT_0022",
       "timestamp": 599.178,
       "response_turn_id": "T0023",
       "target_turn_id": "T0020",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
       "responding_speaker": "SPEAKER_00",
-      "classification": "counterargument",
-      "evidence": "Moral cowardice is when Priyanka Vadra shoves her elbow into the breast and stomach of a female police constable.",
+      "classification": "disagreement",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "He says your government is showing moral cowardice. Respond.",
+        "statement_2": "Moral cowardice is when Priyanka Vadra shoves her elbow into the breast and stomach of a female police constable."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "The speaker continues listing counter-examples to redefine 'moral cowardice' away from the government's actions.",
+      "reasoning": "SPEAKER_00 continues responding to the moderator's prompt about 'moral cowardice' by shifting the definition entirely against her political opponents, disagreeing with the implied critique.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -646,20 +954,27 @@
     },
     {
       "video_id": "eiY9KJ2SHnA",
-      "interaction_id": "INT_0016",
+      "interaction_id": "INT_0023",
       "timestamp": 647.17,
       "response_turn_id": "T0024",
       "target_turn_id": "T0023",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_00",
+      "target_speaker": "SPEAKER_00",
       "responding_speaker": "SPEAKER_02",
       "classification": "disagreement",
-      "evidence": "are you really seriously on this show comparing the asymmetry of power between the police with Lathis and citizens who are unarmed?",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "Moral cowardice is when ACP Vivek Bhagat is falsely accused of molesting a female journalist by showcasing an AI-generated video?",
+        "statement_2": "Madam, are you really seriously on this show comparing the asymmetry of power between the police with Lathis and citizens who are unarmed?"
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "The anchor explicitly challenges and questions the validity of the speaker's comparisons and arguments made in the previous turn.",
+      "reasoning": "SPEAKER_02 challenges SPEAKER_00's previous series of allegations and comparisons regarding power asymmetries between police and protesters.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -671,21 +986,28 @@
     },
     {
       "video_id": "eiY9KJ2SHnA",
-      "interaction_id": "INT_0017",
+      "interaction_id": "INT_0024",
       "timestamp": 647.187,
       "response_turn_id": "T0025",
       "target_turn_id": "T0024",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
       "responding_speaker": "SPEAKER_00",
-      "classification": "counterargument",
-      "evidence": "when Anish was speaking, I did not see you interjecting him even once.",
+      "classification": "disagreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "Madam, are you really seriously on this show comparing the asymmetry of power between the police with Lathis and citizens who are unarmed?",
+        "statement_2": "You know Rajdeep, what I don't understand, when Anish was speaking, I did not see you interjecting him even once."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "The speaker counters the anchor's challenge by accusing the anchor of bias and unequal interjections during the debate.",
-      "confidence": "medium",
+      "reasoning": "SPEAKER_00 pushes back against the anchor's interruption and questioning of her arguments.",
+      "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
         "target_start": 647.17,
@@ -696,22 +1018,29 @@
     },
     {
       "video_id": "eiY9KJ2SHnA",
-      "interaction_id": "INT_0018",
+      "interaction_id": "INT_0025",
       "timestamp": 680.448,
       "response_turn_id": "T0026",
       "target_turn_id": "T0024",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
       "responding_speaker": "SPEAKER_00",
-      "classification": "uncertain",
-      "evidence": "Moral cowardice is when Sharath Pawar's NCP loses its national party status... and their spokesperson has the audacity to lecture the Modi government",
+      "classification": "disagreement",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "Madam, are you really seriously on this show comparing the asymmetry of power between the police with Lathis and citizens who are unarmed?",
+        "statement_2": "Moral cowardice is when Sharath Pawar's NCP loses its national party status in and their spokesperson has the audacity to lecture the Modi government"
+      },
       "evidence_present": true,
-      "evidence_found_in_response": false,
-      "evidence_validation_status": "invalid",
-      "manual_review_required": true,
-      "reasoning": "The speaker deflects the anchor's criticism about police power asymmetry by returning to counter-attacks against the opposition's political legitimacy.",
-      "confidence": "medium",
-      "review_status": "manual_review_required",
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "SPEAKER_00 ignores the anchor's pushback on police power asymmetry and continues her tirade defining moral cowardice against opponents.",
+      "confidence": "high",
+      "review_status": "pending",
       "source_turn_timestamps": {
         "target_start": 647.17,
         "target_end": 669.361,
@@ -721,21 +1050,28 @@
     },
     {
       "video_id": "eiY9KJ2SHnA",
-      "interaction_id": "INT_0019",
+      "interaction_id": "INT_0026",
       "timestamp": 688.868,
       "response_turn_id": "T0027",
       "target_turn_id": "T0026",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_00",
+      "target_speaker": "SPEAKER_00",
       "responding_speaker": "SPEAKER_01",
       "classification": "uncertain",
-      "evidence": "",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
       "evidence_present": false,
+      "evidence_found_in_target": false,
       "evidence_found_in_response": false,
       "evidence_validation_status": "missing",
       "manual_review_required": false,
-      "reasoning": "Speaker 1 says a single word 'problem' which might be completing a thought or fragment, but the context is too minimal to assign a definitive stance.",
-      "confidence": "low",
+      "reasoning": "The single-word response 'problem.' is too ambiguous to determine a clear stance or valid quote matching, so it is classified as uncertain.",
+      "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
         "target_start": 680.448,
@@ -746,21 +1082,60 @@
     },
     {
       "video_id": "eiY9KJ2SHnA",
-      "interaction_id": "INT_0020",
+      "interaction_id": "INT_0027",
+      "timestamp": 697.846,
+      "response_turn_id": "T0028",
+      "target_turn_id": null,
+      "subtopic_id": "ST001",
+      "source_speaker": null,
+      "target_speaker": null,
+      "responding_speaker": "SPEAKER_00",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "Speaker continues their own previous thought across interruptions without a clear directed stance interaction, making it uncertain.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": null,
+        "target_end": null,
+        "response_start": 697.846,
+        "response_end": 702.503
+      }
+    },
+    {
+      "video_id": "eiY9KJ2SHnA",
+      "interaction_id": "INT_0028",
       "timestamp": 701.592,
       "response_turn_id": "T0029",
       "target_turn_id": "T0028",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_00",
+      "target_speaker": "SPEAKER_00",
       "responding_speaker": "SPEAKER_01",
       "classification": "uncertain",
-      "evidence": "",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
       "evidence_present": false,
+      "evidence_found_in_target": false,
       "evidence_found_in_response": false,
       "evidence_validation_status": "missing",
       "manual_review_required": false,
-      "reasoning": "Speaker 1 interjects a single word 'seats', likely finishing Speaker 0's sentence, but too brief to classify as clear agreement or counterargument.",
-      "confidence": "low",
+      "reasoning": "The single-word response 'seats,' is a fragmented interjection and does not establish a clear stance or valid quotation match.",
+      "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
         "target_start": 697.846,
@@ -771,20 +1146,59 @@
     },
     {
       "video_id": "eiY9KJ2SHnA",
-      "interaction_id": "INT_0021",
+      "interaction_id": "INT_0029",
+      "timestamp": 702.554,
+      "response_turn_id": "T0030",
+      "target_turn_id": "T0029",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_01",
+      "target_speaker": "SPEAKER_01",
+      "responding_speaker": "SPEAKER_00",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "Speaker continues their argument following a minor interjection, not directly responding to the specific claim.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 701.592,
+        "target_end": 702.723,
+        "response_start": 702.554,
+        "response_end": 716.037
+      }
+    },
+    {
+      "video_id": "eiY9KJ2SHnA",
+      "interaction_id": "INT_0030",
       "timestamp": 713.017,
       "response_turn_id": "T0031",
       "target_turn_id": "T0030",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_00",
+      "target_speaker": "SPEAKER_00",
       "responding_speaker": "SPEAKER_02",
-      "classification": "counterargument",
-      "evidence": "difference between election results and what happens on the street, ma'am?",
+      "classification": "disagreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "and BJP had a strike rate of in Maharashtra elections, but Sharath Pawar's spokesperson sits here and lectures on constitutional propriety to the BJP, that is moral cowardice.",
+        "statement_2": "difference between election results and what happens on the street, ma'am?"
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "Speaker 2 challenges Speaker 0's argument that election victories excuse or outweigh the issues raised regarding street protests.",
+      "reasoning": "SPEAKER_02 (the host/moderator) challenges SPEAKER_00's argument that election victories excuse or invalidate criticisms regarding police actions on the street.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -796,47 +1210,93 @@
     },
     {
       "video_id": "eiY9KJ2SHnA",
-      "interaction_id": "INT_0022",
-      "timestamp": 770.425,
-      "response_turn_id": "T0033",
-      "target_turn_id": "T0030",
+      "interaction_id": "INT_0031",
+      "timestamp": 719.682,
+      "response_turn_id": "T0032",
+      "target_turn_id": "T0031",
       "subtopic_id": "ST001",
-      "source_speaker": "SPEAKER_00",
-      "responding_speaker": "SPEAKER_02",
-      "classification": "counterargument",
-      "evidence": "the one point that the BJP keeps making, whatever you want to do at the end of the day, do it through the ballot",
-      "evidence_present": true,
-      "evidence_found_in_response": true,
-      "evidence_validation_status": "verified",
+      "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
+      "responding_speaker": "SPEAKER_00",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
       "manual_review_required": false,
-      "reasoning": "The speaker summarizes and addresses the BJP's argument about fighting through the ballot box rather than taking it to the streets.",
-      "confidence": "medium",
+      "reasoning": "SPEAKER_00 responds by bringing up entirely different incidents regarding political memeburning and abduction cases in Maharashtra rather than addressing the anchor's specific question about election results vs streets, making the stance uncertain or non-responsive in terms of agreement/disagreement.",
+      "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
-        "target_start": 702.554,
-        "target_end": 716.037,
+        "target_start": 713.017,
+        "target_end": 719.362,
+        "response_start": 719.682,
+        "response_end": 774.222
+      }
+    },
+    {
+      "video_id": "eiY9KJ2SHnA",
+      "interaction_id": "INT_0032",
+      "timestamp": 770.425,
+      "response_turn_id": "T0033",
+      "target_turn_id": "T0032",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_00",
+      "target_speaker": "SPEAKER_00",
+      "responding_speaker": "SPEAKER_02",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host dismisses the previous speaker's points as 'water under the bridge' and pivots to another guest to respond, which is a moderating action rather than an agreement or disagreement.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 719.682,
+        "target_end": 774.222,
         "response_start": 770.425,
         "response_end": 803.213
       }
     },
     {
       "video_id": "eiY9KJ2SHnA",
-      "interaction_id": "INT_0023",
+      "interaction_id": "INT_0033",
       "timestamp": 805.255,
       "response_turn_id": "T0034",
       "target_turn_id": "T0033",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
       "responding_speaker": "SPEAKER_01",
-      "classification": "uncertain",
-      "evidence": "The reason the streets are live with the voice of the people, Rajdeep, is because...",
+      "classification": "disagreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "By taking it to the streets, you're actually trying to create extra constitutional methods to target the Modi government",
+        "statement_2": "The reason the streets are live with the voice of the people, Rajdeep, is because, and I will say this purposely so Sanju Verma today gets agitated again because she thinks our voice does not matter"
+      },
       "evidence_present": true,
-      "evidence_found_in_response": false,
-      "evidence_validation_status": "invalid",
-      "manual_review_required": true,
-      "reasoning": "The speaker responds to the point about using the ballot instead of the streets by defending taking protests to the streets.",
-      "confidence": "medium",
-      "review_status": "manual_review_required",
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "SPEAKER_01 rejects the premise that taking to the streets is illegitimate or extra-constitutional, arguing instead that street protests represent the genuine voice of the people against the BJP's dismissal.",
+      "confidence": "high",
+      "review_status": "pending",
       "source_turn_timestamps": {
         "target_start": 770.425,
         "target_end": 803.213,
@@ -846,27 +1306,66 @@
     },
     {
       "video_id": "eiY9KJ2SHnA",
-      "interaction_id": "INT_0024",
+      "interaction_id": "INT_0034",
       "timestamp": 835.073,
       "response_turn_id": "T0035",
       "target_turn_id": "T0033",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
       "responding_speaker": "SPEAKER_01",
       "classification": "uncertain",
-      "evidence": "this is a regime change operation... That's why we will hit the streets.",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "If you believe that this government has failed, then fight them on the ballot. By taking it to the streets, you're actually trying to create extra constitutional methods to target the Modi government",
+        "statement_2": ""
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": false,
       "evidence_validation_status": "invalid",
       "manual_review_required": true,
-      "reasoning": "The speaker continues the justification for street protests in direct contrast to the opposing view that matters should only be settled via the ballot box.",
-      "confidence": "medium",
+      "reasoning": "SPEAKER_01 counters the anchor's suggestion that opposition should stick to the ballot by defending hitting the streets as part of a moral battle and regime change strategy.",
+      "confidence": "high",
       "review_status": "manual_review_required",
       "source_turn_timestamps": {
         "target_start": 770.425,
         "target_end": 803.213,
         "response_start": 835.073,
         "response_end": 866.005
+      }
+    },
+    {
+      "video_id": "eiY9KJ2SHnA",
+      "interaction_id": "INT_0035",
+      "timestamp": 863.845,
+      "response_turn_id": "T0036",
+      "target_turn_id": "T0035",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_01",
+      "target_speaker": "SPEAKER_01",
+      "responding_speaker": "SPEAKER_02",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The speaker is the show host wrapping up the debate and delivering closing remarks summarizing various perspectives, which does not constitute a directed stance towards the guest's specific turn.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 835.073,
+        "target_end": 866.005,
+        "response_start": 863.845,
+        "response_end": 998.288
       }
     }
   ],
@@ -3431,11 +3930,11 @@
     "subtopics_loaded": 2,
     "interactions_missing_target": 1,
     "evidence_validation_summary": {
-      "records_with_evidence": 22,
-      "records_with_verified_evidence": 18,
-      "records_with_missing_evidence": 2,
-      "records_with_invalid_evidence": 4,
-      "decisive_records_requiring_manual_review": 4
+      "records_with_evidence": 26,
+      "records_with_verified_evidence": 25,
+      "records_with_missing_evidence": 9,
+      "records_with_invalid_evidence": 1,
+      "decisive_records_requiring_manual_review": 1
     },
     "validation": {
       "status": "passed",

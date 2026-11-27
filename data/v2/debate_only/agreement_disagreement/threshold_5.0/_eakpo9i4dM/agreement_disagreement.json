@@ -1,6 +1,6 @@
 {
-  "schema_version": "agreement-disagreement-1.2",
-  "script_version": "word-level-host-aware-1.1",
+  "schema_version": "agreement-disagreement-2.0",
+  "script_version": "agreement-disagreement-v2.0-json-recovery",
   "metadata": {
     "video_id": "_eakpo9i4dM",
     "variant": "threshold_5.0",
@@ -20,7 +20,7 @@
     },
     "host_prediction_confidence_band": "higher_heuristic_separation",
     "host_prediction_warning": "Scores and confidence bands are heuristic, not calibrated probabilities. Opening/closing phrase lists are incomplete and currently English-oriented; translated ASR text can affect cues. Manually verify predictions and evaluate across known-host episodes.",
-    "generated_at_utc": "2026-11-27T04:48:24.025391+00:00",
+    "generated_at_utc": "2026-11-27T18:48:20.441586+00:00",
     "source_files": {
       "transcript": "/home/user/MTP/Code/television-discourse-decoded-hindi/data/v2/debate_only/videos/_eakpo9i4dM/threshold_5.0/merge_final.json",
       "subtopics": "/home/user/MTP/Code/television-discourse-decoded-hindi/data/v2/debate_only/subtopic_analysis/threshold_5.0/_eakpo9i4dM/subtopic_analysis.json",
@@ -31,12 +31,10 @@
   "methodology": {
     "analysis_unit": "directed speaker-to-speaker stance interaction",
     "transcript_scope": "full transcript; not limited to overlapping speech",
-    "context_policy": "Each response turn is assessed with up to 5 preceding different-speaker turns.",
+    "context_policy": "Each response turn is assessed against up to 3 immediately preceding chronological turns; target may be any different speaker in that window.",
     "classification_labels": [
       "agreement",
-      "counterargument",
       "disagreement",
-      "neutral",
       "partial_agreement",
       "uncertain"
     ],
@@ -45,12 +43,11 @@
       "partial_agreement"
     ],
     "disagreement_family": [
-      "disagreement",
-      "counterargument"
+      "disagreement"
     ],
-    "moderator_policy": "Moderation, panelist introductions, summaries, follow-up questions, and repetition without a stance are neutral; substantive anchor stances are classified normally. Host identity is not used for classification.",
+    "moderator_policy": "Moderation, introductions, summaries, follow-up questions, and repetition without a stance are uncertain; substantive stances are classified normally. Host identity is not used for classification.",
     "overlap_policy": "Overlap and interruption are not evidence of stance by themselves.",
-    "neutral_policy": "Neutral candidates are counted in the candidate summary but omitted from interaction records; uncertain records are retained.",
+    "uncertain_policy": "Every eligible response turn receives one record; unclear or non-stance turns are classified uncertain.",
     "target_policy": "Target is a specific earlier turn; no reverse inference. Response timestamp determines subtopic mapping.",
     "limitations": [
       "Automated classifications require manual validation.",
@@ -64,134 +61,221 @@
     "transcript_turn_count": 74,
     "subtopic_count": 5,
     "candidate_response_turn_count": 73,
-    "neutral_candidate_count": 46,
     "candidate_classification_counts": {
-      "agreement": 4,
-      "partial_agreement": 3,
-      "disagreement": 2,
-      "counterargument": 16,
-      "uncertain": 2,
-      "neutral": 46
+      "agreement": 8,
+      "partial_agreement": 9,
+      "disagreement": 17,
+      "uncertain": 39
     },
     "classification_counts": {
-      "agreement": 4,
-      "partial_agreement": 3,
-      "disagreement": 2,
-      "counterargument": 16,
-      "uncertain": 2
+      "agreement": 8,
+      "partial_agreement": 9,
+      "disagreement": 17,
+      "uncertain": 39
     },
-    "total_non_neutral_interactions": 27,
-    "decisive_interaction_count": 25,
-    "agreement_family_count": 7,
-    "disagreement_family_count": 18,
-    "agreement_to_disagreement_ratio": 0.3889,
-    "agreement_family_share_percent": 28.0,
-    "disagreement_family_share_percent": 72.0,
+    "total_interactions": 73,
+    "decisive_interaction_count": 34,
+    "agreement_family_count": 17,
+    "disagreement_family_count": 17,
+    "agreement_to_disagreement_ratio": 1.0,
+    "agreement_family_share_percent": 50.0,
+    "disagreement_family_share_percent": 50.0,
     "speaker_statistics": {
       "SPEAKER_00": {
         "initiated": {
-          "partial_agreement": 1,
-          "agreement": 1
+          "partial_agreement": 3,
+          "agreement": 1,
+          "uncertain": 1
         },
         "received": {
-          "counterargument": 1
+          "disagreement": 1,
+          "partial_agreement": 1,
+          "uncertain": 1
         },
-        "total_initiated": 2,
-        "total_received": 1
+        "total_initiated": 5,
+        "total_received": 3
       },
       "SPEAKER_01": {
-        "initiated": {},
-        "received": {},
-        "total_initiated": 0,
-        "total_received": 0
-      },
-      "SPEAKER_02": {
         "initiated": {
-          "counterargument": 9,
-          "disagreement": 1
+          "uncertain": 1
         },
         "received": {
-          "counterargument": 5,
-          "disagreement": 1,
-          "uncertain": 2
-        },
-        "total_initiated": 10,
-        "total_received": 8
-      },
-      "SPEAKER_03": {
-        "initiated": {
-          "agreement": 2,
-          "counterargument": 6,
+          "agreement": 1,
           "uncertain": 1,
           "partial_agreement": 1
         },
-        "received": {
-          "counterargument": 4,
-          "partial_agreement": 2,
-          "agreement": 1
+        "total_initiated": 1,
+        "total_received": 3
+      },
+      "SPEAKER_02": {
+        "initiated": {
+          "disagreement": 5,
+          "agreement": 1,
+          "uncertain": 6
         },
-        "total_initiated": 10,
-        "total_received": 7
+        "received": {
+          "disagreement": 7,
+          "uncertain": 9
+        },
+        "total_initiated": 12,
+        "total_received": 16
+      },
+      "SPEAKER_03": {
+        "initiated": {
+          "uncertain": 13,
+          "disagreement": 7,
+          "partial_agreement": 3,
+          "agreement": 3
+        },
+        "received": {
+          "uncertain": 16,
+          "agreement": 4,
+          "disagreement": 6,
+          "partial_agreement": 2
+        },
+        "total_initiated": 26,
+        "total_received": 28
       },
       "SPEAKER_04": {
         "initiated": {
-          "disagreement": 1,
-          "counterargument": 1
-        },
-        "received": {
-          "counterargument": 5
-        },
-        "total_initiated": 2,
-        "total_received": 5
-      },
-      "SPEAKER_05": {
-        "initiated": {},
-        "received": {
-          "agreement": 1,
-          "partial_agreement": 1,
-          "disagreement": 1
-        },
-        "total_initiated": 0,
-        "total_received": 3
-      },
-      "SPEAKER_06": {
-        "initiated": {
-          "partial_agreement": 1,
+          "disagreement": 2,
+          "uncertain": 2,
           "agreement": 1
         },
         "received": {
-          "counterargument": 1
+          "disagreement": 2,
+          "uncertain": 6,
+          "partial_agreement": 1
         },
-        "total_initiated": 2,
-        "total_received": 1
+        "total_initiated": 5,
+        "total_received": 9
       },
-      "SPEAKER_07": {
-        "initiated": {},
+      "SPEAKER_05": {
+        "initiated": {
+          "uncertain": 2,
+          "agreement": 1,
+          "disagreement": 2,
+          "partial_agreement": 3
+        },
         "received": {
+          "uncertain": 3,
+          "partial_agreement": 2,
+          "disagreement": 1,
           "agreement": 2
         },
-        "total_initiated": 0,
-        "total_received": 2
+        "total_initiated": 8,
+        "total_received": 8
+      },
+      "SPEAKER_06": {
+        "initiated": {
+          "disagreement": 1,
+          "uncertain": 1,
+          "agreement": 1
+        },
+        "received": {
+          "uncertain": 2,
+          "partial_agreement": 1
+        },
+        "total_initiated": 3,
+        "total_received": 3
+      },
+      "SPEAKER_07": {
+        "initiated": {
+          "uncertain": 3
+        },
+        "received": {
+          "partial_agreement": 1,
+          "agreement": 1,
+          "uncertain": 1
+        },
+        "total_initiated": 3,
+        "total_received": 3
       }
     },
     "directional_speaker_pairs": [
       {
-        "source_speaker": "SPEAKER_02",
-        "responding_speaker": "SPEAKER_04",
-        "classification": "counterargument",
-        "count": 5
+        "source_speaker": "SPEAKER_03",
+        "responding_speaker": "SPEAKER_02",
+        "classification": "uncertain",
+        "count": 7
       },
       {
         "source_speaker": "SPEAKER_03",
         "responding_speaker": "SPEAKER_02",
-        "classification": "counterargument",
+        "classification": "disagreement",
         "count": 5
       },
       {
         "source_speaker": "SPEAKER_02",
         "responding_speaker": "SPEAKER_03",
-        "classification": "counterargument",
+        "classification": "uncertain",
+        "count": 4
+      },
+      {
+        "source_speaker": "SPEAKER_02",
+        "responding_speaker": "SPEAKER_03",
+        "classification": "disagreement",
         "count": 3
+      },
+      {
+        "source_speaker": "SPEAKER_07",
+        "responding_speaker": "SPEAKER_03",
+        "classification": "uncertain",
+        "count": 3
+      },
+      {
+        "source_speaker": "SPEAKER_02",
+        "responding_speaker": "SPEAKER_04",
+        "classification": "disagreement",
+        "count": 2
+      },
+      {
+        "source_speaker": "SPEAKER_02",
+        "responding_speaker": "SPEAKER_04",
+        "classification": "uncertain",
+        "count": 2
+      },
+      {
+        "source_speaker": "SPEAKER_03",
+        "responding_speaker": "SPEAKER_04",
+        "classification": "uncertain",
+        "count": 2
+      },
+      {
+        "source_speaker": "SPEAKER_03",
+        "responding_speaker": "SPEAKER_05",
+        "classification": "agreement",
+        "count": 2
+      },
+      {
+        "source_speaker": "SPEAKER_03",
+        "responding_speaker": "SPEAKER_05",
+        "classification": "partial_agreement",
+        "count": 2
+      },
+      {
+        "source_speaker": "SPEAKER_03",
+        "responding_speaker": "SPEAKER_05",
+        "classification": "uncertain",
+        "count": 2
+      },
+      {
+        "source_speaker": "SPEAKER_04",
+        "responding_speaker": "SPEAKER_02",
+        "classification": "disagreement",
+        "count": 2
+      },
+      {
+        "source_speaker": "SPEAKER_05",
+        "responding_speaker": "SPEAKER_03",
+        "classification": "disagreement",
+        "count": 2
+      },
+      {
+        "source_speaker": "SPEAKER_05",
+        "responding_speaker": "SPEAKER_03",
+        "classification": "uncertain",
+        "count": 2
       },
       {
         "source_speaker": "SPEAKER_00",
@@ -206,63 +290,123 @@
         "count": 1
       },
       {
-        "source_speaker": "SPEAKER_02",
-        "responding_speaker": "SPEAKER_00",
-        "classification": "counterargument",
+        "source_speaker": "SPEAKER_00",
+        "responding_speaker": "SPEAKER_03",
+        "classification": "uncertain",
+        "count": 1
+      },
+      {
+        "source_speaker": "SPEAKER_00",
+        "responding_speaker": "SPEAKER_04",
+        "classification": "partial_agreement",
+        "count": 1
+      },
+      {
+        "source_speaker": "SPEAKER_00",
+        "responding_speaker": "SPEAKER_06",
+        "classification": "partial_agreement",
+        "count": 1
+      },
+      {
+        "source_speaker": "SPEAKER_01",
+        "responding_speaker": "SPEAKER_03",
+        "classification": "uncertain",
         "count": 1
       },
       {
         "source_speaker": "SPEAKER_02",
-        "responding_speaker": "SPEAKER_05",
+        "responding_speaker": "SPEAKER_03",
+        "classification": "agreement",
+        "count": 1
+      },
+      {
+        "source_speaker": "SPEAKER_03",
+        "responding_speaker": "SPEAKER_00",
         "classification": "disagreement",
         "count": 1
       },
       {
         "source_speaker": "SPEAKER_03",
-        "responding_speaker": "SPEAKER_02",
+        "responding_speaker": "SPEAKER_00",
         "classification": "uncertain",
         "count": 1
       },
       {
         "source_speaker": "SPEAKER_03",
-        "responding_speaker": "SPEAKER_05",
+        "responding_speaker": "SPEAKER_01",
         "classification": "agreement",
         "count": 1
       },
       {
         "source_speaker": "SPEAKER_03",
         "responding_speaker": "SPEAKER_05",
-        "classification": "partial_agreement",
+        "classification": "disagreement",
         "count": 1
       },
       {
         "source_speaker": "SPEAKER_03",
         "responding_speaker": "SPEAKER_06",
-        "classification": "counterargument",
+        "classification": "uncertain",
         "count": 1
       },
       {
         "source_speaker": "SPEAKER_03",
         "responding_speaker": "SPEAKER_07",
-        "classification": "agreement",
+        "classification": "partial_agreement",
         "count": 1
       },
       {
         "source_speaker": "SPEAKER_04",
         "responding_speaker": "SPEAKER_02",
-        "classification": "disagreement",
+        "classification": "uncertain",
         "count": 1
       },
       {
         "source_speaker": "SPEAKER_04",
         "responding_speaker": "SPEAKER_03",
-        "classification": "counterargument",
+        "classification": "agreement",
+        "count": 1
+      },
+      {
+        "source_speaker": "SPEAKER_04",
+        "responding_speaker": "SPEAKER_03",
+        "classification": "uncertain",
+        "count": 1
+      },
+      {
+        "source_speaker": "SPEAKER_05",
+        "responding_speaker": "SPEAKER_00",
+        "classification": "partial_agreement",
+        "count": 1
+      },
+      {
+        "source_speaker": "SPEAKER_05",
+        "responding_speaker": "SPEAKER_01",
+        "classification": "partial_agreement",
+        "count": 1
+      },
+      {
+        "source_speaker": "SPEAKER_05",
+        "responding_speaker": "SPEAKER_03",
+        "classification": "agreement",
+        "count": 1
+      },
+      {
+        "source_speaker": "SPEAKER_05",
+        "responding_speaker": "SPEAKER_03",
+        "classification": "partial_agreement",
         "count": 1
       },
       {
         "source_speaker": "SPEAKER_06",
         "responding_speaker": "SPEAKER_03",
-        "classification": "partial_agreement",
+        "classification": "disagreement",
+        "count": 1
+      },
+      {
+        "source_speaker": "SPEAKER_06",
+        "responding_speaker": "SPEAKER_03",
+        "classification": "uncertain",
         "count": 1
       },
       {
@@ -278,13 +422,12 @@
         "title": "Opening discussion",
         "start": 0.0,
         "end": 1048.918,
-        "interaction_count": 17,
+        "interaction_count": 33,
         "classification_counts": {
-          "agreement": 1,
+          "agreement": 3,
           "partial_agreement": 0,
-          "disagreement": 1,
-          "counterargument": 14,
-          "uncertain": 1
+          "disagreement": 13,
+          "uncertain": 17
         }
       },
       {
@@ -292,13 +435,12 @@
         "title": "Inaccuracy of Pollution Data and Ground Realities",
         "start": 1048.918,
         "end": 1237.46,
-        "interaction_count": 2,
+        "interaction_count": 3,
         "classification_counts": {
-          "agreement": 1,
-          "partial_agreement": 1,
+          "agreement": 0,
+          "partial_agreement": 2,
           "disagreement": 0,
-          "counterargument": 0,
-          "uncertain": 0
+          "uncertain": 1
         }
       },
       {
@@ -306,13 +448,12 @@
         "title": "Impact on Human Health and Medical Emergencies",
         "start": 1237.46,
         "end": 2018.284,
-        "interaction_count": 5,
+        "interaction_count": 21,
         "classification_counts": {
-          "agreement": 2,
-          "partial_agreement": 2,
-          "disagreement": 0,
-          "counterargument": 1,
-          "uncertain": 0
+          "agreement": 4,
+          "partial_agreement": 4,
+          "disagreement": 3,
+          "uncertain": 10
         }
       },
       {
@@ -320,13 +461,12 @@
         "title": "Stubble Burning and Punjab AQI Levels",
         "start": 2018.284,
         "end": 2192.095,
-        "interaction_count": 3,
+        "interaction_count": 12,
         "classification_counts": {
-          "agreement": 0,
-          "partial_agreement": 0,
+          "agreement": 1,
+          "partial_agreement": 2,
           "disagreement": 1,
-          "counterargument": 1,
-          "uncertain": 1
+          "uncertain": 8
         }
       },
       {
@@ -334,92 +474,198 @@
         "title": "Closing Remarks and Final Solutions",
         "start": 2192.095,
         "end": 2270.858,
-        "interaction_count": 0,
+        "interaction_count": 4,
         "classification_counts": {
           "agreement": 0,
-          "partial_agreement": 0,
+          "partial_agreement": 1,
           "disagreement": 0,
-          "counterargument": 0,
-          "uncertain": 0
+          "uncertain": 3
         }
       }
     ],
     "host_statistics": {
       "host_speaker_id": "SPEAKER_03",
-      "host_initiated_interactions": 7,
+      "host_initiated_interactions": 28,
       "host_initiated_classification_counts": {
-        "agreement": 1,
+        "agreement": 4,
         "partial_agreement": 2,
-        "disagreement": 0,
-        "counterargument": 4,
-        "uncertain": 0
+        "disagreement": 6,
+        "uncertain": 16
       },
-      "host_received_interactions": 10,
+      "host_received_interactions": 26,
       "host_received_classification_counts": {
-        "agreement": 2,
-        "partial_agreement": 1,
-        "disagreement": 0,
-        "counterargument": 6,
-        "uncertain": 1
+        "agreement": 3,
+        "partial_agreement": 3,
+        "disagreement": 7,
+        "uncertain": 13
       },
-      "guest_to_guest_interactions": 9,
+      "guest_to_guest_interactions": 12,
       "guest_to_guest_classification_counts": {
         "agreement": 1,
-        "partial_agreement": 0,
-        "disagreement": 2,
-        "counterargument": 6,
-        "uncertain": 0
+        "partial_agreement": 4,
+        "disagreement": 4,
+        "uncertain": 3
       },
-      "host_involved_interactions": 17
+      "host_involved_interactions": 54
     },
     "directional_aggregation_exclusions": {
-      "null_source_speaker_interactions": 1,
-      "included_in_directional_pairs": 26
+      "null_source_speaker_interactions": 10,
+      "included_in_directional_pairs": 63
     },
-    "ratio_note": "Agreement family = agreement + partial_agreement; disagreement family = disagreement + counterargument. Neutral turns are omitted; uncertain cases are excluded from ratio denominators."
+    "ratio_note": "Agreement family = agreement + partial_agreement; disagreement family = disagreement. Uncertain cases are excluded from ratio denominators."
   },
   "interactions": [
     {
       "video_id": "_eakpo9i4dM",
       "interaction_id": "INT_0001",
-      "timestamp": 411.578,
-      "response_turn_id": "T0004",
-      "target_turn_id": "T0003",
+      "timestamp": 229.7,
+      "response_turn_id": "T0002",
+      "target_turn_id": "T0001",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
       "responding_speaker": "SPEAKER_05",
-      "classification": "agreement",
-      "evidence": "I completely agree with you",
-      "evidence_present": true,
-      "evidence_found_in_response": true,
-      "evidence_validation_status": "verified",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
       "manual_review_required": false,
-      "reasoning": "Speaker explicitly endorses the host's point about government coordination and farm residue targets.",
+      "reasoning": "SPEAKER_05 begins his opening statement addressing the general debate topic and answering the host, but does not specifically address a claim made in T0001.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
-        "target_start": 376.613,
-        "target_end": 412.591,
+        "target_start": 3.457,
+        "target_end": 229.21,
+        "response_start": 229.7,
+        "response_end": 376.613
+      }
+    },
+    {
+      "video_id": "_eakpo9i4dM",
+      "interaction_id": "INT_0002",
+      "timestamp": 376.613,
+      "response_turn_id": "T0003",
+      "target_turn_id": "T0002",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_05",
+      "target_speaker": "SPEAKER_05",
+      "responding_speaker": "SPEAKER_03",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host (SPEAKER_03) changes the focus of discussion to coordination among NCR governments rather than directly debating the specific data points presented by SPEAKER_05.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 229.7,
+        "target_end": 376.613,
+        "response_start": 376.613,
+        "response_end": 412.591
+      }
+    },
+    {
+      "video_id": "_eakpo9i4dM",
+      "interaction_id": "INT_0003",
+      "timestamp": 411.578,
+      "response_turn_id": "T0004",
+      "target_turn_id": null,
+      "subtopic_id": "ST001",
+      "source_speaker": null,
+      "target_speaker": null,
+      "responding_speaker": "SPEAKER_05",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "Speaker 05 is responding to the host's prompt, continuing his own previous argument.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": null,
+        "target_end": null,
         "response_start": 411.578,
         "response_end": 431.677
       }
     },
     {
       "video_id": "_eakpo9i4dM",
-      "interaction_id": "INT_0002",
+      "interaction_id": "INT_0004",
+      "timestamp": 431.677,
+      "response_turn_id": "T0005",
+      "target_turn_id": "T0004",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_05",
+      "target_speaker": "SPEAKER_05",
+      "responding_speaker": "SPEAKER_03",
+      "classification": "agreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "Now, if Haryana and Uttar Pradesh can achieve its targets, why is Punjab lagging behind?",
+        "statement_2": "Delhi, UP, Haryana have been bringing down their parameters. They have been working actively to bring down farm fires. It is Punjab that is failing the citizens of Delhi."
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "The host echoes and supports SPEAKER_05's point that Haryana and UP have brought down farm fires while Punjab is lagging behind.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 411.578,
+        "target_end": 431.677,
+        "response_start": 431.677,
+        "response_end": 439.743
+      }
+    },
+    {
+      "video_id": "_eakpo9i4dM",
+      "interaction_id": "INT_0005",
       "timestamp": 439.743,
       "response_turn_id": "T0006",
       "target_turn_id": "T0005",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
       "responding_speaker": "SPEAKER_02",
-      "classification": "counterargument",
-      "evidence": "every time you cannot blame the farmers. every time that the AQI is not right in Delhi, you blame the farmers.",
+      "classification": "disagreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "It is Punjab that is failing the citizens of Delhi.",
+        "statement_2": "every time you cannot blame the farmers. every time that the AQI is not right in Delhi, you blame the farmers."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "Speaker pushes back against the blame placed on farmers for Delhi's pollution.",
+      "reasoning": "SPEAKER_02 directly rejects the host's assertion that Punjab/farmers are to blame for Delhi's pollution.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -431,20 +677,27 @@
     },
     {
       "video_id": "_eakpo9i4dM",
-      "interaction_id": "INT_0003",
+      "interaction_id": "INT_0006",
       "timestamp": 461.63,
       "response_turn_id": "T0007",
       "target_turn_id": "T0006",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
       "responding_speaker": "SPEAKER_04",
-      "classification": "counterargument",
-      "evidence": "your geography right. East is not, west is Pakistan.",
+      "classification": "disagreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "So all the wind, all the stubble, even if it's burning, it's going towards Pakistan, but they have a problem in Delhi.",
+        "statement_2": "your geography right. East is not, west is Pakistan."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "Speaker 4 counters Speaker 2's geographic claim regarding wind direction and Pakistan.",
+      "reasoning": "SPEAKER_04 corrects and rejects SPEAKER_02's claim about the direction of the wind towards Pakistan.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -456,20 +709,91 @@
     },
     {
       "video_id": "_eakpo9i4dM",
-      "interaction_id": "INT_0004",
+      "interaction_id": "INT_0007",
+      "timestamp": 468.295,
+      "response_turn_id": "T0008",
+      "target_turn_id": "T0007",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_04",
+      "target_speaker": "SPEAKER_04",
+      "responding_speaker": "SPEAKER_02",
+      "classification": "disagreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "your geography right. East is not, west is Pakistan.",
+        "statement_2": "Sir, when western disturbances come, the air comes here. Sir, please, keep your knowledge with you."
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "SPEAKER_02 pushes back on SPEAKER_04's geographical correction regarding western disturbances and wind direction.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 461.63,
+        "target_end": 468.295,
+        "response_start": 468.295,
+        "response_end": 569.731
+      }
+    },
+    {
+      "video_id": "_eakpo9i4dM",
+      "interaction_id": "INT_0008",
+      "timestamp": 563.757,
+      "response_turn_id": "T0009",
+      "target_turn_id": "T0008",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
+      "responding_speaker": "SPEAKER_03",
+      "classification": "agreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "They have put AQM monitors in JNU, in the ridge area, in the forested green-lined areas where you will not have PM2 worldwide.",
+        "statement_2": "Areas where the pollution monitoring centers are being put are in largely green areas."
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "The host (SPEAKER_03) incorporates and builds upon the questions and claims previously raised by SPEAKER_02 regarding pollution monitoring centers in green areas.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 468.295,
+        "target_end": 569.731,
+        "response_start": 563.757,
+        "response_end": 603.633
+      }
+    },
+    {
+      "video_id": "_eakpo9i4dM",
+      "interaction_id": "INT_0009",
       "timestamp": 573.038,
       "response_turn_id": "T0010",
       "target_turn_id": "T0008",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
       "responding_speaker": "SPEAKER_04",
-      "classification": "counterargument",
-      "evidence": "Were they built just before Diwali by the BJP government or this government? No. They were there and they are not new centers.",
+      "classification": "disagreement",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "They have put AQM monitors in JNU, in the ridge area, in the forested green-lined areas where you will not have PM2 worldwide.",
+        "statement_2": "Were they built just before Diwali by the BJP government or this government? No. They were there and they are not new centers."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "Speaker 4 counters Speaker 2's claims about the timing and installation of the pollution monitoring centers.",
+      "reasoning": "SPEAKER_04 challenges SPEAKER_02's implications about the placement and novelty of the pollution monitoring centers.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -481,20 +805,27 @@
     },
     {
       "video_id": "_eakpo9i4dM",
-      "interaction_id": "INT_0005",
+      "interaction_id": "INT_0010",
       "timestamp": 614.973,
       "response_turn_id": "T0011",
       "target_turn_id": "T0010",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_04",
+      "target_speaker": "SPEAKER_04",
       "responding_speaker": "SPEAKER_02",
       "classification": "disagreement",
-      "evidence": "They have been installed by the BJP government.",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "Were they built just before Diwali by the BJP government or this government? No. They were there and they are not new centers.",
+        "statement_2": "They have been installed by the BJP government."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "Speaker 2 explicitly contradicts Speaker 4's claim about who installed the centers.",
+      "reasoning": "SPEAKER_02 contradicts SPEAKER_04's claim by asserting that the centers were installed by the BJP government.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -506,71 +837,252 @@
     },
     {
       "video_id": "_eakpo9i4dM",
-      "interaction_id": "INT_0006",
+      "interaction_id": "INT_0011",
       "timestamp": 619.057,
       "response_turn_id": "T0012",
-      "target_turn_id": "T0008",
+      "target_turn_id": "T0009",
       "subtopic_id": "ST001",
-      "source_speaker": "SPEAKER_02",
+      "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
       "responding_speaker": "SPEAKER_04",
-      "classification": "counterargument",
-      "evidence": "how does it happen that in the time that Arvind Kejriwal is the Chief Minister, you can have Punjab as a problem, but once he becomes the de facto super CM of Punjab, Punjab is not a problem",
-      "evidence_present": true,
-      "evidence_found_in_response": true,
-      "evidence_validation_status": "verified",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
       "manual_review_required": false,
-      "reasoning": "Speaker 04 responds to Speaker 02's accusations regarding stubble burning and political accountability by questioning the shift in narrative around Punjab now that Kejriwal holds power there.",
-      "confidence": "high",
+      "reasoning": "SPEAKER_04 continues the discussion on pollution data and Punjab governance initiated across previous turns without addressing a specific direct claim to agree or disagree with.",
+      "confidence": "low",
       "review_status": "pending",
       "source_turn_timestamps": {
-        "target_start": 468.295,
-        "target_end": 569.731,
+        "target_start": 563.757,
+        "target_end": 603.633,
         "response_start": 619.057,
         "response_end": 661.649
       }
     },
     {
       "video_id": "_eakpo9i4dM",
-      "interaction_id": "INT_0007",
+      "interaction_id": "INT_0012",
       "timestamp": 662.206,
       "response_turn_id": "T0013",
-      "target_turn_id": "T0008",
+      "target_turn_id": "T0011",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
       "responding_speaker": "SPEAKER_04",
-      "classification": "counterargument",
-      "evidence": "We have been aware of the nefarious activities of Hamadmi party just to prove their point they can do anything.",
-      "evidence_present": true,
-      "evidence_found_in_response": true,
-      "evidence_validation_status": "verified",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
       "manual_review_required": false,
-      "reasoning": "Speaker 04 counters Speaker 02's claims by accusing the opposing party of data fabrication regarding Diwali fires.",
-      "confidence": "medium",
+      "reasoning": "SPEAKER_04 pivots to talking about Diwali fires and AAP's alleged nefarious activities rather than directly responding to SPEAKER_02's point about monitor installation.",
+      "confidence": "low",
       "review_status": "pending",
       "source_turn_timestamps": {
-        "target_start": 468.295,
-        "target_end": 569.731,
+        "target_start": 614.973,
+        "target_end": 620.525,
         "response_start": 662.206,
         "response_end": 683.992
       }
     },
     {
       "video_id": "_eakpo9i4dM",
-      "interaction_id": "INT_0008",
+      "interaction_id": "INT_0013",
+      "timestamp": 683.266,
+      "response_turn_id": "T0014",
+      "target_turn_id": "T0013",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_04",
+      "target_speaker": "SPEAKER_04",
+      "responding_speaker": "SPEAKER_03",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host (SPEAKER_03) asks a clarifying question ('nefarious activity here?') following SPEAKER_04's assertions.",
+      "confidence": "low",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 662.206,
+        "target_end": 683.992,
+        "response_start": 683.266,
+        "response_end": 684.886
+      }
+    },
+    {
+      "video_id": "_eakpo9i4dM",
+      "interaction_id": "INT_0014",
+      "timestamp": 686.0,
+      "response_turn_id": "T0015",
+      "target_turn_id": "T0014",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
+      "responding_speaker": "SPEAKER_04",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "SPEAKER_04 responds to the host's question by offering stories and information from journalists in Punjab, without taking a stance on a prior claim.",
+      "confidence": "low",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 683.266,
+        "target_end": 684.886,
+        "response_start": 686.0,
+        "response_end": 704.545
+      }
+    },
+    {
+      "video_id": "_eakpo9i4dM",
+      "interaction_id": "INT_0015",
+      "timestamp": 704.545,
+      "response_turn_id": "T0016",
+      "target_turn_id": "T0015",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_04",
+      "target_speaker": "SPEAKER_04",
+      "responding_speaker": "SPEAKER_02",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "SPEAKER_02 interjects with a brief clarifying or overlapping comment ('in the flight. Regarding pollution.') related to SPEAKER_04's rambling statement.",
+      "confidence": "low",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 686.0,
+        "target_end": 704.545,
+        "response_start": 704.545,
+        "response_end": 706.283
+      }
+    },
+    {
+      "video_id": "_eakpo9i4dM",
+      "interaction_id": "INT_0016",
+      "timestamp": 704.579,
+      "response_turn_id": "T0017",
+      "target_turn_id": "T0016",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
+      "responding_speaker": "SPEAKER_04",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The response is an incomplete topical fragment continuing the previous speaker's thought without a clear stance.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 704.545,
+        "target_end": 706.283,
+        "response_start": 704.579,
+        "response_end": 709.034
+      }
+    },
+    {
+      "video_id": "_eakpo9i4dM",
+      "interaction_id": "INT_0017",
+      "timestamp": 709.405,
+      "response_turn_id": "T0018",
+      "target_turn_id": null,
+      "subtopic_id": "ST001",
+      "source_speaker": null,
+      "target_speaker": null,
+      "responding_speaker": "SPEAKER_04",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The speaker continues their own point about Sangrur; there is no target-stance interaction with another speaker.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": null,
+        "target_end": null,
+        "response_start": 709.405,
+        "response_end": 741.029
+      }
+    },
+    {
+      "video_id": "_eakpo9i4dM",
+      "interaction_id": "INT_0018",
       "timestamp": 741.029,
       "response_turn_id": "T0019",
       "target_turn_id": "T0018",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_04",
+      "target_speaker": "SPEAKER_04",
       "responding_speaker": "SPEAKER_03",
-      "classification": "counterargument",
-      "evidence": "Punjab top of the charts and by a mile at This is of a total of So half, of the recorded farm fires are from there.",
+      "classification": "agreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "Sangrur and adjoining areas was the epicenter of stubble burning.",
+        "statement_2": "Sangroor, the district that was being referred to, the Chief Minister Bhagwat Man's district, at cases."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "The anchor presents comprehensive data on farm fires showing Punjab leads significantly, countering claims or providing data context on the severity of stubble burning.",
-      "confidence": "medium",
+      "reasoning": "The anchor (SPEAKER_03) builds upon and agrees with SPEAKER_04's point about Sangrur being an epicenter of stubble burning, providing detailed data for that specific district.",
+      "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
         "target_start": 709.405,
@@ -581,22 +1093,29 @@
     },
     {
       "video_id": "_eakpo9i4dM",
-      "interaction_id": "INT_0009",
+      "interaction_id": "INT_0019",
       "timestamp": 867.44,
       "response_turn_id": "T0020",
       "target_turn_id": "T0019",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
       "responding_speaker": "SPEAKER_02",
-      "classification": "uncertain",
-      "evidence": "When we formed the government in the parali numbers were We got it down to How? We got machines.",
+      "classification": "disagreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "How can you justify this kind of fire burning?",
+        "statement_2": "Madhav, when we formed the government in the parali numbers were We got it down to How? We got machines."
+      },
       "evidence_present": true,
-      "evidence_found_in_response": false,
-      "evidence_validation_status": "invalid",
-      "manual_review_required": true,
-      "reasoning": "The speaker responds to the challenge regarding high stubble burning numbers by offering counterarguments and explaining government initiatives that reduced the figures.",
-      "confidence": "medium",
-      "review_status": "manual_review_required",
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "SPEAKER_02 responds to SPEAKER_03's challenge regarding high stubble burning numbers in Punjab by defending their record and explaining how they brought the numbers down.",
+      "confidence": "high",
+      "review_status": "pending",
       "source_turn_timestamps": {
         "target_start": 741.029,
         "target_end": 867.44,
@@ -606,20 +1125,59 @@
     },
     {
       "video_id": "_eakpo9i4dM",
-      "interaction_id": "INT_0010",
+      "interaction_id": "INT_0020",
+      "timestamp": 883.083,
+      "response_turn_id": "T0021",
+      "target_turn_id": "T0020",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
+      "responding_speaker": "SPEAKER_03",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The utterance 'you' is a fragmented interjection by the anchor/host and does not constitute a clear stance.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 867.44,
+        "target_end": 884.922,
+        "response_start": 883.083,
+        "response_end": 884.973
+      }
+    },
+    {
+      "video_id": "_eakpo9i4dM",
+      "interaction_id": "INT_0021",
       "timestamp": 884.973,
       "response_turn_id": "T0022",
       "target_turn_id": "T0019",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
       "responding_speaker": "SPEAKER_02",
-      "classification": "counterargument",
-      "evidence": "Because it's already and the season's not over yet.",
+      "classification": "disagreement",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "You keep talking about we brought it down from to But you're still far ahead of the rest.",
+        "statement_2": "brought it down? Because it's already and the season's not over yet."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "Speaker 02 counters the host's point about ongoing stubble burning numbers by arguing that the season is not yet over.",
+      "reasoning": "SPEAKER_02 responds to SPEAKER_03's challenge regarding the reduction of stubble burning numbers by arguing about the ongoing season.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -631,21 +1189,60 @@
     },
     {
       "video_id": "_eakpo9i4dM",
-      "interaction_id": "INT_0011",
+      "interaction_id": "INT_0022",
+      "timestamp": 890.474,
+      "response_turn_id": "T0023",
+      "target_turn_id": "T0020",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
+      "responding_speaker": "SPEAKER_03",
+      "classification": "disagreement",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "Madhav, when we formed the government in the parali numbers were We got it down to How? We got machines.",
+        "statement_2": "And there are also serious charges that you are doing this in the night to avoid being detected by satellites."
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "SPEAKER_03 counters SPEAKER_02's claims about reducing numbers by introducing allegations of data manipulation and night burning.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 867.44,
+        "target_end": 884.922,
+        "response_start": 890.474,
+        "response_end": 926.047
+      }
+    },
+    {
+      "video_id": "_eakpo9i4dM",
+      "interaction_id": "INT_0023",
       "timestamp": 926.232,
       "response_turn_id": "T0024",
       "target_turn_id": "T0023",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
       "responding_speaker": "SPEAKER_02",
-      "classification": "counterargument",
-      "evidence": "How can it reach Delhi in one hour?",
+      "classification": "disagreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "Respond to that charge because a very serious charge that has been, this is Dr. Hiren Jetwa, an aerosol remote sensing scientist.",
+        "statement_2": "Okay, like I said, even if we assume that fires happened, how did the smoke reach Delhi in one hour?"
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "Speaker 02 pushes back on the implications of the charges regarding stubble smoke reaching Delhi by questioning the physics and wind speed timing.",
-      "confidence": "medium",
+      "reasoning": "SPEAKER_02 addresses the charges brought up by SPEAKER_03 regarding farm fires and questions the physics of smoke travel to Delhi.",
+      "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
         "target_start": 890.474,
@@ -656,21 +1253,60 @@
     },
     {
       "video_id": "_eakpo9i4dM",
-      "interaction_id": "INT_0012",
+      "interaction_id": "INT_0024",
+      "timestamp": 946.195,
+      "response_turn_id": "T0025",
+      "target_turn_id": "T0023",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
+      "responding_speaker": "SPEAKER_02",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "This is a brief continuation fragment ('days.') that does not contain a clear standalone stance.",
+      "confidence": "low",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 890.474,
+        "target_end": 926.047,
+        "response_start": 946.195,
+        "response_end": 946.364
+      }
+    },
+    {
+      "video_id": "_eakpo9i4dM",
+      "interaction_id": "INT_0025",
       "timestamp": 946.55,
       "response_turn_id": "T0026",
       "target_turn_id": "T0023",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
       "responding_speaker": "SPEAKER_02",
-      "classification": "counterargument",
-      "evidence": "We have gone down from to but there are states which are adding up.",
+      "classification": "disagreement",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "Respond to that charge because a very serious charge that has been, this is Dr. Hiren Jetwa, an aerosol remote sensing scientist.",
+        "statement_2": "Then there is another organization by the Government of India, SUFFER. which suggested that the Parali contribution to Diwali pollution is about And you can fact check me if I'm wrong"
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "Speaker 02 defends against the charges by arguing that Punjab's numbers are decreasing while other states are increasing.",
-      "confidence": "medium",
+      "reasoning": "SPEAKER_02 continues defending against SPEAKER_03's accusations by citing alternative data from SAFAR regarding stubble burning contributions.",
+      "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
         "target_start": 890.474,
@@ -681,20 +1317,91 @@
     },
     {
       "video_id": "_eakpo9i4dM",
-      "interaction_id": "INT_0013",
+      "interaction_id": "INT_0026",
+      "timestamp": 946.567,
+      "response_turn_id": "T0027",
+      "target_turn_id": "T0026",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
+      "responding_speaker": "SPEAKER_03",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The response is a brief fragment ('they are nowhere close to') that lacks clear semantic context or a definite stance relative to the target turn.",
+      "confidence": "low",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 946.55,
+        "target_end": 983.506,
+        "response_start": 946.567,
+        "response_end": 984.552
+      }
+    },
+    {
+      "video_id": "_eakpo9i4dM",
+      "interaction_id": "INT_0027",
+      "timestamp": 983.59,
+      "response_turn_id": "T0028",
+      "target_turn_id": "T0027",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
+      "responding_speaker": "SPEAKER_02",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The turn consists solely of 'you.', which is too short to determine a clear conversational stance or address a specific claim.",
+      "confidence": "low",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 946.567,
+        "target_end": 984.552,
+        "response_start": 983.59,
+        "response_end": 984.974
+      }
+    },
+    {
+      "video_id": "_eakpo9i4dM",
+      "interaction_id": "INT_0028",
       "timestamp": 984.974,
       "response_turn_id": "T0029",
       "target_turn_id": "T0026",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
       "responding_speaker": "SPEAKER_03",
-      "classification": "counterargument",
-      "evidence": "They are nowhere close to the odd fires which have already happened",
+      "classification": "disagreement",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "The other states are going up now. We are coming down.",
+        "statement_2": "They are nowhere close to the odd fires which have already happened from September 15th to November 12th."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "Speaker disputes the claims about stubble burning trends and comparative statistics presented by SPEAKER_02.",
+      "reasoning": "Speaker_03 disputes Speaker_02's claims regarding fire trends and contributions by contrasting the actual fire statistics.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -706,70 +1413,123 @@
     },
     {
       "video_id": "_eakpo9i4dM",
-      "interaction_id": "INT_0014",
+      "interaction_id": "INT_0029",
       "timestamp": 987.843,
       "response_turn_id": "T0030",
-      "target_turn_id": "T0026",
+      "target_turn_id": null,
       "subtopic_id": "ST001",
-      "source_speaker": "SPEAKER_02",
+      "source_speaker": null,
+      "target_speaker": null,
       "responding_speaker": "SPEAKER_04",
-      "classification": "counterargument",
-      "evidence": "It is coming from Punjab down to the plains. It is not going from the plains up to Punjab.",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": "It is coming from Punjab down to the plains. It is not going from the plains up to Punjab."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": false,
       "evidence_found_in_response": true,
-      "evidence_validation_status": "verified",
-      "manual_review_required": false,
-      "reasoning": "SPEAKER_04 counters SPEAKER_02's assertions about wind direction and pollution movement.",
+      "evidence_validation_status": "invalid",
+      "manual_review_required": true,
+      "reasoning": "Speaker_04 disputes Speaker_02's argument about wind direction and smoke travel time from Punjab to Delhi.",
       "confidence": "high",
-      "review_status": "pending",
+      "review_status": "manual_review_required",
       "source_turn_timestamps": {
-        "target_start": 946.55,
-        "target_end": 983.506,
+        "target_start": null,
+        "target_end": null,
         "response_start": 987.843,
         "response_end": 1002.845
       }
     },
     {
       "video_id": "_eakpo9i4dM",
-      "interaction_id": "INT_0015",
+      "interaction_id": "INT_0030",
       "timestamp": 1003.334,
       "response_turn_id": "T0031",
-      "target_turn_id": "T0026",
+      "target_turn_id": null,
       "subtopic_id": "ST001",
-      "source_speaker": "SPEAKER_02",
+      "source_speaker": null,
+      "target_speaker": null,
       "responding_speaker": "SPEAKER_03",
-      "classification": "counterargument",
-      "evidence": "should the Delhi children be writing letters to Uncle Kejriwal or Uncle Bhagwan Man?",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": "now should the Delhi children be writing letters to Uncle Kejriwal or Uncle Bhagwan Man?"
+      },
       "evidence_present": true,
+      "evidence_found_in_target": false,
       "evidence_found_in_response": true,
-      "evidence_validation_status": "verified",
-      "manual_review_required": false,
-      "reasoning": "Speaker challenges the accountability argument made regarding stubble burning and political responsibility.",
-      "confidence": "high",
-      "review_status": "pending",
+      "evidence_validation_status": "invalid",
+      "manual_review_required": true,
+      "reasoning": "Speaker_03 rejects the defense of the Punjab/Delhi government's handling of pollution by pointing out current accountability regarding stubble burning under the AAP leadership.",
+      "confidence": "medium",
+      "review_status": "manual_review_required",
       "source_turn_timestamps": {
-        "target_start": 946.55,
-        "target_end": 983.506,
+        "target_start": null,
+        "target_end": null,
         "response_start": 1003.334,
         "response_end": 1016.885
       }
     },
     {
       "video_id": "_eakpo9i4dM",
-      "interaction_id": "INT_0016",
+      "interaction_id": "INT_0031",
+      "timestamp": 1016.885,
+      "response_turn_id": "T0032",
+      "target_turn_id": "T0031",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
+      "responding_speaker": "SPEAKER_02",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "Speaker 02 ignores the question about political leaders in T0031 and pivots to defending their government's record on pollution decline, making the stance relative to T0031 unclear or a topic shift.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1003.334,
+        "target_end": 1016.885,
+        "response_start": 1016.885,
+        "response_end": 1028.039
+      }
+    },
+    {
+      "video_id": "_eakpo9i4dM",
+      "interaction_id": "INT_0032",
       "timestamp": 1028.039,
       "response_turn_id": "T0033",
       "target_turn_id": "T0032",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
       "responding_speaker": "SPEAKER_03",
-      "classification": "counterargument",
-      "evidence": "We are the only state which has actually gone down. Is that factually correct and have they done enough?",
+      "classification": "disagreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "Madhav, we have already shown the work we have done. Please tell me which is the other state which is on a decline. All the numbers from the previous have gone up. But we are the only state which has gone down from to",
+        "statement_2": "We are the only state which has actually gone down. Is that factually correct and have they done enough?"
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "The speaker directly questions and challenges SPEAKER_02's claim about being the only state with a decline in pollution metrics.",
+      "reasoning": "Speaker 03 challenges Speaker 02's claim by questioning whether it is factually correct and if they have actually done enough.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -781,46 +1541,60 @@
     },
     {
       "video_id": "_eakpo9i4dM",
-      "interaction_id": "INT_0017",
+      "interaction_id": "INT_0033",
       "timestamp": 1035.093,
       "response_turn_id": "T0034",
-      "target_turn_id": "T0032",
+      "target_turn_id": "T0033",
       "subtopic_id": "ST001",
-      "source_speaker": "SPEAKER_02",
+      "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
       "responding_speaker": "SPEAKER_00",
-      "classification": "counterargument",
-      "evidence": "All the data that you've shared up here, whether it's the data of the AQI data of Delhi or the data of the farm fires, nothing is accurate.",
+      "classification": "disagreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "We are the only state which has actually gone down. Is that factually correct and have they done enough?",
+        "statement_2": "All the data that you've shared up here, whether it's the data of the AQI data of Delhi or the data of the farm fires, nothing is accurate. This is one big smog wash."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "The speaker counters the previous political arguments relying on statistical data by claiming all shared data is inaccurate.",
-      "confidence": "medium",
+      "reasoning": "Speaker 00 explicitly rejects the data and claims discussed by the previous speakers, calling all shared data inaccurate and a smog wash.",
+      "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
-        "target_start": 1016.885,
-        "target_end": 1028.039,
+        "target_start": 1028.039,
+        "target_end": 1033.574,
         "response_start": 1035.093,
         "response_end": 1133.963
       }
     },
     {
       "video_id": "_eakpo9i4dM",
-      "interaction_id": "INT_0018",
+      "interaction_id": "INT_0034",
       "timestamp": 1133.963,
       "response_turn_id": "T0035",
       "target_turn_id": "T0034",
       "subtopic_id": "ST002",
       "source_speaker": "SPEAKER_00",
+      "target_speaker": "SPEAKER_00",
       "responding_speaker": "SPEAKER_03",
       "classification": "partial_agreement",
-      "evidence": "The point is this, that the future of children is being impacted.",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "And my children cannot leave the house. They can't go to school. Everybody is gasping for air. There is a hopelessness. That's the only data that matters.",
+        "statement_2": "The point is this, that the future of children is being impacted. How is, you know, children sitting at home and taking online classes a solution to Delhi's pollution?"
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "The host acknowledges SPEAKER_00's point about children and health impact, while steering back to the policy/solution question.",
-      "confidence": "medium",
+      "reasoning": "Speaker 03 acknowledges and builds upon Speaker 00's point about children being stuck at home and impacted by pollution, while redirecting back to finding solutions.",
+      "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
         "target_start": 1035.093,
@@ -831,20 +1605,27 @@
     },
     {
       "video_id": "_eakpo9i4dM",
-      "interaction_id": "INT_0019",
+      "interaction_id": "INT_0035",
       "timestamp": 1152.948,
       "response_turn_id": "T0036",
       "target_turn_id": "T0035",
       "subtopic_id": "ST002",
       "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
       "responding_speaker": "SPEAKER_07",
-      "classification": "agreement",
-      "evidence": "It's causing problems and my children or any other child is not breathing a BJP air or a Congress air or an armed party air.",
+      "classification": "partial_agreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "What is the solution? Because this ultimately impacts the health, the lives and our future of India.",
+        "statement_2": "It's causing problems and my children or any other child is not breathing a BJP air or a Congress air or an armed party air. They are breathing this polluted air which is certainly detrimental to their health and we need immediate action."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "The speaker agrees with the anchor about children's health being impacted regardless of politics.",
+      "reasoning": "Speaker 07 agrees with Speaker 03 that the pollution is detrimental to children's health and requires action, but qualifies the response by defending the current government against political blame.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -856,22 +1637,157 @@
     },
     {
       "video_id": "_eakpo9i4dM",
-      "interaction_id": "INT_0020",
+      "interaction_id": "INT_0036",
+      "timestamp": 1237.34,
+      "response_turn_id": "T0037",
+      "target_turn_id": "T0036",
+      "subtopic_id": "ST002",
+      "source_speaker": "SPEAKER_07",
+      "target_speaker": "SPEAKER_07",
+      "responding_speaker": "SPEAKER_03",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host transitions from the school principal's perspective to introduce a new visual segment showing a damaged lung and framing the situation as a public health emergency. This is a topic introduction and question rather than a direct stance towards the principal's claims.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1152.948,
+        "target_end": 1237.34,
+        "response_start": 1237.34,
+        "response_end": 1283.527
+      }
+    },
+    {
+      "video_id": "_eakpo9i4dM",
+      "interaction_id": "INT_0037",
+      "timestamp": 1284.151,
+      "response_turn_id": "T0038",
+      "target_turn_id": "T0037",
+      "subtopic_id": "ST003",
+      "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
+      "responding_speaker": "SPEAKER_01",
+      "classification": "agreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "We are looking at a public health emergency in Delhi.",
+        "statement_2": "more seriously, I think breathing has become a luxury in Delhi. We can't go out, there is indoor pollution too."
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "SPEAKER_01 builds directly on the host's previous point about the health crisis in Delhi, agreeing and expanding upon the medical and systemic consequences of pollution.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1237.34,
+        "target_end": 1283.527,
+        "response_start": 1284.151,
+        "response_end": 1417.683
+      }
+    },
+    {
+      "video_id": "_eakpo9i4dM",
+      "interaction_id": "INT_0038",
+      "timestamp": 1418.408,
+      "response_turn_id": "T0039",
+      "target_turn_id": null,
+      "subtopic_id": "ST003",
+      "source_speaker": null,
+      "target_speaker": null,
+      "responding_speaker": "SPEAKER_01",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "This is a continuation of SPEAKER_01's own previous turn, elaborating on rollout plans rather than responding to another speaker.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": null,
+        "target_end": null,
+        "response_start": 1418.408,
+        "response_end": 1445.493
+      }
+    },
+    {
+      "video_id": "_eakpo9i4dM",
+      "interaction_id": "INT_0039",
+      "timestamp": 1445.493,
+      "response_turn_id": "T0040",
+      "target_turn_id": "T0039",
+      "subtopic_id": "ST003",
+      "source_speaker": "SPEAKER_01",
+      "target_speaker": "SPEAKER_01",
+      "responding_speaker": "SPEAKER_03",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host acknowledges the solutions discussed and shifts the questioning to a new panelist (Wing Commander Anum Acharya) regarding political responsibility, acting as moderation/topic transition.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1418.408,
+        "target_end": 1445.493,
+        "response_start": 1445.493,
+        "response_end": 1512.638
+      }
+    },
+    {
+      "video_id": "_eakpo9i4dM",
+      "interaction_id": "INT_0040",
       "timestamp": 1512.976,
       "response_turn_id": "T0041",
       "target_turn_id": "T0040",
       "subtopic_id": "ST003",
       "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
       "responding_speaker": "SPEAKER_06",
-      "classification": "counterargument",
-      "evidence": "whatever solutions you have shown for China or Mexico or other countries, they can all be implemented here. But what we are doing, we are managing, manipulating the appearances.",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "can any political party today say that they are not responsible for it?",
+        "statement_2": ""
+      },
       "evidence_present": true,
-      "evidence_found_in_response": true,
-      "evidence_validation_status": "verified",
-      "manual_review_required": false,
-      "reasoning": "The speaker responds to the host's global solutions by arguing that while those solutions apply, the government is failing to implement them properly and instead manipulating data.",
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "invalid",
+      "manual_review_required": true,
+      "reasoning": "SPEAKER_06 agrees with the host's premise that political leaders/parties are responsible for the crisis and that political debates are failing to solve the public health emergency.",
       "confidence": "high",
-      "review_status": "pending",
+      "review_status": "manual_review_required",
       "source_turn_timestamps": {
         "target_start": 1445.493,
         "target_end": 1512.638,
@@ -881,45 +1797,123 @@
     },
     {
       "video_id": "_eakpo9i4dM",
-      "interaction_id": "INT_0021",
+      "interaction_id": "INT_0041",
+      "timestamp": 1603.038,
+      "response_turn_id": "T0042",
+      "target_turn_id": null,
+      "subtopic_id": "ST003",
+      "source_speaker": null,
+      "target_speaker": null,
+      "responding_speaker": "SPEAKER_03",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The turn consists of a single incomplete word fragment 'Any' serving as an interruption or false start, with no discernible stance or target.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": null,
+        "target_end": null,
+        "response_start": 1603.038,
+        "response_end": 1606.835
+      }
+    },
+    {
+      "video_id": "_eakpo9i4dM",
+      "interaction_id": "INT_0042",
+      "timestamp": 1604.506,
+      "response_turn_id": "T0043",
+      "target_turn_id": null,
+      "subtopic_id": "ST003",
+      "source_speaker": null,
+      "target_speaker": null,
+      "responding_speaker": "SPEAKER_06",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "Speaker continues their own previous thoughts without addressing any other speaker's specific claim.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": null,
+        "target_end": null,
+        "response_start": 1604.506,
+        "response_end": 1632.94
+      }
+    },
+    {
+      "video_id": "_eakpo9i4dM",
+      "interaction_id": "INT_0043",
       "timestamp": 1623.018,
       "response_turn_id": "T0044",
-      "target_turn_id": "T0041",
+      "target_turn_id": "T0043",
       "subtopic_id": "ST003",
       "source_speaker": "SPEAKER_06",
+      "target_speaker": "SPEAKER_06",
       "responding_speaker": "SPEAKER_03",
-      "classification": "partial_agreement",
-      "evidence": "I'm not somebody who says they're completely banned Diwali crackers. People would have different views. But there has to be some sense of responsibility.",
+      "classification": "disagreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "government anywhere should take the necessary course correction at the time when it is",
+        "statement_2": "there has to be some sense of responsibility. Because not only was the green cracker rule violated, because there were regular crackers that were, in fact, burst, but also people way beyond the Supreme Court mandated deadline"
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "The host responds following the general discussion of responsibility and government action initiated by SPEAKER_06, agreeing that there is a serious issue of responsibility and law implementation while qualifying the stance on total bans.",
+      "reasoning": "SPEAKER_03 counters the focus solely on government course correction by highlighting individual and public responsibility regarding fireworks and court orders.",
       "confidence": "medium",
       "review_status": "pending",
       "source_turn_timestamps": {
-        "target_start": 1512.976,
-        "target_end": 1603.797,
+        "target_start": 1604.506,
+        "target_end": 1632.94,
         "response_start": 1623.018,
         "response_end": 1659.063
       }
     },
     {
       "video_id": "_eakpo9i4dM",
-      "interaction_id": "INT_0022",
+      "interaction_id": "INT_0044",
       "timestamp": 1659.907,
       "response_turn_id": "T0045",
       "target_turn_id": "T0044",
       "subtopic_id": "ST003",
       "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
       "responding_speaker": "SPEAKER_05",
       "classification": "partial_agreement",
-      "evidence": "banning everything is not something the government should ideally do. The onus has to be on the individual.",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "there has to be some sense of responsibility.",
+        "statement_2": "it has to be about individual responsibility as well. You know, the government, in fact, the Maharashtra government had spoken about green trackers, but eventually at the end of the day, banning everything is not something the government should ideally do. The onus has to be on the individual."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "SPEAKER_05 responds to the previous discussion about court orders and enforcement regarding Diwali crackers (T0044), agreeing with the emphasis on responsibility but qualifying it by arguing the onus should be on individuals rather than government bans.",
+      "reasoning": "SPEAKER_05 agrees with SPEAKER_03's point about personal responsibility regarding crackers, but qualifies it by arguing against government bans and placing the full onus on individuals.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -931,20 +1925,187 @@
     },
     {
       "video_id": "_eakpo9i4dM",
-      "interaction_id": "INT_0023",
+      "interaction_id": "INT_0045",
+      "timestamp": 1690.028,
+      "response_turn_id": "T0046",
+      "target_turn_id": "T0045",
+      "subtopic_id": "ST003",
+      "source_speaker": "SPEAKER_05",
+      "target_speaker": "SPEAKER_05",
+      "responding_speaker": "SPEAKER_03",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "banning everything is not something the government should ideally do. The onus has to be on the individual.",
+        "statement_2": ""
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "invalid",
+      "manual_review_required": true,
+      "reasoning": "SPEAKER_03 rejects SPEAKER_05's notion that the onus should solely be on individuals and that governments should avoid bans, advocating instead for direct government bans and drastic measures.",
+      "confidence": "high",
+      "review_status": "manual_review_required",
+      "source_turn_timestamps": {
+        "target_start": 1659.907,
+        "target_end": 1690.028,
+        "response_start": 1690.028,
+        "response_end": 1716.674
+      }
+    },
+    {
+      "video_id": "_eakpo9i4dM",
+      "interaction_id": "INT_0046",
+      "timestamp": 1710.481,
+      "response_turn_id": "T0047",
+      "target_turn_id": "T0046",
+      "subtopic_id": "ST003",
+      "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
+      "responding_speaker": "SPEAKER_05",
+      "classification": "disagreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "When are we going to take drastic measures? You have to ultimately move towards cleaner fuel, perhaps electric.",
+        "statement_2": "In a democracy, you have to leave the final choice of these things to the people of the country. If I can shift to an electric vehicle... If"
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "SPEAKER_05 responds to SPEAKER_03's call for drastic government policy measures regarding electric vehicles by arguing that choices should be left to individuals in a democracy rather than mandated or forced.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1690.028,
+        "target_end": 1716.674,
+        "response_start": 1710.481,
+        "response_end": 1744.113
+      }
+    },
+    {
+      "video_id": "_eakpo9i4dM",
+      "interaction_id": "INT_0047",
+      "timestamp": 1734.038,
+      "response_turn_id": "T0048",
+      "target_turn_id": "T0047",
+      "subtopic_id": "ST003",
+      "source_speaker": "SPEAKER_05",
+      "target_speaker": "SPEAKER_05",
+      "responding_speaker": "SPEAKER_03",
+      "classification": "disagreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "In a democracy, you have to leave the final choice of these things to the people of the country.",
+        "statement_2": "you give more subsidies, once again, if you give more subsidies, you can attract the people towards that and that's also the role of the government, isn't it?"
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "SPEAKER_03 challenges SPEAKER_05's hands-off approach by emphasizing that the government does have a proactive role to play through subsidies to influence choices.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1710.481,
+        "target_end": 1744.113,
+        "response_start": 1734.038,
+        "response_end": 1750.593
+      }
+    },
+    {
+      "video_id": "_eakpo9i4dM",
+      "interaction_id": "INT_0048",
+      "timestamp": 1750.593,
+      "response_turn_id": "T0049",
+      "target_turn_id": "T0048",
+      "subtopic_id": "ST003",
+      "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
+      "responding_speaker": "SPEAKER_05",
+      "classification": "agreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "if you give more subsidies, you can attract the people towards that and that's also the role of the government, isn't it?",
+        "statement_2": "Subsidies are being provided. In fact, I know at least people in my friend circle who have opted for electrical vehicles."
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "SPEAKER_05 agrees with SPEAKER_03's point on government subsidies by confirming that subsidies are indeed being provided and are effective.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1734.038,
+        "target_end": 1750.593,
+        "response_start": 1750.593,
+        "response_end": 1760.971
+      }
+    },
+    {
+      "video_id": "_eakpo9i4dM",
+      "interaction_id": "INT_0049",
+      "timestamp": 1759.975,
+      "response_turn_id": "T0050",
+      "target_turn_id": "T0049",
+      "subtopic_id": "ST003",
+      "source_speaker": "SPEAKER_05",
+      "target_speaker": "SPEAKER_05",
+      "responding_speaker": "SPEAKER_00",
+      "classification": "partial_agreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "Subsidies are being provided. In fact, I know at least people in my friend circle who have opted for electrical vehicles. I want to talk big picture.",
+        "statement_2": "It has to be done through policy change that drives, that incentivizes good behavior and penalizes bad behavior."
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "SPEAKER_00 partially agrees with the focus on adoption and incentives mentioned by SPEAKER_05, but broadens the scope to structural policy changes and penalization.",
+      "confidence": "medium",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1750.593,
+        "target_end": 1760.971,
+        "response_start": 1759.975,
+        "response_end": 1809.976
+      }
+    },
+    {
+      "video_id": "_eakpo9i4dM",
+      "interaction_id": "INT_0050",
       "timestamp": 1809.976,
       "response_turn_id": "T0051",
       "target_turn_id": "T0050",
       "subtopic_id": "ST003",
       "source_speaker": "SPEAKER_00",
+      "target_speaker": "SPEAKER_00",
       "responding_speaker": "SPEAKER_03",
       "classification": "agreement",
-      "evidence": "I think he has a very fair point.",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "It has to be done through policy change that drives, that incentivizes good behavior and penalizes bad behavior.",
+        "statement_2": "I think he has a very fair point. Governments have an influence over human behavior and subsidies and such policies are going to be key"
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "The speaker explicitly agrees with the previous speaker's point about government influence and policies.",
+      "reasoning": "SPEAKER_03 explicitly agrees with SPEAKER_00's point about the necessity of government policy and incentives in shaping behavior against pollution.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -956,20 +2117,123 @@
     },
     {
       "video_id": "_eakpo9i4dM",
-      "interaction_id": "INT_0024",
+      "interaction_id": "INT_0051",
+      "timestamp": 1818.835,
+      "response_turn_id": "T0052",
+      "target_turn_id": "T0050",
+      "subtopic_id": "ST003",
+      "source_speaker": "SPEAKER_00",
+      "target_speaker": "SPEAKER_00",
+      "responding_speaker": "SPEAKER_04",
+      "classification": "partial_agreement",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "I would like to see more in terms of policy change to influence human behavior because the problem of air pollution and the problem of climate change will not go away unless we, you know, switch paths.",
+        "statement_2": "An important point, Madhav, is that people also have a tendency to rebel. Now, having said that, we are all witness to what happened into the government efforts on the reducing pollution by bringing in E20."
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "SPEAKER_04 acknowledges SPEAKER_00's point on policy changes and behavior, but qualifies it by discussing the difficulties and public pushback/fiasco regarding specific policies like E20.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1759.975,
+        "target_end": 1809.976,
+        "response_start": 1818.835,
+        "response_end": 1890.858
+      }
+    },
+    {
+      "video_id": "_eakpo9i4dM",
+      "interaction_id": "INT_0052",
+      "timestamp": 1890.858,
+      "response_turn_id": "T0053",
+      "target_turn_id": "T0050",
+      "subtopic_id": "ST003",
+      "source_speaker": "SPEAKER_00",
+      "target_speaker": "SPEAKER_00",
+      "responding_speaker": "SPEAKER_06",
+      "classification": "partial_agreement",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "I would like to see more in terms of policy change to influence human behavior because the problem of air pollution and the problem of climate change will not go away unless we, you know, switch paths.",
+        "statement_2": "Everybody knows what E20 is. And E20 has gone to E35 also. Ruining, destroying your vehicles, and it's functioning. That's one part of it. But here, I would talk about data manipulation versus accountability."
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "SPEAKER_06 builds upon the discussion of policy impacts initiated by SPEAKER_00 by pointing out negative vehicle impacts from E20 policies, while pivoting to accountability and timelines.",
+      "confidence": "medium",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1759.975,
+        "target_end": 1809.976,
+        "response_start": 1890.858,
+        "response_end": 1955.135
+      }
+    },
+    {
+      "video_id": "_eakpo9i4dM",
+      "interaction_id": "INT_0053",
+      "timestamp": 1955.135,
+      "response_turn_id": "T0054",
+      "target_turn_id": "T0053",
+      "subtopic_id": "ST003",
+      "source_speaker": "SPEAKER_06",
+      "target_speaker": "SPEAKER_06",
+      "responding_speaker": "SPEAKER_03",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host (SPEAKER_03) is directing the conversation and calling on the next speaker without expressing a stance on SPEAKER_06's claims.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1890.858,
+        "target_end": 1955.135,
+        "response_start": 1955.135,
+        "response_end": 1957.295
+      }
+    },
+    {
+      "video_id": "_eakpo9i4dM",
+      "interaction_id": "INT_0054",
       "timestamp": 1957.48,
       "response_turn_id": "T0055",
       "target_turn_id": "T0053",
       "subtopic_id": "ST003",
       "source_speaker": "SPEAKER_06",
+      "target_speaker": "SPEAKER_06",
       "responding_speaker": "SPEAKER_07",
       "classification": "agreement",
-      "evidence": "As ma'am said, she did not burst crackers. I also did not burst crackers.",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "we all worshiped during Diwali. We celebrated Diwali. We did not burn crackers. Why? Have we become less Hindus? No.",
+        "statement_2": "As ma'am said, she did not burst crackers. I also did not burst crackers."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "The speaker explicitly agrees with the previous panelist's statement regarding not bursting crackers during Diwali.",
+      "reasoning": "SPEAKER_07 explicitly agrees with SPEAKER_06's previous statement about celebrating Diwali without bursting firecrackers as responsible citizens.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -981,22 +2245,125 @@
     },
     {
       "video_id": "_eakpo9i4dM",
-      "interaction_id": "INT_0025",
+      "interaction_id": "INT_0055",
+      "timestamp": 1968.601,
+      "response_turn_id": "T0056",
+      "target_turn_id": "T0055",
+      "subtopic_id": "ST003",
+      "source_speaker": "SPEAKER_07",
+      "target_speaker": "SPEAKER_07",
+      "responding_speaker": "SPEAKER_03",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host (SPEAKER_03) is intervening to moderate the debate and stop interruptions rather than taking a stance.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1957.48,
+        "target_end": 1968.55,
+        "response_start": 1968.601,
+        "response_end": 1972.448
+      }
+    },
+    {
+      "video_id": "_eakpo9i4dM",
+      "interaction_id": "INT_0056",
+      "timestamp": 1971.672,
+      "response_turn_id": "T0057",
+      "target_turn_id": null,
+      "subtopic_id": "ST003",
+      "source_speaker": null,
+      "target_speaker": null,
+      "responding_speaker": "SPEAKER_07",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": "No, what I'm trying to say is, again, it is responsible citizenship."
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "invalid",
+      "manual_review_required": true,
+      "reasoning": "The speaker continues their previous point about responsible citizenship and reiterates the stance.",
+      "confidence": "high",
+      "review_status": "manual_review_required",
+      "source_turn_timestamps": {
+        "target_start": null,
+        "target_end": null,
+        "response_start": 1971.672,
+        "response_end": 2016.577
+      }
+    },
+    {
+      "video_id": "_eakpo9i4dM",
+      "interaction_id": "INT_0057",
+      "timestamp": 2015.851,
+      "response_turn_id": "T0058",
+      "target_turn_id": "T0057",
+      "subtopic_id": "ST003",
+      "source_speaker": "SPEAKER_07",
+      "target_speaker": "SPEAKER_07",
+      "responding_speaker": "SPEAKER_03",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host shifts the topic to address a different participant with new data regarding Punjab districts, ignoring the previous speaker's point.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1971.672,
+        "target_end": 2016.577,
+        "response_start": 2015.851,
+        "response_end": 2035.038
+      }
+    },
+    {
+      "video_id": "_eakpo9i4dM",
+      "interaction_id": "INT_0058",
       "timestamp": 2035.038,
       "response_turn_id": "T0059",
       "target_turn_id": "T0058",
       "subtopic_id": "ST004",
       "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
       "responding_speaker": "SPEAKER_02",
-      "classification": "counterargument",
-      "evidence": "Shri Ganga Nagar, Rajasthan. It has nothing to do with Punjab.",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": "Okay. Madhav, which is the most polluted city in India? Shri Ganga Nagar, Rajasthan. It has nothing to do with Punjab."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": false,
       "evidence_found_in_response": true,
-      "evidence_validation_status": "verified",
-      "manual_review_required": false,
-      "reasoning": "The speaker challenges the host's premise linking high AQI in districts to Punjab farm fires by pointing to Shri Ganga Nagar, Rajasthan as a counter example.",
+      "evidence_validation_status": "invalid",
+      "manual_review_required": true,
+      "reasoning": "Speaker_02 responds to the anchor's challenge regarding Punjab's pollution and stubble burning by deflecting and arguing that other highly polluted cities have nothing to do with Punjab.",
       "confidence": "high",
-      "review_status": "pending",
+      "review_status": "manual_review_required",
       "source_turn_timestamps": {
         "target_start": 2015.851,
         "target_end": 2035.038,
@@ -1006,52 +2373,482 @@
     },
     {
       "video_id": "_eakpo9i4dM",
-      "interaction_id": "INT_0026",
-      "timestamp": 2049.027,
-      "response_turn_id": "T0064",
+      "interaction_id": "INT_0059",
+      "timestamp": 2047.036,
+      "response_turn_id": "T0060",
       "target_turn_id": null,
       "subtopic_id": "ST004",
       "source_speaker": null,
+      "target_speaker": null,
       "responding_speaker": "SPEAKER_02",
       "classification": "uncertain",
-      "evidence": "all these places have bad AQIs now",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": "it'll go"
+      },
       "evidence_present": true,
+      "evidence_found_in_target": false,
       "evidence_found_in_response": true,
-      "evidence_validation_status": "verified",
-      "manual_review_required": false,
-      "reasoning": "Speaker responds to host's data on Punjab districts by pointing out that bad AQIs are widespread and questioning government action.",
-      "confidence": "medium",
-      "review_status": "pending",
+      "evidence_validation_status": "invalid",
+      "manual_review_required": true,
+      "reasoning": "Continuation of the previous sentence by the same speaker.",
+      "confidence": "high",
+      "review_status": "manual_review_required",
       "source_turn_timestamps": {
         "target_start": null,
         "target_end": null,
+        "response_start": 2047.036,
+        "response_end": 2047.323
+      }
+    },
+    {
+      "video_id": "_eakpo9i4dM",
+      "interaction_id": "INT_0060",
+      "timestamp": 2047.323,
+      "response_turn_id": "T0061",
+      "target_turn_id": "T0060",
+      "subtopic_id": "ST004",
+      "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
+      "responding_speaker": "SPEAKER_03",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "A single-word overlap or interruption by the host with no clear semantic stance.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 2047.036,
+        "target_end": 2047.323,
+        "response_start": 2047.323,
+        "response_end": 2047.39
+      }
+    },
+    {
+      "video_id": "_eakpo9i4dM",
+      "interaction_id": "INT_0061",
+      "timestamp": 2047.39,
+      "response_turn_id": "T0062",
+      "target_turn_id": "T0061",
+      "subtopic_id": "ST004",
+      "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
+      "responding_speaker": "SPEAKER_02",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The response is a fragment providing a location name, lacking a clear stance or coherent interaction with the moderator's one-word utterance.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 2047.323,
+        "target_end": 2047.39,
+        "response_start": 2047.39,
+        "response_end": 2048.015
+      }
+    },
+    {
+      "video_id": "_eakpo9i4dM",
+      "interaction_id": "INT_0062",
+      "timestamp": 2048.032,
+      "response_turn_id": "T0063",
+      "target_turn_id": "T0061",
+      "subtopic_id": "ST004",
+      "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
+      "responding_speaker": "SPEAKER_02",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The response is an incomplete introductory phrase with no discernible argumentative stance against the prior turn.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 2047.323,
+        "target_end": 2047.39,
+        "response_start": 2048.032,
+        "response_end": 2048.977
+      }
+    },
+    {
+      "video_id": "_eakpo9i4dM",
+      "interaction_id": "INT_0063",
+      "timestamp": 2049.027,
+      "response_turn_id": "T0064",
+      "target_turn_id": "T0061",
+      "subtopic_id": "ST004",
+      "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
+      "responding_speaker": "SPEAKER_02",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The response continues SPEAKER_02's point rather than addressing the host's isolated word, making the target stance unclear.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 2047.323,
+        "target_end": 2047.39,
         "response_start": 2049.027,
         "response_end": 2082.845
       }
     },
     {
       "video_id": "_eakpo9i4dM",
-      "interaction_id": "INT_0027",
-      "timestamp": 2100.192,
-      "response_turn_id": "T0066",
+      "interaction_id": "INT_0064",
+      "timestamp": 2076.922,
+      "response_turn_id": "T0065",
       "target_turn_id": "T0064",
       "subtopic_id": "ST004",
       "source_speaker": "SPEAKER_02",
-      "responding_speaker": "SPEAKER_05",
-      "classification": "disagreement",
-      "evidence": "the environment minister is very much active",
-      "evidence_present": true,
-      "evidence_found_in_response": true,
-      "evidence_validation_status": "verified",
+      "target_speaker": "SPEAKER_02",
+      "responding_speaker": "SPEAKER_03",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
       "manual_review_required": false,
-      "reasoning": "Speaker directly refutes earlier claims that the environment minister was missing and inactive.",
+      "reasoning": "The host summarizes points and directs a question to another participant, acting as a moderator rather than taking a stance.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
         "target_start": 2049.027,
         "target_end": 2082.845,
+        "response_start": 2076.922,
+        "response_end": 2099.939
+      }
+    },
+    {
+      "video_id": "_eakpo9i4dM",
+      "interaction_id": "INT_0065",
+      "timestamp": 2100.192,
+      "response_turn_id": "T0066",
+      "target_turn_id": "T0065",
+      "subtopic_id": "ST004",
+      "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
+      "responding_speaker": "SPEAKER_05",
+      "classification": "partial_agreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "Where is the environment minister, is the question I'm on the party is asking.",
+        "statement_2": "Well, the environment minister is very much active."
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "SPEAKER_05 responds directly to the host's prompt by defending the environment minister's activity (disagreeing with the criticism), while addressing the point about industries by explaining why they are only temporarily shut down, thus partially agreeing with the concern over industries while defending current policies.",
+      "confidence": "medium",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 2076.922,
+        "target_end": 2099.939,
         "response_start": 2100.192,
         "response_end": 2136.136
+      }
+    },
+    {
+      "video_id": "_eakpo9i4dM",
+      "interaction_id": "INT_0066",
+      "timestamp": 2134.853,
+      "response_turn_id": "T0067",
+      "target_turn_id": "T0066",
+      "subtopic_id": "ST004",
+      "source_speaker": "SPEAKER_05",
+      "target_speaker": "SPEAKER_05",
+      "responding_speaker": "SPEAKER_03",
+      "classification": "partial_agreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "So, while, yes, temporarily, when the AQI goes out of control, they are temporarily shut, I mean, they're temporarily shut down for a few days. But to take a call on whether they need to be shut permanently, I mean, it involves the human concern of employment also.",
+        "statement_2": "They can be shifted to about 300-400 meters. I'm"
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "SPEAKER_03 suggests industries can be shifted rather than permanently shut, partially engaging with SPEAKER_05's point about industry closure concerns.",
+      "confidence": "medium",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 2100.192,
+        "target_end": 2136.136,
+        "response_start": 2134.853,
+        "response_end": 2137.975
+      }
+    },
+    {
+      "video_id": "_eakpo9i4dM",
+      "interaction_id": "INT_0067",
+      "timestamp": 2137.975,
+      "response_turn_id": "T0068",
+      "target_turn_id": "T0067",
+      "subtopic_id": "ST004",
+      "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
+      "responding_speaker": "SPEAKER_05",
+      "classification": "agreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "They can be shifted to about 300-400 meters. I'm",
+        "statement_2": "sure these things require more deliberation which I'm sure must be happening but the point is"
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "SPEAKER_05 agrees that the suggestions require deliberation, responding to SPEAKER_03's point.",
+      "confidence": "medium",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 2134.853,
+        "target_end": 2137.975,
+        "response_start": 2137.975,
+        "response_end": 2149.417
+      }
+    },
+    {
+      "video_id": "_eakpo9i4dM",
+      "interaction_id": "INT_0068",
+      "timestamp": 2150.108,
+      "response_turn_id": "T0069",
+      "target_turn_id": "T0067",
+      "subtopic_id": "ST004",
+      "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
+      "responding_speaker": "SPEAKER_05",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "SPEAKER_05 shifts the topic to policy changes and criticizing an unnamed person/party without addressing a specific claim from T0067.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 2134.853,
+        "target_end": 2137.975,
+        "response_start": 2150.108,
+        "response_end": 2187.976
+      }
+    },
+    {
+      "video_id": "_eakpo9i4dM",
+      "interaction_id": "INT_0069",
+      "timestamp": 2167.81,
+      "response_turn_id": "T0070",
+      "target_turn_id": "T0069",
+      "subtopic_id": "ST004",
+      "source_speaker": "SPEAKER_05",
+      "target_speaker": "SPEAKER_05",
+      "responding_speaker": "SPEAKER_03",
+      "classification": "disagreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "the only people who try to stall it is that lady who comes here and casts aspersions on everything. Who has stopped metro construction? No, I'm saying the metro connectivity is also part of a policy change. No, no. From kilometers in That has been one of our policies for a long time. No, very good. If you have kilometers of metro connectivity, all that is reduced. I don't think any political",
+        "statement_2": "party has politicized metro in that sense. But quick closing comments. We are almost out of time. seconds from each of you. First, Dr. And then you."
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "The host (SPEAKER_03) pushes back against the politicization claim regarding the metro by stating no political party has politicized it in that sense, and moves to closing comments.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 2150.108,
+        "target_end": 2187.976,
+        "response_start": 2167.81,
+        "response_end": 2193.73
+      }
+    },
+    {
+      "video_id": "_eakpo9i4dM",
+      "interaction_id": "INT_0070",
+      "timestamp": 2193.73,
+      "response_turn_id": "T0071",
+      "target_turn_id": "T0069",
+      "subtopic_id": "ST005",
+      "source_speaker": "SPEAKER_05",
+      "target_speaker": "SPEAKER_05",
+      "responding_speaker": "SPEAKER_01",
+      "classification": "partial_agreement",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "You know, while somebody was rightly talking about policy changes, when we make policy changes, whether it is E20 or the spree of metro rail connectivity which has come up across the country",
+        "statement_2": "Malik, I think the political part can continue. But if you have to look at things which Delhi can control within itself, first is vehicle emission. We need a little bit better public transport."
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "SPEAKER_01 agrees with discussing policy/transport aspects like public transit while moving away from the political accusations.",
+      "confidence": "medium",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 2150.108,
+        "target_end": 2187.976,
+        "response_start": 2193.73,
+        "response_end": 2226.012
+      }
+    },
+    {
+      "video_id": "_eakpo9i4dM",
+      "interaction_id": "INT_0071",
+      "timestamp": 2226.012,
+      "response_turn_id": "T0072",
+      "target_turn_id": null,
+      "subtopic_id": "ST005",
+      "source_speaker": null,
+      "target_speaker": null,
+      "responding_speaker": "SPEAKER_03",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The speaker is managing the debate timing and moderating the final remarks, not expressing a substantive stance towards an earlier claim.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": null,
+        "target_end": null,
+        "response_start": 2226.012,
+        "response_end": 2228.881
+      }
+    },
+    {
+      "video_id": "_eakpo9i4dM",
+      "interaction_id": "INT_0072",
+      "timestamp": 2228.881,
+      "response_turn_id": "T0073",
+      "target_turn_id": "T0072",
+      "subtopic_id": "ST005",
+      "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
+      "responding_speaker": "SPEAKER_00",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "Speaker 00 takes their turn to provide final comments on public despair regarding pollution, responding to the anchor's prompt rather than debating a specific claim from the anchor's previous administrative turn.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 2226.012,
+        "target_end": 2228.881,
+        "response_start": 2228.881,
+        "response_end": 2249.975
+      }
+    },
+    {
+      "video_id": "_eakpo9i4dM",
+      "interaction_id": "INT_0073",
+      "timestamp": 2249.975,
+      "response_turn_id": "T0074",
+      "target_turn_id": "T0073",
+      "subtopic_id": "ST005",
+      "source_speaker": "SPEAKER_00",
+      "target_speaker": "SPEAKER_00",
+      "responding_speaker": "SPEAKER_03",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The anchor (SPEAKER_03) concludes the debate by summarizing the consensus on public sentiment and closing the show, functioning as a moderator rather than taking a stance on the previous speaker's specific remarks.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 2228.881,
+        "target_end": 2249.975,
+        "response_start": 2249.975,
+        "response_end": 2279.168
       }
     }
   ],
@@ -7968,13 +9765,13 @@
       "warning": "Scores and confidence bands are heuristic, not calibrated probabilities. Opening/closing phrase lists are incomplete and currently English-oriented; translated ASR text can affect cues. Manually verify predictions and evaluate across known-host episodes."
     },
     "subtopics_loaded": 5,
-    "interactions_missing_target": 1,
+    "interactions_missing_target": 10,
     "evidence_validation_summary": {
-      "records_with_evidence": 27,
-      "records_with_verified_evidence": 26,
-      "records_with_missing_evidence": 0,
-      "records_with_invalid_evidence": 1,
-      "decisive_records_requiring_manual_review": 1
+      "records_with_evidence": 41,
+      "records_with_verified_evidence": 34,
+      "records_with_missing_evidence": 32,
+      "records_with_invalid_evidence": 7,
+      "decisive_records_requiring_manual_review": 7
     },
     "validation": {
       "status": "passed",

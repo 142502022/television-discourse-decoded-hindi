@@ -1,6 +1,6 @@
 {
-  "schema_version": "agreement-disagreement-1.2",
-  "script_version": "word-level-host-aware-1.1",
+  "schema_version": "agreement-disagreement-2.0",
+  "script_version": "agreement-disagreement-v2.0-json-recovery",
   "metadata": {
     "video_id": "meZ6VGh7Q7c",
     "variant": "threshold_5.0",
@@ -20,7 +20,7 @@
     },
     "host_prediction_confidence_band": "higher_heuristic_separation",
     "host_prediction_warning": "Scores and confidence bands are heuristic, not calibrated probabilities. Opening/closing phrase lists are incomplete and currently English-oriented; translated ASR text can affect cues. Manually verify predictions and evaluate across known-host episodes.",
-    "generated_at_utc": "2026-11-27T04:51:55.302683+00:00",
+    "generated_at_utc": "2026-11-27T18:51:55.326627+00:00",
     "source_files": {
       "transcript": "/home/user/MTP/Code/television-discourse-decoded-hindi/data/v2/debate_only/videos/meZ6VGh7Q7c/threshold_5.0/merge_final.json",
       "subtopics": "/home/user/MTP/Code/television-discourse-decoded-hindi/data/v2/debate_only/subtopic_analysis/threshold_5.0/meZ6VGh7Q7c/subtopic_analysis.json",
@@ -31,12 +31,10 @@
   "methodology": {
     "analysis_unit": "directed speaker-to-speaker stance interaction",
     "transcript_scope": "full transcript; not limited to overlapping speech",
-    "context_policy": "Each response turn is assessed with up to 5 preceding different-speaker turns.",
+    "context_policy": "Each response turn is assessed against up to 3 immediately preceding chronological turns; target may be any different speaker in that window.",
     "classification_labels": [
       "agreement",
-      "counterargument",
       "disagreement",
-      "neutral",
       "partial_agreement",
       "uncertain"
     ],
@@ -45,12 +43,11 @@
       "partial_agreement"
     ],
     "disagreement_family": [
-      "disagreement",
-      "counterargument"
+      "disagreement"
     ],
-    "moderator_policy": "Moderation, panelist introductions, summaries, follow-up questions, and repetition without a stance are neutral; substantive anchor stances are classified normally. Host identity is not used for classification.",
+    "moderator_policy": "Moderation, introductions, summaries, follow-up questions, and repetition without a stance are uncertain; substantive stances are classified normally. Host identity is not used for classification.",
     "overlap_policy": "Overlap and interruption are not evidence of stance by themselves.",
-    "neutral_policy": "Neutral candidates are counted in the candidate summary but omitted from interaction records; uncertain records are retained.",
+    "uncertain_policy": "Every eligible response turn receives one record; unclear or non-stance turns are classified uncertain.",
     "target_policy": "Target is a specific earlier turn; no reverse inference. Response timestamp determines subtopic mapping.",
     "limitations": [
       "Automated classifications require manual validation.",
@@ -63,139 +60,204 @@
     "speaker_count": 6,
     "transcript_turn_count": 60,
     "subtopic_count": 4,
-    "candidate_response_turn_count": 59,
-    "neutral_candidate_count": 41,
+    "candidate_response_turn_count": 57,
     "candidate_classification_counts": {
-      "agreement": 2,
-      "partial_agreement": 0,
-      "disagreement": 2,
-      "counterargument": 9,
-      "uncertain": 5,
-      "neutral": 41
+      "agreement": 8,
+      "partial_agreement": 2,
+      "disagreement": 8,
+      "uncertain": 39
     },
     "classification_counts": {
-      "agreement": 2,
-      "partial_agreement": 0,
-      "disagreement": 2,
-      "counterargument": 9,
-      "uncertain": 5
+      "agreement": 8,
+      "partial_agreement": 2,
+      "disagreement": 8,
+      "uncertain": 39
     },
-    "total_non_neutral_interactions": 18,
-    "decisive_interaction_count": 13,
-    "agreement_family_count": 2,
-    "disagreement_family_count": 11,
-    "agreement_to_disagreement_ratio": 0.1818,
-    "agreement_family_share_percent": 15.38,
-    "disagreement_family_share_percent": 84.62,
+    "total_interactions": 57,
+    "decisive_interaction_count": 18,
+    "agreement_family_count": 10,
+    "disagreement_family_count": 8,
+    "agreement_to_disagreement_ratio": 1.25,
+    "agreement_family_share_percent": 55.56,
+    "disagreement_family_share_percent": 44.44,
     "speaker_statistics": {
       "SPEAKER_00": {
         "initiated": {
-          "counterargument": 4,
-          "disagreement": 1
+          "uncertain": 11,
+          "disagreement": 4,
+          "agreement": 1
         },
         "received": {
-          "agreement": 1,
-          "counterargument": 1,
-          "uncertain": 1
+          "disagreement": 2,
+          "agreement": 5,
+          "uncertain": 7
         },
-        "total_initiated": 5,
-        "total_received": 3
+        "total_initiated": 16,
+        "total_received": 14
       },
       "SPEAKER_01": {
         "initiated": {
-          "counterargument": 3
+          "uncertain": 10
         },
         "received": {
-          "counterargument": 3,
-          "disagreement": 1
+          "disagreement": 2,
+          "uncertain": 3
         },
-        "total_initiated": 3,
-        "total_received": 4
+        "total_initiated": 10,
+        "total_received": 5
       },
       "SPEAKER_02": {
-        "initiated": {},
-        "received": {
-          "counterargument": 1
+        "initiated": {
+          "uncertain": 1
         },
-        "total_initiated": 0,
+        "received": {
+          "uncertain": 1
+        },
+        "total_initiated": 1,
         "total_received": 1
       },
       "SPEAKER_03": {
         "initiated": {
-          "counterargument": 1
+          "partial_agreement": 1
         },
         "received": {
-          "agreement": 1,
-          "uncertain": 1
+          "agreement": 2,
+          "uncertain": 1,
+          "partial_agreement": 1
         },
         "total_initiated": 1,
-        "total_received": 2
+        "total_received": 4
       },
       "SPEAKER_04": {
         "initiated": {
-          "disagreement": 1
+          "disagreement": 2,
+          "uncertain": 5
         },
         "received": {
-          "uncertain": 3,
-          "counterargument": 3
+          "uncertain": 9,
+          "disagreement": 3,
+          "agreement": 1
         },
-        "total_initiated": 1,
-        "total_received": 6
+        "total_initiated": 7,
+        "total_received": 13
       },
       "SPEAKER_05": {
         "initiated": {
-          "agreement": 2,
-          "counterargument": 1
+          "disagreement": 2,
+          "agreement": 7,
+          "uncertain": 6,
+          "partial_agreement": 1
         },
         "received": {
-          "counterargument": 1,
+          "uncertain": 18,
+          "partial_agreement": 1,
           "disagreement": 1
         },
-        "total_initiated": 3,
-        "total_received": 2
+        "total_initiated": 16,
+        "total_received": 20
       }
     },
     "directional_speaker_pairs": [
       {
-        "source_speaker": "SPEAKER_00",
-        "responding_speaker": "SPEAKER_01",
-        "classification": "counterargument",
-        "count": 2
+        "source_speaker": "SPEAKER_01",
+        "responding_speaker": "SPEAKER_05",
+        "classification": "uncertain",
+        "count": 7
       },
       {
         "source_speaker": "SPEAKER_00",
         "responding_speaker": "SPEAKER_04",
-        "classification": "counterargument",
-        "count": 2
+        "classification": "uncertain",
+        "count": 5
+      },
+      {
+        "source_speaker": "SPEAKER_00",
+        "responding_speaker": "SPEAKER_05",
+        "classification": "uncertain",
+        "count": 5
+      },
+      {
+        "source_speaker": "SPEAKER_05",
+        "responding_speaker": "SPEAKER_00",
+        "classification": "agreement",
+        "count": 5
+      },
+      {
+        "source_speaker": "SPEAKER_04",
+        "responding_speaker": "SPEAKER_05",
+        "classification": "uncertain",
+        "count": 3
+      },
+      {
+        "source_speaker": "SPEAKER_05",
+        "responding_speaker": "SPEAKER_04",
+        "classification": "uncertain",
+        "count": 3
       },
       {
         "source_speaker": "SPEAKER_00",
         "responding_speaker": "SPEAKER_01",
         "classification": "disagreement",
-        "count": 1
+        "count": 2
+      },
+      {
+        "source_speaker": "SPEAKER_00",
+        "responding_speaker": "SPEAKER_04",
+        "classification": "disagreement",
+        "count": 2
       },
       {
         "source_speaker": "SPEAKER_01",
         "responding_speaker": "SPEAKER_00",
-        "classification": "counterargument",
+        "classification": "uncertain",
+        "count": 2
+      },
+      {
+        "source_speaker": "SPEAKER_04",
+        "responding_speaker": "SPEAKER_00",
+        "classification": "uncertain",
+        "count": 2
+      },
+      {
+        "source_speaker": "SPEAKER_05",
+        "responding_speaker": "SPEAKER_03",
+        "classification": "agreement",
+        "count": 2
+      },
+      {
+        "source_speaker": "SPEAKER_00",
+        "responding_speaker": "SPEAKER_01",
+        "classification": "uncertain",
+        "count": 1
+      },
+      {
+        "source_speaker": "SPEAKER_00",
+        "responding_speaker": "SPEAKER_04",
+        "classification": "agreement",
         "count": 1
       },
       {
         "source_speaker": "SPEAKER_01",
         "responding_speaker": "SPEAKER_02",
-        "classification": "counterargument",
+        "classification": "uncertain",
         "count": 1
       },
       {
-        "source_speaker": "SPEAKER_01",
+        "source_speaker": "SPEAKER_02",
         "responding_speaker": "SPEAKER_05",
-        "classification": "counterargument",
+        "classification": "uncertain",
         "count": 1
       },
       {
         "source_speaker": "SPEAKER_03",
-        "responding_speaker": "SPEAKER_01",
-        "classification": "counterargument",
+        "responding_speaker": "SPEAKER_05",
+        "classification": "partial_agreement",
+        "count": 1
+      },
+      {
+        "source_speaker": "SPEAKER_04",
+        "responding_speaker": "SPEAKER_00",
+        "classification": "disagreement",
         "count": 1
       },
       {
@@ -207,19 +269,37 @@
       {
         "source_speaker": "SPEAKER_05",
         "responding_speaker": "SPEAKER_00",
-        "classification": "agreement",
+        "classification": "disagreement",
+        "count": 1
+      },
+      {
+        "source_speaker": "SPEAKER_05",
+        "responding_speaker": "SPEAKER_00",
+        "classification": "uncertain",
+        "count": 1
+      },
+      {
+        "source_speaker": "SPEAKER_05",
+        "responding_speaker": "SPEAKER_01",
+        "classification": "uncertain",
         "count": 1
       },
       {
         "source_speaker": "SPEAKER_05",
         "responding_speaker": "SPEAKER_03",
-        "classification": "agreement",
+        "classification": "partial_agreement",
+        "count": 1
+      },
+      {
+        "source_speaker": "SPEAKER_05",
+        "responding_speaker": "SPEAKER_03",
+        "classification": "uncertain",
         "count": 1
       },
       {
         "source_speaker": "SPEAKER_05",
         "responding_speaker": "SPEAKER_04",
-        "classification": "counterargument",
+        "classification": "disagreement",
         "count": 1
       }
     ],
@@ -229,13 +309,12 @@
         "title": "Opening discussion",
         "start": 0.0,
         "end": 661.698,
-        "interaction_count": 5,
+        "interaction_count": 10,
         "classification_counts": {
-          "agreement": 1,
+          "agreement": 3,
           "partial_agreement": 0,
-          "disagreement": 0,
-          "counterargument": 3,
-          "uncertain": 1
+          "disagreement": 2,
+          "uncertain": 5
         }
       },
       {
@@ -243,13 +322,12 @@
         "title": "Appointment of the Chief Election Commissioner",
         "start": 661.698,
         "end": 844.152,
-        "interaction_count": 2,
+        "interaction_count": 9,
         "classification_counts": {
           "agreement": 0,
           "partial_agreement": 0,
           "disagreement": 1,
-          "counterargument": 1,
-          "uncertain": 0
+          "uncertain": 8
         }
       },
       {
@@ -257,12 +335,11 @@
         "title": "Farmers, Economic Policy, and Global Crises",
         "start": 844.152,
         "end": 992.449,
-        "interaction_count": 3,
+        "interaction_count": 4,
         "classification_counts": {
           "agreement": 0,
           "partial_agreement": 0,
-          "disagreement": 0,
-          "counterargument": 0,
+          "disagreement": 1,
           "uncertain": 3
         }
       },
@@ -271,49 +348,45 @@
         "title": "India's Economic Performance and Global Crises",
         "start": 992.449,
         "end": 1525.351,
-        "interaction_count": 8,
+        "interaction_count": 34,
         "classification_counts": {
-          "agreement": 1,
-          "partial_agreement": 0,
-          "disagreement": 1,
-          "counterargument": 5,
-          "uncertain": 1
+          "agreement": 5,
+          "partial_agreement": 2,
+          "disagreement": 4,
+          "uncertain": 23
         }
       }
     ],
     "host_statistics": {
       "host_speaker_id": "SPEAKER_05",
-      "host_initiated_interactions": 2,
+      "host_initiated_interactions": 20,
       "host_initiated_classification_counts": {
         "agreement": 0,
-        "partial_agreement": 0,
+        "partial_agreement": 1,
         "disagreement": 1,
-        "counterargument": 1,
-        "uncertain": 0
+        "uncertain": 18
       },
-      "host_received_interactions": 3,
+      "host_received_interactions": 16,
       "host_received_classification_counts": {
-        "agreement": 2,
-        "partial_agreement": 0,
-        "disagreement": 0,
-        "counterargument": 1,
-        "uncertain": 0
+        "agreement": 7,
+        "partial_agreement": 1,
+        "disagreement": 2,
+        "uncertain": 6
       },
-      "guest_to_guest_interactions": 8,
+      "guest_to_guest_interactions": 17,
       "guest_to_guest_classification_counts": {
-        "agreement": 0,
+        "agreement": 1,
         "partial_agreement": 0,
-        "disagreement": 1,
-        "counterargument": 7,
-        "uncertain": 0
+        "disagreement": 5,
+        "uncertain": 11
       },
-      "host_involved_interactions": 5
+      "host_involved_interactions": 36
     },
     "directional_aggregation_exclusions": {
-      "null_source_speaker_interactions": 5,
-      "included_in_directional_pairs": 13
+      "null_source_speaker_interactions": 6,
+      "included_in_directional_pairs": 51
     },
-    "ratio_note": "Agreement family = agreement + partial_agreement; disagreement family = disagreement + counterargument. Neutral turns are omitted; uncertain cases are excluded from ratio denominators."
+    "ratio_note": "Agreement family = agreement + partial_agreement; disagreement family = disagreement. Uncertain cases are excluded from ratio denominators."
   },
   "interactions": [
     {
@@ -324,14 +397,21 @@
       "target_turn_id": "T0001",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_05",
+      "target_speaker": "SPEAKER_05",
       "responding_speaker": "SPEAKER_00",
-      "classification": "agreement",
-      "evidence": "Let me take your question and dive straight into the issue at hand.",
+      "classification": "disagreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "what's the point that Prime Minister recounts an old incident of you know related apparently to Vivek Dev Roy and Gujarat being number one and there being some objection to it I mean that happened a long time ago and those who did it are in the opposition",
+        "statement_2": "I think that was a brilliant address by the prime minister where he spoke about hard data and typical to his style, he did not hold his punches and he called out the rabid bluff of a completely debilitated and vanquished opposition"
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "The speaker accepts the host's invitation to address the initial question regarding the prime minister's remarks.",
+      "reasoning": "SPEAKER_00 responds directly to the host's question about the prime minister's recounting of an old incident, defending the prime minister's speech against the host's framing that it happened a long time ago.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -344,19 +424,58 @@
     {
       "video_id": "meZ6VGh7Q7c",
       "interaction_id": "INT_0002",
+      "timestamp": 178.906,
+      "response_turn_id": "T0003",
+      "target_turn_id": "T0002",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_00",
+      "target_speaker": "SPEAKER_00",
+      "responding_speaker": "SPEAKER_05",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "What the prime minister actually intended to say is if you look at the history of the congress party it's been in power in india for at least long years and i think the best example of how the congress tried to delegitimize electoral democracy in india",
+        "statement_2": "But what does it have to do with what's happening today is the question the opposition asked. But fair enough, fair enough. Ma'am, you've raised a point. Let me take it to Mohan Kumar Mangalam"
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "The moderator (SPEAKER_05) is transitioning the discussion and posing a follow-up question to another speaker, referencing the point previously made without taking a direct stance on it.",
+      "confidence": "medium",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 68.543,
+        "target_end": 176.324,
+        "response_start": 178.906,
+        "response_end": 207.728
+      }
+    },
+    {
+      "video_id": "meZ6VGh7Q7c",
+      "interaction_id": "INT_0003",
       "timestamp": 209.517,
       "response_turn_id": "T0004",
       "target_turn_id": "T0002",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_00",
+      "target_speaker": "SPEAKER_00",
       "responding_speaker": "SPEAKER_01",
-      "classification": "counterargument",
-      "evidence": "I think the problem when you're constantly driving while looking in the rear view mirror is that you're bound to have an accident.",
+      "classification": "disagreement",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "What the prime minister actually intended to say is if you look at the history of the congress party it's been in power in india for at least long years and i think the best example of how the congress tried to delegitimize electoral democracy in india",
+        "statement_2": "I think the problem when you're constantly driving while looking in the rear view mirror is that you're bound to have an accident. I think the prime minister doesn't realize that he's been in that chair for now years, years, and he's still trying to look far into the past to find the incidents."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "The speaker challenges Sanju Verma's focus on historical actions of the Congress party by arguing that focusing on the past is unhelpful and that current governance issues are the real concern.",
+      "reasoning": "SPEAKER_01 directly contradicts SPEAKER_00's focus on the historical actions of the Congress party, arguing that looking into the past is the wrong approach.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -368,22 +487,93 @@
     },
     {
       "video_id": "meZ6VGh7Q7c",
-      "interaction_id": "INT_0003",
+      "interaction_id": "INT_0004",
+      "timestamp": 322.917,
+      "response_turn_id": "T0005",
+      "target_turn_id": "T0004",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_01",
+      "target_speaker": "SPEAKER_01",
+      "responding_speaker": "SPEAKER_05",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "We're talking about capture of the election commission by ensuring that the panel to select the CDC itself is lopsided.",
+        "statement_2": "Sir, are we saying any of this is happening for the first time ever? And before I get Sanju Verma to respond to you, I want to bring in Jayanand Dehadrai, since you've raised a legal point."
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "The moderator (SPEAKER_05) questions both sides and brings in another guest without taking a stance on SPEAKER_01's claims.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 209.517,
+        "target_end": 325.162,
+        "response_start": 322.917,
+        "response_end": 347.656
+      }
+    },
+    {
+      "video_id": "meZ6VGh7Q7c",
+      "interaction_id": "INT_0005",
+      "timestamp": 348.365,
+      "response_turn_id": "T0006",
+      "target_turn_id": "T0004",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_01",
+      "target_speaker": "SPEAKER_01",
+      "responding_speaker": "SPEAKER_05",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "We're talking about capture of the election commission by ensuring that the panel to select the CDC itself is lopsided.",
+        "statement_2": "no no fair enough but uh is it the first time that judges have been attempts have been made to browbeat them or political appointees have been made judges"
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "The moderator questions whether the issues raised by SPEAKER_01 are unprecedented, acting in a moderating capacity rather than taking a definitive stance.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 209.517,
+        "target_end": 325.162,
+        "response_start": 348.365,
+        "response_end": 390.856
+      }
+    },
+    {
+      "video_id": "meZ6VGh7Q7c",
+      "interaction_id": "INT_0006",
       "timestamp": 392.425,
       "response_turn_id": "T0007",
       "target_turn_id": "T0004",
       "subtopic_id": "ST001",
       "source_speaker": "SPEAKER_01",
+      "target_speaker": "SPEAKER_01",
       "responding_speaker": "SPEAKER_02",
-      "classification": "counterargument",
-      "evidence": "the history of the Congress Party itself, as any person, any objective observer in this country will tell you, has been riddled with instances where constitutional institutions have been denigrated",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "So this government is not even leaving the judiciary out of their influence.",
+        "statement_2": ""
+      },
       "evidence_present": true,
-      "evidence_found_in_response": true,
-      "evidence_validation_status": "verified",
-      "manual_review_required": false,
-      "reasoning": "SPEAKER_02 responds to SPEAKER_01's criticisms about the current government's interference in constitutional bodies by arguing that the historical record of the Congress party itself is filled with institutional denigration, providing specific examples like judicial supersession.",
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "invalid",
+      "manual_review_required": true,
+      "reasoning": "SPEAKER_02 responds to SPEAKER_01's criticism of the current government's influence over constitutional bodies and judiciary by arguing that it is actually the historical record of the Congress party that is riddled with denigration of constitutional institutions.",
       "confidence": "high",
-      "review_status": "pending",
+      "review_status": "manual_review_required",
       "source_turn_timestamps": {
         "target_start": 209.517,
         "target_end": 325.162,
@@ -393,70 +583,187 @@
     },
     {
       "video_id": "meZ6VGh7Q7c",
-      "interaction_id": "INT_0004",
-      "timestamp": 564.922,
-      "response_turn_id": "T0009",
-      "target_turn_id": "T0004",
+      "interaction_id": "INT_0007",
+      "timestamp": 521.587,
+      "response_turn_id": "T0008",
+      "target_turn_id": "T0007",
       "subtopic_id": "ST001",
-      "source_speaker": "SPEAKER_01",
-      "responding_speaker": "SPEAKER_00",
-      "classification": "counterargument",
-      "evidence": "Jayad Ahyadurai actually gave some very clear examples which showcase how if there is anyone who was trying to browbeat the judiciary into submission, it was the Congress party",
-      "evidence_present": true,
-      "evidence_found_in_response": true,
-      "evidence_validation_status": "verified",
+      "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
+      "responding_speaker": "SPEAKER_05",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
       "manual_review_required": false,
-      "reasoning": "SPEAKER_00 counters SPEAKER_01's claims of government interference by arguing that historically the Congress party was the one that browbeat the judiciary and denigrated institutions.",
+      "reasoning": "The moderator interrupts SPEAKER_02 and redirects the flow back to the debate topics and other panel members without taking a stance on SPEAKER_02's previous statements.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
-        "target_start": 209.517,
-        "target_end": 325.162,
+        "target_start": 392.425,
+        "target_end": 523.443,
+        "response_start": 521.587,
+        "response_end": 564.01
+      }
+    },
+    {
+      "video_id": "meZ6VGh7Q7c",
+      "interaction_id": "INT_0008",
+      "timestamp": 564.922,
+      "response_turn_id": "T0009",
+      "target_turn_id": "T0008",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_05",
+      "target_speaker": "SPEAKER_05",
+      "responding_speaker": "SPEAKER_00",
+      "classification": "agreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "Sanju Verma, you heard Mohan Kumar Mangalam, and he says there's this fear, you know, what Justice Call said, for example, or when an attempt is being made allegedly to browbeat the judiciary",
+        "statement_2": "You know, I think Gaurav, Jayad Ahyadurai actually gave some very clear examples which showcase how if there is anyone who was trying to browbeat the judiciary into submission, it was the Congress party."
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "SPEAKER_00 (Sanju Verma) takes up the moderator's prompt regarding the opposition's allegations of attempts to browbeat the judiciary and directly supports the counter-argument that it was the Congress party doing so.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 521.587,
+        "target_end": 564.01,
         "response_start": 564.922,
         "response_end": 644.42
       }
     },
     {
       "video_id": "meZ6VGh7Q7c",
-      "interaction_id": "INT_0005",
-      "timestamp": 661.632,
-      "response_turn_id": "T0011",
-      "target_turn_id": null,
+      "interaction_id": "INT_0009",
+      "timestamp": 644.842,
+      "response_turn_id": "T0010",
+      "target_turn_id": "T0008",
       "subtopic_id": "ST001",
-      "source_speaker": null,
+      "source_speaker": "SPEAKER_05",
+      "target_speaker": "SPEAKER_05",
       "responding_speaker": "SPEAKER_00",
-      "classification": "uncertain",
-      "evidence": "if Mohan Kumar Mangalam says, oh, you know, look how the CEC is now being elected, excuse me, for long years, Only the Prime Minister decided",
+      "classification": "agreement",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "Sanju Verma, you heard Mohan Kumar Mangalam, and he says there's this fear, you know, what Justice Call said, for example, or when an attempt is being made allegedly to browbeat the judiciary",
+        "statement_2": "He was a Supreme Court judge, he was the Chief Justice of the Guwahati High Court, and he was also a Rajya Sabha member on a Congress ticket."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "SPEAKER_00 challenges Mohan Kumar Mangalam's previous criticism regarding the CEC selection panel by pointing out that historically only the Prime Minister decided, whereas there is now a multi-member committee.",
+      "reasoning": "This is a continuation of SPEAKER_00's previous turn, maintaining agreement and building on the arguments countering the opposition's claims about judicial independence under the current regime.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
-        "target_start": null,
-        "target_end": null,
+        "target_start": 521.587,
+        "target_end": 564.01,
+        "response_start": 644.842,
+        "response_end": 661.042
+      }
+    },
+    {
+      "video_id": "meZ6VGh7Q7c",
+      "interaction_id": "INT_0010",
+      "timestamp": 661.632,
+      "response_turn_id": "T0011",
+      "target_turn_id": "T0008",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_05",
+      "target_speaker": "SPEAKER_05",
+      "responding_speaker": "SPEAKER_00",
+      "classification": "agreement",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "or the election commission selection is so lopsided that it favors the government, is the opposition charge, ma'am.",
+        "statement_2": "Today you have a three-member committee. You have the prime minister, you have a senior cabinet minister, and you also have leader of the opposition who is a stakeholder. So let me tell you that if Mohan Kumar Mangalam says, oh, you know, look how the CEC is now being elected, excuse me, for long years, Only the Prime Minister decided."
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "SPEAKER_00 addresses the moderator's prompt regarding the election commission selection charge made by the opposition (Mohan Kumar Mangalam), strongly disagreeing with the charge and defending the current system.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 521.587,
+        "target_end": 564.01,
         "response_start": 661.632,
         "response_end": 699.702
       }
     },
     {
       "video_id": "meZ6VGh7Q7c",
-      "interaction_id": "INT_0006",
+      "interaction_id": "INT_0011",
+      "timestamp": 695.922,
+      "response_turn_id": "T0012",
+      "target_turn_id": "T0011",
+      "subtopic_id": "ST002",
+      "source_speaker": "SPEAKER_00",
+      "target_speaker": "SPEAKER_00",
+      "responding_speaker": "SPEAKER_05",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host (SPEAKER_05) is addressing a question/prompt to another panelist based on SPEAKER_00's previous comments, acting in a moderating role.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 661.632,
+        "target_end": 699.702,
+        "response_start": 695.922,
+        "response_end": 722.095
+      }
+    },
+    {
+      "video_id": "meZ6VGh7Q7c",
+      "interaction_id": "INT_0012",
       "timestamp": 723.378,
       "response_turn_id": "T0013",
       "target_turn_id": "T0011",
       "subtopic_id": "ST002",
       "source_speaker": "SPEAKER_00",
+      "target_speaker": "SPEAKER_00",
       "responding_speaker": "SPEAKER_01",
-      "classification": "counterargument",
-      "evidence": "that three-member panel is as good as being just one person, which is the prime minister.",
+      "classification": "disagreement",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "There was only one man who decided how the chief election commissioner will be appointed. That man was the prime minister of India.",
+        "statement_2": "Gaurav, that three-member panel is as good as being just one person, which is the prime minister."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "Speaker responds to SPEAKER_00's defense of the current three-member committee by arguing that it effectively functions as a single-person decision anyway.",
+      "reasoning": "SPEAKER_01 responds to SPEAKER_00's claims regarding the CEC appointment process and the new three-member panel, arguing that the current panel is effectively still partisan and just like one person.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -468,21 +775,60 @@
     },
     {
       "video_id": "meZ6VGh7Q7c",
-      "interaction_id": "INT_0007",
+      "interaction_id": "INT_0013",
+      "timestamp": 799.855,
+      "response_turn_id": "T0014",
+      "target_turn_id": "T0013",
+      "subtopic_id": "ST002",
+      "source_speaker": "SPEAKER_01",
+      "target_speaker": "SPEAKER_01",
+      "responding_speaker": "SPEAKER_00",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "SPEAKER_00 attempts to interrupt and interject during or immediately after SPEAKER_01's turn without making a complete substantive point or structured argument.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 723.378,
+        "target_end": 804.243,
+        "response_start": 799.855,
+        "response_end": 809.997
+      }
+    },
+    {
+      "video_id": "meZ6VGh7Q7c",
+      "interaction_id": "INT_0014",
       "timestamp": 809.356,
       "response_turn_id": "T0015",
       "target_turn_id": "T0014",
       "subtopic_id": "ST002",
       "source_speaker": "SPEAKER_00",
+      "target_speaker": "SPEAKER_00",
       "responding_speaker": "SPEAKER_01",
-      "classification": "disagreement",
-      "evidence": "You've got to stop interrupting me when I'm...",
-      "evidence_present": true,
-      "evidence_found_in_response": true,
-      "evidence_validation_status": "verified",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
       "manual_review_required": false,
-      "reasoning": "Speaker objects to the interruption by SPEAKER_00.",
-      "confidence": "medium",
+      "reasoning": "SPEAKER_01 complains about being interrupted by SPEAKER_00, which is procedural/protest speech rather than a stance on substantive debate topics.",
+      "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
         "target_start": 799.855,
@@ -493,95 +839,315 @@
     },
     {
       "video_id": "meZ6VGh7Q7c",
-      "interaction_id": "INT_0008",
-      "timestamp": 869.33,
-      "response_turn_id": "T0022",
-      "target_turn_id": null,
-      "subtopic_id": "ST003",
-      "source_speaker": null,
-      "responding_speaker": "SPEAKER_04",
+      "interaction_id": "INT_0015",
+      "timestamp": 813.457,
+      "response_turn_id": "T0016",
+      "target_turn_id": "T0015",
+      "subtopic_id": "ST002",
+      "source_speaker": "SPEAKER_01",
+      "target_speaker": "SPEAKER_01",
+      "responding_speaker": "SPEAKER_05",
       "classification": "uncertain",
-      "evidence": "",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
       "evidence_present": false,
+      "evidence_found_in_target": false,
       "evidence_found_in_response": false,
       "evidence_validation_status": "missing",
       "manual_review_required": false,
-      "reasoning": "The speaker addresses points made by Sanju Verma in an earlier un-transcribed or general part of the debate, but no specific target turn ID can be reliably assigned.",
+      "reasoning": "The host merely acknowledges or moderates the ongoing interruption dispute with a brief interjection ('Absolutely.'), serving a host/moderation function.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 809.356,
+        "target_end": 813.98,
+        "response_start": 813.457,
+        "response_end": 814.604
+      }
+    },
+    {
+      "video_id": "meZ6VGh7Q7c",
+      "interaction_id": "INT_0016",
+      "timestamp": 814.925,
+      "response_turn_id": "T0017",
+      "target_turn_id": "T0015",
+      "subtopic_id": "ST002",
+      "source_speaker": "SPEAKER_01",
+      "target_speaker": "SPEAKER_01",
+      "responding_speaker": "SPEAKER_05",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The anchor is managing a dispute between speakers and offering brief moderation/acknowledgment rather than taking a stance on a specific claim.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 809.356,
+        "target_end": 813.98,
+        "response_start": 814.925,
+        "response_end": 816.072
+      }
+    },
+    {
+      "video_id": "meZ6VGh7Q7c",
+      "interaction_id": "INT_0017",
+      "timestamp": 816.051,
+      "response_turn_id": "T0018",
+      "target_turn_id": "T0015",
+      "subtopic_id": "ST002",
+      "source_speaker": "SPEAKER_01",
+      "target_speaker": "SPEAKER_01",
+      "responding_speaker": "SPEAKER_05",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The anchor is attempting to maintain order during a heated exchange, which is moderation rather than substantive debate.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 809.356,
+        "target_end": 813.98,
+        "response_start": 816.051,
+        "response_end": 817.072
+      }
+    },
+    {
+      "video_id": "meZ6VGh7Q7c",
+      "interaction_id": "INT_0018",
+      "timestamp": 834.871,
+      "response_turn_id": "T0020",
+      "target_turn_id": "T0019",
+      "subtopic_id": "ST002",
+      "source_speaker": "SPEAKER_05",
+      "target_speaker": "SPEAKER_05",
+      "responding_speaker": "SPEAKER_01",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The speaker reacts to procedural directions from the host and mentions bringing in another guest, without addressing a specific argumentative claim.",
+      "confidence": "medium",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 816.697,
+        "target_end": 834.01,
+        "response_start": 834.871,
+        "response_end": 839.258
+      }
+    },
+    {
+      "video_id": "meZ6VGh7Q7c",
+      "interaction_id": "INT_0019",
+      "timestamp": 837.014,
+      "response_turn_id": "T0021",
+      "target_turn_id": "T0020",
+      "subtopic_id": "ST002",
+      "source_speaker": "SPEAKER_01",
+      "target_speaker": "SPEAKER_01",
+      "responding_speaker": "SPEAKER_05",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host is transitioning the conversation and posing a new question to a different panelist.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 834.871,
+        "target_end": 839.258,
+        "response_start": 837.014,
+        "response_end": 869.026
+      }
+    },
+    {
+      "video_id": "meZ6VGh7Q7c",
+      "interaction_id": "INT_0020",
+      "timestamp": 869.33,
+      "response_turn_id": "T0022",
+      "target_turn_id": "T0019",
+      "subtopic_id": "ST003",
+      "source_speaker": "SPEAKER_05",
+      "target_speaker": "SPEAKER_05",
+      "responding_speaker": "SPEAKER_04",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The speaker responds to an earlier moderation prompt to speak and addresses another panelist's point, but the quotation matching across interrupted context is unclear and procedural.",
       "confidence": "low",
       "review_status": "pending",
       "source_turn_timestamps": {
-        "target_start": null,
-        "target_end": null,
+        "target_start": 816.697,
+        "target_end": 834.01,
         "response_start": 869.33,
         "response_end": 901.882
       }
     },
     {
       "video_id": "meZ6VGh7Q7c",
-      "interaction_id": "INT_0009",
-      "timestamp": 908.935,
-      "response_turn_id": "T0024",
-      "target_turn_id": null,
+      "interaction_id": "INT_0021",
+      "timestamp": 902.185,
+      "response_turn_id": "T0023",
+      "target_turn_id": "T0021",
       "subtopic_id": "ST003",
-      "source_speaker": null,
+      "source_speaker": "SPEAKER_05",
+      "target_speaker": "SPEAKER_05",
       "responding_speaker": "SPEAKER_04",
       "classification": "uncertain",
-      "evidence": "",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
       "evidence_present": false,
+      "evidence_found_in_target": false,
       "evidence_found_in_response": false,
       "evidence_validation_status": "missing",
       "manual_review_required": false,
-      "reasoning": "The speaker complains generally about the BJP and historical arguments, but does not explicitly reference a specific prior turn in the provided context.",
-      "confidence": "low",
+      "reasoning": "Speaker 04 is telling the host/moderator not to interrupt and complaining about a factual arrangement, rather than engaging in a structured stance interaction with the target claim.",
+      "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
-        "target_start": null,
-        "target_end": null,
+        "target_start": 837.014,
+        "target_end": 869.026,
+        "response_start": 902.185,
+        "response_end": 908.547
+      }
+    },
+    {
+      "video_id": "meZ6VGh7Q7c",
+      "interaction_id": "INT_0022",
+      "timestamp": 908.935,
+      "response_turn_id": "T0024",
+      "target_turn_id": "T0021",
+      "subtopic_id": "ST003",
+      "source_speaker": "SPEAKER_05",
+      "target_speaker": "SPEAKER_05",
+      "responding_speaker": "SPEAKER_04",
+      "classification": "disagreement",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "the prime minister is actually listing out steps that have been taken, and especially in a very critical time, like the Russia-Ukraine war and the US-Iran war. Sir, that narrative, does that weaken the opposition's attack on the government in your appreciation?",
+        "statement_2": "See, the obsession of Bharti Janata Party with the mistakes committed by the Congress Party we can see on camera. If the Congress party has done something wrong years back, or maybe years back, they want to repeat it and then obsessed with it."
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "Speaker 04 responds to the host's prompting about the prime minister's narrative and accomplishments by directly attacking the ruling party's obsession with past Congress mistakes, effectively disagreeing with the premise that the government's narrative successfully neutralizes opposition criticism.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 837.014,
+        "target_end": 869.026,
         "response_start": 908.935,
         "response_end": 960.218
       }
     },
     {
       "video_id": "meZ6VGh7Q7c",
-      "interaction_id": "INT_0010",
-      "timestamp": 961.18,
-      "response_turn_id": "T0025",
+      "interaction_id": "INT_0023",
+      "timestamp": 986.915,
+      "response_turn_id": "T0026",
       "target_turn_id": null,
       "subtopic_id": "ST003",
       "source_speaker": null,
-      "responding_speaker": "SPEAKER_04",
+      "target_speaker": null,
+      "responding_speaker": "SPEAKER_05",
       "classification": "uncertain",
-      "evidence": "",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
       "evidence_present": false,
+      "evidence_found_in_target": false,
       "evidence_found_in_response": false,
       "evidence_validation_status": "missing",
       "manual_review_required": false,
-      "reasoning": "Continuation of previous remarks defending the opposition's use of the constitution, without a specific identifiable target turn.",
+      "reasoning": "",
       "confidence": "low",
       "review_status": "pending",
       "source_turn_timestamps": {
         "target_start": null,
         "target_end": null,
-        "response_start": 961.18,
-        "response_end": 989.564
+        "response_start": 986.915,
+        "response_end": 1026.149
       }
     },
     {
       "video_id": "meZ6VGh7Q7c",
-      "interaction_id": "INT_0011",
+      "interaction_id": "INT_0024",
       "timestamp": 1027.06,
       "response_turn_id": "T0027",
       "target_turn_id": "T0026",
       "subtopic_id": "ST004",
       "source_speaker": "SPEAKER_05",
+      "target_speaker": "SPEAKER_05",
       "responding_speaker": "SPEAKER_03",
       "classification": "agreement",
-      "evidence": "the fact that fuel prices have not risen in line with the volatility that we saw in global crude oil prices is proven.",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "You know, the prime minister listed out a number of things where India has been able to withstand the shock. Unlike, take for example, US where prices just shot up. Here they haven't as much.",
+        "statement_2": "So Gaurav, the fact that fuel prices have not risen in line with the volatility that we saw in global crude oil prices is proven."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "SPEAKER_03 agrees with the host's premise that India withstood global fuel price shocks better than other countries.",
+      "reasoning": "Speaker 03 directly addresses the host's question and statement about India withstanding global shocks and fuel price stability, strongly agreeing and providing economic evidence to support the point.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -593,71 +1159,156 @@
     },
     {
       "video_id": "meZ6VGh7Q7c",
-      "interaction_id": "INT_0012",
+      "interaction_id": "INT_0025",
       "timestamp": 1155.344,
       "response_turn_id": "T0028",
-      "target_turn_id": null,
+      "target_turn_id": "T0026",
       "subtopic_id": "ST004",
-      "source_speaker": null,
+      "source_speaker": "SPEAKER_05",
+      "target_speaker": "SPEAKER_05",
       "responding_speaker": "SPEAKER_03",
-      "classification": "uncertain",
-      "evidence": "Does this mean that nobody is paying the bill? Absolutely not. The bill is ultimately coming to the exchequer.",
+      "classification": "agreement",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "You know, the prime minister listed out a number of things where India has been able to withstand the shock. Unlike, take for example, US where prices just shot up. Here they haven't as much.",
+        "statement_2": "Does this mean that nobody is paying the bill? Absolutely not. The bill is ultimately coming to the exchequer. But for now, tens and hundreds of millions of Indians have been saved from higher prices."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "SPEAKER_03 continues their previous argument, confirming that the exchequer bore the burden of subsidizing fuel prices.",
+      "reasoning": "This turn is a direct continuation of Speaker 03's agreement with Speaker 05's premise that India successfully weathered global price shocks, explaining the mechanism by which citizens were shielded.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
-        "target_start": null,
-        "target_end": null,
+        "target_start": 986.915,
+        "target_end": 1026.149,
         "response_start": 1155.344,
         "response_end": 1168.658
       }
     },
     {
       "video_id": "meZ6VGh7Q7c",
-      "interaction_id": "INT_0013",
-      "timestamp": 1194.798,
-      "response_turn_id": "T0031",
+      "interaction_id": "INT_0026",
+      "timestamp": 1172.641,
+      "response_turn_id": "T0029",
+      "target_turn_id": "T0026",
+      "subtopic_id": "ST004",
+      "source_speaker": "SPEAKER_05",
+      "target_speaker": "SPEAKER_05",
+      "responding_speaker": "SPEAKER_03",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The response turn is just a single word 'So', serving as an interjection or filler before speaking, without enough content to establish a clear stance.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 986.915,
+        "target_end": 1026.149,
+        "response_start": 1172.641,
+        "response_end": 1172.978
+      }
+    },
+    {
+      "video_id": "meZ6VGh7Q7c",
+      "interaction_id": "INT_0027",
+      "timestamp": 1172.978,
+      "response_turn_id": "T0030",
       "target_turn_id": "T0027",
       "subtopic_id": "ST004",
       "source_speaker": "SPEAKER_03",
-      "responding_speaker": "SPEAKER_01",
-      "classification": "counterargument",
-      "evidence": "I'd love for you to go back and look at how many times they passed on. the lowering or the savings to consumers",
+      "target_speaker": "SPEAKER_03",
+      "responding_speaker": "SPEAKER_05",
+      "classification": "partial_agreement",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "it is clear that the government of India and the oil marketing companies, which are again central PSUs, have managed the fuel supply and fuel price situation.",
+        "statement_2": "is that, in a way, blunting the opposition attack, the manner in which other countries have erupted, Mohan Kumar Mangalam? India didn't, because to a very large extent, has that impact been borne by the exchequer, of course, by the taxpayers themselves, but better management by the government, sir?"
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "SPEAKER_01 responds to SPEAKER_03's claims about protecting consumers by arguing that the government failed to pass on savings when crude prices fell and collected massive excise windfalls.",
+      "reasoning": "The host (SPEAKER_05) builds upon SPEAKER_03's point that the government managed the fuel crisis, while qualifying it by noting the impact was borne by the exchequer/taxpayers.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
         "target_start": 1027.06,
         "target_end": 1155.327,
+        "response_start": 1172.978,
+        "response_end": 1192.756
+      }
+    },
+    {
+      "video_id": "meZ6VGh7Q7c",
+      "interaction_id": "INT_0028",
+      "timestamp": 1194.798,
+      "response_turn_id": "T0031",
+      "target_turn_id": null,
+      "subtopic_id": "ST004",
+      "source_speaker": null,
+      "target_speaker": null,
+      "responding_speaker": "SPEAKER_01",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": "If the government is finally subsidizing the price of fuel and making it easier for the common man, I applaud them. But let me also say from to the price of crude oil consistently fell from higher all the way to I'd love for you to go back and look at how many times they passed on. the lowering or the savings to consumers at the same time that they're talking about saving them from higher prices."
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "invalid",
+      "manual_review_required": true,
+      "reasoning": "SPEAKER_01 partially agrees that the government is currently subsidizing/managing fuel prices ('I applaud them'), but criticizes their past behavior regarding low crude prices.",
+      "confidence": "high",
+      "review_status": "manual_review_required",
+      "source_turn_timestamps": {
+        "target_start": null,
+        "target_end": null,
         "response_start": 1194.798,
         "response_end": 1246.756
       }
     },
     {
       "video_id": "meZ6VGh7Q7c",
-      "interaction_id": "INT_0014",
+      "interaction_id": "INT_0029",
       "timestamp": 1250.789,
       "response_turn_id": "T0032",
       "target_turn_id": "T0031",
       "subtopic_id": "ST004",
       "source_speaker": "SPEAKER_01",
+      "target_speaker": "SPEAKER_01",
       "responding_speaker": "SPEAKER_05",
-      "classification": "counterargument",
-      "evidence": "the government did not even pass on prices when the prices were at and, you know, had come down",
-      "evidence_present": true,
-      "evidence_found_in_response": true,
-      "evidence_validation_status": "verified",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
       "manual_review_required": false,
-      "reasoning": "Speaker 05 responds to SPEAKER_01's argument about fuel pricing and passing on savings by presenting a counter-point referencing the Prime Minister's remarks on past pricing policy.",
-      "confidence": "medium",
+      "reasoning": "The host is posing a follow-up question to another panelist (Sanju Verma) referencing the previous discussion points without taking a personal stance.",
+      "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
         "target_start": 1194.798,
@@ -668,21 +1319,348 @@
     },
     {
       "video_id": "meZ6VGh7Q7c",
-      "interaction_id": "INT_0015",
+      "interaction_id": "INT_0030",
+      "timestamp": 1268.626,
+      "response_turn_id": "T0033",
+      "target_turn_id": "T0031",
+      "subtopic_id": "ST004",
+      "source_speaker": "SPEAKER_01",
+      "target_speaker": "SPEAKER_01",
+      "responding_speaker": "SPEAKER_00",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "SPEAKER_00 changes the topic back to an earlier debate about Supreme Court judges rather than responding to SPEAKER_01's points on fuel prices.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1194.798,
+        "target_end": 1246.756,
+        "response_start": 1268.626,
+        "response_end": 1289.77
+      }
+    },
+    {
+      "video_id": "meZ6VGh7Q7c",
+      "interaction_id": "INT_0031",
+      "timestamp": 1287.796,
+      "response_turn_id": "T0034",
+      "target_turn_id": "T0033",
+      "subtopic_id": "ST004",
+      "source_speaker": "SPEAKER_00",
+      "target_speaker": "SPEAKER_00",
+      "responding_speaker": "SPEAKER_04",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The response is an incomplete or unclear fragment and does not establish a clear stance or valid quotations.",
+      "confidence": "low",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1268.626,
+        "target_end": 1289.77,
+        "response_start": 1287.796,
+        "response_end": 1290.462
+      }
+    },
+    {
+      "video_id": "meZ6VGh7Q7c",
+      "interaction_id": "INT_0032",
+      "timestamp": 1290.783,
+      "response_turn_id": "T0035",
+      "target_turn_id": null,
+      "subtopic_id": "ST004",
+      "source_speaker": null,
+      "target_speaker": null,
+      "responding_speaker": "SPEAKER_00",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The speaker is continuing their own previous thought/outburst rather than addressing a distinct earlier claim.",
+      "confidence": "low",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": null,
+        "target_end": null,
+        "response_start": 1290.783,
+        "response_end": 1294.968
+      }
+    },
+    {
+      "video_id": "meZ6VGh7Q7c",
+      "interaction_id": "INT_0033",
+      "timestamp": 1295.322,
+      "response_turn_id": "T0036",
+      "target_turn_id": null,
+      "subtopic_id": "ST004",
+      "source_speaker": null,
+      "target_speaker": null,
+      "responding_speaker": "SPEAKER_00",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The speaker is transitioning back to their own point; no external target stance is being addressed.",
+      "confidence": "low",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": null,
+        "target_end": null,
+        "response_start": 1295.322,
+        "response_end": 1300.317
+      }
+    },
+    {
+      "video_id": "meZ6VGh7Q7c",
+      "interaction_id": "INT_0034",
+      "timestamp": 1296.773,
+      "response_turn_id": "T0037",
+      "target_turn_id": "T0036",
+      "subtopic_id": "ST004",
+      "source_speaker": "SPEAKER_00",
+      "target_speaker": "SPEAKER_00",
+      "responding_speaker": "SPEAKER_04",
+      "classification": "agreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "Now let me come to the root point.",
+        "statement_2": "issue yes yes let"
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "The speaker (anchor/moderator) agrees and encourages SPEAKER_00 to proceed to the substantive issue.",
+      "confidence": "medium",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1295.322,
+        "target_end": 1300.317,
+        "response_start": 1296.773,
+        "response_end": 1301.431
+      }
+    },
+    {
+      "video_id": "meZ6VGh7Q7c",
+      "interaction_id": "INT_0035",
+      "timestamp": 1301.684,
+      "response_turn_id": "T0038",
+      "target_turn_id": "T0037",
+      "subtopic_id": "ST004",
+      "source_speaker": "SPEAKER_04",
+      "target_speaker": "SPEAKER_04",
+      "responding_speaker": "SPEAKER_00",
+      "classification": "disagreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "issue yes yes let",
+        "statement_2": "me please keep quiet i think your"
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "SPEAKER_00 tells the other speaker to keep quiet, rejecting interruption or interference.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1296.773,
+        "target_end": 1301.431,
+        "response_start": 1301.684,
+        "response_end": 1303.608
+      }
+    },
+    {
+      "video_id": "meZ6VGh7Q7c",
+      "interaction_id": "INT_0036",
+      "timestamp": 1302.747,
+      "response_turn_id": "T0039",
+      "target_turn_id": "T0038",
+      "subtopic_id": "ST004",
+      "source_speaker": "SPEAKER_00",
+      "target_speaker": "SPEAKER_00",
+      "responding_speaker": "SPEAKER_04",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The speaker comments on the audio or clarity of the preceding remark but does not take a substantive stance on a claim.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1301.684,
+        "target_end": 1303.608,
+        "response_start": 1302.747,
+        "response_end": 1304.722
+      }
+    },
+    {
+      "video_id": "meZ6VGh7Q7c",
+      "interaction_id": "INT_0037",
+      "timestamp": 1303.608,
+      "response_turn_id": "T0040",
+      "target_turn_id": "T0038",
+      "subtopic_id": "ST004",
+      "source_speaker": "SPEAKER_00",
+      "target_speaker": "SPEAKER_00",
+      "responding_speaker": "SPEAKER_05",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host (SPEAKER_05) intervenes to maintain order and stop personal attacks, functioning as moderation rather than taking a stance on a substantive claim.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1301.684,
+        "target_end": 1303.608,
+        "response_start": 1303.608,
+        "response_end": 1310.071
+      }
+    },
+    {
+      "video_id": "meZ6VGh7Q7c",
+      "interaction_id": "INT_0038",
+      "timestamp": 1309.884,
+      "response_turn_id": "T0041",
+      "target_turn_id": "T0039",
+      "subtopic_id": "ST004",
+      "source_speaker": "SPEAKER_04",
+      "target_speaker": "SPEAKER_04",
+      "responding_speaker": "SPEAKER_05",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "Moderator interjection to control the debate, not a stance on a specific argument.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1302.747,
+        "target_end": 1304.722,
+        "response_start": 1309.884,
+        "response_end": 1310.804
+      }
+    },
+    {
+      "video_id": "meZ6VGh7Q7c",
+      "interaction_id": "INT_0039",
+      "timestamp": 1310.425,
+      "response_turn_id": "T0042",
+      "target_turn_id": "T0039",
+      "subtopic_id": "ST004",
+      "source_speaker": "SPEAKER_04",
+      "target_speaker": "SPEAKER_04",
+      "responding_speaker": "SPEAKER_05",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "Host intervention asking guests to refrain from personal attacks. Moderation only.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1302.747,
+        "target_end": 1304.722,
+        "response_start": 1310.425,
+        "response_end": 1314.965
+      }
+    },
+    {
+      "video_id": "meZ6VGh7Q7c",
+      "interaction_id": "INT_0040",
       "timestamp": 1310.881,
       "response_turn_id": "T0043",
       "target_turn_id": "T0040",
       "subtopic_id": "ST004",
       "source_speaker": "SPEAKER_05",
+      "target_speaker": "SPEAKER_05",
       "responding_speaker": "SPEAKER_04",
-      "classification": "counterargument",
-      "evidence": "she's not supposed to heckle me when i'm making an opening",
-      "evidence_present": true,
-      "evidence_found_in_response": true,
-      "evidence_validation_status": "verified",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
       "manual_review_required": false,
-      "reasoning": "SPEAKER_04 counters the previous tone by complaining about being heckled during their opening statement.",
-      "confidence": "medium",
+      "reasoning": "The speaker complains about being heckled by another participant during their opening remarks, which is procedural discussion rather than a substantive stance on a debated proposition.",
+      "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
         "target_start": 1303.608,
@@ -693,20 +1671,59 @@
     },
     {
       "video_id": "meZ6VGh7Q7c",
-      "interaction_id": "INT_0016",
+      "interaction_id": "INT_0041",
+      "timestamp": 1319.588,
+      "response_turn_id": "T0044",
+      "target_turn_id": null,
+      "subtopic_id": "ST004",
+      "source_speaker": null,
+      "target_speaker": null,
+      "responding_speaker": "SPEAKER_04",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": "statement absolutely"
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "invalid",
+      "manual_review_required": true,
+      "reasoning": "SPEAKER_04 continues their own thought and confirms their previous assertion strongly.",
+      "confidence": "high",
+      "review_status": "manual_review_required",
+      "source_turn_timestamps": {
+        "target_start": null,
+        "target_end": null,
+        "response_start": 1319.588,
+        "response_end": 1321.192
+      }
+    },
+    {
+      "video_id": "meZ6VGh7Q7c",
+      "interaction_id": "INT_0042",
       "timestamp": 1319.74,
       "response_turn_id": "T0045",
       "target_turn_id": "T0043",
       "subtopic_id": "ST004",
       "source_speaker": "SPEAKER_04",
+      "target_speaker": "SPEAKER_04",
       "responding_speaker": "SPEAKER_05",
       "classification": "disagreement",
-      "evidence": "nobody's heckling anybody",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "she's not supposed to heckle me when i'm making an opening",
+        "statement_2": "nobody's heckling anybody absolutely sir"
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "SPEAKER_05 directly rejects SPEAKER_04's claim that they were being heckled.",
+      "reasoning": "The host (SPEAKER_05) pushes back on SPEAKER_04's claim that they were being heckled.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -718,20 +1735,155 @@
     },
     {
       "video_id": "meZ6VGh7Q7c",
-      "interaction_id": "INT_0017",
+      "interaction_id": "INT_0043",
+      "timestamp": 1324.195,
+      "response_turn_id": "T0046",
+      "target_turn_id": "T0044",
+      "subtopic_id": "ST004",
+      "source_speaker": "SPEAKER_04",
+      "target_speaker": "SPEAKER_04",
+      "responding_speaker": "SPEAKER_00",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "statement absolutely",
+        "statement_2": "yes"
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "A brief interjection with no clear stance or argumentation.",
+      "confidence": "low",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1319.588,
+        "target_end": 1321.192,
+        "response_start": 1324.195,
+        "response_end": 1324.448
+      }
+    },
+    {
+      "video_id": "meZ6VGh7Q7c",
+      "interaction_id": "INT_0044",
+      "timestamp": 1324.246,
+      "response_turn_id": "T0047",
+      "target_turn_id": "T0046",
+      "subtopic_id": "ST004",
+      "source_speaker": "SPEAKER_00",
+      "target_speaker": "SPEAKER_00",
+      "responding_speaker": "SPEAKER_05",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "yes",
+        "statement_2": "okay ma'am complete your point yes"
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "Moderator granting permission to speak; not a substantive stance.",
+      "confidence": "medium",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1324.195,
+        "target_end": 1324.448,
+        "response_start": 1324.246,
+        "response_end": 1326.355
+      }
+    },
+    {
+      "video_id": "meZ6VGh7Q7c",
+      "interaction_id": "INT_0045",
+      "timestamp": 1324.583,
+      "response_turn_id": "T0048",
+      "target_turn_id": "T0047",
+      "subtopic_id": "ST004",
+      "source_speaker": "SPEAKER_05",
+      "target_speaker": "SPEAKER_05",
+      "responding_speaker": "SPEAKER_00",
+      "classification": "agreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "okay ma'am complete your point yes",
+        "statement_2": "point the mood point is this you never look at the economy in isolation i think under narendra modi we had three black swan events"
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "SPEAKER_00 proceeds to complete their point as invited by the moderator.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1324.246,
+        "target_end": 1326.355,
+        "response_start": 1324.583,
+        "response_end": 1363.025
+      }
+    },
+    {
+      "video_id": "meZ6VGh7Q7c",
+      "interaction_id": "INT_0046",
+      "timestamp": 1363.227,
+      "response_turn_id": "T0049",
+      "target_turn_id": "T0047",
+      "subtopic_id": "ST004",
+      "source_speaker": "SPEAKER_05",
+      "target_speaker": "SPEAKER_05",
+      "responding_speaker": "SPEAKER_00",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The response turn is incomplete and cut off while attempting to continue a thought, making the stance unclear.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1324.246,
+        "target_end": 1326.355,
+        "response_start": 1363.227,
+        "response_end": 1364.662
+      }
+    },
+    {
+      "video_id": "meZ6VGh7Q7c",
+      "interaction_id": "INT_0047",
       "timestamp": 1363.278,
       "response_turn_id": "T0050",
       "target_turn_id": "T0048",
       "subtopic_id": "ST004",
       "source_speaker": "SPEAKER_00",
+      "target_speaker": "SPEAKER_00",
       "responding_speaker": "SPEAKER_04",
-      "classification": "counterargument",
-      "evidence": "have not mentioned 2016-17 when crude oil prices were around $45-46 per barrel.",
+      "classification": "disagreement",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "Despite three Black Swan events,",
+        "statement_2": "have not mentioned 2016-17 when crude oil prices were around $45-46 per barrel."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "Speaker 04 introduces a counter-point about low crude oil prices in 2016-17 to challenge Speaker 00's framing of economic resilience.",
+      "reasoning": "SPEAKER_04 points out a missing piece of economic context regarding crude oil prices to challenge SPEAKER_00's framing of economic challenges.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -743,27 +1895,322 @@
     },
     {
       "video_id": "meZ6VGh7Q7c",
-      "interaction_id": "INT_0018",
+      "interaction_id": "INT_0048",
       "timestamp": 1370.045,
       "response_turn_id": "T0051",
       "target_turn_id": "T0048",
       "subtopic_id": "ST004",
       "source_speaker": "SPEAKER_00",
+      "target_speaker": "SPEAKER_00",
       "responding_speaker": "SPEAKER_04",
-      "classification": "counterargument",
-      "evidence": "Your predecessor government was giving diesel and petrol to farmers with regulated diesel prior to",
+      "classification": "disagreement",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "i think under narendra modi we had three black swan events",
+        "statement_2": "Your predecessor government was giving diesel and petrol to farmers with regulated diesel prior to In do you know what was the price of dollars?"
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "Speaker 04 brings up the policies and fuel pricing of the predecessor government to contest Speaker 00's economic narrative.",
-      "confidence": "medium",
+      "reasoning": "SPEAKER_04 counters SPEAKER_00's economic defense by criticizing past and present policies relative to oil and fuel prices under previous and current governments.",
+      "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
         "target_start": 1324.583,
         "target_end": 1363.025,
         "response_start": 1370.045,
         "response_end": 1388.236
+      }
+    },
+    {
+      "video_id": "meZ6VGh7Q7c",
+      "interaction_id": "INT_0049",
+      "timestamp": 1391.476,
+      "response_turn_id": "T0052",
+      "target_turn_id": "T0049",
+      "subtopic_id": "ST004",
+      "source_speaker": "SPEAKER_00",
+      "target_speaker": "SPEAKER_00",
+      "responding_speaker": "SPEAKER_04",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The turn 'I am the' is a fragmented interruption with no clear propositional stance.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1363.227,
+        "target_end": 1364.662,
+        "response_start": 1391.476,
+        "response_end": 1392.488
+      }
+    },
+    {
+      "video_id": "meZ6VGh7Q7c",
+      "interaction_id": "INT_0050",
+      "timestamp": 1391.78,
+      "response_turn_id": "T0053",
+      "target_turn_id": "T0051",
+      "subtopic_id": "ST004",
+      "source_speaker": "SPEAKER_04",
+      "target_speaker": "SPEAKER_04",
+      "responding_speaker": "SPEAKER_00",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The phrase 'last seconds on this' is a procedural remark about time management rather than a substantive stance on the preceding argument.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1370.045,
+        "target_end": 1388.236,
+        "response_start": 1391.78,
+        "response_end": 1393.687
+      }
+    },
+    {
+      "video_id": "meZ6VGh7Q7c",
+      "interaction_id": "INT_0051",
+      "timestamp": 1393.687,
+      "response_turn_id": "T0054",
+      "target_turn_id": "T0053",
+      "subtopic_id": "ST004",
+      "source_speaker": "SPEAKER_00",
+      "target_speaker": "SPEAKER_00",
+      "responding_speaker": "SPEAKER_04",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "Moderator managing the debate and allocating time to a speaker without a substantive stance interaction.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1391.78,
+        "target_end": 1393.687,
+        "response_start": 1393.687,
+        "response_end": 1399.323
+      }
+    },
+    {
+      "video_id": "meZ6VGh7Q7c",
+      "interaction_id": "INT_0052",
+      "timestamp": 1399.39,
+      "response_turn_id": "T0055",
+      "target_turn_id": "T0053",
+      "subtopic_id": "ST004",
+      "source_speaker": "SPEAKER_00",
+      "target_speaker": "SPEAKER_00",
+      "responding_speaker": "SPEAKER_04",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "Continuation of moderator time management, no clear stance taken against a substantive claim.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1391.78,
+        "target_end": 1393.687,
+        "response_start": 1399.39,
+        "response_end": 1403.71
+      }
+    },
+    {
+      "video_id": "meZ6VGh7Q7c",
+      "interaction_id": "INT_0053",
+      "timestamp": 1399.778,
+      "response_turn_id": "T0056",
+      "target_turn_id": "T0054",
+      "subtopic_id": "ST004",
+      "source_speaker": "SPEAKER_04",
+      "target_speaker": "SPEAKER_04",
+      "responding_speaker": "SPEAKER_05",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "Host moderating and instructing participants to let Sanju Verma speak.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1393.687,
+        "target_end": 1399.323,
+        "response_start": 1399.778,
+        "response_end": 1418.324
+      }
+    },
+    {
+      "video_id": "meZ6VGh7Q7c",
+      "interaction_id": "INT_0054",
+      "timestamp": 1414.19,
+      "response_turn_id": "T0057",
+      "target_turn_id": "T0056",
+      "subtopic_id": "ST004",
+      "source_speaker": "SPEAKER_05",
+      "target_speaker": "SPEAKER_05",
+      "responding_speaker": "SPEAKER_00",
+      "classification": "agreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "Yes, complete your points Anju Verma. Abbas, just give her seconds to complete her point. Go",
+        "statement_2": "on. Despite three black swan events, India is the only major economy with an average inflation in the last six years of fiscal deficit at current account deficit at less than primary deficit at less than average GDP growth of plus and during the height of the extinction crisis Siddharth can endorse this we have petrol pump stations not a single one was shut down and let me tell you one more thing I have"
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "The speaker responds directly to the host's invitation to complete her points by continuing her economic presentation.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1399.778,
+        "target_end": 1418.324,
+        "response_start": 1414.19,
+        "response_end": 1455.145
+      }
+    },
+    {
+      "video_id": "meZ6VGh7Q7c",
+      "interaction_id": "INT_0055",
+      "timestamp": 1452.648,
+      "response_turn_id": "T0058",
+      "target_turn_id": "T0057",
+      "subtopic_id": "ST004",
+      "source_speaker": "SPEAKER_00",
+      "target_speaker": "SPEAKER_00",
+      "responding_speaker": "SPEAKER_05",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host steps in to manage time and shift back to another guest (Siddharth) rather than taking a stance on the economic figures presented.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1414.19,
+        "target_end": 1455.145,
+        "response_start": 1452.648,
+        "response_end": 1475.024
+      }
+    },
+    {
+      "video_id": "meZ6VGh7Q7c",
+      "interaction_id": "INT_0056",
+      "timestamp": 1475.024,
+      "response_turn_id": "T0059",
+      "target_turn_id": "T0058",
+      "subtopic_id": "ST004",
+      "source_speaker": "SPEAKER_05",
+      "target_speaker": "SPEAKER_05",
+      "responding_speaker": "SPEAKER_03",
+      "classification": "partial_agreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "we still have to tide over a very difficult economic situation while of course we continue to battle about the political situation that's okay but the economic situation",
+        "statement_2": "Siddharth just six hours ago there's been a report from the IEA that for the first time we will slip into a surplus supply position on crude oil."
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "SPEAKER_03 responds to SPEAKER_05's concern about the difficult economic situation by providing new data from the IEA regarding crude oil supply, partially agreeing on the economic focus while qualifying it with positive updates.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1452.648,
+        "target_end": 1475.024,
+        "response_start": 1475.024,
+        "response_end": 1503.307
+      }
+    },
+    {
+      "video_id": "meZ6VGh7Q7c",
+      "interaction_id": "INT_0057",
+      "timestamp": 1499.543,
+      "response_turn_id": "T0060",
+      "target_turn_id": null,
+      "subtopic_id": "ST004",
+      "source_speaker": null,
+      "target_speaker": null,
+      "responding_speaker": "SPEAKER_05",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "SPEAKER_05 is the host wrapping up the show and addressing the audience/panel generally rather than responding to a specific claim, so no directed stance can be established.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": null,
+        "target_end": null,
+        "response_start": 1499.543,
+        "response_end": 1525.97
       }
     }
   ],
@@ -7713,13 +9160,13 @@
       "warning": "Scores and confidence bands are heuristic, not calibrated probabilities. Opening/closing phrase lists are incomplete and currently English-oriented; translated ASR text can affect cues. Manually verify predictions and evaluate across known-host episodes."
     },
     "subtopics_loaded": 4,
-    "interactions_missing_target": 5,
+    "interactions_missing_target": 6,
     "evidence_validation_summary": {
-      "records_with_evidence": 15,
-      "records_with_verified_evidence": 15,
-      "records_with_missing_evidence": 3,
-      "records_with_invalid_evidence": 0,
-      "decisive_records_requiring_manual_review": 0
+      "records_with_evidence": 26,
+      "records_with_verified_evidence": 23,
+      "records_with_missing_evidence": 31,
+      "records_with_invalid_evidence": 3,
+      "decisive_records_requiring_manual_review": 3
     },
     "validation": {
       "status": "passed",
@@ -7739,7 +9186,8 @@
       "issues": []
     },
     "validation_warnings": [
-      "Host identification: Scores and confidence bands are heuristic, not calibrated probabilities. Opening/closing phrase lists are incomplete and currently English-oriented; translated ASR text can affect cues. Manually verify predictions and evaluate across known-host episodes."
+      "Host identification: Scores and confidence bands are heuristic, not calibrated probabilities. Opening/closing phrase lists are incomplete and currently English-oriented; translated ASR text can affect cues. Manually verify predictions and evaluate across known-host episodes.",
+      "One or more model-proposed decisive interactions lacked verified evidence and were downgraded to uncertain."
     ],
     "manual_review_status": "required",
     "review_status": "pending_manual_validation"

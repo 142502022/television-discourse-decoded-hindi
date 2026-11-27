@@ -1,6 +1,6 @@
 {
-  "schema_version": "agreement-disagreement-1.2",
-  "script_version": "word-level-host-aware-1.1",
+  "schema_version": "agreement-disagreement-2.0",
+  "script_version": "agreement-disagreement-v2.0-json-recovery",
   "metadata": {
     "video_id": "rAFhQSMU69A",
     "variant": "threshold_5.0",
@@ -20,7 +20,7 @@
     },
     "host_prediction_confidence_band": "higher_heuristic_separation",
     "host_prediction_warning": "Scores and confidence bands are heuristic, not calibrated probabilities. Opening/closing phrase lists are incomplete and currently English-oriented; translated ASR text can affect cues. Manually verify predictions and evaluate across known-host episodes.",
-    "generated_at_utc": "2026-11-27T04:53:47.464982+00:00",
+    "generated_at_utc": "2026-11-27T18:53:53.473694+00:00",
     "source_files": {
       "transcript": "/home/user/MTP/Code/television-discourse-decoded-hindi/data/v2/debate_only/videos/rAFhQSMU69A/threshold_5.0/merge_final.json",
       "subtopics": "/home/user/MTP/Code/television-discourse-decoded-hindi/data/v2/debate_only/subtopic_analysis/threshold_5.0/rAFhQSMU69A/subtopic_analysis.json",
@@ -31,12 +31,10 @@
   "methodology": {
     "analysis_unit": "directed speaker-to-speaker stance interaction",
     "transcript_scope": "full transcript; not limited to overlapping speech",
-    "context_policy": "Each response turn is assessed with up to 5 preceding different-speaker turns.",
+    "context_policy": "Each response turn is assessed against up to 3 immediately preceding chronological turns; target may be any different speaker in that window.",
     "classification_labels": [
       "agreement",
-      "counterargument",
       "disagreement",
-      "neutral",
       "partial_agreement",
       "uncertain"
     ],
@@ -45,12 +43,11 @@
       "partial_agreement"
     ],
     "disagreement_family": [
-      "disagreement",
-      "counterargument"
+      "disagreement"
     ],
-    "moderator_policy": "Moderation, panelist introductions, summaries, follow-up questions, and repetition without a stance are neutral; substantive anchor stances are classified normally. Host identity is not used for classification.",
+    "moderator_policy": "Moderation, introductions, summaries, follow-up questions, and repetition without a stance are uncertain; substantive stances are classified normally. Host identity is not used for classification.",
     "overlap_policy": "Overlap and interruption are not evidence of stance by themselves.",
-    "neutral_policy": "Neutral candidates are counted in the candidate summary but omitted from interaction records; uncertain records are retained.",
+    "uncertain_policy": "Every eligible response turn receives one record; unclear or non-stance turns are classified uncertain.",
     "target_policy": "Target is a specific earlier turn; no reverse inference. Response timestamp determines subtopic mapping.",
     "limitations": [
       "Automated classifications require manual validation.",
@@ -64,148 +61,221 @@
     "transcript_turn_count": 74,
     "subtopic_count": 8,
     "candidate_response_turn_count": 73,
-    "neutral_candidate_count": 53,
     "candidate_classification_counts": {
-      "agreement": 3,
-      "partial_agreement": 0,
-      "disagreement": 1,
-      "counterargument": 13,
-      "uncertain": 3,
-      "neutral": 53
+      "agreement": 7,
+      "partial_agreement": 3,
+      "disagreement": 15,
+      "uncertain": 48
     },
     "classification_counts": {
-      "agreement": 3,
-      "partial_agreement": 0,
-      "disagreement": 1,
-      "counterargument": 13,
-      "uncertain": 3
+      "agreement": 7,
+      "partial_agreement": 3,
+      "disagreement": 15,
+      "uncertain": 48
     },
-    "total_non_neutral_interactions": 20,
-    "decisive_interaction_count": 17,
-    "agreement_family_count": 3,
-    "disagreement_family_count": 14,
-    "agreement_to_disagreement_ratio": 0.2143,
-    "agreement_family_share_percent": 17.65,
-    "disagreement_family_share_percent": 82.35,
+    "total_interactions": 73,
+    "decisive_interaction_count": 25,
+    "agreement_family_count": 10,
+    "disagreement_family_count": 15,
+    "agreement_to_disagreement_ratio": 0.6667,
+    "agreement_family_share_percent": 40.0,
+    "disagreement_family_share_percent": 60.0,
     "speaker_statistics": {
       "SPEAKER_00": {
-        "initiated": {},
-        "received": {},
-        "total_initiated": 0,
-        "total_received": 0
+        "initiated": {
+          "uncertain": 3
+        },
+        "received": {
+          "uncertain": 1,
+          "agreement": 1
+        },
+        "total_initiated": 3,
+        "total_received": 2
       },
       "SPEAKER_01": {
         "initiated": {
-          "counterargument": 1
+          "disagreement": 1,
+          "uncertain": 1
         },
-        "received": {},
-        "total_initiated": 1,
-        "total_received": 0
+        "received": {
+          "partial_agreement": 1,
+          "disagreement": 1
+        },
+        "total_initiated": 2,
+        "total_received": 2
       },
       "SPEAKER_02": {
         "initiated": {
-          "uncertain": 1,
-          "counterargument": 1
+          "uncertain": 3
         },
         "received": {
-          "counterargument": 1
+          "partial_agreement": 1,
+          "uncertain": 2,
+          "agreement": 1
         },
-        "total_initiated": 2,
-        "total_received": 1
+        "total_initiated": 3,
+        "total_received": 4
       },
       "SPEAKER_03": {
         "initiated": {
-          "counterargument": 7,
-          "agreement": 1,
-          "uncertain": 1
+          "uncertain": 12,
+          "disagreement": 8,
+          "agreement": 1
         },
         "received": {
-          "uncertain": 1,
-          "counterargument": 2,
-          "disagreement": 1
+          "uncertain": 9,
+          "disagreement": 4
         },
-        "total_initiated": 9,
-        "total_received": 4
+        "total_initiated": 21,
+        "total_received": 13
       },
       "SPEAKER_04": {
         "initiated": {
-          "counterargument": 2,
-          "agreement": 1
+          "uncertain": 14,
+          "agreement": 3,
+          "disagreement": 4,
+          "partial_agreement": 2
         },
         "received": {
-          "counterargument": 5,
-          "agreement": 1,
-          "uncertain": 1
+          "uncertain": 28,
+          "disagreement": 6,
+          "agreement": 2
         },
-        "total_initiated": 3,
-        "total_received": 7
+        "total_initiated": 23,
+        "total_received": 36
       },
       "SPEAKER_05": {
-        "initiated": {},
-        "received": {},
-        "total_initiated": 0,
-        "total_received": 0
+        "initiated": {
+          "uncertain": 2
+        },
+        "received": {
+          "agreement": 1,
+          "partial_agreement": 1
+        },
+        "total_initiated": 2,
+        "total_received": 2
       },
       "SPEAKER_06": {
         "initiated": {
-          "counterargument": 1,
-          "disagreement": 1
+          "uncertain": 2,
+          "agreement": 1,
+          "disagreement": 2
         },
         "received": {
-          "counterargument": 3,
+          "disagreement": 2,
+          "uncertain": 1,
           "agreement": 2
         },
-        "total_initiated": 2,
+        "total_initiated": 5,
         "total_received": 5
       },
       "SPEAKER_07": {
-        "initiated": {},
-        "received": {},
-        "total_initiated": 0,
-        "total_received": 0
+        "initiated": {
+          "uncertain": 1
+        },
+        "received": {
+          "uncertain": 2
+        },
+        "total_initiated": 1,
+        "total_received": 2
       },
       "SPEAKER_08": {
         "initiated": {
-          "counterargument": 1,
-          "agreement": 1
+          "uncertain": 4,
+          "agreement": 2,
+          "partial_agreement": 1
         },
         "received": {
-          "uncertain": 1,
-          "counterargument": 2
+          "disagreement": 2,
+          "uncertain": 5
         },
-        "total_initiated": 2,
-        "total_received": 3
+        "total_initiated": 7,
+        "total_received": 7
       }
     },
     "directional_speaker_pairs": [
       {
         "source_speaker": "SPEAKER_03",
         "responding_speaker": "SPEAKER_04",
-        "classification": "counterargument",
-        "count": 3
-      },
-      {
-        "source_speaker": "SPEAKER_03",
-        "responding_speaker": "SPEAKER_06",
-        "classification": "counterargument",
-        "count": 3
+        "classification": "uncertain",
+        "count": 12
       },
       {
         "source_speaker": "SPEAKER_04",
         "responding_speaker": "SPEAKER_03",
-        "classification": "counterargument",
+        "classification": "uncertain",
+        "count": 9
+      },
+      {
+        "source_speaker": "SPEAKER_03",
+        "responding_speaker": "SPEAKER_04",
+        "classification": "disagreement",
+        "count": 4
+      },
+      {
+        "source_speaker": "SPEAKER_08",
+        "responding_speaker": "SPEAKER_04",
+        "classification": "uncertain",
+        "count": 4
+      },
+      {
+        "source_speaker": "SPEAKER_04",
+        "responding_speaker": "SPEAKER_03",
+        "classification": "disagreement",
+        "count": 3
+      },
+      {
+        "source_speaker": "SPEAKER_00",
+        "responding_speaker": "SPEAKER_04",
+        "classification": "uncertain",
         "count": 2
+      },
+      {
+        "source_speaker": "SPEAKER_02",
+        "responding_speaker": "SPEAKER_04",
+        "classification": "uncertain",
+        "count": 2
+      },
+      {
+        "source_speaker": "SPEAKER_03",
+        "responding_speaker": "SPEAKER_06",
+        "classification": "disagreement",
+        "count": 2
+      },
+      {
+        "source_speaker": "SPEAKER_03",
+        "responding_speaker": "SPEAKER_08",
+        "classification": "disagreement",
+        "count": 2
+      },
+      {
+        "source_speaker": "SPEAKER_04",
+        "responding_speaker": "SPEAKER_02",
+        "classification": "uncertain",
+        "count": 2
+      },
+      {
+        "source_speaker": "SPEAKER_05",
+        "responding_speaker": "SPEAKER_04",
+        "classification": "uncertain",
+        "count": 2
+      },
+      {
+        "source_speaker": "SPEAKER_00",
+        "responding_speaker": "SPEAKER_07",
+        "classification": "uncertain",
+        "count": 1
       },
       {
         "source_speaker": "SPEAKER_01",
         "responding_speaker": "SPEAKER_04",
-        "classification": "counterargument",
+        "classification": "disagreement",
         "count": 1
       },
       {
-        "source_speaker": "SPEAKER_02",
-        "responding_speaker": "SPEAKER_08",
-        "classification": "counterargument",
+        "source_speaker": "SPEAKER_01",
+        "responding_speaker": "SPEAKER_04",
+        "classification": "uncertain",
         "count": 1
       },
       {
@@ -221,21 +291,57 @@
         "count": 1
       },
       {
-        "source_speaker": "SPEAKER_03",
-        "responding_speaker": "SPEAKER_04",
+        "source_speaker": "SPEAKER_04",
+        "responding_speaker": "SPEAKER_00",
+        "classification": "agreement",
+        "count": 1
+      },
+      {
+        "source_speaker": "SPEAKER_04",
+        "responding_speaker": "SPEAKER_00",
         "classification": "uncertain",
         "count": 1
       },
       {
-        "source_speaker": "SPEAKER_03",
-        "responding_speaker": "SPEAKER_08",
-        "classification": "counterargument",
+        "source_speaker": "SPEAKER_04",
+        "responding_speaker": "SPEAKER_01",
+        "classification": "disagreement",
+        "count": 1
+      },
+      {
+        "source_speaker": "SPEAKER_04",
+        "responding_speaker": "SPEAKER_01",
+        "classification": "partial_agreement",
+        "count": 1
+      },
+      {
+        "source_speaker": "SPEAKER_04",
+        "responding_speaker": "SPEAKER_02",
+        "classification": "partial_agreement",
+        "count": 1
+      },
+      {
+        "source_speaker": "SPEAKER_04",
+        "responding_speaker": "SPEAKER_05",
+        "classification": "agreement",
         "count": 1
       },
       {
         "source_speaker": "SPEAKER_04",
         "responding_speaker": "SPEAKER_06",
         "classification": "agreement",
+        "count": 1
+      },
+      {
+        "source_speaker": "SPEAKER_04",
+        "responding_speaker": "SPEAKER_07",
+        "classification": "uncertain",
+        "count": 1
+      },
+      {
+        "source_speaker": "SPEAKER_04",
+        "responding_speaker": "SPEAKER_08",
+        "classification": "uncertain",
         "count": 1
       },
       {
@@ -247,13 +353,43 @@
       {
         "source_speaker": "SPEAKER_06",
         "responding_speaker": "SPEAKER_04",
-        "classification": "counterargument",
+        "classification": "agreement",
+        "count": 1
+      },
+      {
+        "source_speaker": "SPEAKER_06",
+        "responding_speaker": "SPEAKER_04",
+        "classification": "disagreement",
+        "count": 1
+      },
+      {
+        "source_speaker": "SPEAKER_06",
+        "responding_speaker": "SPEAKER_04",
+        "classification": "uncertain",
+        "count": 1
+      },
+      {
+        "source_speaker": "SPEAKER_06",
+        "responding_speaker": "SPEAKER_08",
+        "classification": "uncertain",
+        "count": 1
+      },
+      {
+        "source_speaker": "SPEAKER_07",
+        "responding_speaker": "SPEAKER_04",
+        "classification": "uncertain",
         "count": 1
       },
       {
         "source_speaker": "SPEAKER_08",
         "responding_speaker": "SPEAKER_02",
-        "classification": "counterargument",
+        "classification": "agreement",
+        "count": 1
+      },
+      {
+        "source_speaker": "SPEAKER_08",
+        "responding_speaker": "SPEAKER_05",
+        "classification": "partial_agreement",
         "count": 1
       },
       {
@@ -269,13 +405,12 @@
         "title": "Opening discussion",
         "start": 0.0,
         "end": 211.917,
-        "interaction_count": 0,
+        "interaction_count": 3,
         "classification_counts": {
           "agreement": 0,
           "partial_agreement": 0,
           "disagreement": 0,
-          "counterargument": 0,
-          "uncertain": 0
+          "uncertain": 3
         }
       },
       {
@@ -283,13 +418,12 @@
         "title": "Sonia Gandhi's Memoir and Personal Distance with Modi",
         "start": 211.917,
         "end": 277.433,
-        "interaction_count": 0,
+        "interaction_count": 2,
         "classification_counts": {
           "agreement": 0,
           "partial_agreement": 0,
           "disagreement": 0,
-          "counterargument": 0,
-          "uncertain": 0
+          "uncertain": 2
         }
       },
       {
@@ -297,13 +431,12 @@
         "title": "Modi's History of Personal Courtesies with Political Adversaries",
         "start": 277.433,
         "end": 411.465,
-        "interaction_count": 0,
+        "interaction_count": 2,
         "classification_counts": {
           "agreement": 0,
           "partial_agreement": 0,
           "disagreement": 0,
-          "counterargument": 0,
-          "uncertain": 0
+          "uncertain": 2
         }
       },
       {
@@ -311,13 +444,12 @@
         "title": "BJP's counter-argument on Congress's personal attacks",
         "start": 411.465,
         "end": 789.925,
-        "interaction_count": 1,
+        "interaction_count": 10,
         "classification_counts": {
-          "agreement": 0,
+          "agreement": 1,
           "partial_agreement": 0,
-          "disagreement": 0,
-          "counterargument": 0,
-          "uncertain": 1
+          "disagreement": 3,
+          "uncertain": 6
         }
       },
       {
@@ -330,7 +462,6 @@
           "agreement": 0,
           "partial_agreement": 0,
           "disagreement": 0,
-          "counterargument": 0,
           "uncertain": 0
         }
       },
@@ -339,13 +470,12 @@
         "title": "Political Courtesies and Personal Animosity",
         "start": 995.047,
         "end": 2011.973,
-        "interaction_count": 10,
+        "interaction_count": 32,
         "classification_counts": {
-          "agreement": 2,
-          "partial_agreement": 0,
-          "disagreement": 0,
-          "counterargument": 7,
-          "uncertain": 1
+          "agreement": 5,
+          "partial_agreement": 2,
+          "disagreement": 4,
+          "uncertain": 21
         }
       },
       {
@@ -353,13 +483,12 @@
         "title": "Political Civility and Mutual Accusations of Abusive Language",
         "start": 2011.973,
         "end": 2314.186,
-        "interaction_count": 9,
+        "interaction_count": 22,
         "classification_counts": {
           "agreement": 1,
           "partial_agreement": 0,
-          "disagreement": 1,
-          "counterargument": 6,
-          "uncertain": 1
+          "disagreement": 8,
+          "uncertain": 13
         }
       },
       {
@@ -367,94 +496,680 @@
         "title": "Concluding Remarks and Social Media Poll on Sam Pitroda",
         "start": 2314.186,
         "end": 2394.101,
-        "interaction_count": 0,
+        "interaction_count": 2,
         "classification_counts": {
           "agreement": 0,
-          "partial_agreement": 0,
+          "partial_agreement": 1,
           "disagreement": 0,
-          "counterargument": 0,
-          "uncertain": 0
+          "uncertain": 1
         }
       }
     ],
     "host_statistics": {
       "host_speaker_id": "SPEAKER_04",
-      "host_initiated_interactions": 7,
+      "host_initiated_interactions": 36,
       "host_initiated_classification_counts": {
-        "agreement": 1,
+        "agreement": 2,
         "partial_agreement": 0,
-        "disagreement": 0,
-        "counterargument": 5,
-        "uncertain": 1
+        "disagreement": 6,
+        "uncertain": 28
       },
-      "host_received_interactions": 3,
+      "host_received_interactions": 23,
       "host_received_classification_counts": {
-        "agreement": 1,
-        "partial_agreement": 0,
-        "disagreement": 0,
-        "counterargument": 2,
-        "uncertain": 0
+        "agreement": 3,
+        "partial_agreement": 2,
+        "disagreement": 4,
+        "uncertain": 14
       },
-      "guest_to_guest_interactions": 9,
+      "guest_to_guest_interactions": 11,
       "guest_to_guest_classification_counts": {
-        "agreement": 1,
-        "partial_agreement": 0,
-        "disagreement": 1,
-        "counterargument": 6,
-        "uncertain": 1
+        "agreement": 2,
+        "partial_agreement": 1,
+        "disagreement": 5,
+        "uncertain": 3
       },
-      "host_involved_interactions": 10
+      "host_involved_interactions": 59
     },
     "directional_aggregation_exclusions": {
-      "null_source_speaker_interactions": 1,
-      "included_in_directional_pairs": 19
+      "null_source_speaker_interactions": 6,
+      "included_in_directional_pairs": 67
     },
-    "ratio_note": "Agreement family = agreement + partial_agreement; disagreement family = disagreement + counterargument. Neutral turns are omitted; uncertain cases are excluded from ratio denominators."
+    "ratio_note": "Agreement family = agreement + partial_agreement; disagreement family = disagreement. Uncertain cases are excluded from ratio denominators."
   },
   "interactions": [
     {
       "video_id": "rAFhQSMU69A",
       "interaction_id": "INT_0001",
-      "timestamp": 694.64,
-      "response_turn_id": "T0015",
-      "target_turn_id": null,
-      "subtopic_id": "ST004",
-      "source_speaker": null,
-      "responding_speaker": "SPEAKER_03",
+      "timestamp": 21.631,
+      "response_turn_id": "T0002",
+      "target_turn_id": "T0001",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_00",
+      "target_speaker": "SPEAKER_00",
+      "responding_speaker": "SPEAKER_04",
       "classification": "uncertain",
-      "evidence": "Calling Mrs. Gandhi jersey cow was that was that decent. Calling Rahul Gandhi hybrid cow",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The response turn starts the broadcast opening monologue, ignoring the moderator prompt which was merely administrative speech.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 0.031,
+        "target_end": 14.527,
+        "response_start": 21.631,
+        "response_end": 176.999
+      }
+    },
+    {
+      "video_id": "rAFhQSMU69A",
+      "interaction_id": "INT_0002",
+      "timestamp": 177.573,
+      "response_turn_id": "T0003",
+      "target_turn_id": "T0001",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_00",
+      "target_speaker": "SPEAKER_00",
+      "responding_speaker": "SPEAKER_07",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The speaker shares an unrelated personal anecdote about journalists, not addressing any specific prior statement.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 0.031,
+        "target_end": 14.527,
+        "response_start": 177.573,
+        "response_end": 201.738
+      }
+    },
+    {
+      "video_id": "rAFhQSMU69A",
+      "interaction_id": "INT_0003",
+      "timestamp": 203.122,
+      "response_turn_id": "T0004",
+      "target_turn_id": "T0003",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_07",
+      "target_speaker": "SPEAKER_07",
+      "responding_speaker": "SPEAKER_04",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The speaker transitions back to the main topic regarding Sonia Gandhi's memoir, ignoring the previous off-topic anecdote.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 177.573,
+        "target_end": 201.738,
+        "response_start": 203.122,
+        "response_end": 255.13
+      }
+    },
+    {
+      "video_id": "rAFhQSMU69A",
+      "interaction_id": "INT_0004",
+      "timestamp": 255.839,
+      "response_turn_id": "T0005",
+      "target_turn_id": "T0004",
+      "subtopic_id": "ST002",
+      "source_speaker": "SPEAKER_04",
+      "target_speaker": "SPEAKER_04",
+      "responding_speaker": "SPEAKER_00",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The speaker makes a vague, unrelated remark about not living in the country, providing no clear stance on the topic.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 203.122,
+        "target_end": 255.13,
+        "response_start": 255.839,
+        "response_end": 267.702
+      }
+    },
+    {
+      "video_id": "rAFhQSMU69A",
+      "interaction_id": "INT_0005",
+      "timestamp": 268.698,
+      "response_turn_id": "T0006",
+      "target_turn_id": "T0005",
+      "subtopic_id": "ST002",
+      "source_speaker": "SPEAKER_00",
+      "target_speaker": "SPEAKER_00",
+      "responding_speaker": "SPEAKER_04",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The speaker continues the debate narrative about political courtesies, ignoring the irrelevant comment made previously by SPEAKER_00.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 255.839,
+        "target_end": 267.702,
+        "response_start": 268.698,
+        "response_end": 383.667
+      }
+    },
+    {
+      "video_id": "rAFhQSMU69A",
+      "interaction_id": "INT_0006",
+      "timestamp": 384.73,
+      "response_turn_id": "T0007",
+      "target_turn_id": "T0006",
+      "subtopic_id": "ST003",
+      "source_speaker": "SPEAKER_04",
+      "target_speaker": "SPEAKER_04",
+      "responding_speaker": "SPEAKER_07",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "Speaker 07 recites a philosophical or personal reflection following an anchor monologue, with no clear directed stance or address toward a specific claim.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 268.698,
+        "target_end": 383.667,
+        "response_start": 384.73,
+        "response_end": 409.874
+      }
+    },
+    {
+      "video_id": "rAFhQSMU69A",
+      "interaction_id": "INT_0007",
+      "timestamp": 411.359,
+      "response_turn_id": "T0008",
+      "target_turn_id": null,
+      "subtopic_id": "ST003",
+      "source_speaker": null,
+      "target_speaker": null,
+      "responding_speaker": "SPEAKER_04",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "",
+      "confidence": "low",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": null,
+        "target_end": null,
+        "response_start": 411.359,
+        "response_end": 445.21
+      }
+    },
+    {
+      "video_id": "rAFhQSMU69A",
+      "interaction_id": "INT_0008",
+      "timestamp": 446.01,
+      "response_turn_id": "T0009",
+      "target_turn_id": "T0008",
+      "subtopic_id": "ST004",
+      "source_speaker": "SPEAKER_04",
+      "target_speaker": "SPEAKER_04",
+      "responding_speaker": "SPEAKER_00",
+      "classification": "agreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "Here's a glimpse of the muhabbat showered on the Prime Minister by the Congress party and the Gandhi",
+        "statement_2": "family."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "The speaker counters the BJP's prior allegations of personal attacks against Modi by citing derogatory terms used against Congress leaders.",
+      "reasoning": "Speaker 00 completes the sentence left trailing by Speaker 04 ('Gandhi' followed by 'family'), showing agreement/continuation of the point.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 411.359,
+        "target_end": 445.21,
+        "response_start": 446.01,
+        "response_end": 449.091
+      }
+    },
+    {
+      "video_id": "rAFhQSMU69A",
+      "interaction_id": "INT_0009",
+      "timestamp": 468.025,
+      "response_turn_id": "T0010",
+      "target_turn_id": null,
+      "subtopic_id": "ST004",
+      "source_speaker": null,
+      "target_speaker": null,
+      "responding_speaker": "SPEAKER_04",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "Anchor is continuing their own commentary and posing a debate question rather than responding to an earlier participant turn.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
         "target_start": null,
         "target_end": null,
+        "response_start": 468.025,
+        "response_end": 489.372
+      }
+    },
+    {
+      "video_id": "rAFhQSMU69A",
+      "interaction_id": "INT_0010",
+      "timestamp": 490.705,
+      "response_turn_id": "T0011",
+      "target_turn_id": "T0010",
+      "subtopic_id": "ST004",
+      "source_speaker": "SPEAKER_04",
+      "target_speaker": "SPEAKER_04",
+      "responding_speaker": "SPEAKER_03",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "Anchor/station ID break by Speaker 03, purely procedural/moderation.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 468.025,
+        "target_end": 489.372,
+        "response_start": 490.705,
+        "response_end": 497.692
+      }
+    },
+    {
+      "video_id": "rAFhQSMU69A",
+      "interaction_id": "INT_0011",
+      "timestamp": 501.185,
+      "response_turn_id": "T0012",
+      "target_turn_id": "T0011",
+      "subtopic_id": "ST004",
+      "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
+      "responding_speaker": "SPEAKER_04",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host begins her opening remarks and introduces the debate participants, but there is no direct stance being taken against the anchor's brief station ID announcement in T0011.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 490.705,
+        "target_end": 497.692,
+        "response_start": 501.185,
+        "response_end": 572.583
+      }
+    },
+    {
+      "video_id": "rAFhQSMU69A",
+      "interaction_id": "INT_0012",
+      "timestamp": 574.287,
+      "response_turn_id": "T0013",
+      "target_turn_id": "T0012",
+      "subtopic_id": "ST004",
+      "source_speaker": "SPEAKER_04",
+      "target_speaker": "SPEAKER_04",
+      "responding_speaker": "SPEAKER_03",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The speaker starts by responding to the host's introduction and question about Sam Pitroda, but does not take a clear agreement or disagreement stance on a specific prior claim, instead pivoting into his own commentary.",
+      "confidence": "medium",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 501.185,
+        "target_end": 572.583,
+        "response_start": 574.287,
+        "response_end": 691.552
+      }
+    },
+    {
+      "video_id": "rAFhQSMU69A",
+      "interaction_id": "INT_0013",
+      "timestamp": 690.185,
+      "response_turn_id": "T0014",
+      "target_turn_id": "T0013",
+      "subtopic_id": "ST004",
+      "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
+      "responding_speaker": "SPEAKER_04",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host interrupts or overlaps to complete or append a thought to the speaker's long monologue, but it functions more as a procedural interruption/interjection rather than a direct stance response.",
+      "confidence": "medium",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 574.287,
+        "target_end": 691.552,
+        "response_start": 690.185,
+        "response_end": 705.862
+      }
+    },
+    {
+      "video_id": "rAFhQSMU69A",
+      "interaction_id": "INT_0014",
+      "timestamp": 694.64,
+      "response_turn_id": "T0015",
+      "target_turn_id": "T0014",
+      "subtopic_id": "ST004",
+      "source_speaker": "SPEAKER_04",
+      "target_speaker": "SPEAKER_04",
+      "responding_speaker": "SPEAKER_03",
+      "classification": "disagreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "They forgave them as well.",
+        "statement_2": "Now, let me finish. Since we are talking about people in their entire holistic sense, and I know Mr. Modi is not going to like hearing this, but he has to know the truth and I'm going to rattle it out very quickly. Calling Mrs. Gandhi jersey cow was that was that decent."
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "The speaker challenges the host's previous interjection by bringing up derogatory names used against the Gandhi family, directly countering the narrative of civility.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 690.185,
+        "target_end": 705.862,
         "response_start": 694.64,
         "response_end": 747.138
       }
     },
     {
       "video_id": "rAFhQSMU69A",
-      "interaction_id": "INT_0002",
+      "interaction_id": "INT_0015",
+      "timestamp": 753.618,
+      "response_turn_id": "T0016",
+      "target_turn_id": "T0014",
+      "subtopic_id": "ST004",
+      "source_speaker": "SPEAKER_04",
+      "target_speaker": "SPEAKER_04",
+      "responding_speaker": "SPEAKER_03",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The speaker continues his argument about civil language, but the exact target quote linkage to T0014 is unclear or conversational rather than a precise rebuttal.",
+      "confidence": "low",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 690.185,
+        "target_end": 705.862,
+        "response_start": 753.618,
+        "response_end": 766.021
+      }
+    },
+    {
+      "video_id": "rAFhQSMU69A",
+      "interaction_id": "INT_0016",
+      "timestamp": 764.485,
+      "response_turn_id": "T0017",
+      "target_turn_id": "T0016",
+      "subtopic_id": "ST004",
+      "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
+      "responding_speaker": "SPEAKER_04",
+      "classification": "disagreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "Rahul will never use that language because we are civil.",
+        "statement_2": "And you're saying Rahul is the nice guy? Well, I don't know."
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "The host challenges the previous speaker's defense of Rahul Gandhi's civility.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 753.618,
+        "target_end": 766.021,
+        "response_start": 764.485,
+        "response_end": 785.039
+      }
+    },
+    {
+      "video_id": "rAFhQSMU69A",
+      "interaction_id": "INT_0017",
+      "timestamp": 789.106,
+      "response_turn_id": "T0018",
+      "target_turn_id": "T0016",
+      "subtopic_id": "ST004",
+      "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
+      "responding_speaker": "SPEAKER_08",
+      "classification": "disagreement",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "I disagree with him politically, ideologically, but nobody is into calling names.",
+        "statement_2": "Sanjay Jhaji was saying that definitely the animosity is not at the personal level, but there is a strong and starking difference at the ideological level."
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "The speaker addresses Sanjay Jha's previous claims about civility and ideological differences, pivoting to attack Congress ideology and Sonia Gandhi's book.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 753.618,
+        "target_end": 766.021,
+        "response_start": 789.106,
+        "response_end": 999.942
+      }
+    },
+    {
+      "video_id": "rAFhQSMU69A",
+      "interaction_id": "INT_0018",
+      "timestamp": 998.525,
+      "response_turn_id": "T0019",
+      "target_turn_id": "T0016",
+      "subtopic_id": "ST006",
+      "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
+      "responding_speaker": "SPEAKER_04",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host transitions the discussion by bringing up Sonia Gandhi's book regarding political courtesies, which is a new thread rather than a direct stance on T0016.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 753.618,
+        "target_end": 766.021,
+        "response_start": 998.525,
+        "response_end": 1017.593
+      }
+    },
+    {
+      "video_id": "rAFhQSMU69A",
+      "interaction_id": "INT_0019",
+      "timestamp": 1017.931,
+      "response_turn_id": "T0020",
+      "target_turn_id": "T0018",
+      "subtopic_id": "ST006",
+      "source_speaker": "SPEAKER_08",
+      "target_speaker": "SPEAKER_08",
+      "responding_speaker": "SPEAKER_04",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host intervenes to re-focus the debate on visual evidence of political courtesies rather than directly agreeing or disagreeing with SPEAKER_08's long discourse.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 789.106,
+        "target_end": 999.942,
+        "response_start": 1017.931,
+        "response_end": 1053.082
+      }
+    },
+    {
+      "video_id": "rAFhQSMU69A",
+      "interaction_id": "INT_0020",
       "timestamp": 1054.01,
       "response_turn_id": "T0021",
       "target_turn_id": "T0020",
       "subtopic_id": "ST006",
       "source_speaker": "SPEAKER_04",
+      "target_speaker": "SPEAKER_04",
       "responding_speaker": "SPEAKER_03",
-      "classification": "counterargument",
-      "evidence": "the simple answer is if you call somebody a Jersey cow, you can't make an eye contact.",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "Where does this issue really come up from? No eye contact. Well, why?",
+        "statement_2": ""
+      },
       "evidence_present": true,
-      "evidence_found_in_response": true,
-      "evidence_validation_status": "verified",
-      "manual_review_required": false,
-      "reasoning": "The speaker responds to the host's question about why there is a lack of eye contact/courtesies by offering a substantive counter-explanation involving personal insults.",
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "invalid",
+      "manual_review_required": true,
+      "reasoning": "The speaker responds directly to the host's question about why there is no eye contact or courtesies, explaining it as a consequence of past insults while addressing the host's framing.",
       "confidence": "high",
-      "review_status": "pending",
+      "review_status": "manual_review_required",
       "source_turn_timestamps": {
         "target_start": 1017.931,
         "target_end": 1053.082,
@@ -464,20 +1179,91 @@
     },
     {
       "video_id": "rAFhQSMU69A",
-      "interaction_id": "INT_0003",
+      "interaction_id": "INT_0021",
+      "timestamp": 1100.905,
+      "response_turn_id": "T0022",
+      "target_turn_id": "T0021",
+      "subtopic_id": "ST006",
+      "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
+      "responding_speaker": "SPEAKER_04",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host simply prompts continuation or expresses that people want to know, without taking a substantive stance on the speaker's claims.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1054.01,
+        "target_end": 1102.238,
+        "response_start": 1100.905,
+        "response_end": 1110.743
+      }
+    },
+    {
+      "video_id": "rAFhQSMU69A",
+      "interaction_id": "INT_0022",
+      "timestamp": 1111.975,
+      "response_turn_id": "T0023",
+      "target_turn_id": "T0021",
+      "subtopic_id": "ST006",
+      "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
+      "responding_speaker": "SPEAKER_04",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host (SPEAKER_04) redirects the conversation to another participant (Abhijit) and asks a question about past gestures, acting in a moderating role.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1054.01,
+        "target_end": 1102.238,
+        "response_start": 1111.975,
+        "response_end": 1134.47
+      }
+    },
+    {
+      "video_id": "rAFhQSMU69A",
+      "interaction_id": "INT_0023",
       "timestamp": 1134.655,
       "response_turn_id": "T0024",
       "target_turn_id": "T0021",
       "subtopic_id": "ST006",
       "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
       "responding_speaker": "SPEAKER_06",
-      "classification": "counterargument",
-      "evidence": "Tell me something, what mahal was Sonia Gandhi making when she was the de facto Prime Minister in and Narsimha Rao died and his body was left outside the Congress office in revenge to rot under the sun?",
+      "classification": "disagreement",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "Mrs. Gandhi's experience is what she's articulated.",
+        "statement_2": "Look, let us assume that Sonia Gandhi is right and it is for the Prime Minister to make the mahal for all of this."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "The speaker challenges the previous claim regarding a lack of political courtesies by pointing out alleged past discourtesies by Sonia Gandhi.",
+      "reasoning": "SPEAKER_06 directly challenges the premise regarding Sonia Gandhi's complaints of lacking courtesies by shifting the focus to what she allegedly did herself.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -489,46 +1275,252 @@
     },
     {
       "video_id": "rAFhQSMU69A",
-      "interaction_id": "INT_0004",
+      "interaction_id": "INT_0024",
       "timestamp": 1157.116,
       "response_turn_id": "T0025",
-      "target_turn_id": "T0021",
+      "target_turn_id": null,
       "subtopic_id": "ST006",
-      "source_speaker": "SPEAKER_03",
+      "source_speaker": null,
+      "target_speaker": null,
       "responding_speaker": "SPEAKER_06",
-      "classification": "counterargument",
-      "evidence": "Let me tell you the mahal that so far Narendra Modi has made. Arun Shuri said nasty things about him, when he was sick he went and met him.",
-      "evidence_present": true,
-      "evidence_found_in_response": true,
-      "evidence_validation_status": "verified",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
       "manual_review_required": false,
-      "reasoning": "The speaker provides a detailed counterargument listing examples of Prime Minister Modi extending courtesies to political critics, contradicting the claim that he fails to do so.",
+      "reasoning": "This turn is a continuation of the same speaker's (SPEAKER_06) previous turn, elaborating on the same point rather than responding to a different speaker.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
-        "target_start": 1054.01,
-        "target_end": 1102.238,
+        "target_start": null,
+        "target_end": null,
         "response_start": 1157.116,
         "response_end": 1296.132
       }
     },
     {
       "video_id": "rAFhQSMU69A",
-      "interaction_id": "INT_0005",
+      "interaction_id": "INT_0025",
+      "timestamp": 1296.132,
+      "response_turn_id": "T0026",
+      "target_turn_id": "T0025",
+      "subtopic_id": "ST006",
+      "source_speaker": "SPEAKER_06",
+      "target_speaker": "SPEAKER_06",
+      "responding_speaker": "SPEAKER_04",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host (SPEAKER_04) summarizes points and asks a question to a new panelist (Renu Mittal) to continue the debate, fulfilling a moderating role.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1157.116,
+        "target_end": 1296.132,
+        "response_start": 1296.132,
+        "response_end": 1334.033
+      }
+    },
+    {
+      "video_id": "rAFhQSMU69A",
+      "interaction_id": "INT_0026",
+      "timestamp": 1338.353,
+      "response_turn_id": "T0027",
+      "target_turn_id": "T0026",
+      "subtopic_id": "ST006",
+      "source_speaker": "SPEAKER_04",
+      "target_speaker": "SPEAKER_04",
+      "responding_speaker": "SPEAKER_02",
+      "classification": "partial_agreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "Mrs. Gandhi clearly mentions in her book that she was not extended the courtesies. Where is this stemming from? Is there mutual mistrust or is this over exaggerated by Mrs. Gandhi as the BJP says?",
+        "statement_2": "So Sonia Gandhi while writing this has written her personal experience of what she feels about you know the way that her interactions with Mr. Modi have gone. She's entitled to that."
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "SPEAKER_02 responds to SPEAKER_04's question about Sonia Gandhi's memoir and whether her claims are exaggerated, agreeing that she is entitled to share her personal experience in her memoir while offering her perspective on the interactions.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1296.132,
+        "target_end": 1334.033,
+        "response_start": 1338.353,
+        "response_end": 1430.93
+      }
+    },
+    {
+      "video_id": "rAFhQSMU69A",
+      "interaction_id": "INT_0027",
+      "timestamp": 1430.069,
+      "response_turn_id": "T0028",
+      "target_turn_id": null,
+      "subtopic_id": "ST006",
+      "source_speaker": null,
+      "target_speaker": null,
+      "responding_speaker": "SPEAKER_04",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The speaker is continuing moderation and addressing the guest directly; no clear target claim or stance is being established.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": null,
+        "target_end": null,
+        "response_start": 1430.069,
+        "response_end": 1448.648
+      }
+    },
+    {
+      "video_id": "rAFhQSMU69A",
+      "interaction_id": "INT_0028",
+      "timestamp": 1449.577,
+      "response_turn_id": "T0029",
+      "target_turn_id": "T0028",
+      "subtopic_id": "ST006",
+      "source_speaker": "SPEAKER_04",
+      "target_speaker": "SPEAKER_04",
+      "responding_speaker": "SPEAKER_02",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "SPEAKER_02 responds to the host's question regarding Sonia Gandhi's press conferences and media interactions, providing context rather than a direct stance on a specific previous argument.",
+      "confidence": "medium",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1430.069,
+        "target_end": 1448.648,
+        "response_start": 1449.577,
+        "response_end": 1497.974
+      }
+    },
+    {
+      "video_id": "rAFhQSMU69A",
+      "interaction_id": "INT_0029",
+      "timestamp": 1498.058,
+      "response_turn_id": "T0030",
+      "target_turn_id": "T0029",
+      "subtopic_id": "ST006",
+      "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
+      "responding_speaker": "SPEAKER_04",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host (SPEAKER_04) moves the discussion forward to another panelist, which is a procedural moderation act.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1449.577,
+        "target_end": 1497.974,
+        "response_start": 1498.058,
+        "response_end": 1501.214
+      }
+    },
+    {
+      "video_id": "rAFhQSMU69A",
+      "interaction_id": "INT_0030",
+      "timestamp": 1502.581,
+      "response_turn_id": "T0031",
+      "target_turn_id": "T0030",
+      "subtopic_id": "ST006",
+      "source_speaker": "SPEAKER_04",
+      "target_speaker": "SPEAKER_04",
+      "responding_speaker": "SPEAKER_02",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The utterance is a brief, incomplete fragment that does not clearly address the moderator's redirection.",
+      "confidence": "low",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1498.058,
+        "target_end": 1501.214,
+        "response_start": 1502.581,
+        "response_end": 1505.416
+      }
+    },
+    {
+      "video_id": "rAFhQSMU69A",
+      "interaction_id": "INT_0031",
       "timestamp": 1505.004,
       "response_turn_id": "T0032",
       "target_turn_id": "T0031",
       "subtopic_id": "ST006",
       "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
       "responding_speaker": "SPEAKER_08",
       "classification": "uncertain",
-      "evidence": "",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
       "evidence_present": false,
+      "evidence_found_in_target": false,
       "evidence_found_in_response": false,
       "evidence_validation_status": "missing",
       "manual_review_required": false,
-      "reasoning": "The response is a single word fragment completing an earlier thought, context is insufficient for a clear directed stance.",
-      "confidence": "low",
+      "reasoning": "The single-word response 'written.' appears to be a fragmented utterance or continuation of a previous thought without a clear semantic stance toward the target turn.",
+      "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
         "target_start": 1502.581,
@@ -539,46 +1531,60 @@
     },
     {
       "video_id": "rAFhQSMU69A",
-      "interaction_id": "INT_0006",
+      "interaction_id": "INT_0032",
       "timestamp": 1505.635,
       "response_turn_id": "T0033",
-      "target_turn_id": "T0029",
+      "target_turn_id": null,
       "subtopic_id": "ST006",
-      "source_speaker": "SPEAKER_02",
+      "source_speaker": null,
+      "target_speaker": null,
       "responding_speaker": "SPEAKER_08",
-      "classification": "counterargument",
-      "evidence": "yes she said correctly that every leader should write its own memoirs but I would like to remind Sita Ram Kesari",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": "yes she said correctly that every leader should write its own memoirs"
+      },
       "evidence_present": true,
+      "evidence_found_in_target": false,
       "evidence_found_in_response": true,
-      "evidence_validation_status": "verified",
-      "manual_review_required": false,
-      "reasoning": "Speaker 08 partially acknowledges the previous speaker's point about memoirs before introducing critical historical anecdotes about Sonia Gandhi to counter the positive framing.",
+      "evidence_validation_status": "invalid",
+      "manual_review_required": true,
+      "reasoning": "SPEAKER_08 explicitly agrees with SPEAKER_02's point that leaders should write their own memoirs, but immediately pivots to criticize Sonia Gandhi's political role and history.",
       "confidence": "high",
-      "review_status": "pending",
+      "review_status": "manual_review_required",
       "source_turn_timestamps": {
-        "target_start": 1449.577,
-        "target_end": 1497.974,
+        "target_start": null,
+        "target_end": null,
         "response_start": 1505.635,
         "response_end": 1566.622
       }
     },
     {
       "video_id": "rAFhQSMU69A",
-      "interaction_id": "INT_0007",
+      "interaction_id": "INT_0033",
       "timestamp": 1563.348,
       "response_turn_id": "T0034",
       "target_turn_id": "T0033",
       "subtopic_id": "ST006",
       "source_speaker": "SPEAKER_08",
+      "target_speaker": "SPEAKER_08",
       "responding_speaker": "SPEAKER_02",
-      "classification": "counterargument",
-      "evidence": "Michel and Hande Anderson. Everybody knows that they were so",
+      "classification": "agreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "And in her memoir, there is no difference of Ottavio Cotrucci, Guido H.K., Christian",
+        "statement_2": "Michel and Hande Anderson. Everybody knows that they were so"
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "Speaker 02 continues the exchange by bringing up specific names to counter the ongoing criticism of Sonia Gandhi.",
-      "confidence": "medium",
+      "reasoning": "SPEAKER_02 seamlessly continues and completes SPEAKER_08's sentence regarding names mentioned in Sonia Gandhi's memoir, demonstrating direct agreement and cooperative continuation.",
+      "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
         "target_start": 1505.635,
@@ -589,20 +1595,59 @@
     },
     {
       "video_id": "rAFhQSMU69A",
-      "interaction_id": "INT_0008",
+      "interaction_id": "INT_0034",
+      "timestamp": 1573.169,
+      "response_turn_id": "T0035",
+      "target_turn_id": "T0034",
+      "subtopic_id": "ST006",
+      "source_speaker": "SPEAKER_02",
+      "target_speaker": "SPEAKER_02",
+      "responding_speaker": "SPEAKER_04",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host (SPEAKER_04) intervenes to manage the debate and ask speakers not to speak over each other, which is procedural moderation rather than a stance on a substantive claim.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1563.348,
+        "target_end": 1573.034,
+        "response_start": 1573.169,
+        "response_end": 1585.707
+      }
+    },
+    {
+      "video_id": "rAFhQSMU69A",
+      "interaction_id": "INT_0035",
       "timestamp": 1585.707,
       "response_turn_id": "T0036",
       "target_turn_id": "T0033",
       "subtopic_id": "ST006",
       "source_speaker": "SPEAKER_08",
+      "target_speaker": "SPEAKER_08",
       "responding_speaker": "SPEAKER_06",
       "classification": "agreement",
-      "evidence": "It is Sonia Gandhi sitting next to the Prime Minister of Bangladesh and the elected Prime Minister of the country is sitting in a subservient position.",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "If she was just a congress president, why every head of the state uses to meet first Sonia Gandhiji, then Manmohan Singh ji?",
+        "statement_2": "This is Sonia Gandhi and Manmohan Singh meeting Sheikh Hasina. It is not the elected Prime Minister of the country that is sitting next to the elected Prime Minister."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "Speaker 06 explicitly supports Speaker 08's earlier claim that Sonia Gandhi acted as a 'super prime minister' over Manmohan Singh.",
+      "reasoning": "SPEAKER_06 supports SPEAKER_08's earlier argument that Sonia Gandhi exercised de facto prime ministerial power over elected officials by presenting photographic evidence of her meeting foreign heads of state.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -614,20 +1659,315 @@
     },
     {
       "video_id": "rAFhQSMU69A",
-      "interaction_id": "INT_0009",
+      "interaction_id": "INT_0036",
+      "timestamp": 1609.18,
+      "response_turn_id": "T0037",
+      "target_turn_id": "T0036",
+      "subtopic_id": "ST006",
+      "source_speaker": "SPEAKER_06",
+      "target_speaker": "SPEAKER_06",
+      "responding_speaker": "SPEAKER_04",
+      "classification": "agreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "It is Sonia Gandhi sitting next to the Prime Minister of Bangladesh and the elected Prime Minister of the country is sitting in a subservient position.",
+        "statement_2": "Well, not only that, I've been reported at that time. Sonia Gandhi was the head of the National Advisory Council and missives used to go from the NAC to the government and they had to be followed in Toto."
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "The host agrees with and builds upon the previous speaker's point regarding Sonia Gandhi's powerful status over the elected government.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1585.707,
+        "target_end": 1608.742,
+        "response_start": 1609.18,
+        "response_end": 1626.393
+      }
+    },
+    {
+      "video_id": "rAFhQSMU69A",
+      "interaction_id": "INT_0037",
+      "timestamp": 1630.645,
+      "response_turn_id": "T0038",
+      "target_turn_id": "T0036",
+      "subtopic_id": "ST006",
+      "source_speaker": "SPEAKER_06",
+      "target_speaker": "SPEAKER_06",
+      "responding_speaker": "SPEAKER_08",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The turn initiates a critique of Sonia Gandhi's memoir rather than directly addressing the preceding turn's specific claim about the photograph.",
+      "confidence": "medium",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1585.707,
+        "target_end": 1608.742,
+        "response_start": 1630.645,
+        "response_end": 1673.795
+      }
+    },
+    {
+      "video_id": "rAFhQSMU69A",
+      "interaction_id": "INT_0038",
+      "timestamp": 1674.098,
+      "response_turn_id": "T0039",
+      "target_turn_id": null,
+      "subtopic_id": "ST006",
+      "source_speaker": null,
+      "target_speaker": null,
+      "responding_speaker": "SPEAKER_08",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": "I think that whosoever has written the book and whosoever has advised the book has not done good to Sonia Gandhi Ji."
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "invalid",
+      "manual_review_required": true,
+      "reasoning": "The speaker continues the same thought and argument from their immediately preceding turn about the memoir being ill-advised.",
+      "confidence": "high",
+      "review_status": "manual_review_required",
+      "source_turn_timestamps": {
+        "target_start": null,
+        "target_end": null,
+        "response_start": 1674.098,
+        "response_end": 1703.967
+      }
+    },
+    {
+      "video_id": "rAFhQSMU69A",
+      "interaction_id": "INT_0039",
+      "timestamp": 1704.035,
+      "response_turn_id": "T0040",
+      "target_turn_id": "T0039",
+      "subtopic_id": "ST006",
+      "source_speaker": "SPEAKER_08",
+      "target_speaker": "SPEAKER_08",
+      "responding_speaker": "SPEAKER_04",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host merely interrupts to direct the conversation and name another participant, containing no discernible stance.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1674.098,
+        "target_end": 1703.967,
+        "response_start": 1704.035,
+        "response_end": 1705.975
+      }
+    },
+    {
+      "video_id": "rAFhQSMU69A",
+      "interaction_id": "INT_0040",
+      "timestamp": 1705.621,
+      "response_turn_id": "T0041",
+      "target_turn_id": "T0040",
+      "subtopic_id": "ST006",
+      "source_speaker": "SPEAKER_04",
+      "target_speaker": "SPEAKER_04",
+      "responding_speaker": "SPEAKER_08",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The speaker attempts to continue speaking over the host; the statement is incomplete and lacks a clear stance or valid target claim.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1704.035,
+        "target_end": 1705.975,
+        "response_start": 1705.621,
+        "response_end": 1707.427
+      }
+    },
+    {
+      "video_id": "rAFhQSMU69A",
+      "interaction_id": "INT_0041",
+      "timestamp": 1706.363,
+      "response_turn_id": "T0042",
+      "target_turn_id": "T0039",
+      "subtopic_id": "ST006",
+      "source_speaker": "SPEAKER_08",
+      "target_speaker": "SPEAKER_08",
+      "responding_speaker": "SPEAKER_04",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host is moving the discussion to a new panelist and topic rather than engaging with the specific previous speaker's argument.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1674.098,
+        "target_end": 1703.967,
+        "response_start": 1706.363,
+        "response_end": 1733.752
+      }
+    },
+    {
+      "video_id": "rAFhQSMU69A",
+      "interaction_id": "INT_0042",
+      "timestamp": 1734.528,
+      "response_turn_id": "T0043",
+      "target_turn_id": "T0042",
+      "subtopic_id": "ST006",
+      "source_speaker": "SPEAKER_04",
+      "target_speaker": "SPEAKER_04",
+      "responding_speaker": "SPEAKER_05",
+      "classification": "agreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "Anand Ranganathan is this about courtesies is this who's really cussed in this equation whether it is Prime Minister Narendra Modi or has it been the Gandhi's where do you stand on this debate",
+        "statement_2": "No, but look, the Prime Minister as my good friend Abhijit rightly pointed out has always been courteous, more so at the risk of irritating his friends, courteous towards his enemies more than his friends"
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "SPEAKER_05 responds directly to the host's prompt about political courtesies and whether Modi or the Gandhis are at fault, agreeing with the premise that Modi has been courteous.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1706.363,
+        "target_end": 1733.752,
+        "response_start": 1734.528,
+        "response_end": 1877.915
+      }
+    },
+    {
+      "video_id": "rAFhQSMU69A",
+      "interaction_id": "INT_0043",
+      "timestamp": 1877.965,
+      "response_turn_id": "T0044",
+      "target_turn_id": "T0043",
+      "subtopic_id": "ST006",
+      "source_speaker": "SPEAKER_05",
+      "target_speaker": "SPEAKER_05",
+      "responding_speaker": "SPEAKER_04",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host provides a brief transitional comment on media and framing following the previous speaker's lengthy remarks without taking a distinct stance on a specific claim.",
+      "confidence": "medium",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1734.528,
+        "target_end": 1877.915,
+        "response_start": 1877.965,
+        "response_end": 1913.065
+      }
+    },
+    {
+      "video_id": "rAFhQSMU69A",
+      "interaction_id": "INT_0044",
+      "timestamp": 1917.925,
+      "response_turn_id": "T0045",
+      "target_turn_id": "T0044",
+      "subtopic_id": "ST006",
+      "source_speaker": "SPEAKER_04",
+      "target_speaker": "SPEAKER_04",
+      "responding_speaker": "SPEAKER_01",
+      "classification": "partial_agreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "Kisne Kisko Kya Kaha? Dono side mein Kisi ne Koi Kami Kiye?",
+        "statement_2": "I appreciate, at least you are saying that there is no decrease in both the sides."
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "SPEAKER_01 partially agrees with the host's point that both sides engage in harsh rhetoric ('neither side is lacking'), but pivots to address another speaker on a different matter.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1877.965,
+        "target_end": 1913.065,
+        "response_start": 1917.925,
+        "response_end": 1954.088
+      }
+    },
+    {
+      "video_id": "rAFhQSMU69A",
+      "interaction_id": "INT_0045",
       "timestamp": 1950.055,
       "response_turn_id": "T0046",
       "target_turn_id": "T0045",
       "subtopic_id": "ST006",
       "source_speaker": "SPEAKER_01",
+      "target_speaker": "SPEAKER_01",
       "responding_speaker": "SPEAKER_04",
-      "classification": "counterargument",
-      "evidence": "Why did the Congress remove Sam Pitroda? Because there were elections around the corner.",
+      "classification": "disagreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "Why did you remove Sam Pitroda for a while from his",
+        "statement_2": "Why did the Congress remove Sam Pitroda? Because there were elections around the corner. That's why you removed him and then brought him back after two months."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "The host provides a substantive counter-explanation for why the Congress party temporarily removed Sam Pitroda.",
+      "reasoning": "The host interrupts or completes the thought regarding Sam Pitroda's removal, challenging the underlying premise or motivation presented by the previous speaker.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -639,21 +1979,92 @@
     },
     {
       "video_id": "rAFhQSMU69A",
-      "interaction_id": "INT_0010",
+      "interaction_id": "INT_0046",
+      "timestamp": 1954.19,
+      "response_turn_id": "T0047",
+      "target_turn_id": "T0046",
+      "subtopic_id": "ST006",
+      "source_speaker": "SPEAKER_04",
+      "target_speaker": "SPEAKER_04",
+      "responding_speaker": "SPEAKER_01",
+      "classification": "disagreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "At least believe in your own thought process.",
+        "statement_2": "No, absolutely not. See the basic thing is the Gandhis must be asked questions like and I quote this very famous"
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "SPEAKER_01 rejects SPEAKER_04's assertions regarding the Congress party's handling of Sam Pitroda and their underlying thought process.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1950.055,
+        "target_end": 1966.036,
+        "response_start": 1954.19,
+        "response_end": 1973.883
+      }
+    },
+    {
+      "video_id": "rAFhQSMU69A",
+      "interaction_id": "INT_0047",
+      "timestamp": 1969.073,
+      "response_turn_id": "T0048",
+      "target_turn_id": "T0047",
+      "subtopic_id": "ST006",
+      "source_speaker": "SPEAKER_01",
+      "target_speaker": "SPEAKER_01",
+      "responding_speaker": "SPEAKER_04",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host (SPEAKER_04) abruptly cuts in with a sarcastic question about a different interview rather than directly addressing the incomplete thought in SPEAKER_01's turn.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1954.19,
+        "target_end": 1973.883,
+        "response_start": 1969.073,
+        "response_end": 1979.232
+      }
+    },
+    {
+      "video_id": "rAFhQSMU69A",
+      "interaction_id": "INT_0048",
       "timestamp": 1979.249,
       "response_turn_id": "T0049",
       "target_turn_id": "T0048",
       "subtopic_id": "ST006",
       "source_speaker": "SPEAKER_04",
+      "target_speaker": "SPEAKER_04",
       "responding_speaker": "SPEAKER_06",
       "classification": "agreement",
-      "evidence": "And Priyanka Gandhi giggles and replies, no, not really. It's Thai.",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "interview of Triyanka Gandhi. What is your favorite food? Dare I say Italian?",
+        "statement_2": "And Priyanka Gandhi giggles and replies, no, not really. It's Thai. I do a very good green curry. This is cutting-edge journalism, Navika. You need to learn from this person."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "Speaker 06 expands upon Speaker 04's mocking mention of the interview, agreeing with and building on the satirical tone regarding the interview questions.",
-      "confidence": "medium",
+      "reasoning": "SPEAKER_06 builds upon and agrees with SPEAKER_04's sarcastic point regarding soft interviews of Priyanka Gandhi, mocking the journalism style.",
+      "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
         "target_start": 1969.073,
@@ -664,21 +2075,28 @@
     },
     {
       "video_id": "rAFhQSMU69A",
-      "interaction_id": "INT_0011",
+      "interaction_id": "INT_0049",
       "timestamp": 1999.769,
       "response_turn_id": "T0050",
       "target_turn_id": "T0049",
       "subtopic_id": "ST006",
       "source_speaker": "SPEAKER_06",
+      "target_speaker": "SPEAKER_06",
       "responding_speaker": "SPEAKER_04",
-      "classification": "counterargument",
-      "evidence": "And when we are asked questions, well, in the last interview with the prime minister before the elections, I even asked him the question about Ravana.",
+      "classification": "disagreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "This is cutting-edge journalism, Navika. You need to learn from this person.",
+        "statement_2": "I know. It's right. And when we are asked questions, well, in the last interview with the prime minister before the elections, I even asked him the question about Ravana. That was the raging controversy about it. But that is not democratic Renu Mittal. Why?"
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "Speaker 04 responds to Speaker 06's criticism of interview standards by offering a substantive counter-example of asking tough questions to the prime minister.",
-      "confidence": "medium",
+      "reasoning": "SPEAKER_04 defends her own interviewing record against SPEAKER_06's sarcastic critique, disagreeing with the implication about her journalism standards.",
+      "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
         "target_start": 1979.249,
@@ -689,20 +2107,123 @@
     },
     {
       "video_id": "rAFhQSMU69A",
-      "interaction_id": "INT_0012",
+      "interaction_id": "INT_0050",
+      "timestamp": 2014.94,
+      "response_turn_id": "T0051",
+      "target_turn_id": "T0048",
+      "subtopic_id": "ST007",
+      "source_speaker": "SPEAKER_04",
+      "target_speaker": "SPEAKER_04",
+      "responding_speaker": "SPEAKER_03",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "SPEAKER_03 makes a vague comment about a film actor conducting interviews, which lacks a clear stance or direct engagement with SPEAKER_04's previous remark.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 1969.073,
+        "target_end": 1979.232,
+        "response_start": 2014.94,
+        "response_end": 2025.031
+      }
+    },
+    {
+      "video_id": "rAFhQSMU69A",
+      "interaction_id": "INT_0051",
+      "timestamp": 2036.405,
+      "response_turn_id": "T0052",
+      "target_turn_id": "T0051",
+      "subtopic_id": "ST007",
+      "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
+      "responding_speaker": "SPEAKER_04",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host asks a fragmented question addressing the broader discussion without a clear, specific stance on the previous turn.",
+      "confidence": "low",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 2014.94,
+        "target_end": 2025.031,
+        "response_start": 2036.405,
+        "response_end": 2038.97
+      }
+    },
+    {
+      "video_id": "rAFhQSMU69A",
+      "interaction_id": "INT_0052",
+      "timestamp": 2038.97,
+      "response_turn_id": "T0053",
+      "target_turn_id": "T0052",
+      "subtopic_id": "ST007",
+      "source_speaker": "SPEAKER_04",
+      "target_speaker": "SPEAKER_04",
+      "responding_speaker": "SPEAKER_03",
+      "classification": "disagreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "Why are you putting",
+        "statement_2": "journalists on the mat for that? Who called Mrs Gandhi a widow of Congress? Who did that? Who caused the people who dissent? Who called"
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "SPEAKER_03 challenges the host's framing by countering with examples of abusive language used against Mrs Gandhi.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 2036.405,
+        "target_end": 2038.97,
+        "response_start": 2038.97,
+        "response_end": 2047.34
+      }
+    },
+    {
+      "video_id": "rAFhQSMU69A",
+      "interaction_id": "INT_0053",
       "timestamp": 2046.8,
       "response_turn_id": "T0054",
       "target_turn_id": "T0053",
       "subtopic_id": "ST007",
       "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
       "responding_speaker": "SPEAKER_04",
-      "classification": "counterargument",
-      "evidence": "Modi a murderer? Who did that?",
+      "classification": "disagreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "Who called Mrs Gandhi a widow of Congress? Who did that? Who caused the people who dissent? Who called",
+        "statement_2": "Modi a murderer? Who did that?"
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "The speaker counters the previous accusations by throwing back a prominent political slur used against Modi by the opposing side.",
+      "reasoning": "SPEAKER_04 counters SPEAKER_03's list of insults against the opposition by naming severe insults directed at Modi.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -714,20 +2235,59 @@
     },
     {
       "video_id": "rAFhQSMU69A",
-      "interaction_id": "INT_0013",
+      "interaction_id": "INT_0054",
+      "timestamp": 2049.5,
+      "response_turn_id": "T0055",
+      "target_turn_id": "T0054",
+      "subtopic_id": "ST007",
+      "source_speaker": "SPEAKER_04",
+      "target_speaker": "SPEAKER_04",
+      "responding_speaker": "SPEAKER_03",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "SPEAKER_03 poses a short rhetorical question overlapping or continuing the back-and-forth exchange rather than asserting a clear stance.",
+      "confidence": "low",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 2046.8,
+        "target_end": 2049.753,
+        "response_start": 2049.5,
+        "response_end": 2050.58
+      }
+    },
+    {
+      "video_id": "rAFhQSMU69A",
+      "interaction_id": "INT_0055",
       "timestamp": 2050.782,
       "response_turn_id": "T0056",
       "target_turn_id": "T0055",
       "subtopic_id": "ST007",
       "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
       "responding_speaker": "SPEAKER_04",
-      "classification": "counterargument",
-      "evidence": "Modi will dig your grave? Who said that?",
+      "classification": "disagreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "Who said that?",
+        "statement_2": "Modi will dig your grave? Who said that?"
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "The speaker adds another harsh political statement made by the opposition to counter the earlier criticisms.",
+      "reasoning": "SPEAKER_04 continues the tit-for-tat exchange by countering with another severe remark attributed to the opposition.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -739,21 +2299,252 @@
     },
     {
       "video_id": "rAFhQSMU69A",
-      "interaction_id": "INT_0014",
+      "interaction_id": "INT_0056",
+      "timestamp": 2053.128,
+      "response_turn_id": "T0057",
+      "target_turn_id": "T0055",
+      "subtopic_id": "ST007",
+      "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
+      "responding_speaker": "SPEAKER_04",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host asks a rhetorical/clarifying question following an exchange of questions without a clear substantive stance.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 2049.5,
+        "target_end": 2050.58,
+        "response_start": 2053.128,
+        "response_end": 2053.904
+      }
+    },
+    {
+      "video_id": "rAFhQSMU69A",
+      "interaction_id": "INT_0057",
+      "timestamp": 2053.904,
+      "response_turn_id": "T0058",
+      "target_turn_id": "T0056",
+      "subtopic_id": "ST007",
+      "source_speaker": "SPEAKER_04",
+      "target_speaker": "SPEAKER_04",
+      "responding_speaker": "SPEAKER_03",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The speaker poses a counter-question rather than expressing a stance on a specific claim.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 2050.782,
+        "target_end": 2053.06,
+        "response_start": 2053.904,
+        "response_end": 2054.967
+      }
+    },
+    {
+      "video_id": "rAFhQSMU69A",
+      "interaction_id": "INT_0058",
+      "timestamp": 2053.972,
+      "response_turn_id": "T0059",
+      "target_turn_id": "T0058",
+      "subtopic_id": "ST007",
+      "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
+      "responding_speaker": "SPEAKER_04",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host dismisses the prior counter-question and transitions the conversation to a guest.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 2053.904,
+        "target_end": 2054.967,
+        "response_start": 2053.972,
+        "response_end": 2056.216
+      }
+    },
+    {
+      "video_id": "rAFhQSMU69A",
+      "interaction_id": "INT_0059",
+      "timestamp": 2057.093,
+      "response_turn_id": "T0060",
+      "target_turn_id": "T0058",
+      "subtopic_id": "ST007",
+      "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
+      "responding_speaker": "SPEAKER_04",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host continues the discussion and addresses a panelist rather than taking a stance on the immediately preceding question.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 2053.904,
+        "target_end": 2054.967,
+        "response_start": 2057.093,
+        "response_end": 2094.455
+      }
+    },
+    {
+      "video_id": "rAFhQSMU69A",
+      "interaction_id": "INT_0060",
+      "timestamp": 2094.725,
+      "response_turn_id": "T0061",
+      "target_turn_id": "T0060",
+      "subtopic_id": "ST007",
+      "source_speaker": "SPEAKER_04",
+      "target_speaker": "SPEAKER_04",
+      "responding_speaker": "SPEAKER_03",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "A single-word interjection seeking clarification without a discernible stance.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 2057.093,
+        "target_end": 2094.455,
+        "response_start": 2094.725,
+        "response_end": 2095.501
+      }
+    },
+    {
+      "video_id": "rAFhQSMU69A",
+      "interaction_id": "INT_0061",
+      "timestamp": 2095.501,
+      "response_turn_id": "T0062",
+      "target_turn_id": "T0061",
+      "subtopic_id": "ST007",
+      "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
+      "responding_speaker": "SPEAKER_04",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The host asks a brief rhetorical or clarifying question in response to a single-word prompt, presenting no discernible substantive claim to classify.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 2094.725,
+        "target_end": 2095.501,
+        "response_start": 2095.501,
+        "response_end": 2096.783
+      }
+    },
+    {
+      "video_id": "rAFhQSMU69A",
+      "interaction_id": "INT_0062",
+      "timestamp": 2096.783,
+      "response_turn_id": "T0063",
+      "target_turn_id": "T0060",
+      "subtopic_id": "ST007",
+      "source_speaker": "SPEAKER_04",
+      "target_speaker": "SPEAKER_04",
+      "responding_speaker": "SPEAKER_03",
+      "classification": "disagreement",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "So maybe there is no opportunity for her to be invited to all party meetings. She's a member of parliament. Maybe if she had sought an appointment like other members of parliament, they get.",
+        "statement_2": "Mr. Modi is free to contradict her whether he does it in a tweet, whether he does it in a press conference which he hasn't held for years and probably not for the next or whether he writes his biography or his memoir or his autobiography whatever he wants to do."
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "The speaker responds to the host's point about Sonia Gandhi needing to seek appointments or missing out on invitations by arguing that Prime Minister Modi should directly address or contradict her book's claims himself rather than others speaking on his behalf.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 2057.093,
+        "target_end": 2094.455,
+        "response_start": 2096.783,
+        "response_end": 2117.962
+      }
+    },
+    {
+      "video_id": "rAFhQSMU69A",
+      "interaction_id": "INT_0063",
       "timestamp": 2117.962,
       "response_turn_id": "T0064",
       "target_turn_id": "T0063",
       "subtopic_id": "ST007",
       "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
       "responding_speaker": "SPEAKER_06",
-      "classification": "counterargument",
-      "evidence": "when Sonia Gandhi held a press conference? Sorry, when was the last conference Sonia Gandhi had?",
+      "classification": "disagreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "whether he does it in a press conference which he hasn't held for years and probably not for the next",
+        "statement_2": "when Sonia Gandhi held a press conference? Sorry, when was the last conference Sonia Gandhi had? By"
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "Speaker challenges Speaker 03's criticism about Modi's lack of press conferences by questioning Sonia Gandhi's own press conference record.",
-      "confidence": "medium",
+      "reasoning": "The speaker directly challenges SPEAKER_03's assertion that Modi hasn't held press conferences for years by turning the argument around to question when Sonia Gandhi last held a press conference.",
+      "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
         "target_start": 2096.783,
@@ -764,21 +2555,28 @@
     },
     {
       "video_id": "rAFhQSMU69A",
-      "interaction_id": "INT_0015",
+      "interaction_id": "INT_0064",
       "timestamp": 2122.231,
       "response_turn_id": "T0065",
       "target_turn_id": "T0064",
       "subtopic_id": "ST007",
       "source_speaker": "SPEAKER_06",
+      "target_speaker": "SPEAKER_06",
       "responding_speaker": "SPEAKER_03",
       "classification": "disagreement",
-      "evidence": "No, no, no, no. I saw it right next to Modi and he did it today,",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "when was the last conference Sonia Gandhi had? By",
+        "statement_2": "the way, she's interacted with the press. No, no, no, no. I saw it right next to Modi and he did it today,"
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "Speaker directly disputes the premise or implication regarding press interactions.",
-      "confidence": "medium",
+      "reasoning": "The speaker rejects the counter-challenge about Sonia Gandhi's press conferences by defending her media interactions and simultaneously countering that Modi did interact with the press.",
+      "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
         "target_start": 2117.962,
@@ -789,20 +2587,27 @@
     },
     {
       "video_id": "rAFhQSMU69A",
-      "interaction_id": "INT_0016",
+      "interaction_id": "INT_0065",
       "timestamp": 2128.559,
       "response_turn_id": "T0066",
       "target_turn_id": "T0065",
       "subtopic_id": "ST007",
       "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
       "responding_speaker": "SPEAKER_04",
       "classification": "agreement",
-      "evidence": "He interacted with the press. He",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "I saw it right next to Modi and he did it today,",
+        "statement_2": "this morning. He interacted with the press. He"
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "Speaker corroborates the previous speaker's point that an interaction with the press happened today.",
+      "reasoning": "The host confirms and supports SPEAKER_03's point that Modi interacted with the press, adding corroboration that it happened that very morning.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -814,47 +2619,61 @@
     },
     {
       "video_id": "rAFhQSMU69A",
-      "interaction_id": "INT_0017",
+      "interaction_id": "INT_0066",
       "timestamp": 2134.651,
       "response_turn_id": "T0067",
-      "target_turn_id": "T0063",
+      "target_turn_id": "T0065",
       "subtopic_id": "ST007",
       "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
       "responding_speaker": "SPEAKER_04",
       "classification": "uncertain",
-      "evidence": "He interacted with the press today. He does it. He does it every year, sir.",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "she's interacted with the press. No, no, no, no. I saw it right next to Modi and he did it today,",
+        "statement_2": ""
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": false,
       "evidence_validation_status": "invalid",
       "manual_review_required": true,
-      "reasoning": "The speaker counters the previous claim that Modi does not hold press conferences by asserting that he interacted with the press today and does so annually.",
+      "reasoning": "SPEAKER_04 responds to SPEAKER_03's assertion about press interactions by emphasizing that Modi regularly interacts with the press every year.",
       "confidence": "high",
       "review_status": "manual_review_required",
       "source_turn_timestamps": {
-        "target_start": 2096.783,
-        "target_end": 2117.962,
+        "target_start": 2122.231,
+        "target_end": 2130.483,
         "response_start": 2134.651,
         "response_end": 2139.73
       }
     },
     {
       "video_id": "rAFhQSMU69A",
-      "interaction_id": "INT_0018",
+      "interaction_id": "INT_0067",
       "timestamp": 2141.941,
       "response_turn_id": "T0068",
       "target_turn_id": "T0067",
       "subtopic_id": "ST007",
       "source_speaker": "SPEAKER_04",
+      "target_speaker": "SPEAKER_04",
       "responding_speaker": "SPEAKER_03",
-      "classification": "counterargument",
-      "evidence": "when the Prime Minister of the country refuses to express himself on matters of policy or even political opponents, he does it through people who work for him",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": "Navika, the question is, in the world's largest democracy, when the Prime Minister of the country refuses to express himself on matters of policy or even political opponents, he does it through people who work for him"
+      },
       "evidence_present": true,
+      "evidence_found_in_target": false,
       "evidence_found_in_response": true,
-      "evidence_validation_status": "verified",
-      "manual_review_required": false,
-      "reasoning": "The speaker counters the previous point about press interaction by arguing that the Prime Minister refuses to express himself directly on key matters.",
+      "evidence_validation_status": "invalid",
+      "manual_review_required": true,
+      "reasoning": "SPEAKER_03 disagrees with SPEAKER_04's defense of Modi's press interactions, arguing instead that the Prime Minister avoids direct expression on policy matters.",
       "confidence": "high",
-      "review_status": "pending",
+      "review_status": "manual_review_required",
       "source_turn_timestamps": {
         "target_start": 2134.651,
         "target_end": 2139.73,
@@ -864,20 +2683,27 @@
     },
     {
       "video_id": "rAFhQSMU69A",
-      "interaction_id": "INT_0019",
+      "interaction_id": "INT_0068",
       "timestamp": 2162.41,
       "response_turn_id": "T0069",
       "target_turn_id": "T0068",
       "subtopic_id": "ST007",
       "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
       "responding_speaker": "SPEAKER_04",
-      "classification": "counterargument",
-      "evidence": "that was exactly the speculation when we were covering the UPA government. We always could only speculate about Sonia Gandhi.",
+      "classification": "disagreement",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "Navika, the question is, in the world's largest democracy, when the Prime Minister of the country refuses to express himself on matters of policy or even political opponents, he does it through people who work for him",
+        "statement_2": "friend that was exactly the speculation when we were covering the UPA government. We always could only speculate about Sonia Gandhi."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "The speaker challenges the criticism regarding lack of direct statements by drawing a parallel to how the UPA government and Sonia Gandhi operated.",
+      "reasoning": "SPEAKER_04 pushes back against SPEAKER_03's criticism by drawing a parallel to how the UPA government under Sonia Gandhi handled press access and speculation.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -889,20 +2715,59 @@
     },
     {
       "video_id": "rAFhQSMU69A",
-      "interaction_id": "INT_0020",
+      "interaction_id": "INT_0069",
+      "timestamp": 2210.335,
+      "response_turn_id": "T0070",
+      "target_turn_id": "T0068",
+      "subtopic_id": "ST007",
+      "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
+      "responding_speaker": "SPEAKER_04",
+      "classification": "uncertain",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "SPEAKER_04 merely interjects a short question 'Why, sir?' which does not form a complete, classifiable stance interaction.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 2141.941,
+        "target_end": 2163.862,
+        "response_start": 2210.335,
+        "response_end": 2211.061
+      }
+    },
+    {
+      "video_id": "rAFhQSMU69A",
+      "interaction_id": "INT_0070",
       "timestamp": 2215.381,
       "response_turn_id": "T0071",
       "target_turn_id": "T0068",
       "subtopic_id": "ST007",
       "source_speaker": "SPEAKER_03",
+      "target_speaker": "SPEAKER_03",
       "responding_speaker": "SPEAKER_08",
-      "classification": "counterargument",
-      "evidence": "Modi ji has never used direct word which they are mentioning with the name. It is their interpretation that it was directed to her",
+      "classification": "disagreement",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "Navika, the question is, in the world's largest democracy, when the Prime Minister of the country refuses to express himself on matters of policy or even political opponents, he does it through people who work for him",
+        "statement_2": "Modi ji has never used direct word which they are mentioning with the name. It is their interpretation that it was directed to her or to any other congress leader."
+      },
       "evidence_present": true,
+      "evidence_found_in_target": true,
       "evidence_found_in_response": true,
       "evidence_validation_status": "verified",
       "manual_review_required": false,
-      "reasoning": "The speaker challenges the claim that Modi attacks opponents by arguing he never uses direct names and his words are merely interpreted that way.",
+      "reasoning": "SPEAKER_08 counters the accusations leveled by SPEAKER_03 regarding the Prime Minister's language and lack of direct expression.",
       "confidence": "high",
       "review_status": "pending",
       "source_turn_timestamps": {
@@ -910,6 +2775,102 @@
         "target_end": 2163.862,
         "response_start": 2215.381,
         "response_end": 2300.887
+      }
+    },
+    {
+      "video_id": "rAFhQSMU69A",
+      "interaction_id": "INT_0071",
+      "timestamp": 2299.621,
+      "response_turn_id": "T0072",
+      "target_turn_id": "T0071",
+      "subtopic_id": "ST007",
+      "source_speaker": "SPEAKER_08",
+      "target_speaker": "SPEAKER_08",
+      "responding_speaker": "SPEAKER_04",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The anchor interrupts or concludes the speaker's segment and manages debate timing rather than engaging with a specific substantive stance.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 2215.381,
+        "target_end": 2300.887,
+        "response_start": 2299.621,
+        "response_end": 2314.437
+      }
+    },
+    {
+      "video_id": "rAFhQSMU69A",
+      "interaction_id": "INT_0072",
+      "timestamp": 2314.437,
+      "response_turn_id": "T0073",
+      "target_turn_id": "T0071",
+      "subtopic_id": "ST008",
+      "source_speaker": "SPEAKER_08",
+      "target_speaker": "SPEAKER_08",
+      "responding_speaker": "SPEAKER_05",
+      "classification": "partial_agreement",
+      "non_immediate_target": true,
+      "marker": "*",
+      "evidence": {
+        "statement_1": "Modi ji has never used direct word which they are mentioning with the name.",
+        "statement_2": "One of the reasons why Modiji is very courteous especially to the detractors who abuses because half the people who abuse Modi are now in BJP but one thing needs to be clarified which is that this Jersey Cow thing now you know Spike Millikan said sense of humor is no laughing matter. Modi never called Sonia Gandhi that."
+      },
+      "evidence_present": true,
+      "evidence_found_in_target": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "Speaker 05 builds upon the argument regarding Modi's courtesy and clarifies the interpretation of remarks made by Modi, partially agreeing with the defense of Modi while adding nuance or correction about specific past statements.",
+      "confidence": "medium",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 2215.381,
+        "target_end": 2300.887,
+        "response_start": 2314.437,
+        "response_end": 2352.035
+      }
+    },
+    {
+      "video_id": "rAFhQSMU69A",
+      "interaction_id": "INT_0073",
+      "timestamp": 2314.454,
+      "response_turn_id": "T0074",
+      "target_turn_id": "T0073",
+      "subtopic_id": "ST008",
+      "source_speaker": "SPEAKER_05",
+      "target_speaker": "SPEAKER_05",
+      "responding_speaker": "SPEAKER_04",
+      "classification": "uncertain",
+      "non_immediate_target": false,
+      "marker": "",
+      "evidence": {
+        "statement_1": "",
+        "statement_2": ""
+      },
+      "evidence_present": false,
+      "evidence_found_in_target": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The anchor reads out poll results and makes concluding remarks to close the debate, which is administrative/moderation speech rather than a stance on a specific participant claim.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 2314.437,
+        "target_end": 2352.035,
+        "response_start": 2314.454,
+        "response_end": 2394.29
       }
     }
   ],
@@ -6970,13 +8931,13 @@
       "warning": "Scores and confidence bands are heuristic, not calibrated probabilities. Opening/closing phrase lists are incomplete and currently English-oriented; translated ASR text can affect cues. Manually verify predictions and evaluate across known-host episodes."
     },
     "subtopics_loaded": 8,
-    "interactions_missing_target": 1,
+    "interactions_missing_target": 6,
     "evidence_validation_summary": {
-      "records_with_evidence": 19,
-      "records_with_verified_evidence": 18,
-      "records_with_missing_evidence": 1,
-      "records_with_invalid_evidence": 1,
-      "decisive_records_requiring_manual_review": 1
+      "records_with_evidence": 30,
+      "records_with_verified_evidence": 25,
+      "records_with_missing_evidence": 43,
+      "records_with_invalid_evidence": 5,
+      "decisive_records_requiring_manual_review": 5
     },
     "validation": {
       "status": "passed",
