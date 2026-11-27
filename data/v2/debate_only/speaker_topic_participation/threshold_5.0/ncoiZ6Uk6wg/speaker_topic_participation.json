@@ -1,0 +1,276 @@
+{
+  "schema_version": "speaker-topic-participation-1.1",
+  "video_id": "ncoiZ6Uk6wg",
+  "variant": "threshold_5.0",
+  "method": {
+    "speaking_time": "speaker_turn intervals clipped to each subtopic boundary; each turn contributes only its intersecting duration",
+    "turn_count": "number of source speaker_turn intervals intersecting each subtopic; a turn crossing a boundary is counted once in each intersected subtopic",
+    "speech_share": "speaker clipped turn-duration sum divided by total clipped speaker-turn duration within the same subtopic, multiplied by 100",
+    "dominant_speaker": "speaker with the greatest clipped speaker-turn duration in the subtopic",
+    "topic_coverage": "subtopics with positive clipped speaking time",
+    "consistency": "uses the same speaker_turn duration basis as final_result_numeric.json",
+    "overlap_note": "speaker turns may overlap; if they do, their durations are counted for each speaker, matching speaker-wise duration accounting in the existing pipeline"
+  },
+  "summary": {
+    "total_subtopics": 4,
+    "total_speakers": 10,
+    "total_speaking_time_seconds_across_subtopics": 909.433
+  },
+  "subtopic_participation": [
+    {
+      "subtopic_id": "ST001",
+      "title": "Opening discussion",
+      "start": 0.0,
+      "end": 129.691,
+      "duration_seconds": 129.691,
+      "total_speaking_time_seconds": 125.998,
+      "dominant_speaker": "SPEAKER_02",
+      "speakers": [
+        {
+          "speaker_id": "SPEAKER_02",
+          "speaking_time_seconds": 48.204,
+          "speech_share_percent": 38.258,
+          "turn_count": 2
+        },
+        {
+          "speaker_id": "SPEAKER_07",
+          "speaking_time_seconds": 32.602,
+          "speech_share_percent": 25.875,
+          "turn_count": 2
+        },
+        {
+          "speaker_id": "SPEAKER_05",
+          "speaking_time_seconds": 29.329,
+          "speech_share_percent": 23.277,
+          "turn_count": 1
+        },
+        {
+          "speaker_id": "SPEAKER_06",
+          "speaking_time_seconds": 15.863,
+          "speech_share_percent": 12.59,
+          "turn_count": 2
+        }
+      ]
+    },
+    {
+      "subtopic_id": "ST002",
+      "title": "BJP Counter-Strike and Nationwide Protests",
+      "start": 129.691,
+      "end": 246.197,
+      "duration_seconds": 116.506,
+      "total_speaking_time_seconds": 110.532,
+      "dominant_speaker": "SPEAKER_02",
+      "speakers": [
+        {
+          "speaker_id": "SPEAKER_02",
+          "speaking_time_seconds": 36.35,
+          "speech_share_percent": 32.886,
+          "turn_count": 2
+        },
+        {
+          "speaker_id": "SPEAKER_01",
+          "speaking_time_seconds": 33.985,
+          "speech_share_percent": 30.747,
+          "turn_count": 2
+        },
+        {
+          "speaker_id": "SPEAKER_00",
+          "speaking_time_seconds": 33.16,
+          "speech_share_percent": 30.0,
+          "turn_count": 1
+        },
+        {
+          "speaker_id": "SPEAKER_05",
+          "speaking_time_seconds": 7.037,
+          "speech_share_percent": 6.366,
+          "turn_count": 2
+        }
+      ]
+    },
+    {
+      "subtopic_id": "ST003",
+      "title": "Introduction of Panelists and Opposition Response",
+      "start": 246.197,
+      "end": 775.152,
+      "duration_seconds": 528.955,
+      "total_speaking_time_seconds": 556.495,
+      "dominant_speaker": "SPEAKER_09",
+      "speakers": [
+        {
+          "speaker_id": "SPEAKER_09",
+          "speaking_time_seconds": 183.549,
+          "speech_share_percent": 32.983,
+          "turn_count": 7
+        },
+        {
+          "speaker_id": "SPEAKER_02",
+          "speaking_time_seconds": 136.863,
+          "speech_share_percent": 24.594,
+          "turn_count": 13
+        },
+        {
+          "speaker_id": "SPEAKER_03",
+          "speaking_time_seconds": 111.882,
+          "speech_share_percent": 20.105,
+          "turn_count": 2
+        },
+        {
+          "speaker_id": "SPEAKER_04",
+          "speaking_time_seconds": 99.969,
+          "speech_share_percent": 17.964,
+          "turn_count": 5
+        },
+        {
+          "speaker_id": "SPEAKER_00",
+          "speaking_time_seconds": 24.129,
+          "speech_share_percent": 4.336,
+          "turn_count": 14
+        },
+        {
+          "speaker_id": "SPEAKER_08",
+          "speaking_time_seconds": 0.103,
+          "speech_share_percent": 0.019,
+          "turn_count": 1
+        }
+      ]
+    },
+    {
+      "subtopic_id": "ST004",
+      "title": "Rally Attendance and Crowd Size Debate",
+      "start": 775.152,
+      "end": 887.157,
+      "duration_seconds": 112.005,
+      "total_speaking_time_seconds": 116.408,
+      "dominant_speaker": "SPEAKER_08",
+      "speakers": [
+        {
+          "speaker_id": "SPEAKER_08",
+          "speaking_time_seconds": 84.793,
+          "speech_share_percent": 72.841,
+          "turn_count": 3
+        },
+        {
+          "speaker_id": "SPEAKER_02",
+          "speaking_time_seconds": 30.922,
+          "speech_share_percent": 26.563,
+          "turn_count": 1
+        },
+        {
+          "speaker_id": "SPEAKER_00",
+          "speaking_time_seconds": 0.693,
+          "speech_share_percent": 0.595,
+          "turn_count": 2
+        }
+      ]
+    }
+  ],
+  "speaker_episode_summary": [
+    {
+      "speaker_id": "SPEAKER_02",
+      "total_speaking_time_seconds": 252.339,
+      "speech_share_percent": 27.747,
+      "turn_count_across_subtopics": 18,
+      "subtopics_participated": [
+        "ST001",
+        "ST002",
+        "ST003",
+        "ST004"
+      ],
+      "subtopic_count": 4
+    },
+    {
+      "speaker_id": "SPEAKER_09",
+      "total_speaking_time_seconds": 183.549,
+      "speech_share_percent": 20.183,
+      "turn_count_across_subtopics": 7,
+      "subtopics_participated": [
+        "ST003"
+      ],
+      "subtopic_count": 1
+    },
+    {
+      "speaker_id": "SPEAKER_03",
+      "total_speaking_time_seconds": 111.882,
+      "speech_share_percent": 12.302,
+      "turn_count_across_subtopics": 2,
+      "subtopics_participated": [
+        "ST003"
+      ],
+      "subtopic_count": 1
+    },
+    {
+      "speaker_id": "SPEAKER_04",
+      "total_speaking_time_seconds": 99.969,
+      "speech_share_percent": 10.992,
+      "turn_count_across_subtopics": 5,
+      "subtopics_participated": [
+        "ST003"
+      ],
+      "subtopic_count": 1
+    },
+    {
+      "speaker_id": "SPEAKER_08",
+      "total_speaking_time_seconds": 84.896,
+      "speech_share_percent": 9.335,
+      "turn_count_across_subtopics": 4,
+      "subtopics_participated": [
+        "ST003",
+        "ST004"
+      ],
+      "subtopic_count": 2
+    },
+    {
+      "speaker_id": "SPEAKER_00",
+      "total_speaking_time_seconds": 57.982,
+      "speech_share_percent": 6.376,
+      "turn_count_across_subtopics": 17,
+      "subtopics_participated": [
+        "ST002",
+        "ST003",
+        "ST004"
+      ],
+      "subtopic_count": 3
+    },
+    {
+      "speaker_id": "SPEAKER_05",
+      "total_speaking_time_seconds": 36.366,
+      "speech_share_percent": 3.999,
+      "turn_count_across_subtopics": 3,
+      "subtopics_participated": [
+        "ST001",
+        "ST002"
+      ],
+      "subtopic_count": 2
+    },
+    {
+      "speaker_id": "SPEAKER_01",
+      "total_speaking_time_seconds": 33.985,
+      "speech_share_percent": 3.737,
+      "turn_count_across_subtopics": 2,
+      "subtopics_participated": [
+        "ST002"
+      ],
+      "subtopic_count": 1
+    },
+    {
+      "speaker_id": "SPEAKER_07",
+      "total_speaking_time_seconds": 32.602,
+      "speech_share_percent": 3.585,
+      "turn_count_across_subtopics": 2,
+      "subtopics_participated": [
+        "ST001"
+      ],
+      "subtopic_count": 1
+    },
+    {
+      "speaker_id": "SPEAKER_06",
+      "total_speaking_time_seconds": 15.863,
+      "speech_share_percent": 1.744,
+      "turn_count_across_subtopics": 2,
+      "subtopics_participated": [
+        "ST001"
+      ],
+      "subtopic_count": 1
+    }
+  ]
+}

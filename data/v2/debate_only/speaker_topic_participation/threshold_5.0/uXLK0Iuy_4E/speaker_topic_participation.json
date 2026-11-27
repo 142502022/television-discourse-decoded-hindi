@@ -1,0 +1,98 @@
+{
+  "schema_version": "speaker-topic-participation-1.1",
+  "video_id": "uXLK0Iuy_4E",
+  "variant": "threshold_5.0",
+  "method": {
+    "speaking_time": "speaker_turn intervals clipped to each subtopic boundary; each turn contributes only its intersecting duration",
+    "turn_count": "number of source speaker_turn intervals intersecting each subtopic; a turn crossing a boundary is counted once in each intersected subtopic",
+    "speech_share": "speaker clipped turn-duration sum divided by total clipped speaker-turn duration within the same subtopic, multiplied by 100",
+    "dominant_speaker": "speaker with the greatest clipped speaker-turn duration in the subtopic",
+    "topic_coverage": "subtopics with positive clipped speaking time",
+    "consistency": "uses the same speaker_turn duration basis as final_result_numeric.json",
+    "overlap_note": "speaker turns may overlap; if they do, their durations are counted for each speaker, matching speaker-wise duration accounting in the existing pipeline"
+  },
+  "summary": {
+    "total_subtopics": 1,
+    "total_speakers": 4,
+    "total_speaking_time_seconds_across_subtopics": 1469.532
+  },
+  "subtopic_participation": [
+    {
+      "subtopic_id": "ST001",
+      "title": "Opening discussion",
+      "start": 0.0,
+      "end": 1339.309,
+      "duration_seconds": 1339.309,
+      "total_speaking_time_seconds": 1469.532,
+      "dominant_speaker": "SPEAKER_03",
+      "speakers": [
+        {
+          "speaker_id": "SPEAKER_03",
+          "speaking_time_seconds": 495.648,
+          "speech_share_percent": 33.728,
+          "turn_count": 36
+        },
+        {
+          "speaker_id": "SPEAKER_01",
+          "speaking_time_seconds": 445.702,
+          "speech_share_percent": 30.33,
+          "turn_count": 23
+        },
+        {
+          "speaker_id": "SPEAKER_00",
+          "speaking_time_seconds": 317.162,
+          "speech_share_percent": 21.583,
+          "turn_count": 24
+        },
+        {
+          "speaker_id": "SPEAKER_02",
+          "speaking_time_seconds": 211.02,
+          "speech_share_percent": 14.36,
+          "turn_count": 32
+        }
+      ]
+    }
+  ],
+  "speaker_episode_summary": [
+    {
+      "speaker_id": "SPEAKER_03",
+      "total_speaking_time_seconds": 495.648,
+      "speech_share_percent": 33.728,
+      "turn_count_across_subtopics": 36,
+      "subtopics_participated": [
+        "ST001"
+      ],
+      "subtopic_count": 1
+    },
+    {
+      "speaker_id": "SPEAKER_01",
+      "total_speaking_time_seconds": 445.702,
+      "speech_share_percent": 30.33,
+      "turn_count_across_subtopics": 23,
+      "subtopics_participated": [
+        "ST001"
+      ],
+      "subtopic_count": 1
+    },
+    {
+      "speaker_id": "SPEAKER_00",
+      "total_speaking_time_seconds": 317.162,
+      "speech_share_percent": 21.583,
+      "turn_count_across_subtopics": 24,
+      "subtopics_participated": [
+        "ST001"
+      ],
+      "subtopic_count": 1
+    },
+    {
+      "speaker_id": "SPEAKER_02",
+      "total_speaking_time_seconds": 211.02,
+      "speech_share_percent": 14.36,
+      "turn_count_across_subtopics": 32,
+      "subtopics_participated": [
+        "ST001"
+      ],
+      "subtopic_count": 1
+    }
+  ]
+}

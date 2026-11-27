@@ -1,0 +1,195 @@
+{
+  "schema_version": "topic-drift-1.1",
+  "video_id": "qp_htROb_Lk",
+  "variant": "threshold_5.0",
+  "generated_at_utc": "2026-11-26T19:28:40.216082+00:00",
+  "overall_topic": {
+    "topic": "INDIA Bloc Rally and Opposition Allegations of Vote Theft",
+    "description": "A televised debate evaluating the attendance and impact of the INDIA bloc's mega rally at Ramlila Maidan, alongside intense arguments between Congress and BJP representatives regarding allegations of vote theft, election integrity, and accusations of anarchy.",
+    "key_discussion_points": [
+      "Attendance numbers and crowd size at the Ramlila Maidan mega rally",
+      "Opposition allegations of vote theft and criticisms directed at the Election Commission and Prime Minister",
+      "Debate over whether political protests and questioning government actions constitute accountability or anarchy",
+      "The requirement for political parties to substantiate claims through constitutional and legal processes"
+    ]
+  },
+  "method": {
+    "name": "subtopic_to_overall_topic_embedding_alignment",
+    "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "analysis_mode": "subtopic_level",
+    "unit_text_source": "Full transcript segments within each subtopic interval; subtopic evidence is fallback only.",
+    "score_formula": "0.50 * cosine(unit, overall_topic+description) + 0.50 * mean(two highest cosine similarities between unit and individual key discussion points)",
+    "display_score": "alignment_score = max(0, weighted_cosine_alignment) * 100; scaled cosine index, not a percentage or probability",
+    "low_threshold": 20.0,
+    "high_threshold": 40.0,
+    "threshold_interpretation": "possible_drift < 20.0; partially_aligned >= 20.0 and < 40.0; aligned >= 40.0",
+    "minimum_sustained_drift_seconds": 90.0,
+    "sustained_drift_rule": "Consecutive possible_drift subtopics separated by no more than 30 seconds are grouped; event duration must meet the minimum sustained duration.",
+    "threshold_status": "provisional; manually calibrate before research claims",
+    "warning": "Scores are heuristic semantic-alignment indicators, not probabilities or validated accuracy. Low similarity is a candidate for review, not proof of drift."
+  },
+  "alignment_results": [
+    {
+      "unit_id": "ST001",
+      "unit_type": "subtopic",
+      "title": "Opening discussion",
+      "start": 0.0,
+      "end": 141.166,
+      "duration_seconds": 141.166,
+      "semantic_similarity_to_overall_topic": 0.5772,
+      "key_point_similarities": [
+        {
+          "key_point": "Attendance numbers and crowd size at the Ramlila Maidan mega rally",
+          "cosine_similarity": 0.4728
+        },
+        {
+          "key_point": "Debate over whether political protests and questioning government actions constitute accountability or anarchy",
+          "cosine_similarity": 0.4293
+        },
+        {
+          "key_point": "Opposition allegations of vote theft and criticisms directed at the Election Commission and Prime Minister",
+          "cosine_similarity": 0.4228
+        },
+        {
+          "key_point": "The requirement for political parties to substantiate claims through constitutional and legal processes",
+          "cosine_similarity": 0.411
+        }
+      ],
+      "top_two_key_point_similarity": 0.451,
+      "weighted_cosine_alignment": 0.5141,
+      "alignment_score": 51.41,
+      "classification": "aligned",
+      "speakers": [
+        "SPEAKER_03",
+        "SPEAKER_04"
+      ],
+      "text_source": "merge_final.segments",
+      "evidence_excerpt": "Opening discussion. We're now being joined by Congress Party's national spokesperson, Nigat Kaushik, on the broadcast. Nigat Kaushik, thank you for joining us on India Today. So now that the mega rally is done, we would like to understand is the Congress Party satisfied with the kind of response that they got with the kind of things, the kind of way the things flowed today, and does the Congress party think that this demand for the resignation of the chief election commissioner, it is also resonating with the armed junta apart from the political leaders of the India block? Good evening, Anjali, to you and the co-panelists who will be joining soon, I'm sure, and your viewers this evening. Of course, we are satisfied and we're very happy. And it's not just us, it's the voters who are very satisfied and happy looking at the opposition, which is so unified, looking at the people who are fighting for their democratic right, for their voting right. This is one evening which doesn't need any validation anymore, Anjali. This is something which is visible. This is something which everybody today in our country has experienced, has seen themselves with their own eyes, that how, when the India block, how when Rahul Gandhiji, how when Congress party and the entire opposition and the people who come together and ask questions from the leading party, from Bharatiya Janata Party and the government, the government gets completely baffled. It is so much visible in the press conference, which you just played on your story, that how baffled these people are that they do not have any justifiable answer as to what had happened about the vote theft. They have no figures. They have no numbers. They have no explanations. Why are they reducing the people, the voting rights and everything else, "
+    },
+    {
+      "unit_id": "ST002",
+      "unit_type": "subtopic",
+      "title": "Rally Attendance and BJP's Counter-Claims on Crowd Size",
+      "start": 141.166,
+      "end": 840.08,
+      "duration_seconds": 698.914,
+      "semantic_similarity_to_overall_topic": 0.6661,
+      "key_point_similarities": [
+        {
+          "key_point": "Attendance numbers and crowd size at the Ramlila Maidan mega rally",
+          "cosine_similarity": 0.6539
+        },
+        {
+          "key_point": "Opposition allegations of vote theft and criticisms directed at the Election Commission and Prime Minister",
+          "cosine_similarity": 0.5102
+        },
+        {
+          "key_point": "Debate over whether political protests and questioning government actions constitute accountability or anarchy",
+          "cosine_similarity": 0.4281
+        },
+        {
+          "key_point": "The requirement for political parties to substantiate claims through constitutional and legal processes",
+          "cosine_similarity": 0.377
+        }
+      ],
+      "top_two_key_point_similarity": 0.5821,
+      "weighted_cosine_alignment": 0.6241,
+      "alignment_score": 62.41,
+      "classification": "aligned",
+      "speakers": [
+        "SPEAKER_00",
+        "SPEAKER_01",
+        "SPEAKER_03",
+        "SPEAKER_04"
+      ],
+      "text_source": "merge_final.segments",
+      "evidence_excerpt": "Rally Attendance and BJP's Counter-Claims on Crowd Size. The discussion shifts from the allegations of vote theft to the anchor introducing the debate on the turnout at the Ramlila Maidan rally, specifically addressing the conflicting claims of crowd numbers made by the Congress and BJP.. All right, Ms. Nikita Kaushik, do stay with us. The reason I was asking you whether this battle against the chief election commissioner, this demand of his resignation, whether it is resonating with the amjanta or not, is because the BJP has now questioned the people who turned up for this mega rally, because the number which was being claimed by the Congress party was somewhere around 10 lakh, which the BJP is claiming. And in fact, it has also posted a video showing that how the numbers were not even close to one lakh. Let's first listen into what Sambit Patra said. Now, the number of 10 lakh people was their. Ramlila Maidan is 10 acres to 12 acres. Now, the stage that was made, that was made. Approximately, by mixing stage and D, 15% of the space is surrounded by that. 40% of the space is covered with a view cutter, that is, a tent, and behind it, that space is left empty, so that no one can see it. Ms. Kaushik, so you just heard BJP MP Sambit Patra questioning the numbers, also linking it to the SIR numbers that have been time and again mentioned by the IndiaBlock leader. So we have been hearing those reactions from the Congress party, how there will be a gathering of around 10 lakh people. But what the BJP is now pointing out that how these numbers were exaggerated and how the numbers that actually were visible on the ground was not even close to one lakh. Your reaction? Actually I feel to understand why does BJP always and time and time again keeps the focus on what numbers does "
+    },
+    {
+      "unit_id": "ST003",
+      "unit_type": "subtopic",
+      "title": "Rahul Gandhi's Remarks on Election Commission and Vote Theft Allegations",
+      "start": 840.08,
+      "end": 931.376,
+      "duration_seconds": 91.296,
+      "semantic_similarity_to_overall_topic": 0.5137,
+      "key_point_similarities": [
+        {
+          "key_point": "Opposition allegations of vote theft and criticisms directed at the Election Commission and Prime Minister",
+          "cosine_similarity": 0.5865
+        },
+        {
+          "key_point": "The requirement for political parties to substantiate claims through constitutional and legal processes",
+          "cosine_similarity": 0.388
+        },
+        {
+          "key_point": "Debate over whether political protests and questioning government actions constitute accountability or anarchy",
+          "cosine_similarity": 0.3299
+        },
+        {
+          "key_point": "Attendance numbers and crowd size at the Ramlila Maidan mega rally",
+          "cosine_similarity": 0.2029
+        }
+      ],
+      "top_two_key_point_similarity": 0.4873,
+      "weighted_cosine_alignment": 0.5005,
+      "alignment_score": 50.05,
+      "classification": "aligned",
+      "speakers": [
+        "SPEAKER_03",
+        "SPEAKER_04"
+      ],
+      "text_source": "merge_final.segments",
+      "evidence_excerpt": "Rahul Gandhi's Remarks on Election Commission and Vote Theft Allegations. The discussion shifts from general demands for proof to specific claims made by Rahul Gandhi regarding the Election Commission and Prime Minister Modi's election win.. He mentioned how Prime Minister Modi won the 2024 elections with the help of Gyanesh Kumar. But Gyanesh Kumar was not even the chief election commissioner in 2024. He was made the chief election commissioner in 2025. See, Anjali, what has been happening behind the curtains of BJP, you and I all have witnessed. You made an eye, Safar Bhai made an eye, people who are watching from BJP made an eye, but the facts remain very clear. You know, the latest examples of Delhi, the latest example of Azamgarh, the latest example of Karnataka, how voter rolls have, you know, the names have been deleted. Everything has been substantially proven time and time again from the opposition leaders. Either we can do, you know, keep counting the chairs at Ramlila Maidan and keep, you know, mimicking about all what has happened, or we can just go and examine what allegations have been made. I don't understand why does BJP run from examining the issues. Why does Ganesh Kumar is running away from answering the questions? I don't understand. Why does the election commission run away from answering the questions? These are the questions which today at a public public rally was furnished. These are the issues which needs an answer, which have been asked, which are the questions which have been asked through the public by the India block today. I think those are the questions which need an examination and which needs an answer. I think everything else just remains a political gimmicky by BJP while they do the press conferences against us. I think what we need i"
+    },
+    {
+      "unit_id": "ST004",
+      "unit_type": "subtopic",
+      "title": "Rahul Gandhi's Attack on Prime Minister Narendra Modi",
+      "start": 931.376,
+      "end": 1360.395,
+      "duration_seconds": 429.019,
+      "semantic_similarity_to_overall_topic": 0.4074,
+      "key_point_similarities": [
+        {
+          "key_point": "Opposition allegations of vote theft and criticisms directed at the Election Commission and Prime Minister",
+          "cosine_similarity": 0.4222
+        },
+        {
+          "key_point": "Debate over whether political protests and questioning government actions constitute accountability or anarchy",
+          "cosine_similarity": 0.3729
+        },
+        {
+          "key_point": "The requirement for political parties to substantiate claims through constitutional and legal processes",
+          "cosine_similarity": 0.2669
+        },
+        {
+          "key_point": "Attendance numbers and crowd size at the Ramlila Maidan mega rally",
+          "cosine_similarity": 0.2082
+        }
+      ],
+      "top_two_key_point_similarity": 0.3976,
+      "weighted_cosine_alignment": 0.4025,
+      "alignment_score": 40.25,
+      "classification": "aligned",
+      "speakers": [
+        "SPEAKER_00",
+        "SPEAKER_01",
+        "SPEAKER_02",
+        "SPEAKER_03",
+        "SPEAKER_04"
+      ],
+      "text_source": "merge_final.segments",
+      "evidence_excerpt": "Rahul Gandhi's Attack on Prime Minister Narendra Modi. The discussion transitions from allegations against the Election Commission to Rahul Gandhi's remarks at the rally concerning Prime Minister Narendra Modi and political tenure.. All right, Nigat and Dr. Zafar Islam do stay with us. In fact, this was not the only thing on which Rahul Gandhi attacked. He was not just attacking the chief election commissioner. He also mentioned how Prime Minister Modi is next. And he also mentioned that Modi kahi nahi jaane dengi. Let's listen into what the leader of opposition said today. Amit Shah Ji said that Narendra Modi is not going anywhere. I will tell you the opposite. Narendra Modi cannot go anywhere. Even if he wants to go, we will not let him go. The person who gave a house to millions of people, the person who changed the picture of India, the person who sent millions of rupees in the accounts of the farmers yesterday as an honourable person, the farmer as an honourable person, Dr. Zafar Islam, until now the opposition was making all these attacks against the Chief Election Commissioner. They were calling it a fight against the Chief Election Commissioner. They were demanding his resignation. But today Rahul Gandhi has made one thing clear that after Chief Election Commissioner Gyanesh Kumar, it's Prime Minister Modi's turn. See, all I'm saying that Rahul Gandhi is actually believes in anarchy. And that is what he's trying to demonstrate. But this country runs on the basis of the Constitution. And all these efforts will fail. And all this, what Rahul Gandhi is saying is nothing but a stunt which will backfire on them. And it has always backfired. This kind of statement he has made not once, many more times. People do not give even attention to what he speaks. But let me te"
+    }
+  ],
+  "drift_events": [],
+  "summary": {
+    "units_analysed": 4,
+    "aligned_units": 4,
+    "partially_aligned_units": 0,
+    "possible_drift_units": 0,
+    "drift_events": 0,
+    "analysis_mode": "subtopic_level"
+  }
+}

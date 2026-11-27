@@ -1,0 +1,1473 @@
+{
+  "schema_version": "agreement-disagreement-1.2",
+  "script_version": "word-level-host-aware-1.1",
+  "metadata": {
+    "video_id": "FzbOt9cW12o",
+    "variant": "threshold_5.0",
+    "title": "Oppn's Mock Parliament Debate: BJP's Sanju Verma Slams Rahul Gandhi Over Absenteeism In Parliament",
+    "language": "English",
+    "language_verification": {
+      "status": "verified_from_source_metadata",
+      "pipeline_asr_language": "English",
+      "episode_language": null,
+      "warnings": []
+    },
+    "model": "gemini-3.5-flash-lite",
+    "host_speaker_id": "SPEAKER_01",
+    "host_identification_status": {
+      "status": "loaded",
+      "warning": "Scores and confidence bands are heuristic, not calibrated probabilities. Opening/closing phrase lists are incomplete and currently English-oriented; translated ASR text can affect cues. Manually verify predictions and evaluate across known-host episodes."
+    },
+    "host_prediction_confidence_band": "higher_heuristic_separation",
+    "host_prediction_warning": "Scores and confidence bands are heuristic, not calibrated probabilities. Opening/closing phrase lists are incomplete and currently English-oriented; translated ASR text can affect cues. Manually verify predictions and evaluate across known-host episodes.",
+    "generated_at_utc": "2026-11-27T04:46:33.959879+00:00",
+    "source_files": {
+      "transcript": "/home/user/MTP/Code/television-discourse-decoded-hindi/data/v2/debate_only/videos/FzbOt9cW12o/threshold_5.0/merge_final.json",
+      "subtopics": "/home/user/MTP/Code/television-discourse-decoded-hindi/data/v2/debate_only/subtopic_analysis/threshold_5.0/FzbOt9cW12o/subtopic_analysis.json",
+      "overall_topic": "/home/user/MTP/Code/television-discourse-decoded-hindi/data/v2/debate_only/overall_topic/threshold_5.0/FzbOt9cW12o/overall_topic.json",
+      "host_identification": "/home/user/MTP/Code/television-discourse-decoded-hindi/data/v2/debate_only/videos/FzbOt9cW12o/threshold_5.0/host_identification/host_identification.json"
+    }
+  },
+  "methodology": {
+    "analysis_unit": "directed speaker-to-speaker stance interaction",
+    "transcript_scope": "full transcript; not limited to overlapping speech",
+    "context_policy": "Each response turn is assessed with up to 5 preceding different-speaker turns.",
+    "classification_labels": [
+      "agreement",
+      "counterargument",
+      "disagreement",
+      "neutral",
+      "partial_agreement",
+      "uncertain"
+    ],
+    "agreement_family": [
+      "agreement",
+      "partial_agreement"
+    ],
+    "disagreement_family": [
+      "disagreement",
+      "counterargument"
+    ],
+    "moderator_policy": "Moderation, panelist introductions, summaries, follow-up questions, and repetition without a stance are neutral; substantive anchor stances are classified normally. Host identity is not used for classification.",
+    "overlap_policy": "Overlap and interruption are not evidence of stance by themselves.",
+    "neutral_policy": "Neutral candidates are counted in the candidate summary but omitted from interaction records; uncertain records are retained.",
+    "target_policy": "Target is a specific earlier turn; no reverse inference. Response timestamp determines subtopic mapping.",
+    "limitations": [
+      "Automated classifications require manual validation.",
+      "ASR errors can affect stance and exact quote matching.",
+      "The analysis does not infer intent, ideology, bias, or factual correctness."
+    ]
+  },
+  "episode_summary": {
+    "duration_seconds": 602.0,
+    "speaker_count": 3,
+    "transcript_turn_count": 20,
+    "subtopic_count": 1,
+    "candidate_response_turn_count": 19,
+    "neutral_candidate_count": 17,
+    "candidate_classification_counts": {
+      "agreement": 1,
+      "partial_agreement": 0,
+      "disagreement": 0,
+      "counterargument": 0,
+      "uncertain": 1,
+      "neutral": 17
+    },
+    "classification_counts": {
+      "agreement": 1,
+      "partial_agreement": 0,
+      "disagreement": 0,
+      "counterargument": 0,
+      "uncertain": 1
+    },
+    "total_non_neutral_interactions": 2,
+    "decisive_interaction_count": 1,
+    "agreement_family_count": 1,
+    "disagreement_family_count": 0,
+    "agreement_to_disagreement_ratio": null,
+    "agreement_family_share_percent": 100.0,
+    "disagreement_family_share_percent": 0.0,
+    "speaker_statistics": {
+      "SPEAKER_00": {
+        "initiated": {},
+        "received": {
+          "uncertain": 1
+        },
+        "total_initiated": 0,
+        "total_received": 1
+      },
+      "SPEAKER_01": {
+        "initiated": {
+          "uncertain": 1,
+          "agreement": 1
+        },
+        "received": {},
+        "total_initiated": 2,
+        "total_received": 0
+      },
+      "SPEAKER_02": {
+        "initiated": {},
+        "received": {
+          "agreement": 1
+        },
+        "total_initiated": 0,
+        "total_received": 1
+      }
+    },
+    "directional_speaker_pairs": [
+      {
+        "source_speaker": "SPEAKER_01",
+        "responding_speaker": "SPEAKER_00",
+        "classification": "uncertain",
+        "count": 1
+      },
+      {
+        "source_speaker": "SPEAKER_01",
+        "responding_speaker": "SPEAKER_02",
+        "classification": "agreement",
+        "count": 1
+      }
+    ],
+    "subtopic_statistics": [
+      {
+        "subtopic_id": "ST001",
+        "title": "Opening discussion",
+        "start": 0.0,
+        "end": 601.575,
+        "interaction_count": 2,
+        "classification_counts": {
+          "agreement": 1,
+          "partial_agreement": 0,
+          "disagreement": 0,
+          "counterargument": 0,
+          "uncertain": 1
+        }
+      }
+    ],
+    "host_statistics": {
+      "host_speaker_id": "SPEAKER_01",
+      "host_initiated_interactions": 0,
+      "host_initiated_classification_counts": {
+        "agreement": 0,
+        "partial_agreement": 0,
+        "disagreement": 0,
+        "counterargument": 0,
+        "uncertain": 0
+      },
+      "host_received_interactions": 2,
+      "host_received_classification_counts": {
+        "agreement": 1,
+        "partial_agreement": 0,
+        "disagreement": 0,
+        "counterargument": 0,
+        "uncertain": 1
+      },
+      "guest_to_guest_interactions": 0,
+      "guest_to_guest_classification_counts": {
+        "agreement": 0,
+        "partial_agreement": 0,
+        "disagreement": 0,
+        "counterargument": 0,
+        "uncertain": 0
+      },
+      "host_involved_interactions": 2
+    },
+    "directional_aggregation_exclusions": {
+      "null_source_speaker_interactions": 0,
+      "included_in_directional_pairs": 2
+    },
+    "ratio_note": "Agreement family = agreement + partial_agreement; disagreement family = disagreement + counterargument. Neutral turns are omitted; uncertain cases are excluded from ratio denominators."
+  },
+  "interactions": [
+    {
+      "video_id": "FzbOt9cW12o",
+      "interaction_id": "INT_0001",
+      "timestamp": 37.139,
+      "response_turn_id": "T0002",
+      "target_turn_id": "T0001",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_01",
+      "responding_speaker": "SPEAKER_00",
+      "classification": "uncertain",
+      "evidence": "What Mr. Singhvi was saying right now is actually summing up what all has been happening",
+      "evidence_present": true,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "invalid",
+      "manual_review_required": true,
+      "reasoning": "The speaker addresses the previous claims about the opposition's perspective and counters them by arguing that the opposition itself fails to attend parliamentary sessions.",
+      "confidence": "high",
+      "review_status": "manual_review_required",
+      "source_turn_timestamps": {
+        "target_start": 0.031,
+        "target_end": 35.452,
+        "response_start": 37.139,
+        "response_end": 170.975
+      }
+    },
+    {
+      "video_id": "FzbOt9cW12o",
+      "interaction_id": "INT_0002",
+      "timestamp": 239.875,
+      "response_turn_id": "T0010",
+      "target_turn_id": "T0009",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_01",
+      "responding_speaker": "SPEAKER_02",
+      "classification": "agreement",
+      "evidence": "They're doing all of this drama of mock parliament, et cetera. It's not going to yield them anything.",
+      "evidence_present": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "The speaker builds on the host's point about the opposition choosing street protests and mock parliaments over parliamentary engagement, agreeing that it is ineffective theater.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 206.767,
+        "target_end": 237.597,
+        "response_start": 239.875,
+        "response_end": 372.26
+      }
+    }
+  ],
+  "data_quality": {
+    "turns_with_text": 20,
+    "turns_without_text_skipped": 16,
+    "turn_reconstruction": {
+      "raw_speaker_turn_count": 34,
+      "valid_speaker_turn_interval_count": 34,
+      "asr_word_count": 1565,
+      "words_with_speaker_ids": 1565,
+      "word_items_reconstructed": 1565,
+      "word_items_assigned_to_speaker_turns": 1563,
+      "word_items_without_matching_interval": 2,
+      "fallback_turn_count": 2,
+      "segment_level_fallback_count": 0,
+      "turn_count_reconstructed": 20,
+      "turns_without_text_skipped": 16,
+      "assignment_policy": "word midpoint assigned to closest matching same-speaker speaker_turn interval",
+      "speaker_turn_interval_audit": [
+        {
+          "interval_id": "SI_001",
+          "interval_index": 0,
+          "speaker_id": "SPEAKER_01",
+          "start": 0.031,
+          "end": 35.452,
+          "overlapping_interval_count": 0,
+          "overlapping_intervals": [],
+          "matching_word_count": 91,
+          "matching_words_assigned_to_interval": 91,
+          "other_speaker_word_count_inside_interval": 0,
+          "other_speaker_words_inside_interval": [],
+          "text_recovered": true,
+          "recovered_text": "Let me bring in Sanju Verma, BJP national spokesperson, also Rajat Sethi, political analyst. Sanju Verma, what we witnessed today was unprecedented. Never before that in India or Indian political history has a mock parliament been held in the house of leader of opposition. What Mr. Singhvi was saying right now is actually summing up what all has been happening, that there is a civil society movement, there is a political movement and a legal fight. Is the BJP getting worried of the larger culmination what it can have, the impact?",
+          "reason_for_skipping": null
+        },
+        {
+          "interval_id": "SI_002",
+          "interval_index": 1,
+          "speaker_id": "SPEAKER_00",
+          "start": 37.139,
+          "end": 170.975,
+          "overlapping_interval_count": 1,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_003",
+              "speaker_id": "SPEAKER_01",
+              "start": 169.034,
+              "end": 170.789
+            }
+          ],
+          "matching_word_count": 364,
+          "matching_words_assigned_to_interval": 364,
+          "other_speaker_word_count_inside_interval": 0,
+          "other_speaker_words_inside_interval": [],
+          "text_recovered": true,
+          "recovered_text": "You know, Maria, so I was listening to Mr Singby and I just have to say this when he says that there is no space for the opposition during routine parliamentary proceedings. You know, Rahul Gandhi is not given an opportunity to went, you know, his voice is cut and impeachment proceedings are not admitted. Mr Singby also mentioned that I think Mr Singby has forgotten. I'm very humbly through your show. I would like to suggest, Maria, do remember that ahead of Lok Sabha elections, In August Gaurav Gogoi had moved a no-confidence motion against the Modi government. And guess what? At the peak of the debate, because the debate was all about Manipur, they said, we don't trust this government with respect to Manipur, so we are moving a no-confidence motion. When Prime Minister Modi started speaking, Rahul Gandhi was not there. Priyanka Padra was not there in the house. Gaurav Gogoi, who had moved the no-confidence motion against this sitting government of the day, was to be seen nowhere. So the basic, limited point I'm making is that the opposition, instead of casting expressions at the ruling dispensation, needs to do some atma-chintan, needs to do some atma-mandhan, and tell me honestly, Each time Rahul Gandhi has wanted a debate on supposedly crucial issues, the government of the day has always been willing to engage. I will just very quickly, without being verbose, let you know. When Rahul Gandhi wanted a discussion on abrogation of Article we said yes, he went MIA. Rahul Gandhi wanted a discussion on CAA, we said yes, he went MIA. Rahul Gandhi even wanted a discussion On the arbitration of instant triple talaq, we said yes, he went MIA. Rahul Gandhi wanted a discussion on inflation, unemployment, Manipur. Even on the Ram Janma Bhumi Mandir issue, before the Supreme Court verdict came in, we said yes to every... you know, topic that he wanted a dialogue with the government, but he's the one who has been MIA. You cannot do shoot and scoot politics if as the leader of the opposition, he wants to be taken seriously. Let's bring in Rajat also on the screen please.",
+          "reason_for_skipping": null
+        },
+        {
+          "interval_id": "SI_003",
+          "interval_index": 2,
+          "speaker_id": "SPEAKER_01",
+          "start": 169.034,
+          "end": 170.789,
+          "overlapping_interval_count": 1,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_002",
+              "speaker_id": "SPEAKER_00",
+              "start": 37.139,
+              "end": 170.975
+            }
+          ],
+          "matching_word_count": 0,
+          "matching_words_assigned_to_interval": 0,
+          "other_speaker_word_count_inside_interval": 9,
+          "other_speaker_words_inside_interval": [
+            {
+              "word": "Let's",
+              "speaker_id": "SPEAKER_00",
+              "start": 169.108,
+              "end": 169.248
+            },
+            {
+              "word": "bring",
+              "speaker_id": "SPEAKER_00",
+              "start": 169.288,
+              "end": 169.448
+            },
+            {
+              "word": "in",
+              "speaker_id": "SPEAKER_00",
+              "start": 169.488,
+              "end": 169.548
+            },
+            {
+              "word": "Rajat",
+              "speaker_id": "SPEAKER_00",
+              "start": 169.588,
+              "end": 169.928
+            },
+            {
+              "word": "also",
+              "speaker_id": "SPEAKER_00",
+              "start": 169.948,
+              "end": 170.069
+            },
+            {
+              "word": "on",
+              "speaker_id": "SPEAKER_00",
+              "start": 170.109,
+              "end": 170.169
+            },
+            {
+              "word": "the",
+              "speaker_id": "SPEAKER_00",
+              "start": 170.189,
+              "end": 170.249
+            },
+            {
+              "word": "screen",
+              "speaker_id": "SPEAKER_00",
+              "start": 170.269,
+              "end": 170.509
+            },
+            {
+              "word": "please.",
+              "speaker_id": "SPEAKER_00",
+              "start": 170.609,
+              "end": 170.789
+            }
+          ],
+          "text_recovered": false,
+          "recovered_text": null,
+          "reason_for_skipping": "interval_contains_word_midpoints_attributed_to_other_speaker"
+        },
+        {
+          "interval_id": "SI_004",
+          "interval_index": 3,
+          "speaker_id": "SPEAKER_00",
+          "start": 171.127,
+          "end": 173.523,
+          "overlapping_interval_count": 0,
+          "overlapping_intervals": [],
+          "matching_word_count": 5,
+          "matching_words_assigned_to_interval": 5,
+          "other_speaker_word_count_inside_interval": 0,
+          "other_speaker_words_inside_interval": [],
+          "text_recovered": true,
+          "recovered_text": "Why is his average attendance",
+          "reason_for_skipping": null
+        },
+        {
+          "interval_id": "SI_005",
+          "interval_index": 4,
+          "speaker_id": "SPEAKER_01",
+          "start": 173.523,
+          "end": 173.54,
+          "overlapping_interval_count": 0,
+          "overlapping_intervals": [],
+          "matching_word_count": 0,
+          "matching_words_assigned_to_interval": 0,
+          "other_speaker_word_count_inside_interval": 0,
+          "other_speaker_words_inside_interval": [],
+          "text_recovered": false,
+          "recovered_text": null,
+          "reason_for_skipping": "no_word_midpoint_inside_interval"
+        },
+        {
+          "interval_id": "SI_006",
+          "interval_index": 5,
+          "speaker_id": "SPEAKER_00",
+          "start": 173.54,
+          "end": 195.173,
+          "overlapping_interval_count": 1,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_007",
+              "speaker_id": "SPEAKER_01",
+              "start": 185.723,
+              "end": 195.832
+            }
+          ],
+          "matching_word_count": 47,
+          "matching_words_assigned_to_interval": 47,
+          "other_speaker_word_count_inside_interval": 0,
+          "other_speaker_words_inside_interval": [],
+          "text_recovered": true,
+          "recovered_text": "in the last three Lok Sabha sessions vis-a-vis all India averaged of I mean, can Rahul Gandhi explain why he is MIA all the time? He said, even after demonetization, because I remember the demonetization debate went for months together, much after it happened. I'll come back",
+          "reason_for_skipping": null
+        },
+        {
+          "interval_id": "SI_007",
+          "interval_index": 6,
+          "speaker_id": "SPEAKER_01",
+          "start": 185.723,
+          "end": 195.832,
+          "overlapping_interval_count": 1,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_006",
+              "speaker_id": "SPEAKER_00",
+              "start": 173.54,
+              "end": 195.173
+            }
+          ],
+          "matching_word_count": 2,
+          "matching_words_assigned_to_interval": 2,
+          "other_speaker_word_count_inside_interval": 22,
+          "other_speaker_words_inside_interval": [
+            {
+              "word": "He",
+              "speaker_id": "SPEAKER_00",
+              "start": 185.812,
+              "end": 185.932
+            },
+            {
+              "word": "said,",
+              "speaker_id": "SPEAKER_00",
+              "start": 185.972,
+              "end": 186.152
+            },
+            {
+              "word": "even",
+              "speaker_id": "SPEAKER_00",
+              "start": 187.033,
+              "end": 187.233
+            },
+            {
+              "word": "after",
+              "speaker_id": "SPEAKER_00",
+              "start": 187.313,
+              "end": 187.553
+            },
+            {
+              "word": "demonetization,",
+              "speaker_id": "SPEAKER_00",
+              "start": 187.613,
+              "end": 188.553
+            },
+            {
+              "word": "because",
+              "speaker_id": "SPEAKER_00",
+              "start": 188.813,
+              "end": 189.013
+            },
+            {
+              "word": "I",
+              "speaker_id": "SPEAKER_00",
+              "start": 189.053,
+              "end": 189.093
+            },
+            {
+              "word": "remember",
+              "speaker_id": "SPEAKER_00",
+              "start": 189.153,
+              "end": 189.453
+            },
+            {
+              "word": "the",
+              "speaker_id": "SPEAKER_00",
+              "start": 189.473,
+              "end": 189.573
+            },
+            {
+              "word": "demonetization",
+              "speaker_id": "SPEAKER_00",
+              "start": 189.613,
+              "end": 190.514
+            },
+            {
+              "word": "debate",
+              "speaker_id": "SPEAKER_00",
+              "start": 190.534,
+              "end": 190.854
+            },
+            {
+              "word": "went",
+              "speaker_id": "SPEAKER_00",
+              "start": 191.214,
+              "end": 191.434
+            },
+            {
+              "word": "for",
+              "speaker_id": "SPEAKER_00",
+              "start": 191.474,
+              "end": 191.634
+            },
+            {
+              "word": "months",
+              "speaker_id": "SPEAKER_00",
+              "start": 191.814,
+              "end": 192.194
+            },
+            {
+              "word": "together,",
+              "speaker_id": "SPEAKER_00",
+              "start": 192.254,
+              "end": 192.654
+            },
+            {
+              "word": "much",
+              "speaker_id": "SPEAKER_00",
+              "start": 192.874,
+              "end": 193.215
+            },
+            {
+              "word": "after",
+              "speaker_id": "SPEAKER_00",
+              "start": 193.295,
+              "end": 193.595
+            },
+            {
+              "word": "it",
+              "speaker_id": "SPEAKER_00",
+              "start": 193.655,
+              "end": 193.815
+            },
+            {
+              "word": "happened.",
+              "speaker_id": "SPEAKER_00",
+              "start": 193.875,
+              "end": 194.175
+            },
+            {
+              "word": "I'll",
+              "speaker_id": "SPEAKER_00",
+              "start": 194.295,
+              "end": 194.455
+            },
+            {
+              "word": "come",
+              "speaker_id": "SPEAKER_00",
+              "start": 194.475,
+              "end": 194.635
+            },
+            {
+              "word": "back",
+              "speaker_id": "SPEAKER_00",
+              "start": 194.675,
+              "end": 195.095
+            }
+          ],
+          "text_recovered": true,
+          "recovered_text": "to you.",
+          "reason_for_skipping": null
+        },
+        {
+          "interval_id": "SI_008",
+          "interval_index": 7,
+          "speaker_id": "SPEAKER_00",
+          "start": 195.832,
+          "end": 195.967,
+          "overlapping_interval_count": 0,
+          "overlapping_intervals": [],
+          "matching_word_count": 0,
+          "matching_words_assigned_to_interval": 0,
+          "other_speaker_word_count_inside_interval": 1,
+          "other_speaker_words_inside_interval": [
+            {
+              "word": "Sanju",
+              "speaker_id": "SPEAKER_01",
+              "start": 195.635,
+              "end": 196.175
+            }
+          ],
+          "text_recovered": false,
+          "recovered_text": null,
+          "reason_for_skipping": "interval_contains_word_midpoints_attributed_to_other_speaker"
+        },
+        {
+          "interval_id": "SI_009",
+          "interval_index": 8,
+          "speaker_id": "SPEAKER_01",
+          "start": 195.967,
+          "end": 203.965,
+          "overlapping_interval_count": 1,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_010",
+              "speaker_id": "SPEAKER_02",
+              "start": 203.577,
+              "end": 206.497
+            }
+          ],
+          "matching_word_count": 23,
+          "matching_words_assigned_to_interval": 23,
+          "other_speaker_word_count_inside_interval": 0,
+          "other_speaker_words_inside_interval": [],
+          "text_recovered": true,
+          "recovered_text": "Verma, I want to understand from Rajat Sethi if he knows what MIA means. I think it's very cool. Missing in action, right?",
+          "reason_for_skipping": null
+        },
+        {
+          "interval_id": "SI_010",
+          "interval_index": 9,
+          "speaker_id": "SPEAKER_02",
+          "start": 203.577,
+          "end": 206.497,
+          "overlapping_interval_count": 2,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_009",
+              "speaker_id": "SPEAKER_01",
+              "start": 195.967,
+              "end": 203.965
+            },
+            {
+              "interval_id": "SI_011",
+              "speaker_id": "SPEAKER_01",
+              "start": 205.805,
+              "end": 206.564
+            }
+          ],
+          "matching_word_count": 4,
+          "matching_words_assigned_to_interval": 4,
+          "other_speaker_word_count_inside_interval": 1,
+          "other_speaker_words_inside_interval": [
+            {
+              "word": "right?",
+              "speaker_id": "SPEAKER_01",
+              "start": 203.558,
+              "end": 203.798
+            }
+          ],
+          "text_recovered": true,
+          "recovered_text": "Of course. Of course.",
+          "reason_for_skipping": null
+        },
+        {
+          "interval_id": "SI_011",
+          "interval_index": 10,
+          "speaker_id": "SPEAKER_01",
+          "start": 205.805,
+          "end": 206.564,
+          "overlapping_interval_count": 1,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_010",
+              "speaker_id": "SPEAKER_02",
+              "start": 203.577,
+              "end": 206.497
+            }
+          ],
+          "matching_word_count": 0,
+          "matching_words_assigned_to_interval": 0,
+          "other_speaker_word_count_inside_interval": 2,
+          "other_speaker_words_inside_interval": [
+            {
+              "word": "Of",
+              "speaker_id": "SPEAKER_02",
+              "start": 205.88,
+              "end": 206.001
+            },
+            {
+              "word": "course.",
+              "speaker_id": "SPEAKER_02",
+              "start": 206.041,
+              "end": 206.401
+            }
+          ],
+          "text_recovered": false,
+          "recovered_text": null,
+          "reason_for_skipping": "interval_contains_word_midpoints_attributed_to_other_speaker"
+        },
+        {
+          "interval_id": "SI_012",
+          "interval_index": 11,
+          "speaker_id": "SPEAKER_02",
+          "start": 206.564,
+          "end": 206.682,
+          "overlapping_interval_count": 0,
+          "overlapping_intervals": [],
+          "matching_word_count": 0,
+          "matching_words_assigned_to_interval": 0,
+          "other_speaker_word_count_inside_interval": 0,
+          "other_speaker_words_inside_interval": [],
+          "text_recovered": false,
+          "recovered_text": null,
+          "reason_for_skipping": "no_word_midpoint_inside_interval"
+        },
+        {
+          "interval_id": "SI_013",
+          "interval_index": 12,
+          "speaker_id": "SPEAKER_01",
+          "start": 206.767,
+          "end": 237.597,
+          "overlapping_interval_count": 0,
+          "overlapping_intervals": [],
+          "matching_word_count": 83,
+          "matching_words_assigned_to_interval": 83,
+          "other_speaker_word_count_inside_interval": 0,
+          "other_speaker_words_inside_interval": [],
+          "text_recovered": true,
+          "recovered_text": "Rajat, you know the fact that the BJP is also fighting against the Congress on the streets. Many would say that the arena here is being chosen by the Congress party because they realize that they do not want to fight it out in the parliament. They would be rather holding protests against the BJP and the government. Today and day before and tomorrow and the day after, it will be only competitive narrative setting on the streets. That's what we'll be witnessing.",
+          "reason_for_skipping": null
+        },
+        {
+          "interval_id": "SI_014",
+          "interval_index": 13,
+          "speaker_id": "SPEAKER_02",
+          "start": 239.875,
+          "end": 372.26,
+          "overlapping_interval_count": 1,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_015",
+              "speaker_id": "SPEAKER_01",
+              "start": 371.838,
+              "end": 372.31
+            }
+          ],
+          "matching_word_count": 385,
+          "matching_words_assigned_to_interval": 385,
+          "other_speaker_word_count_inside_interval": 0,
+          "other_speaker_words_inside_interval": [],
+          "text_recovered": true,
+          "recovered_text": "So, Mareji, I'll try and explain to you from the sweet irony around which Singhvi Sahib was just speaking a while back. It was coincidentally Singhviji himself who pointed that in Telangana, I believe that there are or lakh illegal voters. In fact, he and his party had been saying that there are around lakh illegal voters in the state of West Bengal. Now, things have turned and this is what is so ironical. A person who earns his bread and butter respectfully, Singhviji, has been over the past two, three weeks, has been lambasting courts. He's like, let us not go to courts. I mean, an institution, and you should owe your bread and butter to an institution like the Supreme Court. And on channels on ANI and all of these interviews, you go out and say, hey, let's not go to the courts because you will not find a justice in the courts. Let's hit the streets. So the essence of the thing is that you do not want to prove on a neutral constitutional bodies like the Supreme Court, or even when you attempted going to the president, you should have presented the proofs. You did not do that. My simple submission here is that BJP is very happy. They're very happy that a non-people's issue of the SIR has been taken up. Because then the genuine issues which you could have brought to the fore have been sidelined. This is done to the whims of one prince who just suddenly feels that all Andhomey Khanna Raja, like all the people around him have lost the election and suddenly he can become the leader of the India alliance. That's the heart of it. This is the reason why Akhilesh Shaita and bunch of very mature opposition leaders are focusing on the ground. They know that SIR is a reality. They're doing all of this drama of mock parliament, et cetera. It's not going to yield them anything. Today, I was surprised to see they did a mock parliament. Tomorrow, they will publish a mock constitution and then put up a mock chair. White towel, they will spread and sit on it. And they'll say that, OK, this is mock prime minister's chair. Let them be happy on a mock prime minister. But",
+          "reason_for_skipping": null
+        },
+        {
+          "interval_id": "SI_015",
+          "interval_index": 14,
+          "speaker_id": "SPEAKER_01",
+          "start": 371.838,
+          "end": 372.31,
+          "overlapping_interval_count": 1,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_014",
+              "speaker_id": "SPEAKER_02",
+              "start": 239.875,
+              "end": 372.26
+            }
+          ],
+          "matching_word_count": 0,
+          "matching_words_assigned_to_interval": 0,
+          "other_speaker_word_count_inside_interval": 1,
+          "other_speaker_words_inside_interval": [
+            {
+              "word": "But",
+              "speaker_id": "SPEAKER_02",
+              "start": 372.047,
+              "end": 372.227
+            }
+          ],
+          "text_recovered": false,
+          "recovered_text": null,
+          "reason_for_skipping": "interval_contains_word_midpoints_attributed_to_other_speaker"
+        },
+        {
+          "interval_id": "SI_016",
+          "interval_index": 15,
+          "speaker_id": "SPEAKER_02",
+          "start": 372.31,
+          "end": 372.395,
+          "overlapping_interval_count": 0,
+          "overlapping_intervals": [],
+          "matching_word_count": 0,
+          "matching_words_assigned_to_interval": 0,
+          "other_speaker_word_count_inside_interval": 0,
+          "other_speaker_words_inside_interval": [],
+          "text_recovered": false,
+          "recovered_text": null,
+          "reason_for_skipping": "no_word_midpoint_inside_interval"
+        },
+        {
+          "interval_id": "SI_017",
+          "interval_index": 16,
+          "speaker_id": "SPEAKER_01",
+          "start": 372.395,
+          "end": 372.462,
+          "overlapping_interval_count": 0,
+          "overlapping_intervals": [],
+          "matching_word_count": 0,
+          "matching_words_assigned_to_interval": 0,
+          "other_speaker_word_count_inside_interval": 1,
+          "other_speaker_words_inside_interval": [
+            {
+              "word": "Rajat,",
+              "speaker_id": "SPEAKER_02",
+              "start": 372.247,
+              "end": 372.607
+            }
+          ],
+          "text_recovered": false,
+          "recovered_text": null,
+          "reason_for_skipping": "interval_contains_word_midpoints_attributed_to_other_speaker"
+        },
+        {
+          "interval_id": "SI_018",
+          "interval_index": 17,
+          "speaker_id": "SPEAKER_02",
+          "start": 372.462,
+          "end": 372.85,
+          "overlapping_interval_count": 0,
+          "overlapping_intervals": [],
+          "matching_word_count": 0,
+          "matching_words_assigned_to_interval": 0,
+          "other_speaker_word_count_inside_interval": 0,
+          "other_speaker_words_inside_interval": [],
+          "text_recovered": false,
+          "recovered_text": null,
+          "reason_for_skipping": "no_word_midpoint_inside_interval"
+        },
+        {
+          "interval_id": "SI_019",
+          "interval_index": 18,
+          "speaker_id": "SPEAKER_01",
+          "start": 372.85,
+          "end": 393.067,
+          "overlapping_interval_count": 4,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_020",
+              "speaker_id": "SPEAKER_02",
+              "start": 373.019,
+              "end": 376.63
+            },
+            {
+              "interval_id": "SI_021",
+              "speaker_id": "SPEAKER_02",
+              "start": 377.508,
+              "end": 378.976
+            },
+            {
+              "interval_id": "SI_022",
+              "speaker_id": "SPEAKER_00",
+              "start": 378.976,
+              "end": 380.09
+            },
+            {
+              "interval_id": "SI_023",
+              "speaker_id": "SPEAKER_00",
+              "start": 381.22,
+              "end": 382.925
+            }
+          ],
+          "matching_word_count": 48,
+          "matching_words_assigned_to_interval": 48,
+          "other_speaker_word_count_inside_interval": 0,
+          "other_speaker_words_inside_interval": [],
+          "text_recovered": true,
+          "recovered_text": "I'm going to take that question to Sanju Verma. Sanju Verma, if the opposition indeed does that, first a public impeachment of a constitutional authority like an election commission, and if it is followed by what Rajat Sethi is saying, isn't that a matter of concern for you?",
+          "reason_for_skipping": null
+        },
+        {
+          "interval_id": "SI_020",
+          "interval_index": 19,
+          "speaker_id": "SPEAKER_02",
+          "start": 373.019,
+          "end": 376.63,
+          "overlapping_interval_count": 1,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_019",
+              "speaker_id": "SPEAKER_01",
+              "start": 372.85,
+              "end": 393.067
+            }
+          ],
+          "matching_word_count": 0,
+          "matching_words_assigned_to_interval": 0,
+          "other_speaker_word_count_inside_interval": 8,
+          "other_speaker_words_inside_interval": [
+            {
+              "word": "I'm",
+              "speaker_id": "SPEAKER_01",
+              "start": 373.267,
+              "end": 373.407
+            },
+            {
+              "word": "going",
+              "speaker_id": "SPEAKER_01",
+              "start": 373.447,
+              "end": 374.108
+            },
+            {
+              "word": "to",
+              "speaker_id": "SPEAKER_01",
+              "start": 374.168,
+              "end": 374.348
+            },
+            {
+              "word": "take",
+              "speaker_id": "SPEAKER_01",
+              "start": 374.628,
+              "end": 375.168
+            },
+            {
+              "word": "that",
+              "speaker_id": "SPEAKER_01",
+              "start": 375.188,
+              "end": 375.648
+            },
+            {
+              "word": "question",
+              "speaker_id": "SPEAKER_01",
+              "start": 375.688,
+              "end": 376.128
+            },
+            {
+              "word": "to",
+              "speaker_id": "SPEAKER_01",
+              "start": 376.168,
+              "end": 376.408
+            },
+            {
+              "word": "Sanju",
+              "speaker_id": "SPEAKER_01",
+              "start": 376.428,
+              "end": 376.788
+            }
+          ],
+          "text_recovered": false,
+          "recovered_text": null,
+          "reason_for_skipping": "interval_contains_word_midpoints_attributed_to_other_speaker"
+        },
+        {
+          "interval_id": "SI_021",
+          "interval_index": 20,
+          "speaker_id": "SPEAKER_02",
+          "start": 377.508,
+          "end": 378.976,
+          "overlapping_interval_count": 1,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_019",
+              "speaker_id": "SPEAKER_01",
+              "start": 372.85,
+              "end": 393.067
+            }
+          ],
+          "matching_word_count": 0,
+          "matching_words_assigned_to_interval": 0,
+          "other_speaker_word_count_inside_interval": 5,
+          "other_speaker_words_inside_interval": [
+            {
+              "word": "Sanju",
+              "speaker_id": "SPEAKER_01",
+              "start": 377.628,
+              "end": 377.868
+            },
+            {
+              "word": "Verma,",
+              "speaker_id": "SPEAKER_01",
+              "start": 377.888,
+              "end": 378.209
+            },
+            {
+              "word": "if",
+              "speaker_id": "SPEAKER_01",
+              "start": 378.269,
+              "end": 378.349
+            },
+            {
+              "word": "the",
+              "speaker_id": "SPEAKER_01",
+              "start": 378.389,
+              "end": 378.489
+            },
+            {
+              "word": "opposition",
+              "speaker_id": "SPEAKER_01",
+              "start": 378.529,
+              "end": 379.049
+            }
+          ],
+          "text_recovered": false,
+          "recovered_text": null,
+          "reason_for_skipping": "interval_contains_word_midpoints_attributed_to_other_speaker"
+        },
+        {
+          "interval_id": "SI_022",
+          "interval_index": 21,
+          "speaker_id": "SPEAKER_00",
+          "start": 378.976,
+          "end": 380.09,
+          "overlapping_interval_count": 1,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_019",
+              "speaker_id": "SPEAKER_01",
+              "start": 372.85,
+              "end": 393.067
+            }
+          ],
+          "matching_word_count": 0,
+          "matching_words_assigned_to_interval": 0,
+          "other_speaker_word_count_inside_interval": 3,
+          "other_speaker_words_inside_interval": [
+            {
+              "word": "indeed",
+              "speaker_id": "SPEAKER_01",
+              "start": 379.089,
+              "end": 379.509
+            },
+            {
+              "word": "does",
+              "speaker_id": "SPEAKER_01",
+              "start": 379.529,
+              "end": 379.729
+            },
+            {
+              "word": "that,",
+              "speaker_id": "SPEAKER_01",
+              "start": 379.769,
+              "end": 380.049
+            }
+          ],
+          "text_recovered": false,
+          "recovered_text": null,
+          "reason_for_skipping": "interval_contains_word_midpoints_attributed_to_other_speaker"
+        },
+        {
+          "interval_id": "SI_023",
+          "interval_index": 22,
+          "speaker_id": "SPEAKER_00",
+          "start": 381.22,
+          "end": 382.925,
+          "overlapping_interval_count": 1,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_019",
+              "speaker_id": "SPEAKER_01",
+              "start": 372.85,
+              "end": 393.067
+            }
+          ],
+          "matching_word_count": 0,
+          "matching_words_assigned_to_interval": 0,
+          "other_speaker_word_count_inside_interval": 1,
+          "other_speaker_words_inside_interval": [
+            {
+              "word": "first",
+              "speaker_id": "SPEAKER_01",
+              "start": 381.549,
+              "end": 382.89
+            }
+          ],
+          "text_recovered": false,
+          "recovered_text": null,
+          "reason_for_skipping": "interval_contains_word_midpoints_attributed_to_other_speaker"
+        },
+        {
+          "interval_id": "SI_024",
+          "interval_index": 23,
+          "speaker_id": "SPEAKER_01",
+          "start": 394.889,
+          "end": 395.986,
+          "overlapping_interval_count": 1,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_025",
+              "speaker_id": "SPEAKER_00",
+              "start": 395.176,
+              "end": 437.971
+            }
+          ],
+          "matching_word_count": 4,
+          "matching_words_assigned_to_interval": 4,
+          "other_speaker_word_count_inside_interval": 0,
+          "other_speaker_words_inside_interval": [],
+          "text_recovered": true,
+          "recovered_text": "You are in power.",
+          "reason_for_skipping": null
+        },
+        {
+          "interval_id": "SI_025",
+          "interval_index": 24,
+          "speaker_id": "SPEAKER_00",
+          "start": 395.176,
+          "end": 437.971,
+          "overlapping_interval_count": 2,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_024",
+              "speaker_id": "SPEAKER_01",
+              "start": 394.889,
+              "end": 395.986
+            },
+            {
+              "interval_id": "SI_026",
+              "speaker_id": "SPEAKER_01",
+              "start": 436.975,
+              "end": 439.152
+            }
+          ],
+          "matching_word_count": 116,
+          "matching_words_assigned_to_interval": 116,
+          "other_speaker_word_count_inside_interval": 2,
+          "other_speaker_words_inside_interval": [
+            {
+              "word": "in",
+              "speaker_id": "SPEAKER_01",
+              "start": 395.289,
+              "end": 395.389
+            },
+            {
+              "word": "power.",
+              "speaker_id": "SPEAKER_01",
+              "start": 395.429,
+              "end": 395.989
+            }
+          ],
+          "text_recovered": true,
+          "recovered_text": "Let's be very honest. You're a very seasoned journalist, and you know this very well, that since ever since Narendra Modi took charge at the helm of affairs, all I've been hearing is, and this is not with offense to you, Maria, I do a zillion debates, and if BJP wins, the questions are asked of BJP. If BJP loses, the questions are asked of BJP. If Rahul Gandhi wins, questions are not asked of Rahul Gandhi. If Rahul Gandhi loses, questions are still not asked of Rahul Gandhi. Rahul Gandhi is being treated by the Darbari ecosystem as the next best thing after brown bread and spaghetti. No, but you are also responding to Rahul",
+          "reason_for_skipping": null
+        },
+        {
+          "interval_id": "SI_026",
+          "interval_index": 25,
+          "speaker_id": "SPEAKER_01",
+          "start": 436.975,
+          "end": 439.152,
+          "overlapping_interval_count": 1,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_025",
+              "speaker_id": "SPEAKER_00",
+              "start": 395.176,
+              "end": 437.971
+            }
+          ],
+          "matching_word_count": 3,
+          "matching_words_assigned_to_interval": 3,
+          "other_speaker_word_count_inside_interval": 3,
+          "other_speaker_words_inside_interval": [
+            {
+              "word": "responding",
+              "speaker_id": "SPEAKER_00",
+              "start": 436.919,
+              "end": 437.379
+            },
+            {
+              "word": "to",
+              "speaker_id": "SPEAKER_00",
+              "start": 437.459,
+              "end": 437.559
+            },
+            {
+              "word": "Rahul",
+              "speaker_id": "SPEAKER_00",
+              "start": 437.579,
+              "end": 437.879
+            }
+          ],
+          "text_recovered": true,
+          "recovered_text": "Gandhi, no, Sanjuji?",
+          "reason_for_skipping": null
+        },
+        {
+          "interval_id": "SI_027",
+          "interval_index": 26,
+          "speaker_id": "SPEAKER_00",
+          "start": 440.401,
+          "end": 473.678,
+          "overlapping_interval_count": 0,
+          "overlapping_intervals": [],
+          "matching_word_count": 98,
+          "matching_words_assigned_to_interval": 98,
+          "other_speaker_word_count_inside_interval": 0,
+          "other_speaker_words_inside_interval": [],
+          "text_recovered": true,
+          "recovered_text": "No, Mariaji, one minute, one minute. I want to say one thing. I'm sure you're aware of this, but this needs to be reinforced. In addition to what Rajat said, India is one of the very few. I think it is perhaps the only parliamentary democracy where you have something called the zero hour. During Question Hour, if you need to raise an issue from the opposition's side or even from the treasury benches, you ideally need to give to the speaker or the chair of the House a 10-day notice. You know, Wide Rule blah, blah, blah.",
+          "reason_for_skipping": null
+        },
+        {
+          "interval_id": "SI_028",
+          "interval_index": 27,
+          "speaker_id": "SPEAKER_01",
+          "start": 473.763,
+          "end": 474.083,
+          "overlapping_interval_count": 0,
+          "overlapping_intervals": [],
+          "matching_word_count": 0,
+          "matching_words_assigned_to_interval": 0,
+          "other_speaker_word_count_inside_interval": 0,
+          "other_speaker_words_inside_interval": [],
+          "text_recovered": false,
+          "recovered_text": null,
+          "reason_for_skipping": "no_word_midpoint_inside_interval"
+        },
+        {
+          "interval_id": "SI_029",
+          "interval_index": 28,
+          "speaker_id": "SPEAKER_00",
+          "start": 474.303,
+          "end": 566.508,
+          "overlapping_interval_count": 1,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_030",
+              "speaker_id": "SPEAKER_01",
+              "start": 514.364,
+              "end": 514.668
+            }
+          ],
+          "matching_word_count": 220,
+          "matching_words_assigned_to_interval": 220,
+          "other_speaker_word_count_inside_interval": 0,
+          "other_speaker_words_inside_interval": [],
+          "text_recovered": true,
+          "recovered_text": "I fail to understand that zero hour is such an innovation which is specific only to India's parliament and it is a tool which actually the opposition should be using to make the government of the day accountable because you don't need to give an advance notice. But remember, in the last so many sessions, winter session, monsoon session, budget session, Zero hour normally commences at in the afternoon. As soon as Lok Sama starts or Rajya Sama starts, by there is a breaking news. Parliament adjourned for the day, Lok Sama adjourned for the day, Rajya Sama adjourned for the day. What I am trying to tell you is Why has Rahul Gandhi not utilised zero arc? Why has Priyanka Vadra not utilised zero arc to raise, you know, critical questions when they feel that their voice is not being heard? Why are you not using the parliamentary you know, procedures available to you. And what is this entire gibberish about having a mock parliament is Rajab Singh. We are going to have a mock judicial proceeding. Is that how democracy will work? You know, street veto can never replace the democratic ethos of the country. And I'm reminded of Yogendra Yadav because I think everybody's taking a leaf out of his book when he said a couple of",
+          "reason_for_skipping": null
+        },
+        {
+          "interval_id": "SI_030",
+          "interval_index": 29,
+          "speaker_id": "SPEAKER_01",
+          "start": 514.364,
+          "end": 514.668,
+          "overlapping_interval_count": 1,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_029",
+              "speaker_id": "SPEAKER_00",
+              "start": 474.303,
+              "end": 566.508
+            }
+          ],
+          "matching_word_count": 0,
+          "matching_words_assigned_to_interval": 0,
+          "other_speaker_word_count_inside_interval": 3,
+          "other_speaker_words_inside_interval": [
+            {
+              "word": "What",
+              "speaker_id": "SPEAKER_00",
+              "start": 514.359,
+              "end": 514.499
+            },
+            {
+              "word": "I",
+              "speaker_id": "SPEAKER_00",
+              "start": 514.519,
+              "end": 514.539
+            },
+            {
+              "word": "am",
+              "speaker_id": "SPEAKER_00",
+              "start": 514.559,
+              "end": 514.619
+            }
+          ],
+          "text_recovered": false,
+          "recovered_text": null,
+          "reason_for_skipping": "interval_contains_word_midpoints_attributed_to_other_speaker"
+        },
+        {
+          "interval_id": "SI_031",
+          "interval_index": 30,
+          "speaker_id": "SPEAKER_00",
+          "start": 566.592,
+          "end": 584.429,
+          "overlapping_interval_count": 1,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_032",
+              "speaker_id": "SPEAKER_01",
+              "start": 583.687,
+              "end": 584.227
+            }
+          ],
+          "matching_word_count": 28,
+          "matching_words_assigned_to_interval": 28,
+          "other_speaker_word_count_inside_interval": 0,
+          "other_speaker_words_inside_interval": [],
+          "text_recovered": true,
+          "recovered_text": "So I want to tell Yogendra Yadav and the entire Darbari ecosystem, which is subservient to his rants, that sarco par faesla nahi hoga, faesla sadar mein hoga.",
+          "reason_for_skipping": null
+        },
+        {
+          "interval_id": "SI_032",
+          "interval_index": 31,
+          "speaker_id": "SPEAKER_01",
+          "start": 583.687,
+          "end": 584.227,
+          "overlapping_interval_count": 1,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_031",
+              "speaker_id": "SPEAKER_00",
+              "start": 566.592,
+              "end": 584.429
+            }
+          ],
+          "matching_word_count": 0,
+          "matching_words_assigned_to_interval": 0,
+          "other_speaker_word_count_inside_interval": 2,
+          "other_speaker_words_inside_interval": [
+            {
+              "word": "mein",
+              "speaker_id": "SPEAKER_00",
+              "start": 583.851,
+              "end": 584.111
+            },
+            {
+              "word": "hoga.",
+              "speaker_id": "SPEAKER_00",
+              "start": 584.131,
+              "end": 584.272
+            }
+          ],
+          "text_recovered": false,
+          "recovered_text": null,
+          "reason_for_skipping": "interval_contains_word_midpoints_attributed_to_other_speaker"
+        },
+        {
+          "interval_id": "SI_033",
+          "interval_index": 32,
+          "speaker_id": "SPEAKER_00",
+          "start": 584.615,
+          "end": 598.84,
+          "overlapping_interval_count": 1,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_034",
+              "speaker_id": "SPEAKER_01",
+              "start": 596.933,
+              "end": 601.777
+            }
+          ],
+          "matching_word_count": 33,
+          "matching_words_assigned_to_interval": 33,
+          "other_speaker_word_count_inside_interval": 0,
+          "other_speaker_words_inside_interval": [],
+          "text_recovered": true,
+          "recovered_text": "You can knock on the doors of the court, but do not try to undermine the judicial process, the parliamentary procedures by having this tamasha. This is nothing more than a tamasha, Maria.",
+          "reason_for_skipping": null
+        },
+        {
+          "interval_id": "SI_034",
+          "interval_index": 33,
+          "speaker_id": "SPEAKER_01",
+          "start": 596.933,
+          "end": 601.777,
+          "overlapping_interval_count": 1,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_033",
+              "speaker_id": "SPEAKER_00",
+              "start": 584.615,
+              "end": 598.84
+            }
+          ],
+          "matching_word_count": 9,
+          "matching_words_assigned_to_interval": 9,
+          "other_speaker_word_count_inside_interval": 8,
+          "other_speaker_words_inside_interval": [
+            {
+              "word": "This",
+              "speaker_id": "SPEAKER_00",
+              "start": 597.063,
+              "end": 597.204
+            },
+            {
+              "word": "is",
+              "speaker_id": "SPEAKER_00",
+              "start": 597.244,
+              "end": 597.344
+            },
+            {
+              "word": "nothing",
+              "speaker_id": "SPEAKER_00",
+              "start": 597.384,
+              "end": 597.665
+            },
+            {
+              "word": "more",
+              "speaker_id": "SPEAKER_00",
+              "start": 597.705,
+              "end": 597.845
+            },
+            {
+              "word": "than",
+              "speaker_id": "SPEAKER_00",
+              "start": 597.865,
+              "end": 597.966
+            },
+            {
+              "word": "a",
+              "speaker_id": "SPEAKER_00",
+              "start": 598.006,
+              "end": 598.066
+            },
+            {
+              "word": "tamasha,",
+              "speaker_id": "SPEAKER_00",
+              "start": 598.086,
+              "end": 598.527
+            },
+            {
+              "word": "Maria.",
+              "speaker_id": "SPEAKER_00",
+              "start": 598.547,
+              "end": 598.848
+            }
+          ],
+          "text_recovered": true,
+          "recovered_text": "Sanju Verma and Rajesh Sethi, really appreciate your time.",
+          "reason_for_skipping": null
+        }
+      ]
+    },
+    "host_identification_loaded": true,
+    "host_identification_status": {
+      "status": "loaded",
+      "warning": "Scores and confidence bands are heuristic, not calibrated probabilities. Opening/closing phrase lists are incomplete and currently English-oriented; translated ASR text can affect cues. Manually verify predictions and evaluate across known-host episodes."
+    },
+    "subtopics_loaded": 1,
+    "interactions_missing_target": 0,
+    "evidence_validation_summary": {
+      "records_with_evidence": 2,
+      "records_with_verified_evidence": 1,
+      "records_with_missing_evidence": 0,
+      "records_with_invalid_evidence": 1,
+      "decisive_records_requiring_manual_review": 1
+    },
+    "validation": {
+      "status": "passed",
+      "checks_run": [
+        "classification_labels",
+        "speaker_ids",
+        "target_response_turn_references",
+        "evidence_validation",
+        "subtopic_mapping",
+        "directional_aggregation",
+        "missing_source_speakers",
+        "duplicate_interaction_ids",
+        "timestamp_consistency",
+        "model_response_schema"
+      ],
+      "issue_count": 0,
+      "issues": []
+    },
+    "validation_warnings": [
+      "Host identification: Scores and confidence bands are heuristic, not calibrated probabilities. Opening/closing phrase lists are incomplete and currently English-oriented; translated ASR text can affect cues. Manually verify predictions and evaluate across known-host episodes.",
+      "One or more model-proposed decisive interactions lacked verified evidence and were downgraded to uncertain."
+    ],
+    "manual_review_status": "required",
+    "review_status": "pending_manual_validation"
+  }
+}

@@ -1,0 +1,259 @@
+{
+  "schema_version": "topic-drift-1.1",
+  "video_id": "_eakpo9i4dM",
+  "variant": "threshold_5.0",
+  "generated_at_utc": "2026-11-26T19:27:55.028665+00:00",
+  "overall_topic": {
+    "topic": "Delhi's Air Pollution Crisis and Public Health Emergency",
+    "description": "A televised debate addressing Delhi and North India's severe air pollution crisis, focusing on hazardous AQI levels, stubble burning statistics, allegations of data manipulation, public health impacts, and accountability across various government bodies and political parties.",
+    "key_discussion_points": [
+      "Delhi's hazardous AQI levels and long-term trends in air quality",
+      "Allegations of AQI data manipulation, station placement in green areas, and data blackouts on Diwali night",
+      "Stubble burning (parali) statistics and comparisons between Punjab and neighboring states",
+      "Public health impacts of Delhi's toxic air including respiratory and cardiovascular issues",
+      "Utilization and allocation of environmental funds and implementation of pollution control policies"
+    ]
+  },
+  "method": {
+    "name": "subtopic_to_overall_topic_embedding_alignment",
+    "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "analysis_mode": "subtopic_level",
+    "unit_text_source": "Full transcript segments within each subtopic interval; subtopic evidence is fallback only.",
+    "score_formula": "0.50 * cosine(unit, overall_topic+description) + 0.50 * mean(two highest cosine similarities between unit and individual key discussion points)",
+    "display_score": "alignment_score = max(0, weighted_cosine_alignment) * 100; scaled cosine index, not a percentage or probability",
+    "low_threshold": 20.0,
+    "high_threshold": 40.0,
+    "threshold_interpretation": "possible_drift < 20.0; partially_aligned >= 20.0 and < 40.0; aligned >= 40.0",
+    "minimum_sustained_drift_seconds": 90.0,
+    "sustained_drift_rule": "Consecutive possible_drift subtopics separated by no more than 30 seconds are grouped; event duration must meet the minimum sustained duration.",
+    "threshold_status": "provisional; manually calibrate before research claims",
+    "warning": "Scores are heuristic semantic-alignment indicators, not probabilities or validated accuracy. Low similarity is a candidate for review, not proof of drift."
+  },
+  "alignment_results": [
+    {
+      "unit_id": "ST001",
+      "unit_type": "subtopic",
+      "title": "Opening discussion",
+      "start": 0.0,
+      "end": 1048.918,
+      "duration_seconds": 1048.918,
+      "semantic_similarity_to_overall_topic": 0.7765,
+      "key_point_similarities": [
+        {
+          "key_point": "Delhi's hazardous AQI levels and long-term trends in air quality",
+          "cosine_similarity": 0.6281
+        },
+        {
+          "key_point": "Public health impacts of Delhi's toxic air including respiratory and cardiovascular issues",
+          "cosine_similarity": 0.6097
+        },
+        {
+          "key_point": "Stubble burning (parali) statistics and comparisons between Punjab and neighboring states",
+          "cosine_similarity": 0.4903
+        },
+        {
+          "key_point": "Allegations of AQI data manipulation, station placement in green areas, and data blackouts on Diwali night",
+          "cosine_similarity": 0.3745
+        },
+        {
+          "key_point": "Utilization and allocation of environmental funds and implementation of pollution control policies",
+          "cosine_similarity": 0.3276
+        }
+      ],
+      "top_two_key_point_similarity": 0.6189,
+      "weighted_cosine_alignment": 0.6977,
+      "alignment_score": 69.77,
+      "classification": "aligned",
+      "speakers": [
+        "SPEAKER_00",
+        "SPEAKER_02",
+        "SPEAKER_03",
+        "SPEAKER_04",
+        "SPEAKER_05"
+      ],
+      "text_source": "merge_final.segments",
+      "evidence_excerpt": "Opening discussion. Hello and welcome to The National Debate. I'm Mathodas Kapalakrishnan. Delhi is choking, but its leaders seem busy passing the buck. Toxic air continues to blanket the national capital and several of the big cities of northern India, with AQI levels stuck in the very poor zone. But as the Delhi government about the pollution crisis, answers are hard to come by. The BJP has been pointing fingers at Punjab's stubble burning. Arm of the party has been hitting back, citing farm fires in BJP rule states. And as the blame game gathers pace, the national capital continues to breathe poison. The question is simple. Who will own this crisis and who's choking accountability? Joining us to debate this, today we have with us in the studio, Tuhin Sira, National Spokesperson of BJP, Raman Malik, Political Analyst. We have Alka Kapoor, Principal of Modern Public School, Shailmar Bagh. We also have Padma Shri, Dr. Sanjeev Bagai, Chairman of Neffron Clinic. Jayadhar Gupta, is Clean Air Activist. Joining us, Wing Commander Anum Acharya, Spokesperson of Congress Party is with us. Let's first take a look at what we're talking about in terms of what the national capital has been going through and what can we expect in coming days. Well, we have seen of course the rather big question about whether there has been, you know, manipulation of the AQI in the national capital. This is what happened on Diwali day, the allegations that data suddenly went blank. The first finding is that no hourly readings were there across 52 monitoring stations. The second is that there was large-scale blackout on Diwali night. The third is that only seven of 59 stations reported proper data in the national capital. Number four, all 59 stations were fully functional at 8 a.m. on November 8th. Da"
+    },
+    {
+      "unit_id": "ST002",
+      "unit_type": "subtopic",
+      "title": "Inaccuracy of Pollution Data and Ground Realities",
+      "start": 1048.918,
+      "end": 1237.46,
+      "duration_seconds": 188.542,
+      "semantic_similarity_to_overall_topic": 0.6033,
+      "key_point_similarities": [
+        {
+          "key_point": "Allegations of AQI data manipulation, station placement in green areas, and data blackouts on Diwali night",
+          "cosine_similarity": 0.536
+        },
+        {
+          "key_point": "Delhi's hazardous AQI levels and long-term trends in air quality",
+          "cosine_similarity": 0.5288
+        },
+        {
+          "key_point": "Utilization and allocation of environmental funds and implementation of pollution control policies",
+          "cosine_similarity": 0.4594
+        },
+        {
+          "key_point": "Public health impacts of Delhi's toxic air including respiratory and cardiovascular issues",
+          "cosine_similarity": 0.4575
+        },
+        {
+          "key_point": "Stubble burning (parali) statistics and comparisons between Punjab and neighboring states",
+          "cosine_similarity": 0.366
+        }
+      ],
+      "top_two_key_point_similarity": 0.5324,
+      "weighted_cosine_alignment": 0.5679,
+      "alignment_score": 56.79,
+      "classification": "aligned",
+      "speakers": [
+        "SPEAKER_00",
+        "SPEAKER_03",
+        "SPEAKER_07"
+      ],
+      "text_source": "merge_final.segments",
+      "evidence_excerpt": "Inaccuracy of Pollution Data and Ground Realities. A speaker intervenes to state that all shared AQI and stubble burning data is inaccurate, calling it a 'smog wash' and shifting the focus from political bickering to the actual health emergency and public suffering on the ground.. This is one big smog wash. I have better monitoring equipment than CPCB and I can tell you with confidence our AQI is not in the 300s at all. So that's also all a big smog wash. As far as what you're talking about the NASA scientists, what they are talking, what the NASA scientist is referring to, what Punjab is doing very successfully and I'm sure all the states of India are doing it because agri residue burning is a common practice across all poor developing nations. This is not just a Punjab problem, it's a pan-India problem. And central and state governments need to engage with it. I don't want to stand here and start shooting bullets at anybody in particular here, because it's a pan-India problem. All the data is managed. The farmers are told when Punjab is in the blackout phase of the satellite and that's when they burn. The collectors distribute this information. So what data are we presenting? The only data that matters is that I came out here from an ICU because I was gasping for air two days ago and I'm pumped up on steroids. And my children cannot leave the house. They can't go to school. Everybody is gasping for air. There is a hopelessness. That's the only data that matters. And I think these people are shameful and without a conscience if they're just standing here and doing this bickering because this is just such a waste of time. We need to be doing something positive rather than getting involved in this negative activity. The point is this, that the future of children is being"
+    },
+    {
+      "unit_id": "ST003",
+      "unit_type": "subtopic",
+      "title": "Impact on Human Health and Medical Emergencies",
+      "start": 1237.46,
+      "end": 2018.284,
+      "duration_seconds": 780.824,
+      "semantic_similarity_to_overall_topic": 0.7676,
+      "key_point_similarities": [
+        {
+          "key_point": "Public health impacts of Delhi's toxic air including respiratory and cardiovascular issues",
+          "cosine_similarity": 0.7593
+        },
+        {
+          "key_point": "Delhi's hazardous AQI levels and long-term trends in air quality",
+          "cosine_similarity": 0.6374
+        },
+        {
+          "key_point": "Allegations of AQI data manipulation, station placement in green areas, and data blackouts on Diwali night",
+          "cosine_similarity": 0.2739
+        },
+        {
+          "key_point": "Utilization and allocation of environmental funds and implementation of pollution control policies",
+          "cosine_similarity": 0.2714
+        },
+        {
+          "key_point": "Stubble burning (parali) statistics and comparisons between Punjab and neighboring states",
+          "cosine_similarity": 0.2442
+        }
+      ],
+      "top_two_key_point_similarity": 0.6983,
+      "weighted_cosine_alignment": 0.733,
+      "alignment_score": 73.3,
+      "classification": "aligned",
+      "speakers": [
+        "SPEAKER_00",
+        "SPEAKER_01",
+        "SPEAKER_03",
+        "SPEAKER_04",
+        "SPEAKER_05",
+        "SPEAKER_06",
+        "SPEAKER_07"
+      ],
+      "text_source": "merge_final.segments",
+      "evidence_excerpt": "Impact on Human Health and Medical Emergencies. The discussion shifts from the educational and administrative perspective to the severe medical and public health impacts of air pollution, featuring visuals of damaged lungs and expert medical commentary on respiratory and systemic health crises.. Let me quickly bring up in fact what has happened in Delhi and this is what is happening in Delhi right now. Ladies and gentlemen, this is the lung of a Delhi resident currently. In fact, that's the kind of black inside that doctors get when they open up the lung surgically and this is a healthy lung. Unfortunately, in some cases, even children happen to have black lungs in Delhi. And let me bring up the doctor on our panel. In fact, I'd like you to come in on this Dr. Bagai and tell us what exactly are we looking at? We are looking at a public health emergency in Delhi. It's not just about respiratory problems or the coughs or the allergies that we get and infections that we get subsequently, but this is impacting our neurological problems, our cardiac health, multiple levels that this is actually impacting on citizens in NCR. How are we going to be a Wixit bar at 2047 if this is the quality of air we are breathing? So I think some of the people in the neighboring states have taken the song of those seriously, come on baby light my fire. I think that's on a lighter note. But more seriously, I think breathing has become a luxury in Delhi. We can't go out, there is indoor pollution too. Now, I want all the viewers to understand that when you're talking in terms of the pollution, we are losing approximately 20 lakh Indians every year. This is 10 times the load of Hiroshima and Nagasaki. That's the depth. Let it sink in. This is every year. That was once in 80, 90, 100 years. The i"
+    },
+    {
+      "unit_id": "ST004",
+      "unit_type": "subtopic",
+      "title": "Stubble Burning and Punjab AQI Levels",
+      "start": 2018.284,
+      "end": 2192.095,
+      "duration_seconds": 173.811,
+      "semantic_similarity_to_overall_topic": 0.5205,
+      "key_point_similarities": [
+        {
+          "key_point": "Stubble burning (parali) statistics and comparisons between Punjab and neighboring states",
+          "cosine_similarity": 0.7501
+        },
+        {
+          "key_point": "Delhi's hazardous AQI levels and long-term trends in air quality",
+          "cosine_similarity": 0.5393
+        },
+        {
+          "key_point": "Allegations of AQI data manipulation, station placement in green areas, and data blackouts on Diwali night",
+          "cosine_similarity": 0.3972
+        },
+        {
+          "key_point": "Public health impacts of Delhi's toxic air including respiratory and cardiovascular issues",
+          "cosine_similarity": 0.3924
+        },
+        {
+          "key_point": "Utilization and allocation of environmental funds and implementation of pollution control policies",
+          "cosine_similarity": 0.2846
+        }
+      ],
+      "top_two_key_point_similarity": 0.6447,
+      "weighted_cosine_alignment": 0.5826,
+      "alignment_score": 58.26,
+      "classification": "aligned",
+      "speakers": [
+        "SPEAKER_02",
+        "SPEAKER_03",
+        "SPEAKER_05"
+      ],
+      "text_source": "merge_final.segments",
+      "evidence_excerpt": "Stubble Burning and Punjab AQI Levels. The discussion shifts to data on farm fires in Punjab, high AQI levels in districts like Fareedkot and Bhatinda, and responses regarding stubble burning versus other pollution sources.. You know, you repeatedly said that you brought down the number of farm fires, etc. I'm just giving you data from two of your districts in Punjab. Fareedkot, AQI 842, Bhatinda in third position, which the AQI of 797, far higher than Delhi. If you brought down pollution, why is it in 800 and 700? Okay. Madhav, which is the most polluted city in India? Shri Ganga Nagar, Rajasthan. It has nothing to do with Punjab. Punjab fires have no impact in Shri Ganga Nagar. It's pretty close to the border. By all logic of it flowing towards Pakistan, it'll go to Shri Ganga Nagar. And all these places, all these places have bad AQIs now. Please tell me what has been done around Delhi. In around 300 kilometers of Delhi, there are 11 thermal power stations. And there is a technology called the FGD technology. There is only 30% fitting of that technology has happened. And where is the environmental minister? Did you see any statement? Did you see a national calamity-like situation happening across North India? It's not just Delhi. It's everywhere. He was not collecting the empty tax. Every statement from Mr. Yadav, anything. He was busy in the business. He was not collecting the empty tax. Two points you've made, and I have two more comments to get. But Doin, I want you to respond to that. Where is the environment minister, is the question I'm on the party is asking. And a very important point, industries are a big pollutant. We've seen the data as far as the CACM is concerned. Why isn't it being removed from the national capital or being permanently shut down? Isn't "
+    },
+    {
+      "unit_id": "ST005",
+      "unit_type": "subtopic",
+      "title": "Closing Remarks and Final Solutions",
+      "start": 2192.095,
+      "end": 2270.858,
+      "duration_seconds": 78.763,
+      "semantic_similarity_to_overall_topic": 0.5515,
+      "key_point_similarities": [
+        {
+          "key_point": "Delhi's hazardous AQI levels and long-term trends in air quality",
+          "cosine_similarity": 0.4125
+        },
+        {
+          "key_point": "Public health impacts of Delhi's toxic air including respiratory and cardiovascular issues",
+          "cosine_similarity": 0.37
+        },
+        {
+          "key_point": "Allegations of AQI data manipulation, station placement in green areas, and data blackouts on Diwali night",
+          "cosine_similarity": 0.3264
+        },
+        {
+          "key_point": "Utilization and allocation of environmental funds and implementation of pollution control policies",
+          "cosine_similarity": 0.3024
+        },
+        {
+          "key_point": "Stubble burning (parali) statistics and comparisons between Punjab and neighboring states",
+          "cosine_similarity": 0.2532
+        }
+      ],
+      "top_two_key_point_similarity": 0.3913,
+      "weighted_cosine_alignment": 0.4714,
+      "alignment_score": 47.14,
+      "classification": "aligned",
+      "speakers": [
+        "SPEAKER_00",
+        "SPEAKER_01",
+        "SPEAKER_03"
+      ],
+      "text_source": "merge_final.segments",
+      "evidence_excerpt": "Closing Remarks and Final Solutions. The anchor calls for closing comments from the panelists, leading into final concluding thoughts on practical solutions and public sentiment regarding the pollution crisis.. 30 seconds from each of you. First, Dr. And then you. Malik, I think the political part can continue. But if you have to look at things which Delhi can control within itself, first is vehicle emission. We need a little bit better public transport. If we can build world-class airports, better than world-class airports, we can definitely build world-class public transport and more of it. Point number two, we need multi-level car parks in different parts of the city. De-congest the roads. That's what's causing idling of the cars and excess emission. Three is, the simplest thing is to control road dust. It's completely out of time, but Jaider Gupta, 10 seconds. Last comment. There's a feeling of despair and hopelessness. I get 100 calls a day from people asking me where they can move in India where the AQI is under 100. I can't name any place. The reaction from my government has been arrogant. lacking any empathy. And if you look at the overall reaction, it's all been reactive, fragmented or absent. Is it time for tough measures? That time is perhaps past. Do we need to see action? Yes. But yes, there's a lot of public sentiment that is against this pollution. And as a nation, whether it's various states, whether it's the central government, all have to work together. We've been seeing a lot in terms of the stated intent, in terms of actually feeling it on ground, a lot more that is desired. We'll have to leave it at that."
+    }
+  ],
+  "drift_events": [],
+  "summary": {
+    "units_analysed": 5,
+    "aligned_units": 5,
+    "partially_aligned_units": 0,
+    "possible_drift_units": 0,
+    "drift_events": 0,
+    "analysis_mode": "subtopic_level"
+  }
+}

@@ -1,0 +1,645 @@
+{
+  "schema_version": "subtopic-analysis-1.0",
+  "video_id": "Cp9kTDGfJk4",
+  "variant": "threshold_5.0",
+  "source_files": {
+    "transcript": "/home/user/MTP/Code/television-discourse-decoded-hindi/data/v2/debate_only/videos/Cp9kTDGfJk4/threshold_5.0/merge_final.json",
+    "overall_topic": "/home/user/MTP/Code/television-discourse-decoded-hindi/data/v2/debate_only/overall_topic/threshold_5.0/Cp9kTDGfJk4/overall_topic.json"
+  },
+  "configuration": {
+    "method": "hybrid_semantic_similarity_and_llm_verification",
+    "prompt_version": "subtopic-boundary-v2-distinct-issue-angles",
+    "chunk_duration_minutes": 5.0,
+    "overlap_minutes": 1.0,
+    "semantic_unit_seconds": 30.0,
+    "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "semantic_similarity_threshold": 0.55,
+    "gemini_model": "gemini-3.5-flash-lite",
+    "brief_deviations": "merged_into_surrounding_subtopic"
+  },
+  "overall_topic": {
+    "topic": "Debate on Sonia Gandhi's Memoir and Historical Controversies",
+    "description": "A televised debate analyzing Sonia Gandhi's newly released memoir, focusing on whether it is a genuine personal account or a politically curated attempt to whitewash major historical events such as the Emergency, Operation Blue Star, the 1984 anti-Sikh riots, and the Babri Masjid demolition."
+  },
+  "chunks": [
+    {
+      "chunk_id": "C001",
+      "start": 0.0,
+      "end": 300.0,
+      "segment_count": 62
+    },
+    {
+      "chunk_id": "C002",
+      "start": 240.0,
+      "end": 540.0,
+      "segment_count": 62
+    },
+    {
+      "chunk_id": "C003",
+      "start": 480.0,
+      "end": 780.0,
+      "segment_count": 70
+    },
+    {
+      "chunk_id": "C004",
+      "start": 720.0,
+      "end": 1020.0,
+      "segment_count": 72
+    },
+    {
+      "chunk_id": "C005",
+      "start": 960.0,
+      "end": 1058.575,
+      "segment_count": 24
+    }
+  ],
+  "boundary_analysis": {
+    "embedding": {
+      "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+      "unit_duration_seconds": null,
+      "units": 36,
+      "similarity_threshold": 0.55,
+      "minimum_candidate_gap_seconds": 45.0,
+      "candidate_count": 12
+    },
+    "candidates": [
+      {
+        "candidate_id": "B0001",
+        "candidate_time": 30.0,
+        "semantic_similarity": 0.4611823260784149,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The segment at timestamp 30.0 represents the anchor's introduction framing the debate around Sonia Gandhi's memoir—contrasting the Congress's view of a personal love story/resilience with the BJP's view of whitewashing. The subsequent dialogue immediately follows up on this exact framing by introducing the guests and asking the BJP spokesperson why the book is being perceived as a whitewashing of history. This is still part of the introductory and opening framing of the overarching debate topic rather than a transition to a new, distinct subtopic.",
+        "confidence": 0.95
+      },
+      {
+        "candidate_id": "B0002",
+        "candidate_time": 150.0,
+        "semantic_similarity": 0.32371044158935547,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The speaker is listing multiple contentious points regarding Sonia Gandhi's memoir and past controversies (citizenship, voting timeline, secret MOUs, Babri Masjid demolition) within the same introductory critique. This forms part of the ongoing discussion on whether the memoir whitewashes history.",
+        "confidence": 0.9
+      },
+      {
+        "candidate_id": "B0003",
+        "candidate_time": 210.0,
+        "semantic_similarity": 0.4556363821029663,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The anchor is part of the anchor's own concluding question bridging the previous critique about whitewashing historical events to the next panelist (Speaker 00), continuing the core theme of contrasting her personal tragedy and memoir with political controversies.",
+        "confidence": 0.85
+      },
+      {
+        "candidate_id": "B0004",
+        "candidate_time": 330.0,
+        "semantic_similarity": 0.49493488669395447,
+        "decision": "new_subtopic",
+        "boundary_time": 385.829,
+        "title": "Critique of the Memoir as Whitewashing Historical Events",
+        "description": "The discussion transitions from a personal defense of Sonia Gandhi's life and political career to an adversarial debate on whether her memoir acts as a whitewashing of major historical events, introduced by the anchor bringing in Anand Ranganathan.",
+        "reason": "The anchor explicitly shifts the focus from the speaker's personal defense and biographical details to a direct question about whether the memoir is whitewashing history, prompting a new critical angle and speaker response.",
+        "confidence": 0.95
+      },
+      {
+        "candidate_id": "B0005",
+        "candidate_time": 450.0,
+        "semantic_similarity": 0.3843148946762085,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The anchor point falls directly inside Anand Ranganathan's continuous response regarding whether Sonia Gandhi's memoir is a whitewashed account of history. He continues to elaborate on specific historical controversies mentioned in the broad topic (such as the Emergency and 1984), so this is part of the ongoing discussion angle rather than a new subtopic boundary.",
+        "confidence": 0.95
+      },
+      {
+        "candidate_id": "B0006",
+        "candidate_time": 570.0,
+        "semantic_similarity": 0.2218034565448761,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The panel is continuing the discussion on the nature of the memoir, specifically responding to criticisms regarding historical events and accusations of whitewashing or sanitizing history.",
+        "confidence": 0.85
+      },
+      {
+        "candidate_id": "B0007",
+        "candidate_time": 630.0,
+        "semantic_similarity": 0.4669090509414673,
+        "decision": "new_subtopic",
+        "boundary_time": 630.97,
+        "title": "Babri Masjid Demolition and the Liberhan Commission Report",
+        "description": "The speaker shifts from discussing the memoir's depiction of the Emergency to debating the Babri Masjid demolition, citing the Liberhan Commission report and holding BJP leaders accountable.",
+        "reason": "The discussion pivots from the topic of the Emergency to an entirely separate historical controversy—the Babri Masjid demolition and the findings of the Liberhan Commission.",
+        "confidence": 0.95
+      },
+      {
+        "candidate_id": "B0008",
+        "candidate_time": 720.0,
+        "semantic_similarity": 0.36453941464424133,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The speaker is directly responding to the previous points regarding the Babri Masjid demolition and political responsibility, continuing the same discussion angle without shifting to a new distinct subtopic.",
+        "confidence": 0.95
+      },
+      {
+        "candidate_id": "B0009",
+        "candidate_time": 810.0,
+        "semantic_similarity": 0.3828563392162323,
+        "decision": "new_subtopic",
+        "boundary_time": 811.587,
+        "title": "National Security and Defense Controversies",
+        "description": "The discussion shifts from historical domestic events like the Emergency and Babri Masjid demolition to foreign policy and national security questions raised by the memoir, including the 1998 nuclear tests and Pakistan relations.",
+        "reason": "The anchor transitions the debate from the Babri Masjid and domestic political accountability to new national security issues such as the 1998 nuclear test response and Pakistan policy, which constitutes a distinct subtopic.",
+        "confidence": 0.9
+      },
+      {
+        "candidate_id": "B0010",
+        "candidate_time": 930.0,
+        "semantic_similarity": 0.5163639187812805,
+        "decision": "new_subtopic",
+        "boundary_time": 898.845,
+        "title": "Allegations of Selective Grief by Congress Leadership",
+        "description": "The discussion shifts to the BJP's accusation that Sonia Gandhi and the Congress leadership engage in selective grief regarding historical tragedies like Operation Blue Star, the Babri Masjid demolition, and terrorist encounters.",
+        "reason": "The anchor transitions from discussing nuclear tests and policy towards Pakistan to a specific new line of questioning about political empathy and 'selective grief' concerning past events.",
+        "confidence": 0.95
+      },
+      {
+        "candidate_id": "B0011",
+        "candidate_time": 990.0,
+        "semantic_similarity": 0.2147482931613922,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The speaker is continuing their response to the allegations of selective grief by moving from one historical comparison (Pakistan policy) immediately into another (1984 anti-Sikh riots vs. 2002 Gujarat riots) as part of a continuous counter-argument.",
+        "confidence": 0.85
+      },
+      {
+        "candidate_id": "B0012",
+        "candidate_time": 1050.0,
+        "semantic_similarity": 0.3564659059047699,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The speaker is continuing the comparison of historical accountability and apologies between the 1984 anti-Sikh riots and the 2002 Gujarat riots, maintaining the same argument angle about political responsibility.",
+        "confidence": 0.85
+      }
+    ],
+    "counts": {
+      "continuation": 8,
+      "new_subtopic": 4
+    }
+  },
+  "subtopics": [
+    {
+      "subtopic_id": "ST001",
+      "title": "Opening discussion",
+      "start": 0.0,
+      "end": 385.829,
+      "duration_seconds": 385.829,
+      "description": null,
+      "speakers": [
+        "SPEAKER_00",
+        "SPEAKER_03",
+        "SPEAKER_04"
+      ],
+      "evidence": [
+        {
+          "start": 0.251,
+          "end": 9.981,
+          "speaker_id": "SPEAKER_04",
+          "text": "In the last week of October, the 27th to be precise, Sonia Gandhi said, there's bound to be some tamasha when the book comes out."
+        },
+        {
+          "start": 32.754,
+          "end": 37.996,
+          "speaker_id": "SPEAKER_04",
+          "text": "So is it an insider account or a carefully curated account for political gains?"
+        },
+        {
+          "start": 63.066,
+          "end": 67.668,
+          "speaker_id": "SPEAKER_04",
+          "text": "Tuhin Sinha, Sonia Gandhi had a ringside view of political developments."
+        },
+        {
+          "start": 90.889,
+          "end": 91.91,
+          "speaker_id": "SPEAKER_03",
+          "text": "Well, good evening, Gaurav."
+        },
+        {
+          "start": 116.871,
+          "end": 119.352,
+          "speaker_id": "SPEAKER_03",
+          "text": "You know there have been humongous challenges along the way."
+        },
+        {
+          "start": 149.082,
+          "end": 157.491,
+          "speaker_id": "SPEAKER_03",
+          "text": "Number two, you know, we are all interested in knowing what was the content of the secret MOU between Congress Party and CCP."
+        },
+        {
+          "start": 193.994,
+          "end": 210.12,
+          "speaker_id": "SPEAKER_04",
+          "text": "Her personal account may be very intense, yes, but her political commentary is being described as whitewashing the role of the Congress party, whether it's emergency or Punjab, Operation Blue Star, subsequent developments."
+        },
+        {
+          "start": 256.035,
+          "end": 258.416,
+          "speaker_id": "SPEAKER_00",
+          "text": "But even when he did, she stood by him."
+        },
+        {
+          "start": 293.189,
+          "end": 294.17,
+          "speaker_id": "SPEAKER_00",
+          "text": "I'm going to stay away."
+        },
+        {
+          "start": 315.419,
+          "end": 317.079,
+          "speaker_id": "SPEAKER_00",
+          "text": "And we won in 2004."
+        },
+        {
+          "start": 358.763,
+          "end": 363.264,
+          "speaker_id": "SPEAKER_00",
+          "text": "She is somebody, as a politician, you speak more and she listens."
+        },
+        {
+          "start": 384.669,
+          "end": 385.349,
+          "speaker_id": "SPEAKER_00",
+          "text": "We didn't say that."
+        }
+      ]
+    },
+    {
+      "subtopic_id": "ST002",
+      "title": "Critique of the Memoir as Whitewashing Historical Events",
+      "start": 385.829,
+      "end": 630.97,
+      "duration_seconds": 245.141,
+      "description": "The discussion transitions from a personal defense of Sonia Gandhi's life and political career to an adversarial debate on whether her memoir acts as a whitewashing of major historical events, introduced by the anchor bringing in Anand Ranganathan.",
+      "speakers": [
+        "SPEAKER_01",
+        "SPEAKER_02",
+        "SPEAKER_04"
+      ],
+      "evidence": [
+        {
+          "start": 385.829,
+          "end": 391.873,
+          "speaker_id": "SPEAKER_04",
+          "text": "Let me bring in Anand Ranganathan, because for the moment, we're staying with the book and commentary around it."
+        },
+        {
+          "start": 412.923,
+          "end": 418.486,
+          "speaker_id": "SPEAKER_01",
+          "text": "Well, you know, as they say, you either see what you believe or you believe what you see."
+        },
+        {
+          "start": 436.996,
+          "end": 446.805,
+          "speaker_id": "SPEAKER_01",
+          "text": "Each and every instance that you describe, that is in her fictionalized book, is a complete negation of history."
+        },
+        {
+          "start": 465.359,
+          "end": 472.003,
+          "speaker_id": "SPEAKER_01",
+          "text": "This is an absolute crime when she says that emergency was thrust principally by on the behalf of Sanjay Gandhi."
+        },
+        {
+          "start": 491.19,
+          "end": 496.092,
+          "speaker_id": "SPEAKER_01",
+          "text": "Secondly, does this memoir mention about what Rajiv Gandhi said about the Sikhs?"
+        },
+        {
+          "start": 515.886,
+          "end": 525.134,
+          "speaker_id": "SPEAKER_01",
+          "text": "So, you know, yes, she is within her right to write whatever she wants to, but this is a deeply sanitized, scrubbed-out version of history before us, Gaurav."
+        },
+        {
+          "start": 539.704,
+          "end": 540.665,
+          "speaker_id": "SPEAKER_04",
+          "text": "Let's take this one by one."
+        },
+        {
+          "start": 556.679,
+          "end": 558.124,
+          "speaker_id": "SPEAKER_02",
+          "text": "I got a good evening to you now."
+        },
+        {
+          "start": 585.922,
+          "end": 586.923,
+          "speaker_id": "SPEAKER_02",
+          "text": "Let's not go down that road."
+        },
+        {
+          "start": 600.766,
+          "end": 604.91,
+          "speaker_id": "SPEAKER_02",
+          "text": "I have my friend Shama here who's who's anyway doing some brilliant heavy lifting already."
+        },
+        {
+          "start": 609.534,
+          "end": 618.583,
+          "speaker_id": "SPEAKER_02",
+          "text": "God of how you started the Babri must demolition because I have been part of several debates when I have been officially part of the Congress as a spokesperson."
+        },
+        {
+          "start": 625.989,
+          "end": 630.57,
+          "speaker_id": "SPEAKER_02",
+          "text": "an esteemed Supreme Court lawyer, Manmohan Singh Lagerhand Commission's report."
+        }
+      ]
+    },
+    {
+      "subtopic_id": "ST003",
+      "title": "Babri Masjid Demolition and the Liberhan Commission Report",
+      "start": 630.97,
+      "end": 811.587,
+      "duration_seconds": 180.617,
+      "description": "The speaker shifts from discussing the memoir's depiction of the Emergency to debating the Babri Masjid demolition, citing the Liberhan Commission report and holding BJP leaders accountable.",
+      "speakers": [
+        "SPEAKER_01",
+        "SPEAKER_02",
+        "SPEAKER_04"
+      ],
+      "evidence": [
+        {
+          "start": 630.97,
+          "end": 631.751,
+          "speaker_id": "SPEAKER_02",
+          "text": "No whitewashing."
+        },
+        {
+          "start": 652.317,
+          "end": 665.686,
+          "speaker_id": "SPEAKER_02",
+          "text": "Now more important more important the Library Commission indicted the Sankt Paribas VHP artists BJP Bajrang Dal everybody for taking part in the entire methodical demolition."
+        },
+        {
+          "start": 673.494,
+          "end": 675.596,
+          "speaker_id": "SPEAKER_02",
+          "text": "Murali Manohar Joshi due respects to his age."
+        },
+        {
+          "start": 690.668,
+          "end": 693.611,
+          "speaker_id": "SPEAKER_02",
+          "text": "Where will Anand and Tuhin Sinha go into hiding now?"
+        },
+        {
+          "start": 707.06,
+          "end": 710.601,
+          "speaker_id": "SPEAKER_01",
+          "text": "First of all, with due respect to my good friend Sanjay, it's a specious argument."
+        },
+        {
+          "start": 716.083,
+          "end": 719.184,
+          "speaker_id": "SPEAKER_01",
+          "text": "But I have seen and read history of that time."
+        },
+        {
+          "start": 728.868,
+          "end": 733.771,
+          "speaker_id": "SPEAKER_01",
+          "text": "that she is putting out, that Indira Gandhi was responsible for the emergency, not Sanjay Gandhi."
+        },
+        {
+          "start": 755.703,
+          "end": 756.903,
+          "speaker_id": "SPEAKER_01",
+          "text": "I can't dispute that, obviously."
+        },
+        {
+          "start": 767.707,
+          "end": 775.13,
+          "speaker_id": "SPEAKER_01",
+          "text": "for 15 of the 30-35 years that have gone past the demolition, Congress was in power, CBI was controlled by them."
+        },
+        {
+          "start": 783.972,
+          "end": 785.953,
+          "speaker_id": "SPEAKER_01",
+          "text": "So let's not... What do they say?"
+        },
+        {
+          "start": 795.676,
+          "end": 797.297,
+          "speaker_id": "SPEAKER_01",
+          "text": "You did, for obvious reasons."
+        },
+        {
+          "start": 809.186,
+          "end": 811.127,
+          "speaker_id": "SPEAKER_04",
+          "text": "But, Tuhin Sinha, respond."
+        }
+      ]
+    },
+    {
+      "subtopic_id": "ST004",
+      "title": "National Security and Defense Controversies",
+      "start": 811.587,
+      "end": 898.845,
+      "duration_seconds": 87.258,
+      "description": "The discussion shifts from historical domestic events like the Emergency and Babri Masjid demolition to foreign policy and national security questions raised by the memoir, including the 1998 nuclear tests and Pakistan relations.",
+      "speakers": [
+        "SPEAKER_03",
+        "SPEAKER_04"
+      ],
+      "evidence": [
+        {
+          "start": 811.587,
+          "end": 826.478,
+          "speaker_id": "SPEAKER_04",
+          "text": "Babri is where, if Sonia Gandhi had tears in her eyes at the demolition, that, you know, it's going to be an uphill battle or what's to that effect to protect the secularism or the India that Mahatma Gandhi and Pandit Jawaharlal Nehru"
+        },
+        {
+          "start": 827.199,
+          "end": 830.697,
+          "speaker_id": "SPEAKER_04",
+          "text": "thought of or tried to build, blame is on BJP RSS."
+        },
+        {
+          "start": 832.958,
+          "end": 835.359,
+          "speaker_id": "SPEAKER_03",
+          "text": "Sonia Gandhi is a very emotional person."
+        },
+        {
+          "start": 835.419,
+          "end": 838.481,
+          "speaker_id": "SPEAKER_03",
+          "text": "You know, so she keeps, she gets to, she tries often."
+        },
+        {
+          "start": 838.821,
+          "end": 846.905,
+          "speaker_id": "SPEAKER_03",
+          "text": "But my point is only, you know, she never mentions about trying at the, when, when, you know, 74 of her CRP of Jawans get killed or when 26-11 happens."
+        },
+        {
+          "start": 847.326,
+          "end": 858.632,
+          "speaker_id": "SPEAKER_03",
+          "text": "Now I would have at least expected the two Congress representatives to be given the book one week or 10 days before so that they don't come up with these cliched arguments and, you know, BJP bashing, which they are very good at."
+        },
+        {
+          "start": 861.093,
+          "end": 873.102,
+          "speaker_id": "SPEAKER_03",
+          "text": "Does the country not have the right to know why it took Sonia Gandhiji 10 days after the nuclear test in May 1998 to come up with the first reaction?"
+        },
+        {
+          "start": 873.522,
+          "end": 876.224,
+          "speaker_id": "SPEAKER_03",
+          "text": "And even that first reaction was a cavalier."
+        },
+        {
+          "start": 876.844,
+          "end": 878.746,
+          "speaker_id": "SPEAKER_03",
+          "text": "India's strength lies in restraint."
+        },
+        {
+          "start": 879.326,
+          "end": 880.947,
+          "speaker_id": "SPEAKER_03",
+          "text": "without understanding the situation."
+        },
+        {
+          "start": 894.731,
+          "end": 896.912,
+          "speaker_id": "SPEAKER_03",
+          "text": "I'm expecting answers to these serious questions."
+        },
+        {
+          "start": 898.085,
+          "end": 898.485,
+          "speaker_id": "SPEAKER_04",
+          "text": "Fair enough."
+        }
+      ]
+    },
+    {
+      "subtopic_id": "ST005",
+      "title": "Allegations of Selective Grief by Congress Leadership",
+      "start": 898.845,
+      "end": 1058.575,
+      "duration_seconds": 159.73,
+      "description": "The discussion shifts to the BJP's accusation that Sonia Gandhi and the Congress leadership engage in selective grief regarding historical tragedies like Operation Blue Star, the Babri Masjid demolition, and terrorist encounters.",
+      "speakers": [
+        "SPEAKER_00",
+        "SPEAKER_04"
+      ],
+      "evidence": [
+        {
+          "start": 898.845,
+          "end": 902.506,
+          "speaker_id": "SPEAKER_04",
+          "text": "Dr. Mohammed, Indira Gandhi had tears in her eyes after Operation Blue Star."
+        },
+        {
+          "start": 918.749,
+          "end": 923.53,
+          "speaker_id": "SPEAKER_04",
+          "text": "Now, the BJP is accusing Sonia Gandhi and the Congress leadership of selective grief, ma'am."
+        },
+        {
+          "start": 936.583,
+          "end": 939.025,
+          "speaker_id": "SPEAKER_00",
+          "text": "Mrs. Gandhi has had tears in her eyes many times."
+        },
+        {
+          "start": 943.468,
+          "end": 945.65,
+          "speaker_id": "SPEAKER_00",
+          "text": "I mean, they talk about Pakistan."
+        },
+        {
+          "start": 956.276,
+          "end": 957.136,
+          "speaker_id": "SPEAKER_00",
+          "text": "So let's understand."
+        },
+        {
+          "start": 968.121,
+          "end": 971.323,
+          "speaker_id": "SPEAKER_00",
+          "text": "I can go on about his relationship with Pakistan."
+        },
+        {
+          "start": 987.772,
+          "end": 989.793,
+          "speaker_id": "SPEAKER_00",
+          "text": "So who is with Pakistan?"
+        },
+        {
+          "start": 994.776,
+          "end": 996.617,
+          "speaker_id": "SPEAKER_00",
+          "text": "the genocide of 1984."
+        },
+        {
+          "start": 1005.461,
+          "end": 1008.342,
+          "speaker_id": "SPEAKER_00",
+          "text": "Mr. Manmohan Singh had apologized inside the parliament."
+        },
+        {
+          "start": 1018.487,
+          "end": 1018.787,
+          "speaker_id": "SPEAKER_00",
+          "text": "All right."
+        },
+        {
+          "start": 1029.818,
+          "end": 1044.071,
+          "speaker_id": "SPEAKER_00",
+          "text": "Now, Sanjeev Bhat put an effort of it in the Supreme Court, filed a petition saying that on the 27th, February 9, 2002, there was a meeting in the prime minister's home, and he was the only one, the rest all stood with Modi."
+        },
+        {
+          "start": 1055.245,
+          "end": 1058.575,
+          "speaker_id": "SPEAKER_04",
+          "text": "Because this discussion is on Sonia Gandhi's book."
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total_subtopics": 5,
+    "total_duration_seconds": 1058.575,
+    "candidate_boundaries": 12,
+    "verified_boundaries": 4
+  }
+}

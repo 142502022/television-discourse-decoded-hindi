@@ -1,0 +1,137 @@
+{
+  "schema_version": "speaker-topic-participation-1.1",
+  "video_id": "ep6eexe6g_8",
+  "variant": "threshold_5.0",
+  "method": {
+    "speaking_time": "speaker_turn intervals clipped to each subtopic boundary; each turn contributes only its intersecting duration",
+    "turn_count": "number of source speaker_turn intervals intersecting each subtopic; a turn crossing a boundary is counted once in each intersected subtopic",
+    "speech_share": "speaker clipped turn-duration sum divided by total clipped speaker-turn duration within the same subtopic, multiplied by 100",
+    "dominant_speaker": "speaker with the greatest clipped speaker-turn duration in the subtopic",
+    "topic_coverage": "subtopics with positive clipped speaking time",
+    "consistency": "uses the same speaker_turn duration basis as final_result_numeric.json",
+    "overlap_note": "speaker turns may overlap; if they do, their durations are counted for each speaker, matching speaker-wise duration accounting in the existing pipeline"
+  },
+  "summary": {
+    "total_subtopics": 2,
+    "total_speakers": 4,
+    "total_speaking_time_seconds_across_subtopics": 2018.303
+  },
+  "subtopic_participation": [
+    {
+      "subtopic_id": "ST001",
+      "title": "Opening discussion",
+      "start": 0.0,
+      "end": 430.653,
+      "duration_seconds": 430.653,
+      "total_speaking_time_seconds": 536.527,
+      "dominant_speaker": "SPEAKER_00",
+      "speakers": [
+        {
+          "speaker_id": "SPEAKER_00",
+          "speaking_time_seconds": 212.289,
+          "speech_share_percent": 39.567,
+          "turn_count": 16
+        },
+        {
+          "speaker_id": "SPEAKER_03",
+          "speaking_time_seconds": 185.031,
+          "speech_share_percent": 34.487,
+          "turn_count": 16
+        },
+        {
+          "speaker_id": "SPEAKER_01",
+          "speaking_time_seconds": 93.74,
+          "speech_share_percent": 17.472,
+          "turn_count": 8
+        },
+        {
+          "speaker_id": "SPEAKER_02",
+          "speaking_time_seconds": 45.467,
+          "speech_share_percent": 8.474,
+          "turn_count": 7
+        }
+      ]
+    },
+    {
+      "subtopic_id": "ST002",
+      "title": "Focusing the Campaign on CEC Gyanesh Kumar's Resignation",
+      "start": 430.653,
+      "end": 1475.995,
+      "duration_seconds": 1045.342,
+      "total_speaking_time_seconds": 1481.776,
+      "dominant_speaker": "SPEAKER_03",
+      "speakers": [
+        {
+          "speaker_id": "SPEAKER_03",
+          "speaking_time_seconds": 515.626,
+          "speech_share_percent": 34.798,
+          "turn_count": 47
+        },
+        {
+          "speaker_id": "SPEAKER_00",
+          "speaking_time_seconds": 418.7,
+          "speech_share_percent": 28.257,
+          "turn_count": 61
+        },
+        {
+          "speaker_id": "SPEAKER_01",
+          "speaking_time_seconds": 386.332,
+          "speech_share_percent": 26.072,
+          "turn_count": 49
+        },
+        {
+          "speaker_id": "SPEAKER_02",
+          "speaking_time_seconds": 161.118,
+          "speech_share_percent": 10.873,
+          "turn_count": 27
+        }
+      ]
+    }
+  ],
+  "speaker_episode_summary": [
+    {
+      "speaker_id": "SPEAKER_03",
+      "total_speaking_time_seconds": 700.657,
+      "speech_share_percent": 34.715,
+      "turn_count_across_subtopics": 63,
+      "subtopics_participated": [
+        "ST001",
+        "ST002"
+      ],
+      "subtopic_count": 2
+    },
+    {
+      "speaker_id": "SPEAKER_00",
+      "total_speaking_time_seconds": 630.989,
+      "speech_share_percent": 31.263,
+      "turn_count_across_subtopics": 77,
+      "subtopics_participated": [
+        "ST001",
+        "ST002"
+      ],
+      "subtopic_count": 2
+    },
+    {
+      "speaker_id": "SPEAKER_01",
+      "total_speaking_time_seconds": 480.072,
+      "speech_share_percent": 23.786,
+      "turn_count_across_subtopics": 57,
+      "subtopics_participated": [
+        "ST001",
+        "ST002"
+      ],
+      "subtopic_count": 2
+    },
+    {
+      "speaker_id": "SPEAKER_02",
+      "total_speaking_time_seconds": 206.585,
+      "speech_share_percent": 10.236,
+      "turn_count_across_subtopics": 34,
+      "subtopics_participated": [
+        "ST001",
+        "ST002"
+      ],
+      "subtopic_count": 2
+    }
+  ]
+}

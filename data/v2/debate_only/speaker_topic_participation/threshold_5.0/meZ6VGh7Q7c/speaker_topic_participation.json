@@ -1,0 +1,247 @@
+{
+  "schema_version": "speaker-topic-participation-1.1",
+  "video_id": "meZ6VGh7Q7c",
+  "variant": "threshold_5.0",
+  "method": {
+    "speaking_time": "speaker_turn intervals clipped to each subtopic boundary; each turn contributes only its intersecting duration",
+    "turn_count": "number of source speaker_turn intervals intersecting each subtopic; a turn crossing a boundary is counted once in each intersected subtopic",
+    "speech_share": "speaker clipped turn-duration sum divided by total clipped speaker-turn duration within the same subtopic, multiplied by 100",
+    "dominant_speaker": "speaker with the greatest clipped speaker-turn duration in the subtopic",
+    "topic_coverage": "subtopics with positive clipped speaking time",
+    "consistency": "uses the same speaker_turn duration basis as final_result_numeric.json",
+    "overlap_note": "speaker turns may overlap; if they do, their durations are counted for each speaker, matching speaker-wise duration accounting in the existing pipeline"
+  },
+  "summary": {
+    "total_subtopics": 4,
+    "total_speakers": 6,
+    "total_speaking_time_seconds_across_subtopics": 1700.095
+  },
+  "subtopic_participation": [
+    {
+      "subtopic_id": "ST001",
+      "title": "Opening discussion",
+      "start": 0.0,
+      "end": 661.698,
+      "duration_seconds": 661.698,
+      "total_speaking_time_seconds": 710.319,
+      "dominant_speaker": "SPEAKER_05",
+      "speakers": [
+        {
+          "speaker_id": "SPEAKER_05",
+          "speaking_time_seconds": 209.621,
+          "speech_share_percent": 29.511,
+          "turn_count": 6
+        },
+        {
+          "speaker_id": "SPEAKER_00",
+          "speaking_time_seconds": 204.371,
+          "speech_share_percent": 28.772,
+          "turn_count": 6
+        },
+        {
+          "speaker_id": "SPEAKER_01",
+          "speaking_time_seconds": 164.735,
+          "speech_share_percent": 23.192,
+          "turn_count": 4
+        },
+        {
+          "speaker_id": "SPEAKER_02",
+          "speaking_time_seconds": 131.018,
+          "speech_share_percent": 18.445,
+          "turn_count": 1
+        },
+        {
+          "speaker_id": "SPEAKER_04",
+          "speaking_time_seconds": 0.574,
+          "speech_share_percent": 0.081,
+          "turn_count": 1
+        }
+      ]
+    },
+    {
+      "subtopic_id": "ST002",
+      "title": "Appointment of the Chief Election Commissioner",
+      "start": 661.698,
+      "end": 844.152,
+      "duration_seconds": 182.454,
+      "total_speaking_time_seconds": 203.309,
+      "dominant_speaker": "SPEAKER_01",
+      "speakers": [
+        {
+          "speaker_id": "SPEAKER_01",
+          "speaking_time_seconds": 92.271,
+          "speech_share_percent": 45.385,
+          "turn_count": 8
+        },
+        {
+          "speaker_id": "SPEAKER_05",
+          "speaking_time_seconds": 55.906,
+          "speech_share_percent": 27.498,
+          "turn_count": 8
+        },
+        {
+          "speaker_id": "SPEAKER_00",
+          "speaking_time_seconds": 54.339,
+          "speech_share_percent": 26.727,
+          "turn_count": 5
+        },
+        {
+          "speaker_id": "SPEAKER_02",
+          "speaking_time_seconds": 0.692,
+          "speech_share_percent": 0.34,
+          "turn_count": 3
+        },
+        {
+          "speaker_id": "SPEAKER_04",
+          "speaking_time_seconds": 0.101,
+          "speech_share_percent": 0.05,
+          "turn_count": 1
+        }
+      ]
+    },
+    {
+      "subtopic_id": "ST003",
+      "title": "Farmers, Economic Policy, and Global Crises",
+      "start": 844.152,
+      "end": 992.449,
+      "duration_seconds": 148.297,
+      "total_speaking_time_seconds": 200.914,
+      "dominant_speaker": "SPEAKER_04",
+      "speakers": [
+        {
+          "speaker_id": "SPEAKER_04",
+          "speaking_time_seconds": 118.581,
+          "speech_share_percent": 59.021,
+          "turn_count": 4
+        },
+        {
+          "speaker_id": "SPEAKER_00",
+          "speaking_time_seconds": 43.775,
+          "speech_share_percent": 21.788,
+          "turn_count": 19
+        },
+        {
+          "speaker_id": "SPEAKER_05",
+          "speaking_time_seconds": 38.558,
+          "speech_share_percent": 19.191,
+          "turn_count": 8
+        }
+      ]
+    },
+    {
+      "subtopic_id": "ST004",
+      "title": "India's Economic Performance and Global Crises",
+      "start": 992.449,
+      "end": 1525.351,
+      "duration_seconds": 532.902,
+      "total_speaking_time_seconds": 585.553,
+      "dominant_speaker": "SPEAKER_03",
+      "speakers": [
+        {
+          "speaker_id": "SPEAKER_03",
+          "speaking_time_seconds": 170.201,
+          "speech_share_percent": 29.067,
+          "turn_count": 4
+        },
+        {
+          "speaker_id": "SPEAKER_05",
+          "speaking_time_seconds": 166.158,
+          "speech_share_percent": 28.376,
+          "turn_count": 29
+        },
+        {
+          "speaker_id": "SPEAKER_00",
+          "speaking_time_seconds": 135.05,
+          "speech_share_percent": 23.064,
+          "turn_count": 25
+        },
+        {
+          "speaker_id": "SPEAKER_04",
+          "speaking_time_seconds": 61.663,
+          "speech_share_percent": 10.531,
+          "turn_count": 17
+        },
+        {
+          "speaker_id": "SPEAKER_01",
+          "speaking_time_seconds": 52.481,
+          "speech_share_percent": 8.963,
+          "turn_count": 2
+        }
+      ]
+    }
+  ],
+  "speaker_episode_summary": [
+    {
+      "speaker_id": "SPEAKER_05",
+      "total_speaking_time_seconds": 470.243,
+      "speech_share_percent": 27.66,
+      "turn_count_across_subtopics": 51,
+      "subtopics_participated": [
+        "ST001",
+        "ST002",
+        "ST003",
+        "ST004"
+      ],
+      "subtopic_count": 4
+    },
+    {
+      "speaker_id": "SPEAKER_00",
+      "total_speaking_time_seconds": 437.535,
+      "speech_share_percent": 25.736,
+      "turn_count_across_subtopics": 55,
+      "subtopics_participated": [
+        "ST001",
+        "ST002",
+        "ST003",
+        "ST004"
+      ],
+      "subtopic_count": 4
+    },
+    {
+      "speaker_id": "SPEAKER_01",
+      "total_speaking_time_seconds": 309.487,
+      "speech_share_percent": 18.204,
+      "turn_count_across_subtopics": 14,
+      "subtopics_participated": [
+        "ST001",
+        "ST002",
+        "ST004"
+      ],
+      "subtopic_count": 3
+    },
+    {
+      "speaker_id": "SPEAKER_04",
+      "total_speaking_time_seconds": 180.919,
+      "speech_share_percent": 10.642,
+      "turn_count_across_subtopics": 23,
+      "subtopics_participated": [
+        "ST001",
+        "ST002",
+        "ST003",
+        "ST004"
+      ],
+      "subtopic_count": 4
+    },
+    {
+      "speaker_id": "SPEAKER_03",
+      "total_speaking_time_seconds": 170.201,
+      "speech_share_percent": 10.011,
+      "turn_count_across_subtopics": 4,
+      "subtopics_participated": [
+        "ST004"
+      ],
+      "subtopic_count": 1
+    },
+    {
+      "speaker_id": "SPEAKER_02",
+      "total_speaking_time_seconds": 131.71,
+      "speech_share_percent": 7.747,
+      "turn_count_across_subtopics": 4,
+      "subtopics_participated": [
+        "ST001",
+        "ST002"
+      ],
+      "subtopic_count": 2
+    }
+  ]
+}

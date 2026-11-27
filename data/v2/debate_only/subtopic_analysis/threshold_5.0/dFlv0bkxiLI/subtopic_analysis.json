@@ -1,0 +1,598 @@
+{
+  "schema_version": "subtopic-analysis-1.0",
+  "video_id": "dFlv0bkxiLI",
+  "variant": "threshold_5.0",
+  "source_files": {
+    "transcript": "/home/user/MTP/Code/television-discourse-decoded-hindi/data/v2/debate_only/videos/dFlv0bkxiLI/threshold_5.0/merge_final.json",
+    "overall_topic": "/home/user/MTP/Code/television-discourse-decoded-hindi/data/v2/debate_only/overall_topic/threshold_5.0/dFlv0bkxiLI/overall_topic.json"
+  },
+  "configuration": {
+    "method": "hybrid_semantic_similarity_and_llm_verification",
+    "chunk_duration_minutes": 5.0,
+    "overlap_minutes": 1.0,
+    "semantic_unit_seconds": 30.0,
+    "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "semantic_similarity_threshold": 0.55,
+    "gemini_model": "gemini-3.5-flash-lite",
+    "brief_deviations": "merged_into_surrounding_subtopic"
+  },
+  "overall_topic": {
+    "topic": "Delhi Air Pollution: Governance Failure Or Public Neglect",
+    "description": "A televised debate analyzing the severe air pollution crisis in Delhi and across Indian cities, examining whether it is primarily driven by systemic governance failures or public neglect, while discussing stubble burning, vehicular emissions, construction curbs, and festival regulations."
+  },
+  "chunks": [
+    {
+      "chunk_id": "C001",
+      "start": 0.0,
+      "end": 300.0,
+      "segment_count": 89
+    },
+    {
+      "chunk_id": "C002",
+      "start": 240.0,
+      "end": 540.0,
+      "segment_count": 88
+    },
+    {
+      "chunk_id": "C003",
+      "start": 480.0,
+      "end": 780.0,
+      "segment_count": 98
+    },
+    {
+      "chunk_id": "C004",
+      "start": 720.0,
+      "end": 1020.0,
+      "segment_count": 107
+    },
+    {
+      "chunk_id": "C005",
+      "start": 960.0,
+      "end": 1260.0,
+      "segment_count": 95
+    },
+    {
+      "chunk_id": "C006",
+      "start": 1200.0,
+      "end": 1500.0,
+      "segment_count": 91
+    },
+    {
+      "chunk_id": "C007",
+      "start": 1440.0,
+      "end": 1681.652,
+      "segment_count": 90
+    },
+    {
+      "chunk_id": "C008",
+      "start": 1680.0,
+      "end": 1681.652,
+      "segment_count": 2
+    }
+  ],
+  "boundary_analysis": {
+    "embedding": {
+      "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+      "unit_duration_seconds": null,
+      "units": 57,
+      "similarity_threshold": 0.55,
+      "minimum_candidate_gap_seconds": 45.0,
+      "candidate_count": 21
+    },
+    "candidates": [
+      {
+        "candidate_id": "B0001",
+        "candidate_time": 30.0,
+        "semantic_similarity": 0.4422113299369812,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The anchor point at 30.0 seconds falls right in the middle of the anchor's introduction, transitioning from listing affected events (like cricket matches being moved) to inviting panellists to speak. The discussion remains consistently on the severity of Delhi's air pollution crisis and public/political apathy.",
+        "confidence": 0.9
+      },
+      {
+        "candidate_id": "B0002",
+        "candidate_time": 150.0,
+        "semantic_similarity": 0.2704908549785614,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The speaker is continuing the same line of thought regarding the systemic challenges of pollution, mentioning specific sources like transportation and construction, and then transitioning into the governance crisis and comparison with China, all within the same overarching theme.",
+        "confidence": 0.95
+      },
+      {
+        "candidate_id": "B0003",
+        "candidate_time": 240.0,
+        "semantic_similarity": 0.1584237813949585,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The speakers are continuing the same argument about stubble burning data, government action, and mutual accusations, followed by a brief procedural interruption by the anchor to maintain order, rather than shifting to a new subtopic.",
+        "confidence": 0.9
+      },
+      {
+        "candidate_id": "B0004",
+        "candidate_time": 360.0,
+        "semantic_similarity": 0.3418629765510559,
+        "decision": "new_subtopic",
+        "boundary_time": 361.781,
+        "title": "Shift to Punjab Stubble Burning and Paddy Cultivation",
+        "description": "The discussion pivots from general emergency measures for Delhi pollution to a focused debate on Punjab's agricultural practices, specifically paddy farming, monocropping, and stubble burning as primary drivers.",
+        "reason": "Speaker 04 shifts the debate away from general pollution controls (like GRAP and COVID-style lockdowns) to a specific inquiry into Punjab's agricultural policies, stubble burning, and paddy cultivation, marking a distinct subtopic boundary.",
+        "confidence": 0.9
+      },
+      {
+        "candidate_id": "B0005",
+        "candidate_time": 420.0,
+        "semantic_similarity": 0.5351299047470093,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The speaker is continuing their extended argument regarding paddy cultivation, monocropping, and farm fires in Punjab, which remains part of the same discussion thread on stubble burning and agricultural practices contributing to pollution.",
+        "confidence": 0.9
+      },
+      {
+        "candidate_id": "B0006",
+        "candidate_time": 510.0,
+        "semantic_similarity": 0.33646100759506226,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The discussion remains focused on the issue of stubble burning, farm fires, and the challenges faced by farmers in Punjab and neighboring states, continuing the same subtopic without a shift to a new angle.",
+        "confidence": 0.95
+      },
+      {
+        "candidate_id": "B0007",
+        "candidate_time": 570.0,
+        "semantic_similarity": 0.26081064343452454,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The speaker is continuing their point about agricultural policies, legal frameworks affecting crop cycles, and historical Supreme Court affidavits regarding stubble burning, which is part of the same ongoing discussion on farm fires and systemic governance issues.",
+        "confidence": 0.95
+      },
+      {
+        "candidate_id": "B0008",
+        "candidate_time": 630.0,
+        "semantic_similarity": 0.36455202102661133,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The speaker continues presenting statistics on farm fires and discussing agricultural practices and state-wise trends, which is a direct continuation of the broader discussion on systemic causes of pollution and stubble burning.",
+        "confidence": 0.85
+      },
+      {
+        "candidate_id": "B0009",
+        "candidate_time": 690.0,
+        "semantic_similarity": 0.3132997751235962,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The speaker is continuing the discussion on air pollution sources and regional issues, specifically pointing out Mumbai's air emergency and construction impact as part of the broader conversation on pollution governance, without a shift to a distinct new subtopic.",
+        "confidence": 0.9
+      },
+      {
+        "candidate_id": "B0010",
+        "candidate_time": 750.0,
+        "semantic_similarity": 0.4016527235507965,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The speaker is continuing the same line of argument regarding public apathy, lack of voter accountability, and non-compliance with government restrictions (like GRAP and festival curbs), which is part of the ongoing discussion on public neglect versus governance failure.",
+        "confidence": 0.95
+      },
+      {
+        "candidate_id": "B0011",
+        "candidate_time": 840.0,
+        "semantic_similarity": 0.40567344427108765,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The speaker continues the same argument about governance failure versus public neglect and socioeconomic priorities regarding air pollution.",
+        "confidence": 0.95
+      },
+      {
+        "candidate_id": "B0012",
+        "candidate_time": 990.0,
+        "semantic_similarity": 0.2824505567550659,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The discussion smoothly transitions from governance vs. public responsibility into specific examples of public reaction and festival regulations (such as Diwali cracker curbs and campaigns in Mumbai), which is a direct continuation of the broader debate on public neglect versus government action.",
+        "confidence": 0.85
+      },
+      {
+        "candidate_id": "B0013",
+        "candidate_time": 1050.0,
+        "semantic_similarity": 0.20373211801052094,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The speaker continues the same line of argument regarding public resistance to restrictions on festival celebrations like Diwali crackers and the tension between individual lifestyle choices and pollution control measures.",
+        "confidence": 0.95
+      },
+      {
+        "candidate_id": "B0014",
+        "candidate_time": 1110.0,
+        "semantic_similarity": 0.43730592727661133,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The speaker continues the same train of thought regarding air pollution across Indian cities and shifts smoothly into discussing government accountability and past policies like odd-even, which is part of the ongoing governance vs public responsibility debate.",
+        "confidence": 0.85
+      },
+      {
+        "candidate_id": "B0015",
+        "candidate_time": 1230.0,
+        "semantic_similarity": 0.2666248679161072,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The speaker is continuing the discussion on festival regulations (specifically Diwali firecrackers) and government versus public responsibility regarding pollution, which was already being addressed in the preceding segment.",
+        "confidence": 0.9
+      },
+      {
+        "candidate_id": "B0016",
+        "candidate_time": 1320.0,
+        "semantic_similarity": 0.34278368949890137,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The speaker is continuing the same line of argument regarding public restrictions, government inaction on long-term measures, and whether Diwali firecrackers are being unfairly targeted versus governance failures. The discussion remains firmly within the festival vs. systemic causes subtopic.",
+        "confidence": 0.95
+      },
+      {
+        "candidate_id": "B0017",
+        "candidate_time": 1380.0,
+        "semantic_similarity": 0.37142717838287354,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The speaker continues the discussion around Supreme Court regulations on firecrackers, festival bans, and public compliance, which is a direct continuation of the subtopic concerning Diwali and cracker restrictions started in the previous segment.",
+        "confidence": 0.95
+      },
+      {
+        "candidate_id": "B0018",
+        "candidate_time": 1440.0,
+        "semantic_similarity": 0.3293325901031494,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "Speaker 05 directly responds to and continues the ongoing discussion initiated by the previous speaker regarding cracker bans, public attitudes toward pollution, and government responsibility, acting as a speaker turn within the same overarching dialogue.",
+        "confidence": 0.95
+      },
+      {
+        "candidate_id": "B0019",
+        "candidate_time": 1530.0,
+        "semantic_similarity": 0.2736934423446655,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The speaker continues the same line of argument regarding public apathy towards pollution, transitioning directly into discussing government failures and public transport inadequacies without a shift in core topic.",
+        "confidence": 0.9
+      },
+      {
+        "candidate_id": "B0020",
+        "candidate_time": 1620.0,
+        "semantic_similarity": 0.1758979856967926,
+        "decision": "new_subtopic",
+        "boundary_time": 1622.322,
+        "title": "Diwali celebration plans and closing remarks",
+        "description": "The discussion shifts from governance failure and pollution arguments to panelists sharing their personal plans for celebrating Diwali and concluding remarks.",
+        "reason": "The debate on governance and air pollution ends, and the host transitions the conversation to a lighter, concluding segment asking participants about their Diwali celebration plans.",
+        "confidence": 0.95
+      },
+      {
+        "candidate_id": "B0021",
+        "candidate_time": 1680.0,
+        "semantic_similarity": 0.5052059888839722,
+        "decision": "brief_deviation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The conversation shifts briefly to personal Diwali celebration plans as a closing segment before wrapping up the show. This is a brief deviation or concluding remark rather than a new subtopic within the policy debate.",
+        "confidence": 0.95
+      }
+    ],
+    "counts": {
+      "continuation": 18,
+      "new_subtopic": 2,
+      "brief_deviation": 1
+    }
+  },
+  "subtopics": [
+    {
+      "subtopic_id": "ST001",
+      "title": "Opening discussion",
+      "start": 0.0,
+      "end": 361.781,
+      "duration_seconds": 361.781,
+      "description": null,
+      "speakers": [
+        "SPEAKER_01",
+        "SPEAKER_03",
+        "SPEAKER_04",
+        "SPEAKER_07"
+      ],
+      "evidence": [
+        {
+          "start": 0.171,
+          "end": 2.652,
+          "speaker_id": "SPEAKER_07",
+          "text": "Good evening, you're watching Democratic Newsroom."
+        },
+        {
+          "start": 48.282,
+          "end": 49.043,
+          "speaker_id": "SPEAKER_07",
+          "text": "Want me to go first?"
+        },
+        {
+          "start": 79.299,
+          "end": 80.84,
+          "speaker_id": "SPEAKER_01",
+          "text": "I mean, you look at the numbers."
+        },
+        {
+          "start": 107.383,
+          "end": 110.125,
+          "speaker_id": "SPEAKER_01",
+          "text": "But the right to breathe is not a fundamental right."
+        },
+        {
+          "start": 131.826,
+          "end": 136.17,
+          "speaker_id": "SPEAKER_01",
+          "text": "It does not weigh down on you like livelihood issues of the day do."
+        },
+        {
+          "start": 173.715,
+          "end": 177.917,
+          "speaker_id": "SPEAKER_01",
+          "text": "And as a result of this serious governance crisis in this country, all we do is blame game."
+        },
+        {
+          "start": 198.283,
+          "end": 200.284,
+          "speaker_id": "SPEAKER_03",
+          "text": "We are no longer a dictator."
+        },
+        {
+          "start": 232.663,
+          "end": 233.143,
+          "speaker_id": "SPEAKER_03",
+          "text": "in November."
+        },
+        {
+          "start": 268.492,
+          "end": 268.992,
+          "speaker_id": "SPEAKER_01",
+          "text": "Rajdeep, allow me."
+        },
+        {
+          "start": 288.543,
+          "end": 291.626,
+          "speaker_id": "SPEAKER_07",
+          "text": "Gaurav Sahan, there's no point."
+        },
+        {
+          "start": 311.085,
+          "end": 311.906,
+          "speaker_id": "SPEAKER_07",
+          "text": "Just make a phone."
+        },
+        {
+          "start": 359.1,
+          "end": 361.52,
+          "speaker_id": "SPEAKER_04",
+          "text": "We are not asking the main question here."
+        }
+      ]
+    },
+    {
+      "subtopic_id": "ST002",
+      "title": "Shift to Punjab Stubble Burning and Paddy Cultivation",
+      "start": 361.781,
+      "end": 1622.322,
+      "duration_seconds": 1260.541,
+      "description": "The discussion pivots from general emergency measures for Delhi pollution to a focused debate on Punjab's agricultural practices, specifically paddy farming, monocropping, and stubble burning as primary drivers.",
+      "speakers": [
+        "SPEAKER_01",
+        "SPEAKER_02",
+        "SPEAKER_03",
+        "SPEAKER_04",
+        "SPEAKER_05",
+        "SPEAKER_06",
+        "SPEAKER_07"
+      ],
+      "evidence": [
+        {
+          "start": 361.781,
+          "end": 364.961,
+          "speaker_id": "SPEAKER_04",
+          "text": "Rajdeep, in fact, you are also doing the same political blame game."
+        },
+        {
+          "start": 490.934,
+          "end": 492.134,
+          "speaker_id": "SPEAKER_04",
+          "text": "2,000, 3,000 farm fires."
+        },
+        {
+          "start": 635.377,
+          "end": 641.523,
+          "speaker_id": "SPEAKER_07",
+          "text": "Okay, before we get into cross questioning, Mujha, the same argument applies when Rajdeep was interrupting."
+        },
+        {
+          "start": 731.106,
+          "end": 733.606,
+          "speaker_id": "SPEAKER_05",
+          "text": "The root cause is vehicular pollution in Delhi."
+        },
+        {
+          "start": 846.28,
+          "end": 852.023,
+          "speaker_id": "SPEAKER_07",
+          "text": "Successively, we have had statewide and at the center, one of the laziest governments ever."
+        },
+        {
+          "start": 949.502,
+          "end": 949.963,
+          "speaker_id": "SPEAKER_03",
+          "text": "Hear me out?"
+        },
+        {
+          "start": 1055.331,
+          "end": 1061.877,
+          "speaker_id": "SPEAKER_01",
+          "text": "Who is the Supreme Court to tell me that I will only celebrate crackers with green... No, one minute, one minute."
+        },
+        {
+          "start": 1158.346,
+          "end": 1159.767,
+          "speaker_id": "SPEAKER_01",
+          "text": "Rajdeep, you are done."
+        },
+        {
+          "start": 1293.259,
+          "end": 1311.63,
+          "speaker_id": "SPEAKER_04",
+          "text": "construction, I am getting my house made construction, so the Delhi resident needs to suffer while the governments don't have long term measures, the industries can continue, everything can continue but a normal resident like livelihood, I also have to learn my livelihood but I have to bear with all the restrictions and I will, I will willingly do it."
+        },
+        {
+          "start": 1429.984,
+          "end": 1430.904,
+          "speaker_id": "SPEAKER_02",
+          "text": "Stop that."
+        },
+        {
+          "start": 1515.828,
+          "end": 1516.288,
+          "speaker_id": "SPEAKER_07",
+          "text": "Okay, 20."
+        },
+        {
+          "start": 1615.897,
+          "end": 1622.282,
+          "speaker_id": "SPEAKER_07",
+          "text": "Right now, can we please let it be and all of you have yourself a very happy Diwali."
+        }
+      ]
+    },
+    {
+      "subtopic_id": "ST003",
+      "title": "Diwali celebration plans and closing remarks",
+      "start": 1622.322,
+      "end": 1681.652,
+      "duration_seconds": 59.33,
+      "description": "The discussion shifts from governance failure and pollution arguments to panelists sharing their personal plans for celebrating Diwali and concluding remarks.",
+      "speakers": [
+        "SPEAKER_01",
+        "SPEAKER_03",
+        "SPEAKER_04",
+        "SPEAKER_05",
+        "SPEAKER_06",
+        "SPEAKER_07"
+      ],
+      "evidence": [
+        {
+          "start": 1622.322,
+          "end": 1623.623,
+          "speaker_id": "SPEAKER_01",
+          "text": "How will you celebrate Diwali?"
+        },
+        {
+          "start": 1625.304,
+          "end": 1625.845,
+          "speaker_id": "SPEAKER_07",
+          "text": "Actually, yeah."
+        },
+        {
+          "start": 1626.685,
+          "end": 1627.786,
+          "speaker_id": "SPEAKER_07",
+          "text": "One line."
+        },
+        {
+          "start": 1630.288,
+          "end": 1632.87,
+          "speaker_id": "SPEAKER_04",
+          "text": "I'll celebrate as it has been traditionally done."
+        },
+        {
+          "start": 1636.733,
+          "end": 1642.459,
+          "speaker_id": "SPEAKER_04",
+          "text": "You're assuming that sir, you're assuming that."
+        },
+        {
+          "start": 1645.241,
+          "end": 1650.106,
+          "speaker_id": "SPEAKER_05",
+          "text": "Well, in Tamil Nadu you wake up at 3 am in the morning and see who's the first one to burst a cracker."
+        },
+        {
+          "start": 1654.39,
+          "end": 1655.651,
+          "speaker_id": "SPEAKER_05",
+          "text": "You still have time limits."
+        },
+        {
+          "start": 1660.7,
+          "end": 1661.981,
+          "speaker_id": "SPEAKER_06",
+          "text": "Just keep it as clean as possible."
+        },
+        {
+          "start": 1662.861,
+          "end": 1665.423,
+          "speaker_id": "SPEAKER_06",
+          "text": "I think that is one thing that my parents are going to make me do."
+        },
+        {
+          "start": 1665.803,
+          "end": 1666.903,
+          "speaker_id": "SPEAKER_01",
+          "text": "That happens before Diwali."
+        },
+        {
+          "start": 1672.166,
+          "end": 1675.368,
+          "speaker_id": "SPEAKER_07",
+          "text": "Alright, so on that note, it's a wrap from all of us."
+        },
+        {
+          "start": 1680.911,
+          "end": 1681.652,
+          "speaker_id": "SPEAKER_07",
+          "text": "Happy Diwali from all of us."
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total_subtopics": 3,
+    "total_duration_seconds": 1681.652,
+    "candidate_boundaries": 21,
+    "verified_boundaries": 2
+  }
+}

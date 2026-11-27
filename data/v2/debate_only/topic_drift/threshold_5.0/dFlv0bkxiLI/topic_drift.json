@@ -1,0 +1,190 @@
+{
+  "schema_version": "topic-drift-1.1",
+  "video_id": "dFlv0bkxiLI",
+  "variant": "threshold_5.0",
+  "generated_at_utc": "2026-11-26T19:28:01.938562+00:00",
+  "overall_topic": {
+    "topic": "Delhi Air Pollution: Governance Failure Or Public Neglect",
+    "description": "A televised debate analyzing the severe air pollution crisis in Delhi and across Indian cities, examining whether it is primarily driven by systemic governance failures or public neglect, while discussing stubble burning, vehicular emissions, construction curbs, and festival regulations.",
+    "key_discussion_points": [
+      "Severe air quality deterioration in Delhi and other Indian cities leading to canceled sports events and health concerns.",
+      "The tendency of political parties to engage in a blame game over pollution instead of taking unified, tough actions.",
+      "Stubble burning trends across states like Punjab, Haryana, and Madhya Pradesh, and whether farm fires are the primary cause or if transportation and construction are worse offenders.",
+      "Agricultural policies, paddy cultivation, monocropping, water usage, and the shrinking harvest windows in Punjab affecting soil and stubble generation.",
+      "The role and fairness of Supreme Court-mandated firecracker restrictions during Diwali and other festivals.",
+      "The lack of long-term measures, public transport infrastructure, and pedestrian pathways as governance failures."
+    ]
+  },
+  "method": {
+    "name": "subtopic_to_overall_topic_embedding_alignment",
+    "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "analysis_mode": "subtopic_level",
+    "unit_text_source": "Full transcript segments within each subtopic interval; subtopic evidence is fallback only.",
+    "score_formula": "0.50 * cosine(unit, overall_topic+description) + 0.50 * mean(two highest cosine similarities between unit and individual key discussion points)",
+    "display_score": "alignment_score = max(0, weighted_cosine_alignment) * 100; scaled cosine index, not a percentage or probability",
+    "low_threshold": 20.0,
+    "high_threshold": 40.0,
+    "threshold_interpretation": "possible_drift < 20.0; partially_aligned >= 20.0 and < 40.0; aligned >= 40.0",
+    "minimum_sustained_drift_seconds": 90.0,
+    "sustained_drift_rule": "Consecutive possible_drift subtopics separated by no more than 30 seconds are grouped; event duration must meet the minimum sustained duration.",
+    "threshold_status": "provisional; manually calibrate before research claims",
+    "warning": "Scores are heuristic semantic-alignment indicators, not probabilities or validated accuracy. Low similarity is a candidate for review, not proof of drift."
+  },
+  "alignment_results": [
+    {
+      "unit_id": "ST001",
+      "unit_type": "subtopic",
+      "title": "Opening discussion",
+      "start": 0.0,
+      "end": 361.781,
+      "duration_seconds": 361.781,
+      "semantic_similarity_to_overall_topic": 0.6311,
+      "key_point_similarities": [
+        {
+          "key_point": "Severe air quality deterioration in Delhi and other Indian cities leading to canceled sports events and health concerns.",
+          "cosine_similarity": 0.5648
+        },
+        {
+          "key_point": "The tendency of political parties to engage in a blame game over pollution instead of taking unified, tough actions.",
+          "cosine_similarity": 0.3855
+        },
+        {
+          "key_point": "The role and fairness of Supreme Court-mandated firecracker restrictions during Diwali and other festivals.",
+          "cosine_similarity": 0.3668
+        },
+        {
+          "key_point": "Stubble burning trends across states like Punjab, Haryana, and Madhya Pradesh, and whether farm fires are the primary cause or if transportation and construction are worse offenders.",
+          "cosine_similarity": 0.2973
+        },
+        {
+          "key_point": "Agricultural policies, paddy cultivation, monocropping, water usage, and the shrinking harvest windows in Punjab affecting soil and stubble generation.",
+          "cosine_similarity": 0.2697
+        },
+        {
+          "key_point": "The lack of long-term measures, public transport infrastructure, and pedestrian pathways as governance failures.",
+          "cosine_similarity": 0.2177
+        }
+      ],
+      "top_two_key_point_similarity": 0.4752,
+      "weighted_cosine_alignment": 0.5531,
+      "alignment_score": 55.31,
+      "classification": "aligned",
+      "speakers": [
+        "SPEAKER_01",
+        "SPEAKER_03",
+        "SPEAKER_04",
+        "SPEAKER_07"
+      ],
+      "text_source": "merge_final.segments",
+      "evidence_excerpt": "Opening discussion. Good evening, you're watching Democratic Newsroom. Our band of editors are back with yet another topic to debate this evening. And this is right before Diwali and it's also a week where Delhi is witnessing some of the days with the worst air quality, not just Delhi. Multiple cities across the country are registering terrible AQI. To the effect, in Delhi, a match which was to take place between India and Sri Lanka in December has now been moved to Vizag. Abysmal, terrible, embarrassing, but will pollution ever rise from hashtags and social media and ever become a politically emotive issue? So, our politicians actually care a little bit about it. Let's open the debate I have with me, Pooja Shali, Gaurav Savant, Rajdeep Sargisai, Anisha Mathur and Akshita Nangopal. Rajdeep, let's go first. Want me to go first? Of course, always. Okay. Look, it's a year-long issue. Just rewind to Democratic Newsroom a year ago. You'd probably have the same arguments that you're making today. And the fact is that that kind of... collective consciousness, the belief that this is a major issue doesn't exist. And there are various reasons responsible for it, but the worst thing I think we do is political blame game. I was shocked, for example, the other day, the Delhi's environment minister blames Punjab. I mean, you look at the numbers. Actually, the numbers show data of stubble fires in Punjab has gone down. Which is the number one state today in stubble fires? Madhya Pradesh. In every Indian state today, stubble burning is increasing. It's no longer a North Indian problem. Just travel across the country. Pollution now affects every Indian city, which is why when you all were flashing Delhi's choke point is typical. You all sit in Delhi, sit in Noida, you're worried becaus"
+    },
+    {
+      "unit_id": "ST002",
+      "unit_type": "subtopic",
+      "title": "Shift to Punjab Stubble Burning and Paddy Cultivation",
+      "start": 361.781,
+      "end": 1622.322,
+      "duration_seconds": 1260.541,
+      "semantic_similarity_to_overall_topic": 0.5758,
+      "key_point_similarities": [
+        {
+          "key_point": "Agricultural policies, paddy cultivation, monocropping, water usage, and the shrinking harvest windows in Punjab affecting soil and stubble generation.",
+          "cosine_similarity": 0.5975
+        },
+        {
+          "key_point": "Stubble burning trends across states like Punjab, Haryana, and Madhya Pradesh, and whether farm fires are the primary cause or if transportation and construction are worse offenders.",
+          "cosine_similarity": 0.4878
+        },
+        {
+          "key_point": "The tendency of political parties to engage in a blame game over pollution instead of taking unified, tough actions.",
+          "cosine_similarity": 0.3876
+        },
+        {
+          "key_point": "Severe air quality deterioration in Delhi and other Indian cities leading to canceled sports events and health concerns.",
+          "cosine_similarity": 0.3516
+        },
+        {
+          "key_point": "The role and fairness of Supreme Court-mandated firecracker restrictions during Diwali and other festivals.",
+          "cosine_similarity": 0.3157
+        },
+        {
+          "key_point": "The lack of long-term measures, public transport infrastructure, and pedestrian pathways as governance failures.",
+          "cosine_similarity": 0.3129
+        }
+      ],
+      "top_two_key_point_similarity": 0.5427,
+      "weighted_cosine_alignment": 0.5592,
+      "alignment_score": 55.92,
+      "classification": "aligned",
+      "speakers": [
+        "SPEAKER_01",
+        "SPEAKER_02",
+        "SPEAKER_03",
+        "SPEAKER_04",
+        "SPEAKER_05",
+        "SPEAKER_06",
+        "SPEAKER_07"
+      ],
+      "text_source": "merge_final.segments",
+      "evidence_excerpt": "Shift to Punjab Stubble Burning and Paddy Cultivation. The discussion pivots from general emergency measures for Delhi pollution to a focused debate on Punjab's agricultural practices, specifically paddy farming, monocropping, and stubble burning as primary drivers.. Rajdeep, in fact, you are also doing the same political blame game. The main question is, like you're saying, why is the Delhi minister attacking Punjab? The main question is, 20 years ago, you've also been in Delhi, I've also been in Delhi, it was a beautiful fog winter arrival. What has changed in the past 20 years? The question is... There is something that especially happened in the state of Punjab and that is impacted. Let me make my point and I'll tell you and the issue is with regard to paddy farming. This has been called the rice bowl of India. Let me take you directly to the state of Sangru. Let's do some research. Let's talk facts again. Siti. Sangroor specially and with other cities with the farm fire map also that was shown. Why are there certain areas that are specially showing a higher farm count? The Sangroor area which is the constituency of Chief Minister Bhagwanth Maan does it soil and in Punjab fit for the kind of paddy cultivation that we have forced our farmers to over-cultivate, give them a lowest harvest window and make it into a monocropping issue. What happened to other crops that used to grow in Punjab, which is the state that grows the best rice and is the highest rice producers, Bengal. Rice was not native to Punjab. What has happened? We are also looking at the wind movement. What is happening then in Punjab? The reason is we have not put government initiatives properly. We are forced and we blame farmers. Why do they not take subsidies? Let me finish my point. You have to find "
+    },
+    {
+      "unit_id": "ST003",
+      "unit_type": "subtopic",
+      "title": "Diwali celebration plans and closing remarks",
+      "start": 1622.322,
+      "end": 1681.652,
+      "duration_seconds": 59.33,
+      "semantic_similarity_to_overall_topic": 0.3634,
+      "key_point_similarities": [
+        {
+          "key_point": "The role and fairness of Supreme Court-mandated firecracker restrictions during Diwali and other festivals.",
+          "cosine_similarity": 0.5312
+        },
+        {
+          "key_point": "Severe air quality deterioration in Delhi and other Indian cities leading to canceled sports events and health concerns.",
+          "cosine_similarity": 0.2538
+        },
+        {
+          "key_point": "The tendency of political parties to engage in a blame game over pollution instead of taking unified, tough actions.",
+          "cosine_similarity": 0.227
+        },
+        {
+          "key_point": "Agricultural policies, paddy cultivation, monocropping, water usage, and the shrinking harvest windows in Punjab affecting soil and stubble generation.",
+          "cosine_similarity": 0.1898
+        },
+        {
+          "key_point": "The lack of long-term measures, public transport infrastructure, and pedestrian pathways as governance failures.",
+          "cosine_similarity": 0.1852
+        },
+        {
+          "key_point": "Stubble burning trends across states like Punjab, Haryana, and Madhya Pradesh, and whether farm fires are the primary cause or if transportation and construction are worse offenders.",
+          "cosine_similarity": 0.116
+        }
+      ],
+      "top_two_key_point_similarity": 0.3925,
+      "weighted_cosine_alignment": 0.378,
+      "alignment_score": 37.8,
+      "classification": "partially_aligned",
+      "speakers": [
+        "SPEAKER_01",
+        "SPEAKER_03",
+        "SPEAKER_04",
+        "SPEAKER_05",
+        "SPEAKER_06",
+        "SPEAKER_07"
+      ],
+      "text_source": "merge_final.segments",
+      "evidence_excerpt": "Diwali celebration plans and closing remarks. The discussion shifts from governance failure and pollution arguments to panelists sharing their personal plans for celebrating Diwali and concluding remarks.. How will you celebrate Diwali? Around this table, I want to ask. Actually, yeah. Go ahead. One line. Patakas, Pooja. I'll celebrate as it has been traditionally done. True to our traditions of the civilization, we'll do it. You're assuming that sir, you're assuming that. How will you celebrate Diwali? Well, in Tamil Nadu you wake up at 3 am in the morning and see who's the first one to burst a cracker. I can't do that here unfortunately because the Supreme Court has said nothing to it. You still have time limits. I can't do it at 3 am. Just keep it as clean as possible. Clean the house. I think that is one thing that my parents are going to make me do. And decorate. That happens before Diwali. Eat well, sleep well, dress well. Alright, so on that note, it's a wrap from all of us. Have yourself a very very happy Diwali and we look forward to seeing you next time. Happy Diwali from all of us."
+    }
+  ],
+  "drift_events": [],
+  "summary": {
+    "units_analysed": 3,
+    "aligned_units": 2,
+    "partially_aligned_units": 1,
+    "possible_drift_units": 0,
+    "drift_events": 0,
+    "analysis_mode": "subtopic_level"
+  }
+}

@@ -1,0 +1,431 @@
+{
+  "schema_version": "topic-drift-1.1",
+  "video_id": "uYXSGST81ys",
+  "variant": "threshold_5.0",
+  "generated_at_utc": "2026-11-26T19:29:00.156777+00:00",
+  "overall_topic": {
+    "topic": "Allegations of a Foreign-Backed Anarchy Plot and Opposition Collusion in India",
+    "description": "A televised debate discussing allegations that opposition leaders and domestic groups are colluding with foreign entities and figures like Elon Musk to orchestrate civil unrest, violence, and anarchy in India, drawing comparisons to protests in France.",
+    "key_discussion_points": [
+      "Comparison between civil unrest and riots in France and protests in India",
+      "Accusations that the political opposition and figures like Rahul Gandhi are aligning with international actors such as Elon Musk against national security and economic interests",
+      "Concerns over potential upcoming protests and violence in Delhi",
+      "Debate on foreign influence, telecom policies, and calls for nationalists to unite against instability"
+    ]
+  },
+  "method": {
+    "name": "subtopic_to_overall_topic_embedding_alignment",
+    "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "analysis_mode": "subtopic_level",
+    "unit_text_source": "Full transcript segments within each subtopic interval; subtopic evidence is fallback only.",
+    "score_formula": "0.50 * cosine(unit, overall_topic+description) + 0.50 * mean(two highest cosine similarities between unit and individual key discussion points)",
+    "display_score": "alignment_score = max(0, weighted_cosine_alignment) * 100; scaled cosine index, not a percentage or probability",
+    "low_threshold": 20.0,
+    "high_threshold": 40.0,
+    "threshold_interpretation": "possible_drift < 20.0; partially_aligned >= 20.0 and < 40.0; aligned >= 40.0",
+    "minimum_sustained_drift_seconds": 90.0,
+    "sustained_drift_rule": "Consecutive possible_drift subtopics separated by no more than 30 seconds are grouped; event duration must meet the minimum sustained duration.",
+    "threshold_status": "provisional; manually calibrate before research claims",
+    "warning": "Scores are heuristic semantic-alignment indicators, not probabilities or validated accuracy. Low similarity is a candidate for review, not proof of drift."
+  },
+  "alignment_results": [
+    {
+      "unit_id": "ST001",
+      "unit_type": "subtopic",
+      "title": "Opening discussion",
+      "start": 0.0,
+      "end": 37.365,
+      "duration_seconds": 37.365,
+      "semantic_similarity_to_overall_topic": 0.3015,
+      "key_point_similarities": [
+        {
+          "key_point": "Debate on foreign influence, telecom policies, and calls for nationalists to unite against instability",
+          "cosine_similarity": 0.3017
+        },
+        {
+          "key_point": "Concerns over potential upcoming protests and violence in Delhi",
+          "cosine_similarity": 0.2742
+        },
+        {
+          "key_point": "Accusations that the political opposition and figures like Rahul Gandhi are aligning with international actors such as Elon Musk against national security and economic interests",
+          "cosine_similarity": 0.265
+        },
+        {
+          "key_point": "Comparison between civil unrest and riots in France and protests in India",
+          "cosine_similarity": 0.1562
+        }
+      ],
+      "top_two_key_point_similarity": 0.288,
+      "weighted_cosine_alignment": 0.2947,
+      "alignment_score": 29.47,
+      "classification": "partially_aligned",
+      "speakers": [
+        "SPEAKER_09"
+      ],
+      "text_source": "merge_final.segments",
+      "evidence_excerpt": "Opening discussion. Arnab Goswami on"
+    },
+    {
+      "unit_id": "ST002",
+      "unit_type": "subtopic",
+      "title": "Comparison of French Protests and Potential Unrest in India",
+      "start": 37.365,
+      "end": 270.245,
+      "duration_seconds": 232.88,
+      "semantic_similarity_to_overall_topic": 0.574,
+      "key_point_similarities": [
+        {
+          "key_point": "Comparison between civil unrest and riots in France and protests in India",
+          "cosine_similarity": 0.7612
+        },
+        {
+          "key_point": "Concerns over potential upcoming protests and violence in Delhi",
+          "cosine_similarity": 0.4923
+        },
+        {
+          "key_point": "Accusations that the political opposition and figures like Rahul Gandhi are aligning with international actors such as Elon Musk against national security and economic interests",
+          "cosine_similarity": 0.3932
+        },
+        {
+          "key_point": "Debate on foreign influence, telecom policies, and calls for nationalists to unite against instability",
+          "cosine_similarity": 0.3921
+        }
+      ],
+      "top_two_key_point_similarity": 0.6268,
+      "weighted_cosine_alignment": 0.6004,
+      "alignment_score": 60.04,
+      "classification": "aligned",
+      "speakers": [
+        "SPEAKER_03"
+      ],
+      "text_source": "merge_final.segments",
+      "evidence_excerpt": "Comparison of French Protests and Potential Unrest in India. The anchor introduces the debate by drawing parallels between the violent civil unrest and destruction in France and alleged plots to orchestrate similar chaos, violence, and regime change in India.. the dramatic, dangerous visuals of fires burning right in front of the iconic Eiffel Tower. Ladies and gentlemen, these people will burn the Eiffel Tower. They will burn the French flag. They will tear France down. And there are people who believe that what is happening in France, the destruction of France, the destruction of a G7 country, the destruction of a superpower that is now collapsing into total chaos. There are groups in India that are saying, let us have this chaos in India, let us have destruction in India, let us have killings in India, let us have violence in India, let's burn the country. And if that does not remind you of one thing, let me tell you, remember this calculated multi-layered blueprint of arson and structural vandalism to force a regime change through violent street veto in the name of Palestine, Palestine, Palestine. You have Islamist groups, extreme left groups all saying, though we cannot win an election, we must tear France down. And if you think this is happening in distant European crisis, don't live in a fool's paradise. Remember the same exact blueprint is playing in our country too. Do you want massed goons burning this country? tearing it apart, destroying the infrastructure, and then cast your mind back. Cast your mind back to what happened during the CJP, unelectable people with complete crime records, raw vulgarity that we saw displayed by mobilized criminals on the street, men in uniform, physically attacked, barricades smashed, public order held hostage, sexual perversion"
+    },
+    {
+      "unit_id": "ST003",
+      "unit_type": "subtopic",
+      "title": "Alleged Foreign Hand and US Interference in India",
+      "start": 270.245,
+      "end": 532.101,
+      "duration_seconds": 261.856,
+      "semantic_similarity_to_overall_topic": 0.5596,
+      "key_point_similarities": [
+        {
+          "key_point": "Accusations that the political opposition and figures like Rahul Gandhi are aligning with international actors such as Elon Musk against national security and economic interests",
+          "cosine_similarity": 0.5091
+        },
+        {
+          "key_point": "Debate on foreign influence, telecom policies, and calls for nationalists to unite against instability",
+          "cosine_similarity": 0.4427
+        },
+        {
+          "key_point": "Concerns over potential upcoming protests and violence in Delhi",
+          "cosine_similarity": 0.3505
+        },
+        {
+          "key_point": "Comparison between civil unrest and riots in France and protests in India",
+          "cosine_similarity": 0.3056
+        }
+      ],
+      "top_two_key_point_similarity": 0.4759,
+      "weighted_cosine_alignment": 0.5178,
+      "alignment_score": 51.78,
+      "classification": "aligned",
+      "speakers": [
+        "SPEAKER_03"
+      ],
+      "text_source": "merge_final.segments",
+      "evidence_excerpt": "Alleged Foreign Hand and US Interference in India. The speaker transitions from general domestic anarchy and protests to discussing specific allegations of foreign interference by the United States, citing Elon Musk, trade tensions, tariffs, and meetings between Indian politicians and American figures.. Do you want this country to fall? And think, think, ladies and gentlemen, when all of this is happening, whether this is happening because we are standing up to the deep state of the United States of America. Ask yourself whether it is happening because we are not allowing Elon Musk to bring in Starlink into India. Elon Musk, who is now saying I'm against the Indian government because he's not getting his business interests through the same Elon Musk, Donald Trump's friend is not being allowed an entry into India by this government. Ask yourself, ladies and gentlemen, whether it is because Narendra Modi is not agreeing to give in even when Donald Trump has put 100% tariffs. Ask yourself, ladies and gentlemen, why today America has said that it will act against Indian IT companies, visas will be canceled, Indian IT companies will be targeted because they only want American workers. If America has declared a business war on India, And at the same time, it is quite clear that there were so many Americans during the so-called CJP protests. Do you not see the American hand in everything? Will you not ask today whether America wants France to burn and America wants India to burn? And then ask yourself today, who are the American cronies in India? See their records. Ask yourself which of those people met Ilhan Omar, the deep state? Which Indian politician met American deep state diplomats in central Asian destinations? Ask yourself for how long has Arnab been saying? that the w"
+    },
+    {
+      "unit_id": "ST004",
+      "unit_type": "subtopic",
+      "title": "Parallels Between Protests in France and India",
+      "start": 532.101,
+      "end": 662.431,
+      "duration_seconds": 130.33,
+      "semantic_similarity_to_overall_topic": 0.5035,
+      "key_point_similarities": [
+        {
+          "key_point": "Comparison between civil unrest and riots in France and protests in India",
+          "cosine_similarity": 0.8547
+        },
+        {
+          "key_point": "Concerns over potential upcoming protests and violence in Delhi",
+          "cosine_similarity": 0.4899
+        },
+        {
+          "key_point": "Debate on foreign influence, telecom policies, and calls for nationalists to unite against instability",
+          "cosine_similarity": 0.3375
+        },
+        {
+          "key_point": "Accusations that the political opposition and figures like Rahul Gandhi are aligning with international actors such as Elon Musk against national security and economic interests",
+          "cosine_similarity": 0.3268
+        }
+      ],
+      "top_two_key_point_similarity": 0.6723,
+      "weighted_cosine_alignment": 0.5879,
+      "alignment_score": 58.79,
+      "classification": "aligned",
+      "speakers": [
+        "SPEAKER_00"
+      ],
+      "text_source": "merge_final.segments",
+      "evidence_excerpt": "Parallels Between Protests in France and India. The speaker introduces a new segment drawing direct comparisons between mass protests, riots, and civil unrest in France and protests in India like those at Jantar Mantar.. France is at the grip of a mass revolt and it is spreading by the day. What began with demands for education reforms and safer classrooms quickly escalated into riots in the streets, vandalism and arson. Now, thousands of protesters are out in the streets and hundreds of police personnel deployed to control the crowd. Clashes have erupted with the cops and the streets of Paris is enraged. Now, look at what happened in Jantar Mantar protests in July. The pattern is closely similar. The same scale of mass mobilization, very similar manner of use of social media like Snapchat or BitChat. Police targeted both in Paris as in Jantar Mantar. Radical left-wing elements and illegal immigrants leading the protest in similar manner. The parallels are unmistakable. Education reform protests, riot in the streets, left-wing radical themes attacking men in uniform and complete vandalism and arson. This is strategic serialization of protests in an attempt to delegitimize the elected and its institutions. And India must not allow it to happen."
+    },
+    {
+      "unit_id": "ST005",
+      "unit_type": "subtopic",
+      "title": "US-India Economic War and Opposition Collusion with Foreign Figures",
+      "start": 662.431,
+      "end": 1119.586,
+      "duration_seconds": 457.155,
+      "semantic_similarity_to_overall_topic": 0.6842,
+      "key_point_similarities": [
+        {
+          "key_point": "Accusations that the political opposition and figures like Rahul Gandhi are aligning with international actors such as Elon Musk against national security and economic interests",
+          "cosine_similarity": 0.6864
+        },
+        {
+          "key_point": "Debate on foreign influence, telecom policies, and calls for nationalists to unite against instability",
+          "cosine_similarity": 0.4279
+        },
+        {
+          "key_point": "Concerns over potential upcoming protests and violence in Delhi",
+          "cosine_similarity": 0.3854
+        },
+        {
+          "key_point": "Comparison between civil unrest and riots in France and protests in India",
+          "cosine_similarity": 0.3583
+        }
+      ],
+      "top_two_key_point_similarity": 0.5572,
+      "weighted_cosine_alignment": 0.6207,
+      "alignment_score": 62.07,
+      "classification": "aligned",
+      "speakers": [
+        "SPEAKER_03",
+        "SPEAKER_04",
+        "SPEAKER_08"
+      ],
+      "text_source": "merge_final.segments",
+      "evidence_excerpt": "US-India Economic War and Opposition Collusion with Foreign Figures. The discussion shifts from general protest comparisons to specific allegations about an economic war involving the US, green card suspensions, and Rahul Gandhi allegedly joining hands with figures like Elon Musk against Indian national security and regulatory interests.. Ladies and gentlemen, let me put it in an unfiltered way. I believe that the Americans have declared trade and business war on India. I believe that we are in the middle of an economic war with the United States of America. Let's have no two views about it, especially with the decision taken 20 minutes back, Sushil Pandit, to suspend the green card for all IT companies from India, which is going to affect thousands and thousands of Indian professionals, right, with Elon Musk targeting the government for not allowing him entry into India and Rahul Gandhi joining hands with Elon Musk on this subject. What a terrible thing to do. If this government is saying that we have to look at security safeguards before allowing Starlink into India, Rahul Gandhi should stand with the security of this country. But you know what he's done now. Rahul Gandhi has decided to jump ship. Instead of standing with Indian national security interests, Sushil Pandit, he has decided to join hands with Elon Musk. Earlier, he joined hands with Donald Trump. Donald Trump puts 100% tariffs on India, he joins hands with Donald Trump. Elon Musk questions India's security protocol in a regulatory environment, he joins hands with Elon Musk. It's quite clear, and they are trying to create anarchy in our country, and we are gonna fight them. Sushil, your opening thoughts. And Donald Trump joined hands with last night to destabilize France. It is no surprise, because a few m"
+    },
+    {
+      "unit_id": "ST006",
+      "unit_type": "subtopic",
+      "title": "Economic Growth and Opposition Accusations",
+      "start": 1119.586,
+      "end": 1378.011,
+      "duration_seconds": 258.425,
+      "semantic_similarity_to_overall_topic": 0.5546,
+      "key_point_similarities": [
+        {
+          "key_point": "Accusations that the political opposition and figures like Rahul Gandhi are aligning with international actors such as Elon Musk against national security and economic interests",
+          "cosine_similarity": 0.5022
+        },
+        {
+          "key_point": "Debate on foreign influence, telecom policies, and calls for nationalists to unite against instability",
+          "cosine_similarity": 0.4864
+        },
+        {
+          "key_point": "Concerns over potential upcoming protests and violence in Delhi",
+          "cosine_similarity": 0.3627
+        },
+        {
+          "key_point": "Comparison between civil unrest and riots in France and protests in India",
+          "cosine_similarity": 0.313
+        }
+      ],
+      "top_two_key_point_similarity": 0.4943,
+      "weighted_cosine_alignment": 0.5245,
+      "alignment_score": 52.45,
+      "classification": "aligned",
+      "speakers": [
+        "SPEAKER_03",
+        "SPEAKER_06",
+        "SPEAKER_07"
+      ],
+      "text_source": "merge_final.segments",
+      "evidence_excerpt": "Economic Growth and Opposition Accusations. The speaker shifts the discussion from cross-talk to highlighting India's strong economic growth and stability while warning the opposition against supporting anarchy during international trade challenges.. Firstly, we are dealing with a global situation, and we have a situation where we are doing remarkably well. We're going over 7% growth. IMF World Bank is acknowledging it. We have a fair amount of political stability in our country. And we would like to request all the opposition parties not to join hands against the country or for anarchy at a time when we are fighting a business and trade war with America. Otherwise, what will happen is, Faizan, the people of this country will never forgive you. never forgive you if you are going to take a position that is pro-anarchy and unfortunately I find 20% of people in this country are pro-anarchy 20% pro-anarchy demographically and 80% are anti-anarchy in this country on my life pole right now if today you say let the country burn And if you want to precipitate a situation where, regardless of the fact that the election commission matter is being held, managed and looked into by the Supreme Court of the country, you want to try and provoke violence in the country, then people will never forgive you. I think people have voted here, Rohan and Faizan, we are against anarchy. Nobody wants anarchy. But the CJP says we want bawal. What is the translation of bawal, Rohan? What does bawal mean? They say bawal will happen. What is bawal, Rohan? Bawal is anarchy. Bawal is anarchy. No, no, no. Bawal, bawal. It's a term which is used. Mr. Goswami, I'm sure when you were in your student life, you would say, I'll nail the exam, I'll smash the exam. No. That's an analogy, people. No, no, no. It"
+    },
+    {
+      "unit_id": "ST007",
+      "unit_type": "subtopic",
+      "title": "Rahul Gandhi's Alleged Alliance with Elon Musk",
+      "start": 1378.011,
+      "end": 1828.779,
+      "duration_seconds": 450.768,
+      "semantic_similarity_to_overall_topic": 0.5395,
+      "key_point_similarities": [
+        {
+          "key_point": "Accusations that the political opposition and figures like Rahul Gandhi are aligning with international actors such as Elon Musk against national security and economic interests",
+          "cosine_similarity": 0.6914
+        },
+        {
+          "key_point": "Concerns over potential upcoming protests and violence in Delhi",
+          "cosine_similarity": 0.3546
+        },
+        {
+          "key_point": "Debate on foreign influence, telecom policies, and calls for nationalists to unite against instability",
+          "cosine_similarity": 0.2072
+        },
+        {
+          "key_point": "Comparison between civil unrest and riots in France and protests in India",
+          "cosine_similarity": 0.163
+        }
+      ],
+      "top_two_key_point_similarity": 0.523,
+      "weighted_cosine_alignment": 0.5313,
+      "alignment_score": 53.13,
+      "classification": "aligned",
+      "speakers": [
+        "SPEAKER_03",
+        "SPEAKER_04",
+        "SPEAKER_06",
+        "SPEAKER_07",
+        "SPEAKER_08",
+        "SPEAKER_09"
+      ],
+      "text_source": "merge_final.segments",
+      "evidence_excerpt": "Rahul Gandhi's Alleged Alliance with Elon Musk. The discussion shifts to a new development involving allegations that Rahul Gandhi has sided with Elon Musk against India's national security interests regarding market entry and Starlink protocols.. We have a very shocking new development where Rahul Gandhi has decided to join hands with Elon Musk. And Elon Musk is saying that I need to be allowed entry into India to exploit the Indian market. And the government of India has said that there are certain security protocol which have to be looked at. You need to see what happens to Starlink if there is a war, if there's a national calamity. India has to take care of national security concerns. However, Rohan, Rahul Gandhi has said, I am with you. And Elon Musk is saying thank you, Rahul Gandhi. So I think it's becoming evident and clear. Absolutely. That Rahul Gandhi is standing with foreign forces. When I go out of the country, why did the NIA deliberately create a software case? Swaizan, this is very troubling. If Rahul Gandhi has joined hands with a foreign businessman against India's national security interests. See, India has legitimate Indian Army, Indian Air Force, the people of India have legitimate national security interests. Elon Musk is not going to take care of those interests. The government of India is saying we have to first take care of Indian interests, not the money-making interests of an American businessman. Rahul Gandhi is saying, I am standing with the American businessman. I'm not standing with India's national security, therefore. And therefore, what was said about the foreign hand, Rohan, becomes very open now. It becomes open and clear. This is very troubling for all of us. What the hell is going on here? This is shocking. In the international, you"
+    },
+    {
+      "unit_id": "ST008",
+      "unit_type": "subtopic",
+      "title": "Allegations linking AAP and CJP",
+      "start": 1828.779,
+      "end": 2307.267,
+      "duration_seconds": 478.488,
+      "semantic_similarity_to_overall_topic": 0.3828,
+      "key_point_similarities": [
+        {
+          "key_point": "Accusations that the political opposition and figures like Rahul Gandhi are aligning with international actors such as Elon Musk against national security and economic interests",
+          "cosine_similarity": 0.4143
+        },
+        {
+          "key_point": "Debate on foreign influence, telecom policies, and calls for nationalists to unite against instability",
+          "cosine_similarity": 0.3789
+        },
+        {
+          "key_point": "Concerns over potential upcoming protests and violence in Delhi",
+          "cosine_similarity": 0.2909
+        },
+        {
+          "key_point": "Comparison between civil unrest and riots in France and protests in India",
+          "cosine_similarity": 0.1463
+        }
+      ],
+      "top_two_key_point_similarity": 0.3966,
+      "weighted_cosine_alignment": 0.3897,
+      "alignment_score": 38.97,
+      "classification": "partially_aligned",
+      "speakers": [
+        "SPEAKER_03",
+        "SPEAKER_04",
+        "SPEAKER_09"
+      ],
+      "text_source": "merge_final.segments",
+      "evidence_excerpt": "Allegations linking AAP and CJP. The anchor pivots the debate to directly question the AAP spokesperson regarding alleged institutional and ideological overlaps between the party and organizations like the CJP and PFI/SDPI.. Shelly, I want to congratulate you tonight, because since you are the official face of the CJP as the national spokesperson of the AAP, and we all know there is more than osmosis between the CJP and you. CJP is carrying any flag of any political party. Well, I mean, let me say this to you, Shelly. One minute. Did the SDPI ever carry any flag of the PFI? Did the SDPI ever carry any flag of the PFI? They didn't know. They said they are we two separate outfits. We are two separate outfits. I was screaming my lungs morning, day and night, and I would scream my lungs and say there is no difference between the SDPI and the PFI. But the SDPI thought that it would be the legitimate wing and the PFI would do the illegitimate stuff. PFI got disbanded. SDPI is nowhere. Think about your own future. My question to you tonight is this. Shaili, listen to my question. Shaili, are you scared of my question? Are you scared of my question? I'll show you something now. I'll show you something. Why? That is not being shown on you, Chhati. I will show you something now. I will show you something. But not if you're showing that. Democracy is not at stake. Shelley, I'll tell you where you are. Your future is at stake and I'll tell you why. Just be quiet for a minute. See. Listen to me. No, no, no. You bother about your future. The future of a country is at stake, Karnam. You seal your lips. You, you, Maoist. Vivek Jainpeng, you be quiet there. You're a deranged Maoist. That's what you are. Did I even ask you a question? Do I even take you seriously? The last relevant commu"
+    },
+    {
+      "unit_id": "ST009",
+      "unit_type": "subtopic",
+      "title": "Allegations of Upcoming Violence and Civil Unrest in Delhi",
+      "start": 2307.267,
+      "end": 2914.277,
+      "duration_seconds": 607.01,
+      "semantic_similarity_to_overall_topic": 0.5815,
+      "key_point_similarities": [
+        {
+          "key_point": "Accusations that the political opposition and figures like Rahul Gandhi are aligning with international actors such as Elon Musk against national security and economic interests",
+          "cosine_similarity": 0.6797
+        },
+        {
+          "key_point": "Concerns over potential upcoming protests and violence in Delhi",
+          "cosine_similarity": 0.6766
+        },
+        {
+          "key_point": "Debate on foreign influence, telecom policies, and calls for nationalists to unite against instability",
+          "cosine_similarity": 0.4037
+        },
+        {
+          "key_point": "Comparison between civil unrest and riots in France and protests in India",
+          "cosine_similarity": 0.365
+        }
+      ],
+      "top_two_key_point_similarity": 0.6782,
+      "weighted_cosine_alignment": 0.6298,
+      "alignment_score": 62.98,
+      "classification": "aligned",
+      "speakers": [
+        "SPEAKER_03",
+        "SPEAKER_04",
+        "SPEAKER_05",
+        "SPEAKER_06"
+      ],
+      "text_source": "merge_final.segments",
+      "evidence_excerpt": "Allegations of Upcoming Violence and Civil Unrest in Delhi. The discussion shifts from historical US-left relations and student politics to specific allegations of an impending attempt to provoke violence and civil unrest in Delhi on October 10th, linking opposition figures to foreign interests.. Right now, Rahul Gandhi has joined hands with Elon Musk. Rahul Gandhi has joined us with Elon Musk. I am against left. We fought against left. I understood what you said. Don't belabor the point. Everyone on, please. We fought against left. I would like the appropriate visuals to be done. We've run the visuals of Freedom Park ad nauseam. Question tonight is this. See, today is the 8th of October. I believe that there is going to be an attempt at violence in India on the 10th. On the 10th, they are going to try and carry out or provoke violence in Delhi. And they believe it's going to happen. They hope that there will be some retaliation and then they hope that things will go into a spiral. I don't think it is time for us to be satirical or joke tonight because there is an attempt at trying to create a civil unrest in India. is happening at a time when American business interests are being impacted. So American business interests are impacted and why clearly we should open our eyes and realize, stand up against foreign forces now. Remember Elon Musk today has joined the fray. Elon Musk himself built his business on keeping Chinese EV manufacturers out of America. No protection for me. He should have a market that is completely protected from Chinese EVs but we shouldn't protect our companies. Japan doesn't protect its companies. Korea doesn't protect its companies. We will protect our companies. We will see to it our companies have a base to play on. You protect Adanis and Amban"
+    },
+    {
+      "unit_id": "ST010",
+      "unit_type": "subtopic",
+      "title": "Foreign Funding and International Actor Involvement",
+      "start": 2914.277,
+      "end": 3518.117,
+      "duration_seconds": 603.84,
+      "semantic_similarity_to_overall_topic": 0.5349,
+      "key_point_similarities": [
+        {
+          "key_point": "Accusations that the political opposition and figures like Rahul Gandhi are aligning with international actors such as Elon Musk against national security and economic interests",
+          "cosine_similarity": 0.655
+        },
+        {
+          "key_point": "Debate on foreign influence, telecom policies, and calls for nationalists to unite against instability",
+          "cosine_similarity": 0.4539
+        },
+        {
+          "key_point": "Concerns over potential upcoming protests and violence in Delhi",
+          "cosine_similarity": 0.3821
+        },
+        {
+          "key_point": "Comparison between civil unrest and riots in France and protests in India",
+          "cosine_similarity": 0.2141
+        }
+      ],
+      "top_two_key_point_similarity": 0.5544,
+      "weighted_cosine_alignment": 0.5447,
+      "alignment_score": 54.47,
+      "classification": "aligned",
+      "speakers": [
+        "SPEAKER_01",
+        "SPEAKER_02",
+        "SPEAKER_03",
+        "SPEAKER_04",
+        "SPEAKER_05",
+        "SPEAKER_09",
+        "SPEAKER_11",
+        "SPEAKER_12",
+        "SPEAKER_13",
+        "SPEAKER_14",
+        "SPEAKER_15",
+        "SPEAKER_17",
+        "SPEAKER_18",
+        "SPEAKER_19",
+        "SPEAKER_21",
+        "SPEAKER_22"
+      ],
+      "text_source": "merge_final.segments",
+      "evidence_excerpt": "Foreign Funding and International Actor Involvement. The speaker shifts the discussion from domestic protests and local political disruptions to allegations of foreign funding, coordination with international figures like Elon Musk, and foreign tech interference.. That said, we should also not minimize the fact that these are foreign-funded nihilists. And you see the coordination and collaboration happening. You think Elon Musk coming and suddenly tweeting a man who has built his own empire by protecting the American market against Chinese EVs. You think he has Indian interests at heart. This is a man who was supporting Rohingyas and other terrorists in Myanmar. actively giving them support through Starlink. This is a man who was providing free Starlink to Ukraine. Why? Because the defence department told him to do so. Tomorrow he'll provide Starlink to us and the defence department will tell him to use it. Yes, go ahead. You think he won't do it? Remember Twitter, when it was under Jack Dorsey's record, taking credit for the revolution that happened in Egypt, but removed all the Mubarak from power. These people are all collaborating with each other. These are mixes of scumbags of the worst kind of scumbags that their scumbags funders. They are all scum, unmitigated scum. And that is why these radical left people are coming up. If you don't allow the democracy, the democratic parties, the democratic parties, the parties which believes in democracy, who believes in parliament. They were given permission Kohinoor, they were given permission the last time. What did they do? They rioted. That is why this pro-left, that is why this pro-left are coming. That is why this ultra-left are coming. What are you going to trust them for another peaceful protest? We fought against thi"
+    }
+  ],
+  "drift_events": [],
+  "summary": {
+    "units_analysed": 10,
+    "aligned_units": 8,
+    "partially_aligned_units": 2,
+    "possible_drift_units": 0,
+    "drift_events": 0,
+    "analysis_mode": "subtopic_level"
+  }
+}

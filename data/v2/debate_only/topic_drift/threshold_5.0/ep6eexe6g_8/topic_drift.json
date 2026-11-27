@@ -1,0 +1,129 @@
+{
+  "schema_version": "topic-drift-1.1",
+  "video_id": "ep6eexe6g_8",
+  "variant": "threshold_5.0",
+  "generated_at_utc": "2026-11-26T19:28:18.942617+00:00",
+  "overall_topic": {
+    "topic": "Is the Opposition's SIR and Vote-Chori Campaign Working?",
+    "description": "India Today anchors and editors debate whether the opposition's SIR campaign, protests, and vote-chori allegations are effective electorally and politically, evaluating recent election results, internal contradictions within the opposition, and the Election Commission's responses.",
+    "key_discussion_points": [
+      "Whether the opposition's SIR and vote-chori allegations have a genuine electoral impact or merely generate media noise.",
+      "Internal contradictions within the opposition, such as differing stances taken by state leaders regarding SIR deletions.",
+      "The Election Commission's silent course corrections, such as enhanced doorstep verification and review of IT systems.",
+      "Evaluation of whether the vote-chori narrative is working based on recent electoral outcomes across various states.",
+      "Debate on the transparency, accountability, and communication methods of the Election Commission of India and Chief Election Commissioner Gyanesh Kumar."
+    ]
+  },
+  "method": {
+    "name": "subtopic_to_overall_topic_embedding_alignment",
+    "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "analysis_mode": "subtopic_level",
+    "unit_text_source": "Full transcript segments within each subtopic interval; subtopic evidence is fallback only.",
+    "score_formula": "0.50 * cosine(unit, overall_topic+description) + 0.50 * mean(two highest cosine similarities between unit and individual key discussion points)",
+    "display_score": "alignment_score = max(0, weighted_cosine_alignment) * 100; scaled cosine index, not a percentage or probability",
+    "low_threshold": 20.0,
+    "high_threshold": 40.0,
+    "threshold_interpretation": "possible_drift < 20.0; partially_aligned >= 20.0 and < 40.0; aligned >= 40.0",
+    "minimum_sustained_drift_seconds": 90.0,
+    "sustained_drift_rule": "Consecutive possible_drift subtopics separated by no more than 30 seconds are grouped; event duration must meet the minimum sustained duration.",
+    "threshold_status": "provisional; manually calibrate before research claims",
+    "warning": "Scores are heuristic semantic-alignment indicators, not probabilities or validated accuracy. Low similarity is a candidate for review, not proof of drift."
+  },
+  "alignment_results": [
+    {
+      "unit_id": "ST001",
+      "unit_type": "subtopic",
+      "title": "Opening discussion",
+      "start": 0.0,
+      "end": 430.653,
+      "duration_seconds": 430.653,
+      "semantic_similarity_to_overall_topic": 0.5464,
+      "key_point_similarities": [
+        {
+          "key_point": "Whether the opposition's SIR and vote-chori allegations have a genuine electoral impact or merely generate media noise.",
+          "cosine_similarity": 0.5527
+        },
+        {
+          "key_point": "Debate on the transparency, accountability, and communication methods of the Election Commission of India and Chief Election Commissioner Gyanesh Kumar.",
+          "cosine_similarity": 0.3879
+        },
+        {
+          "key_point": "Internal contradictions within the opposition, such as differing stances taken by state leaders regarding SIR deletions.",
+          "cosine_similarity": 0.3809
+        },
+        {
+          "key_point": "Evaluation of whether the vote-chori narrative is working based on recent electoral outcomes across various states.",
+          "cosine_similarity": 0.3591
+        },
+        {
+          "key_point": "The Election Commission's silent course corrections, such as enhanced doorstep verification and review of IT systems.",
+          "cosine_similarity": 0.1789
+        }
+      ],
+      "top_two_key_point_similarity": 0.4703,
+      "weighted_cosine_alignment": 0.5084,
+      "alignment_score": 50.84,
+      "classification": "aligned",
+      "speakers": [
+        "SPEAKER_00",
+        "SPEAKER_01",
+        "SPEAKER_02",
+        "SPEAKER_03"
+      ],
+      "text_source": "merge_final.segments",
+      "evidence_excerpt": "Opening discussion. Well, welcome to yet another edition of the Democratic Newsroom. After a rather eventful Democratic Newsroom the last time around, our band of editors are back with a new topic to discuss and debate. This time around, well, we're debating protest versus protest. Protest versus Padyatra is The SIR campaign of the opposition actually sticking all of that building in to the mega opposition rally or what the opposition feels that will be a mega rally on the 1st of November. Alright, so we are back again after last week. All of us promised to be a little better behaved, a little tan bit embarrassed. I promise right after the Democratic newsroom ends, we are all friends outside. Friends even inside, but we're all a tad bit embarrassed on how things panned out last time. We promised to be better behaved today. So, Gaurav, would you want to begin? No, Rajdeep begins. No, no, I insist because Gaurav Sawant has raised unfounded allegations that he's not given enough time, that the show is biased against him. So, in the interest of natural justice, a fair hearing, Gaurav Sawant starts today's debate. Your time starts now. I am timing him. I am timing all of you today. Please do. Please do. Please do. Please go ahead. Okay, just don't interrupt. I will not. I am very silent today. Okay. I am going to make them sign bonds from the next time around. No, no. And I just hope those bonds are respected and those bonds are welcomed. Whatever happens as per law is very good, but fair enough. Is SIR, you know, allegation of the Congress party sticking or not? Look, it is for the voters of our country to decide whether an allegation is working or not. And it is also for courts of law to decide whether what's happening is legal or illegal. It is not for any, you know, khap"
+    },
+    {
+      "unit_id": "ST002",
+      "unit_type": "subtopic",
+      "title": "Focusing the Campaign on CEC Gyanesh Kumar's Resignation",
+      "start": 430.653,
+      "end": 1475.995,
+      "duration_seconds": 1045.342,
+      "semantic_similarity_to_overall_topic": 0.5164,
+      "key_point_similarities": [
+        {
+          "key_point": "Debate on the transparency, accountability, and communication methods of the Election Commission of India and Chief Election Commissioner Gyanesh Kumar.",
+          "cosine_similarity": 0.5645
+        },
+        {
+          "key_point": "Internal contradictions within the opposition, such as differing stances taken by state leaders regarding SIR deletions.",
+          "cosine_similarity": 0.5164
+        },
+        {
+          "key_point": "Whether the opposition's SIR and vote-chori allegations have a genuine electoral impact or merely generate media noise.",
+          "cosine_similarity": 0.4313
+        },
+        {
+          "key_point": "The Election Commission's silent course corrections, such as enhanced doorstep verification and review of IT systems.",
+          "cosine_similarity": 0.3744
+        },
+        {
+          "key_point": "Evaluation of whether the vote-chori narrative is working based on recent electoral outcomes across various states.",
+          "cosine_similarity": 0.3615
+        }
+      ],
+      "top_two_key_point_similarity": 0.5405,
+      "weighted_cosine_alignment": 0.5284,
+      "alignment_score": 52.84,
+      "classification": "aligned",
+      "speakers": [
+        "SPEAKER_00",
+        "SPEAKER_01",
+        "SPEAKER_02",
+        "SPEAKER_03"
+      ],
+      "text_source": "merge_final.segments",
+      "evidence_excerpt": "Focusing the Campaign on CEC Gyanesh Kumar's Resignation. The discussion shifts from the electoral impact of the SIR/vote-chori campaign to the opposition's strategy of targeting Chief Election Commissioner Gyanesh Kumar and the lack of a clear endgame.. Now the other aspect of it is that the opposition has made this an issue of CEC Gyanesh Kumar must go. Yes, there are flaws in how the SIR was conducted. None of us can say it was picture perfect. There was absolutely no flaw whatsoever. There were issues raised by the Indian Express, which have also been highlighted. There have been issues that the opposition has also highlighted and the ECS course corrected. The challenge is when you put it on one face, one person on the CEC Gyanesh Kumar, what is the impact going to be? Your impact can only be then if Gyanesh steps down, if Gyanesh resigns. And until then, you'll have to keep going with this campaign, with this protest, continue with the stir. What's the end game? You say you want change on SIR, that's something that, okay, let's say the EC submits an affidavit, you get more details off, and finally, there's more transparency. The challenge is when you make it about one person, one face, and that's what the opposition is doing. When they say, you know, we want CEC Gyanesh Kumar to resign, and that's the end game. To me, that's where the flaw is in this campaign. Alright, so Akshita, you've spoken for 1 minute 40 seconds. If I may, I just want to come in and somebody can try. Naurav plus Akshita, 40 plus 120 equals to 3 minutes. Naurav plus Akshita, 40 plus 120 equals to 3 minutes. Please go ahead, sorry madam. My apologies. I'm timing myself also here. Okay, so my timing starts right now. But the only thing I'd like to say is... I think the opposition, for SIR to be "
+    }
+  ],
+  "drift_events": [],
+  "summary": {
+    "units_analysed": 2,
+    "aligned_units": 2,
+    "partially_aligned_units": 0,
+    "possible_drift_units": 0,
+    "drift_events": 0,
+    "analysis_mode": "subtopic_level"
+  }
+}

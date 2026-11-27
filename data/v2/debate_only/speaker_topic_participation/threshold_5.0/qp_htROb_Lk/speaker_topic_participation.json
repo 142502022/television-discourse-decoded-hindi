@@ -1,0 +1,203 @@
+{
+  "schema_version": "speaker-topic-participation-1.1",
+  "video_id": "qp_htROb_Lk",
+  "variant": "threshold_5.0",
+  "method": {
+    "speaking_time": "speaker_turn intervals clipped to each subtopic boundary; each turn contributes only its intersecting duration",
+    "turn_count": "number of source speaker_turn intervals intersecting each subtopic; a turn crossing a boundary is counted once in each intersected subtopic",
+    "speech_share": "speaker clipped turn-duration sum divided by total clipped speaker-turn duration within the same subtopic, multiplied by 100",
+    "dominant_speaker": "speaker with the greatest clipped speaker-turn duration in the subtopic",
+    "topic_coverage": "subtopics with positive clipped speaking time",
+    "consistency": "uses the same speaker_turn duration basis as final_result_numeric.json",
+    "overlap_note": "speaker turns may overlap; if they do, their durations are counted for each speaker, matching speaker-wise duration accounting in the existing pipeline"
+  },
+  "summary": {
+    "total_subtopics": 4,
+    "total_speakers": 5,
+    "total_speaking_time_seconds_across_subtopics": 1361.898
+  },
+  "subtopic_participation": [
+    {
+      "subtopic_id": "ST001",
+      "title": "Opening discussion",
+      "start": 0.0,
+      "end": 141.166,
+      "duration_seconds": 141.166,
+      "total_speaking_time_seconds": 138.891,
+      "dominant_speaker": "SPEAKER_03",
+      "speakers": [
+        {
+          "speaker_id": "SPEAKER_03",
+          "speaking_time_seconds": 106.549,
+          "speech_share_percent": 76.714,
+          "turn_count": 1
+        },
+        {
+          "speaker_id": "SPEAKER_04",
+          "speaking_time_seconds": 32.342,
+          "speech_share_percent": 23.286,
+          "turn_count": 2
+        }
+      ]
+    },
+    {
+      "subtopic_id": "ST002",
+      "title": "Rally Attendance and BJP's Counter-Claims on Crowd Size",
+      "start": 141.166,
+      "end": 840.08,
+      "duration_seconds": 698.914,
+      "total_speaking_time_seconds": 710.81,
+      "dominant_speaker": "SPEAKER_00",
+      "speakers": [
+        {
+          "speaker_id": "SPEAKER_00",
+          "speaking_time_seconds": 289.843,
+          "speech_share_percent": 40.776,
+          "turn_count": 13
+        },
+        {
+          "speaker_id": "SPEAKER_03",
+          "speaking_time_seconds": 190.907,
+          "speech_share_percent": 26.858,
+          "turn_count": 6
+        },
+        {
+          "speaker_id": "SPEAKER_04",
+          "speaking_time_seconds": 182.591,
+          "speech_share_percent": 25.688,
+          "turn_count": 13
+        },
+        {
+          "speaker_id": "SPEAKER_01",
+          "speaking_time_seconds": 47.469,
+          "speech_share_percent": 6.678,
+          "turn_count": 2
+        }
+      ]
+    },
+    {
+      "subtopic_id": "ST003",
+      "title": "Rahul Gandhi's Remarks on Election Commission and Vote Theft Allegations",
+      "start": 840.08,
+      "end": 931.376,
+      "duration_seconds": 91.296,
+      "total_speaking_time_seconds": 87.987,
+      "dominant_speaker": "SPEAKER_03",
+      "speakers": [
+        {
+          "speaker_id": "SPEAKER_03",
+          "speaking_time_seconds": 72.933,
+          "speech_share_percent": 82.891,
+          "turn_count": 1
+        },
+        {
+          "speaker_id": "SPEAKER_04",
+          "speaking_time_seconds": 15.054,
+          "speech_share_percent": 17.109,
+          "turn_count": 2
+        }
+      ]
+    },
+    {
+      "subtopic_id": "ST004",
+      "title": "Rahul Gandhi's Attack on Prime Minister Narendra Modi",
+      "start": 931.376,
+      "end": 1360.395,
+      "duration_seconds": 429.019,
+      "total_speaking_time_seconds": 424.21,
+      "dominant_speaker": "SPEAKER_00",
+      "speakers": [
+        {
+          "speaker_id": "SPEAKER_00",
+          "speaking_time_seconds": 179.719,
+          "speech_share_percent": 42.366,
+          "turn_count": 10
+        },
+        {
+          "speaker_id": "SPEAKER_04",
+          "speaking_time_seconds": 126.821,
+          "speech_share_percent": 29.896,
+          "turn_count": 10
+        },
+        {
+          "speaker_id": "SPEAKER_03",
+          "speaking_time_seconds": 75.465,
+          "speech_share_percent": 17.79,
+          "turn_count": 1
+        },
+        {
+          "speaker_id": "SPEAKER_01",
+          "speaking_time_seconds": 25.903,
+          "speech_share_percent": 6.106,
+          "turn_count": 1
+        },
+        {
+          "speaker_id": "SPEAKER_02",
+          "speaking_time_seconds": 16.302,
+          "speech_share_percent": 3.843,
+          "turn_count": 2
+        }
+      ]
+    }
+  ],
+  "speaker_episode_summary": [
+    {
+      "speaker_id": "SPEAKER_00",
+      "total_speaking_time_seconds": 469.562,
+      "speech_share_percent": 34.478,
+      "turn_count_across_subtopics": 23,
+      "subtopics_participated": [
+        "ST002",
+        "ST004"
+      ],
+      "subtopic_count": 2
+    },
+    {
+      "speaker_id": "SPEAKER_03",
+      "total_speaking_time_seconds": 445.854,
+      "speech_share_percent": 32.738,
+      "turn_count_across_subtopics": 9,
+      "subtopics_participated": [
+        "ST001",
+        "ST002",
+        "ST003",
+        "ST004"
+      ],
+      "subtopic_count": 4
+    },
+    {
+      "speaker_id": "SPEAKER_04",
+      "total_speaking_time_seconds": 356.808,
+      "speech_share_percent": 26.199,
+      "turn_count_across_subtopics": 27,
+      "subtopics_participated": [
+        "ST001",
+        "ST002",
+        "ST003",
+        "ST004"
+      ],
+      "subtopic_count": 4
+    },
+    {
+      "speaker_id": "SPEAKER_01",
+      "total_speaking_time_seconds": 73.372,
+      "speech_share_percent": 5.387,
+      "turn_count_across_subtopics": 3,
+      "subtopics_participated": [
+        "ST002",
+        "ST004"
+      ],
+      "subtopic_count": 2
+    },
+    {
+      "speaker_id": "SPEAKER_02",
+      "total_speaking_time_seconds": 16.302,
+      "speech_share_percent": 1.197,
+      "turn_count_across_subtopics": 2,
+      "subtopics_participated": [
+        "ST004"
+      ],
+      "subtopic_count": 1
+    }
+  ]
+}

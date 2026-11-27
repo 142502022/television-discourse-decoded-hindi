@@ -1,0 +1,378 @@
+{
+  "schema_version": "topic-drift-1.1",
+  "video_id": "rAFhQSMU69A",
+  "variant": "threshold_5.0",
+  "generated_at_utc": "2026-11-26T19:28:47.762191+00:00",
+  "overall_topic": {
+    "topic": "Sam Pitroda's Praise for Prime Minister Modi and Political Civility",
+    "description": "A televised debate examining Sam Pitroda's praise for Prime Minister Narendra Modi, the internal reactions and tensions within the Congress party, and broader discussions on political civility, personal animosity, and Sonia Gandhi's memoir.",
+    "key_discussion_points": [
+      "Sam Pitroda's praise of Prime Minister Narendra Modi's personal warmth, kindness, and leadership qualities.",
+      "The contrast between Sam Pitroda's positive remarks and Sonia Gandhi's characterization of Modi in her recent memoir.",
+      "Prime Minister Narendra Modi's history of personal courtesies toward political adversaries versus allegations of lacking courtesy.",
+      "The BJP's counter-arguments regarding harsh personal attacks and slogans used by the Congress party against Modi.",
+      "Internal Congress party dynamics, reactions to dissenting praise, and historical power structures."
+    ]
+  },
+  "method": {
+    "name": "subtopic_to_overall_topic_embedding_alignment",
+    "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "analysis_mode": "subtopic_level",
+    "unit_text_source": "Full transcript segments within each subtopic interval; subtopic evidence is fallback only.",
+    "score_formula": "0.50 * cosine(unit, overall_topic+description) + 0.50 * mean(two highest cosine similarities between unit and individual key discussion points)",
+    "display_score": "alignment_score = max(0, weighted_cosine_alignment) * 100; scaled cosine index, not a percentage or probability",
+    "low_threshold": 20.0,
+    "high_threshold": 40.0,
+    "threshold_interpretation": "possible_drift < 20.0; partially_aligned >= 20.0 and < 40.0; aligned >= 40.0",
+    "minimum_sustained_drift_seconds": 90.0,
+    "sustained_drift_rule": "Consecutive possible_drift subtopics separated by no more than 30 seconds are grouped; event duration must meet the minimum sustained duration.",
+    "threshold_status": "provisional; manually calibrate before research claims",
+    "warning": "Scores are heuristic semantic-alignment indicators, not probabilities or validated accuracy. Low similarity is a candidate for review, not proof of drift."
+  },
+  "alignment_results": [
+    {
+      "unit_id": "ST001",
+      "unit_type": "subtopic",
+      "title": "Opening discussion",
+      "start": 0.0,
+      "end": 211.917,
+      "duration_seconds": 211.917,
+      "semantic_similarity_to_overall_topic": 0.4663,
+      "key_point_similarities": [
+        {
+          "key_point": "The BJP's counter-arguments regarding harsh personal attacks and slogans used by the Congress party against Modi.",
+          "cosine_similarity": 0.5454
+        },
+        {
+          "key_point": "Prime Minister Narendra Modi's history of personal courtesies toward political adversaries versus allegations of lacking courtesy.",
+          "cosine_similarity": 0.5374
+        },
+        {
+          "key_point": "Internal Congress party dynamics, reactions to dissenting praise, and historical power structures.",
+          "cosine_similarity": 0.5346
+        },
+        {
+          "key_point": "The contrast between Sam Pitroda's positive remarks and Sonia Gandhi's characterization of Modi in her recent memoir.",
+          "cosine_similarity": 0.4995
+        },
+        {
+          "key_point": "Sam Pitroda's praise of Prime Minister Narendra Modi's personal warmth, kindness, and leadership qualities.",
+          "cosine_similarity": 0.3594
+        }
+      ],
+      "top_two_key_point_similarity": 0.5414,
+      "weighted_cosine_alignment": 0.5039,
+      "alignment_score": 50.39,
+      "classification": "aligned",
+      "speakers": [
+        "SPEAKER_00",
+        "SPEAKER_04",
+        "SPEAKER_07"
+      ],
+      "text_source": "merge_final.segments",
+      "evidence_excerpt": "Opening discussion. Make it every moment. Keshri Deva. Vimal. Speak your language, Keshri. Good evening ladies and gentlemen. They say in politics there are no permanent friends or enemies, but when a compliment comes from the most unexpected quarters, it can create more ripples than the fiercest political attack. At a time when Rahul Gandhi and the Congress party are leaving no stone unturned in their offensive against Prime Minister Narendra Modi, a voice from the very heart of the Gandhi family's inner circle has struck a remarkably different note. Sam Petroda, Rajiv Gandhi's trusted advisor, a Gandhi family confidant for decades on end, Rahul Gandhi's loyal lieutenant and guru, and the man who heads the Indian Overseas Congress, the very man gearing up to coordinate Rahul Gandhi's upcoming US visit. where the Congress leader is expected to renew his criticism of the Modi government at Columbia University no less. He has now showered lavish praise on Prime Minister Narendra Modi. Not a grudging acknowledgement, not a passing compliment, but a glowing account of Modi's personal warmth, kindness, affection and leadership qualities. And coming from one of Rahul Gandhi's most trusted men, the timing and the choice of words are particularly striking. Don't believe us? Well, listen in for yourselves. And Prime Minister Narendra Modi was quick to reciprocate with a personal touch on social media platform X. Addressing Petroda as Sam Bhai and his wife as Anjana Ben, he wrote and I quote, Happy Diwali and New Year Abhinandan. Praying for a joyful and healthy year ahead. Jai Jagannath. In fact, when a social media user cheekily asked, Sam Pitroda ko Diwali wish kar sakte hain, to humme bhi wish kar do, Modi ji. And the Prime Minister promptly replied, aapko bhi Happy Diwali, M"
+    },
+    {
+      "unit_id": "ST002",
+      "unit_type": "subtopic",
+      "title": "Sonia Gandhi's Memoir and Personal Distance with Modi",
+      "start": 211.917,
+      "end": 277.433,
+      "duration_seconds": 65.516,
+      "semantic_similarity_to_overall_topic": 0.4098,
+      "key_point_similarities": [
+        {
+          "key_point": "Prime Minister Narendra Modi's history of personal courtesies toward political adversaries versus allegations of lacking courtesy.",
+          "cosine_similarity": 0.6298
+        },
+        {
+          "key_point": "The contrast between Sam Pitroda's positive remarks and Sonia Gandhi's characterization of Modi in her recent memoir.",
+          "cosine_similarity": 0.5973
+        },
+        {
+          "key_point": "The BJP's counter-arguments regarding harsh personal attacks and slogans used by the Congress party against Modi.",
+          "cosine_similarity": 0.4607
+        },
+        {
+          "key_point": "Internal Congress party dynamics, reactions to dissenting praise, and historical power structures.",
+          "cosine_similarity": 0.3028
+        },
+        {
+          "key_point": "Sam Pitroda's praise of Prime Minister Narendra Modi's personal warmth, kindness, and leadership qualities.",
+          "cosine_similarity": 0.1997
+        }
+      ],
+      "top_two_key_point_similarity": 0.6136,
+      "weighted_cosine_alignment": 0.5117,
+      "alignment_score": 51.17,
+      "classification": "aligned",
+      "speakers": [
+        "SPEAKER_00",
+        "SPEAKER_04"
+      ],
+      "text_source": "merge_final.segments",
+      "evidence_excerpt": "Sonia Gandhi's Memoir and Personal Distance with Modi. The discussion shifts from general political civility and PM Modi's interactions with journalists to Sonia Gandhi's newly released memoir, which describes a lack of real conversation and personal distance between her and Prime Minister Modi.. She claims that despite over 12 years of his prime ministership, they have had practically no real conversation. That when they come face to face, the prime minister offers a formal namaste but avoids eye contact. But since when did political courtesy come with an obligation of personal attention? Sonia Gandhi speaks of distance while her family's longtime confidant Sam Petroda speaks of warmth, affection and mutual respect. And if that contrast wasn't striking enough, Petroda's praise has now sparked a backlash within the opposition itself with a Congress leader who's even speculating about his political loyalty. We don't live in this country, so we don't know what's going on there. That's why they must have said that they are thinking of killing us. This is what even alliance partners are talking about Sam Petroda, a man so close to Mr Rahul Gandhi's heart."
+    },
+    {
+      "unit_id": "ST003",
+      "unit_type": "subtopic",
+      "title": "Modi's History of Personal Courtesies with Political Adversaries",
+      "start": 277.433,
+      "end": 411.465,
+      "duration_seconds": 134.032,
+      "semantic_similarity_to_overall_topic": 0.4983,
+      "key_point_similarities": [
+        {
+          "key_point": "Prime Minister Narendra Modi's history of personal courtesies toward political adversaries versus allegations of lacking courtesy.",
+          "cosine_similarity": 0.831
+        },
+        {
+          "key_point": "The BJP's counter-arguments regarding harsh personal attacks and slogans used by the Congress party against Modi.",
+          "cosine_similarity": 0.5212
+        },
+        {
+          "key_point": "The contrast between Sam Pitroda's positive remarks and Sonia Gandhi's characterization of Modi in her recent memoir.",
+          "cosine_similarity": 0.5009
+        },
+        {
+          "key_point": "Internal Congress party dynamics, reactions to dissenting praise, and historical power structures.",
+          "cosine_similarity": 0.4913
+        },
+        {
+          "key_point": "Sam Pitroda's praise of Prime Minister Narendra Modi's personal warmth, kindness, and leadership qualities.",
+          "cosine_similarity": 0.3721
+        }
+      ],
+      "top_two_key_point_similarity": 0.6761,
+      "weighted_cosine_alignment": 0.5872,
+      "alignment_score": 58.72,
+      "classification": "aligned",
+      "speakers": [
+        "SPEAKER_04",
+        "SPEAKER_07"
+      ],
+      "text_source": "merge_final.segments",
+      "evidence_excerpt": "Modi's History of Personal Courtesies with Political Adversaries. The discussion shifts to examine historical examples of Prime Minister Modi showing personal courtesy and cordiality towards various political rivals, such as Manmohan Singh, Ghulam Nabi Azad, Sharad Pawar, and Rahul Gandhi.. But this is hardly the first time Prime Minister Narendra Modi has demonstrated that political differences need not come in the way of personal courtesies. Remember his warm interaction with former Prime Minister Dr. Manmohan Singh at the inauguration of the Kartarpur Sahib corridor. Two political adversaries sharing a cordial moment despite years of ideological differences. honoring the position of a former prime minister or that emotional farewell to congress veteran Ghulam Nabi Azad in parliament itself. Modi broke down, wiped his tears and saluted Azad recalling their decades-old association when Gujarati Citizens had been affected by floods and Ghulam Nabi Azad as a Chief Minister of Jammu and Kashmir had helped out. Then there was that small but telling gesture towards Sharad Pawar. The Prime Minister helped the veteran leader with his chair and poured water for him. A simple act of courtesy despite their political differences. And even with Rahul Gandhi, his fiercest political rival, Modi has shared moments of cordiality. Remember their candid interaction at Prerna's Thal in Parliament, when they shared a lighter moment away from the political battlefield, and after Operation Sindoor when the Prime Minister reached out to leaders across party lines, meeting members of all party delegations who had taken India's message against terrorism to the world, Political differences set aside in national interest and perhaps the Prime Minister himself summed up this approach best when he"
+    },
+    {
+      "unit_id": "ST004",
+      "unit_type": "subtopic",
+      "title": "BJP's counter-argument on Congress's personal attacks",
+      "start": 411.465,
+      "end": 789.925,
+      "duration_seconds": 378.46,
+      "semantic_similarity_to_overall_topic": 0.481,
+      "key_point_similarities": [
+        {
+          "key_point": "The BJP's counter-arguments regarding harsh personal attacks and slogans used by the Congress party against Modi.",
+          "cosine_similarity": 0.8312
+        },
+        {
+          "key_point": "Internal Congress party dynamics, reactions to dissenting praise, and historical power structures.",
+          "cosine_similarity": 0.5474
+        },
+        {
+          "key_point": "Prime Minister Narendra Modi's history of personal courtesies toward political adversaries versus allegations of lacking courtesy.",
+          "cosine_similarity": 0.5379
+        },
+        {
+          "key_point": "The contrast between Sam Pitroda's positive remarks and Sonia Gandhi's characterization of Modi in her recent memoir.",
+          "cosine_similarity": 0.504
+        },
+        {
+          "key_point": "Sam Pitroda's praise of Prime Minister Narendra Modi's personal warmth, kindness, and leadership qualities.",
+          "cosine_similarity": 0.1822
+        }
+      ],
+      "top_two_key_point_similarity": 0.6893,
+      "weighted_cosine_alignment": 0.5852,
+      "alignment_score": 58.52,
+      "classification": "aligned",
+      "speakers": [
+        "SPEAKER_03",
+        "SPEAKER_04"
+      ],
+      "text_source": "merge_final.segments",
+      "evidence_excerpt": "BJP's counter-argument on Congress's personal attacks. The discussion shifts from instances of political courtesy and Modi's humility to the BJP's allegations regarding the Congress party's history of personal attacks and harsh slogans against the Prime Minister.. Now let's take a look at the other side of this debate on political courtesies. The BJP has repeatedly pointed to the Congress's own record of bitter, often deeply personal attacks on the Prime Minister. From Rahul Gandhi's Chaukidar Chor Hai campaign to Malik Arjun Kharges, Modi Ka Baap Bhi Jai Ka remark and the controversial, Modi Teri Kabr Khudegi, slogans raised at Congress protests. Here's a glimpse of the muhabbat showered on the Prime Minister by the Congress party and the Gandhi family. And that, ladies and gentlemen, brings me to the legitimate question on the news hour tonight. When even Rahul Gandhi's most trusted loyalist has words of admiration and praise for Narendra Modi's personal warmth, kindness and character, is there a lesson for the Congress party? Well, that's the question. That's the debate on the other side. You're watching the news hour at night. Debate number one on Times Now. Super Prime Time. Joining the debate, Sudhanshu Trivediji, Member of Parliament in the Rajya Sabha and Senior Spokesperson of the BJP, Dr. Anand Ranganathan, Author, Scientist, Abhijit Iyer Mitra, Senior Fellow at the IPCS, joining me in the studios tonight. Also joining the debate Vivek Srivastava, political analyst Renu Mittal, senior colleague, senior journalist and my first question goes to my friend Sanjay Jha, die hard congress fan, leader, supporter even when they suspend him he comes back and fights valiantly for them. Well Sanjay Jha, Sam Petroda came to What is going on boss? Is it making you nervous b"
+    },
+    {
+      "unit_id": "ST005",
+      "unit_type": "subtopic",
+      "title": "Discussion on Sonia Gandhi's Memoir and Historical Inaccuracies",
+      "start": 789.925,
+      "end": 995.047,
+      "duration_seconds": 205.122,
+      "semantic_similarity_to_overall_topic": 0.4329,
+      "key_point_similarities": [
+        {
+          "key_point": "The contrast between Sam Pitroda's positive remarks and Sonia Gandhi's characterization of Modi in her recent memoir.",
+          "cosine_similarity": 0.7117
+        },
+        {
+          "key_point": "The BJP's counter-arguments regarding harsh personal attacks and slogans used by the Congress party against Modi.",
+          "cosine_similarity": 0.5378
+        },
+        {
+          "key_point": "Prime Minister Narendra Modi's history of personal courtesies toward political adversaries versus allegations of lacking courtesy.",
+          "cosine_similarity": 0.4597
+        },
+        {
+          "key_point": "Internal Congress party dynamics, reactions to dissenting praise, and historical power structures.",
+          "cosine_similarity": 0.3505
+        },
+        {
+          "key_point": "Sam Pitroda's praise of Prime Minister Narendra Modi's personal warmth, kindness, and leadership qualities.",
+          "cosine_similarity": 0.1985
+        }
+      ],
+      "top_two_key_point_similarity": 0.6248,
+      "weighted_cosine_alignment": 0.5288,
+      "alignment_score": 52.88,
+      "classification": "aligned",
+      "speakers": [
+        "SPEAKER_08"
+      ],
+      "text_source": "merge_final.segments",
+      "evidence_excerpt": "Discussion on Sonia Gandhi's Memoir and Historical Inaccuracies. The discussion shifts as the anchor invites a response from Sudhanshu Trivedi, who pivots from the debate on political civility to criticize claims and alleged inaccuracies in Sonia Gandhi's recent memoir regarding Mallikarjun Kharge's family and historical events.. Sanjay Jhaji was saying that definitely the animosity is not at the personal level, but there is a strong and starking difference at the ideological level. But look at the nefarious design of the so-called ideological battle in the recent book of Sonia Gandhiji. where she mentions that Malik Arjun Khadgeji's family was burnt alive in a caste rights. It was during the partition, division rights in Hyderabad. Malik Arjun Khadgeji himself on 13th of June, 2026 given an interview to Kapil Sibal has said that the Radhakas have done this and they are saying it caste rights. that had nothing to do with caste it was a purely muslim violence which has taken the life such a nefarious design another thing i do not know who has written the book because everybody knows that such a senior leaders usually do not have enough time or other things to write their own book but it seems that the book has been not read by the writer himself Because they go to that extent on 16th, 6th of December, 1992, she said that she was watching on the live telecast. There was no such live telecast. Now come to Sam Pitroda aspect. Yes, Sanjay Jhaji. There is a difference. Sam Pitroda is the same person who in run up to 2024 election has said that the Western Indians come from Arabs, and the Northern Indian comes from Europe. Southern Indian comes from Africa. And the Eastern Indian comes from China. Wah, kya India ke baare banaya hai? This is the same thought process which durin"
+    },
+    {
+      "unit_id": "ST006",
+      "unit_type": "subtopic",
+      "title": "Political Courtesies and Personal Animosity",
+      "start": 995.047,
+      "end": 2011.973,
+      "duration_seconds": 1016.926,
+      "semantic_similarity_to_overall_topic": 0.4449,
+      "key_point_similarities": [
+        {
+          "key_point": "Prime Minister Narendra Modi's history of personal courtesies toward political adversaries versus allegations of lacking courtesy.",
+          "cosine_similarity": 0.6554
+        },
+        {
+          "key_point": "The BJP's counter-arguments regarding harsh personal attacks and slogans used by the Congress party against Modi.",
+          "cosine_similarity": 0.5653
+        },
+        {
+          "key_point": "The contrast between Sam Pitroda's positive remarks and Sonia Gandhi's characterization of Modi in her recent memoir.",
+          "cosine_similarity": 0.5367
+        },
+        {
+          "key_point": "Internal Congress party dynamics, reactions to dissenting praise, and historical power structures.",
+          "cosine_similarity": 0.4344
+        },
+        {
+          "key_point": "Sam Pitroda's praise of Prime Minister Narendra Modi's personal warmth, kindness, and leadership qualities.",
+          "cosine_similarity": 0.2188
+        }
+      ],
+      "top_two_key_point_similarity": 0.6103,
+      "weighted_cosine_alignment": 0.5276,
+      "alignment_score": 52.76,
+      "classification": "aligned",
+      "speakers": [
+        "SPEAKER_01",
+        "SPEAKER_02",
+        "SPEAKER_03",
+        "SPEAKER_04",
+        "SPEAKER_05",
+        "SPEAKER_06",
+        "SPEAKER_08"
+      ],
+      "text_source": "merge_final.segments",
+      "evidence_excerpt": "Political Courtesies and Personal Animosity. Discussion transitions from ideological arguments to the specific issue of political courtesies, touching upon Sonia Gandhi's memoir regarding Prime Minister Modi's lack of eye contact and interaction with opposition leaders.. Well true, when you are expecting political niceties, Sanjay Jha, I want to ask you, Sonia Gandhi writes in her book, she says there are no courtesies extended by the Prime Minister to her and she even mentions that he doesn't maintain eye contact. I want to ask you all the courtesies were extended the visual references I showed when Dr. Manmohan Singh and his wife were present at the Kartarpur corridor inauguration or with Rahul Gandhi. These are people who have held constitutional positions and at least I did not see anything that was amiss in the way courtesies were forwarded whether it is to Sharad Pawar, Malik Arjun Khadge, Rahul Gandhi where Where does this issue really come up from? No eye contact. Well, why? Well, Navika, it's very simple to answer that actually. Mrs. Gandhi's experience is what she's articulated. And I thought about it. You know, I made a very reasonable beginning to your question. Expectedly, Sudhanshuji got into some kind of a very, you know, psychosomatic assessment of the conversations between people. But the simple answer is if you call somebody a Jersey cow, you can't make an eye contact. We have already humiliated them. We already made a personally slanderous remark. It's as simple as that. The second point, you know, remarks like 50 crore ka girlfriend, Dr. Manmohan Singh should wear a raincoat in the shower. These were demeaning remarks, they were disparaging. And I think it's hurt the entire opposition, you know, putting opposition in jail on framed charges and fabric"
+    },
+    {
+      "unit_id": "ST007",
+      "unit_type": "subtopic",
+      "title": "Political Civility and Mutual Accusations of Abusive Language",
+      "start": 2011.973,
+      "end": 2314.186,
+      "duration_seconds": 302.213,
+      "semantic_similarity_to_overall_topic": 0.5431,
+      "key_point_similarities": [
+        {
+          "key_point": "Prime Minister Narendra Modi's history of personal courtesies toward political adversaries versus allegations of lacking courtesy.",
+          "cosine_similarity": 0.5319
+        },
+        {
+          "key_point": "The BJP's counter-arguments regarding harsh personal attacks and slogans used by the Congress party against Modi.",
+          "cosine_similarity": 0.5131
+        },
+        {
+          "key_point": "The contrast between Sam Pitroda's positive remarks and Sonia Gandhi's characterization of Modi in her recent memoir.",
+          "cosine_similarity": 0.5007
+        },
+        {
+          "key_point": "Internal Congress party dynamics, reactions to dissenting praise, and historical power structures.",
+          "cosine_similarity": 0.4946
+        },
+        {
+          "key_point": "Sam Pitroda's praise of Prime Minister Narendra Modi's personal warmth, kindness, and leadership qualities.",
+          "cosine_similarity": 0.1691
+        }
+      ],
+      "top_two_key_point_similarity": 0.5225,
+      "weighted_cosine_alignment": 0.5328,
+      "alignment_score": 53.28,
+      "classification": "aligned",
+      "speakers": [
+        "SPEAKER_03",
+        "SPEAKER_04",
+        "SPEAKER_06",
+        "SPEAKER_08"
+      ],
+      "text_source": "merge_final.segments",
+      "evidence_excerpt": "Political Civility and Mutual Accusations of Abusive Language. The discussion pivots from Sam Pitroda and media interviews to a broader debate on political civility, exchanging accusations of harsh remarks, personal attacks, and lack of courtesies between political leaders.. That was the raging controversy about it. But that is not democratic Renu Mittal. Why? It was a well-known film actor. He can conduct it the way he likes. Why are you putting journalists on the mat for that? Who called Mrs Gandhi a widow of Congress? Who did that? Who caused the people who dissent? Who called Modi a murderer? Who did that? Who said that? Modi will dig your grave? Who said that? Who is a Muslim? Who is eating fish? It's a long list. Sanjay Jha. Sanjay Jha, I am not taking any sides, I am just saying that the list is long even on this side. So why is there a problem that Mrs. Gandhi in her book says that she has not been extended courtesies. She's not in a constitutional position. So maybe there is no opportunity for her to be invited to all party meetings. She's a member of parliament. Maybe if she had sought an appointment like other members of parliament, they get. How can you say this? Mr. Modi is free to contradict her whether he does it in a tweet, whether he does it in a press conference which he hasn't held for 12 years and probably not for the next 100 or whether he writes his biography or his memoir or his autobiography whatever he wants to do. It's for him to respond to that nobody else can do it. So now you can't do it and I can't do it either. Did you just tell us when Sonia Gandhi held a press conference? Sorry, when was the last conference Sonia Gandhi had? By the way, she's interacted with the press. No, no, no, no. I saw it right next to Modi and he did it today, this"
+    },
+    {
+      "unit_id": "ST008",
+      "unit_type": "subtopic",
+      "title": "Concluding Remarks and Social Media Poll on Sam Pitroda",
+      "start": 2314.186,
+      "end": 2394.101,
+      "duration_seconds": 79.915,
+      "semantic_similarity_to_overall_topic": 0.634,
+      "key_point_similarities": [
+        {
+          "key_point": "The contrast between Sam Pitroda's positive remarks and Sonia Gandhi's characterization of Modi in her recent memoir.",
+          "cosine_similarity": 0.572
+        },
+        {
+          "key_point": "Sam Pitroda's praise of Prime Minister Narendra Modi's personal warmth, kindness, and leadership qualities.",
+          "cosine_similarity": 0.5464
+        },
+        {
+          "key_point": "Prime Minister Narendra Modi's history of personal courtesies toward political adversaries versus allegations of lacking courtesy.",
+          "cosine_similarity": 0.3828
+        },
+        {
+          "key_point": "The BJP's counter-arguments regarding harsh personal attacks and slogans used by the Congress party against Modi.",
+          "cosine_similarity": 0.3513
+        },
+        {
+          "key_point": "Internal Congress party dynamics, reactions to dissenting praise, and historical power structures.",
+          "cosine_similarity": 0.3066
+        }
+      ],
+      "top_two_key_point_similarity": 0.5592,
+      "weighted_cosine_alignment": 0.5966,
+      "alignment_score": 59.66,
+      "classification": "aligned",
+      "speakers": [
+        "SPEAKER_04",
+        "SPEAKER_05"
+      ],
+      "text_source": "merge_final.segments",
+      "evidence_excerpt": "Concluding Remarks and Social Media Poll on Sam Pitroda. The anchor hands over time to Anand Ranganathan and presents the results of a social media poll regarding Sam Pitroda's praise for Prime Minister Modi, followed by closing comments on the debate topic.. One of the reasons why Modiji is very courteous especially to the detractors who abuses because half the people who abuse Modi are now in BJP but one thing needs to be clarified which is that this Jersey Cow thing now you know Spike Millikan said sense of humor is no laughing matter. Modi never called Sonia Gandhi that. He was commenting that while in the 50s their calf and cow were a symbol of indigenous Indian's cows, now it is Jersey cow. Well, we did a survey on social media and we asked the question, Sam praises Modi, even Rahul Gandhi loyalist does he turn a Modi fan? Well, 76% of the people say yes. Well, no say 17%, can't say 8%. Well, that's what people really think. Every now and then we can take a little bit of a lighter wane on the politics of the day. Sam Pitroda just gave us that opportunity, but many hard truths and realities in the subtext. that we debated. Thank you very much to all my panelists for joining me on debate number one."
+    }
+  ],
+  "drift_events": [],
+  "summary": {
+    "units_analysed": 8,
+    "aligned_units": 8,
+    "partially_aligned_units": 0,
+    "possible_drift_units": 0,
+    "drift_events": 0,
+    "analysis_mode": "subtopic_level"
+  }
+}

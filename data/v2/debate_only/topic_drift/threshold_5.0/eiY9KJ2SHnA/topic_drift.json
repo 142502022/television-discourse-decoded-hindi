@@ -1,0 +1,116 @@
+{
+  "schema_version": "topic-drift-1.1",
+  "video_id": "eiY9KJ2SHnA",
+  "variant": "threshold_5.0",
+  "generated_at_utc": "2026-11-26T19:28:09.830996+00:00",
+  "overall_topic": {
+    "topic": "Debate on Police Crackdowns and Civil Liberties regarding the CJP Tiranga Yatra",
+    "description": "A televised debate focusing on the legality, police actions, and political reactions surrounding the detention of CJP protesters, contrasting government enforcement of law and order with constitutional rights to peaceful dissent.",
+    "key_discussion_points": [
+      "Whether government and police actions against CJP protesters reflect moral cowardice or the enforcement of the law of the land.",
+      "The legality and conditions of permissions granted for CJP protests under Section 163 of the BNS.",
+      "Allegations of suppression, power asymmetry, and police brutality against unarmed protesters.",
+      "The balance between the state's duty to maintain law and order and the protection of constitutional rights to peaceful protest."
+    ]
+  },
+  "method": {
+    "name": "subtopic_to_overall_topic_embedding_alignment",
+    "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "analysis_mode": "subtopic_level",
+    "unit_text_source": "Full transcript segments within each subtopic interval; subtopic evidence is fallback only.",
+    "score_formula": "0.50 * cosine(unit, overall_topic+description) + 0.50 * mean(two highest cosine similarities between unit and individual key discussion points)",
+    "display_score": "alignment_score = max(0, weighted_cosine_alignment) * 100; scaled cosine index, not a percentage or probability",
+    "low_threshold": 20.0,
+    "high_threshold": 40.0,
+    "threshold_interpretation": "possible_drift < 20.0; partially_aligned >= 20.0 and < 40.0; aligned >= 40.0",
+    "minimum_sustained_drift_seconds": 90.0,
+    "sustained_drift_rule": "Consecutive possible_drift subtopics separated by no more than 30 seconds are grouped; event duration must meet the minimum sustained duration.",
+    "threshold_status": "provisional; manually calibrate before research claims",
+    "warning": "Scores are heuristic semantic-alignment indicators, not probabilities or validated accuracy. Low similarity is a candidate for review, not proof of drift."
+  },
+  "alignment_results": [
+    {
+      "unit_id": "ST001",
+      "unit_type": "subtopic",
+      "title": "Opening discussion",
+      "start": 0.0,
+      "end": 990.425,
+      "duration_seconds": 990.425,
+      "semantic_similarity_to_overall_topic": 0.6049,
+      "key_point_similarities": [
+        {
+          "key_point": "Whether government and police actions against CJP protesters reflect moral cowardice or the enforcement of the law of the land.",
+          "cosine_similarity": 0.4732
+        },
+        {
+          "key_point": "Allegations of suppression, power asymmetry, and police brutality against unarmed protesters.",
+          "cosine_similarity": 0.4203
+        },
+        {
+          "key_point": "The legality and conditions of permissions granted for CJP protests under Section 163 of the BNS.",
+          "cosine_similarity": 0.4069
+        },
+        {
+          "key_point": "The balance between the state's duty to maintain law and order and the protection of constitutional rights to peaceful protest.",
+          "cosine_similarity": 0.3426
+        }
+      ],
+      "top_two_key_point_similarity": 0.4468,
+      "weighted_cosine_alignment": 0.5258,
+      "alignment_score": 52.58,
+      "classification": "aligned",
+      "speakers": [
+        "SPEAKER_00",
+        "SPEAKER_01",
+        "SPEAKER_02"
+      ],
+      "text_source": "merge_final.segments",
+      "evidence_excerpt": "Opening discussion. Okay, let me widen this with questions, our face-off. Why disallow the Cockroach Janata Party's Tiranga Yatra is the question of the day. Are these protests hurting the government's image, particularly when young people get detained? And the question I keep asking, is there an end game at the moment? If so, what is it? Sanju Verma, the national spokesperson of the BJP is joining me. Anish Gawande of the NCP SP. It was from Anish's house that Abhijit Deepke was detained. Sanju Verma, let's be very clear. Do you believe that all of this that is happening is damaging the government's image somewhere? That if you are so strong, if you have no fear, why detain, arrest, latte, charge the young? Those optics, are they looking good? Rajdeep, Abhijit Dikke had asked for permission for Jantar Mantar 1.0 in Delhi in July. That permission was given. Abhijit Didke asked for permission at Shivaji Park on the 2nd of October on Gandhi Jayanti. That permission was given. Abhijit Didke asked for permission that his CJP colleagues should be allowed to protest at Mumbai's Azad Maidan today. That permission was given. Of course, yes, it's a different matter that there were hardly 25 to 30 people. And the public has completely abandoned the CJP in Mumbai. That's not the moot point. The moot point is this. We are not a banana republic. We are run by the law of the land. Beat Abhijit, Dipke, Ashutosh, Ranka, Saurabh Das. Nobody is above the law of the land. One section 163 of the BNS is in place. And Dipke, Das, and Ranka have signed a bail bond saying that they will not breach peace. It is incumbent upon them to not breach the provisions of their bail bond. How is it breaching peace, ma'am? Just clarify. How is it breaching peace if he wants to do a Tiranga march? How does"
+    },
+    {
+      "unit_id": "ST002",
+      "unit_type": "subtopic",
+      "title": "Program Closing",
+      "start": 990.425,
+      "end": 998.153,
+      "duration_seconds": 7.728,
+      "semantic_similarity_to_overall_topic": 0.3633,
+      "key_point_similarities": [
+        {
+          "key_point": "The legality and conditions of permissions granted for CJP protests under Section 163 of the BNS.",
+          "cosine_similarity": 0.2483
+        },
+        {
+          "key_point": "The balance between the state's duty to maintain law and order and the protection of constitutional rights to peaceful protest.",
+          "cosine_similarity": 0.2212
+        },
+        {
+          "key_point": "Whether government and police actions against CJP protesters reflect moral cowardice or the enforcement of the law of the land.",
+          "cosine_similarity": 0.1831
+        },
+        {
+          "key_point": "Allegations of suppression, power asymmetry, and police brutality against unarmed protesters.",
+          "cosine_similarity": 0.126
+        }
+      ],
+      "top_two_key_point_similarity": 0.2347,
+      "weighted_cosine_alignment": 0.299,
+      "alignment_score": 29.9,
+      "classification": "partially_aligned",
+      "speakers": [
+        "SPEAKER_02"
+      ],
+      "text_source": "merge_final.segments",
+      "evidence_excerpt": "Program Closing. The host concludes the debate, wishes the audience a safe festive weekend, and signs off.. Thanks very much for watching. Stay well. Stay safe. Have a safe festive weekend. Jai Hind. Namaskar."
+    }
+  ],
+  "drift_events": [],
+  "summary": {
+    "units_analysed": 2,
+    "aligned_units": 1,
+    "partially_aligned_units": 1,
+    "possible_drift_units": 0,
+    "drift_events": 0,
+    "analysis_mode": "subtopic_level"
+  }
+}

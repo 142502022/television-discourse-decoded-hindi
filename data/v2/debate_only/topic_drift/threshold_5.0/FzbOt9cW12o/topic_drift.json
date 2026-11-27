@@ -1,0 +1,85 @@
+{
+  "schema_version": "topic-drift-1.1",
+  "video_id": "FzbOt9cW12o",
+  "variant": "threshold_5.0",
+  "generated_at_utc": "2026-11-26T19:27:41.262707+00:00",
+  "overall_topic": {
+    "topic": "Criticism of Rahul Gandhi's Parliamentary Attendance and the Opposition's Mock Parliament",
+    "description": "A televised debate discussing the opposition's unprecedented decision to hold a mock parliament in the house of the leader of the opposition, alongside criticism of Rahul Gandhi's low parliamentary attendance and the opposition's preference for street protests over parliamentary procedures.",
+    "key_discussion_points": [
+      "The unprecedented nature of the opposition holding a mock parliament in the house of the leader of the opposition.",
+      "Allegations against Rahul Gandhi and other opposition leaders for being absent during crucial parliamentary debates and votes.",
+      "Comparison of Rahul Gandhi's low parliamentary attendance average with the national average.",
+      "The opposition's shift from engaging in parliament or courts to holding protests and street demonstrations.",
+      "The availability of parliamentary mechanisms like Zero Hour for the opposition to raise issues without advance notice."
+    ]
+  },
+  "method": {
+    "name": "subtopic_to_overall_topic_embedding_alignment",
+    "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "analysis_mode": "subtopic_level",
+    "unit_text_source": "Full transcript segments within each subtopic interval; subtopic evidence is fallback only.",
+    "score_formula": "0.50 * cosine(unit, overall_topic+description) + 0.50 * mean(two highest cosine similarities between unit and individual key discussion points)",
+    "display_score": "alignment_score = max(0, weighted_cosine_alignment) * 100; scaled cosine index, not a percentage or probability",
+    "low_threshold": 20.0,
+    "high_threshold": 40.0,
+    "threshold_interpretation": "possible_drift < 20.0; partially_aligned >= 20.0 and < 40.0; aligned >= 40.0",
+    "minimum_sustained_drift_seconds": 90.0,
+    "sustained_drift_rule": "Consecutive possible_drift subtopics separated by no more than 30 seconds are grouped; event duration must meet the minimum sustained duration.",
+    "threshold_status": "provisional; manually calibrate before research claims",
+    "warning": "Scores are heuristic semantic-alignment indicators, not probabilities or validated accuracy. Low similarity is a candidate for review, not proof of drift."
+  },
+  "alignment_results": [
+    {
+      "unit_id": "ST001",
+      "unit_type": "subtopic",
+      "title": "Opening discussion",
+      "start": 0.0,
+      "end": 601.575,
+      "duration_seconds": 601.575,
+      "semantic_similarity_to_overall_topic": 0.5931,
+      "key_point_similarities": [
+        {
+          "key_point": "The unprecedented nature of the opposition holding a mock parliament in the house of the leader of the opposition.",
+          "cosine_similarity": 0.5361
+        },
+        {
+          "key_point": "Allegations against Rahul Gandhi and other opposition leaders for being absent during crucial parliamentary debates and votes.",
+          "cosine_similarity": 0.4952
+        },
+        {
+          "key_point": "The opposition's shift from engaging in parliament or courts to holding protests and street demonstrations.",
+          "cosine_similarity": 0.4701
+        },
+        {
+          "key_point": "Comparison of Rahul Gandhi's low parliamentary attendance average with the national average.",
+          "cosine_similarity": 0.4448
+        },
+        {
+          "key_point": "The availability of parliamentary mechanisms like Zero Hour for the opposition to raise issues without advance notice.",
+          "cosine_similarity": 0.3041
+        }
+      ],
+      "top_two_key_point_similarity": 0.5157,
+      "weighted_cosine_alignment": 0.5544,
+      "alignment_score": 55.44,
+      "classification": "aligned",
+      "speakers": [
+        "SPEAKER_00",
+        "SPEAKER_01",
+        "SPEAKER_02"
+      ],
+      "text_source": "merge_final.segments",
+      "evidence_excerpt": "Opening discussion. Let me bring in Sanju Verma, BJP national spokesperson, also Rajat Sethi, political analyst. Sanju Verma, what we witnessed today was unprecedented. Never before that in India or Indian political history has a mock parliament been held in the house of leader of opposition. What Mr. Singhvi was saying right now is actually summing up what all has been happening, that there is a civil society movement, there is a political movement and a legal fight. Is the BJP getting worried of the larger culmination what it can have, the impact? You know, Maria, so I was listening to Mr Singby and I just have to say this when he says that there is no space for the opposition during routine parliamentary proceedings. You know, Rahul Gandhi is not given an opportunity to went, you know, his voice is cut and impeachment proceedings are not admitted. Mr Singby also mentioned that I think Mr Singby has forgotten. I'm very humbly through your show. I would like to suggest, Maria, do remember that ahead of Lok Sabha 2024 elections, In August 2023, Gaurav Gogoi had moved a no-confidence motion against the Modi government. And guess what? At the peak of the debate, because the debate was all about Manipur, they said, we don't trust this government with respect to Manipur, so we are moving a no-confidence motion. When Prime Minister Modi started speaking, Rahul Gandhi was not there. Priyanka Padra was not there in the house. Gaurav Gogoi, who had moved the no-confidence motion against this sitting government of the day, was to be seen nowhere. So the basic, limited point I'm making is that the opposition, instead of casting expressions at the ruling dispensation, needs to do some atma-chintan, needs to do some atma-mandhan, and tell me honestly, Each time Rahul Gandhi has wan"
+    }
+  ],
+  "drift_events": [],
+  "summary": {
+    "units_analysed": 1,
+    "aligned_units": 1,
+    "partially_aligned_units": 0,
+    "possible_drift_units": 0,
+    "drift_events": 0,
+    "analysis_mode": "subtopic_level"
+  }
+}

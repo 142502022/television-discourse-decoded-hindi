@@ -1,0 +1,179 @@
+{
+  "schema_version": "topic-drift-1.1",
+  "video_id": "ncoiZ6Uk6wg",
+  "variant": "threshold_5.0",
+  "generated_at_utc": "2026-11-26T19:28:33.675051+00:00",
+  "overall_topic": {
+    "topic": "Opposition's Ramlila Maidan Protest and 'Vote-Chori' Allegations",
+    "description": "A televised debate analyzing the opposition's mega protest at Ramlila Maidan, Rahul Gandhi's allegations of systemic 'vote-chori' and an illegal 2024 mandate, and the BJP's counter-attacks regarding rally attendance and historical context.",
+    "key_discussion_points": [
+      "Opposition protest at Ramlila Maidan and Rahul Gandhi's allegations of systemic 'vote-chori'",
+      "BJP's counter-strike dismissing the rally as a flop show and raising historical context like the 1984 anti-Sikh riots",
+      "Debate over electoral integrity, the functioning of the Election Commission, and voting rights"
+    ]
+  },
+  "method": {
+    "name": "subtopic_to_overall_topic_embedding_alignment",
+    "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "analysis_mode": "subtopic_level",
+    "unit_text_source": "Full transcript segments within each subtopic interval; subtopic evidence is fallback only.",
+    "score_formula": "0.50 * cosine(unit, overall_topic+description) + 0.50 * mean(two highest cosine similarities between unit and individual key discussion points)",
+    "display_score": "alignment_score = max(0, weighted_cosine_alignment) * 100; scaled cosine index, not a percentage or probability",
+    "low_threshold": 20.0,
+    "high_threshold": 40.0,
+    "threshold_interpretation": "possible_drift < 20.0; partially_aligned >= 20.0 and < 40.0; aligned >= 40.0",
+    "minimum_sustained_drift_seconds": 90.0,
+    "sustained_drift_rule": "Consecutive possible_drift subtopics separated by no more than 30 seconds are grouped; event duration must meet the minimum sustained duration.",
+    "threshold_status": "provisional; manually calibrate before research claims",
+    "warning": "Scores are heuristic semantic-alignment indicators, not probabilities or validated accuracy. Low similarity is a candidate for review, not proof of drift."
+  },
+  "alignment_results": [
+    {
+      "unit_id": "ST001",
+      "unit_type": "subtopic",
+      "title": "Opening discussion",
+      "start": 0.0,
+      "end": 129.691,
+      "duration_seconds": 129.691,
+      "semantic_similarity_to_overall_topic": 0.6984,
+      "key_point_similarities": [
+        {
+          "key_point": "Opposition protest at Ramlila Maidan and Rahul Gandhi's allegations of systemic 'vote-chori'",
+          "cosine_similarity": 0.639
+        },
+        {
+          "key_point": "BJP's counter-strike dismissing the rally as a flop show and raising historical context like the 1984 anti-Sikh riots",
+          "cosine_similarity": 0.5933
+        },
+        {
+          "key_point": "Debate over electoral integrity, the functioning of the Election Commission, and voting rights",
+          "cosine_similarity": 0.2839
+        }
+      ],
+      "top_two_key_point_similarity": 0.6162,
+      "weighted_cosine_alignment": 0.6573,
+      "alignment_score": 65.73,
+      "classification": "aligned",
+      "speakers": [
+        "SPEAKER_02",
+        "SPEAKER_05",
+        "SPEAKER_06",
+        "SPEAKER_07"
+      ],
+      "text_source": "merge_final.segments",
+      "evidence_excerpt": "Opening discussion. Top focus story of the day. It's a dramatic showdown in the national capital that's been witnessed as opposition staged a mega protest at Ramdeela Maidan to further intensify their vote-chori narrative. The opposition show of strength saw Malik Arjun Kharghe, Mamata Banerjee, Farooq Abdullah, Tejas Piyadab and other top leaders addressing the rally. Leading the charge from front, Rahul Gandhi launched an uncompromising attack on the ruling dispensation and the election commission, calling out what the opposition terms systemic vote-chori and describing the subversion of public mandate as nothing short of treason against the constitution. Now addressing the public, opposition leaders have unitedly declared that the fight to protect the country's institutional integrity has reached a decisive turning point. In 2024, there was a 3% difference between NDA and us. There was a 3% difference between NDA and us. After that, 15% of the voters were removed from the voter list. This means that the 2024 election was an illegal election. It was a theft election. Bengal is the victims of the circumstances of this SIR. We will not leave them. We will save the people. People will bring the people back. By the way, this Ramleela Maidan is organized for Ramayan. But we have organized Mahabharat today to leave the vote. Do you all know? that what Shakuni had played in Mahabharat. And now when Shakuni is playing his game, we have to make Kurukshetra. We will have to fight in Kurukshetra. When Shakuni used to throw the dice, he used to do the same thing that Shakuni used to say."
+    },
+    {
+      "unit_id": "ST002",
+      "unit_type": "subtopic",
+      "title": "BJP Counter-Strike and Nationwide Protests",
+      "start": 129.691,
+      "end": 246.197,
+      "duration_seconds": 116.506,
+      "semantic_similarity_to_overall_topic": 0.7369,
+      "key_point_similarities": [
+        {
+          "key_point": "Opposition protest at Ramlila Maidan and Rahul Gandhi's allegations of systemic 'vote-chori'",
+          "cosine_similarity": 0.721
+        },
+        {
+          "key_point": "BJP's counter-strike dismissing the rally as a flop show and raising historical context like the 1984 anti-Sikh riots",
+          "cosine_similarity": 0.7072
+        },
+        {
+          "key_point": "Debate over electoral integrity, the functioning of the Election Commission, and voting rights",
+          "cosine_similarity": 0.2182
+        }
+      ],
+      "top_two_key_point_similarity": 0.7141,
+      "weighted_cosine_alignment": 0.7255,
+      "alignment_score": 72.55,
+      "classification": "aligned",
+      "speakers": [
+        "SPEAKER_00",
+        "SPEAKER_01",
+        "SPEAKER_02",
+        "SPEAKER_05"
+      ],
+      "text_source": "merge_final.segments",
+      "evidence_excerpt": "BJP Counter-Strike and Nationwide Protests. The discussion shifts from the opposition's Ramlila Maidan protest and vote-chori allegations to the BJP's nationwide counter-strike, rallies, and criticism of Congress politics.. Now the BJP has mounted a fiery nationwide counter-strike today, calling out the Congress-led opposition for peddling deceit, anarchy and baseless conspiracy theories. Disposing Rahul Gandhi's Ram Leela Maidan protest as a desperate flop show aimed at undermining democratic institutions, the BJP took to the streets across multiple states. In Rohtak, thousands joined a massive BJP rally demanding an end to dangerous street politics. In Delhi, The party held a solemn, silent march, reminding the nation of the horrors of the 1984 anti-Sikh riots committed under Congress rule. Sonia ji ka Swapna, unke laal Pradhan Mantri bane poora nahi hota hai, tab unhone naya tarika dunda hai, Mokh Parliament karne ka. Aur theek bhi hai bhai, I want to tell Rahul Ji that if you want to become the Prime Minister, then you have to spend your entire life in the Mokh Parliament. Your number should never be crossed. Modi Ji! Modi Ji is nowhere to be seen! Modi Ji is nowhere to be seen! And in 2029, he will be seen in the ancient city of Vrindelal Fort. Rahul Gandhi, open your ears and listen. This is India. It is not a banana republic. Here, whenever you want, you can make an order, instigate riots and run the agenda of regime change. Rahul Gandhi, stop dreaming. India is the oldest and most powerful democracy in the world. Let's open this up and take it across to our guest joining us."
+    },
+    {
+      "unit_id": "ST003",
+      "unit_type": "subtopic",
+      "title": "Introduction of Panelists and Opposition Response",
+      "start": 246.197,
+      "end": 775.152,
+      "duration_seconds": 528.955,
+      "semantic_similarity_to_overall_topic": 0.4579,
+      "key_point_similarities": [
+        {
+          "key_point": "Opposition protest at Ramlila Maidan and Rahul Gandhi's allegations of systemic 'vote-chori'",
+          "cosine_similarity": 0.505
+        },
+        {
+          "key_point": "BJP's counter-strike dismissing the rally as a flop show and raising historical context like the 1984 anti-Sikh riots",
+          "cosine_similarity": 0.4537
+        },
+        {
+          "key_point": "Debate over electoral integrity, the functioning of the Election Commission, and voting rights",
+          "cosine_similarity": 0.3478
+        }
+      ],
+      "top_two_key_point_similarity": 0.4793,
+      "weighted_cosine_alignment": 0.4686,
+      "alignment_score": 46.86,
+      "classification": "aligned",
+      "speakers": [
+        "SPEAKER_02",
+        "SPEAKER_03",
+        "SPEAKER_04",
+        "SPEAKER_09"
+      ],
+      "text_source": "merge_final.segments",
+      "evidence_excerpt": "Introduction of Panelists and Opposition Response. The anchor introduces the panel of guests representing different political parties and analysts, and shifts the discussion from opening remarks to inviting the Congress spokesperson to respond to BJP criticisms regarding vote-chori.. Radhika Khaira, BJP national spokesperson is with us. Sujata Pandey, political analyst joins us. Saral Patel is Congress spokesperson. We also have Dharmendra Yadav, SP spokesperson. This is nothing but an attempt to undermine our institutions and the narrative is not sticking. Saral Patel, your response to these criticisms coming in from the BJP. Madhav, I would like to begin with a popular quote of Mahatma Gandhi ji that the first they ridicule you, then they fight you and then you win. So let us understand the chronology. When Rahul Gandhi first raised the issue of vote-chori, BJP deployed its entire battery of union ministers and they said, you know, this is nothing but funny. They ridiculed that claims made by Rahul Gandhi. Then when the evidence within the EC emerged and the vote-chori came to the light again, The entire BJP is now out on the streets fighting and protecting the vote-chots. So next step, the next logical step is that we win. And how we win? We, by we I mean Indians win when Gyanesh Kumar Gupta resigns from his post on the behalf of the Bharatiya Janata Party and the entire country witness today that every Indian from the nook and corner of the country came to Delhi to register their protest, resistance against vote-chori. Despite all the tricks of the Bharatiya Janata Party, Delhi, what it witnessed today was historic. This was a historic sort of rally that we saw there. Radhika, I'd like to respond to Saral. And somewhere, I'm just looking dispassionately at what all "
+    },
+    {
+      "unit_id": "ST004",
+      "unit_type": "subtopic",
+      "title": "Rally Attendance and Crowd Size Debate",
+      "start": 775.152,
+      "end": 887.157,
+      "duration_seconds": 112.005,
+      "semantic_similarity_to_overall_topic": 0.5516,
+      "key_point_similarities": [
+        {
+          "key_point": "BJP's counter-strike dismissing the rally as a flop show and raising historical context like the 1984 anti-Sikh riots",
+          "cosine_similarity": 0.5867
+        },
+        {
+          "key_point": "Opposition protest at Ramlila Maidan and Rahul Gandhi's allegations of systemic 'vote-chori'",
+          "cosine_similarity": 0.5211
+        },
+        {
+          "key_point": "Debate over electoral integrity, the functioning of the Election Commission, and voting rights",
+          "cosine_similarity": 0.3509
+        }
+      ],
+      "top_two_key_point_similarity": 0.5539,
+      "weighted_cosine_alignment": 0.5528,
+      "alignment_score": 55.28,
+      "classification": "aligned",
+      "speakers": [
+        "SPEAKER_02",
+        "SPEAKER_08"
+      ],
+      "text_source": "merge_final.segments",
+      "evidence_excerpt": "Rally Attendance and Crowd Size Debate. The discussion shifts from the allegations of vote tampering to questions raised about the turnout, crowd size, and success of the opposition's Ramlila Maidan protest rally.. So, why did the people not turn up in the rally? Why there was only 25,000 people there and half of the chairs empty? Why were people leaving when the Raoul Gandhi was in the midst of his speech? Why was Khadgeji telling, I mean, this is a super flop rally today. I think anything that the opposition has learned today, that Modi will not go anywhere. Because if you, with your all strength, You can't feel Ram Leela Maidan, which has a 5,000 strength. How do you move a person which has a 1.4 billion people standing behind him? Like, how do you even say, I think Rahul Gandhi did not turn up, and I'll prove it to you why. There are 800 jilas, you know, districts. The Congress has got jila parishans, adyaks. If one adyaks would have got four people, only four, you just divide and then the whole thing will have fulfilled up. The entire 44,000 people would have turned up. but nothing. So even the car did not believe him. What happened to Achille Shado Achille Shado gave Achille Shado gave the speech went away before Rahul Gandhi even given came to the dais to speak. So what does this talk about? It talks about that this whole rhetoric of vote Jory and all that when you can't win an MLC election in your state in the state ruled by Congress party in Karnataka itself. The people know that he's the If you start doing that, people will associate BJP with other media and I don't think that's the route to go. There are certain very basic questions. Everyone has a right to protest in our country. We are a democracy. Everyone has a right to raise those questions. I don't thin"
+    }
+  ],
+  "drift_events": [],
+  "summary": {
+    "units_analysed": 4,
+    "aligned_units": 4,
+    "partially_aligned_units": 0,
+    "possible_drift_units": 0,
+    "drift_events": 0,
+    "analysis_mode": "subtopic_level"
+  }
+}

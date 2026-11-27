@@ -1,0 +1,1115 @@
+{
+  "schema_version": "subtopic-analysis-1.0",
+  "video_id": "rAFhQSMU69A",
+  "variant": "threshold_5.0",
+  "source_files": {
+    "transcript": "/home/user/MTP/Code/television-discourse-decoded-hindi/data/v2/debate_only/videos/rAFhQSMU69A/threshold_5.0/merge_final.json",
+    "overall_topic": "/home/user/MTP/Code/television-discourse-decoded-hindi/data/v2/debate_only/overall_topic/threshold_5.0/rAFhQSMU69A/overall_topic.json"
+  },
+  "configuration": {
+    "method": "hybrid_semantic_similarity_and_llm_verification",
+    "chunk_duration_minutes": 5.0,
+    "overlap_minutes": 1.0,
+    "semantic_unit_seconds": 30.0,
+    "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "semantic_similarity_threshold": 0.55,
+    "gemini_model": "gemini-3.5-flash-lite",
+    "brief_deviations": "merged_into_surrounding_subtopic"
+  },
+  "overall_topic": {
+    "topic": "Sam Pitroda's Praise for Prime Minister Modi and Political Civility",
+    "description": "A televised debate examining Sam Pitroda's praise for Prime Minister Narendra Modi, the internal reactions and tensions within the Congress party, and broader discussions on political civility, personal animosity, and Sonia Gandhi's memoir."
+  },
+  "chunks": [
+    {
+      "chunk_id": "C001",
+      "start": 0.0,
+      "end": 300.0,
+      "segment_count": 47
+    },
+    {
+      "chunk_id": "C002",
+      "start": 240.0,
+      "end": 540.0,
+      "segment_count": 37
+    },
+    {
+      "chunk_id": "C003",
+      "start": 480.0,
+      "end": 780.0,
+      "segment_count": 70
+    },
+    {
+      "chunk_id": "C004",
+      "start": 720.0,
+      "end": 1020.0,
+      "segment_count": 57
+    },
+    {
+      "chunk_id": "C005",
+      "start": 960.0,
+      "end": 1260.0,
+      "segment_count": 49
+    },
+    {
+      "chunk_id": "C006",
+      "start": 1200.0,
+      "end": 1500.0,
+      "segment_count": 75
+    },
+    {
+      "chunk_id": "C007",
+      "start": 1440.0,
+      "end": 1740.0,
+      "segment_count": 47
+    },
+    {
+      "chunk_id": "C008",
+      "start": 1680.0,
+      "end": 1980.0,
+      "segment_count": 53
+    },
+    {
+      "chunk_id": "C009",
+      "start": 1920.0,
+      "end": 2220.0,
+      "segment_count": 75
+    },
+    {
+      "chunk_id": "C010",
+      "start": 2160.0,
+      "end": 2394.101,
+      "segment_count": 48
+    }
+  ],
+  "boundary_analysis": {
+    "embedding": {
+      "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+      "unit_duration_seconds": null,
+      "units": 80,
+      "similarity_threshold": 0.55,
+      "minimum_candidate_gap_seconds": 45.0,
+      "candidate_count": 31
+    },
+    "candidates": [
+      {
+        "candidate_id": "B0001",
+        "candidate_time": 30.0,
+        "semantic_similarity": 0.37785154581069946,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The anchor is still part of the anchor's opening monologue introducing the topic of Sam Pitroda's praise for Prime Minister Modi, setting up the context and background before moving to a new section.",
+        "confidence": 0.95
+      },
+      {
+        "candidate_id": "B0002",
+        "candidate_time": 90.0,
+        "semantic_similarity": 0.4269280731678009,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The anchor continues to detail Sam Pitroda's praise for Prime Minister Modi, elaborating on the specific compliments and reactions as part of the introduction of the main topic.",
+        "confidence": 0.95
+      },
+      {
+        "candidate_id": "B0003",
+        "candidate_time": 150.0,
+        "semantic_similarity": 0.3295248746871948,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The discussion continues to expand on the theme of political civility and public interactions, moving smoothly from Sam Pitroda's exchange with PM Modi on social media to Modi's similar warmth at the BJP's Diwali Milan event, all part of the same overarching discussion angle about public civility vs. political rivalry.",
+        "confidence": 0.85
+      },
+      {
+        "candidate_id": "B0004",
+        "candidate_time": 210.0,
+        "semantic_similarity": 0.4623125195503235,
+        "decision": "new_subtopic",
+        "boundary_time": 211.917,
+        "title": "Sonia Gandhi's Memoir and Personal Distance with Modi",
+        "description": "The discussion shifts from general political civility and PM Modi's interactions with journalists to Sonia Gandhi's newly released memoir, which describes a lack of real conversation and personal distance between her and Prime Minister Modi.",
+        "reason": "The speaker explicitly introduces a new angle contrasting the previously discussed political warmth with Sonia Gandhi's portrayal of personal distance in her memoir.",
+        "confidence": 0.95
+      },
+      {
+        "candidate_id": "B0005",
+        "candidate_time": 270.0,
+        "semantic_similarity": 0.4641052484512329,
+        "decision": "new_subtopic",
+        "boundary_time": 277.433,
+        "title": "Modi's History of Personal Courtesies with Political Adversaries",
+        "description": "The discussion shifts to examine historical examples of Prime Minister Modi showing personal courtesy and cordiality towards various political rivals, such as Manmohan Singh, Ghulam Nabi Azad, Sharad Pawar, and Rahul Gandhi.",
+        "reason": "The anchor transitions from discussing Sam Pitroda and opposition reactions to a broader, distinct theme focusing on Modi's past instances of political civility and personal respect toward rival leaders.",
+        "confidence": 0.92
+      },
+      {
+        "candidate_id": "B0006",
+        "candidate_time": 360.0,
+        "semantic_similarity": 0.5172475576400757,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The speaker is continuing a sequence of examples illustrating Prime Minister Narendra Modi's personal courtesies toward political opponents across different occasions, which is part of the broader discussion on political civility.",
+        "confidence": 0.9
+      },
+      {
+        "candidate_id": "B0007",
+        "candidate_time": 420.0,
+        "semantic_similarity": 0.4614279866218567,
+        "decision": "new_subtopic",
+        "boundary_time": 411.465,
+        "title": "BJP's counter-argument on Congress's personal attacks",
+        "description": "The discussion shifts from instances of political courtesy and Modi's humility to the BJP's allegations regarding the Congress party's history of personal attacks and harsh slogans against the Prime Minister.",
+        "reason": "The anchor explicitly transitions the segment from discussing Prime Minister Modi's personal courtesy to examining the opposing side of the debate: the BJP's pointing out of bitter personal attacks and slogans by the Congress party.",
+        "confidence": 0.95
+      },
+      {
+        "candidate_id": "B0008",
+        "candidate_time": 480.0,
+        "semantic_similarity": 0.48642057180404663,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The anchor is still framing the central debate question regarding Sam Pitroda's praise for Prime Minister Modi and its implications for the Congress party, following the previous montage of personal attacks. This is part of the ongoing introductory setup and transition to the panel discussion rather than a new subtopic.",
+        "confidence": 0.95
+      },
+      {
+        "candidate_id": "B0009",
+        "candidate_time": 600.0,
+        "semantic_similarity": 0.17969870567321777,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The speaker is continuing his initial response regarding Sam Pitroda's comments, transitioning smoothly into a broader point about political civility and personal animosity within the same overall answer.",
+        "confidence": 0.9
+      },
+      {
+        "candidate_id": "B0010",
+        "candidate_time": 660.0,
+        "semantic_similarity": 0.5019108057022095,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The speaker continues the discussion on political civility, transitioning directly from Sam Pitroda's stance to examining the responsibility of the Prime Minister and instances of personal remarks in politics within the same overarching theme.",
+        "confidence": 0.9
+      },
+      {
+        "candidate_id": "B0011",
+        "candidate_time": 720.0,
+        "semantic_similarity": 0.44008374214172363,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The speaker is continuing their point about political discourse, civility, and examples of political attacks, building directly on the previous sentence without shifting to a new subtopic.",
+        "confidence": 0.95
+      },
+      {
+        "candidate_id": "B0012",
+        "candidate_time": 780.0,
+        "semantic_similarity": 0.32161885499954224,
+        "decision": "new_subtopic",
+        "boundary_time": 789.925,
+        "title": "Discussion on Sonia Gandhi's Memoir and Historical Inaccuracies",
+        "description": "The discussion shifts as the anchor invites a response from Sudhanshu Trivedi, who pivots from the debate on political civility to criticize claims and alleged inaccuracies in Sonia Gandhi's recent memoir regarding Mallikarjun Kharge's family and historical events.",
+        "reason": "The anchor explicitly directs the conversation to a new speaker (Sudhanshu Trivedi), who introduces a completely new line of argument regarding Sonia Gandhi's memoir and historical facts, moving away from the immediate discussion about Sam Pitroda and personal civility.",
+        "confidence": 0.88
+      },
+      {
+        "candidate_id": "B0013",
+        "candidate_time": 840.0,
+        "semantic_similarity": 0.24527081847190857,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The speaker continues his response addressing the ideological differences mentioned by Sanjay Jha, moving from a critique of Sonia Gandhi's book directly into a discussion on Sam Pitroda's ideology and statements, which is part of the ongoing debate topic.",
+        "confidence": 0.85
+      },
+      {
+        "candidate_id": "B0014",
+        "candidate_time": 900.0,
+        "semantic_similarity": 0.4342625141143799,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The speaker continues the discussion on Sam Pitroda's controversial past remarks and contrasts them with broader ideological perspectives on Indian civilization and history, maintaining the same conversational thread without introducing a truly distinct new subtopic.",
+        "confidence": 0.85
+      },
+      {
+        "candidate_id": "B0015",
+        "candidate_time": 990.0,
+        "semantic_similarity": 0.31097856163978577,
+        "decision": "new_subtopic",
+        "boundary_time": 995.047,
+        "title": "Political Courtesies and Personal Animosity",
+        "description": "Discussion transitions from ideological arguments to the specific issue of political courtesies, touching upon Sonia Gandhi's memoir regarding Prime Minister Modi's lack of eye contact and interaction with opposition leaders.",
+        "reason": "The speaker shifts the discussion from a historical/ideological defense of Prime Minister Modi's work ethic to a completely new angle: political niceties, personal interactions, and Sonia Gandhi's claims in her book about the Prime Minister not maintaining eye contact.",
+        "confidence": 0.95
+      },
+      {
+        "candidate_id": "B0016",
+        "candidate_time": 1050.0,
+        "semantic_similarity": 0.37218019366264343,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The anchor point at 1050.0 seconds represents the continuation of the discussion regarding political civility, Sonia Gandhi's claims of lack of eye contact and courtesies from the Prime Minister, and panel responses to these allegations. It is part of the ongoing subtopic segment and not a new subtopic.",
+        "confidence": 0.95
+      },
+      {
+        "candidate_id": "B0017",
+        "candidate_time": 1110.0,
+        "semantic_similarity": 0.46869876980781555,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The discussion continues to focus on political civility, personal remarks, and the lack of eye contact between political rivals, maintaining the same underlying subtopic.",
+        "confidence": 0.85
+      },
+      {
+        "candidate_id": "B0018",
+        "candidate_time": 1200.0,
+        "semantic_similarity": 0.4406057596206665,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The speaker continues the same extended argument contrasting political civility shown by Prime Minister Modi with actions and statements by Sonia Gandhi and the Congress party, making the segment a direct continuation of the previous point.",
+        "confidence": 0.95
+      },
+      {
+        "candidate_id": "B0019",
+        "candidate_time": 1260.0,
+        "semantic_similarity": 0.4552565813064575,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The speaker continues the same argument and examples regarding political civility, historical rhetoric, and Sonia Gandhi's book without shifting to a new subtopic.",
+        "confidence": 0.95
+      },
+      {
+        "candidate_id": "B0020",
+        "candidate_time": 1320.0,
+        "semantic_similarity": 0.5114849209785461,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The discussion remains focused on the perceived lack of political courtesy between Prime Minister Modi and Sonia Gandhi, building directly on the anchor's prompt about Sonia Gandhi's memoir and mutual mistrust.",
+        "confidence": 0.95
+      },
+      {
+        "candidate_id": "B0021",
+        "candidate_time": 1470.0,
+        "semantic_similarity": 0.2745552062988281,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The speaker is continuing the exact same thread about political memoirs, leaders writing books, and Sonia Gandhi's historical role and book, without shifting to a new subtopic.",
+        "confidence": 0.95
+      },
+      {
+        "candidate_id": "B0022",
+        "candidate_time": 1530.0,
+        "semantic_similarity": 0.3778385519981384,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The discussion remains on Sonia Gandhi's role, her memoirs, and her power relative to the Prime Minister during the UPA era, directly continuing the previous point without shifting to a new topic.",
+        "confidence": 0.9
+      },
+      {
+        "candidate_id": "B0023",
+        "candidate_time": 1620.0,
+        "semantic_similarity": 0.4229171872138977,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The discussion remains focused on Sonia Gandhi's memoir, the controversies within it, and historical power dynamics, continuing the same overarching subtopic before shifting to a different speaker.",
+        "confidence": 0.85
+      },
+      {
+        "candidate_id": "B0024",
+        "candidate_time": 1740.0,
+        "semantic_similarity": 0.25571200251579285,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The anchor point marks the transition to a new speaker (Anand Ranganathan) addressing the central theme of political civility, Sam Pitroda's comments, and the Congress party's historical reactions to leaders praising Modi. This is a direct continuation of the overarching discussion rather than a new subtopic.",
+        "confidence": 0.9
+      },
+      {
+        "candidate_id": "B0025",
+        "candidate_time": 1800.0,
+        "semantic_similarity": 0.44687336683273315,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The speaker continues the same argument regarding political civility, Congress leaders praising Modi, and the party's history of penalizing those who do so, without shifting to a new core topic.",
+        "confidence": 0.95
+      },
+      {
+        "candidate_id": "B0026",
+        "candidate_time": 1920.0,
+        "semantic_similarity": 0.23350200057029724,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The discussion continues to center around political rhetoric, media interviews, Sam Pitroda's controversial statements, and mutual accusations between political sides, maintaining the same conversational flow.",
+        "confidence": 0.85
+      },
+      {
+        "candidate_id": "B0027",
+        "candidate_time": 2010.0,
+        "semantic_similarity": 0.3522792160511017,
+        "decision": "new_subtopic",
+        "boundary_time": 2011.973,
+        "title": "Political Civility and Mutual Accusations of Abusive Language",
+        "description": "The discussion pivots from Sam Pitroda and media interviews to a broader debate on political civility, exchanging accusations of harsh remarks, personal attacks, and lack of courtesies between political leaders.",
+        "reason": "",
+        "confidence": 0.85
+      },
+      {
+        "candidate_id": "B0028",
+        "candidate_time": 2070.0,
+        "semantic_similarity": 0.49922609329223633,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The discussion about political civility and accusations exchanged between parties smoothly transitions into a debate over Sonia Gandhi's memoir regarding courtesies extended to her by the Prime Minister, which remains part of the same overarching theme of political animosity and civility.",
+        "confidence": 0.85
+      },
+      {
+        "candidate_id": "B0029",
+        "candidate_time": 2220.0,
+        "semantic_similarity": 0.3575688302516937,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The speaker is directly responding to the previous moderator/panelist prompt comparing how leaders interact with the press and political rhetoric, continuing the ongoing discussion on political civility and criticism without shifting to a new topic.",
+        "confidence": 0.95
+      },
+      {
+        "candidate_id": "B0030",
+        "candidate_time": 2310.0,
+        "semantic_similarity": 0.4357731342315674,
+        "decision": "new_subtopic",
+        "boundary_time": 2314.186,
+        "title": "Concluding Remarks and Social Media Poll on Sam Pitroda",
+        "description": "The anchor hands over time to Anand Ranganathan and presents the results of a social media poll regarding Sam Pitroda's praise for Prime Minister Modi, followed by closing comments on the debate topic.",
+        "reason": "The discussion shifts from the back-and-forth political accusations to a concluding segment featuring a final panelist response, a social media poll result presentation, and wrap-up remarks by the anchor.",
+        "confidence": 0.88
+      },
+      {
+        "candidate_id": "B0031",
+        "candidate_time": 2370.0,
+        "semantic_similarity": 0.41420668363571167,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The discussion remains on the same poll/survey results regarding Sam Pitroda and concludes the segment with final remarks.",
+        "confidence": 0.9
+      }
+    ],
+    "counts": {
+      "continuation": 24,
+      "new_subtopic": 7
+    }
+  },
+  "subtopics": [
+    {
+      "subtopic_id": "ST001",
+      "title": "Opening discussion",
+      "start": 0.0,
+      "end": 211.917,
+      "duration_seconds": 211.917,
+      "description": null,
+      "speakers": [
+        "SPEAKER_00",
+        "SPEAKER_04",
+        "SPEAKER_07"
+      ],
+      "evidence": [
+        {
+          "start": 2.113,
+          "end": 3.854,
+          "speaker_id": "SPEAKER_00",
+          "text": "Make it every moment."
+        },
+        {
+          "start": 5.935,
+          "end": 7.635,
+          "speaker_id": "SPEAKER_00",
+          "text": "Speak your language, Keshri."
+        },
+        {
+          "start": 36.099,
+          "end": 36.58,
+          "speaker_id": "SPEAKER_04",
+          "text": "At a time"
+        },
+        {
+          "start": 84.138,
+          "end": 89.421,
+          "speaker_id": "SPEAKER_04",
+          "text": "He has now showered lavish praise on Prime Minister Narendra Modi."
+        },
+        {
+          "start": 110.715,
+          "end": 111.516,
+          "speaker_id": "SPEAKER_04",
+          "text": "Don't believe us?"
+        },
+        {
+          "start": 132.326,
+          "end": 134.907,
+          "speaker_id": "SPEAKER_04",
+          "text": "Praying for a joyful and healthy year ahead."
+        },
+        {
+          "start": 145.53,
+          "end": 150.051,
+          "speaker_id": "SPEAKER_04",
+          "text": "And the Prime Minister promptly replied, aapko bhi Happy Diwali, Mihir Bhai."
+        },
+        {
+          "start": 160.833,
+          "end": 176.838,
+          "speaker_id": "SPEAKER_04",
+          "text": "From political adversaries to old acquaintances, a reminder that political equations may change, ideological battles may intensify, but personal relationships and courtesies need not become casualties of political rivalry."
+        },
+        {
+          "start": 183.0,
+          "end": 185.621,
+          "speaker_id": "SPEAKER_07",
+          "text": "They had a lot of strength."
+        },
+        {
+          "start": 192.884,
+          "end": 193.965,
+          "speaker_id": "SPEAKER_07",
+          "text": "You didn't give me sweets."
+        },
+        {
+          "start": 197.85,
+          "end": 198.511,
+          "speaker_id": "SPEAKER_07",
+          "text": "I said, I don't know."
+        },
+        {
+          "start": 204.389,
+          "end": 211.557,
+          "speaker_id": "SPEAKER_04",
+          "text": "Sonia Gandhi in her newly released memoir has presented a strikingly different portrait of Narendra Modi."
+        }
+      ]
+    },
+    {
+      "subtopic_id": "ST002",
+      "title": "Sonia Gandhi's Memoir and Personal Distance with Modi",
+      "start": 211.917,
+      "end": 277.433,
+      "duration_seconds": 65.516,
+      "description": "The discussion shifts from general political civility and PM Modi's interactions with journalists to Sonia Gandhi's newly released memoir, which describes a lack of real conversation and personal distance between her and Prime Minister Modi.",
+      "speakers": [
+        "SPEAKER_00",
+        "SPEAKER_04"
+      ],
+      "evidence": [
+        {
+          "start": 211.917,
+          "end": 218.944,
+          "speaker_id": "SPEAKER_04",
+          "text": "She claims that despite over 12 years of his prime ministership, they have had practically no real conversation."
+        },
+        {
+          "start": 219.325,
+          "end": 225.031,
+          "speaker_id": "SPEAKER_04",
+          "text": "That when they come face to face, the prime minister offers a formal namaste but avoids eye contact."
+        },
+        {
+          "start": 225.411,
+          "end": 230.992,
+          "speaker_id": "SPEAKER_04",
+          "text": "But since when did political courtesy come with an obligation of personal attention?"
+        },
+        {
+          "start": 231.152,
+          "end": 240.955,
+          "speaker_id": "SPEAKER_04",
+          "text": "Sonia Gandhi speaks of distance while her family's longtime confidant Sam Petroda speaks of warmth, affection and mutual respect."
+        },
+        {
+          "start": 241.335,
+          "end": 255.038,
+          "speaker_id": "SPEAKER_04",
+          "text": "And if that contrast wasn't striking enough, Petroda's praise has now sparked a backlash within the opposition itself with a Congress leader who's even speculating about his political loyalty."
+        },
+        {
+          "start": 255.868,
+          "end": 260.696,
+          "speaker_id": "SPEAKER_00",
+          "text": "We don't live in this country, so we don't know what's going on there."
+        },
+        {
+          "start": 261.116,
+          "end": 264.542,
+          "speaker_id": "SPEAKER_00",
+          "text": "That's why they must have said that they are thinking of killing us."
+        },
+        {
+          "start": 268.747,
+          "end": 276.933,
+          "speaker_id": "SPEAKER_04",
+          "text": "This is what even alliance partners are talking about Sam Petroda, a man so close to Mr Rahul Gandhi's heart."
+        }
+      ]
+    },
+    {
+      "subtopic_id": "ST003",
+      "title": "Modi's History of Personal Courtesies with Political Adversaries",
+      "start": 277.433,
+      "end": 411.465,
+      "duration_seconds": 134.032,
+      "description": "The discussion shifts to examine historical examples of Prime Minister Modi showing personal courtesy and cordiality towards various political rivals, such as Manmohan Singh, Ghulam Nabi Azad, Sharad Pawar, and Rahul Gandhi.",
+      "speakers": [
+        "SPEAKER_04",
+        "SPEAKER_07"
+      ],
+      "evidence": [
+        {
+          "start": 277.433,
+          "end": 285.899,
+          "speaker_id": "SPEAKER_04",
+          "text": "But this is hardly the first time Prime Minister Narendra Modi has demonstrated that political differences need not come in the way of personal courtesies."
+        },
+        {
+          "start": 286.319,
+          "end": 294.125,
+          "speaker_id": "SPEAKER_04",
+          "text": "Remember his warm interaction with former Prime Minister Dr. Manmohan Singh at the inauguration of the Kartarpur Sahib corridor."
+        },
+        {
+          "start": 301.035,
+          "end": 310.118,
+          "speaker_id": "SPEAKER_04",
+          "text": "honoring the position of a former prime minister or that emotional farewell to congress veteran Ghulam Nabi Azad in parliament itself."
+        },
+        {
+          "start": 310.478,
+          "end": 318.78,
+          "speaker_id": "SPEAKER_04",
+          "text": "Modi broke down, wiped his tears and saluted Azad recalling their decades-old association when Gujarati"
+        },
+        {
+          "start": 328.782,
+          "end": 332.945,
+          "speaker_id": "SPEAKER_04",
+          "text": "Then there was that small but telling gesture towards Sharad Pawar."
+        },
+        {
+          "start": 333.265,
+          "end": 337.988,
+          "speaker_id": "SPEAKER_04",
+          "text": "The Prime Minister helped the veteran leader with his chair and poured water for him."
+        },
+        {
+          "start": 342.61,
+          "end": 349.095,
+          "speaker_id": "SPEAKER_04",
+          "text": "And even with Rahul Gandhi, his fiercest political rival, Modi has shared moments of cordiality."
+        },
+        {
+          "start": 349.335,
+          "end": 369.151,
+          "speaker_id": "SPEAKER_04",
+          "text": "Remember their candid interaction at Prerna's Thal in Parliament, when they shared a lighter moment away from the political battlefield, and after Operation Sindoor when the Prime Minister reached out to leaders across party lines, meeting members of all party delegations who had taken India's message against terrorism to the world,"
+        },
+        {
+          "start": 384.843,
+          "end": 386.784,
+          "speaker_id": "SPEAKER_07",
+          "text": "Whoever made me win, taught me to be humble."
+        },
+        {
+          "start": 388.225,
+          "end": 390.927,
+          "speaker_id": "SPEAKER_07",
+          "text": "Whoever made me fall, taught me"
+        },
+        {
+          "start": 399.336,
+          "end": 401.8,
+          "speaker_id": "SPEAKER_07",
+          "text": "The good thinkers encouraged me."
+        },
+        {
+          "start": 401.82,
+          "end": 406.328,
+          "speaker_id": "SPEAKER_07",
+          "text": "And the bad thinkers taught me to look inside myself."
+        }
+      ]
+    },
+    {
+      "subtopic_id": "ST004",
+      "title": "BJP's counter-argument on Congress's personal attacks",
+      "start": 411.465,
+      "end": 789.925,
+      "duration_seconds": 378.46,
+      "description": "The discussion shifts from instances of political courtesy and Modi's humility to the BJP's allegations regarding the Congress party's history of personal attacks and harsh slogans against the Prime Minister.",
+      "speakers": [
+        "SPEAKER_03",
+        "SPEAKER_04"
+      ],
+      "evidence": [
+        {
+          "start": 411.465,
+          "end": 415.749,
+          "speaker_id": "SPEAKER_04",
+          "text": "Now let's take a look at the other side of this debate on political courtesies."
+        },
+        {
+          "start": 485.712,
+          "end": 487.093,
+          "speaker_id": "SPEAKER_04",
+          "text": "Well, that's the question."
+        },
+        {
+          "start": 536.927,
+          "end": 540.349,
+          "speaker_id": "SPEAKER_04",
+          "text": "Well Sanjay Jha, Sam Petroda came to"
+        },
+        {
+          "start": 561.375,
+          "end": 572.527,
+          "speaker_id": "SPEAKER_04",
+          "text": "For this comment, even if he was not ousted for the comments where he literally through his racist analogies divided India into various parts."
+        },
+        {
+          "start": 593.366,
+          "end": 597.147,
+          "speaker_id": "SPEAKER_03",
+          "text": "He's going to be amused because I know Sam very well."
+        },
+        {
+          "start": 623.792,
+          "end": 625.093,
+          "speaker_id": "SPEAKER_03",
+          "text": "Is there anything personal?"
+        },
+        {
+          "start": 635.395,
+          "end": 637.335,
+          "speaker_id": "SPEAKER_03",
+          "text": "The point is, this is not personal."
+        },
+        {
+          "start": 670.357,
+          "end": 672.378,
+          "speaker_id": "SPEAKER_03",
+          "text": "Let's talk about the Gandhis here, Navika."
+        },
+        {
+          "start": 703.74,
+          "end": 705.021,
+          "speaker_id": "SPEAKER_04",
+          "text": "They forgave them as well."
+        },
+        {
+          "start": 753.78,
+          "end": 754.241,
+          "speaker_id": "SPEAKER_03",
+          "text": "No, no, no."
+        },
+        {
+          "start": 769.232,
+          "end": 769.493,
+          "speaker_id": "SPEAKER_04",
+          "text": "No, no."
+        },
+        {
+          "start": 781.241,
+          "end": 784.863,
+          "speaker_id": "SPEAKER_04",
+          "text": "But maybe Sudhanshu Trivediji, do you want to respond to Sanjay Jha?"
+        }
+      ]
+    },
+    {
+      "subtopic_id": "ST005",
+      "title": "Discussion on Sonia Gandhi's Memoir and Historical Inaccuracies",
+      "start": 789.925,
+      "end": 995.047,
+      "duration_seconds": 205.122,
+      "description": "The discussion shifts as the anchor invites a response from Sudhanshu Trivedi, who pivots from the debate on political civility to criticize claims and alleged inaccuracies in Sonia Gandhi's recent memoir regarding Mallikarjun Kharge's family and historical events.",
+      "speakers": [
+        "SPEAKER_08"
+      ],
+      "evidence": [
+        {
+          "start": 789.925,
+          "end": 798.709,
+          "speaker_id": "SPEAKER_08",
+          "text": "Sanjay Jhaji was saying that definitely the animosity is not at the personal level, but there is a strong and starking difference at the ideological level."
+        },
+        {
+          "start": 813.986,
+          "end": 819.591,
+          "speaker_id": "SPEAKER_08",
+          "text": "It was during the partition, division rights in Hyderabad."
+        },
+        {
+          "start": 852.555,
+          "end": 861.497,
+          "speaker_id": "SPEAKER_08",
+          "text": "Because they go to that extent on 16th, 6th of December, 1992, she said that she was watching on the live telecast."
+        },
+        {
+          "start": 866.178,
+          "end": 866.878,
+          "speaker_id": "SPEAKER_08",
+          "text": "There is a difference."
+        },
+        {
+          "start": 882.042,
+          "end": 883.863,
+          "speaker_id": "SPEAKER_08",
+          "text": "And the Eastern Indian comes from China."
+        },
+        {
+          "start": 897.507,
+          "end": 903.329,
+          "speaker_id": "SPEAKER_08",
+          "text": "Sar zameen-e Hind par Aqwaam-e-Aalam ke firak, kafile bastey gaye Hindostan banta gaya."
+        },
+        {
+          "start": 909.332,
+          "end": 910.092,
+          "speaker_id": "SPEAKER_08",
+          "text": "And ours says,"
+        },
+        {
+          "start": 914.349,
+          "end": 917.233,
+          "speaker_id": "SPEAKER_08",
+          "text": "What Arabs have written in 10th century, 11th century about India."
+        },
+        {
+          "start": 926.404,
+          "end": 928.706,
+          "speaker_id": "SPEAKER_08",
+          "text": "Look at what the Europeans have written."
+        },
+        {
+          "start": 951.975,
+          "end": 956.66,
+          "speaker_id": "SPEAKER_08",
+          "text": "In old Chinese, the name of the India is Tianzhu, the center of heaven."
+        },
+        {
+          "start": 961.045,
+          "end": 966.51,
+          "speaker_id": "SPEAKER_08",
+          "text": "We believe in Ek Bharat Srest Bharat and we are the fountainhead of India's civilization, world civilization."
+        },
+        {
+          "start": 974.78,
+          "end": 994.427,
+          "speaker_id": "SPEAKER_08",
+          "text": "Ultimately, the hard life of Prime Minister Narendra Modi, which he has said seven or eight years back during his foreign tour, when it was asked how much energy you get, you work for 24 hours without taking even a leave of single day, Modiji replied,"
+        }
+      ]
+    },
+    {
+      "subtopic_id": "ST006",
+      "title": "Political Courtesies and Personal Animosity",
+      "start": 995.047,
+      "end": 2011.973,
+      "duration_seconds": 1016.926,
+      "description": "Discussion transitions from ideological arguments to the specific issue of political courtesies, touching upon Sonia Gandhi's memoir regarding Prime Minister Modi's lack of eye contact and interaction with opposition leaders.",
+      "speakers": [
+        "SPEAKER_01",
+        "SPEAKER_02",
+        "SPEAKER_03",
+        "SPEAKER_04",
+        "SPEAKER_05",
+        "SPEAKER_06",
+        "SPEAKER_08"
+      ],
+      "evidence": [
+        {
+          "start": 995.047,
+          "end": 1017.299,
+          "speaker_id": "SPEAKER_04",
+          "text": "Well true, when you are expecting political niceties, Sanjay Jha, I want to ask you, Sonia Gandhi writes in her book, she says there are no courtesies extended by the Prime Minister to her and she even mentions that he doesn't maintain eye contact."
+        },
+        {
+          "start": 1095.361,
+          "end": 1101.323,
+          "speaker_id": "SPEAKER_03",
+          "text": "And I think it's hurt the entire opposition, you know, putting opposition in jail on framed charges and fabricated charges."
+        },
+        {
+          "start": 1227.036,
+          "end": 1227.196,
+          "speaker_id": "SPEAKER_06",
+          "text": "What?"
+        },
+        {
+          "start": 1282.267,
+          "end": 1295.91,
+          "speaker_id": "SPEAKER_06",
+          "text": "Unfortunately, this is when you read the book, it becomes very clear where this entire, you know, noblesse oblige this sort of notion of less majesty that Sonia Gandhi has about her and her relevance and her standing and all of that."
+        },
+        {
+          "start": 1365.504,
+          "end": 1369.044,
+          "speaker_id": "SPEAKER_02",
+          "text": "Everything wrong with this country has been laid at the door of Nehru."
+        },
+        {
+          "start": 1435.13,
+          "end": 1443.833,
+          "speaker_id": "SPEAKER_04",
+          "text": "I think as a senior in the profession, we always looked up to you for covering the Congress party."
+        },
+        {
+          "start": 1493.062,
+          "end": 1494.083,
+          "speaker_id": "SPEAKER_02",
+          "text": "It becomes the truth."
+        },
+        {
+          "start": 1598.735,
+          "end": 1608.583,
+          "speaker_id": "SPEAKER_06",
+          "text": "It is Sonia Gandhi sitting next to the Prime Minister of Bangladesh and the elected Prime Minister of the country is sitting in a subservient position."
+        },
+        {
+          "start": 1761.875,
+          "end": 1769.584,
+          "speaker_id": "SPEAKER_05",
+          "text": "I fail to understand where do these congresses and darbaris and Sonia Gandhi and others get this sense of entitlement from."
+        },
+        {
+          "start": 1854.122,
+          "end": 1855.502,
+          "speaker_id": "SPEAKER_05",
+          "text": "Of course, Sonia Gandhi has given interview."
+        },
+        {
+          "start": 1944.588,
+          "end": 1947.39,
+          "speaker_id": "SPEAKER_01",
+          "text": "But we still follow the same constitution and we are loyal to this nation."
+        },
+        {
+          "start": 2001.484,
+          "end": 2011.893,
+          "speaker_id": "SPEAKER_04",
+          "text": "And when we are asked questions, well, in the last interview with the prime minister before the elections, I even asked him the question about Ravana."
+        }
+      ]
+    },
+    {
+      "subtopic_id": "ST007",
+      "title": "Political Civility and Mutual Accusations of Abusive Language",
+      "start": 2011.973,
+      "end": 2314.186,
+      "duration_seconds": 302.213,
+      "description": "The discussion pivots from Sam Pitroda and media interviews to a broader debate on political civility, exchanging accusations of harsh remarks, personal attacks, and lack of courtesies between political leaders.",
+      "speakers": [
+        "SPEAKER_03",
+        "SPEAKER_04",
+        "SPEAKER_06",
+        "SPEAKER_08"
+      ],
+      "evidence": [
+        {
+          "start": 2011.973,
+          "end": 2014.435,
+          "speaker_id": "SPEAKER_04",
+          "text": "That was the raging controversy about it."
+        },
+        {
+          "start": 2043.881,
+          "end": 2044.402,
+          "speaker_id": "SPEAKER_03",
+          "text": "Who did that?"
+        },
+        {
+          "start": 2052.125,
+          "end": 2052.866,
+          "speaker_id": "SPEAKER_04",
+          "text": "Who said that?"
+        },
+        {
+          "start": 2078.912,
+          "end": 2081.054,
+          "speaker_id": "SPEAKER_04",
+          "text": "She's not in a constitutional position."
+        },
+        {
+          "start": 2115.179,
+          "end": 2117.08,
+          "speaker_id": "SPEAKER_03",
+          "text": "So now you can't do it and I can't do it either."
+        },
+        {
+          "start": 2131.733,
+          "end": 2133.575,
+          "speaker_id": "SPEAKER_04",
+          "text": "He interacted with the press."
+        },
+        {
+          "start": 2173.053,
+          "end": 2176.654,
+          "speaker_id": "SPEAKER_04",
+          "text": "We were never ever allowed to come anywhere close to her."
+        },
+        {
+          "start": 2202.177,
+          "end": 2210.002,
+          "speaker_id": "SPEAKER_04",
+          "text": "In the opposition, the supporters of democracy and free speech have banned 16 journalists."
+        },
+        {
+          "start": 2233.492,
+          "end": 2235.153,
+          "speaker_id": "SPEAKER_08",
+          "text": "Ab jis jo hasi wale ne apne aap de liya."
+        },
+        {
+          "start": 2257.127,
+          "end": 2259.269,
+          "speaker_id": "SPEAKER_08",
+          "text": "Subodh Khan Sahay said, Hitler ki moth marega."
+        },
+        {
+          "start": 2291.797,
+          "end": 2292.978,
+          "speaker_id": "SPEAKER_08",
+          "text": "He said what is your caste?"
+        },
+        {
+          "start": 2313.086,
+          "end": 2313.906,
+          "speaker_id": "SPEAKER_04",
+          "text": "30 seconds."
+        }
+      ]
+    },
+    {
+      "subtopic_id": "ST008",
+      "title": "Concluding Remarks and Social Media Poll on Sam Pitroda",
+      "start": 2314.186,
+      "end": 2394.101,
+      "duration_seconds": 79.915,
+      "description": "The anchor hands over time to Anand Ranganathan and presents the results of a social media poll regarding Sam Pitroda's praise for Prime Minister Modi, followed by closing comments on the debate topic.",
+      "speakers": [
+        "SPEAKER_04",
+        "SPEAKER_05"
+      ],
+      "evidence": [
+        {
+          "start": 2314.186,
+          "end": 2332.201,
+          "speaker_id": "SPEAKER_05",
+          "text": "One of the reasons why Modiji is very courteous especially to the detractors who abuses because half the people who abuse Modi are now in BJP but one thing needs to be clarified which is that this Jersey Cow thing now you know Spike Millikan said sense of humor is no laughing matter."
+        },
+        {
+          "start": 2332.561,
+          "end": 2334.463,
+          "speaker_id": "SPEAKER_05",
+          "text": "Modi never called Sonia Gandhi that."
+        },
+        {
+          "start": 2335.023,
+          "end": 2342.689,
+          "speaker_id": "SPEAKER_05",
+          "text": "He was commenting that while in the 50s their calf and cow were a symbol of indigenous Indian's cows, now it is Jersey cow."
+        },
+        {
+          "start": 2342.989,
+          "end": 2349.734,
+          "speaker_id": "SPEAKER_05",
+          "text": "Well, we did a survey on social media and we asked the question, Sam praises Modi, even Rahul Gandhi loyalist does he turn a Modi fan?"
+        },
+        {
+          "start": 2363.123,
+          "end": 2365.945,
+          "speaker_id": "SPEAKER_04",
+          "text": "Well, 76% of the people say yes."
+        },
+        {
+          "start": 2366.445,
+          "end": 2369.407,
+          "speaker_id": "SPEAKER_04",
+          "text": "Well, no say 17%, can't say 8%."
+        },
+        {
+          "start": 2370.488,
+          "end": 2372.669,
+          "speaker_id": "SPEAKER_04",
+          "text": "Well, that's what people really think."
+        },
+        {
+          "start": 2373.409,
+          "end": 2380.994,
+          "speaker_id": "SPEAKER_04",
+          "text": "Every now and then we can take a little bit of a lighter wane on the politics of the day."
+        },
+        {
+          "start": 2381.154,
+          "end": 2388.399,
+          "speaker_id": "SPEAKER_04",
+          "text": "Sam Pitroda just gave us that opportunity, but many hard truths and realities in the subtext."
+        },
+        {
+          "start": 2388.92,
+          "end": 2389.746,
+          "speaker_id": "SPEAKER_04",
+          "text": "that we debated."
+        },
+        {
+          "start": 2389.766,
+          "end": 2394.101,
+          "speaker_id": "SPEAKER_04",
+          "text": "Thank you very much to all my panelists for joining me on debate number one."
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total_subtopics": 8,
+    "total_duration_seconds": 2394.101,
+    "candidate_boundaries": 31,
+    "verified_boundaries": 7
+  }
+}

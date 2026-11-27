@@ -22,7 +22,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_DATA_DIR = ROOT / "data" / "v2" / "debate_only" / "videos"
 DEFAULT_OUTPUT_DIR = ROOT / "data" / "v2" / "debate_only" / "overall_topic"
 VARIANTS = ("baseline", "threshold_0.5", "threshold_1.0", "threshold_2.0", "threshold_5.0")
-DEFAULT_MODEL = "gemini-2.5-flash"
+DEFAULT_MODEL = "gemini-3.8-flash-lite"
 API_ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={key}"
 
 WINDOW_SYSTEM_INSTRUCTIONS = """You analyse one time window from a televised debate.
@@ -104,29 +104,128 @@ def curated_metadata(metadata: dict[str, Any]) -> dict[str, Any]:
             "source_file": str(metadata.get("webpage_url") or "") or None}
 
 
-def call_gemini(api_key: str, model: str, instructions: str, payload: dict[str, Any], timeout: int = 90) -> dict[str, Any]:
+
+def call_gemini(
+    api_key: str,
+    model: str,
+    instructions: str,
+    payload: dict[str, Any],
+    timeout: int = 90,
+) -> dict[str, Any]:
+
     request = urllib.request.Request(
         API_ENDPOINT.format(model=model, key=api_key),
-        data=json.dumps({"systemInstruction": {"parts": [{"text": instructions}]},
-                         "contents": [{"role": "user", "parts": [{"text": json.dumps(payload, ensure_ascii=False)}]}],
-                         "generationConfig": {"temperature": 0.1, "responseMimeType": "application/json"}}, ensure_ascii=False).encode("utf-8"),
-        headers={"Content-Type": "application/json"}, method="POST")
-    last_error: Exception | None = None
-    for attempt in range(3):
+        data=json.dumps(
+            {
+                "systemInstruction": {
+                    "parts": [{"text": instructions}]
+                },
+                "contents": [
+                    {
+                        "role": "user",
+                        "parts": [
+                            {
+                                "text": json.dumps(
+                                    payload, ensure_ascii=False
+                                )
+                            }
+                        ],
+                    }
+                ],
+                "generationConfig": {
+                    "temperature": 0.1,
+                    "responseMimeType": "application/json",
+                },
+            },
+            ensure_ascii=False,
+        ).encode("utf-8"),
+        headers={"Content-Type": "application/json"},
+        method="POST",
+    )
+
+    max_attempts = 5
+    retryable_status_codes = {429, 500, 502, 503, 504}
+
+    for attempt in range(max_attempts):
+
         try:
-            with urllib.request.urlopen(request, timeout=timeout) as response:
-                raw = json.loads(response.read().decode("utf-8"))
-            text = "\n".join(part["text"] for candidate in raw.get("candidates", [])
-                             for part in candidate.get("content", {}).get("parts", []) if isinstance(part.get("text"), str))
+            with urllib.request.urlopen(
+                request, timeout=timeout
+            ) as response:
+                raw = json.loads(
+                    response.read().decode("utf-8")
+                )
+
+            candidates = raw.get("candidates", [])
+
+            text = "\n".join(
+                part["text"]
+                for candidate in candidates
+                for part in candidate.get("content", {}).get("parts", [])
+                if isinstance(part.get("text"), str)
+            )
+
+            if not text.strip():
+                raise RuntimeError(
+                    f"Gemini returned no text. Response: {raw}"
+                )
+
             result = json.loads(text)
+
             if not isinstance(result, dict):
-                raise ValueError("Gemini response JSON was not an object")
+                raise ValueError(
+                    "Gemini response JSON was not an object"
+                )
+
             return result
-        except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError, json.JSONDecodeError, ValueError) as exc:
-            last_error = exc
-            if attempt < 2:
-                time.sleep(2 ** attempt)
-    raise RuntimeError(f"Gemini request failed after 3 attempts: {last_error}")
+
+        except urllib.error.HTTPError as exc:
+
+            error_body = exc.read().decode(
+                "utf-8", errors="replace"
+            )
+
+            print(
+                f"Gemini HTTP {exc.code}: {error_body}",
+                file=sys.stderr,
+            )
+
+            if exc.code not in retryable_status_codes:
+                raise RuntimeError(
+                    f"Non-retryable Gemini HTTP {exc.code}: "
+                    f"{error_body}"
+                ) from exc
+
+            if attempt == max_attempts - 1:
+                raise RuntimeError(
+                    f"Gemini request failed after {max_attempts} "
+                    f"attempts. HTTP {exc.code}: {error_body}"
+                ) from exc
+
+        except (urllib.error.URLError, TimeoutError) as exc:
+
+            if attempt == max_attempts - 1:
+                raise RuntimeError(
+                    f"Gemini request failed after {max_attempts} "
+                    f"attempts: {exc}"
+                ) from exc
+
+            print(
+                f"Gemini connection error: {exc}",
+                file=sys.stderr,
+            )
+
+        delay = min(15 * (2 ** attempt), 120)
+
+        print(
+            f"Retrying Gemini in {delay} seconds "
+            f"(attempt {attempt + 2}/{max_attempts})...",
+            file=sys.stderr,
+        )
+
+        time.sleep(delay)
+
+    raise RuntimeError("Gemini request failed unexpectedly")
 
 
 def _evidence(value: Any, allowed: Iterable[dict[str, Any]]) -> list[dict[str, Any]]:

@@ -1,0 +1,84 @@
+{
+  "schema_version": "topic-drift-1.1",
+  "video_id": "MIHQIQeCM0Y",
+  "variant": "threshold_5.0",
+  "generated_at_utc": "2026-11-26T19:27:48.365579+00:00",
+  "overall_topic": {
+    "topic": "The Owaisi-Azad Alliance in Uttar Pradesh Elections",
+    "description": "A televised debate discussing the political implications, strategies, and potential electoral impact of the alliance formed between AIMIM (Asaduddin Owaisi) and Chandrasekhar Azad's Azad Samaj Party in Uttar Pradesh, focusing on whether they serve as a legitimate third front or merely act as opposition vote-cutters that benefit the ruling BJP.",
+    "key_discussion_points": [
+      "Whether the Owaisi-Azad alliance is a credible third front or an opposition vote-cutter and BJP proxy.",
+      "The impact of the new alliance on the Samajwadi Party's vote share and broader opposition dynamics.",
+      "Shifting voting trends and division of Muslim and Dalit votes among the BJP, Samajwadi Party, and the new alliance.",
+      "Past electoral performances of AIMIM and smaller parties in states like Bihar and Uttar Pradesh."
+    ]
+  },
+  "method": {
+    "name": "subtopic_to_overall_topic_embedding_alignment",
+    "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "analysis_mode": "subtopic_level",
+    "unit_text_source": "Full transcript segments within each subtopic interval; subtopic evidence is fallback only.",
+    "score_formula": "0.50 * cosine(unit, overall_topic+description) + 0.50 * mean(two highest cosine similarities between unit and individual key discussion points)",
+    "display_score": "alignment_score = max(0, weighted_cosine_alignment) * 100; scaled cosine index, not a percentage or probability",
+    "low_threshold": 20.0,
+    "high_threshold": 40.0,
+    "threshold_interpretation": "possible_drift < 20.0; partially_aligned >= 20.0 and < 40.0; aligned >= 40.0",
+    "minimum_sustained_drift_seconds": 90.0,
+    "sustained_drift_rule": "Consecutive possible_drift subtopics separated by no more than 30 seconds are grouped; event duration must meet the minimum sustained duration.",
+    "threshold_status": "provisional; manually calibrate before research claims",
+    "warning": "Scores are heuristic semantic-alignment indicators, not probabilities or validated accuracy. Low similarity is a candidate for review, not proof of drift."
+  },
+  "alignment_results": [
+    {
+      "unit_id": "ST001",
+      "unit_type": "subtopic",
+      "title": "Opening discussion",
+      "start": 0.0,
+      "end": 1744.448,
+      "duration_seconds": 1744.448,
+      "semantic_similarity_to_overall_topic": 0.5785,
+      "key_point_similarities": [
+        {
+          "key_point": "The impact of the new alliance on the Samajwadi Party's vote share and broader opposition dynamics.",
+          "cosine_similarity": 0.6134
+        },
+        {
+          "key_point": "Shifting voting trends and division of Muslim and Dalit votes among the BJP, Samajwadi Party, and the new alliance.",
+          "cosine_similarity": 0.5485
+        },
+        {
+          "key_point": "Past electoral performances of AIMIM and smaller parties in states like Bihar and Uttar Pradesh.",
+          "cosine_similarity": 0.5199
+        },
+        {
+          "key_point": "Whether the Owaisi-Azad alliance is a credible third front or an opposition vote-cutter and BJP proxy.",
+          "cosine_similarity": 0.5013
+        }
+      ],
+      "top_two_key_point_similarity": 0.5809,
+      "weighted_cosine_alignment": 0.5797,
+      "alignment_score": 57.97,
+      "classification": "aligned",
+      "speakers": [
+        "SPEAKER_00",
+        "SPEAKER_01",
+        "SPEAKER_02",
+        "SPEAKER_03",
+        "SPEAKER_04",
+        "SPEAKER_05",
+        "SPEAKER_06"
+      ],
+      "text_source": "merge_final.segments",
+      "evidence_excerpt": "Opening discussion. So what does this new political equation mean? Let's cut across to our panelists this evening. Joining me, Ashutosh Otha, political analyst, Varis Patan, spokesperson, AIMIM, Rajvath Setri, political analyst, Juhi Singh, spokesperson, Samajwadi Party, Tuhin Sinha, BJP national spokesperson. Let's begin with a party which stands to technically lose the most, Samajwadi Party. And Juhi Singh, what does this new equation mean for the Samajwadi Party? For us, asset means nothing. As you said that technically people are perceiving that we stand to lose, but if this alliance thinks that they can counter the BJP and they're there to defeat the BJP, they can hold the BJP accountable for whatever misdeeds, misrules, misinformation the BJP has spread. It's been 10 years in UP. then it's fine with us, because they have to decide what their strategy is, how they are going to work, what is their seed-sharing formula. Instead of drawing a report card for the Samajwadi Party, which I think many of their members do as per convenience, I think it's high-cut that they drew a accountability report card for the BJP, talk about the issues, whether it's unemployment, whether it's farmers' distress, it's women's security. You're saying nothing to lose despite the fact that AIMIM just about a month ago in an open letter had said let's form an alliance in Uttar Pradesh which you had rebuffed. So you are saying you don't need them. I don't think it worked out. I mean, I don't know what the proposal came. We are working on our boot levels on our SIR list, which are totally faulty. The Chief Minister of UP himself is saying that 1.30 people are missing from the voters list. That's a huge number, and that has to be corrected. All right. Okay, Tuhin Sinha, some would suggest good "
+    }
+  ],
+  "drift_events": [],
+  "summary": {
+    "units_analysed": 1,
+    "aligned_units": 1,
+    "partially_aligned_units": 0,
+    "possible_drift_units": 0,
+    "drift_events": 0,
+    "analysis_mode": "subtopic_level"
+  }
+}

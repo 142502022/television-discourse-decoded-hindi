@@ -1,0 +1,4344 @@
+{
+  "schema_version": "host-interaction-1.0",
+  "metadata": {
+    "video_id": "_eakpo9i4dM",
+    "variant": "threshold_5.0",
+    "host_speaker_id": "SPEAKER_03",
+    "host_identification_source": "data/v2/debate_only/videos/_eakpo9i4dM/threshold_5.0/host_identification/host_identification.json",
+    "host_identification_method": "experimental transparent heuristic; no trained classifier",
+    "host_confidence_band": "higher_heuristic_separation",
+    "host_score_warning": "Scores and confidence bands are heuristic, not calibrated probabilities. Opening/closing phrase lists are incomplete and currently English-oriented; translated ASR text can affect cues. Manually verify predictions and evaluate across known-host episodes."
+  },
+  "methodology": {
+    "transition_definition": "A structural change from one diarized speaker turn to the next; not proof of interruption or floor allocation.",
+    "overlap_definition": "OSD aggregate overlap pair statistics are preserved separately from speaker transitions.",
+    "interruption_definition": "Only existing merge_final.json osd_stats.interruptions_by_pair labels are counted as interruptions; no new interruption labels are inferred.",
+    "response_definition": "A subsequent turn by the previous speaker within 3 seconds is temporal re-entry only, not a semantically verified response.",
+    "subtopic_assignment": "Each timestamped transition is assigned once to the subtopic containing its timestamp (start inclusive, end exclusive). Aggregate overlap/interruption records have no event timestamps and are not allocated to subtopics.",
+    "floor_allocation_policy": "Transitions involving the host are not automatically interpreted as deliberate floor allocation."
+  },
+  "episode_summary": {
+    "duration_seconds": 2280.0,
+    "duration_minutes": 38.0,
+    "speaker_count": 8,
+    "speaker_ids": [
+      "SPEAKER_00",
+      "SPEAKER_01",
+      "SPEAKER_02",
+      "SPEAKER_03",
+      "SPEAKER_04",
+      "SPEAKER_05",
+      "SPEAKER_06",
+      "SPEAKER_07"
+    ],
+    "structural_transition_count": 108,
+    "structural_transitions_per_minute": 2.8421,
+    "overlap_pair_count": 68,
+    "overlap_duration_seconds_sum_by_pair": 90.956,
+    "osd_interruption_count_sum_by_directional_pair": 59,
+    "note": "Pairwise overlap seconds may be summed across pairs; this is not unique wall-clock overlap duration."
+  },
+  "speaker_interactions": {
+    "directed_transition_matrix": {
+      "SPEAKER_00": {
+        "SPEAKER_00": 0,
+        "SPEAKER_01": 2,
+        "SPEAKER_02": 1,
+        "SPEAKER_03": 7,
+        "SPEAKER_04": 1,
+        "SPEAKER_05": 1,
+        "SPEAKER_06": 0,
+        "SPEAKER_07": 0
+      },
+      "SPEAKER_01": {
+        "SPEAKER_00": 1,
+        "SPEAKER_01": 0,
+        "SPEAKER_02": 0,
+        "SPEAKER_03": 4,
+        "SPEAKER_04": 1,
+        "SPEAKER_05": 0,
+        "SPEAKER_06": 0,
+        "SPEAKER_07": 0
+      },
+      "SPEAKER_02": {
+        "SPEAKER_00": 0,
+        "SPEAKER_01": 1,
+        "SPEAKER_02": 0,
+        "SPEAKER_03": 13,
+        "SPEAKER_04": 4,
+        "SPEAKER_05": 0,
+        "SPEAKER_06": 0,
+        "SPEAKER_07": 0
+      },
+      "SPEAKER_03": {
+        "SPEAKER_00": 5,
+        "SPEAKER_01": 3,
+        "SPEAKER_02": 13,
+        "SPEAKER_03": 0,
+        "SPEAKER_04": 4,
+        "SPEAKER_05": 8,
+        "SPEAKER_06": 3,
+        "SPEAKER_07": 4
+      },
+      "SPEAKER_04": {
+        "SPEAKER_00": 3,
+        "SPEAKER_01": 0,
+        "SPEAKER_02": 4,
+        "SPEAKER_03": 3,
+        "SPEAKER_04": 0,
+        "SPEAKER_05": 0,
+        "SPEAKER_06": 1,
+        "SPEAKER_07": 1
+      },
+      "SPEAKER_05": {
+        "SPEAKER_00": 2,
+        "SPEAKER_01": 0,
+        "SPEAKER_02": 0,
+        "SPEAKER_03": 7,
+        "SPEAKER_04": 0,
+        "SPEAKER_05": 0,
+        "SPEAKER_06": 0,
+        "SPEAKER_07": 0
+      },
+      "SPEAKER_06": {
+        "SPEAKER_00": 1,
+        "SPEAKER_01": 0,
+        "SPEAKER_02": 0,
+        "SPEAKER_03": 3,
+        "SPEAKER_04": 0,
+        "SPEAKER_05": 0,
+        "SPEAKER_06": 0,
+        "SPEAKER_07": 1
+      },
+      "SPEAKER_07": {
+        "SPEAKER_00": 0,
+        "SPEAKER_01": 0,
+        "SPEAKER_02": 0,
+        "SPEAKER_03": 3,
+        "SPEAKER_04": 2,
+        "SPEAKER_05": 0,
+        "SPEAKER_06": 1,
+        "SPEAKER_07": 0
+      }
+    },
+    "pairwise_directional_counts": [
+      {
+        "from_speaker": "SPEAKER_00",
+        "to_speaker": "SPEAKER_01",
+        "count": 2
+      },
+      {
+        "from_speaker": "SPEAKER_00",
+        "to_speaker": "SPEAKER_02",
+        "count": 1
+      },
+      {
+        "from_speaker": "SPEAKER_00",
+        "to_speaker": "SPEAKER_03",
+        "count": 7
+      },
+      {
+        "from_speaker": "SPEAKER_00",
+        "to_speaker": "SPEAKER_04",
+        "count": 1
+      },
+      {
+        "from_speaker": "SPEAKER_00",
+        "to_speaker": "SPEAKER_05",
+        "count": 1
+      },
+      {
+        "from_speaker": "SPEAKER_01",
+        "to_speaker": "SPEAKER_00",
+        "count": 1
+      },
+      {
+        "from_speaker": "SPEAKER_01",
+        "to_speaker": "SPEAKER_03",
+        "count": 4
+      },
+      {
+        "from_speaker": "SPEAKER_01",
+        "to_speaker": "SPEAKER_04",
+        "count": 1
+      },
+      {
+        "from_speaker": "SPEAKER_02",
+        "to_speaker": "SPEAKER_01",
+        "count": 1
+      },
+      {
+        "from_speaker": "SPEAKER_02",
+        "to_speaker": "SPEAKER_03",
+        "count": 13
+      },
+      {
+        "from_speaker": "SPEAKER_02",
+        "to_speaker": "SPEAKER_04",
+        "count": 4
+      },
+      {
+        "from_speaker": "SPEAKER_03",
+        "to_speaker": "SPEAKER_00",
+        "count": 5
+      },
+      {
+        "from_speaker": "SPEAKER_03",
+        "to_speaker": "SPEAKER_01",
+        "count": 3
+      },
+      {
+        "from_speaker": "SPEAKER_03",
+        "to_speaker": "SPEAKER_02",
+        "count": 13
+      },
+      {
+        "from_speaker": "SPEAKER_03",
+        "to_speaker": "SPEAKER_04",
+        "count": 4
+      },
+      {
+        "from_speaker": "SPEAKER_03",
+        "to_speaker": "SPEAKER_05",
+        "count": 8
+      },
+      {
+        "from_speaker": "SPEAKER_03",
+        "to_speaker": "SPEAKER_06",
+        "count": 3
+      },
+      {
+        "from_speaker": "SPEAKER_03",
+        "to_speaker": "SPEAKER_07",
+        "count": 4
+      },
+      {
+        "from_speaker": "SPEAKER_04",
+        "to_speaker": "SPEAKER_00",
+        "count": 3
+      },
+      {
+        "from_speaker": "SPEAKER_04",
+        "to_speaker": "SPEAKER_02",
+        "count": 4
+      },
+      {
+        "from_speaker": "SPEAKER_04",
+        "to_speaker": "SPEAKER_03",
+        "count": 3
+      },
+      {
+        "from_speaker": "SPEAKER_04",
+        "to_speaker": "SPEAKER_06",
+        "count": 1
+      },
+      {
+        "from_speaker": "SPEAKER_04",
+        "to_speaker": "SPEAKER_07",
+        "count": 1
+      },
+      {
+        "from_speaker": "SPEAKER_05",
+        "to_speaker": "SPEAKER_00",
+        "count": 2
+      },
+      {
+        "from_speaker": "SPEAKER_05",
+        "to_speaker": "SPEAKER_03",
+        "count": 7
+      },
+      {
+        "from_speaker": "SPEAKER_06",
+        "to_speaker": "SPEAKER_00",
+        "count": 1
+      },
+      {
+        "from_speaker": "SPEAKER_06",
+        "to_speaker": "SPEAKER_03",
+        "count": 3
+      },
+      {
+        "from_speaker": "SPEAKER_06",
+        "to_speaker": "SPEAKER_07",
+        "count": 1
+      },
+      {
+        "from_speaker": "SPEAKER_07",
+        "to_speaker": "SPEAKER_03",
+        "count": 3
+      },
+      {
+        "from_speaker": "SPEAKER_07",
+        "to_speaker": "SPEAKER_04",
+        "count": 2
+      },
+      {
+        "from_speaker": "SPEAKER_07",
+        "to_speaker": "SPEAKER_06",
+        "count": 1
+      }
+    ]
+  },
+  "transition_events": [
+    {
+      "event_id": "TR00001",
+      "from_speaker": "SPEAKER_03",
+      "to_speaker": "SPEAKER_05",
+      "timestamp": 229.7,
+      "gap_seconds": 0.49,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 225.753,
+      "subtopic_id": "ST001",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00002",
+      "from_speaker": "SPEAKER_05",
+      "to_speaker": "SPEAKER_00",
+      "timestamp": 351.402,
+      "gap_seconds": -25.211,
+      "is_overlapping_transition": true,
+      "previous_turn_duration_seconds": 146.913,
+      "subtopic_id": "ST001",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00003",
+      "from_speaker": "SPEAKER_00",
+      "to_speaker": "SPEAKER_03",
+      "timestamp": 376.613,
+      "gap_seconds": 24.975,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 0.236,
+      "subtopic_id": "ST001",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00004",
+      "from_speaker": "SPEAKER_03",
+      "to_speaker": "SPEAKER_05",
+      "timestamp": 411.578,
+      "gap_seconds": -1.013,
+      "is_overlapping_transition": true,
+      "previous_turn_duration_seconds": 35.978,
+      "subtopic_id": "ST001",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00005",
+      "from_speaker": "SPEAKER_05",
+      "to_speaker": "SPEAKER_03",
+      "timestamp": 431.677,
+      "gap_seconds": 0.0,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 20.099,
+      "subtopic_id": "ST001",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00006",
+      "from_speaker": "SPEAKER_03",
+      "to_speaker": "SPEAKER_02",
+      "timestamp": 439.743,
+      "gap_seconds": 0.0,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 8.066,
+      "subtopic_id": "ST001",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00007",
+      "from_speaker": "SPEAKER_02",
+      "to_speaker": "SPEAKER_03",
+      "timestamp": 449.699,
+      "gap_seconds": -15.846,
+      "is_overlapping_transition": true,
+      "previous_turn_duration_seconds": 25.802,
+      "subtopic_id": "ST001",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00008",
+      "from_speaker": "SPEAKER_03",
+      "to_speaker": "SPEAKER_04",
+      "timestamp": 461.63,
+      "gap_seconds": 9.822,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 2.109,
+      "subtopic_id": "ST001",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00009",
+      "from_speaker": "SPEAKER_04",
+      "to_speaker": "SPEAKER_02",
+      "timestamp": 468.295,
+      "gap_seconds": 0.0,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 6.665,
+      "subtopic_id": "ST001",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00010",
+      "from_speaker": "SPEAKER_02",
+      "to_speaker": "SPEAKER_04",
+      "timestamp": 473.273,
+      "gap_seconds": -96.458,
+      "is_overlapping_transition": true,
+      "previous_turn_duration_seconds": 101.436,
+      "subtopic_id": "ST001",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00011",
+      "from_speaker": "SPEAKER_04",
+      "to_speaker": "SPEAKER_00",
+      "timestamp": 485.356,
+      "gap_seconds": 5.839,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 0.489,
+      "subtopic_id": "ST001",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00012",
+      "from_speaker": "SPEAKER_00",
+      "to_speaker": "SPEAKER_04",
+      "timestamp": 485.39,
+      "gap_seconds": 0.0,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 0.034,
+      "subtopic_id": "ST001",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00013",
+      "from_speaker": "SPEAKER_04",
+      "to_speaker": "SPEAKER_00",
+      "timestamp": 495.194,
+      "gap_seconds": 8.37,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 1.434,
+      "subtopic_id": "ST001",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00014",
+      "from_speaker": "SPEAKER_00",
+      "to_speaker": "SPEAKER_03",
+      "timestamp": 563.757,
+      "gap_seconds": 68.175,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 0.388,
+      "subtopic_id": "ST001",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00015",
+      "from_speaker": "SPEAKER_03",
+      "to_speaker": "SPEAKER_02",
+      "timestamp": 571.469,
+      "gap_seconds": -32.164,
+      "is_overlapping_transition": true,
+      "previous_turn_duration_seconds": 39.876,
+      "subtopic_id": "ST001",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00016",
+      "from_speaker": "SPEAKER_02",
+      "to_speaker": "SPEAKER_04",
+      "timestamp": 573.038,
+      "gap_seconds": 0.0,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 1.569,
+      "subtopic_id": "ST001",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00017",
+      "from_speaker": "SPEAKER_04",
+      "to_speaker": "SPEAKER_02",
+      "timestamp": 614.973,
+      "gap_seconds": 0.0,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 41.935,
+      "subtopic_id": "ST001",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00018",
+      "from_speaker": "SPEAKER_02",
+      "to_speaker": "SPEAKER_04",
+      "timestamp": 619.057,
+      "gap_seconds": -1.468,
+      "is_overlapping_transition": true,
+      "previous_turn_duration_seconds": 5.552,
+      "subtopic_id": "ST001",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00019",
+      "from_speaker": "SPEAKER_04",
+      "to_speaker": "SPEAKER_07",
+      "timestamp": 659.573,
+      "gap_seconds": -2.076,
+      "is_overlapping_transition": true,
+      "previous_turn_duration_seconds": 42.592,
+      "subtopic_id": "ST001",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00020",
+      "from_speaker": "SPEAKER_07",
+      "to_speaker": "SPEAKER_04",
+      "timestamp": 662.206,
+      "gap_seconds": 2.548,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 0.085,
+      "subtopic_id": "ST001",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00021",
+      "from_speaker": "SPEAKER_04",
+      "to_speaker": "SPEAKER_03",
+      "timestamp": 683.266,
+      "gap_seconds": -0.726,
+      "is_overlapping_transition": true,
+      "previous_turn_duration_seconds": 21.786,
+      "subtopic_id": "ST001",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00022",
+      "from_speaker": "SPEAKER_03",
+      "to_speaker": "SPEAKER_04",
+      "timestamp": 686.0,
+      "gap_seconds": 1.114,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 1.62,
+      "subtopic_id": "ST001",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00023",
+      "from_speaker": "SPEAKER_04",
+      "to_speaker": "SPEAKER_02",
+      "timestamp": 704.545,
+      "gap_seconds": 0.0,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 18.545,
+      "subtopic_id": "ST001",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00024",
+      "from_speaker": "SPEAKER_02",
+      "to_speaker": "SPEAKER_04",
+      "timestamp": 704.579,
+      "gap_seconds": -1.704,
+      "is_overlapping_transition": true,
+      "previous_turn_duration_seconds": 1.738,
+      "subtopic_id": "ST001",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00025",
+      "from_speaker": "SPEAKER_04",
+      "to_speaker": "SPEAKER_02",
+      "timestamp": 707.363,
+      "gap_seconds": -1.671,
+      "is_overlapping_transition": true,
+      "previous_turn_duration_seconds": 4.455,
+      "subtopic_id": "ST001",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00026",
+      "from_speaker": "SPEAKER_02",
+      "to_speaker": "SPEAKER_01",
+      "timestamp": 707.718,
+      "gap_seconds": 0.0,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 0.355,
+      "subtopic_id": "ST001",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00027",
+      "from_speaker": "SPEAKER_01",
+      "to_speaker": "SPEAKER_04",
+      "timestamp": 709.405,
+      "gap_seconds": 0.0,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 1.687,
+      "subtopic_id": "ST001",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00028",
+      "from_speaker": "SPEAKER_04",
+      "to_speaker": "SPEAKER_00",
+      "timestamp": 734.887,
+      "gap_seconds": -6.142,
+      "is_overlapping_transition": true,
+      "previous_turn_duration_seconds": 31.624,
+      "subtopic_id": "ST001",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00029",
+      "from_speaker": "SPEAKER_00",
+      "to_speaker": "SPEAKER_03",
+      "timestamp": 741.029,
+      "gap_seconds": 5.889,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 0.253,
+      "subtopic_id": "ST001",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00030",
+      "from_speaker": "SPEAKER_03",
+      "to_speaker": "SPEAKER_02",
+      "timestamp": 867.44,
+      "gap_seconds": 0.0,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 126.411,
+      "subtopic_id": "ST001",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00031",
+      "from_speaker": "SPEAKER_02",
+      "to_speaker": "SPEAKER_03",
+      "timestamp": 883.083,
+      "gap_seconds": -1.839,
+      "is_overlapping_transition": true,
+      "previous_turn_duration_seconds": 17.482,
+      "subtopic_id": "ST001",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00032",
+      "from_speaker": "SPEAKER_03",
+      "to_speaker": "SPEAKER_02",
+      "timestamp": 884.973,
+      "gap_seconds": 0.0,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 1.89,
+      "subtopic_id": "ST001",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00033",
+      "from_speaker": "SPEAKER_02",
+      "to_speaker": "SPEAKER_03",
+      "timestamp": 890.474,
+      "gap_seconds": -4.708,
+      "is_overlapping_transition": true,
+      "previous_turn_duration_seconds": 10.209,
+      "subtopic_id": "ST001",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00034",
+      "from_speaker": "SPEAKER_03",
+      "to_speaker": "SPEAKER_00",
+      "timestamp": 904.683,
+      "gap_seconds": -21.364,
+      "is_overlapping_transition": true,
+      "previous_turn_duration_seconds": 35.573,
+      "subtopic_id": "ST001",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00035",
+      "from_speaker": "SPEAKER_00",
+      "to_speaker": "SPEAKER_02",
+      "timestamp": 926.232,
+      "gap_seconds": 20.959,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 0.59,
+      "subtopic_id": "ST001",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00036",
+      "from_speaker": "SPEAKER_02",
+      "to_speaker": "SPEAKER_03",
+      "timestamp": 944.44,
+      "gap_seconds": -1.705,
+      "is_overlapping_transition": true,
+      "previous_turn_duration_seconds": 19.913,
+      "subtopic_id": "ST001",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00037",
+      "from_speaker": "SPEAKER_03",
+      "to_speaker": "SPEAKER_02",
+      "timestamp": 946.195,
+      "gap_seconds": 0.0,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 1.755,
+      "subtopic_id": "ST001",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00038",
+      "from_speaker": "SPEAKER_02",
+      "to_speaker": "SPEAKER_03",
+      "timestamp": 946.364,
+      "gap_seconds": 0.0,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 0.169,
+      "subtopic_id": "ST001",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00039",
+      "from_speaker": "SPEAKER_03",
+      "to_speaker": "SPEAKER_02",
+      "timestamp": 946.55,
+      "gap_seconds": 0.0,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 0.186,
+      "subtopic_id": "ST001",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00040",
+      "from_speaker": "SPEAKER_02",
+      "to_speaker": "SPEAKER_03",
+      "timestamp": 946.567,
+      "gap_seconds": -36.939,
+      "is_overlapping_transition": true,
+      "previous_turn_duration_seconds": 36.956,
+      "subtopic_id": "ST001",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00041",
+      "from_speaker": "SPEAKER_03",
+      "to_speaker": "SPEAKER_02",
+      "timestamp": 983.59,
+      "gap_seconds": -0.962,
+      "is_overlapping_transition": true,
+      "previous_turn_duration_seconds": 37.985,
+      "subtopic_id": "ST001",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00042",
+      "from_speaker": "SPEAKER_02",
+      "to_speaker": "SPEAKER_03",
+      "timestamp": 984.974,
+      "gap_seconds": 0.0,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 1.384,
+      "subtopic_id": "ST001",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00043",
+      "from_speaker": "SPEAKER_03",
+      "to_speaker": "SPEAKER_04",
+      "timestamp": 987.843,
+      "gap_seconds": -4.944,
+      "is_overlapping_transition": true,
+      "previous_turn_duration_seconds": 7.813,
+      "subtopic_id": "ST001",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00044",
+      "from_speaker": "SPEAKER_04",
+      "to_speaker": "SPEAKER_03",
+      "timestamp": 1003.334,
+      "gap_seconds": 0.489,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 15.002,
+      "subtopic_id": "ST001",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00045",
+      "from_speaker": "SPEAKER_03",
+      "to_speaker": "SPEAKER_02",
+      "timestamp": 1016.885,
+      "gap_seconds": 0.0,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 13.551,
+      "subtopic_id": "ST001",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00046",
+      "from_speaker": "SPEAKER_02",
+      "to_speaker": "SPEAKER_03",
+      "timestamp": 1028.039,
+      "gap_seconds": 0.0,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 11.154,
+      "subtopic_id": "ST001",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00047",
+      "from_speaker": "SPEAKER_03",
+      "to_speaker": "SPEAKER_00",
+      "timestamp": 1035.093,
+      "gap_seconds": 1.519,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 5.535,
+      "subtopic_id": "ST001",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00048",
+      "from_speaker": "SPEAKER_00",
+      "to_speaker": "SPEAKER_01",
+      "timestamp": 1077.584,
+      "gap_seconds": -56.379,
+      "is_overlapping_transition": true,
+      "previous_turn_duration_seconds": 98.87,
+      "subtopic_id": "ST002",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00049",
+      "from_speaker": "SPEAKER_01",
+      "to_speaker": "SPEAKER_03",
+      "timestamp": 1133.963,
+      "gap_seconds": 32.585,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 23.794,
+      "subtopic_id": "ST002",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00050",
+      "from_speaker": "SPEAKER_03",
+      "to_speaker": "SPEAKER_07",
+      "timestamp": 1152.948,
+      "gap_seconds": 1.232,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 17.753,
+      "subtopic_id": "ST002",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00051",
+      "from_speaker": "SPEAKER_07",
+      "to_speaker": "SPEAKER_03",
+      "timestamp": 1237.34,
+      "gap_seconds": 0.0,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 84.392,
+      "subtopic_id": "ST002",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00052",
+      "from_speaker": "SPEAKER_03",
+      "to_speaker": "SPEAKER_01",
+      "timestamp": 1284.151,
+      "gap_seconds": 0.624,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 46.187,
+      "subtopic_id": "ST003",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00053",
+      "from_speaker": "SPEAKER_01",
+      "to_speaker": "SPEAKER_00",
+      "timestamp": 1326.052,
+      "gap_seconds": -91.631,
+      "is_overlapping_transition": true,
+      "previous_turn_duration_seconds": 133.532,
+      "subtopic_id": "ST003",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00054",
+      "from_speaker": "SPEAKER_00",
+      "to_speaker": "SPEAKER_01",
+      "timestamp": 1418.408,
+      "gap_seconds": 92.238,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 0.118,
+      "subtopic_id": "ST003",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00055",
+      "from_speaker": "SPEAKER_01",
+      "to_speaker": "SPEAKER_03",
+      "timestamp": 1445.493,
+      "gap_seconds": 0.0,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 27.085,
+      "subtopic_id": "ST003",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00056",
+      "from_speaker": "SPEAKER_03",
+      "to_speaker": "SPEAKER_06",
+      "timestamp": 1512.976,
+      "gap_seconds": 0.338,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 67.145,
+      "subtopic_id": "ST003",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00057",
+      "from_speaker": "SPEAKER_06",
+      "to_speaker": "SPEAKER_03",
+      "timestamp": 1603.038,
+      "gap_seconds": -0.759,
+      "is_overlapping_transition": true,
+      "previous_turn_duration_seconds": 90.821,
+      "subtopic_id": "ST003",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00058",
+      "from_speaker": "SPEAKER_03",
+      "to_speaker": "SPEAKER_06",
+      "timestamp": 1604.506,
+      "gap_seconds": -2.329,
+      "is_overlapping_transition": true,
+      "previous_turn_duration_seconds": 3.797,
+      "subtopic_id": "ST003",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00059",
+      "from_speaker": "SPEAKER_06",
+      "to_speaker": "SPEAKER_03",
+      "timestamp": 1617.787,
+      "gap_seconds": -15.153,
+      "is_overlapping_transition": true,
+      "previous_turn_duration_seconds": 28.434,
+      "subtopic_id": "ST003",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00060",
+      "from_speaker": "SPEAKER_03",
+      "to_speaker": "SPEAKER_07",
+      "timestamp": 1617.871,
+      "gap_seconds": 0.0,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 0.084,
+      "subtopic_id": "ST003",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00061",
+      "from_speaker": "SPEAKER_07",
+      "to_speaker": "SPEAKER_03",
+      "timestamp": 1623.018,
+      "gap_seconds": 5.046,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 0.101,
+      "subtopic_id": "ST003",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00062",
+      "from_speaker": "SPEAKER_03",
+      "to_speaker": "SPEAKER_00",
+      "timestamp": 1646.407,
+      "gap_seconds": -12.656,
+      "is_overlapping_transition": true,
+      "previous_turn_duration_seconds": 36.045,
+      "subtopic_id": "ST003",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00063",
+      "from_speaker": "SPEAKER_00",
+      "to_speaker": "SPEAKER_03",
+      "timestamp": 1659.873,
+      "gap_seconds": 12.893,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 0.573,
+      "subtopic_id": "ST003",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00064",
+      "from_speaker": "SPEAKER_03",
+      "to_speaker": "SPEAKER_05",
+      "timestamp": 1659.907,
+      "gap_seconds": 0.0,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 0.034,
+      "subtopic_id": "ST003",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00065",
+      "from_speaker": "SPEAKER_05",
+      "to_speaker": "SPEAKER_03",
+      "timestamp": 1690.028,
+      "gap_seconds": 0.0,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 30.121,
+      "subtopic_id": "ST003",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00066",
+      "from_speaker": "SPEAKER_03",
+      "to_speaker": "SPEAKER_05",
+      "timestamp": 1697.251,
+      "gap_seconds": -19.423,
+      "is_overlapping_transition": true,
+      "previous_turn_duration_seconds": 26.646,
+      "subtopic_id": "ST003",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00067",
+      "from_speaker": "SPEAKER_05",
+      "to_speaker": "SPEAKER_00",
+      "timestamp": 1703.275,
+      "gap_seconds": 3.999,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 2.025,
+      "subtopic_id": "ST003",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00068",
+      "from_speaker": "SPEAKER_00",
+      "to_speaker": "SPEAKER_05",
+      "timestamp": 1709.013,
+      "gap_seconds": 3.392,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 2.346,
+      "subtopic_id": "ST003",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00069",
+      "from_speaker": "SPEAKER_05",
+      "to_speaker": "SPEAKER_03",
+      "timestamp": 1734.038,
+      "gap_seconds": -10.075,
+      "is_overlapping_transition": true,
+      "previous_turn_duration_seconds": 33.632,
+      "subtopic_id": "ST003",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00070",
+      "from_speaker": "SPEAKER_03",
+      "to_speaker": "SPEAKER_05",
+      "timestamp": 1750.593,
+      "gap_seconds": 0.0,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 16.555,
+      "subtopic_id": "ST003",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00071",
+      "from_speaker": "SPEAKER_05",
+      "to_speaker": "SPEAKER_03",
+      "timestamp": 1757.478,
+      "gap_seconds": -3.493,
+      "is_overlapping_transition": true,
+      "previous_turn_duration_seconds": 10.378,
+      "subtopic_id": "ST003",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00072",
+      "from_speaker": "SPEAKER_03",
+      "to_speaker": "SPEAKER_00",
+      "timestamp": 1759.975,
+      "gap_seconds": 0.0,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 2.497,
+      "subtopic_id": "ST003",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00073",
+      "from_speaker": "SPEAKER_00",
+      "to_speaker": "SPEAKER_03",
+      "timestamp": 1760.971,
+      "gap_seconds": -49.005,
+      "is_overlapping_transition": true,
+      "previous_turn_duration_seconds": 50.001,
+      "subtopic_id": "ST003",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00074",
+      "from_speaker": "SPEAKER_03",
+      "to_speaker": "SPEAKER_01",
+      "timestamp": 1776.682,
+      "gap_seconds": 14.935,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 0.776,
+      "subtopic_id": "ST003",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00075",
+      "from_speaker": "SPEAKER_01",
+      "to_speaker": "SPEAKER_03",
+      "timestamp": 1809.976,
+      "gap_seconds": 31.388,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 1.906,
+      "subtopic_id": "ST003",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00076",
+      "from_speaker": "SPEAKER_03",
+      "to_speaker": "SPEAKER_04",
+      "timestamp": 1818.835,
+      "gap_seconds": 0.0,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 8.859,
+      "subtopic_id": "ST003",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00077",
+      "from_speaker": "SPEAKER_04",
+      "to_speaker": "SPEAKER_06",
+      "timestamp": 1890.858,
+      "gap_seconds": 0.0,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 72.023,
+      "subtopic_id": "ST003",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00078",
+      "from_speaker": "SPEAKER_06",
+      "to_speaker": "SPEAKER_00",
+      "timestamp": 1899.903,
+      "gap_seconds": -55.232,
+      "is_overlapping_transition": true,
+      "previous_turn_duration_seconds": 64.277,
+      "subtopic_id": "ST003",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00079",
+      "from_speaker": "SPEAKER_00",
+      "to_speaker": "SPEAKER_03",
+      "timestamp": 1955.135,
+      "gap_seconds": 53.68,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 1.552,
+      "subtopic_id": "ST003",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00080",
+      "from_speaker": "SPEAKER_03",
+      "to_speaker": "SPEAKER_06",
+      "timestamp": 1957.295,
+      "gap_seconds": 0.0,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 2.16,
+      "subtopic_id": "ST003",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00081",
+      "from_speaker": "SPEAKER_06",
+      "to_speaker": "SPEAKER_07",
+      "timestamp": 1957.48,
+      "gap_seconds": 0.0,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 0.185,
+      "subtopic_id": "ST003",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00082",
+      "from_speaker": "SPEAKER_07",
+      "to_speaker": "SPEAKER_03",
+      "timestamp": 1968.601,
+      "gap_seconds": 0.051,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 11.07,
+      "subtopic_id": "ST003",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00083",
+      "from_speaker": "SPEAKER_03",
+      "to_speaker": "SPEAKER_07",
+      "timestamp": 1971.672,
+      "gap_seconds": -0.776,
+      "is_overlapping_transition": true,
+      "previous_turn_duration_seconds": 3.847,
+      "subtopic_id": "ST003",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00084",
+      "from_speaker": "SPEAKER_07",
+      "to_speaker": "SPEAKER_06",
+      "timestamp": 1989.678,
+      "gap_seconds": -26.899,
+      "is_overlapping_transition": true,
+      "previous_turn_duration_seconds": 44.905,
+      "subtopic_id": "ST003",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00085",
+      "from_speaker": "SPEAKER_06",
+      "to_speaker": "SPEAKER_03",
+      "timestamp": 2015.851,
+      "gap_seconds": 20.368,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 5.805,
+      "subtopic_id": "ST003",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00086",
+      "from_speaker": "SPEAKER_03",
+      "to_speaker": "SPEAKER_02",
+      "timestamp": 2035.038,
+      "gap_seconds": 0.0,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 19.187,
+      "subtopic_id": "ST004",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00087",
+      "from_speaker": "SPEAKER_02",
+      "to_speaker": "SPEAKER_03",
+      "timestamp": 2046.968,
+      "gap_seconds": 0.0,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 11.93,
+      "subtopic_id": "ST004",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00088",
+      "from_speaker": "SPEAKER_03",
+      "to_speaker": "SPEAKER_02",
+      "timestamp": 2047.036,
+      "gap_seconds": 0.0,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 0.068,
+      "subtopic_id": "ST004",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00089",
+      "from_speaker": "SPEAKER_02",
+      "to_speaker": "SPEAKER_03",
+      "timestamp": 2047.323,
+      "gap_seconds": 0.0,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 0.287,
+      "subtopic_id": "ST004",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00090",
+      "from_speaker": "SPEAKER_03",
+      "to_speaker": "SPEAKER_02",
+      "timestamp": 2047.39,
+      "gap_seconds": 0.0,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 0.067,
+      "subtopic_id": "ST004",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00091",
+      "from_speaker": "SPEAKER_02",
+      "to_speaker": "SPEAKER_03",
+      "timestamp": 2047.424,
+      "gap_seconds": -0.591,
+      "is_overlapping_transition": true,
+      "previous_turn_duration_seconds": 0.625,
+      "subtopic_id": "ST004",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00092",
+      "from_speaker": "SPEAKER_03",
+      "to_speaker": "SPEAKER_02",
+      "timestamp": 2048.032,
+      "gap_seconds": 0.0,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 0.608,
+      "subtopic_id": "ST004",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00093",
+      "from_speaker": "SPEAKER_02",
+      "to_speaker": "SPEAKER_03",
+      "timestamp": 2048.977,
+      "gap_seconds": 0.0,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 0.945,
+      "subtopic_id": "ST004",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00094",
+      "from_speaker": "SPEAKER_03",
+      "to_speaker": "SPEAKER_02",
+      "timestamp": 2049.027,
+      "gap_seconds": 0.0,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 0.05,
+      "subtopic_id": "ST004",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00095",
+      "from_speaker": "SPEAKER_02",
+      "to_speaker": "SPEAKER_03",
+      "timestamp": 2049.331,
+      "gap_seconds": -33.514,
+      "is_overlapping_transition": true,
+      "previous_turn_duration_seconds": 33.818,
+      "subtopic_id": "ST004",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00096",
+      "from_speaker": "SPEAKER_03",
+      "to_speaker": "SPEAKER_07",
+      "timestamp": 2060.958,
+      "gap_seconds": 10.311,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 1.316,
+      "subtopic_id": "ST004",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00097",
+      "from_speaker": "SPEAKER_07",
+      "to_speaker": "SPEAKER_04",
+      "timestamp": 2076.078,
+      "gap_seconds": 15.103,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 0.017,
+      "subtopic_id": "ST004",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00098",
+      "from_speaker": "SPEAKER_04",
+      "to_speaker": "SPEAKER_03",
+      "timestamp": 2076.922,
+      "gap_seconds": 0.0,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 0.844,
+      "subtopic_id": "ST004",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00099",
+      "from_speaker": "SPEAKER_03",
+      "to_speaker": "SPEAKER_05",
+      "timestamp": 2100.192,
+      "gap_seconds": 0.253,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 23.017,
+      "subtopic_id": "ST004",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00100",
+      "from_speaker": "SPEAKER_05",
+      "to_speaker": "SPEAKER_03",
+      "timestamp": 2134.853,
+      "gap_seconds": -1.283,
+      "is_overlapping_transition": true,
+      "previous_turn_duration_seconds": 35.944,
+      "subtopic_id": "ST004",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00101",
+      "from_speaker": "SPEAKER_03",
+      "to_speaker": "SPEAKER_05",
+      "timestamp": 2137.975,
+      "gap_seconds": 0.0,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 3.122,
+      "subtopic_id": "ST004",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00102",
+      "from_speaker": "SPEAKER_05",
+      "to_speaker": "SPEAKER_03",
+      "timestamp": 2138.363,
+      "gap_seconds": -11.054,
+      "is_overlapping_transition": true,
+      "previous_turn_duration_seconds": 11.442,
+      "subtopic_id": "ST004",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00103",
+      "from_speaker": "SPEAKER_03",
+      "to_speaker": "SPEAKER_05",
+      "timestamp": 2150.108,
+      "gap_seconds": -1.688,
+      "is_overlapping_transition": true,
+      "previous_turn_duration_seconds": 13.433,
+      "subtopic_id": "ST004",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00104",
+      "from_speaker": "SPEAKER_05",
+      "to_speaker": "SPEAKER_03",
+      "timestamp": 2167.81,
+      "gap_seconds": -20.166,
+      "is_overlapping_transition": true,
+      "previous_turn_duration_seconds": 37.868,
+      "subtopic_id": "ST004",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00105",
+      "from_speaker": "SPEAKER_03",
+      "to_speaker": "SPEAKER_01",
+      "timestamp": 2193.73,
+      "gap_seconds": 0.0,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 25.92,
+      "subtopic_id": "ST005",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00106",
+      "from_speaker": "SPEAKER_01",
+      "to_speaker": "SPEAKER_03",
+      "timestamp": 2226.012,
+      "gap_seconds": 0.0,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 32.282,
+      "subtopic_id": "ST005",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00107",
+      "from_speaker": "SPEAKER_03",
+      "to_speaker": "SPEAKER_00",
+      "timestamp": 2228.881,
+      "gap_seconds": 0.0,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 2.869,
+      "subtopic_id": "ST005",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    },
+    {
+      "event_id": "TR00108",
+      "from_speaker": "SPEAKER_00",
+      "to_speaker": "SPEAKER_03",
+      "timestamp": 2249.975,
+      "gap_seconds": 0.0,
+      "is_overlapping_transition": false,
+      "previous_turn_duration_seconds": 21.094,
+      "subtopic_id": "ST005",
+      "source": "final_result.json:speaker_transitions.transition_events",
+      "classification": "structural_transition_not_interruption"
+    }
+  ],
+  "interruption_analysis": {
+    "status": "aggregate_source_labels_available",
+    "directional_pairs": [
+      {
+        "interrupter": "SPEAKER_00",
+        "interrupted_speaker": "SPEAKER_01",
+        "count": 1,
+        "overlap_duration_seconds": 0.135,
+        "host_involved": false,
+        "source": "merge_final.json:osd_stats.interruptions_by_pair"
+      },
+      {
+        "interrupter": "SPEAKER_00",
+        "interrupted_speaker": "SPEAKER_02",
+        "count": 1,
+        "overlap_duration_seconds": 0.371,
+        "host_involved": false,
+        "source": "merge_final.json:osd_stats.interruptions_by_pair"
+      },
+      {
+        "interrupter": "SPEAKER_00",
+        "interrupted_speaker": "SPEAKER_03",
+        "count": 3,
+        "overlap_duration_seconds": 2.616,
+        "host_involved": true,
+        "source": "merge_final.json:osd_stats.interruptions_by_pair"
+      },
+      {
+        "interrupter": "SPEAKER_00",
+        "interrupted_speaker": "SPEAKER_04",
+        "count": 1,
+        "overlap_duration_seconds": 0.253,
+        "host_involved": false,
+        "source": "merge_final.json:osd_stats.interruptions_by_pair"
+      },
+      {
+        "interrupter": "SPEAKER_00",
+        "interrupted_speaker": "SPEAKER_05",
+        "count": 2,
+        "overlap_duration_seconds": 0.202,
+        "host_involved": false,
+        "source": "merge_final.json:osd_stats.interruptions_by_pair"
+      },
+      {
+        "interrupter": "SPEAKER_00",
+        "interrupted_speaker": "SPEAKER_06",
+        "count": 1,
+        "overlap_duration_seconds": 1.535,
+        "host_involved": false,
+        "source": "merge_final.json:osd_stats.interruptions_by_pair"
+      },
+      {
+        "interrupter": "SPEAKER_01",
+        "interrupted_speaker": "SPEAKER_00",
+        "count": 4,
+        "overlap_duration_seconds": 1.433,
+        "host_involved": false,
+        "source": "merge_final.json:osd_stats.interruptions_by_pair"
+      },
+      {
+        "interrupter": "SPEAKER_02",
+        "interrupted_speaker": "SPEAKER_01",
+        "count": 1,
+        "overlap_duration_seconds": 0.372,
+        "host_involved": false,
+        "source": "merge_final.json:osd_stats.interruptions_by_pair"
+      },
+      {
+        "interrupter": "SPEAKER_02",
+        "interrupted_speaker": "SPEAKER_03",
+        "count": 2,
+        "overlap_duration_seconds": 7.493,
+        "host_involved": true,
+        "source": "merge_final.json:osd_stats.interruptions_by_pair"
+      },
+      {
+        "interrupter": "SPEAKER_02",
+        "interrupted_speaker": "SPEAKER_04",
+        "count": 2,
+        "overlap_duration_seconds": 7.021,
+        "host_involved": false,
+        "source": "merge_final.json:osd_stats.interruptions_by_pair"
+      },
+      {
+        "interrupter": "SPEAKER_03",
+        "interrupted_speaker": "SPEAKER_00",
+        "count": 1,
+        "overlap_duration_seconds": 4.37,
+        "host_involved": true,
+        "source": "merge_final.json:osd_stats.interruptions_by_pair"
+      },
+      {
+        "interrupter": "SPEAKER_03",
+        "interrupted_speaker": "SPEAKER_02",
+        "count": 14,
+        "overlap_duration_seconds": 12.386,
+        "host_involved": true,
+        "source": "merge_final.json:osd_stats.interruptions_by_pair"
+      },
+      {
+        "interrupter": "SPEAKER_03",
+        "interrupted_speaker": "SPEAKER_04",
+        "count": 1,
+        "overlap_duration_seconds": 0.726,
+        "host_involved": true,
+        "source": "merge_final.json:osd_stats.interruptions_by_pair"
+      },
+      {
+        "interrupter": "SPEAKER_03",
+        "interrupted_speaker": "SPEAKER_05",
+        "count": 6,
+        "overlap_duration_seconds": 13.111,
+        "host_involved": true,
+        "source": "merge_final.json:osd_stats.interruptions_by_pair"
+      },
+      {
+        "interrupter": "SPEAKER_03",
+        "interrupted_speaker": "SPEAKER_06",
+        "count": 4,
+        "overlap_duration_seconds": 5.044,
+        "host_involved": true,
+        "source": "merge_final.json:osd_stats.interruptions_by_pair"
+      },
+      {
+        "interrupter": "SPEAKER_03",
+        "interrupted_speaker": "SPEAKER_07",
+        "count": 2,
+        "overlap_duration_seconds": 0.894,
+        "host_involved": true,
+        "source": "merge_final.json:osd_stats.interruptions_by_pair"
+      },
+      {
+        "interrupter": "SPEAKER_04",
+        "interrupted_speaker": "SPEAKER_00",
+        "count": 1,
+        "overlap_duration_seconds": 1.451,
+        "host_involved": false,
+        "source": "merge_final.json:osd_stats.interruptions_by_pair"
+      },
+      {
+        "interrupter": "SPEAKER_04",
+        "interrupted_speaker": "SPEAKER_02",
+        "count": 3,
+        "overlap_duration_seconds": 8.842,
+        "host_involved": false,
+        "source": "merge_final.json:osd_stats.interruptions_by_pair"
+      },
+      {
+        "interrupter": "SPEAKER_04",
+        "interrupted_speaker": "SPEAKER_03",
+        "count": 2,
+        "overlap_duration_seconds": 8.386,
+        "host_involved": true,
+        "source": "merge_final.json:osd_stats.interruptions_by_pair"
+      },
+      {
+        "interrupter": "SPEAKER_05",
+        "interrupted_speaker": "SPEAKER_03",
+        "count": 1,
+        "overlap_duration_seconds": 1.013,
+        "host_involved": true,
+        "source": "merge_final.json:osd_stats.interruptions_by_pair"
+      },
+      {
+        "interrupter": "SPEAKER_06",
+        "interrupted_speaker": "SPEAKER_03",
+        "count": 1,
+        "overlap_duration_seconds": 2.312,
+        "host_involved": true,
+        "source": "merge_final.json:osd_stats.interruptions_by_pair"
+      },
+      {
+        "interrupter": "SPEAKER_06",
+        "interrupted_speaker": "SPEAKER_07",
+        "count": 2,
+        "overlap_duration_seconds": 0.405,
+        "host_involved": false,
+        "source": "merge_final.json:osd_stats.interruptions_by_pair"
+      },
+      {
+        "interrupter": "SPEAKER_07",
+        "interrupted_speaker": "SPEAKER_02",
+        "count": 1,
+        "overlap_duration_seconds": 0.017,
+        "host_involved": false,
+        "source": "merge_final.json:osd_stats.interruptions_by_pair"
+      },
+      {
+        "interrupter": "SPEAKER_07",
+        "interrupted_speaker": "SPEAKER_03",
+        "count": 1,
+        "overlap_duration_seconds": 0.776,
+        "host_involved": true,
+        "source": "merge_final.json:osd_stats.interruptions_by_pair"
+      },
+      {
+        "interrupter": "SPEAKER_07",
+        "interrupted_speaker": "SPEAKER_04",
+        "count": 1,
+        "overlap_duration_seconds": 0.085,
+        "host_involved": false,
+        "source": "merge_final.json:osd_stats.interruptions_by_pair"
+      }
+    ],
+    "total_directional_interruption_count": 59,
+    "limitation": "Source provides aggregate pair counts/durations without timestamps; event-level and subtopic-level interruption analysis is unavailable."
+  },
+  "overlap_analysis": {
+    "status": "aggregate_pair_statistics_available",
+    "directional_or_undirected_pairs": [
+      {
+        "speaker_a": "SPEAKER_00",
+        "speaker_b": "SPEAKER_01",
+        "overlap_count": 5,
+        "overlap_duration_seconds": 1.568,
+        "host_involved": false,
+        "source": "merge_final.json:osd_stats.by_pair"
+      },
+      {
+        "speaker_a": "SPEAKER_00",
+        "speaker_b": "SPEAKER_02",
+        "overlap_count": 1,
+        "overlap_duration_seconds": 0.371,
+        "host_involved": false,
+        "source": "merge_final.json:osd_stats.by_pair"
+      },
+      {
+        "speaker_a": "SPEAKER_00",
+        "speaker_b": "SPEAKER_03",
+        "overlap_count": 4,
+        "overlap_duration_seconds": 3.071,
+        "host_involved": true,
+        "source": "merge_final.json:osd_stats.by_pair"
+      },
+      {
+        "speaker_a": "SPEAKER_00",
+        "speaker_b": "SPEAKER_04",
+        "overlap_count": 1,
+        "overlap_duration_seconds": 0.253,
+        "host_involved": false,
+        "source": "merge_final.json:osd_stats.by_pair"
+      },
+      {
+        "speaker_a": "SPEAKER_00",
+        "speaker_b": "SPEAKER_05",
+        "overlap_count": 2,
+        "overlap_duration_seconds": 0.202,
+        "host_involved": false,
+        "source": "merge_final.json:osd_stats.by_pair"
+      },
+      {
+        "speaker_a": "SPEAKER_00",
+        "speaker_b": "SPEAKER_06",
+        "overlap_count": 1,
+        "overlap_duration_seconds": 1.535,
+        "host_involved": false,
+        "source": "merge_final.json:osd_stats.by_pair"
+      },
+      {
+        "speaker_a": "SPEAKER_02",
+        "speaker_b": "SPEAKER_03",
+        "overlap_count": 21,
+        "overlap_duration_seconds": 20.252,
+        "host_involved": true,
+        "source": "merge_final.json:osd_stats.by_pair"
+      },
+      {
+        "speaker_a": "SPEAKER_02",
+        "speaker_b": "SPEAKER_04",
+        "overlap_count": 5,
+        "overlap_duration_seconds": 12.622,
+        "host_involved": false,
+        "source": "merge_final.json:osd_stats.by_pair"
+      },
+      {
+        "speaker_a": "SPEAKER_02",
+        "speaker_b": "SPEAKER_07",
+        "overlap_count": 1,
+        "overlap_duration_seconds": 0.017,
+        "host_involved": false,
+        "source": "merge_final.json:osd_stats.by_pair"
+      },
+      {
+        "speaker_a": "SPEAKER_03",
+        "speaker_b": "SPEAKER_04",
+        "overlap_count": 3,
+        "overlap_duration_seconds": 5.974,
+        "host_involved": true,
+        "source": "merge_final.json:osd_stats.by_pair"
+      },
+      {
+        "speaker_a": "SPEAKER_03",
+        "speaker_b": "SPEAKER_05",
+        "overlap_count": 15,
+        "overlap_duration_seconds": 35.945,
+        "host_involved": true,
+        "source": "merge_final.json:osd_stats.by_pair"
+      },
+      {
+        "speaker_a": "SPEAKER_03",
+        "speaker_b": "SPEAKER_06",
+        "overlap_count": 4,
+        "overlap_duration_seconds": 7.171,
+        "host_involved": true,
+        "source": "merge_final.json:osd_stats.by_pair"
+      },
+      {
+        "speaker_a": "SPEAKER_03",
+        "speaker_b": "SPEAKER_07",
+        "overlap_count": 2,
+        "overlap_duration_seconds": 1.485,
+        "host_involved": true,
+        "source": "merge_final.json:osd_stats.by_pair"
+      },
+      {
+        "speaker_a": "SPEAKER_04",
+        "speaker_b": "SPEAKER_07",
+        "overlap_count": 1,
+        "overlap_duration_seconds": 0.085,
+        "host_involved": false,
+        "source": "merge_final.json:osd_stats.by_pair"
+      },
+      {
+        "speaker_a": "SPEAKER_06",
+        "speaker_b": "SPEAKER_07",
+        "overlap_count": 2,
+        "overlap_duration_seconds": 0.405,
+        "host_involved": false,
+        "source": "merge_final.json:osd_stats.by_pair"
+      }
+    ],
+    "total_pair_event_count": 68,
+    "pair_duration_sum_seconds": 90.956,
+    "limitation": "Pair-level aggregate only; no event timestamps in merge_final.json after this variant preprocessing."
+  },
+  "host_interaction": {
+    "host_speaker_id": "SPEAKER_03",
+    "transition_count_involving_host": 80,
+    "host_as_previous_speaker_count": 40,
+    "host_as_next_speaker_count": 40,
+    "host_related_transitions": [
+      {
+        "event_id": "TR00001",
+        "from_speaker": "SPEAKER_03",
+        "to_speaker": "SPEAKER_05",
+        "timestamp": 229.7,
+        "gap_seconds": 0.49,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 225.753,
+        "subtopic_id": "ST001",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00003",
+        "from_speaker": "SPEAKER_00",
+        "to_speaker": "SPEAKER_03",
+        "timestamp": 376.613,
+        "gap_seconds": 24.975,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 0.236,
+        "subtopic_id": "ST001",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00004",
+        "from_speaker": "SPEAKER_03",
+        "to_speaker": "SPEAKER_05",
+        "timestamp": 411.578,
+        "gap_seconds": -1.013,
+        "is_overlapping_transition": true,
+        "previous_turn_duration_seconds": 35.978,
+        "subtopic_id": "ST001",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00005",
+        "from_speaker": "SPEAKER_05",
+        "to_speaker": "SPEAKER_03",
+        "timestamp": 431.677,
+        "gap_seconds": 0.0,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 20.099,
+        "subtopic_id": "ST001",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00006",
+        "from_speaker": "SPEAKER_03",
+        "to_speaker": "SPEAKER_02",
+        "timestamp": 439.743,
+        "gap_seconds": 0.0,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 8.066,
+        "subtopic_id": "ST001",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00007",
+        "from_speaker": "SPEAKER_02",
+        "to_speaker": "SPEAKER_03",
+        "timestamp": 449.699,
+        "gap_seconds": -15.846,
+        "is_overlapping_transition": true,
+        "previous_turn_duration_seconds": 25.802,
+        "subtopic_id": "ST001",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00008",
+        "from_speaker": "SPEAKER_03",
+        "to_speaker": "SPEAKER_04",
+        "timestamp": 461.63,
+        "gap_seconds": 9.822,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 2.109,
+        "subtopic_id": "ST001",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00014",
+        "from_speaker": "SPEAKER_00",
+        "to_speaker": "SPEAKER_03",
+        "timestamp": 563.757,
+        "gap_seconds": 68.175,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 0.388,
+        "subtopic_id": "ST001",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00015",
+        "from_speaker": "SPEAKER_03",
+        "to_speaker": "SPEAKER_02",
+        "timestamp": 571.469,
+        "gap_seconds": -32.164,
+        "is_overlapping_transition": true,
+        "previous_turn_duration_seconds": 39.876,
+        "subtopic_id": "ST001",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00021",
+        "from_speaker": "SPEAKER_04",
+        "to_speaker": "SPEAKER_03",
+        "timestamp": 683.266,
+        "gap_seconds": -0.726,
+        "is_overlapping_transition": true,
+        "previous_turn_duration_seconds": 21.786,
+        "subtopic_id": "ST001",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00022",
+        "from_speaker": "SPEAKER_03",
+        "to_speaker": "SPEAKER_04",
+        "timestamp": 686.0,
+        "gap_seconds": 1.114,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 1.62,
+        "subtopic_id": "ST001",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00029",
+        "from_speaker": "SPEAKER_00",
+        "to_speaker": "SPEAKER_03",
+        "timestamp": 741.029,
+        "gap_seconds": 5.889,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 0.253,
+        "subtopic_id": "ST001",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00030",
+        "from_speaker": "SPEAKER_03",
+        "to_speaker": "SPEAKER_02",
+        "timestamp": 867.44,
+        "gap_seconds": 0.0,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 126.411,
+        "subtopic_id": "ST001",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00031",
+        "from_speaker": "SPEAKER_02",
+        "to_speaker": "SPEAKER_03",
+        "timestamp": 883.083,
+        "gap_seconds": -1.839,
+        "is_overlapping_transition": true,
+        "previous_turn_duration_seconds": 17.482,
+        "subtopic_id": "ST001",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00032",
+        "from_speaker": "SPEAKER_03",
+        "to_speaker": "SPEAKER_02",
+        "timestamp": 884.973,
+        "gap_seconds": 0.0,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 1.89,
+        "subtopic_id": "ST001",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00033",
+        "from_speaker": "SPEAKER_02",
+        "to_speaker": "SPEAKER_03",
+        "timestamp": 890.474,
+        "gap_seconds": -4.708,
+        "is_overlapping_transition": true,
+        "previous_turn_duration_seconds": 10.209,
+        "subtopic_id": "ST001",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00034",
+        "from_speaker": "SPEAKER_03",
+        "to_speaker": "SPEAKER_00",
+        "timestamp": 904.683,
+        "gap_seconds": -21.364,
+        "is_overlapping_transition": true,
+        "previous_turn_duration_seconds": 35.573,
+        "subtopic_id": "ST001",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00036",
+        "from_speaker": "SPEAKER_02",
+        "to_speaker": "SPEAKER_03",
+        "timestamp": 944.44,
+        "gap_seconds": -1.705,
+        "is_overlapping_transition": true,
+        "previous_turn_duration_seconds": 19.913,
+        "subtopic_id": "ST001",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00037",
+        "from_speaker": "SPEAKER_03",
+        "to_speaker": "SPEAKER_02",
+        "timestamp": 946.195,
+        "gap_seconds": 0.0,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 1.755,
+        "subtopic_id": "ST001",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00038",
+        "from_speaker": "SPEAKER_02",
+        "to_speaker": "SPEAKER_03",
+        "timestamp": 946.364,
+        "gap_seconds": 0.0,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 0.169,
+        "subtopic_id": "ST001",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00039",
+        "from_speaker": "SPEAKER_03",
+        "to_speaker": "SPEAKER_02",
+        "timestamp": 946.55,
+        "gap_seconds": 0.0,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 0.186,
+        "subtopic_id": "ST001",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00040",
+        "from_speaker": "SPEAKER_02",
+        "to_speaker": "SPEAKER_03",
+        "timestamp": 946.567,
+        "gap_seconds": -36.939,
+        "is_overlapping_transition": true,
+        "previous_turn_duration_seconds": 36.956,
+        "subtopic_id": "ST001",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00041",
+        "from_speaker": "SPEAKER_03",
+        "to_speaker": "SPEAKER_02",
+        "timestamp": 983.59,
+        "gap_seconds": -0.962,
+        "is_overlapping_transition": true,
+        "previous_turn_duration_seconds": 37.985,
+        "subtopic_id": "ST001",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00042",
+        "from_speaker": "SPEAKER_02",
+        "to_speaker": "SPEAKER_03",
+        "timestamp": 984.974,
+        "gap_seconds": 0.0,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 1.384,
+        "subtopic_id": "ST001",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00043",
+        "from_speaker": "SPEAKER_03",
+        "to_speaker": "SPEAKER_04",
+        "timestamp": 987.843,
+        "gap_seconds": -4.944,
+        "is_overlapping_transition": true,
+        "previous_turn_duration_seconds": 7.813,
+        "subtopic_id": "ST001",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00044",
+        "from_speaker": "SPEAKER_04",
+        "to_speaker": "SPEAKER_03",
+        "timestamp": 1003.334,
+        "gap_seconds": 0.489,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 15.002,
+        "subtopic_id": "ST001",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00045",
+        "from_speaker": "SPEAKER_03",
+        "to_speaker": "SPEAKER_02",
+        "timestamp": 1016.885,
+        "gap_seconds": 0.0,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 13.551,
+        "subtopic_id": "ST001",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00046",
+        "from_speaker": "SPEAKER_02",
+        "to_speaker": "SPEAKER_03",
+        "timestamp": 1028.039,
+        "gap_seconds": 0.0,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 11.154,
+        "subtopic_id": "ST001",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00047",
+        "from_speaker": "SPEAKER_03",
+        "to_speaker": "SPEAKER_00",
+        "timestamp": 1035.093,
+        "gap_seconds": 1.519,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 5.535,
+        "subtopic_id": "ST001",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00049",
+        "from_speaker": "SPEAKER_01",
+        "to_speaker": "SPEAKER_03",
+        "timestamp": 1133.963,
+        "gap_seconds": 32.585,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 23.794,
+        "subtopic_id": "ST002",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00050",
+        "from_speaker": "SPEAKER_03",
+        "to_speaker": "SPEAKER_07",
+        "timestamp": 1152.948,
+        "gap_seconds": 1.232,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 17.753,
+        "subtopic_id": "ST002",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00051",
+        "from_speaker": "SPEAKER_07",
+        "to_speaker": "SPEAKER_03",
+        "timestamp": 1237.34,
+        "gap_seconds": 0.0,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 84.392,
+        "subtopic_id": "ST002",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00052",
+        "from_speaker": "SPEAKER_03",
+        "to_speaker": "SPEAKER_01",
+        "timestamp": 1284.151,
+        "gap_seconds": 0.624,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 46.187,
+        "subtopic_id": "ST003",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00055",
+        "from_speaker": "SPEAKER_01",
+        "to_speaker": "SPEAKER_03",
+        "timestamp": 1445.493,
+        "gap_seconds": 0.0,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 27.085,
+        "subtopic_id": "ST003",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00056",
+        "from_speaker": "SPEAKER_03",
+        "to_speaker": "SPEAKER_06",
+        "timestamp": 1512.976,
+        "gap_seconds": 0.338,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 67.145,
+        "subtopic_id": "ST003",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00057",
+        "from_speaker": "SPEAKER_06",
+        "to_speaker": "SPEAKER_03",
+        "timestamp": 1603.038,
+        "gap_seconds": -0.759,
+        "is_overlapping_transition": true,
+        "previous_turn_duration_seconds": 90.821,
+        "subtopic_id": "ST003",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00058",
+        "from_speaker": "SPEAKER_03",
+        "to_speaker": "SPEAKER_06",
+        "timestamp": 1604.506,
+        "gap_seconds": -2.329,
+        "is_overlapping_transition": true,
+        "previous_turn_duration_seconds": 3.797,
+        "subtopic_id": "ST003",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00059",
+        "from_speaker": "SPEAKER_06",
+        "to_speaker": "SPEAKER_03",
+        "timestamp": 1617.787,
+        "gap_seconds": -15.153,
+        "is_overlapping_transition": true,
+        "previous_turn_duration_seconds": 28.434,
+        "subtopic_id": "ST003",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00060",
+        "from_speaker": "SPEAKER_03",
+        "to_speaker": "SPEAKER_07",
+        "timestamp": 1617.871,
+        "gap_seconds": 0.0,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 0.084,
+        "subtopic_id": "ST003",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00061",
+        "from_speaker": "SPEAKER_07",
+        "to_speaker": "SPEAKER_03",
+        "timestamp": 1623.018,
+        "gap_seconds": 5.046,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 0.101,
+        "subtopic_id": "ST003",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00062",
+        "from_speaker": "SPEAKER_03",
+        "to_speaker": "SPEAKER_00",
+        "timestamp": 1646.407,
+        "gap_seconds": -12.656,
+        "is_overlapping_transition": true,
+        "previous_turn_duration_seconds": 36.045,
+        "subtopic_id": "ST003",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00063",
+        "from_speaker": "SPEAKER_00",
+        "to_speaker": "SPEAKER_03",
+        "timestamp": 1659.873,
+        "gap_seconds": 12.893,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 0.573,
+        "subtopic_id": "ST003",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00064",
+        "from_speaker": "SPEAKER_03",
+        "to_speaker": "SPEAKER_05",
+        "timestamp": 1659.907,
+        "gap_seconds": 0.0,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 0.034,
+        "subtopic_id": "ST003",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00065",
+        "from_speaker": "SPEAKER_05",
+        "to_speaker": "SPEAKER_03",
+        "timestamp": 1690.028,
+        "gap_seconds": 0.0,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 30.121,
+        "subtopic_id": "ST003",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00066",
+        "from_speaker": "SPEAKER_03",
+        "to_speaker": "SPEAKER_05",
+        "timestamp": 1697.251,
+        "gap_seconds": -19.423,
+        "is_overlapping_transition": true,
+        "previous_turn_duration_seconds": 26.646,
+        "subtopic_id": "ST003",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00069",
+        "from_speaker": "SPEAKER_05",
+        "to_speaker": "SPEAKER_03",
+        "timestamp": 1734.038,
+        "gap_seconds": -10.075,
+        "is_overlapping_transition": true,
+        "previous_turn_duration_seconds": 33.632,
+        "subtopic_id": "ST003",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00070",
+        "from_speaker": "SPEAKER_03",
+        "to_speaker": "SPEAKER_05",
+        "timestamp": 1750.593,
+        "gap_seconds": 0.0,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 16.555,
+        "subtopic_id": "ST003",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00071",
+        "from_speaker": "SPEAKER_05",
+        "to_speaker": "SPEAKER_03",
+        "timestamp": 1757.478,
+        "gap_seconds": -3.493,
+        "is_overlapping_transition": true,
+        "previous_turn_duration_seconds": 10.378,
+        "subtopic_id": "ST003",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00072",
+        "from_speaker": "SPEAKER_03",
+        "to_speaker": "SPEAKER_00",
+        "timestamp": 1759.975,
+        "gap_seconds": 0.0,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 2.497,
+        "subtopic_id": "ST003",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00073",
+        "from_speaker": "SPEAKER_00",
+        "to_speaker": "SPEAKER_03",
+        "timestamp": 1760.971,
+        "gap_seconds": -49.005,
+        "is_overlapping_transition": true,
+        "previous_turn_duration_seconds": 50.001,
+        "subtopic_id": "ST003",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00074",
+        "from_speaker": "SPEAKER_03",
+        "to_speaker": "SPEAKER_01",
+        "timestamp": 1776.682,
+        "gap_seconds": 14.935,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 0.776,
+        "subtopic_id": "ST003",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00075",
+        "from_speaker": "SPEAKER_01",
+        "to_speaker": "SPEAKER_03",
+        "timestamp": 1809.976,
+        "gap_seconds": 31.388,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 1.906,
+        "subtopic_id": "ST003",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00076",
+        "from_speaker": "SPEAKER_03",
+        "to_speaker": "SPEAKER_04",
+        "timestamp": 1818.835,
+        "gap_seconds": 0.0,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 8.859,
+        "subtopic_id": "ST003",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00079",
+        "from_speaker": "SPEAKER_00",
+        "to_speaker": "SPEAKER_03",
+        "timestamp": 1955.135,
+        "gap_seconds": 53.68,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 1.552,
+        "subtopic_id": "ST003",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00080",
+        "from_speaker": "SPEAKER_03",
+        "to_speaker": "SPEAKER_06",
+        "timestamp": 1957.295,
+        "gap_seconds": 0.0,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 2.16,
+        "subtopic_id": "ST003",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00082",
+        "from_speaker": "SPEAKER_07",
+        "to_speaker": "SPEAKER_03",
+        "timestamp": 1968.601,
+        "gap_seconds": 0.051,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 11.07,
+        "subtopic_id": "ST003",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00083",
+        "from_speaker": "SPEAKER_03",
+        "to_speaker": "SPEAKER_07",
+        "timestamp": 1971.672,
+        "gap_seconds": -0.776,
+        "is_overlapping_transition": true,
+        "previous_turn_duration_seconds": 3.847,
+        "subtopic_id": "ST003",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00085",
+        "from_speaker": "SPEAKER_06",
+        "to_speaker": "SPEAKER_03",
+        "timestamp": 2015.851,
+        "gap_seconds": 20.368,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 5.805,
+        "subtopic_id": "ST003",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00086",
+        "from_speaker": "SPEAKER_03",
+        "to_speaker": "SPEAKER_02",
+        "timestamp": 2035.038,
+        "gap_seconds": 0.0,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 19.187,
+        "subtopic_id": "ST004",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00087",
+        "from_speaker": "SPEAKER_02",
+        "to_speaker": "SPEAKER_03",
+        "timestamp": 2046.968,
+        "gap_seconds": 0.0,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 11.93,
+        "subtopic_id": "ST004",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00088",
+        "from_speaker": "SPEAKER_03",
+        "to_speaker": "SPEAKER_02",
+        "timestamp": 2047.036,
+        "gap_seconds": 0.0,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 0.068,
+        "subtopic_id": "ST004",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00089",
+        "from_speaker": "SPEAKER_02",
+        "to_speaker": "SPEAKER_03",
+        "timestamp": 2047.323,
+        "gap_seconds": 0.0,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 0.287,
+        "subtopic_id": "ST004",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00090",
+        "from_speaker": "SPEAKER_03",
+        "to_speaker": "SPEAKER_02",
+        "timestamp": 2047.39,
+        "gap_seconds": 0.0,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 0.067,
+        "subtopic_id": "ST004",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00091",
+        "from_speaker": "SPEAKER_02",
+        "to_speaker": "SPEAKER_03",
+        "timestamp": 2047.424,
+        "gap_seconds": -0.591,
+        "is_overlapping_transition": true,
+        "previous_turn_duration_seconds": 0.625,
+        "subtopic_id": "ST004",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00092",
+        "from_speaker": "SPEAKER_03",
+        "to_speaker": "SPEAKER_02",
+        "timestamp": 2048.032,
+        "gap_seconds": 0.0,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 0.608,
+        "subtopic_id": "ST004",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00093",
+        "from_speaker": "SPEAKER_02",
+        "to_speaker": "SPEAKER_03",
+        "timestamp": 2048.977,
+        "gap_seconds": 0.0,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 0.945,
+        "subtopic_id": "ST004",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00094",
+        "from_speaker": "SPEAKER_03",
+        "to_speaker": "SPEAKER_02",
+        "timestamp": 2049.027,
+        "gap_seconds": 0.0,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 0.05,
+        "subtopic_id": "ST004",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00095",
+        "from_speaker": "SPEAKER_02",
+        "to_speaker": "SPEAKER_03",
+        "timestamp": 2049.331,
+        "gap_seconds": -33.514,
+        "is_overlapping_transition": true,
+        "previous_turn_duration_seconds": 33.818,
+        "subtopic_id": "ST004",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00096",
+        "from_speaker": "SPEAKER_03",
+        "to_speaker": "SPEAKER_07",
+        "timestamp": 2060.958,
+        "gap_seconds": 10.311,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 1.316,
+        "subtopic_id": "ST004",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00098",
+        "from_speaker": "SPEAKER_04",
+        "to_speaker": "SPEAKER_03",
+        "timestamp": 2076.922,
+        "gap_seconds": 0.0,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 0.844,
+        "subtopic_id": "ST004",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00099",
+        "from_speaker": "SPEAKER_03",
+        "to_speaker": "SPEAKER_05",
+        "timestamp": 2100.192,
+        "gap_seconds": 0.253,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 23.017,
+        "subtopic_id": "ST004",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00100",
+        "from_speaker": "SPEAKER_05",
+        "to_speaker": "SPEAKER_03",
+        "timestamp": 2134.853,
+        "gap_seconds": -1.283,
+        "is_overlapping_transition": true,
+        "previous_turn_duration_seconds": 35.944,
+        "subtopic_id": "ST004",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00101",
+        "from_speaker": "SPEAKER_03",
+        "to_speaker": "SPEAKER_05",
+        "timestamp": 2137.975,
+        "gap_seconds": 0.0,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 3.122,
+        "subtopic_id": "ST004",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00102",
+        "from_speaker": "SPEAKER_05",
+        "to_speaker": "SPEAKER_03",
+        "timestamp": 2138.363,
+        "gap_seconds": -11.054,
+        "is_overlapping_transition": true,
+        "previous_turn_duration_seconds": 11.442,
+        "subtopic_id": "ST004",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00103",
+        "from_speaker": "SPEAKER_03",
+        "to_speaker": "SPEAKER_05",
+        "timestamp": 2150.108,
+        "gap_seconds": -1.688,
+        "is_overlapping_transition": true,
+        "previous_turn_duration_seconds": 13.433,
+        "subtopic_id": "ST004",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00104",
+        "from_speaker": "SPEAKER_05",
+        "to_speaker": "SPEAKER_03",
+        "timestamp": 2167.81,
+        "gap_seconds": -20.166,
+        "is_overlapping_transition": true,
+        "previous_turn_duration_seconds": 37.868,
+        "subtopic_id": "ST004",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00105",
+        "from_speaker": "SPEAKER_03",
+        "to_speaker": "SPEAKER_01",
+        "timestamp": 2193.73,
+        "gap_seconds": 0.0,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 25.92,
+        "subtopic_id": "ST005",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00106",
+        "from_speaker": "SPEAKER_01",
+        "to_speaker": "SPEAKER_03",
+        "timestamp": 2226.012,
+        "gap_seconds": 0.0,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 32.282,
+        "subtopic_id": "ST005",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00107",
+        "from_speaker": "SPEAKER_03",
+        "to_speaker": "SPEAKER_00",
+        "timestamp": 2228.881,
+        "gap_seconds": 0.0,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 2.869,
+        "subtopic_id": "ST005",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      },
+      {
+        "event_id": "TR00108",
+        "from_speaker": "SPEAKER_00",
+        "to_speaker": "SPEAKER_03",
+        "timestamp": 2249.975,
+        "gap_seconds": 0.0,
+        "is_overlapping_transition": false,
+        "previous_turn_duration_seconds": 21.094,
+        "subtopic_id": "ST005",
+        "source": "final_result.json:speaker_transitions.transition_events",
+        "classification": "structural_transition_not_interruption"
+      }
+    ],
+    "host_involved_osd_interruption_count": 38,
+    "host_involved_overlap_pair_count": 49,
+    "floor_allocation_events": [],
+    "floor_allocation_status": "not_inferred_from_transitions; no timestamped verified floor-allocation labels supplied"
+  },
+  "response_patterns": {
+    "window_seconds": 3.0,
+    "events": [
+      {
+        "transition_event_id": "TR00001",
+        "speaker_before_transition": "SPEAKER_03",
+        "speaker_taking_floor": "SPEAKER_05",
+        "next_turn_by_previous_speaker_seconds_after_transition": 146.913,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00002",
+        "speaker_before_transition": "SPEAKER_05",
+        "speaker_taking_floor": "SPEAKER_00",
+        "next_turn_by_previous_speaker_seconds_after_transition": 60.17599999999999,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00003",
+        "speaker_before_transition": "SPEAKER_00",
+        "speaker_taking_floor": "SPEAKER_03",
+        "next_turn_by_previous_speaker_seconds_after_transition": 108.743,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00004",
+        "speaker_before_transition": "SPEAKER_03",
+        "speaker_taking_floor": "SPEAKER_05",
+        "next_turn_by_previous_speaker_seconds_after_transition": 20.099000000000046,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00005",
+        "speaker_before_transition": "SPEAKER_05",
+        "speaker_taking_floor": "SPEAKER_03",
+        "next_turn_by_previous_speaker_seconds_after_transition": 1228.23,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00006",
+        "speaker_before_transition": "SPEAKER_03",
+        "speaker_taking_floor": "SPEAKER_02",
+        "next_turn_by_previous_speaker_seconds_after_transition": 9.956000000000017,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00007",
+        "speaker_before_transition": "SPEAKER_02",
+        "speaker_taking_floor": "SPEAKER_03",
+        "next_turn_by_previous_speaker_seconds_after_transition": 18.596000000000004,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00008",
+        "speaker_before_transition": "SPEAKER_03",
+        "speaker_taking_floor": "SPEAKER_04",
+        "next_turn_by_previous_speaker_seconds_after_transition": 102.12699999999995,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00009",
+        "speaker_before_transition": "SPEAKER_04",
+        "speaker_taking_floor": "SPEAKER_02",
+        "next_turn_by_previous_speaker_seconds_after_transition": 4.978000000000009,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00010",
+        "speaker_before_transition": "SPEAKER_02",
+        "speaker_taking_floor": "SPEAKER_04",
+        "next_turn_by_previous_speaker_seconds_after_transition": 98.19600000000003,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00011",
+        "speaker_before_transition": "SPEAKER_04",
+        "speaker_taking_floor": "SPEAKER_00",
+        "next_turn_by_previous_speaker_seconds_after_transition": 0.033999999999991815,
+        "previous_speaker_returns_within_3_seconds": true,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00012",
+        "speaker_before_transition": "SPEAKER_00",
+        "speaker_taking_floor": "SPEAKER_04",
+        "next_turn_by_previous_speaker_seconds_after_transition": 9.80400000000003,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00013",
+        "speaker_before_transition": "SPEAKER_04",
+        "speaker_taking_floor": "SPEAKER_00",
+        "next_turn_by_previous_speaker_seconds_after_transition": 77.844,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00014",
+        "speaker_before_transition": "SPEAKER_00",
+        "speaker_taking_floor": "SPEAKER_03",
+        "next_turn_by_previous_speaker_seconds_after_transition": 171.13,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00015",
+        "speaker_before_transition": "SPEAKER_03",
+        "speaker_taking_floor": "SPEAKER_02",
+        "next_turn_by_previous_speaker_seconds_after_transition": 111.79699999999991,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00016",
+        "speaker_before_transition": "SPEAKER_02",
+        "speaker_taking_floor": "SPEAKER_04",
+        "next_turn_by_previous_speaker_seconds_after_transition": 41.934999999999945,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00017",
+        "speaker_before_transition": "SPEAKER_04",
+        "speaker_taking_floor": "SPEAKER_02",
+        "next_turn_by_previous_speaker_seconds_after_transition": 4.08400000000006,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00018",
+        "speaker_before_transition": "SPEAKER_02",
+        "speaker_taking_floor": "SPEAKER_04",
+        "next_turn_by_previous_speaker_seconds_after_transition": 85.48799999999994,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00019",
+        "speaker_before_transition": "SPEAKER_04",
+        "speaker_taking_floor": "SPEAKER_07",
+        "next_turn_by_previous_speaker_seconds_after_transition": 2.633000000000038,
+        "previous_speaker_returns_within_3_seconds": true,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00020",
+        "speaker_before_transition": "SPEAKER_07",
+        "speaker_taking_floor": "SPEAKER_04",
+        "next_turn_by_previous_speaker_seconds_after_transition": 490.7420000000001,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00021",
+        "speaker_before_transition": "SPEAKER_04",
+        "speaker_taking_floor": "SPEAKER_03",
+        "next_turn_by_previous_speaker_seconds_after_transition": 2.7340000000000373,
+        "previous_speaker_returns_within_3_seconds": true,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00022",
+        "speaker_before_transition": "SPEAKER_03",
+        "speaker_taking_floor": "SPEAKER_04",
+        "next_turn_by_previous_speaker_seconds_after_transition": 55.028999999999996,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00023",
+        "speaker_before_transition": "SPEAKER_04",
+        "speaker_taking_floor": "SPEAKER_02",
+        "next_turn_by_previous_speaker_seconds_after_transition": 0.033999999999991815,
+        "previous_speaker_returns_within_3_seconds": true,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00024",
+        "speaker_before_transition": "SPEAKER_02",
+        "speaker_taking_floor": "SPEAKER_04",
+        "next_turn_by_previous_speaker_seconds_after_transition": 2.7840000000001055,
+        "previous_speaker_returns_within_3_seconds": true,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00025",
+        "speaker_before_transition": "SPEAKER_04",
+        "speaker_taking_floor": "SPEAKER_02",
+        "next_turn_by_previous_speaker_seconds_after_transition": 2.0419999999999163,
+        "previous_speaker_returns_within_3_seconds": true,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00026",
+        "speaker_before_transition": "SPEAKER_02",
+        "speaker_taking_floor": "SPEAKER_01",
+        "next_turn_by_previous_speaker_seconds_after_transition": 159.7220000000001,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00027",
+        "speaker_before_transition": "SPEAKER_01",
+        "speaker_taking_floor": "SPEAKER_04",
+        "next_turn_by_previous_speaker_seconds_after_transition": 368.1790000000001,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00028",
+        "speaker_before_transition": "SPEAKER_04",
+        "speaker_taking_floor": "SPEAKER_00",
+        "next_turn_by_previous_speaker_seconds_after_transition": 252.95600000000002,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00029",
+        "speaker_before_transition": "SPEAKER_00",
+        "speaker_taking_floor": "SPEAKER_03",
+        "next_turn_by_previous_speaker_seconds_after_transition": 163.654,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00030",
+        "speaker_before_transition": "SPEAKER_03",
+        "speaker_taking_floor": "SPEAKER_02",
+        "next_turn_by_previous_speaker_seconds_after_transition": 15.642999999999915,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00031",
+        "speaker_before_transition": "SPEAKER_02",
+        "speaker_taking_floor": "SPEAKER_03",
+        "next_turn_by_previous_speaker_seconds_after_transition": 1.8899999999999864,
+        "previous_speaker_returns_within_3_seconds": true,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00032",
+        "speaker_before_transition": "SPEAKER_03",
+        "speaker_taking_floor": "SPEAKER_02",
+        "next_turn_by_previous_speaker_seconds_after_transition": 5.50100000000009,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00033",
+        "speaker_before_transition": "SPEAKER_02",
+        "speaker_taking_floor": "SPEAKER_03",
+        "next_turn_by_previous_speaker_seconds_after_transition": 35.757999999999925,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00034",
+        "speaker_before_transition": "SPEAKER_03",
+        "speaker_taking_floor": "SPEAKER_00",
+        "next_turn_by_previous_speaker_seconds_after_transition": 39.75700000000006,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00035",
+        "speaker_before_transition": "SPEAKER_00",
+        "speaker_taking_floor": "SPEAKER_02",
+        "next_turn_by_previous_speaker_seconds_after_transition": 108.8610000000001,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00036",
+        "speaker_before_transition": "SPEAKER_02",
+        "speaker_taking_floor": "SPEAKER_03",
+        "next_turn_by_previous_speaker_seconds_after_transition": 1.7549999999999955,
+        "previous_speaker_returns_within_3_seconds": true,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00037",
+        "speaker_before_transition": "SPEAKER_03",
+        "speaker_taking_floor": "SPEAKER_02",
+        "next_turn_by_previous_speaker_seconds_after_transition": 0.16899999999998272,
+        "previous_speaker_returns_within_3_seconds": true,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00038",
+        "speaker_before_transition": "SPEAKER_02",
+        "speaker_taking_floor": "SPEAKER_03",
+        "next_turn_by_previous_speaker_seconds_after_transition": 0.18599999999992178,
+        "previous_speaker_returns_within_3_seconds": true,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00039",
+        "speaker_before_transition": "SPEAKER_03",
+        "speaker_taking_floor": "SPEAKER_02",
+        "next_turn_by_previous_speaker_seconds_after_transition": 0.01700000000005275,
+        "previous_speaker_returns_within_3_seconds": true,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00040",
+        "speaker_before_transition": "SPEAKER_02",
+        "speaker_taking_floor": "SPEAKER_03",
+        "next_turn_by_previous_speaker_seconds_after_transition": 37.023000000000025,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00041",
+        "speaker_before_transition": "SPEAKER_03",
+        "speaker_taking_floor": "SPEAKER_02",
+        "next_turn_by_previous_speaker_seconds_after_transition": 1.3840000000000146,
+        "previous_speaker_returns_within_3_seconds": true,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00042",
+        "speaker_before_transition": "SPEAKER_02",
+        "speaker_taking_floor": "SPEAKER_03",
+        "next_turn_by_previous_speaker_seconds_after_transition": 31.910999999999945,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00043",
+        "speaker_before_transition": "SPEAKER_03",
+        "speaker_taking_floor": "SPEAKER_04",
+        "next_turn_by_previous_speaker_seconds_after_transition": 15.490999999999985,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00044",
+        "speaker_before_transition": "SPEAKER_04",
+        "speaker_taking_floor": "SPEAKER_03",
+        "next_turn_by_previous_speaker_seconds_after_transition": 815.5010000000001,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00045",
+        "speaker_before_transition": "SPEAKER_03",
+        "speaker_taking_floor": "SPEAKER_02",
+        "next_turn_by_previous_speaker_seconds_after_transition": 11.153999999999996,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00046",
+        "speaker_before_transition": "SPEAKER_02",
+        "speaker_taking_floor": "SPEAKER_03",
+        "next_turn_by_previous_speaker_seconds_after_transition": 1006.999,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00047",
+        "speaker_before_transition": "SPEAKER_03",
+        "speaker_taking_floor": "SPEAKER_00",
+        "next_turn_by_previous_speaker_seconds_after_transition": 98.86999999999989,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00048",
+        "speaker_before_transition": "SPEAKER_00",
+        "speaker_taking_floor": "SPEAKER_01",
+        "next_turn_by_previous_speaker_seconds_after_transition": 248.46799999999985,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00049",
+        "speaker_before_transition": "SPEAKER_01",
+        "speaker_taking_floor": "SPEAKER_03",
+        "next_turn_by_previous_speaker_seconds_after_transition": 150.1880000000001,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00050",
+        "speaker_before_transition": "SPEAKER_03",
+        "speaker_taking_floor": "SPEAKER_07",
+        "next_turn_by_previous_speaker_seconds_after_transition": 84.39199999999983,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00051",
+        "speaker_before_transition": "SPEAKER_07",
+        "speaker_taking_floor": "SPEAKER_03",
+        "next_turn_by_previous_speaker_seconds_after_transition": 380.5310000000002,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00052",
+        "speaker_before_transition": "SPEAKER_03",
+        "speaker_taking_floor": "SPEAKER_01",
+        "next_turn_by_previous_speaker_seconds_after_transition": 161.34199999999987,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00053",
+        "speaker_before_transition": "SPEAKER_01",
+        "speaker_taking_floor": "SPEAKER_00",
+        "next_turn_by_previous_speaker_seconds_after_transition": 92.356,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00054",
+        "speaker_before_transition": "SPEAKER_00",
+        "speaker_taking_floor": "SPEAKER_01",
+        "next_turn_by_previous_speaker_seconds_after_transition": 227.99900000000002,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00055",
+        "speaker_before_transition": "SPEAKER_01",
+        "speaker_taking_floor": "SPEAKER_03",
+        "next_turn_by_previous_speaker_seconds_after_transition": 331.1890000000001,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00056",
+        "speaker_before_transition": "SPEAKER_03",
+        "speaker_taking_floor": "SPEAKER_06",
+        "next_turn_by_previous_speaker_seconds_after_transition": 90.0619999999999,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00057",
+        "speaker_before_transition": "SPEAKER_06",
+        "speaker_taking_floor": "SPEAKER_03",
+        "next_turn_by_previous_speaker_seconds_after_transition": 1.4680000000000746,
+        "previous_speaker_returns_within_3_seconds": true,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00058",
+        "speaker_before_transition": "SPEAKER_03",
+        "speaker_taking_floor": "SPEAKER_06",
+        "next_turn_by_previous_speaker_seconds_after_transition": 13.280999999999949,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00059",
+        "speaker_before_transition": "SPEAKER_06",
+        "speaker_taking_floor": "SPEAKER_03",
+        "next_turn_by_previous_speaker_seconds_after_transition": 273.0709999999999,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00060",
+        "speaker_before_transition": "SPEAKER_03",
+        "speaker_taking_floor": "SPEAKER_07",
+        "next_turn_by_previous_speaker_seconds_after_transition": 5.1469999999999345,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00061",
+        "speaker_before_transition": "SPEAKER_07",
+        "speaker_taking_floor": "SPEAKER_03",
+        "next_turn_by_previous_speaker_seconds_after_transition": 334.462,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00062",
+        "speaker_before_transition": "SPEAKER_03",
+        "speaker_taking_floor": "SPEAKER_00",
+        "next_turn_by_previous_speaker_seconds_after_transition": 13.466000000000122,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00063",
+        "speaker_before_transition": "SPEAKER_00",
+        "speaker_taking_floor": "SPEAKER_03",
+        "next_turn_by_previous_speaker_seconds_after_transition": 43.402000000000044,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00064",
+        "speaker_before_transition": "SPEAKER_03",
+        "speaker_taking_floor": "SPEAKER_05",
+        "next_turn_by_previous_speaker_seconds_after_transition": 30.121000000000095,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00065",
+        "speaker_before_transition": "SPEAKER_05",
+        "speaker_taking_floor": "SPEAKER_03",
+        "next_turn_by_previous_speaker_seconds_after_transition": 7.222999999999956,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00066",
+        "speaker_before_transition": "SPEAKER_03",
+        "speaker_taking_floor": "SPEAKER_05",
+        "next_turn_by_previous_speaker_seconds_after_transition": 36.787000000000035,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00067",
+        "speaker_before_transition": "SPEAKER_05",
+        "speaker_taking_floor": "SPEAKER_00",
+        "next_turn_by_previous_speaker_seconds_after_transition": 5.737999999999829,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00068",
+        "speaker_before_transition": "SPEAKER_00",
+        "speaker_taking_floor": "SPEAKER_05",
+        "next_turn_by_previous_speaker_seconds_after_transition": 50.96199999999999,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00069",
+        "speaker_before_transition": "SPEAKER_05",
+        "speaker_taking_floor": "SPEAKER_03",
+        "next_turn_by_previous_speaker_seconds_after_transition": 16.555000000000064,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00070",
+        "speaker_before_transition": "SPEAKER_03",
+        "speaker_taking_floor": "SPEAKER_05",
+        "next_turn_by_previous_speaker_seconds_after_transition": 6.884999999999991,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00071",
+        "speaker_before_transition": "SPEAKER_05",
+        "speaker_taking_floor": "SPEAKER_03",
+        "next_turn_by_previous_speaker_seconds_after_transition": 342.71399999999994,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00072",
+        "speaker_before_transition": "SPEAKER_03",
+        "speaker_taking_floor": "SPEAKER_00",
+        "next_turn_by_previous_speaker_seconds_after_transition": 0.9960000000000946,
+        "previous_speaker_returns_within_3_seconds": true,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00073",
+        "speaker_before_transition": "SPEAKER_00",
+        "speaker_taking_floor": "SPEAKER_03",
+        "next_turn_by_previous_speaker_seconds_after_transition": 138.93200000000002,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00074",
+        "speaker_before_transition": "SPEAKER_03",
+        "speaker_taking_floor": "SPEAKER_01",
+        "next_turn_by_previous_speaker_seconds_after_transition": 33.294000000000096,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00075",
+        "speaker_before_transition": "SPEAKER_01",
+        "speaker_taking_floor": "SPEAKER_03",
+        "next_turn_by_previous_speaker_seconds_after_transition": 383.7539999999999,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00076",
+        "speaker_before_transition": "SPEAKER_03",
+        "speaker_taking_floor": "SPEAKER_04",
+        "next_turn_by_previous_speaker_seconds_after_transition": 136.29999999999995,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00077",
+        "speaker_before_transition": "SPEAKER_04",
+        "speaker_taking_floor": "SPEAKER_06",
+        "next_turn_by_previous_speaker_seconds_after_transition": 185.22000000000003,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00078",
+        "speaker_before_transition": "SPEAKER_06",
+        "speaker_taking_floor": "SPEAKER_00",
+        "next_turn_by_previous_speaker_seconds_after_transition": 57.39200000000005,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00079",
+        "speaker_before_transition": "SPEAKER_00",
+        "speaker_taking_floor": "SPEAKER_03",
+        "next_turn_by_previous_speaker_seconds_after_transition": 273.74599999999987,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00080",
+        "speaker_before_transition": "SPEAKER_03",
+        "speaker_taking_floor": "SPEAKER_06",
+        "next_turn_by_previous_speaker_seconds_after_transition": 11.30600000000004,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00081",
+        "speaker_before_transition": "SPEAKER_06",
+        "speaker_taking_floor": "SPEAKER_07",
+        "next_turn_by_previous_speaker_seconds_after_transition": 32.19800000000009,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00082",
+        "speaker_before_transition": "SPEAKER_07",
+        "speaker_taking_floor": "SPEAKER_03",
+        "next_turn_by_previous_speaker_seconds_after_transition": 3.0709999999999127,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00083",
+        "speaker_before_transition": "SPEAKER_03",
+        "speaker_taking_floor": "SPEAKER_07",
+        "next_turn_by_previous_speaker_seconds_after_transition": 44.17900000000009,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00084",
+        "speaker_before_transition": "SPEAKER_07",
+        "speaker_taking_floor": "SPEAKER_06",
+        "next_turn_by_previous_speaker_seconds_after_transition": 71.27999999999997,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00085",
+        "speaker_before_transition": "SPEAKER_06",
+        "speaker_taking_floor": "SPEAKER_03",
+        "next_turn_by_previous_speaker_seconds_after_transition": null,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00086",
+        "speaker_before_transition": "SPEAKER_03",
+        "speaker_taking_floor": "SPEAKER_02",
+        "next_turn_by_previous_speaker_seconds_after_transition": 11.930000000000064,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00087",
+        "speaker_before_transition": "SPEAKER_02",
+        "speaker_taking_floor": "SPEAKER_03",
+        "next_turn_by_previous_speaker_seconds_after_transition": 0.06799999999998363,
+        "previous_speaker_returns_within_3_seconds": true,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00088",
+        "speaker_before_transition": "SPEAKER_03",
+        "speaker_taking_floor": "SPEAKER_02",
+        "next_turn_by_previous_speaker_seconds_after_transition": 0.28700000000003456,
+        "previous_speaker_returns_within_3_seconds": true,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00089",
+        "speaker_before_transition": "SPEAKER_02",
+        "speaker_taking_floor": "SPEAKER_03",
+        "next_turn_by_previous_speaker_seconds_after_transition": 0.06700000000000728,
+        "previous_speaker_returns_within_3_seconds": true,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00090",
+        "speaker_before_transition": "SPEAKER_03",
+        "speaker_taking_floor": "SPEAKER_02",
+        "next_turn_by_previous_speaker_seconds_after_transition": 0.03399999999987813,
+        "previous_speaker_returns_within_3_seconds": true,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00091",
+        "speaker_before_transition": "SPEAKER_02",
+        "speaker_taking_floor": "SPEAKER_03",
+        "next_turn_by_previous_speaker_seconds_after_transition": 0.6080000000001746,
+        "previous_speaker_returns_within_3_seconds": true,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00092",
+        "speaker_before_transition": "SPEAKER_03",
+        "speaker_taking_floor": "SPEAKER_02",
+        "next_turn_by_previous_speaker_seconds_after_transition": 0.944999999999709,
+        "previous_speaker_returns_within_3_seconds": true,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00093",
+        "speaker_before_transition": "SPEAKER_02",
+        "speaker_taking_floor": "SPEAKER_03",
+        "next_turn_by_previous_speaker_seconds_after_transition": 0.0500000000001819,
+        "previous_speaker_returns_within_3_seconds": true,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00094",
+        "speaker_before_transition": "SPEAKER_03",
+        "speaker_taking_floor": "SPEAKER_02",
+        "next_turn_by_previous_speaker_seconds_after_transition": 0.3040000000000873,
+        "previous_speaker_returns_within_3_seconds": true,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00095",
+        "speaker_before_transition": "SPEAKER_02",
+        "speaker_taking_floor": "SPEAKER_03",
+        "next_turn_by_previous_speaker_seconds_after_transition": null,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00096",
+        "speaker_before_transition": "SPEAKER_03",
+        "speaker_taking_floor": "SPEAKER_07",
+        "next_turn_by_previous_speaker_seconds_after_transition": 15.963999999999942,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00097",
+        "speaker_before_transition": "SPEAKER_07",
+        "speaker_taking_floor": "SPEAKER_04",
+        "next_turn_by_previous_speaker_seconds_after_transition": null,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00098",
+        "speaker_before_transition": "SPEAKER_04",
+        "speaker_taking_floor": "SPEAKER_03",
+        "next_turn_by_previous_speaker_seconds_after_transition": null,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00099",
+        "speaker_before_transition": "SPEAKER_03",
+        "speaker_taking_floor": "SPEAKER_05",
+        "next_turn_by_previous_speaker_seconds_after_transition": 34.66100000000006,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00100",
+        "speaker_before_transition": "SPEAKER_05",
+        "speaker_taking_floor": "SPEAKER_03",
+        "next_turn_by_previous_speaker_seconds_after_transition": 3.1219999999998436,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00101",
+        "speaker_before_transition": "SPEAKER_03",
+        "speaker_taking_floor": "SPEAKER_05",
+        "next_turn_by_previous_speaker_seconds_after_transition": 0.38799999999991996,
+        "previous_speaker_returns_within_3_seconds": true,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00102",
+        "speaker_before_transition": "SPEAKER_05",
+        "speaker_taking_floor": "SPEAKER_03",
+        "next_turn_by_previous_speaker_seconds_after_transition": 11.745000000000346,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00103",
+        "speaker_before_transition": "SPEAKER_03",
+        "speaker_taking_floor": "SPEAKER_05",
+        "next_turn_by_previous_speaker_seconds_after_transition": 17.70199999999977,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00104",
+        "speaker_before_transition": "SPEAKER_05",
+        "speaker_taking_floor": "SPEAKER_03",
+        "next_turn_by_previous_speaker_seconds_after_transition": null,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00105",
+        "speaker_before_transition": "SPEAKER_03",
+        "speaker_taking_floor": "SPEAKER_01",
+        "next_turn_by_previous_speaker_seconds_after_transition": 32.28200000000015,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00106",
+        "speaker_before_transition": "SPEAKER_01",
+        "speaker_taking_floor": "SPEAKER_03",
+        "next_turn_by_previous_speaker_seconds_after_transition": null,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00107",
+        "speaker_before_transition": "SPEAKER_03",
+        "speaker_taking_floor": "SPEAKER_00",
+        "next_turn_by_previous_speaker_seconds_after_transition": 21.09400000000005,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      },
+      {
+        "transition_event_id": "TR00108",
+        "speaker_before_transition": "SPEAKER_00",
+        "speaker_taking_floor": "SPEAKER_03",
+        "next_turn_by_previous_speaker_seconds_after_transition": null,
+        "previous_speaker_returns_within_3_seconds": false,
+        "interpretation": "temporal_reentry_only_not_semantically_verified_response"
+      }
+    ],
+    "within_window_count": 23,
+    "limitation": "Temporal re-entry only; does not establish that the speaker answered or responded semantically."
+  },
+  "subtopic_interactions": [
+    {
+      "subtopic_id": "ST001",
+      "title": "Opening discussion",
+      "start": 0.0,
+      "end": 1048.918,
+      "transition_count": 47,
+      "host_involved_transition_count": 29,
+      "directional_transition_counts": [
+        {
+          "from_speaker": "SPEAKER_00",
+          "to_speaker": "SPEAKER_02",
+          "count": 1
+        },
+        {
+          "from_speaker": "SPEAKER_00",
+          "to_speaker": "SPEAKER_03",
+          "count": 3
+        },
+        {
+          "from_speaker": "SPEAKER_00",
+          "to_speaker": "SPEAKER_04",
+          "count": 1
+        },
+        {
+          "from_speaker": "SPEAKER_01",
+          "to_speaker": "SPEAKER_04",
+          "count": 1
+        },
+        {
+          "from_speaker": "SPEAKER_02",
+          "to_speaker": "SPEAKER_01",
+          "count": 1
+        },
+        {
+          "from_speaker": "SPEAKER_02",
+          "to_speaker": "SPEAKER_03",
+          "count": 8
+        },
+        {
+          "from_speaker": "SPEAKER_02",
+          "to_speaker": "SPEAKER_04",
+          "count": 4
+        },
+        {
+          "from_speaker": "SPEAKER_03",
+          "to_speaker": "SPEAKER_00",
+          "count": 2
+        },
+        {
+          "from_speaker": "SPEAKER_03",
+          "to_speaker": "SPEAKER_02",
+          "count": 8
+        },
+        {
+          "from_speaker": "SPEAKER_03",
+          "to_speaker": "SPEAKER_04",
+          "count": 3
+        },
+        {
+          "from_speaker": "SPEAKER_03",
+          "to_speaker": "SPEAKER_05",
+          "count": 2
+        },
+        {
+          "from_speaker": "SPEAKER_04",
+          "to_speaker": "SPEAKER_00",
+          "count": 3
+        },
+        {
+          "from_speaker": "SPEAKER_04",
+          "to_speaker": "SPEAKER_02",
+          "count": 4
+        },
+        {
+          "from_speaker": "SPEAKER_04",
+          "to_speaker": "SPEAKER_03",
+          "count": 2
+        },
+        {
+          "from_speaker": "SPEAKER_04",
+          "to_speaker": "SPEAKER_07",
+          "count": 1
+        },
+        {
+          "from_speaker": "SPEAKER_05",
+          "to_speaker": "SPEAKER_00",
+          "count": 1
+        },
+        {
+          "from_speaker": "SPEAKER_05",
+          "to_speaker": "SPEAKER_03",
+          "count": 1
+        },
+        {
+          "from_speaker": "SPEAKER_07",
+          "to_speaker": "SPEAKER_04",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "subtopic_id": "ST002",
+      "title": "Inaccuracy of Pollution Data and Ground Realities",
+      "start": 1048.918,
+      "end": 1237.46,
+      "transition_count": 4,
+      "host_involved_transition_count": 3,
+      "directional_transition_counts": [
+        {
+          "from_speaker": "SPEAKER_00",
+          "to_speaker": "SPEAKER_01",
+          "count": 1
+        },
+        {
+          "from_speaker": "SPEAKER_01",
+          "to_speaker": "SPEAKER_03",
+          "count": 1
+        },
+        {
+          "from_speaker": "SPEAKER_03",
+          "to_speaker": "SPEAKER_07",
+          "count": 1
+        },
+        {
+          "from_speaker": "SPEAKER_07",
+          "to_speaker": "SPEAKER_03",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "subtopic_id": "ST003",
+      "title": "Impact on Human Health and Medical Emergencies",
+      "start": 1237.46,
+      "end": 2018.284,
+      "transition_count": 34,
+      "host_involved_transition_count": 26,
+      "directional_transition_counts": [
+        {
+          "from_speaker": "SPEAKER_00",
+          "to_speaker": "SPEAKER_01",
+          "count": 1
+        },
+        {
+          "from_speaker": "SPEAKER_00",
+          "to_speaker": "SPEAKER_03",
+          "count": 3
+        },
+        {
+          "from_speaker": "SPEAKER_00",
+          "to_speaker": "SPEAKER_05",
+          "count": 1
+        },
+        {
+          "from_speaker": "SPEAKER_01",
+          "to_speaker": "SPEAKER_00",
+          "count": 1
+        },
+        {
+          "from_speaker": "SPEAKER_01",
+          "to_speaker": "SPEAKER_03",
+          "count": 2
+        },
+        {
+          "from_speaker": "SPEAKER_03",
+          "to_speaker": "SPEAKER_00",
+          "count": 2
+        },
+        {
+          "from_speaker": "SPEAKER_03",
+          "to_speaker": "SPEAKER_01",
+          "count": 2
+        },
+        {
+          "from_speaker": "SPEAKER_03",
+          "to_speaker": "SPEAKER_04",
+          "count": 1
+        },
+        {
+          "from_speaker": "SPEAKER_03",
+          "to_speaker": "SPEAKER_05",
+          "count": 3
+        },
+        {
+          "from_speaker": "SPEAKER_03",
+          "to_speaker": "SPEAKER_06",
+          "count": 3
+        },
+        {
+          "from_speaker": "SPEAKER_03",
+          "to_speaker": "SPEAKER_07",
+          "count": 2
+        },
+        {
+          "from_speaker": "SPEAKER_04",
+          "to_speaker": "SPEAKER_06",
+          "count": 1
+        },
+        {
+          "from_speaker": "SPEAKER_05",
+          "to_speaker": "SPEAKER_00",
+          "count": 1
+        },
+        {
+          "from_speaker": "SPEAKER_05",
+          "to_speaker": "SPEAKER_03",
+          "count": 3
+        },
+        {
+          "from_speaker": "SPEAKER_06",
+          "to_speaker": "SPEAKER_00",
+          "count": 1
+        },
+        {
+          "from_speaker": "SPEAKER_06",
+          "to_speaker": "SPEAKER_03",
+          "count": 3
+        },
+        {
+          "from_speaker": "SPEAKER_06",
+          "to_speaker": "SPEAKER_07",
+          "count": 1
+        },
+        {
+          "from_speaker": "SPEAKER_07",
+          "to_speaker": "SPEAKER_03",
+          "count": 2
+        },
+        {
+          "from_speaker": "SPEAKER_07",
+          "to_speaker": "SPEAKER_06",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "subtopic_id": "ST004",
+      "title": "Stubble Burning and Punjab AQI Levels",
+      "start": 2018.284,
+      "end": 2192.095,
+      "transition_count": 19,
+      "host_involved_transition_count": 18,
+      "directional_transition_counts": [
+        {
+          "from_speaker": "SPEAKER_02",
+          "to_speaker": "SPEAKER_03",
+          "count": 5
+        },
+        {
+          "from_speaker": "SPEAKER_03",
+          "to_speaker": "SPEAKER_02",
+          "count": 5
+        },
+        {
+          "from_speaker": "SPEAKER_03",
+          "to_speaker": "SPEAKER_05",
+          "count": 3
+        },
+        {
+          "from_speaker": "SPEAKER_03",
+          "to_speaker": "SPEAKER_07",
+          "count": 1
+        },
+        {
+          "from_speaker": "SPEAKER_04",
+          "to_speaker": "SPEAKER_03",
+          "count": 1
+        },
+        {
+          "from_speaker": "SPEAKER_05",
+          "to_speaker": "SPEAKER_03",
+          "count": 3
+        },
+        {
+          "from_speaker": "SPEAKER_07",
+          "to_speaker": "SPEAKER_04",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "subtopic_id": "ST005",
+      "title": "Closing Remarks and Final Solutions",
+      "start": 2192.095,
+      "end": 2270.858,
+      "transition_count": 4,
+      "host_involved_transition_count": 4,
+      "directional_transition_counts": [
+        {
+          "from_speaker": "SPEAKER_00",
+          "to_speaker": "SPEAKER_03",
+          "count": 1
+        },
+        {
+          "from_speaker": "SPEAKER_01",
+          "to_speaker": "SPEAKER_03",
+          "count": 1
+        },
+        {
+          "from_speaker": "SPEAKER_03",
+          "to_speaker": "SPEAKER_00",
+          "count": 1
+        },
+        {
+          "from_speaker": "SPEAKER_03",
+          "to_speaker": "SPEAKER_01",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "interaction_network": {
+    "nodes": [
+      "SPEAKER_00",
+      "SPEAKER_01",
+      "SPEAKER_02",
+      "SPEAKER_03",
+      "SPEAKER_04",
+      "SPEAKER_05",
+      "SPEAKER_06",
+      "SPEAKER_07"
+    ],
+    "directed_edges": [
+      {
+        "source": "SPEAKER_00",
+        "target": "SPEAKER_01",
+        "transition_count": 2,
+        "confirmed_interruption_count": 1,
+        "pair_overlap_count": 5,
+        "pair_overlap_duration_seconds": 1.568
+      },
+      {
+        "source": "SPEAKER_00",
+        "target": "SPEAKER_02",
+        "transition_count": 1,
+        "confirmed_interruption_count": 1,
+        "pair_overlap_count": 1,
+        "pair_overlap_duration_seconds": 0.371
+      },
+      {
+        "source": "SPEAKER_00",
+        "target": "SPEAKER_03",
+        "transition_count": 7,
+        "confirmed_interruption_count": 3,
+        "pair_overlap_count": 4,
+        "pair_overlap_duration_seconds": 3.071
+      },
+      {
+        "source": "SPEAKER_00",
+        "target": "SPEAKER_04",
+        "transition_count": 1,
+        "confirmed_interruption_count": 1,
+        "pair_overlap_count": 1,
+        "pair_overlap_duration_seconds": 0.253
+      },
+      {
+        "source": "SPEAKER_00",
+        "target": "SPEAKER_05",
+        "transition_count": 1,
+        "confirmed_interruption_count": 2,
+        "pair_overlap_count": 2,
+        "pair_overlap_duration_seconds": 0.202
+      },
+      {
+        "source": "SPEAKER_01",
+        "target": "SPEAKER_00",
+        "transition_count": 1,
+        "confirmed_interruption_count": 4,
+        "pair_overlap_count": 5,
+        "pair_overlap_duration_seconds": 1.568
+      },
+      {
+        "source": "SPEAKER_01",
+        "target": "SPEAKER_03",
+        "transition_count": 4,
+        "confirmed_interruption_count": 0,
+        "pair_overlap_count": 0,
+        "pair_overlap_duration_seconds": 0
+      },
+      {
+        "source": "SPEAKER_01",
+        "target": "SPEAKER_04",
+        "transition_count": 1,
+        "confirmed_interruption_count": 0,
+        "pair_overlap_count": 0,
+        "pair_overlap_duration_seconds": 0
+      },
+      {
+        "source": "SPEAKER_02",
+        "target": "SPEAKER_01",
+        "transition_count": 1,
+        "confirmed_interruption_count": 1,
+        "pair_overlap_count": 0,
+        "pair_overlap_duration_seconds": 0
+      },
+      {
+        "source": "SPEAKER_02",
+        "target": "SPEAKER_03",
+        "transition_count": 13,
+        "confirmed_interruption_count": 2,
+        "pair_overlap_count": 21,
+        "pair_overlap_duration_seconds": 20.252
+      },
+      {
+        "source": "SPEAKER_02",
+        "target": "SPEAKER_04",
+        "transition_count": 4,
+        "confirmed_interruption_count": 2,
+        "pair_overlap_count": 5,
+        "pair_overlap_duration_seconds": 12.622
+      },
+      {
+        "source": "SPEAKER_03",
+        "target": "SPEAKER_00",
+        "transition_count": 5,
+        "confirmed_interruption_count": 1,
+        "pair_overlap_count": 4,
+        "pair_overlap_duration_seconds": 3.071
+      },
+      {
+        "source": "SPEAKER_03",
+        "target": "SPEAKER_01",
+        "transition_count": 3,
+        "confirmed_interruption_count": 0,
+        "pair_overlap_count": 0,
+        "pair_overlap_duration_seconds": 0
+      },
+      {
+        "source": "SPEAKER_03",
+        "target": "SPEAKER_02",
+        "transition_count": 13,
+        "confirmed_interruption_count": 14,
+        "pair_overlap_count": 21,
+        "pair_overlap_duration_seconds": 20.252
+      },
+      {
+        "source": "SPEAKER_03",
+        "target": "SPEAKER_04",
+        "transition_count": 4,
+        "confirmed_interruption_count": 1,
+        "pair_overlap_count": 3,
+        "pair_overlap_duration_seconds": 5.974
+      },
+      {
+        "source": "SPEAKER_03",
+        "target": "SPEAKER_05",
+        "transition_count": 8,
+        "confirmed_interruption_count": 6,
+        "pair_overlap_count": 15,
+        "pair_overlap_duration_seconds": 35.945
+      },
+      {
+        "source": "SPEAKER_03",
+        "target": "SPEAKER_06",
+        "transition_count": 3,
+        "confirmed_interruption_count": 4,
+        "pair_overlap_count": 4,
+        "pair_overlap_duration_seconds": 7.171
+      },
+      {
+        "source": "SPEAKER_03",
+        "target": "SPEAKER_07",
+        "transition_count": 4,
+        "confirmed_interruption_count": 2,
+        "pair_overlap_count": 2,
+        "pair_overlap_duration_seconds": 1.485
+      },
+      {
+        "source": "SPEAKER_04",
+        "target": "SPEAKER_00",
+        "transition_count": 3,
+        "confirmed_interruption_count": 1,
+        "pair_overlap_count": 1,
+        "pair_overlap_duration_seconds": 0.253
+      },
+      {
+        "source": "SPEAKER_04",
+        "target": "SPEAKER_02",
+        "transition_count": 4,
+        "confirmed_interruption_count": 3,
+        "pair_overlap_count": 5,
+        "pair_overlap_duration_seconds": 12.622
+      },
+      {
+        "source": "SPEAKER_04",
+        "target": "SPEAKER_03",
+        "transition_count": 3,
+        "confirmed_interruption_count": 2,
+        "pair_overlap_count": 3,
+        "pair_overlap_duration_seconds": 5.974
+      },
+      {
+        "source": "SPEAKER_04",
+        "target": "SPEAKER_06",
+        "transition_count": 1,
+        "confirmed_interruption_count": 0,
+        "pair_overlap_count": 0,
+        "pair_overlap_duration_seconds": 0
+      },
+      {
+        "source": "SPEAKER_04",
+        "target": "SPEAKER_07",
+        "transition_count": 1,
+        "confirmed_interruption_count": 0,
+        "pair_overlap_count": 1,
+        "pair_overlap_duration_seconds": 0.085
+      },
+      {
+        "source": "SPEAKER_05",
+        "target": "SPEAKER_00",
+        "transition_count": 2,
+        "confirmed_interruption_count": 0,
+        "pair_overlap_count": 2,
+        "pair_overlap_duration_seconds": 0.202
+      },
+      {
+        "source": "SPEAKER_05",
+        "target": "SPEAKER_03",
+        "transition_count": 7,
+        "confirmed_interruption_count": 1,
+        "pair_overlap_count": 15,
+        "pair_overlap_duration_seconds": 35.945
+      },
+      {
+        "source": "SPEAKER_06",
+        "target": "SPEAKER_00",
+        "transition_count": 1,
+        "confirmed_interruption_count": 0,
+        "pair_overlap_count": 1,
+        "pair_overlap_duration_seconds": 1.535
+      },
+      {
+        "source": "SPEAKER_06",
+        "target": "SPEAKER_03",
+        "transition_count": 3,
+        "confirmed_interruption_count": 1,
+        "pair_overlap_count": 4,
+        "pair_overlap_duration_seconds": 7.171
+      },
+      {
+        "source": "SPEAKER_06",
+        "target": "SPEAKER_07",
+        "transition_count": 1,
+        "confirmed_interruption_count": 2,
+        "pair_overlap_count": 2,
+        "pair_overlap_duration_seconds": 0.405
+      },
+      {
+        "source": "SPEAKER_07",
+        "target": "SPEAKER_03",
+        "transition_count": 3,
+        "confirmed_interruption_count": 1,
+        "pair_overlap_count": 2,
+        "pair_overlap_duration_seconds": 1.485
+      },
+      {
+        "source": "SPEAKER_07",
+        "target": "SPEAKER_04",
+        "transition_count": 2,
+        "confirmed_interruption_count": 1,
+        "pair_overlap_count": 1,
+        "pair_overlap_duration_seconds": 0.085
+      },
+      {
+        "source": "SPEAKER_07",
+        "target": "SPEAKER_06",
+        "transition_count": 1,
+        "confirmed_interruption_count": 0,
+        "pair_overlap_count": 2,
+        "pair_overlap_duration_seconds": 0.405
+      }
+    ]
+  },
+  "data_quality": {
+    "transcript_speaker_turn_count": 111,
+    "transition_events_source_count": 108,
+    "subtopic_count": 5,
+    "unassigned_transition_count": 0,
+    "host_id_present_in_transcript_speakers": true,
+    "source_interruption_records_present": true,
+    "source_overlap_pair_records_present": true,
+    "warnings": [
+      "No timestamped overlap events were available; only aggregate pair statistics were used."
+    ]
+  }
+}

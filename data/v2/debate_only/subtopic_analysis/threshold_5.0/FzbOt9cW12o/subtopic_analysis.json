@@ -1,0 +1,241 @@
+{
+  "schema_version": "subtopic-analysis-1.0",
+  "video_id": "FzbOt9cW12o",
+  "variant": "threshold_5.0",
+  "source_files": {
+    "transcript": "/home/user/MTP/Code/television-discourse-decoded-hindi/data/v2/debate_only/videos/FzbOt9cW12o/threshold_5.0/merge_final.json",
+    "overall_topic": "/home/user/MTP/Code/television-discourse-decoded-hindi/data/v2/debate_only/overall_topic/threshold_5.0/FzbOt9cW12o/overall_topic.json"
+  },
+  "configuration": {
+    "method": "hybrid_semantic_similarity_and_llm_verification",
+    "chunk_duration_minutes": 5.0,
+    "overlap_minutes": 1.0,
+    "semantic_unit_seconds": 30.0,
+    "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "semantic_similarity_threshold": 0.55,
+    "gemini_model": "gemini-3.5-flash-lite",
+    "brief_deviations": "merged_into_surrounding_subtopic"
+  },
+  "overall_topic": {
+    "topic": "Criticism of Rahul Gandhi's Parliamentary Attendance and the Opposition's Mock Parliament",
+    "description": "A televised debate discussing the opposition's unprecedented decision to hold a mock parliament in the house of the leader of the opposition, alongside criticism of Rahul Gandhi's low parliamentary attendance and the opposition's preference for street protests over parliamentary procedures."
+  },
+  "chunks": [
+    {
+      "chunk_id": "C001",
+      "start": 0.0,
+      "end": 300.0,
+      "segment_count": 51
+    },
+    {
+      "chunk_id": "C002",
+      "start": 240.0,
+      "end": 540.0,
+      "segment_count": 52
+    },
+    {
+      "chunk_id": "C003",
+      "start": 480.0,
+      "end": 601.575,
+      "segment_count": 19
+    }
+  ],
+  "boundary_analysis": {
+    "embedding": {
+      "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+      "unit_duration_seconds": null,
+      "units": 20,
+      "similarity_threshold": 0.55,
+      "minimum_candidate_gap_seconds": 45.0,
+      "candidate_count": 8
+    },
+    "candidates": [
+      {
+        "candidate_id": "B0001",
+        "candidate_time": 150.0,
+        "semantic_similarity": 0.40763533115386963,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The speaker is continuing the argument about Rahul Gandhi's absence from key parliamentary debates across various topics (Article 370, CAA, triple talaq, etc.), concluding this specific point before moving into other related statistics like his attendance percentage. This is part of the same continuous discussion.",
+        "confidence": 0.95
+      },
+      {
+        "candidate_id": "B0002",
+        "candidate_time": 210.0,
+        "semantic_similarity": 0.36765244603157043,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The discussion remains centered around the opposition's political strategy, moving from criticism of Rahul Gandhi's attendance and parliamentary engagement to the broader topic of the opposition choosing street protests over parliamentary procedures.",
+        "confidence": 0.85
+      },
+      {
+        "candidate_id": "B0003",
+        "candidate_time": 270.0,
+        "semantic_similarity": 0.23569954931735992,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The speaker is continuing the discussion on the opposition's preference for street protests and alternative political actions over parliamentary processes, directly flowing from the previous point about narrative setting on the streets.",
+        "confidence": 0.9
+      },
+      {
+        "candidate_id": "B0004",
+        "candidate_time": 330.0,
+        "semantic_similarity": 0.4227730333805084,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The speaker continues the exact same thought process directly flowing from discussing opposition protests and the mock parliament, transitioning smoothly into criticizing Rahul Gandhi's leadership ('whims of one prince') and their staging of the mock parliament without any shift in topic.",
+        "confidence": 0.95
+      },
+      {
+        "candidate_id": "B0005",
+        "candidate_time": 390.0,
+        "semantic_similarity": 0.44196540117263794,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The anchor points simply transition the conversation from one panelist (Rajat Sethi discussing the mock parliament) to the host addressing Sanju Verma, who then continues the exact same theme of criticizing the opposition's parliamentary tactics and Rahul Gandhi's approach, keeping it within the same subtopic.",
+        "confidence": 0.95
+      },
+      {
+        "candidate_id": "B0006",
+        "candidate_time": 450.0,
+        "semantic_similarity": 0.258585125207901,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The speaker (Sanju Verma) continues her argument criticizing Rahul Gandhi and the opposition. After questioning the bias in asking questions and defending the ruling party, she flows directly into criticizing the opposition for failing to utilize parliamentary tools like the 'zero hour' instead of disrupting the house. This is a continuation of the critique of opposition behavior within the same overall topic.",
+        "confidence": 0.95
+      },
+      {
+        "candidate_id": "B0007",
+        "candidate_time": 510.0,
+        "semantic_similarity": 0.5072957277297974,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The speaker is continuing the same line of argument regarding parliamentary procedures, specifically questioning why opposition leaders like Rahul Gandhi do not utilize the Zero Hour instead of engaging in disruptions and mock parliaments. This is a direct continuation of the previous segment discussing parliamentary rules and opposition conduct.",
+        "confidence": 0.95
+      },
+      {
+        "candidate_id": "B0008",
+        "candidate_time": 570.0,
+        "semantic_similarity": 0.40534940361976624,
+        "decision": "continuation",
+        "boundary_time": null,
+        "title": null,
+        "description": null,
+        "reason": "The speaker is continuing the same line of argument regarding the preference for street protests ('tamasha' and 'mock parliament') over parliamentary procedures, moving smoothly from questioning Yogendra Yadav's influence to denouncing the street-level protests.",
+        "confidence": 0.95
+      }
+    ],
+    "counts": {
+      "continuation": 8
+    }
+  },
+  "subtopics": [
+    {
+      "subtopic_id": "ST001",
+      "title": "Opening discussion",
+      "start": 0.0,
+      "end": 601.575,
+      "duration_seconds": 601.575,
+      "description": null,
+      "speakers": [
+        "SPEAKER_00",
+        "SPEAKER_01",
+        "SPEAKER_02"
+      ],
+      "evidence": [
+        {
+          "start": 0.091,
+          "end": 5.036,
+          "speaker_id": "SPEAKER_01",
+          "text": "Let me bring in Sanju Verma, BJP national spokesperson, also Rajat Sethi, political analyst."
+        },
+        {
+          "start": 62.327,
+          "end": 66.029,
+          "speaker_id": "SPEAKER_00",
+          "text": "I would like to suggest, Maria, do remember that ahead of Lok Sabha 2024 elections,"
+        },
+        {
+          "start": 122.693,
+          "end": 125.455,
+          "speaker_id": "SPEAKER_00",
+          "text": "I will just very quickly, without being verbose, let you know."
+        },
+        {
+          "start": 169.108,
+          "end": 170.789,
+          "speaker_id": "SPEAKER_00",
+          "text": "Let's bring in Rajat also on the screen please."
+        },
+        {
+          "start": 205.88,
+          "end": 206.401,
+          "speaker_id": "SPEAKER_02",
+          "text": "Of course."
+        },
+        {
+          "start": 272.36,
+          "end": 282.927,
+          "speaker_id": "SPEAKER_02",
+          "text": "A person who earns his bread and butter respectfully, Singhviji, has been over the past two, three weeks, has been lambasting courts."
+        },
+        {
+          "start": 326.345,
+          "end": 330.266,
+          "speaker_id": "SPEAKER_02",
+          "text": "Because then the genuine issues which you could have brought to the fore have been sidelined."
+        },
+        {
+          "start": 366.804,
+          "end": 368.925,
+          "speaker_id": "SPEAKER_02",
+          "text": "And they'll say that, OK, this is mock prime minister's chair."
+        },
+        {
+          "start": 424.856,
+          "end": 428.297,
+          "speaker_id": "SPEAKER_00",
+          "text": "If Rahul Gandhi loses, questions are still not asked of Rahul Gandhi."
+        },
+        {
+          "start": 470.104,
+          "end": 471.245,
+          "speaker_id": "SPEAKER_00",
+          "text": "You know, Wide Rule 255, 256, 267, blah, blah, blah."
+        },
+        {
+          "start": 537.77,
+          "end": 541.213,
+          "speaker_id": "SPEAKER_00",
+          "text": "you know, procedures available to you."
+        },
+        {
+          "start": 599.169,
+          "end": 601.575,
+          "speaker_id": "SPEAKER_01",
+          "text": "Sanju Verma and Rajesh Sethi, really appreciate your time."
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total_subtopics": 1,
+    "total_duration_seconds": 601.575,
+    "candidate_boundaries": 8,
+    "verified_boundaries": 0
+  }
+}

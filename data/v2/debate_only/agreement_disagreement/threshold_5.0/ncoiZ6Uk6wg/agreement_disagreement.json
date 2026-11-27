@@ -1,0 +1,2890 @@
+{
+  "schema_version": "agreement-disagreement-1.2",
+  "script_version": "word-level-host-aware-1.1",
+  "metadata": {
+    "video_id": "ncoiZ6Uk6wg",
+    "variant": "threshold_5.0",
+    "title": "Rahul Gandhi Ups Ante On 'Vote Chori'! BJP Mocks Ramlila Rally, Says 'India Isn't His Fiefdom'",
+    "language": "English",
+    "language_verification": {
+      "status": "verified_from_source_metadata",
+      "pipeline_asr_language": "English",
+      "episode_language": null,
+      "warnings": []
+    },
+    "model": "gemini-3.5-flash-lite",
+    "host_speaker_id": "SPEAKER_02",
+    "host_identification_status": {
+      "status": "loaded",
+      "warning": "Scores and confidence bands are heuristic, not calibrated probabilities. Opening/closing phrase lists are incomplete and currently English-oriented; translated ASR text can affect cues. Manually verify predictions and evaluate across known-host episodes."
+    },
+    "host_prediction_confidence_band": "higher_heuristic_separation",
+    "host_prediction_warning": "Scores and confidence bands are heuristic, not calibrated probabilities. Opening/closing phrase lists are incomplete and currently English-oriented; translated ASR text can affect cues. Manually verify predictions and evaluate across known-host episodes.",
+    "generated_at_utc": "2026-11-27T04:52:10.246372+00:00",
+    "source_files": {
+      "transcript": "/home/user/MTP/Code/television-discourse-decoded-hindi/data/v2/debate_only/videos/ncoiZ6Uk6wg/threshold_5.0/merge_final.json",
+      "subtopics": "/home/user/MTP/Code/television-discourse-decoded-hindi/data/v2/debate_only/subtopic_analysis/threshold_5.0/ncoiZ6Uk6wg/subtopic_analysis.json",
+      "overall_topic": "/home/user/MTP/Code/television-discourse-decoded-hindi/data/v2/debate_only/overall_topic/threshold_5.0/ncoiZ6Uk6wg/overall_topic.json",
+      "host_identification": "/home/user/MTP/Code/television-discourse-decoded-hindi/data/v2/debate_only/videos/ncoiZ6Uk6wg/threshold_5.0/host_identification/host_identification.json"
+    }
+  },
+  "methodology": {
+    "analysis_unit": "directed speaker-to-speaker stance interaction",
+    "transcript_scope": "full transcript; not limited to overlapping speech",
+    "context_policy": "Each response turn is assessed with up to 5 preceding different-speaker turns.",
+    "classification_labels": [
+      "agreement",
+      "counterargument",
+      "disagreement",
+      "neutral",
+      "partial_agreement",
+      "uncertain"
+    ],
+    "agreement_family": [
+      "agreement",
+      "partial_agreement"
+    ],
+    "disagreement_family": [
+      "disagreement",
+      "counterargument"
+    ],
+    "moderator_policy": "Moderation, panelist introductions, summaries, follow-up questions, and repetition without a stance are neutral; substantive anchor stances are classified normally. Host identity is not used for classification.",
+    "overlap_policy": "Overlap and interruption are not evidence of stance by themselves.",
+    "neutral_policy": "Neutral candidates are counted in the candidate summary but omitted from interaction records; uncertain records are retained.",
+    "target_policy": "Target is a specific earlier turn; no reverse inference. Response timestamp determines subtopic mapping.",
+    "limitations": [
+      "Automated classifications require manual validation.",
+      "ASR errors can affect stance and exact quote matching.",
+      "The analysis does not infer intent, ideology, bias, or factual correctness."
+    ]
+  },
+  "episode_summary": {
+    "duration_seconds": 893.0,
+    "speaker_count": 10,
+    "transcript_turn_count": 36,
+    "subtopic_count": 4,
+    "candidate_response_turn_count": 34,
+    "neutral_candidate_count": 15,
+    "candidate_classification_counts": {
+      "agreement": 3,
+      "partial_agreement": 0,
+      "disagreement": 2,
+      "counterargument": 11,
+      "uncertain": 3,
+      "neutral": 15
+    },
+    "classification_counts": {
+      "agreement": 3,
+      "partial_agreement": 0,
+      "disagreement": 2,
+      "counterargument": 11,
+      "uncertain": 3
+    },
+    "total_non_neutral_interactions": 19,
+    "decisive_interaction_count": 16,
+    "agreement_family_count": 3,
+    "disagreement_family_count": 13,
+    "agreement_to_disagreement_ratio": 0.2308,
+    "agreement_family_share_percent": 18.75,
+    "disagreement_family_share_percent": 81.25,
+    "speaker_statistics": {
+      "SPEAKER_00": {
+        "initiated": {},
+        "received": {
+          "counterargument": 1
+        },
+        "total_initiated": 0,
+        "total_received": 1
+      },
+      "SPEAKER_01": {
+        "initiated": {
+          "disagreement": 1,
+          "counterargument": 1
+        },
+        "received": {
+          "counterargument": 1
+        },
+        "total_initiated": 2,
+        "total_received": 1
+      },
+      "SPEAKER_02": {
+        "initiated": {
+          "agreement": 1,
+          "counterargument": 2,
+          "disagreement": 1
+        },
+        "received": {
+          "counterargument": 3
+        },
+        "total_initiated": 4,
+        "total_received": 3
+      },
+      "SPEAKER_03": {
+        "initiated": {
+          "counterargument": 3
+        },
+        "received": {
+          "counterargument": 1
+        },
+        "total_initiated": 3,
+        "total_received": 1
+      },
+      "SPEAKER_04": {
+        "initiated": {
+          "counterargument": 1
+        },
+        "received": {
+          "disagreement": 1,
+          "uncertain": 1
+        },
+        "total_initiated": 1,
+        "total_received": 2
+      },
+      "SPEAKER_05": {
+        "initiated": {
+          "agreement": 1,
+          "counterargument": 2
+        },
+        "received": {
+          "agreement": 1,
+          "disagreement": 1,
+          "counterargument": 1
+        },
+        "total_initiated": 3,
+        "total_received": 3
+      },
+      "SPEAKER_06": {
+        "initiated": {
+          "agreement": 1
+        },
+        "received": {
+          "agreement": 1
+        },
+        "total_initiated": 1,
+        "total_received": 1
+      },
+      "SPEAKER_07": {
+        "initiated": {
+          "counterargument": 1
+        },
+        "received": {
+          "agreement": 1
+        },
+        "total_initiated": 1,
+        "total_received": 1
+      },
+      "SPEAKER_08": {
+        "initiated": {},
+        "received": {
+          "counterargument": 1
+        },
+        "total_initiated": 0,
+        "total_received": 1
+      },
+      "SPEAKER_09": {
+        "initiated": {
+          "counterargument": 1
+        },
+        "received": {
+          "counterargument": 3,
+          "uncertain": 2
+        },
+        "total_initiated": 1,
+        "total_received": 5
+      }
+    },
+    "directional_speaker_pairs": [
+      {
+        "source_speaker": "SPEAKER_03",
+        "responding_speaker": "SPEAKER_09",
+        "classification": "counterargument",
+        "count": 3
+      },
+      {
+        "source_speaker": "SPEAKER_01",
+        "responding_speaker": "SPEAKER_05",
+        "classification": "counterargument",
+        "count": 1
+      },
+      {
+        "source_speaker": "SPEAKER_01",
+        "responding_speaker": "SPEAKER_05",
+        "classification": "disagreement",
+        "count": 1
+      },
+      {
+        "source_speaker": "SPEAKER_02",
+        "responding_speaker": "SPEAKER_03",
+        "classification": "counterargument",
+        "count": 1
+      },
+      {
+        "source_speaker": "SPEAKER_02",
+        "responding_speaker": "SPEAKER_04",
+        "classification": "disagreement",
+        "count": 1
+      },
+      {
+        "source_speaker": "SPEAKER_02",
+        "responding_speaker": "SPEAKER_05",
+        "classification": "agreement",
+        "count": 1
+      },
+      {
+        "source_speaker": "SPEAKER_02",
+        "responding_speaker": "SPEAKER_08",
+        "classification": "counterargument",
+        "count": 1
+      },
+      {
+        "source_speaker": "SPEAKER_04",
+        "responding_speaker": "SPEAKER_02",
+        "classification": "counterargument",
+        "count": 1
+      },
+      {
+        "source_speaker": "SPEAKER_05",
+        "responding_speaker": "SPEAKER_00",
+        "classification": "counterargument",
+        "count": 1
+      },
+      {
+        "source_speaker": "SPEAKER_05",
+        "responding_speaker": "SPEAKER_01",
+        "classification": "counterargument",
+        "count": 1
+      },
+      {
+        "source_speaker": "SPEAKER_05",
+        "responding_speaker": "SPEAKER_06",
+        "classification": "agreement",
+        "count": 1
+      },
+      {
+        "source_speaker": "SPEAKER_06",
+        "responding_speaker": "SPEAKER_07",
+        "classification": "agreement",
+        "count": 1
+      },
+      {
+        "source_speaker": "SPEAKER_07",
+        "responding_speaker": "SPEAKER_02",
+        "classification": "counterargument",
+        "count": 1
+      },
+      {
+        "source_speaker": "SPEAKER_09",
+        "responding_speaker": "SPEAKER_02",
+        "classification": "counterargument",
+        "count": 1
+      }
+    ],
+    "subtopic_statistics": [
+      {
+        "subtopic_id": "ST001",
+        "title": "Opening discussion",
+        "start": 0.0,
+        "end": 129.691,
+        "interaction_count": 4,
+        "classification_counts": {
+          "agreement": 3,
+          "partial_agreement": 0,
+          "disagreement": 0,
+          "counterargument": 1,
+          "uncertain": 0
+        }
+      },
+      {
+        "subtopic_id": "ST002",
+        "title": "BJP Counter-Strike and Nationwide Protests",
+        "start": 129.691,
+        "end": 246.197,
+        "interaction_count": 4,
+        "classification_counts": {
+          "agreement": 0,
+          "partial_agreement": 0,
+          "disagreement": 1,
+          "counterargument": 3,
+          "uncertain": 0
+        }
+      },
+      {
+        "subtopic_id": "ST003",
+        "title": "Introduction of Panelists and Opposition Response",
+        "start": 246.197,
+        "end": 775.152,
+        "interaction_count": 11,
+        "classification_counts": {
+          "agreement": 0,
+          "partial_agreement": 0,
+          "disagreement": 1,
+          "counterargument": 7,
+          "uncertain": 3
+        }
+      },
+      {
+        "subtopic_id": "ST004",
+        "title": "Rally Attendance and Crowd Size Debate",
+        "start": 775.152,
+        "end": 887.157,
+        "interaction_count": 0,
+        "classification_counts": {
+          "agreement": 0,
+          "partial_agreement": 0,
+          "disagreement": 0,
+          "counterargument": 0,
+          "uncertain": 0
+        }
+      }
+    ],
+    "host_statistics": {
+      "host_speaker_id": "SPEAKER_02",
+      "host_initiated_interactions": 3,
+      "host_initiated_classification_counts": {
+        "agreement": 0,
+        "partial_agreement": 0,
+        "disagreement": 0,
+        "counterargument": 3,
+        "uncertain": 0
+      },
+      "host_received_interactions": 4,
+      "host_received_classification_counts": {
+        "agreement": 1,
+        "partial_agreement": 0,
+        "disagreement": 1,
+        "counterargument": 2,
+        "uncertain": 0
+      },
+      "guest_to_guest_interactions": 9,
+      "guest_to_guest_classification_counts": {
+        "agreement": 2,
+        "partial_agreement": 0,
+        "disagreement": 1,
+        "counterargument": 6,
+        "uncertain": 0
+      },
+      "host_involved_interactions": 7
+    },
+    "directional_aggregation_exclusions": {
+      "null_source_speaker_interactions": 3,
+      "included_in_directional_pairs": 16
+    },
+    "ratio_note": "Agreement family = agreement + partial_agreement; disagreement family = disagreement + counterargument. Neutral turns are omitted; uncertain cases are excluded from ratio denominators."
+  },
+  "interactions": [
+    {
+      "video_id": "ncoiZ6Uk6wg",
+      "interaction_id": "INT_0001",
+      "timestamp": 49.795,
+      "response_turn_id": "T0002",
+      "target_turn_id": "T0001",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_02",
+      "responding_speaker": "SPEAKER_05",
+      "classification": "agreement",
+      "evidence": "election was an illegal election",
+      "evidence_present": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "Speaker supports the premise of systemic vote tampering discussed in the introductory report.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 0.031,
+        "target_end": 48.226,
+        "response_start": 49.795,
+        "response_end": 79.124
+      }
+    },
+    {
+      "video_id": "ncoiZ6Uk6wg",
+      "interaction_id": "INT_0002",
+      "timestamp": 79.124,
+      "response_turn_id": "T0003",
+      "target_turn_id": "T0002",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_05",
+      "responding_speaker": "SPEAKER_06",
+      "classification": "agreement",
+      "evidence": "It was a theft election.",
+      "evidence_present": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "Speaker echoes and reinforces the preceding claim that the election was illegitimate.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 49.795,
+        "target_end": 79.124,
+        "response_start": 79.124,
+        "response_end": 94.97
+      }
+    },
+    {
+      "video_id": "ncoiZ6Uk6wg",
+      "interaction_id": "INT_0003",
+      "timestamp": 96.556,
+      "response_turn_id": "T0005",
+      "target_turn_id": "T0003",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_06",
+      "responding_speaker": "SPEAKER_07",
+      "classification": "agreement",
+      "evidence": "have organized Mahabharat today to leave the vote.",
+      "evidence_present": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "Continues the theme of political conflict and opposition to alleged vote manipulation.",
+      "confidence": "medium",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 79.124,
+        "target_end": 94.97,
+        "response_start": 96.556,
+        "response_end": 128.365
+      }
+    },
+    {
+      "video_id": "ncoiZ6Uk6wg",
+      "interaction_id": "INT_0004",
+      "timestamp": 129.682,
+      "response_turn_id": "T0006",
+      "target_turn_id": "T0005",
+      "subtopic_id": "ST001",
+      "source_speaker": "SPEAKER_07",
+      "responding_speaker": "SPEAKER_02",
+      "classification": "counterargument",
+      "evidence": "calling out the Congress-led opposition for peddling deceit, anarchy and baseless conspiracy theories.",
+      "evidence_present": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "The anchor reports the BJP's counter-strike, directly opposing the opposition's conspiracy narratives.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 96.556,
+        "target_end": 128.365,
+        "response_start": 129.682,
+        "response_end": 164.09
+      }
+    },
+    {
+      "video_id": "ncoiZ6Uk6wg",
+      "interaction_id": "INT_0005",
+      "timestamp": 166.351,
+      "response_turn_id": "T0007",
+      "target_turn_id": "T0002",
+      "subtopic_id": "ST002",
+      "source_speaker": "SPEAKER_05",
+      "responding_speaker": "SPEAKER_01",
+      "classification": "counterargument",
+      "evidence": "Sonia ji ka Swapna, unke laal Pradhan Mantri bane poora nahi hota hai, tab unhone naya tarika dunda hai",
+      "evidence_present": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "Speaker 01 responds to the opposition's claims about illegal elections by mocking Rahul Gandhi's ambitions and the opposition's new methods of protest.",
+      "confidence": "medium",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 49.795,
+        "target_end": 79.124,
+        "response_start": 166.351,
+        "response_end": 200.32
+      }
+    },
+    {
+      "video_id": "ncoiZ6Uk6wg",
+      "interaction_id": "INT_0006",
+      "timestamp": 200.32,
+      "response_turn_id": "T0008",
+      "target_turn_id": "T0007",
+      "subtopic_id": "ST002",
+      "source_speaker": "SPEAKER_01",
+      "responding_speaker": "SPEAKER_05",
+      "classification": "disagreement",
+      "evidence": "to be seen!",
+      "evidence_present": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "Speaker 05 interrupts or directly challenges Speaker 01's concluding remark about Modi.",
+      "confidence": "medium",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 166.351,
+        "target_end": 200.32,
+        "response_start": 200.32,
+        "response_end": 201.907
+      }
+    },
+    {
+      "video_id": "ncoiZ6Uk6wg",
+      "interaction_id": "INT_0007",
+      "timestamp": 202.953,
+      "response_turn_id": "T0009",
+      "target_turn_id": "T0007",
+      "subtopic_id": "ST002",
+      "source_speaker": "SPEAKER_01",
+      "responding_speaker": "SPEAKER_05",
+      "classification": "counterargument",
+      "evidence": "is nowhere to be seen! And in he will be seen in the ancient city of Vrindelal Fort.",
+      "evidence_present": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "Speaker 05 directly counters Speaker 01's defense or mention of Modi by claiming Modi is absent and offering an alternative location.",
+      "confidence": "medium",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 166.351,
+        "target_end": 200.32,
+        "response_start": 202.953,
+        "response_end": 208.403
+      }
+    },
+    {
+      "video_id": "ncoiZ6Uk6wg",
+      "interaction_id": "INT_0008",
+      "timestamp": 209.652,
+      "response_turn_id": "T0010",
+      "target_turn_id": "T0009",
+      "subtopic_id": "ST002",
+      "source_speaker": "SPEAKER_05",
+      "responding_speaker": "SPEAKER_00",
+      "classification": "counterargument",
+      "evidence": "Rahul Gandhi, open your ears and listen. This is India. It is not a banana republic.",
+      "evidence_present": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "Speaker 00 defends the leadership and counters the opposition's narrative criticizing the government and Modi.",
+      "confidence": "medium",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 202.953,
+        "target_end": 208.403,
+        "response_start": 209.652,
+        "response_end": 242.812
+      }
+    },
+    {
+      "video_id": "ncoiZ6Uk6wg",
+      "interaction_id": "INT_0009",
+      "timestamp": 363.805,
+      "response_turn_id": "T0015",
+      "target_turn_id": "T0013",
+      "subtopic_id": "ST003",
+      "source_speaker": "SPEAKER_03",
+      "responding_speaker": "SPEAKER_09",
+      "classification": "counterargument",
+      "evidence": "It's not a political granny, but a pathetic stage-managed kabuki theatre",
+      "evidence_present": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "The speaker strongly opposes Saral Patel's framing of the protest as historic and successful, dismissing it as theater by 'chronic losers'.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 265.053,
+        "target_end": 335.27,
+        "response_start": 363.805,
+        "response_end": 407.073
+      }
+    },
+    {
+      "video_id": "ncoiZ6Uk6wg",
+      "interaction_id": "INT_0010",
+      "timestamp": 407.275,
+      "response_turn_id": "T0016",
+      "target_turn_id": "T0013",
+      "subtopic_id": "ST003",
+      "source_speaker": "SPEAKER_03",
+      "responding_speaker": "SPEAKER_09",
+      "classification": "counterargument",
+      "evidence": "today I along with the entire nation held my breath, expecting Rahul Gandhi to finally show some spine, pack his bags and hand in his resignation",
+      "evidence_present": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "The speaker challenges the opposition's narrative regarding the legality of the election and the protests.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 265.053,
+        "target_end": 335.27,
+        "response_start": 407.275,
+        "response_end": 427.255
+      }
+    },
+    {
+      "video_id": "ncoiZ6Uk6wg",
+      "interaction_id": "INT_0011",
+      "timestamp": 468.835,
+      "response_turn_id": "T0018",
+      "target_turn_id": null,
+      "subtopic_id": "ST003",
+      "source_speaker": null,
+      "responding_speaker": "SPEAKER_09",
+      "classification": "uncertain",
+      "evidence": "They weren't saving democracy. They were actually chidkoing namak on the ghows of those Sikhs.",
+      "evidence_present": true,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "invalid",
+      "manual_review_required": true,
+      "reasoning": "The speaker continues her line of attack from the previous turn, agreeing with and reinforcing her own prior framing that the opposition's protest was an insult to Sikhs.",
+      "confidence": "medium",
+      "review_status": "manual_review_required",
+      "source_turn_timestamps": {
+        "target_start": null,
+        "target_end": null,
+        "response_start": 468.835,
+        "response_end": 473.847
+      }
+    },
+    {
+      "video_id": "ncoiZ6Uk6wg",
+      "interaction_id": "INT_0012",
+      "timestamp": 486.908,
+      "response_turn_id": "T0020",
+      "target_turn_id": "T0019",
+      "subtopic_id": "ST003",
+      "source_speaker": "SPEAKER_02",
+      "responding_speaker": "SPEAKER_03",
+      "classification": "counterargument",
+      "evidence": "we are ready to resign. I challenge my friend Radhika Khera that we are ready to resign. The moment Prime Minister resigns, we are ready to resign",
+      "evidence_present": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "The speaker responds to the anchor's prompt containing the BJP's challenge that Rahul Gandhi should resign, offering a conditional counter-challenge instead.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 473.847,
+        "target_end": 485.609,
+        "response_start": 486.908,
+        "response_end": 528.573
+      }
+    },
+    {
+      "video_id": "ncoiZ6Uk6wg",
+      "interaction_id": "INT_0013",
+      "timestamp": 557.699,
+      "response_turn_id": "T0022",
+      "target_turn_id": "T0020",
+      "subtopic_id": "ST003",
+      "source_speaker": "SPEAKER_03",
+      "responding_speaker": "SPEAKER_09",
+      "classification": "counterargument",
+      "evidence": "Also here my friend Saral said two very important things. He talked about letters and what not.",
+      "evidence_present": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "Speaker responds to earlier resignation challenge and claims made by Saral by dismissing them and bringing up RTI records.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 486.908,
+        "target_end": 528.573,
+        "response_start": 557.699,
+        "response_end": 606.873
+      }
+    },
+    {
+      "video_id": "ncoiZ6Uk6wg",
+      "interaction_id": "INT_0014",
+      "timestamp": 606.13,
+      "response_turn_id": "T0023",
+      "target_turn_id": "T0022",
+      "subtopic_id": "ST003",
+      "source_speaker": "SPEAKER_09",
+      "responding_speaker": "SPEAKER_02",
+      "classification": "counterargument",
+      "evidence": "written to the cabinet secretary and that's not been denied. So those letters are very much there.",
+      "evidence_present": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "The anchor counters the previous speaker's skepticism regarding the existence of letters.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 557.699,
+        "target_end": 606.873,
+        "response_start": 606.13,
+        "response_end": 610.906
+      }
+    },
+    {
+      "video_id": "ncoiZ6Uk6wg",
+      "interaction_id": "INT_0015",
+      "timestamp": 614.551,
+      "response_turn_id": "T0026",
+      "target_turn_id": null,
+      "subtopic_id": "ST003",
+      "source_speaker": null,
+      "responding_speaker": "SPEAKER_09",
+      "classification": "uncertain",
+      "evidence": "If Rahul Gandhi was ready to resign, we would have seen that happening from the Rang Majh today.",
+      "evidence_present": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "Speaker directly challenges the opposition's claim that they are ready to resign by arguing Rahul Gandhi did not do so.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": null,
+        "target_end": null,
+        "response_start": 614.551,
+        "response_end": 637.872
+      }
+    },
+    {
+      "video_id": "ncoiZ6Uk6wg",
+      "interaction_id": "INT_0016",
+      "timestamp": 652.418,
+      "response_turn_id": "T0028",
+      "target_turn_id": "T0027",
+      "subtopic_id": "ST003",
+      "source_speaker": "SPEAKER_02",
+      "responding_speaker": "SPEAKER_04",
+      "classification": "disagreement",
+      "evidence": "BJP's failure is a proof of how successful this rally was",
+      "evidence_present": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "The speaker explicitly rejects the BJP's claim mentioned by the host that the rally was a flop show, arguing instead that the rally was successful.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 637.332,
+        "target_end": 650.41,
+        "response_start": 652.418,
+        "response_end": 668.568
+      }
+    },
+    {
+      "video_id": "ncoiZ6Uk6wg",
+      "interaction_id": "INT_0017",
+      "timestamp": 728.021,
+      "response_turn_id": "T0031",
+      "target_turn_id": null,
+      "subtopic_id": "ST003",
+      "source_speaker": null,
+      "responding_speaker": "SPEAKER_04",
+      "classification": "uncertain",
+      "evidence": "",
+      "evidence_present": false,
+      "evidence_found_in_response": false,
+      "evidence_validation_status": "missing",
+      "manual_review_required": false,
+      "reasoning": "The turn is an incomplete fragment cut off mid-sentence, leaving the intent and target unclear.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": null,
+        "target_end": null,
+        "response_start": 728.021,
+        "response_end": 729.062
+      }
+    },
+    {
+      "video_id": "ncoiZ6Uk6wg",
+      "interaction_id": "INT_0018",
+      "timestamp": 746.26,
+      "response_turn_id": "T0034",
+      "target_turn_id": "T0032",
+      "subtopic_id": "ST003",
+      "source_speaker": "SPEAKER_04",
+      "responding_speaker": "SPEAKER_02",
+      "classification": "counterargument",
+      "evidence": "Systematically, in an organized manner, voters were being delayed.",
+      "evidence_present": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "The speaker responds to the previous points by introducing institutional evidence of systematic voter suppression via the Election Commission.",
+      "confidence": "medium",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 728.542,
+        "target_end": 738.498,
+        "response_start": 746.26,
+        "response_end": 773.851
+      }
+    },
+    {
+      "video_id": "ncoiZ6Uk6wg",
+      "interaction_id": "INT_0019",
+      "timestamp": 775.049,
+      "response_turn_id": "T0035",
+      "target_turn_id": "T0034",
+      "subtopic_id": "ST003",
+      "source_speaker": "SPEAKER_02",
+      "responding_speaker": "SPEAKER_08",
+      "classification": "counterargument",
+      "evidence": "So, why did the people not turn up in the rally? Why there was only people there and half of the chairs empty?",
+      "evidence_present": true,
+      "evidence_found_in_response": true,
+      "evidence_validation_status": "verified",
+      "manual_review_required": false,
+      "reasoning": "The speaker counters the claims about systemic issues and protests by pivoting to argue that the opposition rally was a total flop with empty chairs.",
+      "confidence": "high",
+      "review_status": "pending",
+      "source_turn_timestamps": {
+        "target_start": 746.26,
+        "target_end": 773.851,
+        "response_start": 775.049,
+        "response_end": 858.158
+      }
+    }
+  ],
+  "data_quality": {
+    "turns_with_text": 36,
+    "turns_without_text_skipped": 25,
+    "turn_reconstruction": {
+      "raw_speaker_turn_count": 59,
+      "valid_speaker_turn_interval_count": 59,
+      "asr_word_count": 2366,
+      "words_with_speaker_ids": 2366,
+      "word_items_reconstructed": 2366,
+      "word_items_assigned_to_speaker_turns": 2364,
+      "word_items_without_matching_interval": 2,
+      "fallback_turn_count": 2,
+      "segment_level_fallback_count": 0,
+      "turn_count_reconstructed": 36,
+      "turns_without_text_skipped": 25,
+      "assignment_policy": "word midpoint assigned to closest matching same-speaker speaker_turn interval",
+      "speaker_turn_interval_audit": [
+        {
+          "interval_id": "SI_001",
+          "interval_index": 0,
+          "speaker_id": "SPEAKER_02",
+          "start": 0.031,
+          "end": 48.226,
+          "overlapping_interval_count": 0,
+          "overlapping_intervals": [],
+          "matching_word_count": 120,
+          "matching_words_assigned_to_interval": 120,
+          "other_speaker_word_count_inside_interval": 0,
+          "other_speaker_words_inside_interval": [],
+          "text_recovered": true,
+          "recovered_text": "Top focus story of the day. It's a dramatic showdown in the national capital that's been witnessed as opposition staged a mega protest at Ramdeela Maidan to further intensify their vote-chori narrative. The opposition show of strength saw Malik Arjun Kharghe, Mamata Banerjee, Farooq Abdullah, Tejas Piyadab and other top leaders addressing the rally. Leading the charge from front, Rahul Gandhi launched an uncompromising attack on the ruling dispensation and the election commission, calling out what the opposition terms systemic vote-chori and describing the subversion of public mandate as nothing short of treason against the constitution. Now addressing the public, opposition leaders have unitedly declared that the fight to protect the country's institutional integrity has reached a decisive turning point.",
+          "reason_for_skipping": null
+        },
+        {
+          "interval_id": "SI_002",
+          "interval_index": 1,
+          "speaker_id": "SPEAKER_05",
+          "start": 49.795,
+          "end": 79.124,
+          "overlapping_interval_count": 0,
+          "overlapping_intervals": [],
+          "matching_word_count": 37,
+          "matching_words_assigned_to_interval": 37,
+          "other_speaker_word_count_inside_interval": 0,
+          "other_speaker_words_inside_interval": [],
+          "text_recovered": true,
+          "recovered_text": "In there was a difference between NDA and us. There was a difference between NDA and us. After that, of the voters were removed from the voter list. This means that the election was an illegal election.",
+          "reason_for_skipping": null
+        },
+        {
+          "interval_id": "SI_003",
+          "interval_index": 2,
+          "speaker_id": "SPEAKER_06",
+          "start": 79.124,
+          "end": 94.97,
+          "overlapping_interval_count": 0,
+          "overlapping_intervals": [],
+          "matching_word_count": 39,
+          "matching_words_assigned_to_interval": 39,
+          "other_speaker_word_count_inside_interval": 0,
+          "other_speaker_words_inside_interval": [],
+          "text_recovered": true,
+          "recovered_text": "It was a theft election. Bengal is the victims of the circumstances of this SIR. We will not leave them. We will save the people. People will bring the people back. By the way, this Ramleela Maidan is organized",
+          "reason_for_skipping": null
+        },
+        {
+          "interval_id": "SI_004",
+          "interval_index": 3,
+          "speaker_id": "SPEAKER_07",
+          "start": 94.97,
+          "end": 95.763,
+          "overlapping_interval_count": 0,
+          "overlapping_intervals": [],
+          "matching_word_count": 4,
+          "matching_words_assigned_to_interval": 4,
+          "other_speaker_word_count_inside_interval": 0,
+          "other_speaker_words_inside_interval": [],
+          "text_recovered": true,
+          "recovered_text": "for Ramayan. But we",
+          "reason_for_skipping": null
+        },
+        {
+          "interval_id": "SI_005",
+          "interval_index": 4,
+          "speaker_id": "SPEAKER_06",
+          "start": 96.539,
+          "end": 96.556,
+          "overlapping_interval_count": 0,
+          "overlapping_intervals": [],
+          "matching_word_count": 0,
+          "matching_words_assigned_to_interval": 0,
+          "other_speaker_word_count_inside_interval": 0,
+          "other_speaker_words_inside_interval": [],
+          "text_recovered": false,
+          "recovered_text": null,
+          "reason_for_skipping": "no_word_midpoint_inside_interval"
+        },
+        {
+          "interval_id": "SI_006",
+          "interval_index": 5,
+          "speaker_id": "SPEAKER_07",
+          "start": 96.556,
+          "end": 128.365,
+          "overlapping_interval_count": 0,
+          "overlapping_intervals": [],
+          "matching_word_count": 58,
+          "matching_words_assigned_to_interval": 58,
+          "other_speaker_word_count_inside_interval": 0,
+          "other_speaker_words_inside_interval": [],
+          "text_recovered": true,
+          "recovered_text": "have organized Mahabharat today to leave the vote. Do you all know? that what Shakuni had played in Mahabharat. And now when Shakuni is playing his game, we have to make Kurukshetra. We will have to fight in Kurukshetra. When Shakuni used to throw the dice, he used to do the same thing that Shakuni used to say.",
+          "reason_for_skipping": null
+        },
+        {
+          "interval_id": "SI_007",
+          "interval_index": 6,
+          "speaker_id": "SPEAKER_02",
+          "start": 129.682,
+          "end": 164.09,
+          "overlapping_interval_count": 0,
+          "overlapping_intervals": [],
+          "matching_word_count": 87,
+          "matching_words_assigned_to_interval": 87,
+          "other_speaker_word_count_inside_interval": 0,
+          "other_speaker_words_inside_interval": [],
+          "text_recovered": true,
+          "recovered_text": "Now the BJP has mounted a fiery nationwide counter-strike today, calling out the Congress-led opposition for peddling deceit, anarchy and baseless conspiracy theories. Disposing Rahul Gandhi's Ram Leela Maidan protest as a desperate flop show aimed at undermining democratic institutions, the BJP took to the streets across multiple states. In Rohtak, thousands joined a massive BJP rally demanding an end to dangerous street politics. In Delhi, The party held a solemn, silent march, reminding the nation of the horrors of the anti-Sikh riots committed under Congress rule.",
+          "reason_for_skipping": null
+        },
+        {
+          "interval_id": "SI_008",
+          "interval_index": 7,
+          "speaker_id": "SPEAKER_01",
+          "start": 166.351,
+          "end": 200.32,
+          "overlapping_interval_count": 0,
+          "overlapping_intervals": [],
+          "matching_word_count": 67,
+          "matching_words_assigned_to_interval": 67,
+          "other_speaker_word_count_inside_interval": 0,
+          "other_speaker_words_inside_interval": [],
+          "text_recovered": true,
+          "recovered_text": "Sonia ji ka Swapna, unke laal Pradhan Mantri bane poora nahi hota hai, tab unhone naya tarika dunda hai, Mokh Parliament karne ka. Aur theek bhi hai bhai, I want to tell Rahul Ji that if you want to become the Prime Minister, then you have to spend your entire life in the Mokh Parliament. Your number should never be crossed. Modi Ji! Modi Ji is nowhere",
+          "reason_for_skipping": null
+        },
+        {
+          "interval_id": "SI_009",
+          "interval_index": 8,
+          "speaker_id": "SPEAKER_05",
+          "start": 200.32,
+          "end": 201.907,
+          "overlapping_interval_count": 0,
+          "overlapping_intervals": [],
+          "matching_word_count": 5,
+          "matching_words_assigned_to_interval": 5,
+          "other_speaker_word_count_inside_interval": 0,
+          "other_speaker_words_inside_interval": [],
+          "text_recovered": true,
+          "recovered_text": "to be seen! Modi Ji",
+          "reason_for_skipping": null
+        },
+        {
+          "interval_id": "SI_010",
+          "interval_index": 9,
+          "speaker_id": "SPEAKER_01",
+          "start": 201.907,
+          "end": 201.923,
+          "overlapping_interval_count": 0,
+          "overlapping_intervals": [],
+          "matching_word_count": 0,
+          "matching_words_assigned_to_interval": 0,
+          "other_speaker_word_count_inside_interval": 0,
+          "other_speaker_words_inside_interval": [],
+          "text_recovered": false,
+          "recovered_text": null,
+          "reason_for_skipping": "no_word_midpoint_inside_interval"
+        },
+        {
+          "interval_id": "SI_011",
+          "interval_index": 10,
+          "speaker_id": "SPEAKER_05",
+          "start": 202.953,
+          "end": 208.403,
+          "overlapping_interval_count": 0,
+          "overlapping_intervals": [],
+          "matching_word_count": 18,
+          "matching_words_assigned_to_interval": 18,
+          "other_speaker_word_count_inside_interval": 0,
+          "other_speaker_words_inside_interval": [],
+          "text_recovered": true,
+          "recovered_text": "is nowhere to be seen! And in he will be seen in the ancient city of Vrindelal Fort.",
+          "reason_for_skipping": null
+        },
+        {
+          "interval_id": "SI_012",
+          "interval_index": 11,
+          "speaker_id": "SPEAKER_00",
+          "start": 209.652,
+          "end": 242.812,
+          "overlapping_interval_count": 0,
+          "overlapping_intervals": [],
+          "matching_word_count": 51,
+          "matching_words_assigned_to_interval": 51,
+          "other_speaker_word_count_inside_interval": 0,
+          "other_speaker_words_inside_interval": [],
+          "text_recovered": true,
+          "recovered_text": "Rahul Gandhi, open your ears and listen. This is India. It is not a banana republic. Here, whenever you want, you can make an order, instigate riots and run the agenda of regime change. Rahul Gandhi, stop dreaming. India is the oldest and most powerful democracy in the world. Let's open",
+          "reason_for_skipping": null
+        },
+        {
+          "interval_id": "SI_013",
+          "interval_index": 12,
+          "speaker_id": "SPEAKER_02",
+          "start": 244.246,
+          "end": 263.332,
+          "overlapping_interval_count": 0,
+          "overlapping_intervals": [],
+          "matching_word_count": 64,
+          "matching_words_assigned_to_interval": 64,
+          "other_speaker_word_count_inside_interval": 0,
+          "other_speaker_words_inside_interval": [],
+          "text_recovered": true,
+          "recovered_text": "up and take it across to our guest joining us. Radhika Khaira, BJP national spokesperson is with us. Sujata Pandey, political analyst joins us. Saral Patel is Congress spokesperson. We also have Dharmendra Yadav, SP spokesperson. This is nothing but an attempt to undermine our institutions and the narrative is not sticking. Saral Patel, your response to these criticisms coming in from the BJP.",
+          "reason_for_skipping": null
+        },
+        {
+          "interval_id": "SI_014",
+          "interval_index": 13,
+          "speaker_id": "SPEAKER_03",
+          "start": 265.053,
+          "end": 335.27,
+          "overlapping_interval_count": 0,
+          "overlapping_intervals": [],
+          "matching_word_count": 180,
+          "matching_words_assigned_to_interval": 180,
+          "other_speaker_word_count_inside_interval": 0,
+          "other_speaker_words_inside_interval": [],
+          "text_recovered": true,
+          "recovered_text": "Madhav, I would like to begin with a popular quote of Mahatma Gandhi ji that the first they ridicule you, then they fight you and then you win. So let us understand the chronology. When Rahul Gandhi first raised the issue of vote-chori, BJP deployed its entire battery of union ministers and they said, you know, this is nothing but funny. They ridiculed that claims made by Rahul Gandhi. Then when the evidence within the EC emerged and the vote-chori came to the light again, The entire BJP is now out on the streets fighting and protecting the vote-chots. So next step, the next logical step is that we win. And how we win? We, by we I mean Indians win when Gyanesh Kumar Gupta resigns from his post on the behalf of the Bharatiya Janata Party and the entire country witness today that every Indian from the nook and corner of the country came to Delhi to register their protest, resistance against vote-chori. Despite all the tricks of the Bharatiya Janata Party, Delhi, what it witnessed today was historic.",
+          "reason_for_skipping": null
+        },
+        {
+          "interval_id": "SI_015",
+          "interval_index": 14,
+          "speaker_id": "SPEAKER_02",
+          "start": 335.827,
+          "end": 361.24,
+          "overlapping_interval_count": 0,
+          "overlapping_intervals": [],
+          "matching_word_count": 88,
+          "matching_words_assigned_to_interval": 88,
+          "other_speaker_word_count_inside_interval": 0,
+          "other_speaker_words_inside_interval": [],
+          "text_recovered": true,
+          "recovered_text": "This was a historic sort of rally that we saw there. Radhika, I'd like to respond to Saral. And somewhere, I'm just looking dispassionately at what all has happened over the last few weeks. You know, Congress announces a mock parliament. We see Citizens for Democracy, a group that organizes a mock parliament to sort of put out the BJP's line or the government's line, although it's not officially a BJP event. Similarly, somewhere, the BJP feeling the heat of the pressure that the opposition is piling on.",
+          "reason_for_skipping": null
+        },
+        {
+          "interval_id": "SI_016",
+          "interval_index": 15,
+          "speaker_id": "SPEAKER_09",
+          "start": 363.805,
+          "end": 407.073,
+          "overlapping_interval_count": 1,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_017",
+              "speaker_id": "SPEAKER_00",
+              "start": 398.5,
+              "end": 398.973
+            }
+          ],
+          "matching_word_count": 109,
+          "matching_words_assigned_to_interval": 109,
+          "other_speaker_word_count_inside_interval": 0,
+          "other_speaker_words_inside_interval": [],
+          "text_recovered": true,
+          "recovered_text": "Good evening, Madhav. Vande Mataram to everyone. Let's call this path what it actually is. It's not a political granny, but a pathetic stage-managed kabuki theatre, a grotesque grand guineole put on by chronic losers. Now look at the sheer unmitigated gall of these people. Just yesterday inside a so-called mock parliament, which had Yogendra Yadav who says, And another member, and I was hoping to see my friend Saran here in that mock parliament, but I saw this lady called Leha Bora who looks towards Bangladesh as an example. Now over there, Rahul Gandhi threw a childish tantrum and cried that the democratic mandate is illegal and unlawful.",
+          "reason_for_skipping": null
+        },
+        {
+          "interval_id": "SI_017",
+          "interval_index": 16,
+          "speaker_id": "SPEAKER_00",
+          "start": 398.5,
+          "end": 398.973,
+          "overlapping_interval_count": 1,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_016",
+              "speaker_id": "SPEAKER_09",
+              "start": 363.805,
+              "end": 407.073
+            }
+          ],
+          "matching_word_count": 0,
+          "matching_words_assigned_to_interval": 0,
+          "other_speaker_word_count_inside_interval": 1,
+          "other_speaker_words_inside_interval": [
+            {
+              "word": "there,",
+              "speaker_id": "SPEAKER_09",
+              "start": 398.537,
+              "end": 398.917
+            }
+          ],
+          "text_recovered": false,
+          "recovered_text": null,
+          "reason_for_skipping": "interval_contains_word_midpoints_attributed_to_other_speaker"
+        },
+        {
+          "interval_id": "SI_018",
+          "interval_index": 17,
+          "speaker_id": "SPEAKER_09",
+          "start": 407.275,
+          "end": 427.255,
+          "overlapping_interval_count": 1,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_019",
+              "speaker_id": "SPEAKER_00",
+              "start": 408.17,
+              "end": 408.828
+            }
+          ],
+          "matching_word_count": 55,
+          "matching_words_assigned_to_interval": 55,
+          "other_speaker_word_count_inside_interval": 0,
+          "other_speaker_words_inside_interval": [],
+          "text_recovered": true,
+          "recovered_text": "Following that model, today I along with the entire nation held my breath, expecting Rahul Gandhi to finally show some spine, pack his bags and hand in his resignation and then drag his obedient flock along because bhai, wo bhi toh illegal and unlawfully elected huye na, if this entire election was illegal and unlawful.",
+          "reason_for_skipping": null
+        },
+        {
+          "interval_id": "SI_019",
+          "interval_index": 18,
+          "speaker_id": "SPEAKER_00",
+          "start": 408.17,
+          "end": 408.828,
+          "overlapping_interval_count": 1,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_018",
+              "speaker_id": "SPEAKER_09",
+              "start": 407.275,
+              "end": 427.255
+            }
+          ],
+          "matching_word_count": 0,
+          "matching_words_assigned_to_interval": 0,
+          "other_speaker_word_count_inside_interval": 2,
+          "other_speaker_words_inside_interval": [
+            {
+              "word": "model,",
+              "speaker_id": "SPEAKER_09",
+              "start": 408.253,
+              "end": 408.613
+            },
+            {
+              "word": "today",
+              "speaker_id": "SPEAKER_09",
+              "start": 408.653,
+              "end": 408.973
+            }
+          ],
+          "text_recovered": false,
+          "recovered_text": null,
+          "reason_for_skipping": "interval_contains_word_midpoints_attributed_to_other_speaker"
+        },
+        {
+          "interval_id": "SI_020",
+          "interval_index": 19,
+          "speaker_id": "SPEAKER_09",
+          "start": 427.61,
+          "end": 468.228,
+          "overlapping_interval_count": 5,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_021",
+              "speaker_id": "SPEAKER_02",
+              "start": 457.58,
+              "end": 457.883
+            },
+            {
+              "interval_id": "SI_022",
+              "speaker_id": "SPEAKER_00",
+              "start": 464.482,
+              "end": 464.633
+            },
+            {
+              "interval_id": "SI_023",
+              "speaker_id": "SPEAKER_02",
+              "start": 464.633,
+              "end": 464.718
+            },
+            {
+              "interval_id": "SI_024",
+              "speaker_id": "SPEAKER_00",
+              "start": 464.718,
+              "end": 464.785
+            },
+            {
+              "interval_id": "SI_025",
+              "speaker_id": "SPEAKER_02",
+              "start": 466.777,
+              "end": 468.127
+            }
+          ],
+          "matching_word_count": 107,
+          "matching_words_assigned_to_interval": 107,
+          "other_speaker_word_count_inside_interval": 0,
+          "other_speaker_words_inside_interval": [],
+          "text_recovered": true,
+          "recovered_text": "But courage, honor and accountability are foreign concepts to this dynasty. And hence, no resignation came. And what else did we see today? They chose what day of all days to unleash their street circus. And it's not just a sickening coincidence. Today is November 1st, the blood-soaked anniversary of the genocide. million Sikhs globally and million just here in India, waiting, watching, waiting for Rahul Gandhi to come on that Rang March on that stage and apologize. And apologize for what his father did and said, when a big tree falls, the earth shakes. And he made the earth of Delhi shake by killing innocent Sikhs.",
+          "reason_for_skipping": null
+        },
+        {
+          "interval_id": "SI_021",
+          "interval_index": 20,
+          "speaker_id": "SPEAKER_02",
+          "start": 457.58,
+          "end": 457.883,
+          "overlapping_interval_count": 1,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_020",
+              "speaker_id": "SPEAKER_09",
+              "start": 427.61,
+              "end": 468.228
+            }
+          ],
+          "matching_word_count": 0,
+          "matching_words_assigned_to_interval": 0,
+          "other_speaker_word_count_inside_interval": 1,
+          "other_speaker_words_inside_interval": [
+            {
+              "word": "that",
+              "speaker_id": "SPEAKER_09",
+              "start": 457.53,
+              "end": 457.69
+            }
+          ],
+          "text_recovered": false,
+          "recovered_text": null,
+          "reason_for_skipping": "interval_contains_word_midpoints_attributed_to_other_speaker"
+        },
+        {
+          "interval_id": "SI_022",
+          "interval_index": 21,
+          "speaker_id": "SPEAKER_00",
+          "start": 464.482,
+          "end": 464.633,
+          "overlapping_interval_count": 1,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_020",
+              "speaker_id": "SPEAKER_09",
+              "start": 427.61,
+              "end": 468.228
+            }
+          ],
+          "matching_word_count": 0,
+          "matching_words_assigned_to_interval": 0,
+          "other_speaker_word_count_inside_interval": 1,
+          "other_speaker_words_inside_interval": [
+            {
+              "word": "he",
+              "speaker_id": "SPEAKER_09",
+              "start": 464.451,
+              "end": 464.771
+            }
+          ],
+          "text_recovered": false,
+          "recovered_text": null,
+          "reason_for_skipping": "interval_contains_word_midpoints_attributed_to_other_speaker"
+        },
+        {
+          "interval_id": "SI_023",
+          "interval_index": 22,
+          "speaker_id": "SPEAKER_02",
+          "start": 464.633,
+          "end": 464.718,
+          "overlapping_interval_count": 1,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_020",
+              "speaker_id": "SPEAKER_09",
+              "start": 427.61,
+              "end": 468.228
+            }
+          ],
+          "matching_word_count": 0,
+          "matching_words_assigned_to_interval": 0,
+          "other_speaker_word_count_inside_interval": 0,
+          "other_speaker_words_inside_interval": [],
+          "text_recovered": false,
+          "recovered_text": null,
+          "reason_for_skipping": "no_word_midpoint_inside_interval"
+        },
+        {
+          "interval_id": "SI_024",
+          "interval_index": 23,
+          "speaker_id": "SPEAKER_00",
+          "start": 464.718,
+          "end": 464.785,
+          "overlapping_interval_count": 1,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_020",
+              "speaker_id": "SPEAKER_09",
+              "start": 427.61,
+              "end": 468.228
+            }
+          ],
+          "matching_word_count": 0,
+          "matching_words_assigned_to_interval": 0,
+          "other_speaker_word_count_inside_interval": 0,
+          "other_speaker_words_inside_interval": [],
+          "text_recovered": false,
+          "recovered_text": null,
+          "reason_for_skipping": "no_word_midpoint_inside_interval"
+        },
+        {
+          "interval_id": "SI_025",
+          "interval_index": 24,
+          "speaker_id": "SPEAKER_02",
+          "start": 466.777,
+          "end": 468.127,
+          "overlapping_interval_count": 1,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_020",
+              "speaker_id": "SPEAKER_09",
+              "start": 427.61,
+              "end": 468.228
+            }
+          ],
+          "matching_word_count": 0,
+          "matching_words_assigned_to_interval": 0,
+          "other_speaker_word_count_inside_interval": 4,
+          "other_speaker_words_inside_interval": [
+            {
+              "word": "by",
+              "speaker_id": "SPEAKER_09",
+              "start": 466.932,
+              "end": 467.212
+            },
+            {
+              "word": "killing",
+              "speaker_id": "SPEAKER_09",
+              "start": 467.232,
+              "end": 467.492
+            },
+            {
+              "word": "innocent",
+              "speaker_id": "SPEAKER_09",
+              "start": 467.552,
+              "end": 467.972
+            },
+            {
+              "word": "Sikhs.",
+              "speaker_id": "SPEAKER_09",
+              "start": 468.012,
+              "end": 468.212
+            }
+          ],
+          "text_recovered": false,
+          "recovered_text": null,
+          "reason_for_skipping": "interval_contains_word_midpoints_attributed_to_other_speaker"
+        },
+        {
+          "interval_id": "SI_026",
+          "interval_index": 25,
+          "speaker_id": "SPEAKER_09",
+          "start": 468.835,
+          "end": 473.847,
+          "overlapping_interval_count": 0,
+          "overlapping_intervals": [],
+          "matching_word_count": 16,
+          "matching_words_assigned_to_interval": 16,
+          "other_speaker_word_count_inside_interval": 0,
+          "other_speaker_words_inside_interval": [],
+          "text_recovered": true,
+          "recovered_text": "But they weren't saving democracy. They were actually chidkoing namak on the ghows of those Sikhs.",
+          "reason_for_skipping": null
+        },
+        {
+          "interval_id": "SI_027",
+          "interval_index": 26,
+          "speaker_id": "SPEAKER_02",
+          "start": 473.847,
+          "end": 485.609,
+          "overlapping_interval_count": 0,
+          "overlapping_intervals": [],
+          "matching_word_count": 41,
+          "matching_words_assigned_to_interval": 41,
+          "other_speaker_word_count_inside_interval": 0,
+          "other_speaker_words_inside_interval": [],
+          "text_recovered": true,
+          "recovered_text": "Okay, so I'll quickly respond to that. It's Rahul Gandhi who should resign by his own logic that the Lok Sabha polls were rigged. If they were indeed so, then Mr. Gandhi should resign is the BJP spokesperson's view. Your response?",
+          "reason_for_skipping": null
+        },
+        {
+          "interval_id": "SI_028",
+          "interval_index": 27,
+          "speaker_id": "SPEAKER_03",
+          "start": 486.908,
+          "end": 528.573,
+          "overlapping_interval_count": 6,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_029",
+              "speaker_id": "SPEAKER_00",
+              "start": 515.326,
+              "end": 520.034
+            },
+            {
+              "interval_id": "SI_030",
+              "speaker_id": "SPEAKER_02",
+              "start": 520.034,
+              "end": 520.287
+            },
+            {
+              "interval_id": "SI_031",
+              "speaker_id": "SPEAKER_00",
+              "start": 522.802,
+              "end": 522.903
+            },
+            {
+              "interval_id": "SI_032",
+              "speaker_id": "SPEAKER_02",
+              "start": 522.903,
+              "end": 523.325
+            },
+            {
+              "interval_id": "SI_033",
+              "speaker_id": "SPEAKER_00",
+              "start": 523.325,
+              "end": 523.342
+            },
+            {
+              "interval_id": "SI_034",
+              "speaker_id": "SPEAKER_02",
+              "start": 526.632,
+              "end": 556.923
+            }
+          ],
+          "matching_word_count": 115,
+          "matching_words_assigned_to_interval": 115,
+          "other_speaker_word_count_inside_interval": 0,
+          "other_speaker_words_inside_interval": [],
+          "text_recovered": true,
+          "recovered_text": "Madhav country has seen through the rhetoric of the Bharatiya Janata Party, its spokesperson and my friend Radhika Khera, because they love to live in the past. They want to discuss what happened in the country years ago, but they will not comment on what happened days ago when it came to the fore that two election commissioners wrote against their chief election commissioner. times and my friend Radhika Khera won't say a single line on that and we are ready to resign. I challenge my friend Radhika Khera that we are ready to resign. The moment Prime Minister resigns, we are ready to resign and let's hold a fresh poll with an independent You",
+          "reason_for_skipping": null
+        },
+        {
+          "interval_id": "SI_029",
+          "interval_index": 28,
+          "speaker_id": "SPEAKER_00",
+          "start": 515.326,
+          "end": 520.034,
+          "overlapping_interval_count": 1,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_028",
+              "speaker_id": "SPEAKER_03",
+              "start": 486.908,
+              "end": 528.573
+            }
+          ],
+          "matching_word_count": 0,
+          "matching_words_assigned_to_interval": 0,
+          "other_speaker_word_count_inside_interval": 15,
+          "other_speaker_words_inside_interval": [
+            {
+              "word": "ready",
+              "speaker_id": "SPEAKER_03",
+              "start": 515.381,
+              "end": 515.641
+            },
+            {
+              "word": "to",
+              "speaker_id": "SPEAKER_03",
+              "start": 515.681,
+              "end": 515.761
+            },
+            {
+              "word": "resign.",
+              "speaker_id": "SPEAKER_03",
+              "start": 515.781,
+              "end": 516.181
+            },
+            {
+              "word": "I",
+              "speaker_id": "SPEAKER_03",
+              "start": 516.482,
+              "end": 516.562
+            },
+            {
+              "word": "challenge",
+              "speaker_id": "SPEAKER_03",
+              "start": 516.602,
+              "end": 516.982
+            },
+            {
+              "word": "my",
+              "speaker_id": "SPEAKER_03",
+              "start": 517.022,
+              "end": 517.222
+            },
+            {
+              "word": "friend",
+              "speaker_id": "SPEAKER_03",
+              "start": 517.362,
+              "end": 517.602
+            },
+            {
+              "word": "Radhika",
+              "speaker_id": "SPEAKER_03",
+              "start": 517.662,
+              "end": 518.162
+            },
+            {
+              "word": "Khera",
+              "speaker_id": "SPEAKER_03",
+              "start": 518.182,
+              "end": 518.443
+            },
+            {
+              "word": "that",
+              "speaker_id": "SPEAKER_03",
+              "start": 518.483,
+              "end": 518.603
+            },
+            {
+              "word": "we",
+              "speaker_id": "SPEAKER_03",
+              "start": 518.643,
+              "end": 518.703
+            },
+            {
+              "word": "are",
+              "speaker_id": "SPEAKER_03",
+              "start": 518.763,
+              "end": 518.843
+            },
+            {
+              "word": "ready",
+              "speaker_id": "SPEAKER_03",
+              "start": 518.883,
+              "end": 519.103
+            },
+            {
+              "word": "to",
+              "speaker_id": "SPEAKER_03",
+              "start": 519.143,
+              "end": 519.243
+            },
+            {
+              "word": "resign.",
+              "speaker_id": "SPEAKER_03",
+              "start": 519.263,
+              "end": 519.603
+            }
+          ],
+          "text_recovered": false,
+          "recovered_text": null,
+          "reason_for_skipping": "interval_contains_word_midpoints_attributed_to_other_speaker"
+        },
+        {
+          "interval_id": "SI_030",
+          "interval_index": 29,
+          "speaker_id": "SPEAKER_02",
+          "start": 520.034,
+          "end": 520.287,
+          "overlapping_interval_count": 1,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_028",
+              "speaker_id": "SPEAKER_03",
+              "start": 486.908,
+              "end": 528.573
+            }
+          ],
+          "matching_word_count": 0,
+          "matching_words_assigned_to_interval": 0,
+          "other_speaker_word_count_inside_interval": 1,
+          "other_speaker_words_inside_interval": [
+            {
+              "word": "The",
+              "speaker_id": "SPEAKER_03",
+              "start": 520.003,
+              "end": 520.103
+            }
+          ],
+          "text_recovered": false,
+          "recovered_text": null,
+          "reason_for_skipping": "interval_contains_word_midpoints_attributed_to_other_speaker"
+        },
+        {
+          "interval_id": "SI_031",
+          "interval_index": 30,
+          "speaker_id": "SPEAKER_00",
+          "start": 522.802,
+          "end": 522.903,
+          "overlapping_interval_count": 1,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_028",
+              "speaker_id": "SPEAKER_03",
+              "start": 486.908,
+              "end": 528.573
+            }
+          ],
+          "matching_word_count": 0,
+          "matching_words_assigned_to_interval": 0,
+          "other_speaker_word_count_inside_interval": 0,
+          "other_speaker_words_inside_interval": [],
+          "text_recovered": false,
+          "recovered_text": null,
+          "reason_for_skipping": "no_word_midpoint_inside_interval"
+        },
+        {
+          "interval_id": "SI_032",
+          "interval_index": 31,
+          "speaker_id": "SPEAKER_02",
+          "start": 522.903,
+          "end": 523.325,
+          "overlapping_interval_count": 1,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_028",
+              "speaker_id": "SPEAKER_03",
+              "start": 486.908,
+              "end": 528.573
+            }
+          ],
+          "matching_word_count": 0,
+          "matching_words_assigned_to_interval": 0,
+          "other_speaker_word_count_inside_interval": 3,
+          "other_speaker_words_inside_interval": [
+            {
+              "word": "we",
+              "speaker_id": "SPEAKER_03",
+              "start": 522.845,
+              "end": 522.965
+            },
+            {
+              "word": "are",
+              "speaker_id": "SPEAKER_03",
+              "start": 523.005,
+              "end": 523.145
+            },
+            {
+              "word": "ready",
+              "speaker_id": "SPEAKER_03",
+              "start": 523.165,
+              "end": 523.365
+            }
+          ],
+          "text_recovered": false,
+          "recovered_text": null,
+          "reason_for_skipping": "interval_contains_word_midpoints_attributed_to_other_speaker"
+        },
+        {
+          "interval_id": "SI_033",
+          "interval_index": 32,
+          "speaker_id": "SPEAKER_00",
+          "start": 523.325,
+          "end": 523.342,
+          "overlapping_interval_count": 1,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_028",
+              "speaker_id": "SPEAKER_03",
+              "start": 486.908,
+              "end": 528.573
+            }
+          ],
+          "matching_word_count": 0,
+          "matching_words_assigned_to_interval": 0,
+          "other_speaker_word_count_inside_interval": 0,
+          "other_speaker_words_inside_interval": [],
+          "text_recovered": false,
+          "recovered_text": null,
+          "reason_for_skipping": "no_word_midpoint_inside_interval"
+        },
+        {
+          "interval_id": "SI_034",
+          "interval_index": 33,
+          "speaker_id": "SPEAKER_02",
+          "start": 526.632,
+          "end": 556.923,
+          "overlapping_interval_count": 1,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_028",
+              "speaker_id": "SPEAKER_03",
+              "start": 486.908,
+              "end": 528.573
+            }
+          ],
+          "matching_word_count": 96,
+          "matching_words_assigned_to_interval": 96,
+          "other_speaker_word_count_inside_interval": 1,
+          "other_speaker_words_inside_interval": [
+            {
+              "word": "You",
+              "speaker_id": "SPEAKER_03",
+              "start": 528.449,
+              "end": 528.529
+            }
+          ],
+          "text_recovered": true,
+          "recovered_text": "must answer this because you know there are there is a lot that's happened in the court specifically in the case of Delhi SIR Supreme Court questioning the legality of the form changing saying that form are cast in stone. There is no question of changing them. They've also raised questions about this so-called logical concern. This has not been cleared. So there are very serious questions about the manner and the functioning of the election commission, which is currently under judicial scrutiny. So you cannot say that there are absolutely no concerns about EC's functioning.",
+          "reason_for_skipping": null
+        },
+        {
+          "interval_id": "SI_035",
+          "interval_index": 34,
+          "speaker_id": "SPEAKER_09",
+          "start": 557.699,
+          "end": 606.873,
+          "overlapping_interval_count": 2,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_036",
+              "speaker_id": "SPEAKER_00",
+              "start": 578.489,
+              "end": 578.945
+            },
+            {
+              "interval_id": "SI_037",
+              "speaker_id": "SPEAKER_02",
+              "start": 606.13,
+              "end": 610.906
+            }
+          ],
+          "matching_word_count": 152,
+          "matching_words_assigned_to_interval": 152,
+          "other_speaker_word_count_inside_interval": 0,
+          "other_speaker_words_inside_interval": [],
+          "text_recovered": true,
+          "recovered_text": "Madhav, the court also did not say that it is illegal the addition to the Form and that Form addition happened during the Bihar elections. So let's wait for the court to come out and not make this a kangaroo court and decide ki kaun sahi hai, kaun galat hai. Indian Express who is a regular, you know, they have a purani, that they have this history of coming out with these things. Let the court come out, the election commission give its stand. I am not the election commission lawyer, I am not the election commission spokesperson. So let them speak for themselves. Also here my friend Saral said two very important things. He talked about letters and what not. There was an RTI that was recently filed. Where are those letters which talk about that they, that they were not taken together, that they were not liked. Those letters were",
+          "reason_for_skipping": null
+        },
+        {
+          "interval_id": "SI_036",
+          "interval_index": 35,
+          "speaker_id": "SPEAKER_00",
+          "start": 578.489,
+          "end": 578.945,
+          "overlapping_interval_count": 1,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_035",
+              "speaker_id": "SPEAKER_09",
+              "start": 557.699,
+              "end": 606.873
+            }
+          ],
+          "matching_word_count": 0,
+          "matching_words_assigned_to_interval": 0,
+          "other_speaker_word_count_inside_interval": 1,
+          "other_speaker_words_inside_interval": [
+            {
+              "word": "purani,",
+              "speaker_id": "SPEAKER_09",
+              "start": 578.369,
+              "end": 578.709
+            }
+          ],
+          "text_recovered": false,
+          "recovered_text": null,
+          "reason_for_skipping": "interval_contains_word_midpoints_attributed_to_other_speaker"
+        },
+        {
+          "interval_id": "SI_037",
+          "interval_index": 36,
+          "speaker_id": "SPEAKER_02",
+          "start": 606.13,
+          "end": 610.906,
+          "overlapping_interval_count": 2,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_035",
+              "speaker_id": "SPEAKER_09",
+              "start": 557.699,
+              "end": 606.873
+            },
+            {
+              "interval_id": "SI_038",
+              "speaker_id": "SPEAKER_09",
+              "start": 610.417,
+              "end": 612.593
+            }
+          ],
+          "matching_word_count": 17,
+          "matching_words_assigned_to_interval": 17,
+          "other_speaker_word_count_inside_interval": 3,
+          "other_speaker_words_inside_interval": [
+            {
+              "word": "Those",
+              "speaker_id": "SPEAKER_09",
+              "start": 606.098,
+              "end": 606.238
+            },
+            {
+              "word": "letters",
+              "speaker_id": "SPEAKER_09",
+              "start": 606.298,
+              "end": 606.598
+            },
+            {
+              "word": "were",
+              "speaker_id": "SPEAKER_09",
+              "start": 606.618,
+              "end": 606.738
+            }
+          ],
+          "text_recovered": true,
+          "recovered_text": "written to the cabinet secretary and that's not been denied. So those letters are very much there.",
+          "reason_for_skipping": null
+        },
+        {
+          "interval_id": "SI_038",
+          "interval_index": 37,
+          "speaker_id": "SPEAKER_09",
+          "start": 610.417,
+          "end": 612.593,
+          "overlapping_interval_count": 2,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_037",
+              "speaker_id": "SPEAKER_02",
+              "start": 606.13,
+              "end": 610.906
+            },
+            {
+              "interval_id": "SI_039",
+              "speaker_id": "SPEAKER_02",
+              "start": 611.345,
+              "end": 615.749
+            }
+          ],
+          "matching_word_count": 5,
+          "matching_words_assigned_to_interval": 5,
+          "other_speaker_word_count_inside_interval": 3,
+          "other_speaker_words_inside_interval": [
+            {
+              "word": "much",
+              "speaker_id": "SPEAKER_02",
+              "start": 610.4,
+              "end": 610.561
+            },
+            {
+              "word": "there.",
+              "speaker_id": "SPEAKER_02",
+              "start": 610.601,
+              "end": 610.801
+            },
+            {
+              "word": "No,",
+              "speaker_id": "SPEAKER_02",
+              "start": 612.502,
+              "end": 612.662
+            }
+          ],
+          "text_recovered": true,
+          "recovered_text": "Madhav, just seconds. Madhav, seconds.",
+          "reason_for_skipping": null
+        },
+        {
+          "interval_id": "SI_039",
+          "interval_index": 38,
+          "speaker_id": "SPEAKER_02",
+          "start": 611.345,
+          "end": 615.749,
+          "overlapping_interval_count": 2,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_038",
+              "speaker_id": "SPEAKER_09",
+              "start": 610.417,
+              "end": 612.593
+            },
+            {
+              "interval_id": "SI_040",
+              "speaker_id": "SPEAKER_09",
+              "start": 614.551,
+              "end": 637.872
+            }
+          ],
+          "matching_word_count": 9,
+          "matching_words_assigned_to_interval": 9,
+          "other_speaker_word_count_inside_interval": 4,
+          "other_speaker_words_inside_interval": [
+            {
+              "word": "seconds.",
+              "speaker_id": "SPEAKER_09",
+              "start": 611.341,
+              "end": 611.501
+            },
+            {
+              "word": "Madhav,",
+              "speaker_id": "SPEAKER_09",
+              "start": 611.521,
+              "end": 612.021
+            },
+            {
+              "word": "seconds.",
+              "speaker_id": "SPEAKER_09",
+              "start": 612.081,
+              "end": 612.402
+            },
+            {
+              "word": "Just",
+              "speaker_id": "SPEAKER_09",
+              "start": 615.443,
+              "end": 615.783
+            }
+          ],
+          "text_recovered": true,
+          "recovered_text": "No, no, one second. Please, now other panelists also.",
+          "reason_for_skipping": null
+        },
+        {
+          "interval_id": "SI_040",
+          "interval_index": 39,
+          "speaker_id": "SPEAKER_09",
+          "start": 614.551,
+          "end": 637.872,
+          "overlapping_interval_count": 3,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_039",
+              "speaker_id": "SPEAKER_02",
+              "start": 611.345,
+              "end": 615.749
+            },
+            {
+              "interval_id": "SI_041",
+              "speaker_id": "SPEAKER_00",
+              "start": 627.41,
+              "end": 627.713
+            },
+            {
+              "interval_id": "SI_042",
+              "speaker_id": "SPEAKER_02",
+              "start": 637.332,
+              "end": 650.41
+            }
+          ],
+          "matching_word_count": 89,
+          "matching_words_assigned_to_interval": 89,
+          "other_speaker_word_count_inside_interval": 2,
+          "other_speaker_words_inside_interval": [
+            {
+              "word": "also.",
+              "speaker_id": "SPEAKER_02",
+              "start": 614.663,
+              "end": 614.943
+            },
+            {
+              "word": "Okay,",
+              "speaker_id": "SPEAKER_02",
+              "start": 637.812,
+              "end": 637.912
+            }
+          ],
+          "text_recovered": true,
+          "recovered_text": "Just let me complete. My friend here said that they're ready to resign. Bhai, your own initiative of people call themselves Chotu after Neha Bora was on the car with Rahul and Priyanka Gandhi waving to you people downstairs. So you please don't come and say, because I am going to cut this video and ask Rahul Gandhi if he is ready to resign. If Rahul Gandhi was ready to resign, we would have seen that happening from the Rang Majh today. Like I said, Rahul would have resigned.",
+          "reason_for_skipping": null
+        },
+        {
+          "interval_id": "SI_041",
+          "interval_index": 40,
+          "speaker_id": "SPEAKER_00",
+          "start": 627.41,
+          "end": 627.713,
+          "overlapping_interval_count": 1,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_040",
+              "speaker_id": "SPEAKER_09",
+              "start": 614.551,
+              "end": 637.872
+            }
+          ],
+          "matching_word_count": 0,
+          "matching_words_assigned_to_interval": 0,
+          "other_speaker_word_count_inside_interval": 1,
+          "other_speaker_words_inside_interval": [
+            {
+              "word": "So",
+              "speaker_id": "SPEAKER_09",
+              "start": 627.57,
+              "end": 627.69
+            }
+          ],
+          "text_recovered": false,
+          "recovered_text": null,
+          "reason_for_skipping": "interval_contains_word_midpoints_attributed_to_other_speaker"
+        },
+        {
+          "interval_id": "SI_042",
+          "interval_index": 41,
+          "speaker_id": "SPEAKER_02",
+          "start": 637.332,
+          "end": 650.41,
+          "overlapping_interval_count": 1,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_040",
+              "speaker_id": "SPEAKER_09",
+              "start": 614.551,
+              "end": 637.872
+            }
+          ],
+          "matching_word_count": 45,
+          "matching_words_assigned_to_interval": 45,
+          "other_speaker_word_count_inside_interval": 1,
+          "other_speaker_words_inside_interval": [
+            {
+              "word": "resigned.",
+              "speaker_id": "SPEAKER_09",
+              "start": 637.392,
+              "end": 637.792
+            }
+          ],
+          "text_recovered": true,
+          "recovered_text": "Okay, Dharmendra Yadav now. Dharmendra Yadav, Samit Patra's press conference has also happened where he has come out to say that of Ramleela Maidan was empty. He has showed a video also in this regard. Was the rally a flop show as BJP is saying?",
+          "reason_for_skipping": null
+        },
+        {
+          "interval_id": "SI_043",
+          "interval_index": 42,
+          "speaker_id": "SPEAKER_04",
+          "start": 652.418,
+          "end": 668.568,
+          "overlapping_interval_count": 1,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_044",
+              "speaker_id": "SPEAKER_00",
+              "start": 665.767,
+              "end": 668.433
+            }
+          ],
+          "matching_word_count": 48,
+          "matching_words_assigned_to_interval": 48,
+          "other_speaker_word_count_inside_interval": 0,
+          "other_speaker_words_inside_interval": [],
+          "text_recovered": true,
+          "recovered_text": "Madhav ji, BJP's failure is a proof of how successful this rally was. And Ram Leela Maidan was representing the whole country today. But unfortunately, people like the Indian party neither like democracy, nor do they like the citizens of this country, nor do they like their rights.",
+          "reason_for_skipping": null
+        },
+        {
+          "interval_id": "SI_044",
+          "interval_index": 43,
+          "speaker_id": "SPEAKER_00",
+          "start": 665.767,
+          "end": 668.433,
+          "overlapping_interval_count": 1,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_043",
+              "speaker_id": "SPEAKER_04",
+              "start": 652.418,
+              "end": 668.568
+            }
+          ],
+          "matching_word_count": 0,
+          "matching_words_assigned_to_interval": 0,
+          "other_speaker_word_count_inside_interval": 9,
+          "other_speaker_words_inside_interval": [
+            {
+              "word": "of",
+              "speaker_id": "SPEAKER_04",
+              "start": 665.865,
+              "end": 665.925
+            },
+            {
+              "word": "this",
+              "speaker_id": "SPEAKER_04",
+              "start": 665.966,
+              "end": 666.106
+            },
+            {
+              "word": "country,",
+              "speaker_id": "SPEAKER_04",
+              "start": 666.126,
+              "end": 666.366
+            },
+            {
+              "word": "nor",
+              "speaker_id": "SPEAKER_04",
+              "start": 666.386,
+              "end": 666.486
+            },
+            {
+              "word": "do",
+              "speaker_id": "SPEAKER_04",
+              "start": 666.506,
+              "end": 666.626
+            },
+            {
+              "word": "they",
+              "speaker_id": "SPEAKER_04",
+              "start": 666.646,
+              "end": 666.747
+            },
+            {
+              "word": "like",
+              "speaker_id": "SPEAKER_04",
+              "start": 666.767,
+              "end": 666.907
+            },
+            {
+              "word": "their",
+              "speaker_id": "SPEAKER_04",
+              "start": 666.947,
+              "end": 667.147
+            },
+            {
+              "word": "rights.",
+              "speaker_id": "SPEAKER_04",
+              "start": 667.447,
+              "end": 667.828
+            }
+          ],
+          "text_recovered": false,
+          "recovered_text": null,
+          "reason_for_skipping": "interval_contains_word_midpoints_attributed_to_other_speaker"
+        },
+        {
+          "interval_id": "SI_045",
+          "interval_index": 44,
+          "speaker_id": "SPEAKER_04",
+          "start": 669.091,
+          "end": 707.954,
+          "overlapping_interval_count": 1,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_046",
+              "speaker_id": "SPEAKER_00",
+              "start": 676.162,
+              "end": 680.971
+            }
+          ],
+          "matching_word_count": 107,
+          "matching_words_assigned_to_interval": 107,
+          "other_speaker_word_count_inside_interval": 0,
+          "other_speaker_words_inside_interval": [],
+          "text_recovered": true,
+          "recovered_text": "They did not protect their rights. They took away crore people's voting rights with the election commission. They did it systematically. I will tell you the numbers of those who are justified. The tribunal in West Bengal was made under the orders of Manny Ustamanyala, in which retards work. They said that there were people in West Bengal who were valid and who should get voting rights. Without their vote, the government that has been formed is an illegal government and that SIR should be illegal and null and white. In this, some Makhuchan officer said that we mailed times to add votes. Even after that, we",
+          "reason_for_skipping": null
+        },
+        {
+          "interval_id": "SI_046",
+          "interval_index": 45,
+          "speaker_id": "SPEAKER_00",
+          "start": 676.162,
+          "end": 680.971,
+          "overlapping_interval_count": 1,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_045",
+              "speaker_id": "SPEAKER_04",
+              "start": 669.091,
+              "end": 707.954
+            }
+          ],
+          "matching_word_count": 0,
+          "matching_words_assigned_to_interval": 0,
+          "other_speaker_word_count_inside_interval": 11,
+          "other_speaker_words_inside_interval": [
+            {
+              "word": "commission.",
+              "speaker_id": "SPEAKER_04",
+              "start": 676.305,
+              "end": 676.706
+            },
+            {
+              "word": "They",
+              "speaker_id": "SPEAKER_04",
+              "start": 677.206,
+              "end": 677.626
+            },
+            {
+              "word": "did",
+              "speaker_id": "SPEAKER_04",
+              "start": 678.067,
+              "end": 678.327
+            },
+            {
+              "word": "it",
+              "speaker_id": "SPEAKER_04",
+              "start": 678.427,
+              "end": 678.547
+            },
+            {
+              "word": "systematically.",
+              "speaker_id": "SPEAKER_04",
+              "start": 678.587,
+              "end": 679.748
+            },
+            {
+              "word": "I",
+              "speaker_id": "SPEAKER_04",
+              "start": 679.828,
+              "end": 679.908
+            },
+            {
+              "word": "will",
+              "speaker_id": "SPEAKER_04",
+              "start": 680.028,
+              "end": 680.248
+            },
+            {
+              "word": "tell",
+              "speaker_id": "SPEAKER_04",
+              "start": 680.268,
+              "end": 680.369
+            },
+            {
+              "word": "you",
+              "speaker_id": "SPEAKER_04",
+              "start": 680.449,
+              "end": 680.589
+            },
+            {
+              "word": "the",
+              "speaker_id": "SPEAKER_04",
+              "start": 680.609,
+              "end": 680.709
+            },
+            {
+              "word": "numbers",
+              "speaker_id": "SPEAKER_04",
+              "start": 680.729,
+              "end": 681.009
+            }
+          ],
+          "text_recovered": false,
+          "recovered_text": null,
+          "reason_for_skipping": "interval_contains_word_midpoints_attributed_to_other_speaker"
+        },
+        {
+          "interval_id": "SI_047",
+          "interval_index": 46,
+          "speaker_id": "SPEAKER_04",
+          "start": 708.207,
+          "end": 728.12,
+          "overlapping_interval_count": 1,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_048",
+              "speaker_id": "SPEAKER_00",
+              "start": 709.422,
+              "end": 717.488
+            }
+          ],
+          "matching_word_count": 70,
+          "matching_words_assigned_to_interval": 70,
+          "other_speaker_word_count_inside_interval": 0,
+          "other_speaker_words_inside_interval": [],
+          "text_recovered": true,
+          "recovered_text": "mailed and mailed. They had to say that the ECI network software, which is regulated by the people who have the right, they do it at the behest of the BJP and no one is listening to us. So one election was stopped by the commissioner, because if the state's chief election officer is saying this, then there is no possibility of any proof in his serious reference. The chief",
+          "reason_for_skipping": null
+        },
+        {
+          "interval_id": "SI_048",
+          "interval_index": 47,
+          "speaker_id": "SPEAKER_00",
+          "start": 709.422,
+          "end": 717.488,
+          "overlapping_interval_count": 1,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_047",
+              "speaker_id": "SPEAKER_04",
+              "start": 708.207,
+              "end": 728.12
+            }
+          ],
+          "matching_word_count": 0,
+          "matching_words_assigned_to_interval": 0,
+          "other_speaker_word_count_inside_interval": 22,
+          "other_speaker_words_inside_interval": [
+            {
+              "word": "They",
+              "speaker_id": "SPEAKER_04",
+              "start": 712.489,
+              "end": 712.689
+            },
+            {
+              "word": "had",
+              "speaker_id": "SPEAKER_04",
+              "start": 712.729,
+              "end": 712.829
+            },
+            {
+              "word": "to",
+              "speaker_id": "SPEAKER_04",
+              "start": 712.849,
+              "end": 712.909
+            },
+            {
+              "word": "say",
+              "speaker_id": "SPEAKER_04",
+              "start": 712.949,
+              "end": 713.13
+            },
+            {
+              "word": "that",
+              "speaker_id": "SPEAKER_04",
+              "start": 713.15,
+              "end": 713.39
+            },
+            {
+              "word": "the",
+              "speaker_id": "SPEAKER_04",
+              "start": 713.41,
+              "end": 713.63
+            },
+            {
+              "word": "ECI",
+              "speaker_id": "SPEAKER_04",
+              "start": 713.65,
+              "end": 713.79
+            },
+            {
+              "word": "network",
+              "speaker_id": "SPEAKER_04",
+              "start": 713.83,
+              "end": 714.01
+            },
+            {
+              "word": "software,",
+              "speaker_id": "SPEAKER_04",
+              "start": 714.03,
+              "end": 714.391
+            },
+            {
+              "word": "which",
+              "speaker_id": "SPEAKER_04",
+              "start": 714.411,
+              "end": 714.591
+            },
+            {
+              "word": "is",
+              "speaker_id": "SPEAKER_04",
+              "start": 714.951,
+              "end": 715.091
+            },
+            {
+              "word": "regulated",
+              "speaker_id": "SPEAKER_04",
+              "start": 715.211,
+              "end": 715.431
+            },
+            {
+              "word": "by",
+              "speaker_id": "SPEAKER_04",
+              "start": 715.451,
+              "end": 715.652
+            },
+            {
+              "word": "the",
+              "speaker_id": "SPEAKER_04",
+              "start": 715.672,
+              "end": 715.772
+            },
+            {
+              "word": "people",
+              "speaker_id": "SPEAKER_04",
+              "start": 715.792,
+              "end": 716.032
+            },
+            {
+              "word": "who",
+              "speaker_id": "SPEAKER_04",
+              "start": 716.052,
+              "end": 716.192
+            },
+            {
+              "word": "have",
+              "speaker_id": "SPEAKER_04",
+              "start": 716.252,
+              "end": 716.392
+            },
+            {
+              "word": "the",
+              "speaker_id": "SPEAKER_04",
+              "start": 716.412,
+              "end": 716.532
+            },
+            {
+              "word": "right,",
+              "speaker_id": "SPEAKER_04",
+              "start": 716.552,
+              "end": 716.712
+            },
+            {
+              "word": "they",
+              "speaker_id": "SPEAKER_04",
+              "start": 716.732,
+              "end": 716.833
+            },
+            {
+              "word": "do",
+              "speaker_id": "SPEAKER_04",
+              "start": 716.853,
+              "end": 717.033
+            },
+            {
+              "word": "it",
+              "speaker_id": "SPEAKER_04",
+              "start": 717.133,
+              "end": 717.253
+            }
+          ],
+          "text_recovered": false,
+          "recovered_text": null,
+          "reason_for_skipping": "interval_contains_word_midpoints_attributed_to_other_speaker"
+        },
+        {
+          "interval_id": "SI_049",
+          "interval_index": 48,
+          "speaker_id": "SPEAKER_04",
+          "start": 728.542,
+          "end": 738.498,
+          "overlapping_interval_count": 1,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_050",
+              "speaker_id": "SPEAKER_00",
+              "start": 735.038,
+              "end": 735.865
+            }
+          ],
+          "matching_word_count": 31,
+          "matching_words_assigned_to_interval": 31,
+          "other_speaker_word_count_inside_interval": 0,
+          "other_speaker_words_inside_interval": [],
+          "text_recovered": true,
+          "recovered_text": "officer said that there were such people who were going and they were removed from the form of cutting. Who did this? The BJP did it. Now come to Uttar Pradesh.",
+          "reason_for_skipping": null
+        },
+        {
+          "interval_id": "SI_050",
+          "interval_index": 49,
+          "speaker_id": "SPEAKER_00",
+          "start": 735.038,
+          "end": 735.865,
+          "overlapping_interval_count": 1,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_049",
+              "speaker_id": "SPEAKER_04",
+              "start": 728.542,
+              "end": 738.498
+            }
+          ],
+          "matching_word_count": 0,
+          "matching_words_assigned_to_interval": 0,
+          "other_speaker_word_count_inside_interval": 5,
+          "other_speaker_words_inside_interval": [
+            {
+              "word": "The",
+              "speaker_id": "SPEAKER_04",
+              "start": 735.087,
+              "end": 735.207
+            },
+            {
+              "word": "BJP",
+              "speaker_id": "SPEAKER_04",
+              "start": 735.227,
+              "end": 735.367
+            },
+            {
+              "word": "did",
+              "speaker_id": "SPEAKER_04",
+              "start": 735.387,
+              "end": 735.507
+            },
+            {
+              "word": "it.",
+              "speaker_id": "SPEAKER_04",
+              "start": 735.548,
+              "end": 735.608
+            },
+            {
+              "word": "Now",
+              "speaker_id": "SPEAKER_04",
+              "start": 735.628,
+              "end": 735.828
+            }
+          ],
+          "text_recovered": false,
+          "recovered_text": null,
+          "reason_for_skipping": "interval_contains_word_midpoints_attributed_to_other_speaker"
+        },
+        {
+          "interval_id": "SI_051",
+          "interval_index": 50,
+          "speaker_id": "SPEAKER_04",
+          "start": 739.105,
+          "end": 754.192,
+          "overlapping_interval_count": 2,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_052",
+              "speaker_id": "SPEAKER_00",
+              "start": 741.181,
+              "end": 742.008
+            },
+            {
+              "interval_id": "SI_053",
+              "speaker_id": "SPEAKER_02",
+              "start": 746.26,
+              "end": 773.851
+            }
+          ],
+          "matching_word_count": 2,
+          "matching_words_assigned_to_interval": 2,
+          "other_speaker_word_count_inside_interval": 0,
+          "other_speaker_words_inside_interval": [],
+          "text_recovered": true,
+          "recovered_text": "Systematic manner",
+          "reason_for_skipping": null
+        },
+        {
+          "interval_id": "SI_052",
+          "interval_index": 51,
+          "speaker_id": "SPEAKER_00",
+          "start": 741.181,
+          "end": 742.008,
+          "overlapping_interval_count": 1,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_051",
+              "speaker_id": "SPEAKER_04",
+              "start": 739.105,
+              "end": 754.192
+            }
+          ],
+          "matching_word_count": 0,
+          "matching_words_assigned_to_interval": 0,
+          "other_speaker_word_count_inside_interval": 0,
+          "other_speaker_words_inside_interval": [],
+          "text_recovered": false,
+          "recovered_text": null,
+          "reason_for_skipping": "no_word_midpoint_inside_interval"
+        },
+        {
+          "interval_id": "SI_053",
+          "interval_index": 52,
+          "speaker_id": "SPEAKER_02",
+          "start": 746.26,
+          "end": 773.851,
+          "overlapping_interval_count": 1,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_051",
+              "speaker_id": "SPEAKER_04",
+              "start": 739.105,
+              "end": 754.192
+            }
+          ],
+          "matching_word_count": 72,
+          "matching_words_assigned_to_interval": 72,
+          "other_speaker_word_count_inside_interval": 0,
+          "other_speaker_words_inside_interval": [],
+          "text_recovered": true,
+          "recovered_text": "Sujata Pandey responded to that. Systematically, in an organized manner, voters were being delayed. Reports came out in the media, you know, from actually launching voter enrollment drives to extending the dates of the SIR exercise in at least six states. There are multiple things that have happened as far as the Election Commission, you know, moving is concerned, which were not being done earlier before this came out in the media.",
+          "reason_for_skipping": null
+        },
+        {
+          "interval_id": "SI_054",
+          "interval_index": 53,
+          "speaker_id": "SPEAKER_08",
+          "start": 775.049,
+          "end": 858.158,
+          "overlapping_interval_count": 1,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_055",
+              "speaker_id": "SPEAKER_02",
+              "start": 856.235,
+              "end": 887.335
+            }
+          ],
+          "matching_word_count": 241,
+          "matching_words_assigned_to_interval": 241,
+          "other_speaker_word_count_inside_interval": 1,
+          "other_speaker_words_inside_interval": [
+            {
+              "word": "If",
+              "speaker_id": "SPEAKER_02",
+              "start": 857.353,
+              "end": 858.174
+            }
+          ],
+          "text_recovered": true,
+          "recovered_text": "So, why did the people not turn up in the rally? Why there was only people there and half of the chairs empty? Why were people leaving when the Raoul Gandhi was in the midst of his speech? Why was Khadgeji telling, I mean, this is a super flop rally today. I think anything that the opposition has learned today, that Modi will not go anywhere. Because if you, with your all strength, You can't feel Ram Leela Maidan, which has a strength. How do you move a person which has a billion people standing behind him? Like, how do you even say, I think Rahul Gandhi did not turn up, and I'll prove it to you why. There are jilas, you know, districts. The Congress has got jila parishans, adyaks. If one adyaks would have got four people, only four, you just divide and then the whole thing will have fulfilled up. The entire people would have turned up. but nothing. So even the car did not believe him. What happened to Achille Shado Achille Shado gave Achille Shado gave the speech went away before Rahul Gandhi even given came to the dais to speak. So what does this talk about? It talks about that this whole rhetoric of vote Jory and all that when you can't win an MLC election in your state in the state ruled by Congress party in Karnataka itself. The people know that he's the",
+          "reason_for_skipping": null
+        },
+        {
+          "interval_id": "SI_055",
+          "interval_index": 54,
+          "speaker_id": "SPEAKER_02",
+          "start": 856.235,
+          "end": 887.335,
+          "overlapping_interval_count": 5,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_054",
+              "speaker_id": "SPEAKER_08",
+              "start": 775.049,
+              "end": 858.158
+            },
+            {
+              "interval_id": "SI_056",
+              "speaker_id": "SPEAKER_08",
+              "start": 859.762,
+              "end": 860.858
+            },
+            {
+              "interval_id": "SI_057",
+              "speaker_id": "SPEAKER_00",
+              "start": 864.925,
+              "end": 865.027
+            },
+            {
+              "interval_id": "SI_058",
+              "speaker_id": "SPEAKER_08",
+              "start": 865.027,
+              "end": 865.718
+            },
+            {
+              "interval_id": "SI_059",
+              "speaker_id": "SPEAKER_00",
+              "start": 865.718,
+              "end": 866.309
+            }
+          ],
+          "matching_word_count": 119,
+          "matching_words_assigned_to_interval": 119,
+          "other_speaker_word_count_inside_interval": 0,
+          "other_speaker_words_inside_interval": [],
+          "text_recovered": true,
+          "recovered_text": "If you start doing that, people will associate BJP with other media and I don't think that's the route to go. There are certain very basic questions. Everyone has a right to protest in our country. We are a democracy. Everyone has a right to raise those questions. I don't think that should be questioned because this matter is sub-judiced and there is a reason. The Supreme Court would have thrown out the case if there were no such questions. Let's leave it there. Protest versus protest continuing. Was it hit? Was it a flop? We leave you to decide viewers. For the moment, Radhika Khela, Sujata Pandey, Saral Patel and Dharmendra Yadav, thanks so much for joining us.",
+          "reason_for_skipping": null
+        },
+        {
+          "interval_id": "SI_056",
+          "interval_index": 55,
+          "speaker_id": "SPEAKER_08",
+          "start": 859.762,
+          "end": 860.858,
+          "overlapping_interval_count": 1,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_055",
+              "speaker_id": "SPEAKER_02",
+              "start": 856.235,
+              "end": 887.335
+            }
+          ],
+          "matching_word_count": 0,
+          "matching_words_assigned_to_interval": 0,
+          "other_speaker_word_count_inside_interval": 3,
+          "other_speaker_words_inside_interval": [
+            {
+              "word": "people",
+              "speaker_id": "SPEAKER_02",
+              "start": 859.755,
+              "end": 859.995
+            },
+            {
+              "word": "will",
+              "speaker_id": "SPEAKER_02",
+              "start": 860.015,
+              "end": 860.155
+            },
+            {
+              "word": "associate",
+              "speaker_id": "SPEAKER_02",
+              "start": 860.175,
+              "end": 860.695
+            }
+          ],
+          "text_recovered": false,
+          "recovered_text": null,
+          "reason_for_skipping": "interval_contains_word_midpoints_attributed_to_other_speaker"
+        },
+        {
+          "interval_id": "SI_057",
+          "interval_index": 56,
+          "speaker_id": "SPEAKER_00",
+          "start": 864.925,
+          "end": 865.027,
+          "overlapping_interval_count": 1,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_055",
+              "speaker_id": "SPEAKER_02",
+              "start": 856.235,
+              "end": 887.335
+            }
+          ],
+          "matching_word_count": 0,
+          "matching_words_assigned_to_interval": 0,
+          "other_speaker_word_count_inside_interval": 1,
+          "other_speaker_words_inside_interval": [
+            {
+              "word": "questions.",
+              "speaker_id": "SPEAKER_02",
+              "start": 864.738,
+              "end": 865.119
+            }
+          ],
+          "text_recovered": false,
+          "recovered_text": null,
+          "reason_for_skipping": "interval_contains_word_midpoints_attributed_to_other_speaker"
+        },
+        {
+          "interval_id": "SI_058",
+          "interval_index": 57,
+          "speaker_id": "SPEAKER_08",
+          "start": 865.027,
+          "end": 865.718,
+          "overlapping_interval_count": 1,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_055",
+              "speaker_id": "SPEAKER_02",
+              "start": 856.235,
+              "end": 887.335
+            }
+          ],
+          "matching_word_count": 0,
+          "matching_words_assigned_to_interval": 0,
+          "other_speaker_word_count_inside_interval": 0,
+          "other_speaker_words_inside_interval": [],
+          "text_recovered": false,
+          "recovered_text": null,
+          "reason_for_skipping": "no_word_midpoint_inside_interval"
+        },
+        {
+          "interval_id": "SI_059",
+          "interval_index": 58,
+          "speaker_id": "SPEAKER_00",
+          "start": 865.718,
+          "end": 866.309,
+          "overlapping_interval_count": 1,
+          "overlapping_intervals": [
+            {
+              "interval_id": "SI_055",
+              "speaker_id": "SPEAKER_02",
+              "start": 856.235,
+              "end": 887.335
+            }
+          ],
+          "matching_word_count": 0,
+          "matching_words_assigned_to_interval": 0,
+          "other_speaker_word_count_inside_interval": 4,
+          "other_speaker_words_inside_interval": [
+            {
+              "word": "Everyone",
+              "speaker_id": "SPEAKER_02",
+              "start": 865.639,
+              "end": 865.979
+            },
+            {
+              "word": "has",
+              "speaker_id": "SPEAKER_02",
+              "start": 866.019,
+              "end": 866.119
+            },
+            {
+              "word": "a",
+              "speaker_id": "SPEAKER_02",
+              "start": 866.159,
+              "end": 866.179
+            },
+            {
+              "word": "right",
+              "speaker_id": "SPEAKER_02",
+              "start": 866.22,
+              "end": 866.36
+            }
+          ],
+          "text_recovered": false,
+          "recovered_text": null,
+          "reason_for_skipping": "interval_contains_word_midpoints_attributed_to_other_speaker"
+        }
+      ]
+    },
+    "host_identification_loaded": true,
+    "host_identification_status": {
+      "status": "loaded",
+      "warning": "Scores and confidence bands are heuristic, not calibrated probabilities. Opening/closing phrase lists are incomplete and currently English-oriented; translated ASR text can affect cues. Manually verify predictions and evaluate across known-host episodes."
+    },
+    "subtopics_loaded": 4,
+    "interactions_missing_target": 3,
+    "evidence_validation_summary": {
+      "records_with_evidence": 18,
+      "records_with_verified_evidence": 17,
+      "records_with_missing_evidence": 1,
+      "records_with_invalid_evidence": 1,
+      "decisive_records_requiring_manual_review": 1
+    },
+    "validation": {
+      "status": "passed",
+      "checks_run": [
+        "classification_labels",
+        "speaker_ids",
+        "target_response_turn_references",
+        "evidence_validation",
+        "subtopic_mapping",
+        "directional_aggregation",
+        "missing_source_speakers",
+        "duplicate_interaction_ids",
+        "timestamp_consistency",
+        "model_response_schema"
+      ],
+      "issue_count": 0,
+      "issues": []
+    },
+    "validation_warnings": [
+      "Host identification: Scores and confidence bands are heuristic, not calibrated probabilities. Opening/closing phrase lists are incomplete and currently English-oriented; translated ASR text can affect cues. Manually verify predictions and evaluate across known-host episodes.",
+      "One or more model-proposed decisive interactions lacked verified evidence and were downgraded to uncertain."
+    ],
+    "manual_review_status": "required",
+    "review_status": "pending_manual_validation"
+  }
+}

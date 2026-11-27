@@ -1,0 +1,235 @@
+{
+  "schema_version": "speaker-topic-participation-1.1",
+  "video_id": "Cp9kTDGfJk4",
+  "variant": "threshold_5.0",
+  "method": {
+    "speaking_time": "speaker_turn intervals clipped to each subtopic boundary; each turn contributes only its intersecting duration",
+    "turn_count": "number of source speaker_turn intervals intersecting each subtopic; a turn crossing a boundary is counted once in each intersected subtopic",
+    "speech_share": "speaker clipped turn-duration sum divided by total clipped speaker-turn duration within the same subtopic, multiplied by 100",
+    "dominant_speaker": "speaker with the greatest clipped speaker-turn duration in the subtopic",
+    "topic_coverage": "subtopics with positive clipped speaking time",
+    "consistency": "uses the same speaker_turn duration basis as final_result_numeric.json",
+    "overlap_note": "speaker turns may overlap; if they do, their durations are counted for each speaker, matching speaker-wise duration accounting in the existing pipeline"
+  },
+  "summary": {
+    "total_subtopics": 5,
+    "total_speakers": 5,
+    "total_speaking_time_seconds_across_subtopics": 1065.109
+  },
+  "subtopic_participation": [
+    {
+      "subtopic_id": "ST001",
+      "title": "Opening discussion",
+      "start": 0.0,
+      "end": 385.829,
+      "duration_seconds": 385.829,
+      "total_speaking_time_seconds": 385.039,
+      "dominant_speaker": "SPEAKER_00",
+      "speakers": [
+        {
+          "speaker_id": "SPEAKER_00",
+          "speaking_time_seconds": 158.81,
+          "speech_share_percent": 41.245,
+          "turn_count": 2
+        },
+        {
+          "speaker_id": "SPEAKER_04",
+          "speaking_time_seconds": 125.231,
+          "speech_share_percent": 32.524,
+          "turn_count": 3
+        },
+        {
+          "speaker_id": "SPEAKER_03",
+          "speaking_time_seconds": 100.39,
+          "speech_share_percent": 26.073,
+          "turn_count": 1
+        },
+        {
+          "speaker_id": "SPEAKER_01",
+          "speaking_time_seconds": 0.608,
+          "speech_share_percent": 0.158,
+          "turn_count": 1
+        }
+      ]
+    },
+    {
+      "subtopic_id": "ST002",
+      "title": "Critique of the Memoir as Whitewashing Historical Events",
+      "start": 385.829,
+      "end": 630.97,
+      "duration_seconds": 245.141,
+      "total_speaking_time_seconds": 245.698,
+      "dominant_speaker": "SPEAKER_01",
+      "speakers": [
+        {
+          "speaker_id": "SPEAKER_01",
+          "speaking_time_seconds": 115.493,
+          "speech_share_percent": 47.006,
+          "turn_count": 1
+        },
+        {
+          "speaker_id": "SPEAKER_02",
+          "speaking_time_seconds": 74.418,
+          "speech_share_percent": 30.288,
+          "turn_count": 1
+        },
+        {
+          "speaker_id": "SPEAKER_04",
+          "speaking_time_seconds": 55.787,
+          "speech_share_percent": 22.706,
+          "turn_count": 2
+        }
+      ]
+    },
+    {
+      "subtopic_id": "ST003",
+      "title": "Babri Masjid Demolition and the Liberhan Commission Report",
+      "start": 630.97,
+      "end": 811.587,
+      "duration_seconds": 180.617,
+      "total_speaking_time_seconds": 181.866,
+      "dominant_speaker": "SPEAKER_01",
+      "speakers": [
+        {
+          "speaker_id": "SPEAKER_01",
+          "speaking_time_seconds": 90.534,
+          "speech_share_percent": 49.781,
+          "turn_count": 1
+        },
+        {
+          "speaker_id": "SPEAKER_02",
+          "speaking_time_seconds": 64.986,
+          "speech_share_percent": 35.733,
+          "turn_count": 2
+        },
+        {
+          "speaker_id": "SPEAKER_04",
+          "speaking_time_seconds": 25.924,
+          "speech_share_percent": 14.254,
+          "turn_count": 2
+        },
+        {
+          "speaker_id": "SPEAKER_00",
+          "speaking_time_seconds": 0.422,
+          "speech_share_percent": 0.232,
+          "turn_count": 1
+        }
+      ]
+    },
+    {
+      "subtopic_id": "ST004",
+      "title": "National Security and Defense Controversies",
+      "start": 811.587,
+      "end": 898.845,
+      "duration_seconds": 87.258,
+      "total_speaking_time_seconds": 90.582,
+      "dominant_speaker": "SPEAKER_03",
+      "speakers": [
+        {
+          "speaker_id": "SPEAKER_03",
+          "speaking_time_seconds": 69.137,
+          "speech_share_percent": 76.325,
+          "turn_count": 1
+        },
+        {
+          "speaker_id": "SPEAKER_04",
+          "speaking_time_seconds": 21.445,
+          "speech_share_percent": 23.675,
+          "turn_count": 2
+        }
+      ]
+    },
+    {
+      "subtopic_id": "ST005",
+      "title": "Allegations of Selective Grief by Congress Leadership",
+      "start": 898.845,
+      "end": 1058.575,
+      "duration_seconds": 159.73,
+      "total_speaking_time_seconds": 161.924,
+      "dominant_speaker": "SPEAKER_00",
+      "speakers": [
+        {
+          "speaker_id": "SPEAKER_00",
+          "speaking_time_seconds": 123.205,
+          "speech_share_percent": 76.088,
+          "turn_count": 2
+        },
+        {
+          "speaker_id": "SPEAKER_04",
+          "speaking_time_seconds": 38.483,
+          "speech_share_percent": 23.766,
+          "turn_count": 2
+        },
+        {
+          "speaker_id": "SPEAKER_01",
+          "speaking_time_seconds": 0.236,
+          "speech_share_percent": 0.146,
+          "turn_count": 1
+        }
+      ]
+    }
+  ],
+  "speaker_episode_summary": [
+    {
+      "speaker_id": "SPEAKER_00",
+      "total_speaking_time_seconds": 282.437,
+      "speech_share_percent": 26.517,
+      "turn_count_across_subtopics": 5,
+      "subtopics_participated": [
+        "ST001",
+        "ST003",
+        "ST005"
+      ],
+      "subtopic_count": 3
+    },
+    {
+      "speaker_id": "SPEAKER_04",
+      "total_speaking_time_seconds": 266.87,
+      "speech_share_percent": 25.056,
+      "turn_count_across_subtopics": 11,
+      "subtopics_participated": [
+        "ST001",
+        "ST002",
+        "ST003",
+        "ST004",
+        "ST005"
+      ],
+      "subtopic_count": 5
+    },
+    {
+      "speaker_id": "SPEAKER_01",
+      "total_speaking_time_seconds": 206.871,
+      "speech_share_percent": 19.423,
+      "turn_count_across_subtopics": 4,
+      "subtopics_participated": [
+        "ST001",
+        "ST002",
+        "ST003",
+        "ST005"
+      ],
+      "subtopic_count": 4
+    },
+    {
+      "speaker_id": "SPEAKER_03",
+      "total_speaking_time_seconds": 169.527,
+      "speech_share_percent": 15.916,
+      "turn_count_across_subtopics": 2,
+      "subtopics_participated": [
+        "ST001",
+        "ST004"
+      ],
+      "subtopic_count": 2
+    },
+    {
+      "speaker_id": "SPEAKER_02",
+      "total_speaking_time_seconds": 139.404,
+      "speech_share_percent": 13.088,
+      "turn_count_across_subtopics": 3,
+      "subtopics_participated": [
+        "ST002",
+        "ST003"
+      ],
+      "subtopic_count": 2
+    }
+  ]
+}

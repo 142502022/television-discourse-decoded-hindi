@@ -1,0 +1,230 @@
+{
+  "schema_version": "topic-drift-1.1",
+  "video_id": "Cp9kTDGfJk4",
+  "variant": "threshold_5.0",
+  "generated_at_utc": "2026-11-26T19:27:34.540331+00:00",
+  "overall_topic": {
+    "topic": "Debate on Sonia Gandhi's Memoir and Historical Controversies",
+    "description": "A televised debate analyzing Sonia Gandhi's newly released memoir, focusing on whether it is a genuine personal account or a politically curated attempt to whitewash major historical events such as the Emergency, Operation Blue Star, the 1984 anti-Sikh riots, and the Babri Masjid demolition.",
+    "key_discussion_points": [
+      "Whether Sonia Gandhi's memoir is a genuine insider account or a political attempt to whitewash history and shift blame for events like the Emergency.",
+      "Controversies surrounding historical accountability for the 1984 Sikh genocide and the Emergency.",
+      "Debates over whether the Babri Masjid demolition was a spontaneous act or a planned conspiracy.",
+      "Accusations and counter-accusations between the BJP and Congress regarding political responsibility for past national tragedies and security issues."
+    ]
+  },
+  "method": {
+    "name": "subtopic_to_overall_topic_embedding_alignment",
+    "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "analysis_mode": "subtopic_level",
+    "unit_text_source": "Full transcript segments within each subtopic interval; subtopic evidence is fallback only.",
+    "score_formula": "0.50 * cosine(unit, overall_topic+description) + 0.50 * mean(two highest cosine similarities between unit and individual key discussion points)",
+    "display_score": "alignment_score = max(0, weighted_cosine_alignment) * 100; scaled cosine index, not a percentage or probability",
+    "low_threshold": 20.0,
+    "high_threshold": 40.0,
+    "threshold_interpretation": "possible_drift < 20.0; partially_aligned >= 20.0 and < 40.0; aligned >= 40.0",
+    "minimum_sustained_drift_seconds": 90.0,
+    "sustained_drift_rule": "Consecutive possible_drift subtopics separated by no more than 30 seconds are grouped; event duration must meet the minimum sustained duration.",
+    "threshold_status": "provisional; manually calibrate before research claims",
+    "warning": "Scores are heuristic semantic-alignment indicators, not probabilities or validated accuracy. Low similarity is a candidate for review, not proof of drift."
+  },
+  "alignment_results": [
+    {
+      "unit_id": "ST001",
+      "unit_type": "subtopic",
+      "title": "Opening discussion",
+      "start": 0.0,
+      "end": 385.829,
+      "duration_seconds": 385.829,
+      "semantic_similarity_to_overall_topic": 0.5764,
+      "key_point_similarities": [
+        {
+          "key_point": "Whether Sonia Gandhi's memoir is a genuine insider account or a political attempt to whitewash history and shift blame for events like the Emergency.",
+          "cosine_similarity": 0.7036
+        },
+        {
+          "key_point": "Accusations and counter-accusations between the BJP and Congress regarding political responsibility for past national tragedies and security issues.",
+          "cosine_similarity": 0.5233
+        },
+        {
+          "key_point": "Debates over whether the Babri Masjid demolition was a spontaneous act or a planned conspiracy.",
+          "cosine_similarity": 0.437
+        },
+        {
+          "key_point": "Controversies surrounding historical accountability for the 1984 Sikh genocide and the Emergency.",
+          "cosine_similarity": 0.3899
+        }
+      ],
+      "top_two_key_point_similarity": 0.6134,
+      "weighted_cosine_alignment": 0.5949,
+      "alignment_score": 59.49,
+      "classification": "aligned",
+      "speakers": [
+        "SPEAKER_00",
+        "SPEAKER_03",
+        "SPEAKER_04"
+      ],
+      "text_source": "merge_final.segments",
+      "evidence_excerpt": "Opening discussion. In the last week of October, the 27th to be precise, Sonia Gandhi said, there's bound to be some tamasha when the book comes out. After all, others have spent decades telling my story. Now it's my turn. Well, on this account, she's spot on. Of course, the jury is still out on the other accounts. Congress party leaders call the book a love story, a story of resilience. The BJP calls it whitewashing facts. So is it an insider account or a carefully curated account for political gains? Let's debate. Joining me on India first is Dr. Shama Mohammed. National spokesperson for the Congress Party. Tuhin Sinha is national spokesperson for the Bharatiya Janata Party. Professor Anand Ranganathan is author and consulting editor Swaraj Sanjay Jha. Formerly with the Congress, he's met and interacted closely with Ten Janpa, joins us as an analyst. Gentlemen and ladies, welcome. Tuhin Sinha, Sonia Gandhi had a ringside view of political developments. from the 1960s for over 60 years, be it wars, assassinations, including her mother-in-law and her husband, who feared he may be killed. There was an apprehension. Children may be kidnapped. Rahul and Priyanka may be kidnapped. That was the apprehension. Why is her account being seen as whitewashing history, sir? Well, good evening, Gaurav. Good evening, everybody. You know, first of all, let me extend my congratulations to Sonia Gandhiji on her autobiography or at least, you know, it's supposedly an autobiography. But, you know, writing an autobiography requires a lot of moral courage and you should write it only when you are prepared to bear the truth. completely. Now there are several important aspects. No doubt she has led a challenging life. No doubt. You know there have been humongous challenges along the way. But "
+    },
+    {
+      "unit_id": "ST002",
+      "unit_type": "subtopic",
+      "title": "Critique of the Memoir as Whitewashing Historical Events",
+      "start": 385.829,
+      "end": 630.97,
+      "duration_seconds": 245.141,
+      "semantic_similarity_to_overall_topic": 0.7373,
+      "key_point_similarities": [
+        {
+          "key_point": "Whether Sonia Gandhi's memoir is a genuine insider account or a political attempt to whitewash history and shift blame for events like the Emergency.",
+          "cosine_similarity": 0.7354
+        },
+        {
+          "key_point": "Accusations and counter-accusations between the BJP and Congress regarding political responsibility for past national tragedies and security issues.",
+          "cosine_similarity": 0.4816
+        },
+        {
+          "key_point": "Debates over whether the Babri Masjid demolition was a spontaneous act or a planned conspiracy.",
+          "cosine_similarity": 0.4774
+        },
+        {
+          "key_point": "Controversies surrounding historical accountability for the 1984 Sikh genocide and the Emergency.",
+          "cosine_similarity": 0.3838
+        }
+      ],
+      "top_two_key_point_similarity": 0.6085,
+      "weighted_cosine_alignment": 0.6729,
+      "alignment_score": 67.29,
+      "classification": "aligned",
+      "speakers": [
+        "SPEAKER_01",
+        "SPEAKER_02",
+        "SPEAKER_04"
+      ],
+      "text_source": "merge_final.segments",
+      "evidence_excerpt": "Critique of the Memoir as Whitewashing Historical Events. The discussion transitions from a personal defense of Sonia Gandhi's life and political career to an adversarial debate on whether her memoir acts as a whitewashing of major historical events, introduced by the anchor bringing in Anand Ranganathan.. Let me bring in Anand Ranganathan, because for the moment, we're staying with the book and commentary around it. Anand Ranganathan, Sonia Gandhi had a ringside view of developments in the prime minister's residence. She's recounting what she saw. Is this allegation or this complaint that she's whitewashing events, is that an unfair criticism of Amma Maharsha? Good evening Gaurav and good evening to my fellow panelists. Well, you know, as they say, you either see what you believe or you believe what you see. And in Mrs. Gandhi's case, Sonia Gandhi's case, I'm afraid the pen with which she has written her memoirs is dipped not in ink, but in Harpic. She has ruthlessly tried to vishvash and scrub, not just whitewash. the history right before our very eyes. Each and every instance that you describe, that is in her fictionalized book, is a complete negation of history. She is trying to whitewash the crimes and misdemeanors of her close associates. For example, shamelessly apportioning blame of the emergency from Indira Gandhi to Sanjay Gandhi. And I am surprised that Menaka Gandhi has not yet spoken out. This is an absolute crime when she says that emergency was thrust principally by on the behalf of Sanjay Gandhi. It is a calamity. Hundreds and thousands were interned, millions were sterilized, thousands were killed. all this happened right under the command and directions of Indira Gandhi. For somebody to say that Sanjay Gandhi is responsible for this, it is in front of "
+    },
+    {
+      "unit_id": "ST003",
+      "unit_type": "subtopic",
+      "title": "Babri Masjid Demolition and the Liberhan Commission Report",
+      "start": 630.97,
+      "end": 811.587,
+      "duration_seconds": 180.617,
+      "semantic_similarity_to_overall_topic": 0.4969,
+      "key_point_similarities": [
+        {
+          "key_point": "Debates over whether the Babri Masjid demolition was a spontaneous act or a planned conspiracy.",
+          "cosine_similarity": 0.7278
+        },
+        {
+          "key_point": "Whether Sonia Gandhi's memoir is a genuine insider account or a political attempt to whitewash history and shift blame for events like the Emergency.",
+          "cosine_similarity": 0.5554
+        },
+        {
+          "key_point": "Accusations and counter-accusations between the BJP and Congress regarding political responsibility for past national tragedies and security issues.",
+          "cosine_similarity": 0.5307
+        },
+        {
+          "key_point": "Controversies surrounding historical accountability for the 1984 Sikh genocide and the Emergency.",
+          "cosine_similarity": 0.4252
+        }
+      ],
+      "top_two_key_point_similarity": 0.6416,
+      "weighted_cosine_alignment": 0.5692,
+      "alignment_score": 56.92,
+      "classification": "aligned",
+      "speakers": [
+        "SPEAKER_01",
+        "SPEAKER_02",
+        "SPEAKER_04"
+      ],
+      "text_source": "merge_final.segments",
+      "evidence_excerpt": "Babri Masjid Demolition and the Liberhan Commission Report. The speaker shifts from discussing the memoir's depiction of the Emergency to debating the Babri Masjid demolition, citing the Liberhan Commission report and holding BJP leaders accountable.. No whitewashing. And this is a fact that the viewer should know. You know, the Commission concluded that the Babri-Masjid demolition was not a spontaneous mob violence as the BJP would like India to believe, but it was a methodical and meticulously planned civil conspiracy to bring down the entire mosque. Now more important more important the Library Commission indicted the Sankt Paribas VHP artists BJP Bajrang Dal everybody for taking part in the entire methodical demolition. Most importantly it actually held leaders of the BJP. Mr. L.K. Adwani with due respects to his age. Murali Manohar Joshi due respects to his age. Uma Bharti in fact accepted her responsibility as people responsible for what really went on. And guess what it called the BJP and the Sangh Parivar pseudo moderates who carried intellectual responsibility for the event. Where will Anand and Tuhin Sinha go into hiding now? I'll get both of them to respond, but since you specifically mentioned Anand Ranganathan's name, I'm getting Anand Ranganathan to respond to you, and then Tuhin Sinha on the political point of L.K. Advani and others. Before I bring in Shambha Muhammad, go ahead, Professor Ranganathan. First of all, with due respect to my good friend Sanjay, it's a specious argument. Of course, I myself said it. It's a memoir. It's her point of view, and it's a deeply sanitized point of view. But I have seen and read history of that time. The fact of the matter is, as I said, she's open to interpret or say what happened right before us. Of course she is. B"
+    },
+    {
+      "unit_id": "ST004",
+      "unit_type": "subtopic",
+      "title": "National Security and Defense Controversies",
+      "start": 811.587,
+      "end": 898.845,
+      "duration_seconds": 87.258,
+      "semantic_similarity_to_overall_topic": 0.6811,
+      "key_point_similarities": [
+        {
+          "key_point": "Accusations and counter-accusations between the BJP and Congress regarding political responsibility for past national tragedies and security issues.",
+          "cosine_similarity": 0.671
+        },
+        {
+          "key_point": "Whether Sonia Gandhi's memoir is a genuine insider account or a political attempt to whitewash history and shift blame for events like the Emergency.",
+          "cosine_similarity": 0.5757
+        },
+        {
+          "key_point": "Debates over whether the Babri Masjid demolition was a spontaneous act or a planned conspiracy.",
+          "cosine_similarity": 0.5631
+        },
+        {
+          "key_point": "Controversies surrounding historical accountability for the 1984 Sikh genocide and the Emergency.",
+          "cosine_similarity": 0.4726
+        }
+      ],
+      "top_two_key_point_similarity": 0.6233,
+      "weighted_cosine_alignment": 0.6522,
+      "alignment_score": 65.22,
+      "classification": "aligned",
+      "speakers": [
+        "SPEAKER_03",
+        "SPEAKER_04"
+      ],
+      "text_source": "merge_final.segments",
+      "evidence_excerpt": "National Security and Defense Controversies. The discussion shifts from historical domestic events like the Emergency and Babri Masjid demolition to foreign policy and national security questions raised by the memoir, including the 1998 nuclear tests and Pakistan relations.. Babri is where, if Sonia Gandhi had tears in her eyes at the demolition, that, you know, it's going to be an uphill battle or what's to that effect to protect the secularism or the India that Mahatma Gandhi and Pandit Jawaharlal Nehru thought of or tried to build, blame is on BJP RSS. No, no, I understand. Sonia Gandhi is a very emotional person. You know, so she keeps, she gets to, she tries often. But my point is only, you know, she never mentions about trying at the, when, when, you know, 74 of her CRP of Jawans get killed or when 26-11 happens. Now I would have at least expected the two Congress representatives to be given the book one week or 10 days before so that they don't come up with these cliched arguments and, you know, BJP bashing, which they are very good at. But my point is very simple. Does the country not have the right to know why it took Sonia Gandhiji 10 days after the nuclear test in May 1998 to come up with the first reaction? And even that first reaction was a cavalier. India's strength lies in restraint. without understanding the situation. Does India not have the right to know from Sonia Gandhi why India did not go after Pakistan despite a string of bomb blasts, series of bomb blasts right between 2004 and 2009 every 40 days? I'm expecting answers to these serious questions. Fair enough."
+    },
+    {
+      "unit_id": "ST005",
+      "unit_type": "subtopic",
+      "title": "Allegations of Selective Grief by Congress Leadership",
+      "start": 898.845,
+      "end": 1058.575,
+      "duration_seconds": 159.73,
+      "semantic_similarity_to_overall_topic": 0.6324,
+      "key_point_similarities": [
+        {
+          "key_point": "Accusations and counter-accusations between the BJP and Congress regarding political responsibility for past national tragedies and security issues.",
+          "cosine_similarity": 0.6935
+        },
+        {
+          "key_point": "Whether Sonia Gandhi's memoir is a genuine insider account or a political attempt to whitewash history and shift blame for events like the Emergency.",
+          "cosine_similarity": 0.6491
+        },
+        {
+          "key_point": "Debates over whether the Babri Masjid demolition was a spontaneous act or a planned conspiracy.",
+          "cosine_similarity": 0.5843
+        },
+        {
+          "key_point": "Controversies surrounding historical accountability for the 1984 Sikh genocide and the Emergency.",
+          "cosine_similarity": 0.4296
+        }
+      ],
+      "top_two_key_point_similarity": 0.6713,
+      "weighted_cosine_alignment": 0.6519,
+      "alignment_score": 65.19,
+      "classification": "aligned",
+      "speakers": [
+        "SPEAKER_00",
+        "SPEAKER_04"
+      ],
+      "text_source": "merge_final.segments",
+      "evidence_excerpt": "Allegations of Selective Grief by Congress Leadership. The discussion shifts to the BJP's accusation that Sonia Gandhi and the Congress leadership engage in selective grief regarding historical tragedies like Operation Blue Star, the Babri Masjid demolition, and terrorist encounters.. Dr. Mohammed, Indira Gandhi had tears in her eyes after Operation Blue Star. Sonia Gandhi writes about being in tears when Babri Masjid and what the BJP describes as their disputed structure was demolished. And then this conversation that you're hearing to Hince and I talk about, you know, tears in her eyes when Batla House encounter happened and terrorists were killed. Now, the BJP is accusing Sonia Gandhi and the Congress leadership of selective grief, ma'am. How would you respond to this criticism? I think you'll have to unmute yourself, ma'am. You have to understand, at least there are tears. Mrs. Gandhi has had tears in her eyes many times. She has tears. But there is a man called Narendra Modi who never has it. I mean, they talk about Pakistan. How did we not go against Pakistan when Patankot happened? You had the audacity to invite the ISI to investigate it. We never did something as stupid as that. So let's understand. Manmohan Singh, for 10 years, Soniaji, none of them visited Pakistan. The prime minister of India, Mr. Narendra Modi, visited Pakistan to have biryani. I can go on about his relationship with Pakistan. When he became the prime minister first time, he's invited the Pakistani prime minister. So let's understand. And during the BJP's time, I mean, during Vajpayee's time, there was the Lahore bus ride. So who is with Pakistan? It's the Bharatiya Janata Party. Then he talks about the genocide of 1984. I have to reply to all this. Now, I know Mrs. Gandhi has expressed regr"
+    }
+  ],
+  "drift_events": [],
+  "summary": {
+    "units_analysed": 5,
+    "aligned_units": 5,
+    "partially_aligned_units": 0,
+    "possible_drift_units": 0,
+    "drift_events": 0,
+    "analysis_mode": "subtopic_level"
+  }
+}

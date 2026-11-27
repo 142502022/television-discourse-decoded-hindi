@@ -1,0 +1,196 @@
+{
+  "schema_version": "topic-drift-1.1",
+  "video_id": "meZ6VGh7Q7c",
+  "variant": "threshold_5.0",
+  "generated_at_utc": "2026-11-26T19:28:27.087158+00:00",
+  "overall_topic": {
+    "topic": "The State of India's Constitution, Electoral Democracy, and National Economy",
+    "description": "A panel debate discussing Prime Minister Narendra Modi's remarks on historical actions of the Congress party, allegations of democratic backsliding and institutional capture, historical and current practices regarding judicial appointments and election commissions, and the management of India's national economy amidst global crises.",
+    "key_discussion_points": [
+      "Prime Minister Narendra Modi's address highlighting historical actions of the Congress party and its relationship with constitutional bodies.",
+      "Allegations by the opposition regarding the weaponization of central agencies and the selection process for the Chief Election Commissioner.",
+      "Historical context of judicial appointments, constitutional abuses, and political accountability for events such as the 1984 anti-Sikh violence.",
+      "Economic management, crude oil price volatility, fuel excise duties, and India's macroeconomic resilience against multiple global black swan events."
+    ]
+  },
+  "method": {
+    "name": "subtopic_to_overall_topic_embedding_alignment",
+    "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "analysis_mode": "subtopic_level",
+    "unit_text_source": "Full transcript segments within each subtopic interval; subtopic evidence is fallback only.",
+    "score_formula": "0.50 * cosine(unit, overall_topic+description) + 0.50 * mean(two highest cosine similarities between unit and individual key discussion points)",
+    "display_score": "alignment_score = max(0, weighted_cosine_alignment) * 100; scaled cosine index, not a percentage or probability",
+    "low_threshold": 20.0,
+    "high_threshold": 40.0,
+    "threshold_interpretation": "possible_drift < 20.0; partially_aligned >= 20.0 and < 40.0; aligned >= 40.0",
+    "minimum_sustained_drift_seconds": 90.0,
+    "sustained_drift_rule": "Consecutive possible_drift subtopics separated by no more than 30 seconds are grouped; event duration must meet the minimum sustained duration.",
+    "threshold_status": "provisional; manually calibrate before research claims",
+    "warning": "Scores are heuristic semantic-alignment indicators, not probabilities or validated accuracy. Low similarity is a candidate for review, not proof of drift."
+  },
+  "alignment_results": [
+    {
+      "unit_id": "ST001",
+      "unit_type": "subtopic",
+      "title": "Opening discussion",
+      "start": 0.0,
+      "end": 661.698,
+      "duration_seconds": 661.698,
+      "semantic_similarity_to_overall_topic": 0.5736,
+      "key_point_similarities": [
+        {
+          "key_point": "Prime Minister Narendra Modi's address highlighting historical actions of the Congress party and its relationship with constitutional bodies.",
+          "cosine_similarity": 0.399
+        },
+        {
+          "key_point": "Allegations by the opposition regarding the weaponization of central agencies and the selection process for the Chief Election Commissioner.",
+          "cosine_similarity": 0.3297
+        },
+        {
+          "key_point": "Historical context of judicial appointments, constitutional abuses, and political accountability for events such as the 1984 anti-Sikh violence.",
+          "cosine_similarity": 0.1887
+        },
+        {
+          "key_point": "Economic management, crude oil price volatility, fuel excise duties, and India's macroeconomic resilience against multiple global black swan events.",
+          "cosine_similarity": 0.1424
+        }
+      ],
+      "top_two_key_point_similarity": 0.3644,
+      "weighted_cosine_alignment": 0.469,
+      "alignment_score": 46.9,
+      "classification": "aligned",
+      "speakers": [
+        "SPEAKER_00",
+        "SPEAKER_01",
+        "SPEAKER_02",
+        "SPEAKER_05"
+      ],
+      "text_source": "merge_final.segments",
+      "evidence_excerpt": "Opening discussion. let me now throw it open for a wider discussion especially on the politics of constitution and of course the economy but let's take this step by step constitution and democracy first joining me on this india first special broadcast is Mohan Kumar Mangalam, National Spokesperson of the Congress Party. Sanju Verma, National Spokesperson of the Bharatiya Janata Party. I have Abbas Haider, Spokesperson of the Samajwadi Party. Also joining us on this broadcast is Siddharth Zarabi, Group Editor, Business Today Television and Business Today. And Jayanand Dehadrai joins us for a perspective on on these developments but I want to begin by asking you Sanju Verma what's the point that Prime Minister recounts an old incident of you know related apparently to Vivek Dev Roy and Gujarat being number one and there being some objection to it I mean that happened a long time ago and those who did it are in the opposition the people see it they're already in the opposition the opposition says it's the government under which Narendra Modi government, under which according to the opposition, constitution and democracy are under threat ma'am. You know, Gaurav, first and foremost, I think that was a brilliant address by the prime minister where he spoke about hard data and typical to his style, he did not hold his punches and he called out the rabid bluff of a completely debilitated and vanquished opposition whose only claim to fame currently is trying to denigrate and delegitimize institutions under the garb of free speech. Let me take your question and dive straight into the issue at hand. I think what the prime minister meant is the fact that if you look at the history of the Congress party, and we have seen umpteen times Rahul Gandhi taking out a red book and saying, h"
+    },
+    {
+      "unit_id": "ST002",
+      "unit_type": "subtopic",
+      "title": "Appointment of the Chief Election Commissioner",
+      "start": 661.698,
+      "end": 844.152,
+      "duration_seconds": 182.454,
+      "semantic_similarity_to_overall_topic": 0.5411,
+      "key_point_similarities": [
+        {
+          "key_point": "Allegations by the opposition regarding the weaponization of central agencies and the selection process for the Chief Election Commissioner.",
+          "cosine_similarity": 0.6234
+        },
+        {
+          "key_point": "Historical context of judicial appointments, constitutional abuses, and political accountability for events such as the 1984 anti-Sikh violence.",
+          "cosine_similarity": 0.4184
+        },
+        {
+          "key_point": "Prime Minister Narendra Modi's address highlighting historical actions of the Congress party and its relationship with constitutional bodies.",
+          "cosine_similarity": 0.4096
+        },
+        {
+          "key_point": "Economic management, crude oil price volatility, fuel excise duties, and India's macroeconomic resilience against multiple global black swan events.",
+          "cosine_similarity": 0.1906
+        }
+      ],
+      "top_two_key_point_similarity": 0.5209,
+      "weighted_cosine_alignment": 0.531,
+      "alignment_score": 53.1,
+      "classification": "aligned",
+      "speakers": [
+        "SPEAKER_00",
+        "SPEAKER_01",
+        "SPEAKER_05"
+      ],
+      "text_source": "merge_final.segments",
+      "evidence_excerpt": "Appointment of the Chief Election Commissioner. The discussion transitions from historical judicial appointments and the 1984 anti-Sikh riots to the historical versus current mechanism of appointing the Chief Election Commissioner (CEC) of India.. There was only one man who decided how the chief election commissioner will be appointed. That man was the prime minister of India. Today you have a three-member committee. You have the prime minister, you have a senior cabinet minister, and you also have leader of the opposition who is a stakeholder. So let me tell you that if Mohan Kumar Mangalam says, oh, you know, look how the CEC is now being elected, excuse me, for 73 long years, Only the Prime Minister decided. Mr. Zarabi, before I bring in Siddharth Zarabi, Mr. Kumar Mangalam, you want to respond to this, that we had one system, the Prime Minister decided who would be CEC, ussame Constitution khatre mein nahi tha, ab when there is a three-member panel, Constitution khatre mein hai, how does this add up in your view, sir? Gaurav, that three-member panel is as good as being just one person, which is the prime minister. If he had included the chief justice as was recommended, not mandated by the Supreme Court, you'd have a more balanced panel. That's the point. The question was raised now, not in history. And when it was also, just for the Naveen Chawla that you mentioned, we also had N.S.Y. Gureshi, we also had a TN station who brought some serious reforms in the election commission and quite often went head-to-head against the government of the day then. So let's not taint all previous election commissioners just because it was one person in charge of selecting them. The manner in which it's happening now, the proofs that we're bringing out in terms of how the SIR is be"
+    },
+    {
+      "unit_id": "ST003",
+      "unit_type": "subtopic",
+      "title": "Farmers, Economic Policy, and Global Crises",
+      "start": 844.152,
+      "end": 992.449,
+      "duration_seconds": 148.297,
+      "semantic_similarity_to_overall_topic": 0.4924,
+      "key_point_similarities": [
+        {
+          "key_point": "Allegations by the opposition regarding the weaponization of central agencies and the selection process for the Chief Election Commissioner.",
+          "cosine_similarity": 0.4282
+        },
+        {
+          "key_point": "Prime Minister Narendra Modi's address highlighting historical actions of the Congress party and its relationship with constitutional bodies.",
+          "cosine_similarity": 0.3844
+        },
+        {
+          "key_point": "Historical context of judicial appointments, constitutional abuses, and political accountability for events such as the 1984 anti-Sikh violence.",
+          "cosine_similarity": 0.3332
+        },
+        {
+          "key_point": "Economic management, crude oil price volatility, fuel excise duties, and India's macroeconomic resilience against multiple global black swan events.",
+          "cosine_similarity": 0.2879
+        }
+      ],
+      "top_two_key_point_similarity": 0.4063,
+      "weighted_cosine_alignment": 0.4493,
+      "alignment_score": 44.93,
+      "classification": "aligned",
+      "speakers": [
+        "SPEAKER_04",
+        "SPEAKER_05"
+      ],
+      "text_source": "merge_final.segments",
+      "evidence_excerpt": "Farmers, Economic Policy, and Global Crises. The discussion transitions from political debates over the Election Commission and historical apologies to government action on farmers, economic policies, and managing challenges during global conflicts like the Russia-Ukraine war.. Abbas Haider, the prime minister on the issue of farmers, and that's a very critical issue. Just saying this government does nothing, the prime minister is actually listing out steps that have been taken, and especially in a very critical time, like the Russia-Ukraine war and the US-Iran war. Sir, that narrative, does that weaken the opposition's attack on the government in your appreciation? Well, Mr. Sawant, I have two, three points to make. First of all, I want to respond to what Ms. Sanju Verma has said. She has said that between 73 and 75, Hansraj Khanna, who was the judge of the Honorable Supreme Court at that time, did not get a chance to become the Chief Justice of India. However, the decision, the dissenting decision given by Mr. Hansraj Khanna happened in 1976. And this matter brought to 77. But the obsession of, I did not interrupt you, Sanju Verma. Please, please hang on. Please hang on. See, the obsession of Bharti Janata Party... No, no, don't interrupt me please. I'm just responding. I'm responding to a factual arrangement you have put on camera, live on television. Just a minute. See, the obsession of Bharti Janata Party with the mistakes committed by the Congress Party we can see on camera. If the Congress party has done something wrong 50 years back, or maybe 25, 30 years back, they want to repeat it and then obsessed with it. They simply would like to come on television and say, see, Congress party has done this. Now, we are going to do the same. Today, we have seen how if they"
+    },
+    {
+      "unit_id": "ST004",
+      "unit_type": "subtopic",
+      "title": "India's Economic Performance and Global Crises",
+      "start": 992.449,
+      "end": 1525.351,
+      "duration_seconds": 532.902,
+      "semantic_similarity_to_overall_topic": 0.5189,
+      "key_point_similarities": [
+        {
+          "key_point": "Economic management, crude oil price volatility, fuel excise duties, and India's macroeconomic resilience against multiple global black swan events.",
+          "cosine_similarity": 0.522
+        },
+        {
+          "key_point": "Historical context of judicial appointments, constitutional abuses, and political accountability for events such as the 1984 anti-Sikh violence.",
+          "cosine_similarity": 0.3439
+        },
+        {
+          "key_point": "Prime Minister Narendra Modi's address highlighting historical actions of the Congress party and its relationship with constitutional bodies.",
+          "cosine_similarity": 0.3289
+        },
+        {
+          "key_point": "Allegations by the opposition regarding the weaponization of central agencies and the selection process for the Chief Election Commissioner.",
+          "cosine_similarity": 0.3277
+        }
+      ],
+      "top_two_key_point_similarity": 0.4329,
+      "weighted_cosine_alignment": 0.4759,
+      "alignment_score": 47.59,
+      "classification": "aligned",
+      "speakers": [
+        "SPEAKER_00",
+        "SPEAKER_01",
+        "SPEAKER_03",
+        "SPEAKER_04",
+        "SPEAKER_05"
+      ],
+      "text_source": "merge_final.segments",
+      "evidence_excerpt": "India's Economic Performance and Global Crises. The discussion transitions from institutional capture and constitutional debates to the management of India's national economy amidst global crises like the Russia-Ukraine war and fuel price volatility.. I want to bring in Siddharth Zarabi into this conversation because this is a question that's on facts and Siddharth The country, actually the world went through a very difficult time and it still hasn't been able to come out. Whether it was the Russia-Ukraine war or the US-Iran war, fuel prices shot up, fertilizer prices shot up. Has India been able to steer better? You know, the prime minister listed out a number of things where India has been able to withstand the shock. Unlike, take for example, US where prices just shot up. Here they haven't as much. So Gaurav, the fact that fuel prices have not risen in line with the volatility that we saw in global crude oil prices is proven. It's not just proven with the start of the West Asia crisis in February of this year. We can go back. to 2022 when it was another February and the Russia conflict that you covered, Ukraine conflict that you covered in so much detail broke out. At both times crude oil prices rose. There was one set of increases that happened and then another one that has happened in May this year. But if you take a look at the cumulative impact, it is clear that the government of India and the oil marketing companies have taken on a very significant burden of the global crude oil volatility that we have seen. Could this have been avoided? Can we suddenly discover more crude oil at home? Those are matters that we can debate separately. But the facts speak for themselves. For four years, consumers in this country have been protected to a significant extent from the"
+    }
+  ],
+  "drift_events": [],
+  "summary": {
+    "units_analysed": 4,
+    "aligned_units": 4,
+    "partially_aligned_units": 0,
+    "possible_drift_units": 0,
+    "drift_events": 0,
+    "analysis_mode": "subtopic_level"
+  }
+}
